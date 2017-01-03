@@ -1,15 +1,19 @@
-import CoreLayout from 'containers/CoreLayout'
-import Home from './Home'
-import Counter from './Counter'
+/* eslint no-unused-vars:0 */
 
-export const createRoutes = (store) => ({
-  path        : '/',
-  component   : CoreLayout,
-  indexRoute  : { component: Home },
-  childRoutes : [
-    { path: 'counter', component: Counter }
-  ]
-})
+import CoreLayout from 'containers/CoreLayout';
+import Home from './Home';
+import Counter from './Counter';
+
+export function createRoutes (store) {
+  return {
+    path: '/',
+    component: CoreLayout,
+    indexRoute: { component: Home },
+    childRoutes: [
+      { path: 'counter', component: Counter }
+    ]
+  };
+}
 
 /*  Note: childRoutes can be chunked or otherwise loaded programmatically
     using getChildRoutes with the following signature:
@@ -29,4 +33,4 @@ export const createRoutes = (store) => ({
     when the route exists and matches.
 */
 
-export default createRoutes
+export default createRoutes;

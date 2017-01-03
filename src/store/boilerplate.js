@@ -1,34 +1,34 @@
-import { combineReducers } from 'redux'
+import { combineReducers } from 'redux';
 
-const reducerObjFromHandlerWrapper = (handlers, initStates) => handlerName => {
-  const handler = handlers[handlerName]
-  const reducerName = handlerName.replace('Handler', '')
+const reducerObjFromHandlerWrapper = (handlers) => handlerName => {
+  const handler = handlers[handlerName];
+  const initState = handler._init;
 
-  const reducerFunc = (state = initStates[reducerName], action) => handler[action.type]
+  delete handler['_init'];
+
+  const reducerFunc = (state = initState, action) => handler[action.type]
     ? handler[action.type](state, action)
-    : state
+    : state;
 
-  return { [reducerName]: reducerFunc }
-}
+  return { [handlerName]: reducerFunc };
+};
 
-export const constructReducers = (handlers, initStates) => {
-  const reducerObjFromHandler = reducerObjFromHandlerWrapper(handlers, initStates)
+export const constructReducers = (handlers) => {
+  const reducerObjFromHandler = reducerObjFromHandlerWrapper(handlers);
   return Object.keys(handlers)
     .reduce((obj, name) => Object.assign(
       obj, reducerObjFromHandler(name)),
-    {})
-}
+    {});
+};
 
-export const curryMakeRootReducer = mainReducers => asyncReducers => {
-  return combineReducers({
-    ...mainReducers,
-    ...asyncReducers
-  })
-}
+export const curryMakeRootReducer = mainReducers => asyncReducers => combineReducers({
+  ...mainReducers,
+  ...asyncReducers
+});
 
 export const curryInjectReducer = makeRootReducer => (store, { key, reducer }) => {
-  if (Object.hasOwnProperty.call(store.asyncReducers, key)) return
+  if (Object.hasOwnProperty.call(store.asyncReducers, key)) return;
 
-  store.asyncReducers[key] = reducer
-  store.replaceReducer(makeRootReducer(store.asyncReducers))
-}
+  store.asyncReducers[key] = reducer;
+  store.replaceReducer(makeRootReducer(store.asyncReducers));
+};

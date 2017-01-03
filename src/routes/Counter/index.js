@@ -1,28 +1,30 @@
-import React from 'react'
-import { connect } from 'react-redux'
-import { incrementCounter, decrementCounter } from 'store/actions'
+import React from 'react';
+import { connect } from 'react-redux';
+import { incrementCounter, decrementCounter } from 'store/actions';
 
-export const Counter = ({ dispatch, counter }) => (
-  <div style={{ margin: '0 auto' }} >
-    <h2>Counter Value: {counter}</h2>
-    <button className='btn btn-default' onClick={ () => { dispatch(decrementCounter()) } }>
-      Decrement
-    </button>
-    <button className='btn btn-default' onClick={ () => { dispatch(incrementCounter()) } }>
-      Increment
-    </button>
-  </div>
-)
+export function Counter ({ dispatch, counter }) {
+  return (
+    <div style={ { margin: '0 auto' } } >
+      <h2>Counter Value: {counter}</h2>
+      <button className='btn btn-default' onClick={ () => { dispatch(decrementCounter()); } }>
+        Decrement
+      </button>
+      <button className='btn btn-default' onClick={ () => { dispatch(incrementCounter()); } }>
+        Increment
+      </button>
+    </div>
+  );
+}
 
-const { number, func } = React.PropTypes
+const { number, func } = React.PropTypes;
 Counter.propTypes = {
   counter: number.isRequired,
   dispatch: func.isRequired
-}
+};
 
 const mapStateToProps = (state) => ({
-  counter : state.counter,
-  delay   : state.location && state.location.query
-})
+  counter: state.counter,
+  delay: state.location && state.location.query
+});
 
-export default connect(mapStateToProps)(Counter)
+export default connect(mapStateToProps)(Counter);
