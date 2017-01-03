@@ -1,17 +1,4 @@
-import HomeRoute from 'routes/Home';
+import ConnectedHome, { Home } from 'routes/Home';
+import testComponent from '../../support/testComponent';
 
-describe('(Route) Home', () => {
-  let _component;
-
-  beforeEach(() => {
-    _component = HomeRoute.component();
-  });
-
-  it('Should return a route configuration object', () => {
-    expect(typeof HomeRoute).to.equal('object');
-  });
-
-  it('Should define a route component', () => {
-    expect(_component.type).to.equal('div');
-  });
-});
+testComponent({ connected: ConnectedHome, unconnected: Home });

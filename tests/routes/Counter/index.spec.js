@@ -1,17 +1,11 @@
-import CounterRoute from 'routes/Counter';
+import ConnectedCounter, { Counter } from 'routes/Counter';
+import testComponent from '../../support/testComponent';
 
-describe('(Route) Counter', () => {
-  let _route;
-
-  beforeEach(() => {
-    _route = CounterRoute({});
-  });
-
-  it('Should return a route configuration object', () => {
-    expect(typeof _route).to.equal('object');
-  });
-
-  it('Configuration should contain path `counter`', () => {
-    expect(_route.path).to.equal('counter');
-  });
+testComponent({
+  connected: ConnectedCounter,
+  unconnected: Counter,
+  props: {
+    counter: 1,
+    dispatch: () => {}
+  }
 });

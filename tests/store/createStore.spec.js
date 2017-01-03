@@ -21,7 +21,7 @@ describe('(Store) createStore', () => {
       };
       store.dispatch({
         type: 'LOCATION_CHANGE',
-        payload: location
+        location
       });
       expect(store.getState().location).to.deep.equal(location);
     });
