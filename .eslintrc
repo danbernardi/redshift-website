@@ -61,7 +61,7 @@
       2
     ],
     "react/jsx-curly-spacing": [
-      1,
+      2,
       "always"
     ],
     "semi": [2, "always"],

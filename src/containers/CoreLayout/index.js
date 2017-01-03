@@ -10,14 +10,15 @@ export function CoreLayout ({ children }) {
     <div className='container text-center'>
       <Header />
       <div className='core-layout__viewport'>
-        {children}
+        { children }
       </div>
     </div>
   );
 }
 
+const { element } = React.PropTypes;
 CoreLayout.propTypes = {
-  children: React.PropTypes.element.isRequired
+  children: element.isRequired
 };
 
 export default CoreLayout;
