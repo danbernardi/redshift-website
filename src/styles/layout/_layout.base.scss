@@ -1,5 +1,6 @@
 .layout--left {
   float: left;
+  border: 0;
 }
 
 .layout--right {
@@ -28,14 +29,6 @@
   li {
     display: inline-block;
   }
-}
-
-.layout--abs_left {
-  left: 0;
-}
-
-.layout--abs_right {
-  right: 0;
 }
 
 ol {

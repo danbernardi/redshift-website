@@ -25,7 +25,7 @@
 .row {
   @extend %container;
   @extend %page-margins;
-  @extend .cf;
+  @extend %clearfix;
   position: relative;
   clear: both;
   width: 100%;

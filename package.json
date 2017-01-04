@@ -10,8 +10,9 @@
   "scripts": {
     "clean": "rimraf dist",
     "compile": "better-npm-run compile",
-    "lint": "eslint bin build config server src tests",
-    "lint:fix": "npm run lint -- --fix",
+    "lint": "npm run eslint && npm run sass-lint",
+    "eslint": "eslint bin build config server src tests",
+    "lint:fix": "npm run eslint -- --fix",
     "start": "better-npm-run start:prod",
     "serve": "better-npm-run deploy:prod",
     "dev": "better-npm-run dev",
@@ -22,7 +23,8 @@
     "deploy:prod": "better-npm-run deploy:prod",
     "codecov": "cat coverage/*/lcov.info | codecov",
     "postinstall": "npm run deploy:prod",
-    "flow": "flow; test $? -eq 0 -o $? -eq 2"
+    "flow": "flow; test $? -eq 0 -o $? -eq 2",
+    "sass-lint": "sass-lint --verbose"
   },
   "betterScripts": {
     "compile": {
@@ -104,10 +106,10 @@
     "imports-loader": "^0.6.5",
     "ip": "^1.1.2",
     "json-loader": "^0.5.4",
+    "lost": "^8.0.0",
     "node-sass": "^3.7.0",
     "postcss-loader": "^1.1.0",
     "react": "^15.0.0",
-    "lost": "^8.0.0",
     "react-dom": "^15.0.0",
     "react-redux": "^4.4.5",
     "react-router": "^3.0.0",
@@ -152,6 +154,7 @@
     "phantomjs-prebuilt": "^2.1.12",
     "react-addons-test-utils": "^15.0.0",
     "redbox-react": "^1.2.10",
+    "sass-lint": "^1.10.2",
     "sinon": "^1.17.5",
     "sinon-chai": "^2.8.0",
     "webpack-dev-middleware": "^1.6.1",
