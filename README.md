@@ -7,8 +7,9 @@ This starter app is a simplified version of [React Redux Starter Kit](https://gi
 - Webpack
   + [Path Aliasing](#path-aliasing)!
   + Hot loading!
-- Karma/Mocha for testing
-- SCSS/PostCSS
+  + [Redux Dev Tools][#dev-tools]!
+- Karma/Mocha for [testing](./docs/testing.md)
+- [SCSS/PostCSS](./docs/styling.md)
 - Eslint
 - Flow type checking (optional)
 - Codecov for code coverage
