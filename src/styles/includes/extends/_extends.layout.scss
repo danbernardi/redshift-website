@@ -1,3 +1,5 @@
+// extends must use % syntax to avoid writing classes to multiple component css files
+
 %container {
   max-width: $content-width;
   margin-left: auto;
@@ -15,16 +17,12 @@
 }
 
 // clearfix
-.cf {
+%clearfix {
   clear: both;
-}
 
-.cf:before,
-.cf:after {
-  content: '';
-  display: table;
-}
-
-.cf:after {
-  clear: both;
+  &:after { clear: both; }
+  &:before, &after {
+    content: '';
+    display: table;
+  }
 }

@@ -14,21 +14,6 @@
   position: relative;
 }
 
-// clearfix
-.cf {
-  clear: both;
-}
-
-.cf:before,
-.cf:after {
-  content: '';
-  display: table;
-}
-
-.cf:after {
-  clear: both;
-}
-
 .layout--fullheight {
   height: 100vh;
   overflow-y: scroll;
@@ -56,4 +41,8 @@
 ol {
   list-style-type: decimal;
   margin-left: 1.6rem;
+}
+
+.cf {
+  @extend %clearfix;
 }
