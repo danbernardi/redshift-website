@@ -4,20 +4,25 @@ import { connect } from 'react-redux';
 
 import { changeValueTo } from './reducer';
 
-export const FullyFractal = ({ fractal, dispatch }) => {
+export const Fractal = ({ fractal, dispatch }) => {
 
   return (
-    <div style={ { margin: '0 auto' } } >
-      <p onClick={ () => { dispatch(changeValueTo(Math.random())) } }>
-        Click to change this value controlled by a local reducer: { fractal }
+    <div className="row typ--center">
+      <h2 className="mb1">Test Local Reducer</h2>
+      <p>
+        Click button to change this value controlled by a local reducer:
       </p>
-      <Link to='/fractal/subroute'>Subroute</Link>
+      <button className='btn btn-default my5' onClick={ () => { dispatch(changeValueTo(Math.random())) } }>
+        Randomize
+      </button>
+      <p>{ fractal }</p>
+      <Link to='/fractal/subroute'>Link to Subroute</Link>
     </div>
   );
 };
 
 const { number, func } = React.PropTypes;
-FullyFractal.propTypes = {
+Fractal.propTypes = {
   dispatch: func,
   fractal: number
 };
@@ -26,4 +31,4 @@ const mapStateToProps = (state) => ({
   fractal: state.fractal
 });
 
-export default connect(mapStateToProps)(FullyFractal);
+export default connect(mapStateToProps)(Fractal);
