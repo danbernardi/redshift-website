@@ -1,4 +1,4 @@
-@import '../../styles/includes/includes.index';
+@import 'sass-includes';
 
 .route--active {
   @include font(bold);
