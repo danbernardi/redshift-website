@@ -21,7 +21,9 @@
   clear: both;
 
   &:after { clear: both; }
-  &:before, &after {
+
+  &:before,
+  &:after {
     content: '';
     display: table;
   }
