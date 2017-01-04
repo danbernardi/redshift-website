@@ -1,0 +1,59 @@
+.layout--left {
+  float: left;
+}
+
+.layout--right {
+  float: right;
+}
+
+.layout--top {
+  vertical-align: top;
+}
+
+.layout--relative {
+  position: relative;
+}
+
+// clearfix
+.cf {
+  clear: both;
+}
+
+.cf:before,
+.cf:after {
+  content: '';
+  display: table;
+}
+
+.cf:after {
+  clear: both;
+}
+
+.layout--fullheight {
+  height: 100vh;
+  overflow-y: scroll;
+}
+
+.layout--flex {
+  display: flex;
+  align-items: center;
+}
+
+.list--inline {
+  li {
+    display: inline-block;
+  }
+}
+
+.layout--abs_left {
+  left: 0;
+}
+
+.layout--abs_right {
+  right: 0;
+}
+
+ol {
+  list-style-type: decimal;
+  margin-left: 1.6rem;
+}

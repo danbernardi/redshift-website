@@ -1,0 +1,30 @@
+%container {
+  max-width: $content-width;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+%page-margins {
+  padding-left: 6rem;
+  padding-right: 6rem;
+  // media queries
+  @include breakpoint($mobile-lg) {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}
+
+// clearfix
+.cf {
+  clear: both;
+}
+
+.cf:before,
+.cf:after {
+  content: '';
+  display: table;
+}
+
+.cf:after {
+  clear: both;
+}
