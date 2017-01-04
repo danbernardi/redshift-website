@@ -12,6 +12,6 @@ const handlers = {
     _init: 0,
     CHANGE_VALUE_TO: (state, action) => action.value
   }
-}
+};
 
 export const fractal = constructReducers(handlers).fractal;

@@ -1,5 +1,3 @@
-import React from 'react';
-import { browserHistory, Router, Route } from 'react-router';
 import CoreLayout from 'containers/CoreLayout';
 import Home from './Home';
 import Counter from './Counter';

@@ -10,17 +10,17 @@ export function Header () {
       <h1 className="typ--medium typ--center">React Redux Starter Kit</h1>
       <ul className="list--hash typ--center">
         <li>
-          <IndexLink to='/' activeClassName='route--active'>
+          <IndexLink to="/" activeClassName="route--active">
             Home
           </IndexLink>
         </li>
         <li>
-          <Link to='/counter' activeClassName='route--active'>
+          <Link to="/counter" activeClassName="route--active">
             Counter
           </Link>
         </li>
         <li>
-          <Link to='/fractal' activeClassName='route--active'>
+          <Link to="/fractal" activeClassName="route--active">
             Example Fractal Route
           </Link>
         </li>

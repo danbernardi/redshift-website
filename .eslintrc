@@ -64,7 +64,7 @@
       2,
       "always"
     ],
-    "jsx-quotes": [2, "double"],
+    "jsx-quotes": [2, "prefer-double"],
     "semi": [2, "always"],
     "spaced-comment": 0,
     "react/jsx-no-bind": [1],

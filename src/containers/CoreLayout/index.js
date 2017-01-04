@@ -7,9 +7,9 @@ import './CoreLayout.scss';
 
 export function CoreLayout ({ children }) {
   return (
-    <div className='container text-center'>
+    <div className="container text-center">
       <Header />
-      <div className='core-layout__viewport'>
+      <div className="core-layout__viewport">
         { children }
       </div>
     </div>
