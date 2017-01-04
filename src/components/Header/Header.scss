@@ -1,4 +1,6 @@
+@import '../../styles/includes/includes.index';
+
 .route--active {
-  font-weight: bold;
+  @include font(bold);
   text-decoration: underline;
 }

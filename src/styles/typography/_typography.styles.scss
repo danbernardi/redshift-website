@@ -13,6 +13,9 @@ body,
   line-height: 1.6;
 }
 
+
+// fonts scaling can be font in
+// includes/mixins/_mixins.typography.scss
 .typ--aux { @include font-size(sm); }
 .typ--small { @include font-size(xsm); }
 
