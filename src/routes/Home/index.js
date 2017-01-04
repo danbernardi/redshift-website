@@ -8,12 +8,12 @@ export function Home () {
     <div className="row">
       <h4 className="typ--center">Welcome!</h4>
       <img
-        alt='This is a duck, because Redux!'
-        className='duck'
+        alt="This is a duck, because Redux!"
+        className="duck"
         src={ DuckImage } />
       <img
-        alt='Big photo!'
-        className='mountain'
+        alt="Big photo!"
+        className="mountain"
         src={ Mountain } />
     </div>
   );
