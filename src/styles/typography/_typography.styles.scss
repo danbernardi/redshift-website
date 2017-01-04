@@ -1,7 +1,7 @@
 // default font scaling
 html {
   @include font(base);
-  font-size: 10px;
+  font-size: 10px
   border: 0;
   line-height: 1;
   -webkit-font-smoothing: antialiased;

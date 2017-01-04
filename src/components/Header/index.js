@@ -6,9 +6,9 @@ import './Header.scss';
 
 export function Header () {
   return (
-    <div className='row pt6'>
-      <h1 className='typ--medium typ--center'>React Redux Starter Kit</h1>
-      <ul className='list--hash typ--center'>
+    <div className="row pt6">
+      <h1 className="typ--medium typ--center">React Redux Starter Kit</h1>
+      <ul className="list--hash typ--center">
         <li>
           <IndexLink to="/" activeClassName="route--active">
             Home

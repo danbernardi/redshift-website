@@ -5,8 +5,8 @@ import './Home.scss';
 
 export function Home () {
   return (
-    <div className='row'>
-      <h4 className='typ--center'>Welcome!</h4>
+    <div className="row">
+      <h4 className="typ--center">Welcome!</h4>
       <img
         alt="This is a duck, because Redux!"
         className="duck"
