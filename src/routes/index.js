@@ -1,18 +1,20 @@
-/* eslint no-unused-vars:0 */
-
+import React from 'react';
+import { browserHistory, Router, Route } from 'react-router';
 import CoreLayout from 'containers/CoreLayout';
 import Home from './Home';
 import Counter from './Counter';
+import fractalRouteCreator from './Fractal';
 
 export function createRoutes (store) {
-  return {
+  return ({
     path: '/',
     component: CoreLayout,
     indexRoute: { component: Home },
     childRoutes: [
-      { path: 'counter', component: Counter }
+      { path: 'counter', component: Counter },
+      ...fractalRouteCreator(store)
     ]
-  };
+  });
 }
 
 /*  Note: childRoutes can be chunked or otherwise loaded programmatically

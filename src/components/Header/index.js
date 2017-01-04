@@ -19,6 +19,11 @@ export function Header () {
             Counter
           </Link>
         </li>
+        <li>
+          <Link to='/fractal' activeClassName='route--active'>
+            Example Fractal Route
+          </Link>
+        </li>
       </ul>
     </div>
   );
