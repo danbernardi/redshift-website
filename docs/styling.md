@@ -1,5 +1,7 @@
 # Styling
 
+## Structure
+
 Because of the semi-fractal, directory nature of this application, component-specific styles can be imported into the component directly. Given the following component structure:
 
 ```
@@ -30,10 +32,10 @@ export default ComponentName;
 
 ```
 
-This allows for greater style modularity, but it comes at a cost: This file does not inherently have access to variables defined in global styles files, so they must be imported directly into the local styles file, and aliasing is unavailable:
+This allows for greater style modularity, but it comes at a small cost: This file does not inherently have access to variables defined in global styles files. By default the `src/styles` directory is the root for style aliasing, so given `src/styles/variables/colors.scss`, you can import like so from a "local" style file:
 
 ```scss
-@import '../../styles/variables.scss';
+@import 'variables/colors.scss';
 
 .locally-defined {
   ...

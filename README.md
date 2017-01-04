@@ -8,18 +8,19 @@ This starter app is a simplified version of [React Redux Starter Kit](https://gi
   + [Path Aliasing](#path-aliasing)!
   + Hot loading!
   + [Redux Dev Tools][#dev-tools]!
+  + Asset management (Base-64 encodes small assets; hosts big ones)
 - Karma/Mocha for [testing](./docs/testing.md)
 - [SCSS/PostCSS](./docs/styling.md)
 - Eslint
 - Flow type checking (optional)
-- Codecov for code coverage
+- Code coverage
 
 ### Getting started
 
 To build locally:
 
 ```
-npm install # or `yarn install` if using yarn
+npm install
 npm dev
 ```
 
@@ -31,7 +32,7 @@ git push heroku master
 
 Which will deploy the code, compile it, and run the server.
 
-### Architecture
+## Architecture
 
 This is a pared down version of the archicture described in the original [starter kit repo](https://github.com/davezuko/react-redux-starter-kit) and [intro article](https://suspicious.website/2016/04/29/starting-out-with-react-redux-starter-kit/).
 
@@ -121,7 +122,7 @@ Loosely following the instructions [here](https://github.com/davezuko/react-redu
   "deploy:prod": {
     "command": "npm run clean && npm run compile",
     "env": {
-      "NODE_ENV": "production",
+      "NODE_ENV": <!--  -->"production",
       "DEBUG": "app:*"
     }
   },
