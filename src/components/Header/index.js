@@ -7,14 +7,17 @@ import './Header.scss';
 export function Header () {
   return (
     <div>
-      <h1>React Redux Starter Kit</h1>
-      <IndexLink to='/' activeClassName='route--active'>
-        Home
-      </IndexLink>
-      { ' · ' }
-      <Link to='/counter' activeClassName='route--active'>
-        Counter
-      </Link>
+      <h1 className="typ--medium">React Redux Starter Kit</h1>
+      <div className="col-6">
+        <IndexLink to='/' activeClassName='route--active'>
+          Home
+        </IndexLink>
+      </div>
+      <div className="col-6 col-last">
+        <Link to='/counter' activeClassName='route--active'>
+          Counter
+        </Link>
+      </div>
     </div>
   );
 }
