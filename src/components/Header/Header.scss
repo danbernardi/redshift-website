@@ -1,4 +1,6 @@
+@import 'sass-includes';
+
 .route--active {
-  font-weight: bold;
+  @include font(bold);
   text-decoration: underline;
 }

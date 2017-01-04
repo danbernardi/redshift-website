@@ -1,0 +1,95 @@
+@mixin font($family) {
+  @if $family == 'light' {
+    font-family: sans-serif;
+    font-weight: 100;
+  } @else if $family == 'base' {
+    font-family: sans-serif;
+    font-weight: 300;
+  } @else if $family == 'medium' {
+    font-family: sans-serif;
+    font-weight: 600;
+  } @else if $family == 'bold' {
+    font-family: sans-serif;
+    font-weight: 900;
+  }
+}
+
+@mixin font-size($type) {
+  @if $type == 'h1' {
+    font-size: 4.5rem;
+    line-height: 1.3;
+    // media queries
+    @include breakpoint($mobile-lg) {
+      font-size: 2.4rem;
+      line-height: 1.4;
+    }
+  }
+
+  @if $type == 'h2' {
+    font-size: 3.5rem;
+    line-height: 1.4;
+    // media queries
+    @include breakpoint($mobile-lg) {
+      font-size: 2rem;
+    }
+  }
+
+  @if $type == 'h3' {
+    font-size: 2.8rem;
+    line-height: 1.5;
+    // media queries
+    @include breakpoint($mobile-lg) {
+      font-size: 2.2rem;
+    }
+  }
+
+  @if $type == 'h4' {
+    font-size: 2.4rem;
+    // media queries
+    @include breakpoint($mobile-lg) {
+      font-size: 2.0rem;
+    }
+  }
+
+  @if $type == 'h5' {
+    font-size: 2.2rem;
+    // media queries
+    @include breakpoint($mobile-lg) {
+      font-size: 1.9rem;
+    }
+  }
+
+  @if $type == 'h6' {
+    font-size: 2rem;
+    // media queries
+    @include breakpoint($mobile-lg) {
+      font-size: 1.8rem;
+      line-height: 1.5;
+    }
+  }
+
+  @if $type == 'sm' {
+    font-size: 1.4rem;
+  }
+
+  @if $type == 'xsm' {
+    font-size: 1.3rem;
+  }
+
+  @if $type == 'default' {
+    font-size: 1.8rem;
+    // media queries
+    @include breakpoint($mobile-lg) {
+      font-size: 1.4rem;
+    }
+  }
+
+  @if $type == 'button' {
+    font-size: 1.6rem;
+    letter-spacing: 2px;
+    // media queries
+    @include breakpoint($mobile-lg) {
+      font-size: 1.2rem;
+    }
+  }
+}

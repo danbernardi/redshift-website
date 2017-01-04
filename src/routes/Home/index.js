@@ -1,12 +1,12 @@
 import React from 'react';
 import DuckImage from './Duck.jpg';
 import Mountain from './mountain.jpg';
-import './style.scss';
+import './Home.scss';
 
 export function Home () {
   return (
-    <div>
-      <h4>Welcome!</h4>
+    <div className="row">
+      <h4 className="typ--center">Welcome!</h4>
       <img
         alt='This is a duck, because Redux!'
         className='duck'
