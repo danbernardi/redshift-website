@@ -1,7 +1,7 @@
 import React from 'react';
 import DuckImage from './Duck.jpg';
 import Mountain from './mountain.jpg';
-import './style.scss';
+import './Home.scss';
 
 export function Home () {
   return (
