@@ -1,5 +1,9 @@
+@import '_colors.scss';
+
 .duck {
   display: block;
   width: 120px;
   margin: 1.5rem auto;
+  background-color: $grey;
+  padding: 10px;
 }

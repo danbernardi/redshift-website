@@ -4,7 +4,7 @@
   "description": "RS Starter app",
   "main": "index.js",
   "engines": {
-    "node": ">=4.5.0",
+    "node": ">=6.2.0",
     "npm": "^3.0.0"
   },
   "scripts": {
@@ -136,7 +136,6 @@
     "eslint-config-standard-react": "^4.0.0",
     "eslint-plugin-babel": "^4.0.0",
     "eslint-plugin-import": "^2.2.0",
-    "eslint-plugin-jsx-a11y": "^3.0.2",
     "eslint-plugin-promise": "^3.0.0",
     "eslint-plugin-react": "^6.0.0",
     "eslint-plugin-standard": "^2.0.0",
