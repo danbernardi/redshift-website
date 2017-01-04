@@ -1,13 +1,17 @@
 # RS React Redux Starter
 
-This app is based off of [React Redux Starter Kit](https://github.com/davezuko/react-redux-starter-kit), which provides all the core technologies for our app, including:
+This starter app is a simplified version of [React Redux Starter Kit](https://github.com/davezuko/react-redux-starter-kit). It provides a bunch of goodies, out of the box:
 
 - React
 - Redux
-- Webpack with Hot Loader
+- Webpack
+  + [Path Aliasing](#path-aliasing)!
+  + Hot loading!
 - Karma/Mocha for testing
 - SCSS/PostCSS
 - Eslint
+- Flow type checking (optional)
+- Codecov for code coverage
 
 ### Getting started
 
@@ -26,16 +30,13 @@ git push heroku master
 
 Which will deploy the code, compile it, and run the server.
 
-To run tests or lint:
+### Architecture
 
-```
-npm run test
-npm run lint
-```
+This is a pared down version of the archicture described in the original [starter kit repo](https://github.com/davezuko/react-redux-starter-kit) and [intro article](https://suspicious.website/2016/04/29/starting-out-with-react-redux-starter-kit/).
 
-For more information on the architectural thinking, check out the [starter kit repo](https://github.com/davezuko/react-redux-starter-kit) or read this [intro article](https://suspicious.website/2016/04/29/starting-out-with-react-redux-starter-kit/).
+Our component structure is flattened compared to the above fully fractal structure. Although it permits a more complex component structure (with helpers and fractal child routes), it only assumes that each route is a folder with an `index.js` file defining the component. Additional styles, helpers, or sub-components can be placed within the folder.
 
-### Application Structure
+The full structural outline:
 
 ```
 .
@@ -49,20 +50,14 @@ For more information on the architectural thinking, check out the [starter kit r
 │   ├── main.js              # Application bootstrap and rendering
 │   ├── components           # Global Reusable Presentational Components
 │   ├── containers           # Global Reusable Container Components
-│   ├── layouts              # Components that dictate major page structure
-│   │   └── CoreLayout.js    # CoreLayout which receives children for each route
-│   │   └── CoreLayout.scss  # Styles related to the CoreLayout
-│   │   └── index.js         # Main file for layout
-│   ├── routes               # Main route definitions and async split points
-│   │   ├── index.js         # Bootstrap main application routes with store
-│   │   ├── Home             # Fractal route
-│   │   │   ├── index.js     # Route definitions and async split points
-│   │   │   ├── assets       # Assets required to render components
-│   │   │   ├── components   # Presentational React Components
-│   │   │   └── routes **    # Fractal sub-routes (** optional)
-...
+│   ├── routes               # Main route definitions
+│   │   ├── index.js         # Defines routes with store as input
+│   │   ├── ComponentName    # Fractal route
+│   │   │   ├── index.js     # Component file -- sibling files possible
 │   ├── store                # Redux-specific pieces
+│   │   ├── action.js        # Synchronous Redux actions
 │   │   ├── createStore.js   # Create and instrument redux store
+│   │   ├── handlers.js      # Object-style mapping of actions to reducer functions
 │   │   └── reducers.js      # Reducer registry and injection
 │   └── styles               # Application-wide styles (generally settings)
 └── tests                    # Unit tests
@@ -70,7 +65,11 @@ For more information on the architectural thinking, check out the [starter kit r
 
 ## Development
 
+### Dev Tools
+
 This app uses Redux DevTools out of the box, so install [Redux DevTools Chrome Extension](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd) if you want to use them.
+
+### Path Aliasing
 
 Webpack is configured to make use of [resolve.root](http://webpack.github.io/docs/configuration.html#resolve-root), which lets you import local packages as if you were traversing from the root of your `~/src` directory. Here's an example:
 
@@ -81,6 +80,17 @@ import SomeComponent from '../../../components/SomeComponent'
 
 // Can now be this:
 import SomeComponent from 'components/SomeComponent' // Hooray!
+```
+
+### Core Scripts
+
+```
+yarn install // better npm install
+npm run dev // start local server
+npm test // run tests once
+npm run test:dev // run tests continuously (watch)
+npm run flow // run flow type checking
+npm run lint
 ```
 
 ### Globals
