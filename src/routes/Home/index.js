@@ -1,6 +1,7 @@
 import React from 'react';
+
 import DuckImage from './Duck.jpg';
-import Mountain from './mountain.jpg';
+// import Mountain from './mountain.jpg';
 import './Home.scss';
 
 export function Home () {
@@ -11,10 +12,10 @@ export function Home () {
         alt="This is a duck, because Redux!"
         className="duck"
         src={ DuckImage } />
-      <img
+      { /* <img
         alt="Big photo!"
         className="mountain"
-        src={ Mountain } />
+        src={ Mountain } /> */ }
     </div>
   );
 }

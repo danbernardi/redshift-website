@@ -1,16 +1,17 @@
+import { fromJS } from 'immutable';
 import { constructReducers } from 'store/boilerplate';
 
-export function changeValueTo (value) {
+export function changeNumberTo (number) {
   return {
     type: 'CHANGE_VALUE_TO',
-    value
+    number
   };
 }
 
 const handlers = {
   fractal: {
-    _init: 0,
-    CHANGE_VALUE_TO: (state, action) => action.value
+    _init: fromJS({ number: 0 }),
+    CHANGE_VALUE_TO: (state, action) => state.merge(fromJS({ number: action.number }))
   }
 };
 
