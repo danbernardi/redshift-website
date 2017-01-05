@@ -1,6 +1,8 @@
 import CoreLayout from 'containers/CoreLayout';
 import Home from './Home';
 import Counter from './Counter';
+import Library from './Library';
+
 import fractalRouteCreator from './Fractal';
 
 export function createRoutes (store) {
@@ -10,6 +12,7 @@ export function createRoutes (store) {
     indexRoute: { component: Home },
     childRoutes: [
       { path: 'counter', component: Counter },
+      { path: 'library', component: Library },
       ...fractalRouteCreator(store)
     ]
   });

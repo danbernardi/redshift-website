@@ -15,6 +15,11 @@ export function Header () {
           </IndexLink>
         </li>
         <li>
+          <Link to="/library" activeClassName="route--active">
+            Library
+          </Link>
+        </li>
+        <li>
           <Link to="/counter" activeClassName="route--active">
             Counter
           </Link>
