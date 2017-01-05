@@ -11,7 +11,7 @@ export function Dropdown (props) {
           dropdowns,
           replaceTitle,
           dispatch,
-          classes,
+          className,
           openDropdownID } = props;
 
   const element = dropdowns.get(dropID);
@@ -24,8 +24,8 @@ export function Dropdown (props) {
     isActive: selectedIndexes.indexOf(index) !== -1
   }));
 
-  const titleIndex = selectedIndexes.length && selectedIndexes[0];
-  const dropdownTitle = selectedIndexes.length === 1 && replaceTitle
+  const titleIndex = selectedIndexes.size && selectedIndexes.get(0);
+  const dropdownTitle = selectedIndexes.size === 1 && replaceTitle
           ? listItems[titleIndex].label
           : title;
 
@@ -36,7 +36,7 @@ export function Dropdown (props) {
     title: dropdownTitle,
     open,
     onTitleClick,
-    classes
+    className
   });
 
   return (<UnconnectedDropdown { ...finalProps } />);
@@ -53,7 +53,7 @@ Dropdown.propTypes = {
 
   replaceTitle: bool,
   title: string,
-  classes: string
+  className: string
 };
 
 Dropdown.defaultProps = {

@@ -24,3 +24,8 @@ export const openDropdownID = {
   _init: null,
   SET_OPEN_DROPDOWN_ID: (state, action) => action.id
 };
+
+export const radios = {
+  _init: fromJS({}),
+  SET_RADIO_VALUE: (state, action) => state.merge({ [action.groupID]: action.item })
+};

@@ -4,10 +4,10 @@ import './styles.scss';
 
 // What all other dropdowns boil down to -- a bunch of HTML with all functionality passed in
 export function UnconnectedDropdown (props) {
-  const { items, classes, title, open, onTitleClick } = props;
+  const { items, className, title, open, onTitleClick } = props;
 
   return (
-    <div className={ classNames([open && 'is-open', classes, 'dropdown']) }>
+    <div className={ classNames([open && 'is-open', className, 'dropdown']) }>
       <div className="dropdown__toggle" onClick={ onTitleClick }>
         <span className="dropdown__title">{ title }</span>
         <span className="dropdown__icon" />
@@ -18,7 +18,7 @@ export function UnconnectedDropdown (props) {
             {
               items.map((item, index) => (
                 <li
-                  className={ classNames([item.isActive && 'is-active', classes, 'dropdown__item']) }
+                  className={ classNames([item.isActive && 'is-active', 'dropdown__item']) }
                   key={ index }
                   onClick={ () => item.action([{ index, value: item.value }]) }
                 >
@@ -39,7 +39,7 @@ export const dropdownItemPropType = shape({
   label: string.isRequired,
   value: any,
   action: func.isRequired,
-  classes: string,
+  className: string,
   isActive: bool
 });
 
@@ -48,7 +48,7 @@ UnconnectedDropdown.propTypes = {
   title: string.isRequired,
   onTitleClick: func.isRequired,
   open: bool,
-  classes: string
+  className: string
 };
 
 export default UnconnectedDropdown;

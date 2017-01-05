@@ -1,18 +1,46 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
-import SimpleDropdown from 'components/Dropdown/SimpleDropdown';
+import SingleDropdown from 'components/Dropdown/SingleDropdown';
+import RadioGroup from 'components/RadioGroup';
 
-export function Library () {
+import './styles.scss';
+
+const sections = {
+  'Radio Group': <RadioGroup
+    groupID="test-radio"
+    items={ ['Valencia', 'Cara Cara', 'Blood'] }
+  />,
+  'Single Dropdown': <SingleDropdown
+    dropID="demo-single-dropdown"
+    items={ ['Anchovies', 'Sardines', 'Smelt', 'Herring'] }
+  />
+};
+
+export function Library ({ section, openDropdownID }) {
   return (
     <div className="row typ--center">
-      <h2 className="mb1">Basic Dropdown</h2>
-
-      <SimpleDropdown
-        dropID="test-dropdown"
-        items={ ['First', 'Second', 'Third'] }
+      <SingleDropdown
+        title="Select a component type"
+        dropID="library-selector"
+        className="library-selector mb10"
+        items={ ['Single Dropdown', 'Radio Group'] }
       />
+
+      { openDropdownID !== 'library-selector' && sections[section] }
     </div>
   );
 }
 
-export default Library;
+const { string } = React.PropTypes;
+Library.propTypes = {
+  section: string,
+  openDropdownID: string
+};
+
+const mapStateToProps = state => ({
+  section: state.dropdowns.getIn(['library-selector', 0, 'value']),
+  openDropdownID: state.openDropdownID
+});
+
+export default connect(mapStateToProps)(Library);

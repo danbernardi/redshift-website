@@ -21,6 +21,11 @@ export const setOpenDropdownID = (id: string) => ({
   type: 'SET_OPEN_DROPDOWN_ID', id
 });
 
+type RadioItem = { index: number, value: string, name: string };
+export const setRadioValue = (groupID: string, item: RadioItem) => ({
+  type: 'SET_RADIO_VALUE', groupID, item
+});
+
 // Specialized actions below -- don't follow patterns
 // When adding actions here, add them to the exceptions array in the actions spec.
 

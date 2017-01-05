@@ -73,6 +73,7 @@
       {
         "vars": "local"
       }
-    ]
+    ],
+    "template-curly-spacing": [0]
   }
 }
