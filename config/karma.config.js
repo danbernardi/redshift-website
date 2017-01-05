@@ -25,7 +25,8 @@ const karmaConfig = {
     devtool: 'cheap-module-source-map',
     resolve: Object.assign({}, webpackConfig.resolve, {
       alias: Object.assign({}, webpackConfig.resolve.alias, {
-        sinon: 'sinon/pkg/sinon.js'
+        sinon: 'sinon/pkg/sinon.js',
+        support: webpackConfig.resolve.root.replace('src', 'tests/support/')
       })
     }),
     plugins: webpackConfig.plugins,
@@ -70,4 +71,5 @@ if (project.globals.__COVERAGE__) {
   }];
 }
 
+console.log('\n\nCONFIG\n\n', karmaConfig, '\n\n')
 module.exports = (cfg) => cfg.set(karmaConfig);

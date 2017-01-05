@@ -114,7 +114,8 @@ config.paths = {
   base   : base,
   client : base.bind(null, config.dir_client),
   public : base.bind(null, config.dir_public),
-  dist   : base.bind(null, config.dir_dist)
+  dist   : base.bind(null, config.dir_dist),
+  tests  : base.bind(null, config.dir_test)
 };
 
 // ========================================================

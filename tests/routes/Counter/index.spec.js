@@ -1,5 +1,5 @@
 import ConnectedCounter, { Counter } from 'routes/Counter';
-import testComponent from '../../support/testComponent';
+import testComponent from 'support/testComponent';
 
 testComponent({
   connected: ConnectedCounter,
