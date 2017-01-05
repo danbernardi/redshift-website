@@ -26,6 +26,10 @@ export const setRadioValue = (groupID: string, item: RadioItem) => ({
   type: 'SET_RADIO_VALUE', groupID, item
 });
 
+export const setCheckboxValue = (boxID: string, value: bool) => ({
+  type: 'SET_CHECKBOX_VALUE', boxID, value
+});
+
 // Specialized actions below -- don't follow patterns
 // When adding actions here, add them to the exceptions array in the actions spec.
 

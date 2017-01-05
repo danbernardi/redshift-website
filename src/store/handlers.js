@@ -29,3 +29,8 @@ export const radios = {
   _init: fromJS({}),
   SET_RADIO_VALUE: (state, action) => state.merge({ [action.groupID]: action.item })
 };
+
+export const checkboxes = {
+  _init: fromJS({}),
+  SET_CHECKBOX_VALUE: (state, action) => state.merge({ [action.boxID]: action.value })
+};
