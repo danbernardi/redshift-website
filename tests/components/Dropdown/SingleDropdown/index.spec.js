@@ -1,4 +1,3 @@
-// import React from 'react';
 import ConnectedSingleDropdown, { SingleDropdown } from 'components/Dropdown/SingleDropdown';
 import Dropdown from 'components/Dropdown';
 import testComponent from 'support/testComponent';
@@ -6,11 +5,23 @@ import { assertObjectEquality } from 'support/assertions';
 
 import { setDropdownValues, setOpenDropdownID } from 'store/actions';
 
+testComponent({
+  name: 'SingleDropdown',
+  connected: ConnectedSingleDropdown,
+  unconnected: SingleDropdown,
+  searchFor: Dropdown,
+  props: {
+    items: [],
+    dropID: 'test'
+  }
+});
+
 describe('<SingleDropdown />', () => {
-  it('passes items correctly', () => {
+  it('Passes items correctly', () => {
     const dispatch = sinon.spy();
     const comp = mockComp(SingleDropdown, { dropID: 'test', items: ['One', 'Two'], dispatch });
-    comp.props().items[0].action([{ value: comp.props().items[0], index: 1 }]);
+    const drop = comp.find(Dropdown);
+    drop.props().items[0].action([{ value: comp.props().items[0], index: 1 }]);
 
     assertObjectEquality(
       dispatch.firstCall.args[0],
@@ -22,15 +33,4 @@ describe('<SingleDropdown />', () => {
       setDropdownValues('test', [{ index: 1, value: 'One' }])
     );
   });
-});
-
-testComponent({
-  name: 'SingleDropdown',
-  connected: ConnectedSingleDropdown,
-  unconnected: SingleDropdown,
-  searchFor: Dropdown,
-  props: {
-    items: [],
-    dropID: 'test'
-  }
 });

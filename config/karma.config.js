@@ -71,5 +71,4 @@ if (project.globals.__COVERAGE__) {
   }];
 }
 
-console.log('\n\nCONFIG\n\n', karmaConfig, '\n\n')
 module.exports = (cfg) => cfg.set(karmaConfig);

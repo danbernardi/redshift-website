@@ -58,7 +58,7 @@ const isExportedCorrectly = (unconnected, connected) => {
 
 export default function testComponent ({ name, connected, unconnected, props = {}, searchFor = 'div' }) {
   const presentName = name || parseFunc(unconnected).name;
-  describe(`<${presentName} /> - base behavior`, () => {
+  describe(`<${presentName} />`, () => {
     const passes = isExportedCorrectly(unconnected, connected) &&
       requiresAllNecessaryProps(unconnected, props) &&
       rendersElement(unconnected, props, searchFor);
