@@ -8,17 +8,17 @@
 }
 
 %page-margins {
-  padding-left: 6rem;
-  padding-right: 6rem;
+  padding-left: 7rem;
+  padding-right: 7rem;
   // media queries
-  @include breakpoint($mobile-lg) {
-    padding-left: 4rem;
-    padding-right: 4rem;
+  @include breakpoint($tablet-sm) {
+    padding-left: 3rem;
+    padding-right: 3rem;
   }
-  // @include breakpoint($mobile-xsm) {
-  //   padding-left: 2rem;
-  //   padding-right: 2rem;
-  // }
+  @include breakpoint($mobile-sm) {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
 }
 
 // base grid styles

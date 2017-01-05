@@ -39,3 +39,55 @@ ol {
 .cf {
   @extend %clearfix;
 }
+
+.full-height {
+  min-height: 100vh;
+}
+
+.double-height {
+  min-height: 200vh;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+.full-image {
+  width: 100%;
+}
+
+.full-bg {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: auto 100%;
+}
+
+.anchor {
+  position: relative;
+  height: 0;
+  top: -6rem;
+  // media queries
+  @include breakpoint($mobile-xsm) {
+    top: -5rem;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+.overlay {
+  position: fixed;
+  background-color: $white;
+  opacity: 0.5;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 6;
+}

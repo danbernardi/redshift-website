@@ -1,3 +1,5 @@
+// const path = require('path');
+const path = require('path');
 const argv = require('yargs').argv;
 const webpack = require('webpack');
 const cssnano = require('cssnano');
@@ -18,10 +20,14 @@ const webpackConfig = {
   devtool: project.compiler_devtool,
   resolve: {
     root: project.paths.client(),
-    extensions: ['', '.js', '.jsx', '.json']
+    extensions: ['', '.js', '.jsx', '.json'],
+    alias: {
+      modernizr$: path.resolve(__dirname, './.modernizrrc')
+    }
   },
   module: {}
 };
+
 // ------------------------------------
 // Entry Points
 // ------------------------------------
@@ -187,7 +193,9 @@ webpackConfig.module.loaders.push(
   { test: /\.ttf(\?.*)?$/,   loader: 'url?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=application/octet-stream' },
   { test: /\.eot(\?.*)?$/,   loader: 'file?prefix=fonts/&name=[path][name].[ext]' },
   { test: /\.svg(\?.*)?$/,   loader: 'url?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=image/svg+xml' },
-  { test: /\.(png|jpg)$/,    loader: 'url?limit=8192' }
+  { test: /\.(png|jpg)$/,    loader: 'url?limit=8192' },
+  { test: /\.modernizrrc.js$/, loader: 'modernizr' },
+  { test: /\.modernizrrc(\.json)?$/, loader: 'modernizr!json' }
 )
 /* eslint-enable */
 

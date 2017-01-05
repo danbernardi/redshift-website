@@ -1,6 +1,6 @@
 // default font scaling
 html {
-  @include font(base);
+  @include font(book);
   font-size: 10px;
   line-height: 1;
   -webkit-font-smoothing: antialiased;
@@ -11,13 +11,10 @@ body,
 .typ--default {
   @include font-size(default);
   line-height: 1.6;
+  color: $body;
 }
 
-
-// fonts scaling can be font in
-// includes/mixins/_mixins.typography.scss
 .typ--aux { @include font-size(sm); }
-.typ--small { @include font-size(xsm); }
 
 h1,
 .typ--h1 {
@@ -49,46 +46,37 @@ h6,
   @include font-size(h6);
 }
 
-
 .typ--caps {
   text-transform: uppercase;
 }
 
 // font weights
-.typ--light { @include font(light); }
-.typ--medium { @include font(medium); }
-.typ--bold { @include font(bold); }
+.typ--book { @include font(book); }
+
+.typ--bold,
+b,
+strong {
+  @include font(bold);
+}
+
 
 // font modifiers
-strong { @include font(medium); }
-
 p {
-  margin-bottom: 1rem;
+  margin-bottom: 1em;
 }
 
 a {
   text-decoration: none;
+  transition: color 0.2s ease-in-out;
 }
 
-em {
-  font-style: italic;
-}
-
+// font modifiers
 sup {
   vertical-align: super;
   font-size: smaller;
 }
 
-blockquote {
-  padding-left: 3rem;
-  border-left: 0.1rem solid $bodytext;
-}
-
-.typ--underline {
-  text-decoration: underline;
-}
-
-.typ--actionable {
+.typ--link {
   cursor: pointer;
 }
 
@@ -97,10 +85,20 @@ blockquote {
   text-align: center;
 }
 
+.typ--light {
+  color: $medium-gray;
+}
+
 .typ--left {
   text-align: left;
 }
 
 .typ--right {
   text-align: right;
+}
+
+.menu-links {
+  background: linear-gradient(157deg, #98049F, #CD307B);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }

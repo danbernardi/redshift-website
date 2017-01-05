@@ -1,0 +1,67 @@
+@import 'sass-includes';
+
+.nav_header {
+  line-height: 1
+}
+
+.nav {
+  background: $white;
+  position: fixed;
+  transform: translateX(100%);
+  transition: transform 0.5s ease-in-out;
+  top: 0;
+  z-index: 10;
+  width: 100vw;
+  padding-top: 14rem;
+  // media queries
+  @include breakpoint($mobile-lg) {
+    padding-top: 20.5rem;
+  }
+}
+
+.nav__menu h1 {
+  line-height: 1.05;
+  // media queries
+  @include breakpoint($mobile-lg) {
+    font-size: 3.6rem;
+    line-height: 0.82;
+  }
+}
+
+.nav-title {
+  opacity: 0;
+  position: fixed;
+  transition: all 0.5s linear;
+}
+
+.nav .footer {
+  position: absolute;
+  bottom: 0;
+}
+
+.nav__menu {
+  text-align: right;
+  // media queries
+  @include breakpoint($mobile-lg) {
+    text-align: left;
+  }
+  li {
+    line-height: 1.2;
+  }
+}
+
+.nav__menu li a {
+  position: relative;
+  top: 4rem;
+  opacity: 0;
+  transition: top 0.18s, opacity 0.22s ease-out;
+  transition-delay: 0.42s;
+  &:hover {
+    color: $redshift;
+  }
+}
+
+.nav-fade {
+  top: 0rem !important;
+  opacity: 1 !important;
+}

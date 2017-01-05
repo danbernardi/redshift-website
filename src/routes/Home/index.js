@@ -1,21 +1,19 @@
 import React from 'react';
-
-import DuckImage from './Duck.jpg';
-// import Mountain from './mountain.jpg';
-import './Home.scss';
+import Hero from './Hero';
+import Norton from './Norton';
+import Yumavore from './Yumavore';
+import Nexus from './Nexus';
+import Five from './Five';
+import './style.scss';
 
 export function Home () {
   return (
-    <div className="row">
-      <h4 className="typ--center">Welcome!</h4>
-      <img
-        alt="This is a duck, because Redux!"
-        className="duck"
-        src={ DuckImage } />
-      { /* <img
-        alt="Big photo!"
-        className="mountain"
-        src={ Mountain } /> */ }
+    <div>
+      <Hero />
+      <Norton />
+      <Yumavore />
+      <Nexus />
+      <Five />
     </div>
   );
 }

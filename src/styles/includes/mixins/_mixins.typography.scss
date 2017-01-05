@@ -1,95 +1,115 @@
-@mixin font($family) {
-  @if $family == 'light' {
-    font-family: sans-serif;
-    font-weight: 100;
-  } @else if $family == 'base' {
-    font-family: sans-serif;
-    font-weight: 300;
-  } @else if $family == 'medium' {
-    font-family: sans-serif;
-    font-weight: 600;
-  } @else if $family == 'bold' {
-    font-family: sans-serif;
-    font-weight: 900;
+// development font mixin - pulls local version of font to speed up page refresh
+@mixin font($weight) {
+  @if $weight == 'book' {
+    font-family: 'Avenir-Book', sans-serif;
+    font-weight: normal;
+  } @else if $weight == 'bold' {
+    font-family: 'Avenir-Black', sans-serif;
   }
 }
 
 @mixin font-size($type) {
   @if $type == 'h1' {
-    font-size: 4.5rem;
-    line-height: 1.3;
+    font-size: 6.4rem;
+    line-height: 1.35;
+    letter-spacing: -0.15rem;
     // media queries
+
+    @include breakpoint($tablet-lg) {
+      font-size: 5.2rem;
+    }
     @include breakpoint($mobile-lg) {
-      font-size: 2.4rem;
-      line-height: 1.4;
+      font-size: 4.8rem;
+    }
+    @include breakpoint($mobile-sm) {
+      font-size: 4.2rem;
+    }
+    @include breakpoint($mobile-xsm) {
+      font-size: 3.8rem;
     }
   }
 
   @if $type == 'h2' {
-    font-size: 3.5rem;
-    line-height: 1.4;
+    font-size: 4rem;
+    line-height: 1.5;
     // media queries
+
+    @include breakpoint($tablet-lg) {
+      font-size: 3.6rem;
+    }
     @include breakpoint($mobile-lg) {
-      font-size: 2rem;
+      font-size: 2.4rem;
+    }
+    @include breakpoint($mobile-sm) {
+      font-size: 2.1rem;
+    }
+    @include breakpoint($mobile-xsm) {
+      font-size: 1.8rem;
     }
   }
 
   @if $type == 'h3' {
-    font-size: 2.8rem;
-    line-height: 1.5;
+    font-size: 3.6rem;
     // media queries
+
+    @include breakpoint($tablet-lg) {
+      font-size: 2.4rem;
+    }
     @include breakpoint($mobile-lg) {
-      font-size: 2.2rem;
+      font-size: 2.1rem;
+    }
+    @include breakpoint($mobile-sm) {
+      font-size: 1.8rem;
+    }
+    @include breakpoint($mobile-xsm) {
+      font-size: 1.6rem;
     }
   }
 
   @if $type == 'h4' {
     font-size: 2.4rem;
+    line-height: 1.4;
     // media queries
-    @include breakpoint($mobile-lg) {
-      font-size: 2rem;
+    @include breakpoint($tablet-lg) {
+      font-size: 2.1rem;
     }
-  }
-
-  @if $type == 'h5' {
-    font-size: 2.2rem;
-    // media queries
-    @include breakpoint($mobile-lg) {
-      font-size: 1.9rem;
-    }
-  }
-
-  @if $type == 'h6' {
-    font-size: 2rem;
-    // media queries
     @include breakpoint($mobile-lg) {
       font-size: 1.8rem;
-      line-height: 1.5;
     }
-  }
-
-  @if $type == 'sm' {
-    font-size: 1.4rem;
-  }
-
-  @if $type == 'xsm' {
-    font-size: 1.3rem;
-  }
-
-  @if $type == 'default' {
-    font-size: 1.8rem;
-    // media queries
-    @include breakpoint($mobile-lg) {
+    @include breakpoint($mobile-sm) {
+      font-size: 1.6rem;
+    }
+    @include breakpoint($mobile-xsm) {
       font-size: 1.4rem;
     }
   }
 
-  @if $type == 'button' {
+  @if $type == 'h5' {
+    font-size: 2.1rem;
+    // media queries
+    @include breakpoint($tablet-lg) {
+      font-size: 1.8rem;
+    }
+    @include breakpoint($mobile-lg) {
+      font-size: 1.6rem;
+    }
+    @include breakpoint($mobile-sm) {
+      font-size: 1.4rem;
+    }
+    @include breakpoint($mobile-xsm) {
+      font-size: 1.2rem;
+    }
+  }
+
+  @if $type == 'default' {
+    @include font(book);
     font-size: 1.6rem;
-    letter-spacing: 2px;
     // media queries
     @include breakpoint($mobile-lg) {
-      font-size: 1.2rem;
+      font-size: 1.5rem;
+    }
+    @include breakpoint($mobile-xsm) {
+      font-size: 1.1rem;
     }
   }
 }

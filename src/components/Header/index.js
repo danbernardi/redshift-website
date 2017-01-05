@@ -1,36 +1,36 @@
 // @flow
-
 import React from 'react';
-import { IndexLink, Link } from 'react-router';
+import { Link } from 'react-router';
 import './Header.scss';
+import './HeaderClose.scss';
 
 export function Header () {
   return (
-    <div className="row pt6">
-      <h1 className="typ--medium typ--center">React Redux Starter Kit</h1>
-      <ul className="list--hash typ--center">
-        <li>
-          <IndexLink to="/" activeClassName="route--active">
-            Home
-          </IndexLink>
-        </li>
-        <li>
-          <Link to="/library" activeClassName="route--active">
-            Library
-          </Link>
-        </li>
-        <li>
-          <Link to="/api-example" activeClassName="route--active">
-            Api Example
-          </Link>
-        </li>
-        <li>
-          <Link to="/fractal" activeClassName="route--active">
-            Example Fractal Route
-          </Link>
-        </li>
-      </ul>
-    </div>
+    <header className="header">
+      <div className="row">
+        <div className="layout--align-left">
+          <span className="logo">
+            <Link to="index.html#work" activeClassName="route--active">
+              <span className="icon-redshift pr2" />
+            </Link>
+          </span>
+          <h3 className="page-title" />
+        </div>
+        <div className="modal__close js-modal-close">
+          <span className="icon-close" />
+        </div>
+        <div
+          data-target="#menu"
+          data-type="nav"
+          className="menu__trigger layout--align-right typ--link js-menu-trigger"
+        >
+          <span className="icon-hamburger">
+            <span />
+            <span />
+          </span>
+        </div>
+      </div>
+    </header>
   );
 }
 
