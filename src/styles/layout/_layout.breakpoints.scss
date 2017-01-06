@@ -1,0 +1,127 @@
+// show / hide at desktop-lg
+.show--dlg {
+  display: none !important;
+  // media queries
+  @include breakpoint($desktop-lg) {
+    display: block !important;
+  }
+}
+
+.hide--dlg {
+  // media queries
+  @include breakpoint($desktop-lg) {
+    display: none !important;
+  }
+}
+
+// show / hide at desktop-sm
+.show--dsm {
+  display: none !important;
+  // media queries
+  @include breakpoint($desktop-sm) {
+    display: block !important;
+  }
+}
+
+.hide--dsm {
+  // media queries
+  @include breakpoint($desktop-sm) {
+    display: none !important;
+  }
+}
+
+// show / hide at tablet-lg
+.show--tlg {
+  display: none !important;
+  // media queries
+  @include breakpoint($tablet-lg) {
+    display: block !important;
+  }
+}
+
+.hide--tlg {
+  // media queries
+  @include breakpoint($tablet-lg) {
+    display: none !important;
+  }
+}
+
+// show / hide at tablet-md
+.show--tmd {
+  display: none !important;
+  // media queries
+  @include breakpoint($tablet-md) {
+    display: block !important;
+  }
+}
+
+.hide--tmd {
+  // media queries
+  @include breakpoint($tablet-md) {
+    display: none !important;
+  }
+}
+
+// show / hide at tablet-sm
+.show--tsm {
+  display: none !important;
+  // media queries
+  @include breakpoint($tablet-sm) {
+    display: block !important;
+  }
+}
+
+.hide--tsm {
+  // media queries
+  @include breakpoint($tablet-sm) {
+    display: none !important;
+  }
+}
+
+// show / hide at mobile-lg
+.show--mlg {
+  display: none !important;
+  // media queries
+  @include breakpoint($mobile-lg) {
+    display: block !important;
+  }
+}
+
+.hide--mlg {
+  // media queries
+  @include breakpoint($mobile-lg) {
+    display: none !important;
+  }
+}
+
+// show / hide at mobile-sm
+.show--msm {
+  display: none !important;
+  // media queries
+  @include breakpoint($mobile-sm) {
+    display: block !important;
+  }
+}
+
+.hide--msm {
+  // media queries
+  @include breakpoint($mobile-sm) {
+    display: none !important;
+  }
+}
+
+// show / hide at mobile-xsm
+.show--mxsm {
+  display: none !important;
+  // media queries
+  @include breakpoint($mobile-sm) {
+    display: block !important;
+  }
+}
+
+.hide--mxsm {
+  // media queries
+  @include breakpoint($mobile-sm) {
+    display: none !important;
+  }
+}
