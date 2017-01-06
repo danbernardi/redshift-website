@@ -1,69 +1,70 @@
 import _ from 'lodash';
 import parseFunc from './parseFunc';
+import { assertFail, assertPass } from './assertions';
 
-export default function testComponent ({
-  connected,
-  unconnected,
-  props = {},
-  searchFor = 'div'
-}) {
-  const givenProps = props;
-  const pass = () => expect(true).to.eq(true);
+const rendersElement = (comp, givenProps, searchFor) => {
+  const props = {};
+  const logs = [];
 
-  describe(`<${parseFunc(connected).name} /> - base behavior`, () => {
-    it('exported both by default (connected) and destructureable (unconnected)', () => {
-      expect(typeof connected).to.eq('function');
-      expect(typeof unconnected).to.eq('function');
-    });
+  _.keys(comp.propTypes).forEach(propName => {
+    if (givenProps[propName]) {
+      props[propName] = givenProps[propName];
+    } else {
+      // Store un-given prop name to list if render fails
+      logs.push('   - '.concat(propName));
+    }
+  });
 
-    it('declares its propTypes', () => {
-      const hasProps = parseFunc(unconnected).arguments[0];
-      if (hasProps) {
-        expect(unconnected.propTypes instanceof Object).to.eq(true);
-      } else {
-        pass();
-      }
-    });
+  const element = mockComp(comp, props);
 
-    it('explicitly requires (in propTypes) all props necessary for render', () => {
-      const necessaryButNotExplicitlyRequiredProps = _.keys(givenProps).filter(key => {
-        const props = unconnected.propTypes;
-        const explicitlyRequiredProps = _.keys(props).filter(prop => !props[prop].isRequired); // Unintuitive, but true
-        return explicitlyRequiredProps.indexOf(key) === -1;
-      });
+  // Rendering elements with connected children throws an error,
+  // so instead, check tree for div or specified component (string or component).
+  const foundElement = element.find(searchFor);
 
-      if (necessaryButNotExplicitlyRequiredProps.length > 0) {
-        assert.fail(0, 1, `Props are passed in to pass test but not explicitly required: ${necessaryButNotExplicitlyRequiredProps}`);
-      }
-      pass();
-    });
+  if (foundElement.length) {
+    return true;
+  } else {
+    if (logs.length) { logs.unshift('  Declared props which weren\'t supplied:'); }
+    logs.unshift(`  Given child to search for:\n   - ${searchFor}`);
+    logs.unshift('\nFailed to render any HTML elements or specified children.');
+    assertFail(logs.join('\n'), true);
+  }
+};
 
-    it('renders HTML (shallow test only)', () => {
-      const props = {};
-      const logs = [];
+const requiresAllNecessaryProps = (comp, givenProps) => {
+  const necessaryButNotExplicitlyRequiredProps = _.keys(givenProps).filter(key => {
+    const props = comp.propTypes;
+    const explicitlyRequiredProps = _.keys(props).filter(prop => !props[prop].isRequired); // Unintuitive, but true
+    return explicitlyRequiredProps.indexOf(key) === -1;
+  });
 
-      _.keys(unconnected.propTypes).forEach(propName => {
-        if (givenProps[propName]) {
-          props[propName] = givenProps[propName];
-        } else {
-          // Store un-given prop name to list if render fails
-          logs.push('   - '.concat(propName));
-        }
-      });
+  if (necessaryButNotExplicitlyRequiredProps.length > 0) {
+    const note = 'Props are passed in to pass test but not explicitly required in propTypes:';
+    assertFail([note, necessaryButNotExplicitlyRequiredProps.map(prop => `- ${prop}`)].join('\n'), true);
+    return false;
+  } else {
+    return true;
+  }
+};
 
-      const element = mockComp(unconnected, props);
+const isExportedCorrectly = (unconnected, connected) => {
+  const isCorrect = [connected, unconnected].filter(comp => typeof comp === 'function').length === 2;
+  if (!isCorrect) {
+    assertFail('Not exported in both connected and unconnected forms!', true);
+    return false;
+  }
+  return true;
+};
 
-      // Rendering elements with connected children throws an error,
-      // so instead, check tree for div or specified component (string or component).
-      const foundElement = element.find(searchFor);
+export default function testComponent ({ name, connected, unconnected, props = {}, searchFor = 'div' }) {
+  const presentName = name || parseFunc(unconnected).name;
+  describe(`<${presentName} />`, () => {
+    const passes = isExportedCorrectly(unconnected, connected) &&
+      requiresAllNecessaryProps(unconnected, props) &&
+      rendersElement(unconnected, props, searchFor);
 
-      if (!foundElement.length) {
-        if (logs.length) { logs.unshift('  Declared props which weren\'t supplied:'); }
-        logs.unshift(`  Given child to search for:\n   - ${searchFor}`);
-        logs.unshift('\nFailed to render any HTML elements or specified children.');
-        assert.fail(0, 1, logs.join('\n'));
-      }
-      pass();
-    });
+    if (passes) {
+      assertPass('Follows all basic component rules', true);
+    }
   });
 };

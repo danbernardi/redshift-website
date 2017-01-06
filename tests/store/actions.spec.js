@@ -1,7 +1,7 @@
 import _ from 'lodash';
 
 import * as actions from 'store/actions';
-import parse from '../support/parseFunc';
+import parse from 'support/parseFunc';
 
 // Ignore specialized actions
 const exceptions = ['updateLocation'];

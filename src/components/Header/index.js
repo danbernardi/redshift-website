@@ -20,8 +20,8 @@ export function Header () {
           </Link>
         </li>
         <li>
-          <Link to="/counter" activeClassName="route--active">
-            Counter
+          <Link to="/api-example" activeClassName="route--active">
+            Api Example
           </Link>
         </li>
         <li>
