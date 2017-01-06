@@ -24,7 +24,7 @@ const CSFive = () => {
       img: five3,
       items: [
         (<h3 className="casestudy__text pb7">Heavy prototyping and testing was done throughout the process.</h3>),
-        (<h3 className="casestudy__text">Look for it in the App Store starting September 2016</h3>)
+        (<h3 className="casestudy__text pb8">Look for it in the App Store starting September 2016</h3>)
       ]
     }
   ];
