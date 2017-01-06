@@ -1,0 +1,80 @@
+@import 'sass-includes';
+
+.case-study {
+  width: calc(100vw - 17rem);
+  z-index: 4;
+  // media queries
+  @include breakpoint($tablet-sm) {
+    width: calc(100vw - 10rem);
+  }
+  @include breakpoint($mobile-lg) {
+    width: 100vw;
+  }
+
+  .casestudy__name {
+    // media queries
+    @include breakpoint($mobile-lg) {
+      margin-left: 6rem;
+    }
+    @include breakpoint($mobile-sm) {
+      margin-left: 4.2rem;
+    }
+  }
+}
+
+.casestudy {
+  padding-top: 6.5rem;
+  // media queries
+  @include breakpoint($tablet-lg) {
+    padding-top: 4.4rem;
+  }
+  @include breakpoint($tablet-md) {
+    padding-top: 5.3rem;
+  }
+  @include breakpoint($mobile-lg) {
+    padding-top: 4.6rem;
+  }
+  @include breakpoint($mobile-sm) {
+    padding-top: 3.9rem;
+  }
+}
+
+.casestudy__next {
+  background-color: $light-gray;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.casestudy__heading {
+  max-width: 100rem;
+  padding-top: 17rem;
+  padding-bottom: 35rem;
+  // media queries
+  @include breakpoint($mobile-lg) {
+    padding-bottom: 17rem;
+  }
+}
+
+.casestudy__text {
+  max-width: 125rem;
+  width: 80%;
+  margin: auto;
+}
+
+.casestudy__scroll {
+  position: fixed;
+  z-index: 10;
+  bottom: 2.8rem;
+  font-size: 5.8rem;
+  transition: opacity 1s ease-in-out;
+  opacity: 1;
+  left: 7.5rem;
+  // media queries
+  @include breakpoint($mobile-lg) {
+    left: 2rem;
+  }
+}
+
+.casestudy__arrows {
+  font-size: 12rem;
+}
