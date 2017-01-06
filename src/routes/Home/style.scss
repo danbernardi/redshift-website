@@ -26,3 +26,17 @@
     }
   }
 }
+
+.case-scroll-icon {
+  position: fixed;
+  z-index: 10;
+  bottom: 2.8rem;
+  font-size: 5.8rem;
+  transition: opacity 1s ease-in-out;
+  opacity: 1;
+  left: 7.5rem;
+  // media queries
+  @include breakpoint($mobile-lg) {
+    left: 2rem;
+  }
+}
