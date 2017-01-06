@@ -27,13 +27,3 @@ export const checkboxes = {
   _init: fromJS({}),
   SET_CHECKBOX_VALUE: (state, action) => state.merge({ [action.boxID]: action.value })
 };
-
-// For demo purposes
-export const github = {
-  _init: fromJS({}),
-  GITHUB_REPO_SUCCESS: (state, action) => state.merge({ [action.meta.id]: action.payload }),
-  GITHUB_REPO_FAILURE: (state, action) => {
-    console.log('API ERROR: ', action);
-    return state;
-  }
-};

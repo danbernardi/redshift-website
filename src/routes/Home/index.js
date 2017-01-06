@@ -1,5 +1,4 @@
 import React from 'react';
-
 import Hero from './Hero';
 import HomepageCaseStudy from './HomepageCaseStudy';
 import './style.scss';
@@ -37,11 +36,20 @@ export function Home () {
   return (
     <div>
       <Hero />
-      {
-        caseStudies.map((study, index) => (
-          <HomepageCaseStudy key={ index } study={ study } />
-        ))
-      }
+      <div
+        id="homepage-work"
+        // ref={ (el) => {
+        //   if (location.hash === '#worksss') {
+        //     el.scrollIntoView();
+        //   }
+        // } }
+      >
+        {
+          caseStudies.map((study, index) => (
+            <HomepageCaseStudy key={ index } study={ study } />
+          ))
+        }
+      </div>
     </div>
   );
 }

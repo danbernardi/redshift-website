@@ -1,9 +1,6 @@
 import CoreLayout from 'containers/CoreLayout';
 import Home from './Home';
-import ApiExample from './ApiExample';
-import Library from './Library';
-
-import fractalRouteCreator from './Fractal';
+// import Library from './Library';
 
 export function createRoutes (store) {
   return ({
@@ -11,9 +8,7 @@ export function createRoutes (store) {
     component: CoreLayout,
     indexRoute: { component: Home },
     childRoutes: [
-      { path: 'api-example', component: ApiExample },
-      { path: 'library', component: Library },
-      ...fractalRouteCreator(store)
+      // { path: 'library', component: Home },
     ]
   });
 }

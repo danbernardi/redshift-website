@@ -9,14 +9,20 @@ import 'styles/core.scss';
 import './CoreLayout.scss';
 
 export function CoreLayout ({ children }) {
+  const pathClass = {
+    '': 'root',
+    about: 'about',
+    careers: 'careers'
+  }[location.pathname.slice(1)];
+
   return (
-    <div className='page-wrap' id='content'>
+    <div className={ 'page-wrap'.concat(` ${pathClass}`) } id="content">
       <Nav />
       { /* <CsModals /> */ }
-      <div className='content-wrap'>
+      <div className="content-wrap">
         <Header />
         {/* class needed for page somewhere */}
-        <div className='content-main index content-swap'>
+        <div className="content-main index content-swap">
           { children }
         </div>
         <Footer />
