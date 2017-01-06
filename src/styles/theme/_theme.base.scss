@@ -1,3 +1,11 @@
-// a {
-//   color: $blue;
-// }
+.theme--dark {
+  color: $white;
+}
+
+.theme--dark .btn {
+  color: $white;
+}
+
+a {
+  color: $body;
+}
