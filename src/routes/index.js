@@ -1,5 +1,6 @@
 import CoreLayout from 'containers/CoreLayout';
 import Home from './Home';
+import CSFive from './Home/Five/CSFive';
 // import Library from './Library';
 
 export function createRoutes (store) {
@@ -8,7 +9,7 @@ export function createRoutes (store) {
     component: CoreLayout,
     indexRoute: { component: Home },
     childRoutes: [
-      // { path: 'library', component: Home },
+      { path: 'five', component: CSFive }
     ]
   });
 }
