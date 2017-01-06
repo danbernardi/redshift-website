@@ -1,12 +1,12 @@
 import React from 'react';
 
 const CaseStudySection = props => {
-  const { img, items } = props;
+  const { img, items, pad } = props;
 
   return (
     <div>
       <img className="full-image" src={ img } />
-      <div className="row typ--center py10">
+      <div className={ `row typ--center ${pad && 'py10'}` }>
         { items.map((item, index) => (
           React.cloneElement(item, { key: index })
         )) }
@@ -17,7 +17,12 @@ const CaseStudySection = props => {
 
 CaseStudySection.propTypes = {
   img: React.PropTypes.string,
-  items: React.PropTypes.array
+  items: React.PropTypes.array,
+  pad: React.PropTypes.bool
+};
+
+CaseStudySection.defaultProps = {
+  pad: true
 };
 
 /*

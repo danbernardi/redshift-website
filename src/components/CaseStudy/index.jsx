@@ -18,16 +18,16 @@ const CaseStudy = props => {
       </div>
 
       { content.map((section, index) => (
-        <CaseStudySection key={ index } img={ section.img } items={ section.items } />
+        <CaseStudySection key={ index } img={ section.img } items={ section.items } pad={ section.pad } />
       )) };
 
       { typeof next === 'object' ?
-        <a className="casestudy__next mt8 py7" data-target={ next.id }>
+        <div className="casestudy__next mt8 py7" data-target={ next.id }>
           <div className="row">
             <h2 className={ `typ--${next.id}` }>{ next.name }</h2>
             <span className="typ--default">View case study</span>
           </div>
-        </a>
+        </div>
       : null }
     </section>
   );
