@@ -1,10 +1,51 @@
-// .btn {
-//   background: $blue;
-//   color: $white;
-//   padding: 0.5em 1.5em;
-//   cursor: pointer;
+.btn {
+  cursor: pointer;
+}
 
-//   &:hover {
-//     background: darken($blue, 10);
-//   }
-// }
+.casestudy .btn,
+.contact__form .btn {
+  padding: 1.8rem 5rem;
+  display: inline-block;
+  transition: color 0.2s ease-in-out;
+  position: relative;
+  text-transform: uppercase;
+  border: solid 0.1rem $body;
+  letter-spacing: 0.3rem;
+  background-color: transparent;
+}
+
+.btn--arrow {
+  position: relative;
+}
+
+.btn--arrow .icon-arrow-right {
+  font-size: 8.2rem;
+  position: absolute;
+  top: -5rem;
+  // media queries
+  @include breakpoint($tablet-md) {
+    top: -5.2rem;
+  }
+  @include breakpoint($mobile-lg) {
+    top: -5.4rem;
+  }
+  @include breakpoint($mobile-sm) {
+    top: -5.7rem;
+  }
+}
+
+.btn.no-link {
+  cursor: default;
+}
+
+#cs-yumavore .btn {
+  color: $redshift;
+}
+
+#cs-kaiser .btn {
+  color: $kaiser;
+}
+
+#cs-five .btn {
+  color: $five;
+}
