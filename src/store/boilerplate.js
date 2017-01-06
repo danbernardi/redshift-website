@@ -35,7 +35,6 @@ export const curryInjectReducer = makeRootReducer => (store, { key, reducer }) =
 };
 
 // FOR ASYNC ACTIONS
-
 const addArgToResponse = (responseType, argKey, argVal, endpoint) => {
   const identifyingInfo = argVal ? { [argKey]: argVal } : {};
   const response = {
@@ -52,7 +51,7 @@ const addArgToResponse = (responseType, argKey, argVal, endpoint) => {
       }
 
       return res.json()
-        .then(originalJSON => Object.assign(identifyingInfo, originalJSON));
+        .then(json => Object.assign(identifyingInfo, json));
     }
   };
 

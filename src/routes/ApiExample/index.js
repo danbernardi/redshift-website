@@ -3,18 +3,22 @@ import { connect } from 'react-redux';
 import { githubAPI } from 'store/asyncActions';
 import { map } from 'react-immutable-proptypes';
 
+import RM from 'utils/RequestManager';
+
 export function ApiExample ({ dispatch, github }) {
+  const rm = new RM(dispatch);
   return (
     <div className="row typ--center">
       <button className="btn btn-default" onClick={ () => {
-        dispatch(githubAPI.getRepo('reactjs', 'redux'));
+        rm.dispatchIfHaventAlready(githubAPI.getRepo('reactjs', 'redux'));
       } }>
         Get repo
       </button>
 
       {
         github.get('redux') && <p className="mt5">
-          Request has come back successfully. Look in state.github.
+          Response stored in state.github.
+          Future clicks won't dispatch.
         </p>
       }
     </div>
