@@ -15,6 +15,10 @@
   position: relative;
 }
 
+.layout--absolute {
+  position: absolute;
+}
+
 .layout--fullheight {
   height: 100vh;
   overflow-y: scroll;

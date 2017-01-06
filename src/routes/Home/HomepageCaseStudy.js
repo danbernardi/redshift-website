@@ -6,7 +6,7 @@ export function HomepageCaseStudy ({ study }) {
     <div>
       {
         <section className={ `home-${study.name} flex theme--dark home-section` }>
-          <div className="scene-container">
+          <div className="scene-container layout--absolute">
             <img src={ study.homepageImage } className="homepage-scene--image hide--msm" />
             { study.homepageMLGImage
               ? <img src={ study.homepageMLGImage } className="homepage-scene--image show--tmd hide--msm" />

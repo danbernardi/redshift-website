@@ -17,12 +17,12 @@ const footerIcons = [
 
 export function FooterSocial () {
   return (
-    <ul className='list--inline social-icons pt2'>
+    <ul className="list--inline social-icons pt2">
       {
         footerIcons.map((footerIcon, i) => (
           <li key={ i }>
             <a href={ footerIcon.url }>
-              <span className={ `icon-${footerIcon.url}` } />
+              <span className={ `icon-${footerIcon.class}` } />
             </a>
           </li>
         ))
