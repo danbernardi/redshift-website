@@ -6,6 +6,76 @@
   color: $white;
 }
 
+html,
 a {
   color: $body;
+}
+
+.typ--yumavore {
+  color: $redshift;
+}
+
+%gradient-text {
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+.backgroundcliptext {
+  .hero.index-content h1 {
+    @extend %gradient-text;
+    background: linear-gradient(45deg, $redshift, $cranberry);
+    z-index: 35;
+    position: relative;
+    width: 70vw;
+    @include breakpoint($mobile-lg) {
+      width: 90vw;
+    }
+    @include breakpoint($mobile-sm) {
+      font-size: 3.8rem;
+    }
+
+  }
+
+  .hero.about h1 {
+    color: $white;
+  }
+
+  .nav__menu li a {
+    &:hover {
+      @extend %gradient-text;
+      background: linear-gradient(45deg, $redshift, $cranberry); 
+    }
+  }
+}
+
+.typ--kaiser {
+  color: $kaiser;
+}
+
+.typ--norton {
+  color: $norton;
+}
+
+.bg--norton {
+  background-color: $norton-light;
+}
+
+.typ--nexus {
+  color: $nexus;
+}
+
+.bg--nexus {
+  background-color: $nexus-light;
+}
+
+.typ--five {
+  color: $five;
+}
+
+.typ--jobs {
+  color: $careers;
+}
+
+.typ--white {
+  color: $white;
 }
