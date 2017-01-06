@@ -1,16 +1,19 @@
 import React from 'react';
 
 const CaseStudySection = props => {
-  const { img, items, pad } = props;
+  const { img, items, pad, classes } = props;
 
   return (
-    <div>
+    <div className={ classes && classes }>
       <img className="full-image" src={ img } />
-      <div className={ `row typ--center ${pad && 'py10'}` }>
-        { items.map((item, index) => (
-          React.cloneElement(item, { key: index })
-        )) }
-      </div>
+
+      { items ?
+        <div className={ `row typ--center ${pad && 'py10'}` }>
+          { items.map((item, index) => (
+            React.cloneElement(item, { key: index })
+          )) }
+        </div>
+      : null }
     </div>
   );
 };
@@ -18,7 +21,8 @@ const CaseStudySection = props => {
 CaseStudySection.propTypes = {
   img: React.PropTypes.string,
   items: React.PropTypes.array,
-  pad: React.PropTypes.bool
+  pad: React.PropTypes.bool,
+  classes: React.PropTypes.string
 };
 
 CaseStudySection.defaultProps = {
