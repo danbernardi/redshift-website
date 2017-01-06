@@ -194,7 +194,7 @@ webpackConfig.module.loaders.push(
   { test: /\.eot(\?.*)?$/,   loader: 'file?prefix=fonts/&name=[path][name].[ext]' },
   { test: /\.svg(\?.*)?$/,   loader: 'url?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=image/svg+xml' },
   { test: /\.(png|jpg)$/,    loader: 'url?limit=8192' },
-  { test: /\.modernizrrc.js$/, loader: 'modernizr' },
+  { test: /\.modernizrrc\.js$/, loader: 'modernizr' },
   { test: /\.modernizrrc(\.json)?$/, loader: 'modernizr!json' }
 )
 /* eslint-enable */
