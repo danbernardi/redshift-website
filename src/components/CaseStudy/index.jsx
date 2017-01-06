@@ -5,8 +5,6 @@ import './styles.scss';
 const CaseStudy = props => {
   const { name, content, heading, next } = props;
 
-  // debugger;
-
   return (
     <section className="casestudy">
       <div className="row">
@@ -17,12 +15,17 @@ const CaseStudy = props => {
         <h1 className="casestudy__heading">{ heading }</h1>
       </div>
 
-      { content.map((section, index) => (
-        <CaseStudySection key={ index } img={ section.img } items={ section.items } pad={ section.pad } />
-      )) };
+      { content && content.length ?
+        content.map((section, index) => (
+          <CaseStudySection
+            key={ index }
+            { ...section }
+          />
+        ))
+      : null }
 
       { typeof next === 'object' ?
-        <div className="casestudy__next mt8 py7" data-target={ next.id }>
+        <div className="casestudy__next py7" data-target={ next.id }>
           <div className="row">
             <h2 className={ `typ--${next.id}` }>{ next.name }</h2>
             <span className="typ--default">View case study</span>
