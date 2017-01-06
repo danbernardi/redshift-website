@@ -1,6 +1,6 @@
 import CoreLayout from 'containers/CoreLayout';
 import Home from './Home';
-import Counter from './Counter';
+import ApiExample from './ApiExample';
 import Library from './Library';
 
 import fractalRouteCreator from './Fractal';
@@ -11,7 +11,7 @@ export function createRoutes (store) {
     component: CoreLayout,
     indexRoute: { component: Home },
     childRoutes: [
-      { path: 'counter', component: Counter },
+      { path: 'api-example', component: ApiExample },
       { path: 'library', component: Library },
       ...fractalRouteCreator(store)
     ]
@@ -25,7 +25,7 @@ export function createRoutes (store) {
       require.ensure([], (require) => {
         cb(null, [
           // Remove imports!
-          require('./Counter').default(store)
+          require('./ApiExample').default(store)
         ])
       })
     }
