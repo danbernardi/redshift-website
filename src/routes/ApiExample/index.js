@@ -18,7 +18,7 @@ export function ApiExample ({ dispatch, github }) {
       {
         github.get('redux') && <p className="mt5">
           Response stored in state.github.
-          Future clicks won't dispatch.
+          Future clicks will be ignored by Request Manager.
         </p>
       }
     </div>

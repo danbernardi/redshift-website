@@ -5,7 +5,7 @@ import { CALL_API } from 'redux-api-middleware';
  * @return {Object} An object with 'base' and 'end' keys
  * @memberof loaderUtils
  */
-export function parseActionType(type) {
+export function parseActionType (type) {
   const array = type.split('_');
 
   return {
@@ -21,7 +21,7 @@ export function parseActionType(type) {
  * @return {Array}        An array of api action responses
  * @memberof loaderUtils
  */
-export function getResponseTypesFromAction(action) {
+export function getResponseTypesFromAction (action) {
   return action[CALL_API].types
     .map(actionInfo => {
       if (typeof actionInfo === 'string') {
@@ -38,7 +38,7 @@ export function getResponseTypesFromAction(action) {
  * @return {Number}        A site ID
  * @memberof loaderUtils
  */
-export function getIDFromAction(action) {
+export function getIDFromAction (action) {
   const firstType = action[CALL_API].types[0];
   return firstType.meta && firstType.meta.id;
 }

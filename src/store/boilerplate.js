@@ -14,12 +14,18 @@ const reducerObjFromHandlerWrapper = (handlers) => handlerName => {
   return { [handlerName]: reducerFunc };
 };
 
-export const constructReducers = (handlers) => {
+export const constructReducers = (handlers, otherReducers = {}) => {
   const reducerObjFromHandler = reducerObjFromHandlerWrapper(handlers);
-  return Object.keys(handlers)
+  const reducers = Object.keys(handlers)
     .reduce((obj, name) => Object.assign(
       obj, reducerObjFromHandler(name)),
     {});
+
+  Object.keys(otherReducers).forEach(key => {
+    reducers[key] = otherReducers[key];
+  });
+
+  return reducers;
 };
 
 export const curryMakeRootReducer = mainReducers => asyncReducers => combineReducers({
