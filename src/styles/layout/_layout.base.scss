@@ -95,3 +95,13 @@ ol {
   width: 100%;
   z-index: 6;
 }
+
+.full-width {
+  width: 100%;
+  clear: both;
+}
+
+.quarter-width {
+  width: 25%;
+  float: left;
+}
