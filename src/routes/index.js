@@ -4,6 +4,7 @@ import CSFive from './Home/Five/CSFive';
 import CSYumavore from './Home/Yumavore/CSYumavore';
 import CSNexus from './Home/Nexus/CSNexus';
 import CSNorton from './Home/Norton/CSNorton';
+import About from './About';
 // import Library from './Library';
 
 export function createRoutes (store) {
@@ -15,7 +16,8 @@ export function createRoutes (store) {
       { path: 'five', component: CSFive },
       { path: 'yumavore', component: CSYumavore },
       { path: 'nexus', component: CSNexus },
-      { path: 'norton', component: CSNorton }
+      { path: 'norton', component: CSNorton },
+      { path: 'about', component: About }
     ]
   });
 }

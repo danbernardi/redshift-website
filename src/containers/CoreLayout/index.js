@@ -16,13 +16,13 @@ export function CoreLayout ({ children }) {
   }[location.pathname.slice(1)];
 
   return (
-    <div className={ 'page-wrap'.concat(` ${pathClass}`) } id="content">
+    <div className={ `${pathClass} page-wrap` } id="content">
       <Nav />
       { /* <CsModals /> */ }
       <div className="content-wrap">
         <Header />
         {/* class needed for page somewhere */}
-        <div className="content-main index content-swap">
+        <div className={ `${pathClass} content-main content-swap` }>
           { children }
         </div>
         <Footer />
