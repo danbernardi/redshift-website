@@ -134,8 +134,13 @@ const teamArray = [
   },
   {
     name: 'Steffan Schlarb',
-    position: 'Director of Digital Media',
+    position: 'Creative Director',
     photo: SteffanImage
+  },
+  {
+    name: 'Stewart Maclennan',
+    position: 'Creative Director',
+    photo: 'Director of Digital Media'
   },
   {
     name: 'David Westen',
