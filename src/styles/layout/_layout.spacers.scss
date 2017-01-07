@@ -9,9 +9,11 @@ $space7:   7;
 $space8:   8;
 $space9:   9;
 $space10: 10;
+$space15: 15;
+$space25: 25;
 
 // spacer array
-$spacer-array: $space1 $space2 $space3 $space4 $space5 $space6 $space7 $space8 $space9 $space10;
+$spacer-array: $space1 $space2 $space3 $space4 $space5 $space6 $space7 $space8 $space9 $space10 $space15 $space25;
 
 @mixin generate-breakpoint($i, $label, $breakpoint, $space) {
   @include breakpoint($breakpoint) {
