@@ -139,8 +139,8 @@ const teamArray = [
   },
   {
     name: 'Stewart Maclennan',
-    position: 'Creative Director',
-    photo: 'Director of Digital Media'
+    position: 'Director of Digital Media',
+    photo: StewartImage
   },
   {
     name: 'David Westen',
