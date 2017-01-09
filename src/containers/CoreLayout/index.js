@@ -3,7 +3,7 @@ import Modal from 'components/Modal';
 import Header from 'components/Header';
 import Footer from 'components/Footer';
 import Nav from 'components/Nav';
-{ /* import CsModals from 'components/case-studies/cs-modals'; */ }
+// import CsModals from 'components/case-studies/cs-modals';
 
 import 'styles/core.scss';
 import './CoreLayout.scss';
@@ -21,7 +21,6 @@ export function CoreLayout ({ children }) {
 
       <Nav />
 
-      { /* <CsModals /> */ }
       <div className="content-wrap">
         <Header />
         {/* class needed for page somewhere */}
