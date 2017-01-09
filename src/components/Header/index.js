@@ -8,7 +8,7 @@ export function Header () {
   return (
     <header className="header">
       <div className="row">
-        <div className="layout--align-left">
+        <div className="layout--left">
           <span className="logo">
             <Link to="/" activeClassName="route--active">
               <span className="icon-redshift pr2" />
@@ -19,7 +19,7 @@ export function Header () {
         <div
           data-target="#menu"
           data-type="nav"
-          className="menu__trigger layout--align-right typ--link js-menu-trigger"
+          className="menu__trigger layout--right typ--link"
         >
           <span className="icon-hamburger">
             <span />
