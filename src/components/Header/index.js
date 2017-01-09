@@ -10,14 +10,11 @@ export function Header () {
       <div className="row">
         <div className="layout--align-left">
           <span className="logo">
-            <Link to="index.html#work" activeClassName="route--active">
+            <Link to="/" activeClassName="route--active">
               <span className="icon-redshift pr2" />
             </Link>
           </span>
           <h3 className="page-title" />
-        </div>
-        <div className="modal__close js-modal-close">
-          <span className="icon-close" />
         </div>
         <div
           data-target="#menu"

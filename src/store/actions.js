@@ -1,38 +1,40 @@
-// @flow
-
-export const incrementCounter = (value: number = 1) => ({
+export const incrementCounter = (value = 1) => ({
   type: 'INCREMENT_COUNTER', value
 });
 
-export const decrementCounter = (value: number = 1) => ({
+export const decrementCounter = (value = 1) => ({
   type: 'DECREMENT_COUNTER', value
 });
 
-export const locationChange = (location: string = '/') => ({
+export const locationChange = (location = '/') => ({
   type: 'LOCATION_CHANGE', location
 });
 
-type DropdownValues = [{ index: number, value: string }];
-export const setDropdownValues = (id: string, values: DropdownValues) => ({
+export const setDropdownValues = (id, values) => ({
   type: 'SET_DROPDOWN_VALUES', id, values
 });
 
-export const setOpenDropdownID = (id: string) => ({
+export const setOpenDropdownID = (id) => ({
   type: 'SET_OPEN_DROPDOWN_ID', id
 });
 
-type RadioItem = { index: number, value: string, name: string };
-export const setRadioValue = (groupID: string, item: RadioItem) => ({
+export const setRadioValue = (groupID, item) => ({
   type: 'SET_RADIO_VALUE', groupID, item
 });
 
-export const setCheckboxValue = (boxID: string, value: bool) => ({
+export const setCheckboxValue = (boxID, value) => ({
   type: 'SET_CHECKBOX_VALUE', boxID, value
+});
+
+export const setActiveModal = (component) => ({
+  type: 'SET_ACTIVE_MODAL', component
+});
+
+export const toggleModal = (open) => ({
+  type: 'TOGGLE_MODAL', open
 });
 
 // Specialized actions below -- don't follow patterns
 // When adding actions here, add them to the exceptions array in the actions spec.
 
-export const updateLocation = (
-  { dispatch }: { dispatch: Function }
-) => (nextLocation: string) => dispatch(locationChange(nextLocation));
+export const updateLocation = ({ dispatch }) => (nextLocation) => dispatch(locationChange(nextLocation));

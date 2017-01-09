@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Modal from 'components/Modal';
 import Header from 'components/Header';
 import Footer from 'components/Footer';
 import Nav from 'components/Nav';
@@ -16,8 +16,11 @@ export function CoreLayout ({ children }) {
   }[location.pathname.slice(1)];
 
   return (
-    <div className={ `${pathClass} page-wrap` } id="content">
+    <div className={ 'page-wrap'.concat(` ${pathClass}`) } id="content">
+      <Modal />
+
       <Nav />
+
       { /* <CsModals /> */ }
       <div className="content-wrap">
         <Header />

@@ -1,11 +1,20 @@
 import React from 'react';
 import ArrowRight from './arrow-right-short.png';
+import * as actions from 'store/actions';
+import { connect } from 'react-redux';
 
-export function HomepageCaseStudy ({ study }) {
+export function HomepageCaseStudy (props) {
+  const { study, dispatch } = props;
+
+  const openModal = (component, openState) => {
+    dispatch(actions.setActiveModal(component));
+    dispatch(actions.toggleModal(openState));
+  };
+
   return (
     <div>
       {
-        <section className={ `home-${study.name} flex theme--dark home-section` }>
+        <section className={ `home-${study.id} flex theme--dark home-section` }>
           <div className="scene-container layout--absolute">
             <img src={ study.homepageImage } className="homepage-scene--image hide--msm" />
             { study.homepageMLGImage
@@ -13,14 +22,13 @@ export function HomepageCaseStudy ({ study }) {
               : null
             }
             <img src={ study.homepageMobileImage } className="homepage-scene--image show--msm" />
-            <div className={ `cs-${study.name} scene-target` } />
+            <div className={ `cs-${study.id} scene-target` } />
             <a name="work" className="scene-target work-anchor" />
             <div className="homepage--scene-text">
               <div className="row">
                 <div
-                  data-target={ `cs-${study.name}` }
-                  data-type="case-study"
-                  className="scene js-modal-trigger"
+                  onClick={ () => openModal(study.component, true) }
+                  className="scene"
                 >
                   <h2 className="typ--bold">{ study.caption1 }<br />{ study.caption2 }</h2>
                   <h5 className="btn btn--arrow">
@@ -43,9 +51,10 @@ export function HomepageCaseStudy ({ study }) {
   );
 }
 
-const { object } = React.PropTypes;
+const { object, func } = React.PropTypes;
 HomepageCaseStudy.propTypes = {
-  study: object
+  study: object,
+  dispatch: func
 };
 
-export default HomepageCaseStudy;
+export default connect()(HomepageCaseStudy);
