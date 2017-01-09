@@ -13,7 +13,7 @@ export function Header (props) {
 
   if (modalState.open) {
     // if modal is currently active
-    transformStyles = { opacity: 1, pointerEvents: 'none' };
+    transformStyles = { opacity: 0, pointerEvents: 'none' };
   } else {
     // if modal isn't currently active
     transformStyles = { opacity: 1, pointerEvents: 'auto' };
