@@ -27,3 +27,9 @@ export const checkboxes = {
   _init: fromJS({}),
   SET_CHECKBOX_VALUE: (state, action) => state.merge({ [action.boxID]: action.value })
 };
+
+export const modalState = {
+  _init: { component: null, open: false },
+  TOGGLE_MODAL: (state, action) => Object.assign({}, state, { open: action.open }),
+  SET_ACTIVE_MODAL: (state, action) => Object.assign({}, state, { component: action.component })
+};

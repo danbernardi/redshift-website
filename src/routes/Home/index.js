@@ -17,44 +17,53 @@ import NexusMobileImage from './Nexus/nexus-scene-bg-mobile.jpg';
 import FiveImage from './Five/five-scene-bg.jpg';
 import FiveMobileImage from './Five/five-scene-bg-mobile.jpg';
 
+import CSNorton from './Norton/CSNorton';
+import CSYumavore from './Yumavore/CSYumavore';
+import CSNexus from './Nexus/CSNexus';
+import CSFive from './Five/CSFive';
+
 const caseStudies = [
   {
-    name: 'norton',
+    id: 'norton',
     homepageImage: NortonImage,
     homepageMLGImage: NortonMLGImage,
     homepageMobileImage: NortonMobileImage,
     imageAlt: 'Norton creative design',
     caption1: 'A single interface',
     caption2: 'for all things Norton',
-    anchor: true
+    anchor: true,
+    component: <CSNorton />
   },
   {
-    name: 'yumavore',
+    id: 'yumavore',
     homepageImage: YumavoreImage,
     homepageMobileImage: YumavoreMobileImage,
     imageAlt: 'Yumavore app design',
     caption1: 'A new way to create',
     caption2: 'and share recipes',
-    anchor: false
+    anchor: false,
+    component: <CSYumavore />
   },
   {
-    name: 'nexus',
+    id: 'nexus',
     homepageImage: NexusImage,
     homepageMLGImage: NexusMLGImage,
     homepageMobileImage: NexusMobileImage,
     imageAlt: 'Nexus product website',
     caption1: 'A new home',
     caption2: 'for Google Nexus',
-    anchor: false
+    anchor: false,
+    component: <CSNexus />
   },
   {
-    name: 'five',
+    id: 'five',
     homepageImage: FiveImage,
     homepageMobileImage: FiveMobileImage,
     imageAlt: 'Redshift Five App',
     caption1: 'Share and compare',
     caption2: 'your top 5 of anything',
-    anchor: false
+    anchor: false,
+    component: <CSFive />
   }
 
 ];

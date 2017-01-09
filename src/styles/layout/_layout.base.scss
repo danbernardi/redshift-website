@@ -1,6 +1,5 @@
 .layout--left {
   float: left;
-  border: 0;
 }
 
 .layout--right {
@@ -45,7 +44,7 @@ ol {
 }
 
 .full-height {
-  min-height: 100vh;
+  @extend %full-height;
 }
 
 .double-height {
