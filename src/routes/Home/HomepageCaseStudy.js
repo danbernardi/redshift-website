@@ -2,17 +2,20 @@ import React from 'react';
 import ArrowRight from './arrow-right-short.png';
 import * as actions from 'store/actions';
 import { connect } from 'react-redux';
+import { scrollToID } from 'utils/scrollTo';
 
 export function HomepageCaseStudy (props) {
   const { study, dispatch } = props;
 
-  const openModal = (component, openState) => {
+  const openModal = (component, openState, id) => {
     dispatch(actions.setActiveModal(component));
     dispatch(actions.toggleModal(openState));
+
+    scrollToID(id, 250);
   };
 
   return (
-    <section className={ `home-${study.id} flex theme--dark home-section layout--relative` }>
+    <section id={ study.id } className={ `home-${study.id} flex theme--dark home-section layout--relative` }>
       <div className="scene-container layout--absolute">
         <img src={ study.homepageImage } className="homepage-scene--image hide--msm" />
         { study.homepageMLGImage
@@ -25,7 +28,7 @@ export function HomepageCaseStudy (props) {
         <div className="homepage--scene-text">
           <div className="row">
             <div
-              onClick={ () => openModal(study.component, true) }
+              onClick={ () => openModal(study.component, true, study.id) }
               className="scene"
             >
               <h2 className="typ--bold">{ study.caption1 }<br />{ study.caption2 }</h2>

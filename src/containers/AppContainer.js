@@ -1,7 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import { browserHistory, Router } from 'react-router';
-import { Provider } from 'react-redux';
+import { Provider, connect } from 'react-redux';
 import 'modernizr';
+import './styles.scss';
 
 class AppContainer extends Component {
   static propTypes = {
@@ -11,6 +12,16 @@ class AppContainer extends Component {
 
   shouldComponentUpdate () {
     return false;
+  }
+
+  componentWillReceiveProps (nextProps) {
+    if (nextProps.modalState.open) {
+      const html = document.getElementsByTagName('html');
+      if (html && html[0]) { html[0].classList.add('modal--open'); }
+    } else {
+      const html = document.getElementsByTagName('html');
+      if (html && html[0]) { html[0].classList.remove('modal--open'); }
+    }
   }
 
   render () {
@@ -26,4 +37,8 @@ class AppContainer extends Component {
   }
 }
 
-export default AppContainer;
+const injectStateProps = state => ({
+  modalState: state.modalState
+});
+
+export default connect(injectStateProps)(AppContainer);
