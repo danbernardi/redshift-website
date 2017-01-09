@@ -45,7 +45,7 @@ ol {
 }
 
 .full-height {
-  min-height: 100vh;
+  @extend %full-height;
 }
 
 .double-height {
