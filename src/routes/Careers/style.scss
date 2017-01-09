@@ -1,0 +1,94 @@
+@import 'sass-includes';
+
+.careers.modal--open {
+  .content-main.careers {
+    .page-title {
+      position: relative;
+      z-index: 1;
+    }
+  }
+}
+
+.careers-page-title {
+  padding-top: 20rem;
+}
+
+.job__left {
+  float: left;
+  height: 100%;
+  width: 100%;
+  background-color: #EE05BA;
+  z-index: 2;
+  left: 0;
+  position: absolute;
+  // media queries
+  @include breakpoint($mobile-lg) {
+    display: none;
+  }
+}
+
+.job__modal {
+  width: 100vw;
+  z-index: 4;
+  // media queries
+  @include breakpoint($tablet-md) {
+    width: 100vw;
+  }
+
+  .modal__inner {
+    padding-top: 7rem;
+    width: calc(100vw - 12rem);
+    background: $white;
+    z-index: 19;
+    // media queries
+    @include breakpoint($tablet-lg) {
+      padding-top: 5.3rem;
+    }
+    @include breakpoint($mobile-lg) {
+      width: 100%;
+      padding-top: 4.2rem;
+    }
+    @include breakpoint($mobile-sm) {
+      padding-left: 3.8;
+    }
+  }
+
+  .case-study-project-name,
+  .careers__type {
+    // media queries
+    text-transform: lowercase;
+    @include breakpoint($mobile-lg) {
+      position: relative;
+      top: 0.4rem;
+      margin-left: 4.4rem;
+    }
+    @include breakpoint($mobile-sm) {
+      top: -0.5rem;
+      margin-left: 4rem;
+    }
+  }
+}
+
+.careers-title {
+  font-weight: bold;
+  position: relative;
+  padding-top: 16rem;
+  padding-bottom: 4rem;
+  // media queries
+  @include breakpoint($tablet-lg) {
+    padding-top: 10rem;
+  }
+  @include breakpoint($mobile-sm) {
+    padding-top: 6rem;
+  }
+}
+
+.careers-section {
+  position: relative;
+  padding-top: 3.4rem;
+  padding-bottom: 1rem;
+}
+
+.job-description li {
+  list-style-type: none;
+}

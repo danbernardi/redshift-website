@@ -31,6 +31,11 @@
   width: 100%;
 }
 
+.row--maxwidth {
+  max-width: 140rem;
+  margin-left: 0;
+}
+
 @for $i from 1 through $columns {
   .col-#{$i} { lost-column: $i/$columns; }
 }
