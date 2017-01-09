@@ -7,8 +7,9 @@ const ModalCloseBtn = props => {
 
   const closeModal = () => {
     dispatch(actions.toggleModal(false));
-    this.setTimeout(() => {
+    const timing = setTimeout(() => {
       dispatch(actions.setActiveModal(null));
+      clearInterval(timing);
     }, animationTiming);
   };
 
@@ -35,7 +36,7 @@ const ModalCloseBtn = props => {
 ModalCloseBtn.propTypes = {
   modalState: React.PropTypes.object,
   dispatch: React.PropTypes.func,
-  animationTiming: React.PropTypes.bool
+  animationTiming: React.PropTypes.number
 };
 
 const injectStateProps = state => ({

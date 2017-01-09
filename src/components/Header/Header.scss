@@ -60,22 +60,22 @@
   .icon-hamburger span { background: $white; }
 }
 
-.modal--open {
-  .icon-close { color: $darkpurple; }
-  .icon-hamburger span { background: $darkpurple !important; }
-  .scene {opacity: 0 !important;}
+// .modal--open {
+//   .icon-close { color: $darkpurple; }
+//   .icon-hamburger span { background: $darkpurple !important; }
+//   .scene {opacity: 0 !important;}
 
-  .pink-theme,
-  .white-theme {
-    .icon-redshift {
-      color: $body;
+//   .pink-theme,
+//   .white-theme {
+//     .icon-redshift {
+//       color: $body;
 
-      &:hover {
-        color: $pink;
-      }
-    }
-  }
-}
+//       &:hover {
+//         color: $pink;
+//       }
+//     }
+//   }
+// }
 
 .modal--logo-close__swap {
   &.index {
