@@ -1,7 +1,7 @@
 import React from 'react';
 import Modal from 'components/Modal';
 import Header from 'components/Header';
-import Footer from 'components/Footer';
+// import Footer from 'components/Footer';
 import Nav from 'components/Nav';
 
 // import CsModals from 'components/case-studies/cs-modals';
@@ -60,7 +60,7 @@ export class CoreLayout extends React.Component {
           <div className={ `${pathClass} content-main content-swap` }>
             { children }
           </div>
-          <Footer />
+          {/* <Footer /> */}
         </div>
       </div>
     );
