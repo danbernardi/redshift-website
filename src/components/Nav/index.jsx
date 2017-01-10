@@ -1,33 +1,23 @@
 import React from 'react';
 import Footer from '../Footer';
+import { Link } from 'react-router';
 import './Nav.scss';
 
 const navLinks = [
-  {
-    name: 'work',
-    url: 'index.html#work'
-  },
-  {
-    name: 'about',
-    url: 'about.html'
-  },
-  {
-    name: 'careers',
-    url: 'careers.html'
-  }
+  { name: 'Work', to: '/' },
+  { name: 'About', to: '/about' },
+  { name: 'Careers', to: '/careers' }
 ];
 
 const NavLinksMap = () => (
-  <ul className='nav__menu list--block'>
+  <ul className="nav__menu list--block">
     {
       navLinks.map((navLink, i) => (
-        <li key={ i }>
-          <h1>
-            <a id={ `${navLink.name}_link` } className='typ--bold' href={ navLink.url }>
-              { navLink.name }
-            </a>
-          </h1>
-        </li>
+        <li key={ i }><h1>
+          <Link className="typ--bold" to={ navLink.to }>
+            { navLink.name }
+          </Link>
+        </h1></li>
       ))
     }
   </ul>
@@ -35,8 +25,8 @@ const NavLinksMap = () => (
 
 export function Nav () {
   return (
-    <div id='menu' className='modal current nav full-height'>
-      <div className='row'>
+    <div className="nav full-height">
+      <div className="row">
         <NavLinksMap />
       </div>
       <Footer />

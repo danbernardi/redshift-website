@@ -4,12 +4,23 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import './Header.scss';
 import './HeaderClose.scss';
+import * as actions from 'store/actions';
+import Nav from 'components/Nav/index';
 
 export function Header (props) {
-  const { modalState } = props;
+  const { modalState, dispatch } = props;
 
   const initialStyles = { transition: `opacity 500ms ease-in-out` };
   let transformStyles = {};
+
+  const toggleHeaderModal = () => {
+    if (modalState.open) {
+      dispatch(actions.toggleModal(false));
+    } else {
+      dispatch(actions.setActiveModal(<Nav />));
+      dispatch(actions.toggleModal(true));
+    }
+  };
 
   if (modalState.open) {
     // if modal is currently active
@@ -32,12 +43,8 @@ export function Header (props) {
           </span>
           <h3 className="page-title" />
         </div>
-        <div
-          data-target="#menu"
-          data-type="nav"
-          className="menu__trigger layout--right typ--link"
-        >
-          <span className="icon-hamburger">
+        <div onClick={ () => toggleHeaderModal() } className="menu__trigger layout--right typ--link">
+          <span className={ `icon-hamburger ${modalState.open && 'close-icon'}` }>
             <span />
             <span />
           </span>
@@ -48,7 +55,8 @@ export function Header (props) {
 }
 
 Header.propTypes = {
-  modalState: React.PropTypes.object
+  modalState: React.PropTypes.object,
+  dispatch: React.PropTypes.func
 };
 
 const injectStateProps = state => ({
