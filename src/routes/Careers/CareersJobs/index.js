@@ -1,7 +1,15 @@
 import React from 'react';
-import { Link } from 'react-router';
+import * as actions from 'store/actions';
+import { connect } from 'react-redux';
 
-export function CareersJobs ({ job }) {
+export function CareersJobs (props, { job }) {
+  const { dispatch } = props;
+
+  const openModal = (component, openState) => {
+    dispatch(actions.setActiveModal(component));
+    dispatch(actions.toggleModal(openState));
+  };
+
   return (
     <div>
       <section className={ `${job.target} py9 py6--mlg` }>
@@ -19,6 +27,7 @@ export function CareersJobs ({ job }) {
           data-target={ job.target }
           data-type="job-open"
           className="btn btn--arrow js-modal-trigger"
+          onClick={ () => openModal(job.component, true, job.target) }
         >
           View position
           <span className="icon-arrow-right pl2" />
@@ -28,9 +37,10 @@ export function CareersJobs ({ job }) {
   );
 }
 
-const { object } = React.PropTypes;
+const { object, func } = React.PropTypes;
 CareersJobs.propTypes = {
-  job: object
+  job: object,
+  dispatch: func
 };
 
-export default CareersJobs;
+export default connect()(CareersJobs);
