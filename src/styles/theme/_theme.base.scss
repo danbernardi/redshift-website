@@ -43,7 +43,7 @@ a {
   .nav__menu li a {
     &:hover {
       @extend %gradient-text;
-      background: linear-gradient(45deg, $redshift, $cranberry); 
+      background: linear-gradient(45deg, $redshift, $cranberry);
     }
   }
 }

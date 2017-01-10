@@ -11,7 +11,7 @@ const careers = [
     p1: 'At Redshift, in addition to being a top-notch UX designer, and leading cross-functional project teams, UX Leads are responsible for regularly presenting work to clients, so the ability to communicate confidently and clearly are essential. Leads must be able to speak fluently about both business objectives and design principles, and to handle feedback and questions with poise.',
     p2: 'UX designers, consultants, project managers, and interactive producers are all potential candidates.',
     p3: 'This role reports to our Director of UX',
-    target: 'senior-ux-designer',
+    id: 'senior-ux-designer',
     component: <SrUxDesigner />
   },
   {
@@ -19,13 +19,13 @@ const careers = [
     p1: 'At Redshift, UX Designers are part of cross-functional project teams, working with a Senior UX Designer, Visual Designer, User Researchers, Front-End Engineers, Producers, and company leaders.',
     p2: 'UX designers, consultants, project managers, and interactive producers are all potential candidates.',
     p3: 'This role reports to our Director of UX',
-    target: 'ux-designer',
+    id: 'ux-designer',
     component: <UxDesigner />
   },
   {
     position: 'Senior Visual Designer',
     p1: 'Redshift is seeking a Senior Visual Designer to join our creative team in San Francisco. You will work closely with the Creative Director, UX Producer and larger Redshift team to concept and create interactive solutions for a large variety of digital projects. We are a small shop with big clients so you can expect to work on web sites, kiosks, interfaces, experiences, occasional print and even product design.',
-    target: 'senior-visual-designer',
+    id: 'senior-visual-designer',
     component: <SrVisDesigner />
   }
 ];
