@@ -1,4 +1,5 @@
 import React from 'react';
+import AttachmentImage from './attachment.png';
 
 export function JobContactForm ({ form }) {
   return (
