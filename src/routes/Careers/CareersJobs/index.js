@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 export function CareersJobs ({ job }) {
   return (
@@ -15,14 +16,16 @@ export function CareersJobs ({ job }) {
             ? <p className="typ--h4 mb6 mb3--mlg">{ job.p3 }</p>
             : null
           }
-          <h5
-            data-target={ job.target }
-            data-type="job-open"
-            className="btn btn--arrow js-modal-trigger"
-          >
-            View position
-            <span className="icon-arrow-right pl2" />
-          </h5>
+          <Link to={ `/careers/${job.target}` }>
+            <h5
+              data-target={ job.target }
+              data-type="job-open"
+              className="btn btn--arrow js-modal-trigger"
+            >
+              View position
+              <span className="icon-arrow-right pl2" />
+            </h5>
+          </Link>
         </section>
       }
     </div>

@@ -4,9 +4,9 @@ import CSFive from './Home/Five/CSFive';
 import CSYumavore from './Home/Yumavore/CSYumavore';
 import CSNexus from './Home/Nexus/CSNexus';
 import CSNorton from './Home/Norton/CSNorton';
-import CareerSeniorUX from './Careers/CareersJobs/CareerSeniorUX';
-import CareerUXDesigner from './Careers/CareersJobs/CareerUXDesigner';
-import CareerSeniorVisual from './Careers/CareersJobs/CareerSeniorVisual';
+import SeniorUX from './Careers/CareersJobs/roles/SeniorUX';
+import UXDesigner from './Careers/CareersJobs/roles/UXDesigner';
+import SeniorVisual from './Careers/CareersJobs/roles/SeniorVisual';
 import About from './About';
 import Careers from './Careers';
 // import Library from './Library';
@@ -22,10 +22,15 @@ export function createRoutes (store) {
       { path: 'nexus', component: CSNexus },
       { path: 'norton', component: CSNorton },
       { path: 'about', component: About },
-      { path: 'careers', component: Careers },
-      { path: 'careers-senior-ux-position', component: CareerSeniorUX },
-      { path: 'careers-ux-designer-position', component: CareerUXDesigner },
-      { path: 'careers-senior-visual-designer-position', component: CareerSeniorVisual }
+      {
+        path: 'careers',
+        indexRoute: { component: Careers },
+        childRoutes: [
+          { path: '/careers/senior-ux-designer', component: SeniorUX },
+          { path: '/careers/ux-designer', component: UXDesigner },
+          { path: '/careers/senior-visual-designer', component: SeniorVisual }
+        ]
+      }
     ]
   });
 }
