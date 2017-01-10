@@ -1,11 +1,9 @@
 import React from 'react';
-import JobContact from './JobContact';
-import JobThanks from './JobThanks';
-import '../style.scss';
+import RoleTemplate from './RoleTemplate';
 
 export function CareerSeniorVisual () {
   return (
-    <div>
+    <RoleTemplate name="Senior Visual Designer">
       <section id="sr-visual-designer" className="modal__content job-description">
         <div className="row pb10 row--maxwidth">
           <h4 className="typ--light careers__type">VISUAL</h4>
@@ -37,26 +35,7 @@ export function CareerSeniorVisual () {
           </ul>
         </div>
       </section>
-      <section>
-        <div classNameName="contact__form py8">
-          <div classNameName="row">
-            <h3 classNameName="pb4">Apply</h3>
-            {/*
-            <form
-              id="rs-contact-03"
-              encType="multipart/form-data"
-              method="post"
-              classNameName="apply-form sr-visual-designer"
-            >
-              <input type="hidden" value="Senior Visual Designer" name="from_position" />
-              <JobContact />
-            </form>
-            */}
-            <JobThanks />
-          </div>
-        </div>
-      </section>
-    </div>
+    </RoleTemplate>
   );
 }
 

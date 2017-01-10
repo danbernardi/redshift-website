@@ -5,16 +5,19 @@ export function JobContactForm ({ form }) {
     <div>
       <div className={ `${form.class} col-6 col-12--tmd` }>
         <div className={ `form__group ${form.formClass}` }>
-          { form.type === 'file'
-            ? <label htmlFor="file-input" name="attachment" >Attachments{ AttachmentImage }</label>
-            : null
+          {
+            form.type === 'file'
+              ? <label htmlFor="file-input" name="attachment" >Attachments{ /* AttachmentImage */ }</label>
+              : null
           }
           <input
             type={ form.type }
-            value={ form.formValue }
+            placeholder={ form.description }
             name={ form.name }
-            onBlur={ `if (this.value=='') this.value = ${form.formValue}` }
-            onFocus={ `if (this.value==${form.formValue}) this.value = ''` }
+            value={ form.value }
+            // onChange={ event => { onChange(form.description, event.target.value); } }
+            // onBlur={ `if (this.value=='') this.value = ${form.formValue}` }
+            // onFocus={ `if (this.value==${form.formValue}) this.value = ''` }
             className={ form.required ? 'required' : null }
           />
         </div>
@@ -23,9 +26,10 @@ export function JobContactForm ({ form }) {
   );
 }
 
-const { object } = React.PropTypes;
+const { object, func } = React.PropTypes;
 JobContactForm.propTypes = {
-  form: object
+  form: object,
+  onChange: func
 };
 
 export default JobContactForm;
