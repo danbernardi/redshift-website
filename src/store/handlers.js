@@ -34,12 +34,18 @@ export const modalState = {
   SET_ACTIVE_MODAL: (state, action) => Object.assign({}, state, { component: action.component })
 };
 
-export const activeCaseStudy = {
+export const caseStudyState = {
   _init: { current: [], currentScrollPos: 0 },
   SET_NEXT_CASE_STUDY: (state, action) => {
-    const newCurrent = state.current.slice();
-    if (newCurrent.length >= 2) { newCurrent.shift(); };
-    newCurrent.push(action.nextID);
+    let newCurrent;
+    if (action.reset) {
+      newCurrent = [action.nextID];
+    } else {
+      newCurrent = state.current.slice();
+      if (newCurrent.length >= 2) { newCurrent.shift(); };
+      newCurrent.push(action.nextID);
+    }
+
     return Object.assign({}, state, { current: newCurrent, currentScrollPos: action.scrollPos });
   }
 };

@@ -9,7 +9,7 @@ export function HomepageCaseStudy (props) {
   const { study, dispatch, modalState } = props;
 
   const openModal = (component, openState, id) => {
-    dispatch(actions.setNextCaseStudy(id));
+    dispatch(actions.setNextCaseStudy(id, true));
     dispatch(actions.setActiveModal(<CaseStudyModalWrapper />));
     dispatch(actions.toggleModal(openState));
 

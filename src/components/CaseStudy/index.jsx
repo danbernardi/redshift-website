@@ -8,7 +8,7 @@ import './styles.scss';
 
 class CaseStudy extends React.Component {
   componentDidMount () {
-    const { animateIn, activeCaseStudy } = this.props;
+    const { animateIn, caseStudyState } = this.props;
     const casestudy = ReactDOM.findDOMNode(this.refs.casestudy);
 
     if (animateIn) {
@@ -23,7 +23,7 @@ class CaseStudy extends React.Component {
       }, 1);
     } else {
       // set scroll position of outgoing div
-      casestudy.scrollTop = activeCaseStudy.currentScrollPos;
+      casestudy.scrollTop = caseStudyState.currentScrollPos;
     }
   }
 
@@ -31,11 +31,11 @@ class CaseStudy extends React.Component {
     window.clearInterval(this.timer);
   }
 
-  triggerNextModal (component, nextID) {
+  triggerNextCaseStudy (component, nextID) {
     const { dispatch } = this.props;
     const casestudy = ReactDOM.findDOMNode(this.refs.casestudy);
     const currentScrollPos = casestudy.scrollTop;
-    dispatch(actions.setNextCaseStudy(nextID, currentScrollPos));
+    dispatch(actions.setNextCaseStudy(nextID, false, currentScrollPos));
     scrollToID(nextID, 500);
   };
 
@@ -63,7 +63,7 @@ class CaseStudy extends React.Component {
          }
 
         { typeof next === 'object' &&
-          <div className="casestudy__next py7" onClick={ () => this.triggerNextModal(next.component, next.id) }>
+          <div className="casestudy__next py7" onClick={ () => this.triggerNextCaseStudy(next.component, next.id) }>
             <div className="row">
               <h2 className={ `typ--${next.id}` }>{ next.name }</h2>
               <span className="typ--default">View case study</span>
@@ -82,12 +82,12 @@ CaseStudy.propTypes = {
   content: React.PropTypes.array,
   next: React.PropTypes.object,
   dispatch: React.PropTypes.func,
-  activeCaseStudy: React.PropTypes.object,
+  caseStudyState: React.PropTypes.object,
   animateIn: React.PropTypes.bool
 };
 
 const injectStateProps = state => ({
-  activeCaseStudy: state.activeCaseStudy
+  caseStudyState: state.caseStudyState
 });
 
 export default connect(injectStateProps)(CaseStudy);
