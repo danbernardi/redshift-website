@@ -2,6 +2,10 @@ import React from 'react';
 import AttachmentImage from './attachment.png';
 
 export function JobContactForm ({ form }) {
+  const additionalProps = form.type === 'file'
+    ? { multiple: true, id: 'file-input' }
+    : {};
+
   return (
     <div className={ `${form.classes} col-6 col-12--tmd` }>
       <div className={ `form__group mb6 ${form.formClass}` }>
@@ -19,6 +23,8 @@ export function JobContactForm ({ form }) {
           // onBlur={ `if (this.value=='') this.value = ${form.formValue}` }
           // onFocus={ `if (this.value==${form.formValue}) this.value = ''` }
           className={ form.required ? 'required' : null }
+          { ...additionalProps }
+
         />
       </div>
     </div>

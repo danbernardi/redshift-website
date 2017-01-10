@@ -1,6 +1,7 @@
 import React from 'react';
 
 import JobContactForm from './JobContactForm';
+import JobThanks from './JobThanks';
 
 const formItems = [
   {
@@ -44,12 +45,15 @@ export class JobContact extends React.Component {
 
   render () {
     const { buttonText } = this.state;
+    const { position } = this.props;
 
-    const onSend = () => {
+    const onSend = (e) => {
+      e.preventDefault();
       const serviceID = 'default_service';
       const templateID = 'template_GPu7g1GL';
 
       this.setState({ buttonText: 'Sending...' });
+
       window.emailjs.sendForm(serviceID, templateID, this.form)
         .then(() => {
           this.setState({ buttonText: 'Sent' });
@@ -59,25 +63,43 @@ export class JobContact extends React.Component {
         });
     };
 
-    return (
-      <div ref={ el => { this.form = el; } }>
-        {
-          formItems.map((form, index) => (
-            <JobContactForm key={ index } form={ form } />
-          ))
-        }
-        <div className="col-12 pt8">
-          <button
-            ref={ el => { this.button = el; } }
-            className="btn typ--jobs"
-            onClick={ onSend }
-          >
-            { buttonText }
-          </button>
-        </div>
-      </div>
-    );
+    if (buttonText === 'Sent') {
+      return <JobThanks />;
+    } else {
+      return (
+        <form
+          id="rs-contact-03"
+          encType="multipart/form-data"
+          method="post"
+          className={ `apply-form ${name.split(' ').map(s => s.toLowerCase()).join('-') }` }
+          ref={ el => { this.form = el; } }
+        >
+          <input type="hidden" value={ position } name="from_position" />
+          <div>
+            {
+              formItems.map((form, index) => (
+                <JobContactForm key={ index } form={ form } />
+              ))
+            }
+            <div className="col-12 pt8">
+              <button
+                ref={ el => { this.button = el; } }
+                className="btn typ--jobs"
+                onClick={ e => { onSend(e); } }
+              >
+                { buttonText }
+              </button>
+            </div>
+          </div>
+        </form>
+      );
+    }
   }
+};
+
+const { string } = React.PropTypes;
+JobContact.propTypes = {
+  position: string
 };
 
 export default JobContact;

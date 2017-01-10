@@ -103,9 +103,9 @@
     padding-bottom: 2.7rem;
   }
 
-  .form-thanks {
-    display: none;
-  }
+  // .form-thanks {
+  //   display: none;
+  // }
 
   input[type=text],
   input[type=email],
@@ -134,15 +134,15 @@
   cursor: pointer;
 }
 
-.form-success {
-  form {
-    display: none;
-  }
+// .form-success {
+//   form {
+//     display: none;
+//   }
 
-  .form-thanks {
-    display: block;
-  }
-}
+//   .form-thanks {
+//     display: block;
+//   }
+// }
 
 input:-webkit-autofill {
   background-color: #F7F7F7;
