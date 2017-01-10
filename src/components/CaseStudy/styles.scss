@@ -23,9 +23,12 @@
 }
 
 .casestudy {
+  position: absolute;
   padding-top: 6.5rem;
   background: $white;
-  float: right;
+  right: 0;
+  overflow: auto;
+  height: 100%;
   width: calc(100vw - 17rem);
   // media queries
   @include breakpoint($tablet-lg) {

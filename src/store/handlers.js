@@ -33,3 +33,13 @@ export const modalState = {
   TOGGLE_MODAL: (state, action) => Object.assign({}, state, { open: action.open }),
   SET_ACTIVE_MODAL: (state, action) => Object.assign({}, state, { component: action.component })
 };
+
+export const activeCaseStudy = {
+  _init: { current: [], currentScrollPos: 0 },
+  SET_NEXT_CASE_STUDY: (state, action) => {
+    const newCurrent = state.current.slice();
+    if (newCurrent.length >= 2) { newCurrent.shift(); };
+    newCurrent.push(action.nextID);
+    return Object.assign({}, state, { current: newCurrent, currentScrollPos: action.scrollPos });
+  }
+};

@@ -3,8 +3,11 @@ import CaseStudy from '../../../components/CaseStudy/index';
 import five1 from './five1.jpg';
 import five2 from './five2.jpg';
 import five3 from './five3.jpg';
+import CSNorton from '../Norton/CSNorton';
 
-const CSFive = () => {
+const CSFive = (props) => {
+  const { animateIn } = props;
+
   const content = [
     {
       img: five1,
@@ -31,12 +34,18 @@ const CSFive = () => {
 
   return (
     <CaseStudy
+      id="five"
       name="Five"
       heading="We develop our own products, too. FIVE lets you share your favorite things in a simple and catchy format – the top five list."
       content={ content }
-      next={ { id: 'norton', name: 'Norton Antivirus' } }
+      next={ { id: 'norton', name: 'Norton Antivirus', component: <CSNorton /> } }
+      animateIn={ animateIn }
     />
   );
+};
+
+CSFive.propTypes = {
+  animateIn: React.PropTypes.bool
 };
 
 export default CSFive;

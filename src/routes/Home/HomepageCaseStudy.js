@@ -3,18 +3,20 @@ import ArrowRight from './arrow-right-short.png';
 import * as actions from 'store/actions';
 import { connect } from 'react-redux';
 import { scrollToID } from 'utils/scrollTo';
+import CaseStudyModalWrapper from 'components/CaseStudy/CaseStudyModalWrapper';
 
 export function HomepageCaseStudy (props) {
   const { study, dispatch, modalState } = props;
 
   const openModal = (component, openState, id) => {
-    dispatch(actions.setActiveModal(component));
+    dispatch(actions.setNextCaseStudy(id));
+    dispatch(actions.setActiveModal(<CaseStudyModalWrapper />));
     dispatch(actions.toggleModal(openState));
 
-    scrollToID(id, 250);
+    scrollToID(id, 115);
   };
 
-  const initialStyles = { transition: `opacity 500ms ease-in-out` };
+  const initialStyles = { transition: `opacity 300ms ease-in-out` };
   let transformStyles = {};
 
   if (modalState.open) {

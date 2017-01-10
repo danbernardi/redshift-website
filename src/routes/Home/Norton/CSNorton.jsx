@@ -3,8 +3,11 @@ import CaseStudy from '../../../components/CaseStudy/index';
 import norton1 from './norton1.jpg';
 import norton2 from './norton2.jpg';
 import norton4 from './norton4.jpg';
+import CSYumavore from '../Yumavore/CSYumavore';
 
-const CSNorton = () => {
+const CSNorton = (props) => {
+  const { animateIn } = props;
+
   const content = [
     {
       img: norton1,
@@ -29,12 +32,18 @@ const CSNorton = () => {
 
   return (
     <CaseStudy
+      id="norton"
       name="Norton Antivirus"
       heading="We were chosen by Symantec to design a cloud-based solution which allows customers to discover, buy and manage the entire suite of Norton products."
       content={ content }
-      next={ { id: 'yumavore', name: 'Yumavore' } }
+      next={ { id: 'yumavore', name: 'Yumavore', component: <CSYumavore /> } }
+      animateIn={ animateIn }
     />
   );
+};
+
+CSNorton.propTypes = {
+  animateIn: React.PropTypes.bool
 };
 
 export default CSNorton;

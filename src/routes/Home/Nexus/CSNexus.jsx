@@ -4,8 +4,11 @@ import nexus1 from './nexus1.jpg';
 import nexus2 from './nexus2.jpg';
 import nexus3 from './nexus3.jpg';
 import nexus4 from './nexus4.jpg';
+import CSFive from '../Five/CSFive';
 
-const CSNexus = () => {
+const CSNexus = (props) => {
+  const { animateIn } = props;
+
   const content = [
     {
       img: nexus1,
@@ -31,12 +34,18 @@ const CSNexus = () => {
 
   return (
     <CaseStudy
+      id="nexus"
       name="Google Nexus"
       heading="We partnered with Autofuss and Unit9 to redesign the product site for the Google Nexus family of phones and tablets."
       content={ content }
-      next={ { id: 'five', name: 'Five' } }
+      next={ { id: 'five', name: 'Five', component: <CSFive /> } }
+      animateIn={ animateIn }
     />
   );
+};
+
+CSNexus.propTypes = {
+  animateIn: React.PropTypes.bool
 };
 
 export default CSNexus;
