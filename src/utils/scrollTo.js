@@ -1,4 +1,5 @@
 import ReactDOM from 'react-dom';
+import smoothscroll from 'smoothscroll';
 
 export function scrollToItem (duration = 200, item) {
   if (duration <= 0) { return null; }
@@ -20,7 +21,7 @@ export function scrollToMe (duration = 200) {
 
 export function scrollToID (id, duration = 200) {
   const item = document.getElementById(id);
-  scrollToItem(duration, item);
+  smoothscroll(item, duration);
 }
 
 export function scrollElemToZero (elem) {

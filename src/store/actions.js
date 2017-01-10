@@ -34,6 +34,10 @@ export const toggleModal = (open) => ({
   type: 'TOGGLE_MODAL', open
 });
 
+export const setNextCaseStudy = (nextID, reset = false, scrollPos) => ({
+  type: 'SET_NEXT_CASE_STUDY', nextID, reset, scrollPos
+});
+
 // Specialized actions below -- don't follow patterns
 // When adding actions here, add them to the exceptions array in the actions spec.
 

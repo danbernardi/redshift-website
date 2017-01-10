@@ -5,7 +5,7 @@ import './styles.scss';
 
 const Modal = props => {
   const { modalState } = props;
-  const animationTiming = 500;
+  const animationTiming = 200;
 
   const initialStyles = { transition: `transform ${animationTiming}ms ease-in-out` };
   let transformStyles = {};
@@ -23,7 +23,7 @@ const Modal = props => {
       <ModalCloseBtn animationTiming={ animationTiming } />
 
       <div className="modal" style={ Object.assign(initialStyles, transformStyles) }>
-        { modalState.component && modalState.component }
+        { modalState.component }
       </div>
     </div>
   );

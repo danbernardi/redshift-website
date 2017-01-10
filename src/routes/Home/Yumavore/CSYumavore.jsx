@@ -6,8 +6,11 @@ import yumavore3 from './yumavore3.jpg';
 import yumavore4 from './yumavore4.jpg';
 import yumavore5 from './yumavore5.jpg';
 import yumavore6 from './yumavore6.jpg';
+import CSNexus from '../Nexus/CSNexus';
 
-const CSYumavore = () => {
+const CSYumavore = (props) => {
+  const { animateIn } = props;
+
   const content = [
     {
       img: yumavore1,
@@ -45,12 +48,18 @@ const CSYumavore = () => {
 
   return (
     <CaseStudy
+      id="yumavore"
       name="Yumavore"
       heading="Working with celebrity chef Tyler Florence, we designed a publishing platform that allows anyone to create and share beautiful recipes with the world."
       content={ content }
-      next={ { id: 'nexus', name: 'Google Nexus' } }
+      next={ { id: 'nexus', name: 'Google Nexus', component: <CSNexus /> } }
+      animateIn={ animateIn }
     />
   );
+};
+
+CSYumavore.propTypes = {
+  animateIn: React.PropTypes.bool
 };
 
 export default CSYumavore;

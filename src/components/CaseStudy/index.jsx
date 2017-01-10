@@ -1,46 +1,93 @@
 import React from 'react';
 import CaseStudySection from './CaseStudySection';
+import { connect } from 'react-redux';
+import * as actions from 'store/actions';
+import { scrollToID } from 'utils/scrollTo';
+import ReactDOM from 'react-dom';
 import './styles.scss';
 
-const CaseStudy = props => {
-  const { name, content, heading, next } = props;
+class CaseStudy extends React.Component {
+  componentDidMount () {
+    const { animateIn, caseStudyState } = this.props;
+    const casestudy = ReactDOM.findDOMNode(this.refs.casestudy);
 
-  return (
-    <section className="casestudy">
-      <div className="row">
-        <h4 className="casestudy__name typ--caps">{ name }</h4>
-      </div>
+    if (animateIn) {
+      // reset translate position to off canvas
+      casestudy.style.transition = 'none';
+      casestudy.style.transform = 'translateY(100%)';
 
-      <div className="row">
-        <h1 className="casestudy__heading">{ heading }</h1>
-      </div>
+      this.timer = setTimeout(() => {
+        // animate in after timeout to solve for race condition
+        casestudy.style.transition = 'transform 0.3s ease-in-out';
+        casestudy.style.transform = 'none';
+      }, 1);
+    } else {
+      // set scroll position of outgoing div
+      casestudy.scrollTop = caseStudyState.currentScrollPos;
+    }
+  }
 
-      { content && content.length ?
-        content.map((section, index) => (
-          <CaseStudySection
-            key={ index }
-            { ...section }
-          />
-        ))
-      : null }
+  componentWillUnmount () {
+    window.clearInterval(this.timer);
+  }
 
-      { typeof next === 'object' ?
-        <div className="casestudy__next py7" data-target={ next.id }>
-          <div className="row">
-            <h2 className={ `typ--${next.id}` }>{ next.name }</h2>
-            <span className="typ--default">View case study</span>
-          </div>
+  triggerNextCaseStudy (component, nextID) {
+    const { dispatch } = this.props;
+    const casestudy = ReactDOM.findDOMNode(this.refs.casestudy);
+    const currentScrollPos = casestudy.scrollTop;
+    dispatch(actions.setNextCaseStudy(nextID, false, currentScrollPos));
+    scrollToID(nextID, 500);
+  };
+
+  render () {
+    const { id, name, content, heading, next } = this.props;
+
+    const initialStyles = {
+      transition: 'transform 0.3s ease-in-out'
+    };
+
+    return (
+      <section ref="casestudy" className={ `casestudy ${id}` } style={ initialStyles }>
+        <div className="row">
+          <h4 className="casestudy__name typ--caps">{ name }</h4>
+          <h1 className="casestudy__heading">{ heading }</h1>
         </div>
-      : null }
-    </section>
-  );
-};
+
+        { content && content.length &&
+          content.map((section, index) => (
+            <CaseStudySection
+              key={ index }
+              { ...section }
+            />
+          ))
+         }
+
+        { typeof next === 'object' &&
+          <div className="casestudy__next py7" onClick={ () => this.triggerNextCaseStudy(next.component, next.id) }>
+            <div className="row">
+              <h2 className={ `typ--${next.id}` }>{ next.name }</h2>
+              <span className="typ--default">View case study</span>
+            </div>
+          </div>
+        }
+      </section>
+    );
+  }
+}
 
 CaseStudy.propTypes = {
+  id: React.PropTypes.string,
   name: React.PropTypes.string,
   heading: React.PropTypes.string,
   content: React.PropTypes.array,
-  next: React.PropTypes.object
+  next: React.PropTypes.object,
+  dispatch: React.PropTypes.func,
+  caseStudyState: React.PropTypes.object,
+  animateIn: React.PropTypes.bool
 };
 
-export default CaseStudy;
+const injectStateProps = state => ({
+  caseStudyState: state.caseStudyState
+});
+
+export default connect(injectStateProps)(CaseStudy);

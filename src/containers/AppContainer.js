@@ -15,11 +15,12 @@ class AppContainer extends Component {
   }
 
   componentWillReceiveProps (nextProps) {
+    const html = document.getElementsByTagName('html');
+
+    // halt normal page scrolling if modal is open
     if (nextProps.modalState.open) {
-      const html = document.getElementsByTagName('html');
       if (html && html[0]) { html[0].classList.add('modal--open'); }
     } else {
-      const html = document.getElementsByTagName('html');
       if (html && html[0]) { html[0].classList.remove('modal--open'); }
     }
   }

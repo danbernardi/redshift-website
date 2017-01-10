@@ -3,16 +3,29 @@ import ArrowRight from './arrow-right-short.png';
 import * as actions from 'store/actions';
 import { connect } from 'react-redux';
 import { scrollToID } from 'utils/scrollTo';
+import CaseStudyModalWrapper from 'components/CaseStudy/CaseStudyModalWrapper';
 
 export function HomepageCaseStudy (props) {
-  const { study, dispatch } = props;
+  const { study, dispatch, modalState } = props;
 
   const openModal = (component, openState, id) => {
-    dispatch(actions.setActiveModal(component));
+    dispatch(actions.setNextCaseStudy(id, true));
+    dispatch(actions.setActiveModal(<CaseStudyModalWrapper />));
     dispatch(actions.toggleModal(openState));
 
-    scrollToID(id, 250);
+    scrollToID(id, 500);
   };
+
+  const initialStyles = { transition: `opacity 300ms ease-in-out` };
+  let transformStyles = {};
+
+  if (modalState.open) {
+    // if modal is currently active
+    transformStyles = { opacity: 0, pointerEvents: 'none' };
+  } else {
+    // if modal isn't currently active
+    transformStyles = { opacity: 1, pointerEvents: 'auto' };
+  }
 
   return (
     <section id={ study.id } className={ `home-${study.id} flex theme--dark home-section layout--relative` }>
@@ -25,7 +38,7 @@ export function HomepageCaseStudy (props) {
         <img src={ study.homepageMobileImage } className="homepage-scene--image show--msm" />
         <div className={ `cs-${study.id} scene-target` } />
         <a name="work" className="scene-target work-anchor" />
-        <div className="homepage--scene-text">
+        <div className="homepage--scene-text" style={ Object.assign(initialStyles, transformStyles) }>
           <div className="row">
             <div
               onClick={ () => openModal(study.component, true, study.id) }
@@ -53,7 +66,12 @@ export function HomepageCaseStudy (props) {
 const { object, func } = React.PropTypes;
 HomepageCaseStudy.propTypes = {
   study: object,
-  dispatch: func
+  dispatch: func,
+  modalState: object
 };
 
-export default connect()(HomepageCaseStudy);
+const injectStateProps = state => ({
+  modalState: state.modalState
+});
+
+export default connect(injectStateProps)(HomepageCaseStudy);
