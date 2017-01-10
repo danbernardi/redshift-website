@@ -49,10 +49,11 @@
   }
 }
 
-.nav__menu li a {
+.nav__menu li {
   color: $body;
   position: relative;
   top: 4rem;
+  cursor: pointer;
   // opacity: 0;
   // transition: top 0.18s, opacity 0.22s ease-out;
   // transition-delay: 0.42s;
