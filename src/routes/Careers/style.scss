@@ -91,4 +91,59 @@
 
 .job-description li {
   list-style-type: none;
+  margin-bottom: 1.5rem;
+}
+
+.contact__form {
+  background-color: #F7F7F7;
+  overflow: hidden;
+
+  .form__group {
+    border-bottom: solid 1px #CDCDCD;
+    padding-bottom: 2.7rem;
+  }
+
+  // .form-thanks {
+  //   display: none;
+  // }
+
+  input[type=text],
+  input[type=email],
+  label {
+    @include font-size(h4);
+    color: $body;
+    width: 100%;
+    background-color: #F7F7F7;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+  }
+}
+
+.form__attach > input {
+  display: none;
+}
+
+.form__attach lable {
+  width: 100%;
+}
+
+.form__attach label img {
+  float: right;
+  cursor: pointer;
+}
+
+// .form-success {
+//   form {
+//     display: none;
+//   }
+
+//   .form-thanks {
+//     display: block;
+//   }
+// }
+
+input:-webkit-autofill {
+  background-color: #F7F7F7;
 }

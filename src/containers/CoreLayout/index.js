@@ -49,7 +49,7 @@ export class CoreLayout extends React.Component {
     const { children } = this.props;
 
     return (
-      <div className={ 'page-wrap'.concat(` ${pathClass}`) } id="content">
+      <div className={ `${pathClass} page-wrap` } id="content">
         <Modal />
 
         <Nav />
