@@ -13,7 +13,7 @@ export function HomepageCaseStudy (props) {
     dispatch(actions.setActiveModal(<CaseStudyModalWrapper />));
     dispatch(actions.toggleModal(openState));
 
-    scrollToID(id, 115);
+    scrollToID(id, 500);
   };
 
   const initialStyles = { transition: `opacity 300ms ease-in-out` };

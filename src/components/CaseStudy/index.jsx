@@ -36,7 +36,7 @@ class CaseStudy extends React.Component {
     const casestudy = ReactDOM.findDOMNode(this.refs.casestudy);
     const currentScrollPos = casestudy.scrollTop;
     dispatch(actions.setNextCaseStudy(nextID, currentScrollPos));
-    scrollToID(nextID, 200);
+    scrollToID(nextID, 500);
   };
 
   render () {
