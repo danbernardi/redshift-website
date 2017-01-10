@@ -12,6 +12,7 @@ const formItems = [
     required: true
   },
   {
+    classes: 'col-last',
     formClass: 'form__email',
     type: 'email',
     description: 'Email',
@@ -27,6 +28,7 @@ const formItems = [
     required: true
   },
   {
+    classes: 'col-last',
     formClass: 'form__attach',
     type: 'file',
     description: 'attachment',
