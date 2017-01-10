@@ -13,20 +13,6 @@
   padding-top: 20rem;
 }
 
-.job__left {
-  float: left;
-  height: 100%;
-  width: 100%;
-  background-color: #EE05BA;
-  z-index: 2;
-  left: 0;
-  position: absolute;
-  // media queries
-  @include breakpoint($mobile-lg) {
-    display: none;
-  }
-}
-
 .job__modal {
   width: 100vw;
   z-index: 4;
@@ -103,10 +89,6 @@
     padding-bottom: 2.7rem;
   }
 
-  // .form-thanks {
-  //   display: none;
-  // }
-
   input[type=text],
   input[type=email],
   label {
@@ -134,16 +116,34 @@
   cursor: pointer;
 }
 
-// .form-success {
-//   form {
-//     display: none;
-//   }
-
-//   .form-thanks {
-//     display: block;
-//   }
-// }
-
 input:-webkit-autofill {
   background-color: #F7F7F7;
+}
+
+.job--modal  {
+  height: 100%;
+}
+
+.job--modal__left {
+  float: left;
+  height: 100%;
+  width: 17rem;
+  background-color: #EE05BA;
+  z-index: 2;
+  left: 0;
+  position: absolute;
+  // media queries
+  @include breakpoint($mobile-lg) {
+    display: none;
+  }
+}
+
+.job--modal__right {
+  padding-top: 6.7rem;
+  width: calc(100vw - 17rem);
+  background: #FFF;
+  z-index: 19;
+  float: right;
+  overflow: auto;
+  height: 100%;
 }

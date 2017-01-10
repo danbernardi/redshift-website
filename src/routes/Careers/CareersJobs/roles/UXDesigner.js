@@ -4,8 +4,8 @@ import JobDescription from './JobDescription';
 const jobDetail = {
   id: 'ux-designer',
   header: 'UX',
-  position: 'Senior Visual Designer',
-  description: 'At Redshift, UX Designers are part of cross-functional project teams, working with a Senior UX Designer, Visual Designer, User Researchers, Front-End Engineers, Producers, and company leaders.</h3>UX designers, consultants, project managers, and interactive producers are all potential candidates.',
+  position: 'UX Designer',
+  description: 'At Redshift, UX Designers are part of cross-functional project teams, working with a Senior UX Designer, Visual Designer, User Researchers, Front-End Engineers, Producers, and company leaders. UX designers, consultants, project managers, and interactive producers are all potential candidates. This role reports to our Director of UX.',
   responsibilities: [
     'Under the leadership of a Senior UX Designer, collaborate cross-functionally with other UX Designers, research, visual design, front-end engineering, producers, and company leaders to take products from concept to launch.',
     'Understand our clients\' customers and users, and serve as their advocate when making design proposals.',
