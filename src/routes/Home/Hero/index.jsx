@@ -1,5 +1,15 @@
 import React from 'react';
 import DownArrow from '../down-arrow.png';
+import { scrollToID } from 'utils/scrollTo';
+
+const scrollToWork = () => {
+  const homeAnchorElement = document.getElementsByClassName('scroll--target');
+  let homeAnchor;
+  if (homeAnchorElement && homeAnchorElement[0]) {
+    homeAnchor = homeAnchorElement[0].getAttribute('id');
+  }
+  scrollToID(homeAnchor, 500);
+};
 
 export function Hero () {
   return (
@@ -16,7 +26,7 @@ export function Hero () {
                 </div>
               </div>
             </div>
-            <div id="workAnchor" className="case-scroll-icon">
+            <div id="workAnchor" className="case-scroll-icon" onClick={ () => scrollToWork() }>
               <span>
                 <img src={ DownArrow } />
               </span>
