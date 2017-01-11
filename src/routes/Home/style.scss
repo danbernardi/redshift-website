@@ -1,5 +1,11 @@
 @import 'sass-includes';
 
+.scroll--target {
+  top: 35.2%;
+  position: absolute;
+  width: 100%;
+}
+
 .backgroundcliptext {
   .hero.index-content h1 {
     @extend %gradient-text;

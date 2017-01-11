@@ -28,7 +28,8 @@ export function HomepageCaseStudy (props) {
   }
 
   return (
-    <section id={ study.id } className={ `home-${study.id} flex theme--dark home-section layout--relative` }>
+    <section className={ `home-${study.id} flex theme--dark home-section layout--relative` }>
+      <div id={ study.id } className="scroll--target" />
       <div className="scene-container layout--absolute">
         <img src={ study.homepageImage } className="homepage-scene--image hide--msm" />
         { study.homepageMLGImage
