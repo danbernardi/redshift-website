@@ -21,7 +21,9 @@ export function scrollToMe (duration = 200) {
 
 export function scrollToID (id, duration = 200) {
   const item = document.getElementById(id);
-  smoothscroll(item, duration);
+  if (item) {
+    smoothscroll(item, duration);
+  }
 }
 
 export function scrollElemToZero (elem) {

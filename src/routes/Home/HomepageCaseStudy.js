@@ -7,7 +7,9 @@ import CaseStudyModalWrapper from 'components/CaseStudy/CaseStudyModalWrapper';
 
 class HomepageCaseStudy extends React.Component {
   componentDidMount () {
-    this._scrollTarget();
+    setTimeout(() => {
+      this._scrollTarget();
+    }, 100);
     window.addEventListener('resize', this._scrollTarget);
   }
 
@@ -25,13 +27,12 @@ class HomepageCaseStudy extends React.Component {
     });
   }
 
-  render (props) {
+  render () {
     const { study, dispatch, modalState } = this.props;
     const openModal = (component, openState, id) => {
       dispatch(actions.setNextCaseStudy(id, true));
       dispatch(actions.setActiveModal(<CaseStudyModalWrapper />, 'casestudy'));
       dispatch(actions.toggleModal(openState));
-
       scrollToID(id, 500);
     };
     const initialStyles = { transition: `opacity 300ms ease-in-out` };
