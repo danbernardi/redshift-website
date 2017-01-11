@@ -41,6 +41,7 @@
   transition: opacity 1s ease-in-out;
   opacity: 1;
   left: 7.5rem;
+  cursor: pointer;
   // media queries
   @include breakpoint($mobile-lg) {
     left: 2rem;
