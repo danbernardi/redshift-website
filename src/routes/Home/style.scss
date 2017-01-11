@@ -1,9 +1,14 @@
 @import 'sass-includes';
 
 .scroll--target {
-  top: 35.2%;
+  // top: 35.2%;
   position: absolute;
   width: 100%;
+  padding-top: 5rem;
+  top: 0;
+  // @include breakpoint($desktop-sm) {
+  //   top: 24%;
+  // }
 }
 
 .backgroundcliptext {
