@@ -41,11 +41,16 @@ export class Header extends React.Component {
 
     if (modalState.open) {
       dispatch(actions.toggleModal(false));
+      this.timer = setTimeout(() => { dispatch(actions.setActiveModal(null, null)); }, 300);
     } else {
       dispatch(actions.setActiveModal(<Nav />, 'nav'));
       dispatch(actions.toggleModal(true));
     }
   };
+
+  componentWillUnmount () {
+    window.clearInterval(this.timer);
+  }
 
   render () {
     const { modalState } = this.props;
