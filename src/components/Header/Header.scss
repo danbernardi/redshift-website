@@ -89,8 +89,8 @@
   cursor: pointer;
 
   &.hovered {
-    .icon-redshift { color: $redshift; }
-    .page-title { color: $redshift; }
+    .icon-redshift { color: $redshift !important; }
+    .page-title { color: $redshift !important; }
   }
 }
 
