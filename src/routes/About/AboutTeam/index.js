@@ -35,12 +35,12 @@ class AboutTeam extends React.Component {
         >
           <div
             className="team-hover"
-            style={ hover ? { width: '100%' } : { width: '0' } }
+            style={ hover ? { width: '100%' } : { width: '0', transitionDelay: '0.15s' } }
           >
             <div className="team-gradient">
               <div
                 className="team-info"
-                style={ hover ? { transform: 'translateX(0%)' } : { transform: 'translateX(-100%)' } }
+                style={ hover ? { transform: 'translateX(0%)', transitionDelay: '0.15s' } : { transform: 'translateX(-100%)' } }
               >
                 <h2 className="typ--bold">{ team.name }</h2>
                 <h4>{ team.position }</h4>
