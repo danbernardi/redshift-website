@@ -16,7 +16,7 @@
 }
 
 .icon-hamburger span {
-  background: $darkpurple;
+  background: $medium-gray;
   display: block;
   position: absolute;
   height: 0.4rem;
@@ -44,6 +44,10 @@
   }
 }
 
+
+.icon-hamburger.close-icon span {
+  background: $body;
+}
 
 .icon-hamburger.close-icon span:nth-child(1) {
   top: 0.6rem;

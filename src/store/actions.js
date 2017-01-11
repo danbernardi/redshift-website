@@ -26,8 +26,8 @@ export const setCheckboxValue = (boxID, value) => ({
   type: 'SET_CHECKBOX_VALUE', boxID, value
 });
 
-export const setActiveModal = (component) => ({
-  type: 'SET_ACTIVE_MODAL', component
+export const setActiveModal = (component, modalID) => ({
+  type: 'SET_ACTIVE_MODAL', component, modalID
 });
 
 export const toggleModal = (open) => ({

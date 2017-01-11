@@ -8,7 +8,7 @@ const ModalCloseBtn = props => {
   const closeModal = () => {
     dispatch(actions.toggleModal(false));
     const timing = setTimeout(() => {
-      dispatch(actions.setActiveModal(null));
+      dispatch(actions.setActiveModal(null, null));
       clearInterval(timing);
     }, animationTiming);
   };
@@ -16,7 +16,7 @@ const ModalCloseBtn = props => {
   const initialStyles = { transition: `opacity ${animationTiming}ms ease-in-out` };
   let transformStyles = {};
 
-  if (modalState.open) {
+  if (modalState.open && modalState.modalID !== 'nav') {
     // if modal is currently active
     transformStyles = { opacity: 1, pointerEvents: 'auto' };
   } else {

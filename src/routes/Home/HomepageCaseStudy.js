@@ -10,7 +10,7 @@ export function HomepageCaseStudy (props) {
 
   const openModal = (component, openState, id) => {
     dispatch(actions.setNextCaseStudy(id, true));
-    dispatch(actions.setActiveModal(<CaseStudyModalWrapper />));
+    dispatch(actions.setActiveModal(<CaseStudyModalWrapper />, 'casestudy'));
     dispatch(actions.toggleModal(openState));
 
     scrollToID(id, 500);
