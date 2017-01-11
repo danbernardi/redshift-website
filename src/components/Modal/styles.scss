@@ -16,11 +16,19 @@
 .modal__close {
   cursor: pointer;
   position: fixed;
-  font-size: 3rem;
   color: $white;
-  left: 7rem;
-  top: 5rem;
   z-index: 26;
+  width: 17rem;
+  left: 0;
+  top: 0;
+  height: 100vh;
+
+  .icon-close {
+    font-size: 3rem;
+    position: relative;
+    left: 7rem;
+    top: 5rem;
+  }
 }
 
 #menu {

@@ -26,7 +26,7 @@
 .nav .icon-redshift,
 .nav .icon-close {
   font-size: 3.2rem;
-  transition: all 0.25s linear;
+  transition: color 0.2s linear, background-color 0.2s linear;
   pointer-events: auto;
   // media queries
   @include breakpoint($tablet-lg) {
@@ -76,6 +76,23 @@
 //     }
 //   }
 // }
+
+.page-title {
+  position: relative;
+  text-transform: lowercase;
+  z-index: 10;
+  top: 0;
+  display: inline-block;
+}
+
+.header__logo {
+  cursor: pointer;
+
+  &.hovered {
+    .icon-redshift { color: $redshift; }
+    .page-title { color: $redshift; }
+  }
+}
 
 .modal--logo-close__swap {
   &.index {

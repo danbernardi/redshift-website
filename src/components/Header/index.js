@@ -1,62 +1,106 @@
 // @flow
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router';
+import { browserHistory } from 'react-router';
 import './Header.scss';
 import './HeaderClose.scss';
 import * as actions from 'store/actions';
 import Nav from 'components/Nav/index';
 
-export function Header (props) {
-  const { modalState, dispatch } = props;
+export class Header extends React.Component {
+  constructor(props) {
+    super(props);
 
-  const initialStyles = { transition: `opacity 500ms ease-in-out` };
-  let transformStyles = {};
+    this.state = {
+      logoHovered: false
+    };
+  }
 
-  const toggleHeaderModal = () => {
+  getPageTitle (path) {
+    return {
+      work: 'work',
+      about: 'about',
+      careers: 'careers'
+    }[path || 'work'];
+  };
+
+  triggerRouteChange () {
+    const { modalState, dispatch } = this.props;
+
+    browserHistory.push('/');
+    const body = document.getElementsByTagName('body');
+    if (body && body[0]) { body[0].scrollTop = 0; }
+
+    if (modalState.open) {
+      dispatch(actions.toggleModal(false));
+    }
+  };
+
+  toggleHeaderModal () {
+    const { modalState, dispatch } = this.props;
+
     if (modalState.open) {
       dispatch(actions.toggleModal(false));
     } else {
-      dispatch(actions.setActiveModal(<Nav />));
+      dispatch(actions.setActiveModal(<Nav />, 'nav'));
       dispatch(actions.toggleModal(true));
     }
   };
 
-  if (modalState.open) {
-    // if modal is currently active
-    transformStyles = { opacity: 0, pointerEvents: 'none' };
-  } else {
-    // if modal isn't currently active
-    transformStyles = { opacity: 1, pointerEvents: 'auto' };
-  }
+  render () {
+    const { modalState } = this.props;
+    const { logoHovered } = this.state;
 
-  return (
-    <header className="header">
-      <div className="row">
-        <div
-          style={ Object.assign(initialStyles, transformStyles) }
-          className="layout--left">
-          <span className="logo">
-            <Link to="/" activeClassName="route--active">
+    const initialStyles = { transition: `opacity 200ms ease-in-out` };
+    let logoTransformStyles = {};
+
+    if (modalState.open && modalState.modalID !== 'nav') {
+      // if modal is currently active
+      logoTransformStyles = { opacity: 0, pointerEvents: 'none' };
+    } else {
+      // if modal isn't currently active
+      logoTransformStyles = { opacity: 1, pointerEvents: 'auto' };
+    }
+
+    return (
+      <header className="header">
+        <div className="row">
+          <div
+            onMouseEnter={ () => this.setState({ logoHovered: true }) }
+            onMouseLeave={ () => this.setState({ logoHovered: false }) }
+            onClick={ () => this.triggerRouteChange() }
+            style={ Object.assign(initialStyles, logoTransformStyles) }
+            className={ `header__logo layout--left ${logoHovered ? 'hovered' : ''}` }>
+            <span className="logo">
               <span className="icon-redshift pr2" />
-            </Link>
-          </span>
-          <h3 className="page-title" />
+            </span>
+            <h3 className="page-title">
+              { logoHovered
+                ? 'redshift'
+                : this.getPageTitle(location.pathname.replace('/', ''))
+              }
+            </h3>
+          </div>
+          <div
+            style={ Object.assign(initialStyles, logoTransformStyles) }
+            onClick={ () => this.toggleHeaderModal() }
+            className="menu__trigger layout--right typ--link"
+          >
+            <span className={ `icon-hamburger ${modalState.open && modalState.modalID === 'nav' && 'close-icon'}` }>
+              <span />
+              <span />
+            </span>
+          </div>
         </div>
-        <div onClick={ () => toggleHeaderModal() } className="menu__trigger layout--right typ--link">
-          <span className={ `icon-hamburger ${modalState.open && 'close-icon'}` }>
-            <span />
-            <span />
-          </span>
-        </div>
-      </div>
-    </header>
-  );
+      </header>
+    );
+  }
 }
 
 Header.propTypes = {
   modalState: React.PropTypes.object,
-  dispatch: React.PropTypes.func
+  dispatch: React.PropTypes.func,
+  pathname: React.PropTypes.string
 };
 
 const injectStateProps = state => ({

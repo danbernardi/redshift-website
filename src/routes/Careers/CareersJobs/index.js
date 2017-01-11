@@ -6,7 +6,7 @@ export function CareersJobs (props) {
   const { dispatch, job } = props;
 
   const openModal = (component, openState) => {
-    dispatch(actions.setActiveModal(component));
+    dispatch(actions.setActiveModal(component, 'job'));
     dispatch(actions.toggleModal(openState));
   };
 

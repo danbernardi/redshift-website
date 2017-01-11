@@ -29,9 +29,9 @@ export const checkboxes = {
 };
 
 export const modalState = {
-  _init: { component: null, open: false },
+  _init: { modalID: null, component: null, open: false },
   TOGGLE_MODAL: (state, action) => Object.assign({}, state, { open: action.open }),
-  SET_ACTIVE_MODAL: (state, action) => Object.assign({}, state, { component: action.component })
+  SET_ACTIVE_MODAL: (state, action) => Object.assign({}, state, { component: action.component, modalID: action.modalID })
 };
 
 export const caseStudyState = {
