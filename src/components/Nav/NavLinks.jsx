@@ -18,10 +18,6 @@ class NavLinks extends React.Component {
     }, 100);
   }
 
-  componentWillReceiveProps (nextProps) {
-    console.log(nextProps);
-  }
-
   routingHandler (to) {
     const { dispatch } = this.props;
 
@@ -29,7 +25,7 @@ class NavLinks extends React.Component {
     const body = document.getElementsByTagName('body');
     if (body && body[0]) { body[0].scrollTop = 0; }
 
-    setTimeout(() => {
+    this.timer = setTimeout(() => {
       if (to === '/work') {
         const work = document.getElementsByName('work');
         if (work && work[0] && body && body[0]) { body[0].scrollTop = work[0].getBoundingClientRect().top; }
@@ -38,6 +34,10 @@ class NavLinks extends React.Component {
       dispatch(actions.toggleModal(false));
     }, 100);
   };
+
+  componentWillUnmount () {
+    window.clearInterval(this.timer);
+  }
 
   render () {
     const { links } = this.props;
