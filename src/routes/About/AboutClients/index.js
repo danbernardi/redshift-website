@@ -14,9 +14,9 @@ export function AboutClients ({ clientLine }) {
   );
 }
 
-const { object } = React.PropTypes;
+const { array } = React.PropTypes;
 AboutClients.propTypes = {
-  clientLine: object
+  clientLine: array
 };
 
 export default AboutClients;

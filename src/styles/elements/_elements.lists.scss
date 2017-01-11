@@ -1,10 +1,15 @@
 .list--inline li {
   display: inline-block;
-  margin-left: 3rem;
+  margin-right: 3rem;
+
+  &:last-of-type {
+    margin-right: 0;
+  }
 }
 
 .list--block li {
   display: block;
+  margin-bottom: 1.5rem;
 }
 
 .list--hash {

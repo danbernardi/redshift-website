@@ -1,36 +1,17 @@
 import CoreLayout from 'containers/CoreLayout';
 import Home from './Home';
-import CSFive from './Home/Five/CSFive';
-import CSYumavore from './Home/Yumavore/CSYumavore';
-import CSNexus from './Home/Nexus/CSNexus';
-import CSNorton from './Home/Norton/CSNorton';
-import SeniorUX from './Careers/CareersJobs/roles/SeniorUX';
-import UXDesigner from './Careers/CareersJobs/roles/UXDesigner';
-import SeniorVisual from './Careers/CareersJobs/roles/SeniorVisual';
 import About from './About';
 import Careers from './Careers';
-// import Library from './Library';
 
-export function createRoutes (store) {
+export function createRoutes () {
   return ({
     path: '/',
     component: CoreLayout,
     indexRoute: { component: Home },
     childRoutes: [
-      { path: 'five', component: CSFive },
-      { path: 'yumavore', component: CSYumavore },
-      { path: 'nexus', component: CSNexus },
-      { path: 'norton', component: CSNorton },
+      { path: 'work', component: Home },
       { path: 'about', component: About },
-      {
-        path: 'careers',
-        indexRoute: { component: Careers },
-        childRoutes: [
-          { path: '/careers/senior-ux-designer', component: SeniorUX },
-          { path: '/careers/ux-designer', component: UXDesigner },
-          { path: '/careers/senior-visual-designer', component: SeniorVisual }
-        ]
-      }
+      { path: 'careers', component: Careers }
     ]
   });
 }

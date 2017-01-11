@@ -37,7 +37,7 @@ export function HomepageCaseStudy (props) {
         }
         <img src={ study.homepageMobileImage } className="homepage-scene--image show--msm" />
         <div className={ `cs-${study.id} scene-target` } />
-        <a name="work" className="scene-target work-anchor" />
+        { study.anchor && <a name="work" className="scene-target work-anchor" /> }
         <div className="homepage--scene-text" style={ Object.assign(initialStyles, transformStyles) }>
           <div className="row">
             <div

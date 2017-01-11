@@ -1,14 +1,12 @@
 @import 'sass-includes';
 
 .nav_header {
-  line-height: 1
+  line-height: 1;
 }
 
 .nav {
   background: $white;
   position: fixed;
-  transform: translateX(100%);
-  transition: transform 0.5s ease-in-out;
   top: 0;
   z-index: 10;
   width: 100vw;
@@ -45,17 +43,21 @@
   @include breakpoint($mobile-lg) {
     text-align: left;
   }
+
   li {
     line-height: 1.2;
   }
 }
 
-.nav__menu li a {
+.nav__menu li {
+  color: $body;
   position: relative;
   top: 4rem;
-  opacity: 0;
-  transition: top 0.18s, opacity 0.22s ease-out;
-  transition-delay: 0.42s;
+  cursor: pointer;
+  // opacity: 0;
+  // transition: top 0.18s, opacity 0.22s ease-out;
+  // transition-delay: 0.42s;
+
   &:hover {
     color: $redshift;
   }
