@@ -14,6 +14,15 @@ class AppContainer extends Component {
     return false;
   }
 
+  componentDidMount () {
+    const body = document.getElementsByTagName('body');
+    if (body && body[0]) {
+      setTimeout(() => {
+        body[0].style.opacity = '1';
+      }, 100);
+    }
+  }
+
   componentWillReceiveProps (nextProps) {
     const html = document.getElementsByTagName('html');
 
