@@ -64,14 +64,15 @@
 
 .team-hover {
   position: absolute;
-  left: -1px;
   bottom: 0;
   top: 0;
-  right: 0;
+  left: 0;
+  transition: width 0.5s ease-in;
   width: 0;
 }
 
 .team-hover .team-info {
+  transition: transform 0.5s ease-in;
   color: #fff;
   padding: 14rem 5rem;
   position: absolute;
