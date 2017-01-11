@@ -144,12 +144,12 @@ const teamArray = [
   },
   {
     name: 'David Westen',
-    position: 'Principal &amp; Founder',
+    position: 'Principal & Founder',
     photo: DavidImage
   },
   {
     name: 'Suzanne Katanic',
-    position: 'Finance &amp; Operations',
+    position: 'Finance & Operations',
     photo: SuzanneImage
   },
   {
