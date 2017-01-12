@@ -49,7 +49,7 @@ class CaseStudy extends React.Component {
     return (
       <section ref="casestudy" className={ `casestudy ${id}` } style={ initialStyles }>
         <div className="row">
-          <h4 className="casestudy__name typ--caps">{ name }</h4>
+          <h4 className="casestudy__name typ--caps pl4--mlg">{ name }</h4>
           <h1 className="casestudy__heading">{ heading }</h1>
         </div>
 
