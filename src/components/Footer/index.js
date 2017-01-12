@@ -12,7 +12,7 @@ export function Footer () {
         <div className="contact-info layout--align-right">
           <span>8 California St, San Francisco, CA 94111<br /></span>
           <a href="mailto:hello@redshiftdigital.com">hello@redshiftdigital.com<br /></a>
-          <a href="tel:4154333776">415 433 3776</a>
+          <a href="tel:4153711500">415 371 1500</a>
         </div>
         <div className="show--msm">
           <FooterSocial />
