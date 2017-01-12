@@ -16,7 +16,7 @@ const CSYumavore = (props) => {
       img: yumavore1,
       items: [
         (<h3 className="casestudy__text">We reimagined the recipe format for mobile devices, showing the ingredients you need for each step.</h3>),
-        (<a href="https://itunes.apple.com/us/app/yumavore/id1043281685?mt=8:" target="_blank"><div className="btn mt5 typ--yumavore">download the app</div></a>)
+        (<a href="https://itunes.apple.com/us/app/yumavore/id1043281685?mt=8:" target="_blank"><div className="btn btn--ghost mt5 typ--yumavore">download the app</div></a>)
       ]
     },
     {

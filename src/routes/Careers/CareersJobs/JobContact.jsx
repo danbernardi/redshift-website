@@ -84,7 +84,7 @@ export class JobContact extends React.Component {
             <div className="col-12 pt8">
               <button
                 ref={ el => { this.button = el; } }
-                className="btn typ--jobs"
+                className="btn btn--ghost typ--jobs"
                 onClick={ e => { onSend(e); } }
               >
                 { buttonText }
