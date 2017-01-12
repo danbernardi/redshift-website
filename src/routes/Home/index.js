@@ -7,17 +7,23 @@ import * as actions from 'store/actions';
 import './style.scss';
 
 import NortonImage from './Norton/norton-scene-bg.jpg';
+import NortonTLGImage from './Norton/norton-scene-bg-tlg.jpg';
 import NortonMLGImage from './Norton/norton-scene-bg-mlg.jpg';
 import NortonMobileImage from './Norton/norton-scene-bg-mobile.jpg';
 
 import YumavoreImage from './Yumavore/yumavore-scene-bg.jpg';
+import YumavoreTLGImage from './Yumavore/yumavore-scene-bg-tlg.jpg';
+import YumavoreMLGImage from './Yumavore/yumavore-scene-bg-mlg.jpg';
 import YumavoreMobileImage from './Yumavore/yumavore-scene-bg-mobile.jpg';
 
 import NexusImage from './Nexus/nexus-scene-bg.jpg';
+import NexusTLGImage from './Nexus/nexus-scene-bg-tlg.jpg';
 import NexusMLGImage from './Nexus/nexus-scene-bg-mlg.jpg';
 import NexusMobileImage from './Nexus/nexus-scene-bg-mobile.jpg';
 
 import FiveImage from './Five/five-scene-bg.jpg';
+import FiveTLGImage from './Five/five-scene-bg-tlg.jpg';
+import FiveMLGImage from './Five/five-scene-bg-mlg.jpg';
 import FiveMobileImage from './Five/five-scene-bg-mobile.jpg';
 
 import CSNorton from './Norton/CSNorton';
@@ -29,6 +35,7 @@ const caseStudies = [
   {
     id: 'norton',
     homepageImage: NortonImage,
+    homepageTLGImage: NortonTLGImage,
     homepageMLGImage: NortonMLGImage,
     homepageMobileImage: NortonMobileImage,
     imageAlt: 'Norton creative design',
@@ -40,6 +47,8 @@ const caseStudies = [
   {
     id: 'yumavore',
     homepageImage: YumavoreImage,
+    homepageTLGImage: YumavoreTLGImage,
+    homepageMLGImage: YumavoreMLGImage,
     homepageMobileImage: YumavoreMobileImage,
     imageAlt: 'Yumavore app design',
     caption1: 'A new way to create',
@@ -50,6 +59,7 @@ const caseStudies = [
   {
     id: 'nexus',
     homepageImage: NexusImage,
+    homepageTLGImage: NexusTLGImage,
     homepageMLGImage: NexusMLGImage,
     homepageMobileImage: NexusMobileImage,
     imageAlt: 'Nexus product website',
@@ -61,6 +71,8 @@ const caseStudies = [
   {
     id: 'five',
     homepageImage: FiveImage,
+    homepageTLGImage: FiveTLGImage,
+    homepageMLGImage: FiveMLGImage,
     homepageMobileImage: FiveMobileImage,
     imageAlt: 'Redshift Five App',
     caption1: 'Share and compare',
