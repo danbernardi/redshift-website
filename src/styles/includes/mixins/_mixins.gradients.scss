@@ -9,3 +9,7 @@
     background: linear-gradient(to bottom, $from 0%, $to 100%);
   }
 }
+
+@mixin redshift-gradient() {
+  background: linear-gradient(45deg, $redshift, $cranberry);
+}
