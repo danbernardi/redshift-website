@@ -71,8 +71,8 @@ export class Header extends React.Component {
       <header className={ `header ${headerTheme}-theme` }>
         <div className="row">
           <div
-            onMouseEnter={ () => this.setState({ logoHovered: true }) }
-            onMouseLeave={ () => this.setState({ logoHovered: false }) }
+            onMouseEnter={ () => location.pathname !== '/careers' && this.setState({ logoHovered: true }) }
+            onMouseLeave={ () => location.pathname !== '/careers' && this.setState({ logoHovered: false }) }
             onClick={ () => this.triggerRouteChange() }
             style={ Object.assign(initialStyles, logoTransformStyles) }
             className={ `header__logo layout--left ${logoHovered ? 'hovered' : ''}` }>

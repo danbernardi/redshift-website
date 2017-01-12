@@ -71,10 +71,15 @@ const caseStudies = [
 
 ];
 
-export function Home (props) {
-  const { dispatch } = props;
+export class Home extends React.Component {
+  componentDidMount () {
+    const { dispatch } = this.props;
+    dispatch(actions.setHeaderTheme('pink'));
+  }
 
-  const watcherCallback = (watcher) => {
+  watcherCallback (watcher) {
+    const { dispatch } = this.props;
+
     if (watcher.isAboveViewport) {
       // watcher is in view
       dispatch(actions.setHeaderTheme('white'));
@@ -86,19 +91,21 @@ export function Home (props) {
     }
   };
 
-  return (
-    <div>
-      <Hero />
-      <div id="homepage-work">
-        <Watcher offset={ { bottom: '8.5rem' } } stateChange={ (watcher) => watcherCallback(watcher) } />
-        {
-          caseStudies.map((study, index) => (
-            <HomepageCaseStudy key={ index } study={ study } />
-          ))
-        }
+  render () {
+    return (
+      <div>
+        <Hero />
+        <div id="homepage-work">
+          <Watcher offset={ { bottom: '8.5rem' } } stateChange={ (watcher) => this.watcherCallback(watcher) } />
+          {
+            caseStudies.map((study, index) => (
+              <HomepageCaseStudy key={ index } study={ study } />
+            ))
+          }
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
 Home.propTypes = {

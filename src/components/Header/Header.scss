@@ -60,29 +60,13 @@
   .icon-hamburger span { background: $white; }
 }
 
-// .modal--open {
-//   .icon-close { color: $darkpurple; }
-//   .icon-hamburger span { background: $darkpurple !important; }
-//   .scene {opacity: 0 !important;}
-
-//   .pink-theme,
-//   .white-theme {
-//     .icon-redshift {
-//       color: $body;
-
-//       &:hover {
-//         color: $pink;
-//       }
-//     }
-//   }
-// }
-
 .page-title {
   position: relative;
   text-transform: lowercase;
   z-index: 10;
   top: 0;
   display: inline-block;
+  transition: color 0.2s linear;
 }
 
 .header__logo {
