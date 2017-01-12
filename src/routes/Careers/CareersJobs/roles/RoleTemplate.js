@@ -5,8 +5,8 @@ import '../../style.scss';
 export function RoleTemplate ({ children, name }) {
   return (
     <div className="job--modal">
-      <div className="job--modal__left" />
-      <div className="job--modal__right">
+      <div className="modal__close job__sidebar" />
+      <div className="modal__with-sidebar">
         { children }
         <section>
           <div className="contact__form py8">

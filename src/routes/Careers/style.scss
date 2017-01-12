@@ -120,21 +120,11 @@ input:-webkit-autofill {
   background-color: #F7F7F7;
 }
 
-.job--modal  {
-  height: 100%;
-}
-
-.job--modal__left {
-  float: left;
-  height: 100%;
-  width: 17rem;
+.job__sidebar {
   background-color: #EE05BA;
-  z-index: 2;
-  left: 0;
-  position: absolute;
   // media queries
   @include breakpoint($mobile-lg) {
-    display: none;
+    background-color: transparent;
   }
 }
 
