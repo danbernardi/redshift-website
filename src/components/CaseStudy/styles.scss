@@ -31,17 +31,12 @@
   height: 100%;
   width: calc(100vw - 17rem);
   // media queries
-  @include breakpoint($tablet-lg) {
-    padding-top: 4.4rem;
-  }
-  @include breakpoint($tablet-md) {
-    padding-top: 5.3rem;
-  }
   @include breakpoint($tablet-sm) {
     width: calc(100vw - 10rem);
+    padding-top: 5.4rem;
   }
   @include breakpoint($mobile-lg) {
-    padding-top: 4.6rem;
+    padding-top: 4.7rem;
     width: 100vw;
   }
   @include breakpoint($mobile-sm) {
@@ -69,6 +64,10 @@
   max-width: 125rem;
   width: 80%;
   margin: auto;
+}
+
+.casestudy__name {
+
 }
 
 .casestudy__scroll {

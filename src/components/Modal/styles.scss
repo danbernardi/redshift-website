@@ -22,12 +22,33 @@
   left: 0;
   top: 0;
   height: 100vh;
+  // media queries
+  @include breakpoint($tablet-sm) {
+    width: 10rem;
+  }
+  @include breakpoint($mobile-lg) {
+    color: $redshift;
+    height: auto;
+  }
 
   .icon-close {
     font-size: 3rem;
     position: relative;
     left: 7rem;
     top: 5rem;
+    // media queries
+    @include breakpoint($tablet-sm) {
+      left: 3.6rem;
+      top: 3.9rem;
+    }
+    @include breakpoint($mobile-lg) {
+      left: 3rem;
+      font-size: 2rem;
+    }
+    @include breakpoint($mobile-sm) {
+      left: 2rem;
+      top: 3.1rem;
+    }
   }
 }
 
