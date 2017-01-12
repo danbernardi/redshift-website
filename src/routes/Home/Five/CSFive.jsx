@@ -19,7 +19,7 @@ const CSFive = (props) => {
       img: five2,
       items: [
         (<h3 className="casestudy__text">Creating a FIVE is easy too. The app seamlessly integrates with Google Images to bring your lists to life.</h3>),
-        (<div className="btn mt5 mb10 typ--five">coming soon</div>),
+        (<div className="btn btn--ghost mt5 mb10 typ--five">coming soon</div>),
         (<h3 className="casestudy__text mt10">You can share, comment, or even add suggestions to other lists.</h3>)
       ]
     },
