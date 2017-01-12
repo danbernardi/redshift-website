@@ -55,7 +55,8 @@
     transition: transform 0.18s ease-in-out, opacity 0.22s ease-in-out;
 
     &:hover {
-      color: $redshift;
+      @extend %gradient-text;
+      @include redshift-gradient();
     }
   }
 

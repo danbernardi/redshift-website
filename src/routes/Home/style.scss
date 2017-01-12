@@ -9,7 +9,7 @@
 .backgroundcliptext {
   .hero.index-content h1 {
     @extend %gradient-text;
-    background: linear-gradient(45deg, $redshift, $cranberry);
+    @include redshift-gradient();
     z-index: 35;
     position: relative;
     width: 70vw;
@@ -28,7 +28,7 @@
   .nav__menu li a {
     &:hover {
       @extend %gradient-text;
-      background: linear-gradient(45deg, $redshift, $cranberry);
+      @include redshift-gradient();
     }
   }
 }
