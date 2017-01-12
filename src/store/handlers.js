@@ -49,3 +49,8 @@ export const caseStudyState = {
     return Object.assign({}, state, { current: newCurrent, currentScrollPos: action.scrollPos });
   }
 };
+
+export const headerTheme = {
+  _init: 'pink',
+  SET_HEADER_THEME: (state, action) => action.theme
+};

@@ -8,7 +8,7 @@ import * as actions from 'store/actions';
 import Nav from 'components/Nav/index';
 
 export class Header extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props);
 
     this.state = {
@@ -18,9 +18,9 @@ export class Header extends React.Component {
 
   getPageTitle (path) {
     return {
-      work: 'work',
-      about: 'about',
-      careers: 'careers'
+      work: { label: 'work', color: 'white' },
+      about: { label: 'about', color: '' },
+      careers: { label: 'careers', color: '' }
     }[path || 'work'];
   };
 
@@ -53,7 +53,7 @@ export class Header extends React.Component {
   }
 
   render () {
-    const { modalState } = this.props;
+    const { modalState, headerTheme } = this.props;
     const { logoHovered } = this.state;
 
     const initialStyles = { transition: `opacity 200ms ease-in-out` };
@@ -68,21 +68,28 @@ export class Header extends React.Component {
     }
 
     return (
-      <header className="header">
+      <header className={ `header ${headerTheme}-theme` }>
         <div className="row">
           <div
-            onMouseEnter={ () => this.setState({ logoHovered: true }) }
-            onMouseLeave={ () => this.setState({ logoHovered: false }) }
+            onMouseEnter={ () => location.pathname !== '/careers' && this.setState({ logoHovered: true }) }
+            onMouseLeave={ () => location.pathname !== '/careers' && this.setState({ logoHovered: false }) }
             onClick={ () => this.triggerRouteChange() }
             style={ Object.assign(initialStyles, logoTransformStyles) }
             className={ `header__logo layout--left ${logoHovered ? 'hovered' : ''}` }>
             <span className="logo">
-              <span className="icon-redshift pr2" />
+              <span
+                className="icon-redshift pr2"
+                style={ { color: modalState.open && modalState.modalID === 'nav' && '#4a4a4a' } }
+              />
             </span>
-            <h3 className="page-title">
+            <h3
+              className="page-title"
+              style={ { color: modalState.open && modalState.modalID === 'nav'
+                ? 'white'
+                : this.getPageTitle(location.pathname.replace('/', '')).color } }>
               { logoHovered
                 ? 'redshift'
-                : this.getPageTitle(location.pathname.replace('/', ''))
+                : this.getPageTitle(location.pathname.replace('/', '')).label
               }
             </h3>
           </div>
@@ -104,12 +111,14 @@ export class Header extends React.Component {
 
 Header.propTypes = {
   modalState: React.PropTypes.object,
+  headerTheme: React.PropTypes.string,
   dispatch: React.PropTypes.func,
   pathname: React.PropTypes.string
 };
 
 const injectStateProps = state => ({
-  modalState: state.modalState
+  modalState: state.modalState,
+  headerTheme: state.headerTheme
 });
 
 export default connect(injectStateProps)(Header);

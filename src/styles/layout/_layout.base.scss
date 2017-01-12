@@ -70,11 +70,11 @@ ol {
 .anchor {
   position: relative;
   height: 0;
-  top: -6rem;
-  // media queries
-  @include breakpoint($mobile-xsm) {
-    top: -5rem;
-  }
+  // top: -6rem;
+  // // media queries
+  // @include breakpoint($mobile-xsm) {
+  //   top: -5rem;
+  // }
 }
 
 .hidden {

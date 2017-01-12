@@ -163,7 +163,7 @@ rules:
 
   # Rule no-important will enforce that important declarations
   # are not allowed to be used.
-  no-important: 2
+  no-important: 1
 
   # Rule no-invalid-hex will enforce that only valid of hexadecimal
   # values are written.
