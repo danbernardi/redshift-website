@@ -27,7 +27,6 @@
 .nav .icon-close {
   font-size: 3.2rem;
   transition: color 0.2s linear, background-color 0.2s linear;
-  pointer-events: auto;
   // media queries
   @include breakpoint($tablet-lg) {
     font-size: 3rem;
