@@ -33,6 +33,9 @@ class NavLinks extends React.Component {
       }
 
       dispatch(actions.toggleModal(false));
+      setTimeout(() => {
+        dispatch(actions.setActiveModal(null, null));
+      }, 200);
     }, 100);
   };
 
