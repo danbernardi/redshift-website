@@ -112,7 +112,7 @@
 .about--team {
   .quarter-width {
     //media queries
-    @include breakpoint($mobile-lg) {
+    @include breakpoint($tablet-md) {
       width: 50%;
     }
   }
