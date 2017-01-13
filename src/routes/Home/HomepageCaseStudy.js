@@ -3,18 +3,30 @@ import ArrowRight from './arrow-right-short.png';
 import * as actions from 'store/actions';
 import { connect } from 'react-redux';
 import { scrollToID } from 'utils/scrollTo';
+
 import CaseStudyModalWrapper from 'components/CaseStudy/CaseStudyModalWrapper';
 
 class HomepageCaseStudy extends React.Component {
+  constructor (props) {
+    super(props);
+    this.state = {};
+  }
+
   componentDidMount () {
     setTimeout(() => {
       this._scrollTarget();
     }, 100);
-    window.addEventListener('resize', this._scrollTarget);
+    window.addEventListener('resize', () => {
+      this._scrollTarget();
+      this.setState({ break: Math.random() });
+    });
   }
 
   componentWillUnmount () {
-    window.removeEventListener('resize', this._scrollTarget);
+    window.removeEventListener('resize', () => {
+      this._scrollTarget();
+      this.setState({ break: Math.random() });
+    });
   }
 
   _scrollTarget () {
@@ -25,6 +37,30 @@ class HomepageCaseStudy extends React.Component {
     Array.prototype.forEach.call(targetDiv, (div) => {
       div.style.top = targetTopValue;
     });
+  }
+
+  _homepageImage () {
+    const { study } = this.props;
+    if (window.windowSize(this.state.break).isGreaterThan('tabletLg')) {
+      return (
+        <img src={ study.homepageImage } className="homepage-scene--image" />
+      );
+    }
+    if (window.windowSize(this.state.break).isLessThan('tabletLg')) {
+      return (
+        <img src={ study.homepageTLGImage } className="homepage-scene--image" />
+      );
+    }
+    if (window.windowSize(this.state.break).isLessThan('mobileLg')) {
+      return (
+        <img src={ study.homepageMLGImage } className="homepage-scene--image" />
+      );
+    }
+    if (window.windowSize(this.state.break).isLessThan('mobileSm')) {
+      return (
+        <img src={ study.homepageMobileImage } className="homepage-scene--image" />
+      );
+    }
   }
 
   render () {
@@ -50,12 +86,7 @@ class HomepageCaseStudy extends React.Component {
       <section className={ `home-${study.id} flex theme--dark home-section layout--relative` }>
         <div id={ study.id } className="scroll--target" />
         <div className="scene-container layout--absolute">
-          <img src={ study.homepageImage } className="homepage-scene--image hide--msm" />
-          { study.homepageMLGImage
-            ? <img src={ study.homepageMLGImage } className="homepage-scene--image show--tmd hide--msm" />
-            : null
-          }
-          <img src={ study.homepageMobileImage } className="homepage-scene--image show--msm" />
+          { this._homepageImage() }
           <div className={ `cs-${study.id} scene-target` } />
           { study.anchor && <a name="work" className="scene-target work-anchor" /> }
           <div className="homepage--scene-text" style={ Object.assign(initialStyles, transformStyles) }>

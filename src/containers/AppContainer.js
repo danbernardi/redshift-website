@@ -49,4 +49,8 @@ const injectStateProps = state => ({
   modalState: state.modalState
 });
 
+AppContainer.propTypes = {
+  dispatch: React.PropTypes.func
+};
+
 export default connect(injectStateProps)(AppContainer);
