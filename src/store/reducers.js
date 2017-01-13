@@ -28,7 +28,7 @@ window.windowSize = () => {
     mobileLg: 767,
     mobileSm: 540
   };
-  console.log(value)
+
   const comparison = b => typeof (b) === 'string' ? breakpoints[b] : b;
 
   return ({
