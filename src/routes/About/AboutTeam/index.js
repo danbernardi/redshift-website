@@ -5,7 +5,7 @@ class AboutTeam extends React.Component {
     super(props);
 
     this.state = {
-      hover: true
+      hover: false
     };
   }
 
