@@ -39,6 +39,12 @@ export class Careers extends React.Component {
     dispatch(actions.setHeaderTheme('white'));
   }
 
+  componentWillReceiveProps (newProps) {
+    if (newProps.modalOpen !== this.props.modalOpen) {
+      this.props.dispatch(actions.setHeaderTheme('white'));
+    }
+  }
+
   watcherCallback (watcher) {
     const { dispatch } = this.props;
 
@@ -81,7 +87,12 @@ export class Careers extends React.Component {
 }
 
 Careers.propTypes = {
-  dispatch: React.PropTypes.func
+  dispatch: React.PropTypes.func,
+  modalOpen: React.PropTypes.bool
 };
 
-export default connect()(Careers);
+const mapStateToProps = state => ({
+  modalOpen: state.modalState.open
+});
+
+export default connect(mapStateToProps)(Careers);
