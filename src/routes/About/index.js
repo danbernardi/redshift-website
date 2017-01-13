@@ -22,18 +22,35 @@ import AndrewImage from './AboutTeam/andrew.jpg';
 import DavidImage from './AboutTeam/david.jpg';
 import EmmaImage from './AboutTeam/emma.jpg';
 import IanImage from './AboutTeam/ian.jpg';
-import JennieImage from './AboutTeam/jennie.jpg';
 import JoImage from './AboutTeam/jo.jpg';
 import KyleImage from './AboutTeam/kyle.jpg';
 import LucyImage from './AboutTeam/lucy.jpg';
-import NickImage from './AboutTeam/nick.jpg';
-import RickImage from './AboutTeam/rick.jpg';
 import SandraImage from './AboutTeam/sandra.jpg';
 import SashaImage from './AboutTeam/sasha.jpg';
 import ShannonImage from './AboutTeam/shannon.jpg';
 import SteffanImage from './AboutTeam/steffan.jpg';
 import StewartImage from './AboutTeam/stewart.jpg';
-import SuzanneImage from './AboutTeam/suzanne.jpg';
+// import SuzanneImage from './AboutTeam/suzanne.jpg';
+// import JennieImage from './AboutTeam/jennie.jpg';
+// import NickImage from './AboutTeam/nick.jpg';
+// import RickImage from './AboutTeam/rick.jpg';
+
+import IanBio from './AboutTeam/Bios/IanBio';
+import SashaBio from './AboutTeam/Bios/SashaBio';
+import EmmaBio from './AboutTeam/Bios/EmmaBio';
+import AndrewBio from './AboutTeam/Bios/AndrewBio';
+import LucyBio from './AboutTeam/Bios/LucyBio';
+import SteffanBio from './AboutTeam/Bios/SteffanBio';
+import StewartBio from './AboutTeam/Bios/StewartBio';
+import DavidBio from './AboutTeam/Bios/DavidBio';
+import JoBio from './AboutTeam/Bios/JoBio';
+import KyleBio from './AboutTeam/Bios/KyleBio';
+import SandraBio from './AboutTeam/Bios/SandraBio';
+import ShannonBio from './AboutTeam/Bios/ShannonBio';
+// import NickBio from './AboutTeam/Bios/NickBio';
+// import JennieBio from './AboutTeam/Bios/JennieBio';
+// import RickBio from './AboutTeam/Bios/RickBio';
+// import SuzanneBio from './AboutTeam/Bios/SuzanneBio';
 
 const aboutClientsMap = [
   {
@@ -96,86 +113,102 @@ const aboutClientsMap = [
 ];
 
 const teamArray = [
-  {
-    name: 'Jennie Bowers',
-    position: 'Senior Visual Designer',
-    photo: JennieImage
-  },
+  // {
+  //   name: 'Jennie Bowers',
+  //   position: 'Senior Visual Designer',
+  //   photo: JennieImage,
+  //   component: <JennieBio />
+  // },
   {
     name: 'Ian Eck',
     position: 'UX Designer',
-    photo: IanImage
+    photo: IanImage,
+    component: <IanBio />
   },
   {
     name: 'Sasha Klein',
     position: 'Senior Software Engineer',
-    photo: SashaImage
+    photo: SashaImage,
+    component: <SashaBio />
   },
   {
     name: 'Emma Hazlett',
     position: 'Visual Designer',
-    photo: EmmaImage
+    photo: EmmaImage,
+    component: <EmmaBio />
   },
-  {
-    name: 'Rick Takes',
-    position: 'Director of Engineering',
-    photo: RickImage
-  },
+  // {
+  //   name: 'Rick Takes',
+  //   position: 'Director of Engineering',
+  //   photo: RickImage,
+  //   component: <RickBio />
+  // },
   {
     name: 'Andrew Fitzpatrick',
     position: 'Software Engineer',
-    photo: AndrewImage
+    photo: AndrewImage,
+    component: <AndrewBio />
   },
   {
     name: 'Lucy Dotson',
     position: 'Senior UX Designer',
-    photo: LucyImage
+    photo: LucyImage,
+    component: <LucyBio />
   },
   {
     name: 'Steffan Schlarb',
     position: 'Creative Director',
-    photo: SteffanImage
+    photo: SteffanImage,
+    component: <SteffanBio />
   },
   {
     name: 'Stewart Maclennan',
     position: 'Director of Digital Media',
-    photo: StewartImage
+    photo: StewartImage,
+    component: <StewartBio />
   },
   {
     name: 'David Westen',
     position: 'Principal & Founder',
-    photo: DavidImage
+    photo: DavidImage,
+    component: <DavidBio />
   },
-  {
-    name: 'Suzanne Katanic',
-    position: 'Finance & Operations',
-    photo: SuzanneImage
-  },
+  // {
+  //   name: 'Suzanne Katanic',
+  //   position: 'Finance & Operations',
+  //   photo: SuzanneImage,
+  //   component: <SuzanneBio />
+  // },
   {
     name: 'Johanna Silver',
     position: 'UX Designer',
-    photo: JoImage
+    photo: JoImage,
+    component: <JoBio />
   },
   {
     name: 'Kyle Lloyd',
     position: 'Director of Business Development',
-    photo: KyleImage
+    photo: KyleImage,
+    component: <KyleBio />
   },
   {
     name: 'Sandra Wing',
     position: 'UX Researcher',
-    photo: SandraImage
+    photo: SandraImage,
+    component: <SandraBio />
   },
   {
     name: 'Shannon Chin',
     position: 'Senior Interactive Producer',
-    photo: ShannonImage
-  },
-  {
-    name: 'Nick Capello',
-    position: 'Studio Manager',
-    photo: NickImage
+    photo: ShannonImage,
+    component: <ShannonBio />
   }
+  // {
+  //   name: 'Nick Capello',
+  //   position: 'Studio Manager',
+  //   photo: NickImage,
+  //   component: <NickBio />
+  // }
 ];
 
 export function About () {
