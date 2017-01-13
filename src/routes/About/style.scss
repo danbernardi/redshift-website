@@ -63,17 +63,17 @@
 }
 
 .team-hover {
+  transition: width 0.2s ease-in;
   position: absolute;
   bottom: 0;
   top: 0;
   left: 0;
-  transition: width 0.4s ease-in;
   width: 0;
 }
 
 .team-hover .team-info {
-  transition: transform 0.4s ease-in;
-  color: #fff;
+  transition: transform 0.2s ease-in;
+  color: $white;
   padding: 0 5rem;
   position: absolute;
   top: 50%;
@@ -82,7 +82,7 @@
     padding: 0 3rem;
   }
   @include breakpoint($mobile-sm) {
-    padding: 0 2rem
+    padding: 0 2rem;
   }
 }
 
