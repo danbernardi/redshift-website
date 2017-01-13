@@ -3,19 +3,30 @@ import ArrowRight from './arrow-right-short.png';
 import * as actions from 'store/actions';
 import { connect } from 'react-redux';
 import { scrollToID } from 'utils/scrollTo';
-// import { windowSize } from 'utils/windowSize';
+
 import CaseStudyModalWrapper from 'components/CaseStudy/CaseStudyModalWrapper';
 
 class HomepageCaseStudy extends React.Component {
+  constructor (props) {
+    super(props);
+    this.state = {};
+  }
+
   componentDidMount () {
     setTimeout(() => {
       this._scrollTarget();
     }, 100);
-    window.addEventListener('resize', this._scrollTarget);
+    window.addEventListener('resize', () => {
+      this._scrollTarget();
+      this.setState({ break: Math.random() });
+    });
   }
 
   componentWillUnmount () {
-    window.removeEventListener('resize', this._scrollTarget);
+    window.removeEventListener('resize', () => {
+      this._scrollTarget();
+      this.setState({ break: Math.random() });
+    });
   }
 
   _scrollTarget () {
@@ -29,23 +40,23 @@ class HomepageCaseStudy extends React.Component {
   }
 
   _homepageImage () {
-    const { windowSize, study } = this.props;
-    if (windowSize.isGreaterThan('tabletLg')) {
+    const { study } = this.props;
+    if (window.windowSize(this.state.break).isGreaterThan('tabletLg')) {
       return (
         <img src={ study.homepageImage } className="homepage-scene--image" />
       );
     }
-    if (windowSize.isLessThan('tabletLg')) {
+    if (window.windowSize(this.state.break).isLessThan('tabletLg')) {
       return (
         <img src={ study.homepageTLGImage } className="homepage-scene--image" />
       );
     }
-    if (windowSize.isLessThan('mobileLg')) {
+    if (window.windowSize(this.state.break).isLessThan('mobileLg')) {
       return (
         <img src={ study.homepageMLGImage } className="homepage-scene--image" />
       );
     }
-    if (windowSize.isLessThan('mobileSm')) {
+    if (window.windowSize(this.state.break).isLessThan('mobileSm')) {
       return (
         <img src={ study.homepageMobileImage } className="homepage-scene--image" />
       );
@@ -108,13 +119,11 @@ const { object, func } = React.PropTypes;
 HomepageCaseStudy.propTypes = {
   study: object,
   dispatch: func,
-  modalState: object,
-  windowSize: object
+  modalState: object
 };
 
 const injectStateProps = state => ({
-  modalState: state.modalState,
-  windowSize: state.default.windowSize
+  modalState: state.modalState
 });
 
 export default connect(injectStateProps)(HomepageCaseStudy);
