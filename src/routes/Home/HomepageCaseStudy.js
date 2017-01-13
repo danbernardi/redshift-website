@@ -41,14 +41,10 @@ class HomepageCaseStudy extends React.Component {
 
   _homepageImage () {
     const { study } = this.props;
-    if (window.windowSize(this.state.break).isGreaterThan('tabletLg')) {
+
+    if (window.windowSize(this.state.break).isLessThan('mobileSm')) {
       return (
-        <img src={ study.homepageImage } className="homepage-scene--image" />
-      );
-    }
-    if (window.windowSize(this.state.break).isLessThan('tabletLg')) {
-      return (
-        <img src={ study.homepageTLGImage } className="homepage-scene--image" />
+        <img src={ study.homepageMobileImage } className="homepage-scene--image" />
       );
     }
     if (window.windowSize(this.state.break).isLessThan('mobileLg')) {
@@ -56,9 +52,14 @@ class HomepageCaseStudy extends React.Component {
         <img src={ study.homepageMLGImage } className="homepage-scene--image" />
       );
     }
-    if (window.windowSize(this.state.break).isLessThan('mobileSm')) {
+    if (window.windowSize(this.state.break).isLessThan('tabletLg')) {
       return (
-        <img src={ study.homepageMobileImage } className="homepage-scene--image" />
+        <img src={ study.homepageTLGImage } className="homepage-scene--image" />
+      );
+    }
+    if (window.windowSize(this.state.break).isGreaterThan('tabletLg')) {
+      return (
+        <img src={ study.homepageImage } className="homepage-scene--image" />
       );
     }
   }
