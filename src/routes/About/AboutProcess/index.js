@@ -1,5 +1,5 @@
 import React from 'react';
-import AboutProcessImage from '../process.jpg';
+import AboutProcessImage from '../process.png';
 import AboutOfficeImage from '../about-office.jpg';
 
 export function AboutProcess () {

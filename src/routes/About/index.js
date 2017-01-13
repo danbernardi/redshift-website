@@ -26,7 +26,6 @@ import JennieImage from './AboutTeam/jennie.jpg';
 import JoImage from './AboutTeam/jo.jpg';
 import KyleImage from './AboutTeam/kyle.jpg';
 import LucyImage from './AboutTeam/lucy.jpg';
-import MichaelImage from './AboutTeam/michael.jpg';
 import NickImage from './AboutTeam/nick.jpg';
 import RickImage from './AboutTeam/rick.jpg';
 import SandraImage from './AboutTeam/sandra.jpg';
@@ -166,11 +165,6 @@ const teamArray = [
     name: 'Sandra Wing',
     position: 'UX Researcher',
     photo: SandraImage
-  },
-  {
-    name: 'Michael Iseri',
-    position: 'UX Designer',
-    photo: MichaelImage
   },
   {
     name: 'Shannon Chin',
