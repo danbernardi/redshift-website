@@ -102,6 +102,9 @@
 
 .team-member-bio {
   overflow-x: visible;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .team-info h2,
@@ -116,5 +119,10 @@
       width: 50%;
     }
   }
+}
+
+.bio--wrap {
+  height: 100%;
+  overflow: hidden;
 }
 
