@@ -6,6 +6,7 @@ import SteffanImage from '../steffan.jpg';
 const teamBio = {
   id: 'steffan',
   name: 'Steffan Schlarb',
+  position: 'Creative Director',
   bio1: 'Steffan is an award-winning creative director with extensive innovation, creative strategy and product design experience.',
   bio2: 'He has helped shape the creative vision of REDSHIFT for the past 5 years. He leads a team of designers in creating innovative and engaging digital products.',
   bio3: 'Steffan has lead successful projects for such clients as Kaiser Permanente, Google, Symantec, Cisco, OpenTable, Western Union, and SalesForce, among others.',

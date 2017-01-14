@@ -26,7 +26,7 @@ export function BioTemplate (props) {
             { bios.bio3 ? <h5>{ bios.bio3 }</h5> : null }
             { bios.bio4 ? <h5>{ bios.bio4 }</h5> : null }
           </div>
-          <div className="col-6" className="layout--right"><img src={ bios.image } /></div>
+          <div className="col-6 col-last"><img src={ bios.image } /></div>
         </div>
       </div>
     </div>

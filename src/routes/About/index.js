@@ -31,7 +31,7 @@ import ShannonImage from './AboutTeam/shannon.jpg';
 import SteffanImage from './AboutTeam/steffan.jpg';
 import StewartImage from './AboutTeam/stewart.jpg';
 // import SuzanneImage from './AboutTeam/suzanne.jpg';
-// import JennieImage from './AboutTeam/jennie.jpg';
+import JennieImage from './AboutTeam/jennie.jpg';
 // import NickImage from './AboutTeam/nick.jpg';
 // import RickImage from './AboutTeam/rick.jpg';
 
@@ -48,7 +48,7 @@ import KyleBio from './AboutTeam/Bios/KyleBio';
 import SandraBio from './AboutTeam/Bios/SandraBio';
 import ShannonBio from './AboutTeam/Bios/ShannonBio';
 // import NickBio from './AboutTeam/Bios/NickBio';
-// import JennieBio from './AboutTeam/Bios/JennieBio';
+import JennieBio from './AboutTeam/Bios/JennieBio';
 // import RickBio from './AboutTeam/Bios/RickBio';
 // import SuzanneBio from './AboutTeam/Bios/SuzanneBio';
 
@@ -113,12 +113,12 @@ const aboutClientsMap = [
 ];
 
 const teamArray = [
-  // {
-  //   name: 'Jennie Bowers',
-  //   position: 'Senior Visual Designer',
-  //   photo: JennieImage,
-  //   component: <JennieBio />
-  // },
+  {
+    name: 'Jennie Bowers',
+    position: 'Senior Visual Designer',
+    photo: JennieImage,
+    component: <JennieBio />
+  },
   {
     name: 'Ian Eck',
     position: 'UX Designer',

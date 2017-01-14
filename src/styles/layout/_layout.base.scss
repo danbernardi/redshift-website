@@ -3,7 +3,7 @@
 }
 
 .layout--right {
-  float: right;
+  float: right !important;
 }
 
 .layout--top {
@@ -61,7 +61,6 @@ ol {
 }
 
 .full-bg {
-  // background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   background-size: auto 100%;
@@ -70,11 +69,6 @@ ol {
 .anchor {
   position: relative;
   height: 0;
-  // top: -6rem;
-  // // media queries
-  // @include breakpoint($mobile-xsm) {
-  //   top: -5rem;
-  // }
 }
 
 .hidden {

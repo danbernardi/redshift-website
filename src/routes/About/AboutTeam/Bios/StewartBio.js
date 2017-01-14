@@ -4,11 +4,12 @@ import BioModal from '../BioModal';
 import StewartImage from '../stewart.jpg';
 
 const teamBio = {
-  id: 'david',
-  name: 'David Westen',
-  bio1: 'David is an expert in internet technology, user experience and digital business strategy.',
-  bio2: 'In 1999 David co-founded Internet Learning Corporation (ILC), a VC-backed startup focusing on creative, customized e-learning solutions, which was acquired in 2002 by A.S.K. Learning. During his seven years as CTO of A.S.K., David lead the development of e-learning initiatives for clients including HP, Cisco Systems, Veritas, EMC, Sony, Commonwealth Bank and PriceWaterHouseCoopers.',
-  bio3: 'David is a graduate of Stanford University.',
+  id: 'Stewart',
+  name: 'Stewart Maclennan',
+  position: 'Director of Digital Media',
+  bio1: 'Stewart Maclennan is a new media guru who combines 12 years of web consulting experience with 9 years as a film writer, director and producer.',
+  bio2: 'Stewart\'s work includes film production for theatrical and web distribution, interactive internet campaigns, and design and branding solutions. Drawing on his dual interests, Stewart has worked with companies such as Hewlett-Packard and Symantec to leverage new media strategies to accomplish their business objectives.',
+  bio3: 'Stewart graduated from Stanford University before attending the USC School of Cinema-Television.',
   image: StewartImage
 };
 
