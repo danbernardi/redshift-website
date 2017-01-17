@@ -31,6 +31,8 @@ import CSYumavore from './Yumavore/CSYumavore';
 import CSNexus from './Nexus/CSNexus';
 import CSFive from './Five/CSFive';
 
+import ArchiveGrid from 'components/Archive/ArchiveGrid';
+
 const caseStudies = [
   {
     id: 'norton',
@@ -114,6 +116,7 @@ export class Home extends React.Component {
               <HomepageCaseStudy key={ index } study={ study } />
             ))
           }
+          <ArchiveGrid />
         </div>
       </div>
     );
