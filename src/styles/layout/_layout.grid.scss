@@ -51,7 +51,7 @@
   .col-#{$i}--mxsm  { @include breakpoint($mobile-xsm) { lost-column: $i/$columns; } }
 }
 
-.col-last:nth-child(1n) { margin-right: 0; }
+.col-last:nth-child(1n) { margin-right: 0; float: right;}
 .col-last--dlg:nth-child(1n) { @include breakpoint($desktop-lg) { margin-right: 0; } }
 .col-last--dsm:nth-child(1n) { @include breakpoint($desktop-sm) { margin-right: 0; } }
 .col-last--tlg:nth-child(1n) { @include breakpoint($tablet-lg) { margin-right: 0; } }

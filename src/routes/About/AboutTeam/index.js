@@ -1,4 +1,7 @@
 import React from 'react';
+import * as actions from 'store/actions';
+import { connect } from 'react-redux';
+import BioModal from './BioModal';
 
 class AboutTeam extends React.Component {
   constructor (props) {
@@ -13,7 +16,6 @@ class AboutTeam extends React.Component {
     this.setState({
       hover: true
     });
-    console.log('enter', this.state.hover);
   }
 
   _onMouseLeaveHandler () {
@@ -23,8 +25,12 @@ class AboutTeam extends React.Component {
   }
 
   render () {
-    const { team } = this.props;
+    const { team, dispatch } = this.props;
     const { hover } = this.state;
+    const openModal = (component, openState) => {
+      dispatch(actions.setActiveModal(component, 'bio'));
+      dispatch(actions.toggleModal(openState));
+    };
 
     return (
       <div>
@@ -32,6 +38,7 @@ class AboutTeam extends React.Component {
           className="quarter-width team-member"
           onMouseEnter={ () => this.setState({ hover: true }) }
           onMouseLeave={ () => this.setState({ hover: false }) }
+          onClick={ () => openModal(<BioModal bioContent={ team } />, true, team.id) }
         >
           <div
             className="team-hover"
@@ -53,9 +60,11 @@ class AboutTeam extends React.Component {
     );
   }
 }
-const { object } = React.PropTypes;
+const { object, func } = React.PropTypes;
 AboutTeam.propTypes = {
-  team: object
+  team: object,
+  bio: object,
+  dispatch: func
 };
 
-export default AboutTeam;
+export default connect()(AboutTeam);
