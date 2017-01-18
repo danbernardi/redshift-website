@@ -40,37 +40,40 @@ class CaseStudy extends React.Component {
   };
 
   render () {
-    const { id, name, content, heading, next } = this.props;
+    const { id, name, content, heading, next, sidebar } = this.props;
 
     const initialStyles = {
       transition: 'transform 0.3s ease-in-out'
     };
 
     return (
-      <section ref="casestudy" className={ `modal__with-sidebar ${id}` } style={ initialStyles }>
-        <div className="row">
-          <h4 className="casestudy__name typ--caps pl4--mlg">{ name }</h4>
-          <h1 className="casestudy__heading">{ heading }</h1>
-        </div>
-
-        { content && content.length &&
-          content.map((section, index) => (
-            <CaseStudySection
-              key={ index }
-              { ...section }
-            />
-          ))
-         }
-
-        { typeof next === 'object' &&
-          <div className="casestudy__next py7" onClick={ () => this.triggerNextCaseStudy(next.component, next.id) }>
-            <div className="row">
-              <h2 className={ `typ--${next.id}` }>{ next.name }</h2>
-              <span className="typ--default">View case study</span>
-            </div>
+      <div classNsame="casestudy__modal">
+        { sidebar && <div className="modal__close job__sidebar" /> }
+        <section ref="casestudy" className={ `modal__with-sidebar ${id}` } style={ initialStyles }>
+          <div className="row">
+            <h4 className="casestudy__name typ--caps pl4--mlg">{ name }</h4>
+            <h1 className="casestudy__heading">{ heading }</h1>
           </div>
-        }
-      </section>
+
+          { content && content.length &&
+            content.map((section, index) => (
+              <CaseStudySection
+                key={ index }
+                { ...section }
+              />
+            ))
+           }
+
+          { typeof next === 'object' &&
+            <div className="casestudy__next py7" onClick={ () => this.triggerNextCaseStudy(next.component, next.id) }>
+              <div className="row">
+                <h2 className={ `typ--${next.id}` }>{ next.name }</h2>
+                <span className="typ--default">View case study</span>
+              </div>
+            </div>
+          }
+        </section>
+      </div>
     );
   }
 }
@@ -83,7 +86,8 @@ CaseStudy.propTypes = {
   next: React.PropTypes.object,
   dispatch: React.PropTypes.func,
   caseStudyState: React.PropTypes.object,
-  animateIn: React.PropTypes.bool
+  animateIn: React.PropTypes.bool,
+  sidebar: React.PropTypes.bool
 };
 
 const injectStateProps = state => ({
