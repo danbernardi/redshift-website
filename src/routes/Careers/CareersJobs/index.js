@@ -1,33 +1,34 @@
 import React from 'react';
 import * as actions from 'store/actions';
 import { connect } from 'react-redux';
+import { jobDetails } from 'data/jobDetails';
 
 export function CareersJobs (props) {
-  const { dispatch, job } = props;
+  const { dispatch, jobDetails } = props;
 
   const openModal = (component, openState) => {
-    dispatch(actions.setActiveModal(component, 'job'));
+    dispatch(actions.setActiveModal(<jobDescription />, 'job'));
     dispatch(actions.toggleModal(openState));
   };
 
   return (
     <div>
-      <section className={ `${job.id} py9 py6--mlg` }>
-        <h1 className="typ--bold">{ job.position }</h1>
-        <p className="typ--h4 pt6 pt3--mlg">{ job.p1 }</p>
-        { job.p2
-          ? <p className="typ--h4">{ job.p2 }</p>
+      <section className={ `${jobDetails.id} py9 py6--mlg` }>
+        <h1 className="typ--bold">{ jobDetails.position }</h1>
+        <p className="typ--h4 pt6 pt3--mlg">{ jobDetails.p1 }</p>
+        { jobDetails.p2
+          ? <p className="typ--h4">{ jobDetails.p2 }</p>
           : null
         }
-        { job.p3
-          ? <p className="typ--h4 mb6 mb3--mlg">{ job.p3 }</p>
+        { jobDetails.p3
+          ? <p className="typ--h4 mb6 mb3--mlg">{ jobDetails.p3 }</p>
           : null
         }
         <h5
-          data-target={ job.id }
+          data-target={ jobDetails.id }
           data-type="job-open"
           className="btn btn--arrow js-modal-trigger"
-          onClick={ () => openModal(job.component, true, job.id) }
+          onClick={ () => openModal(<jobDescription job={ jobDetails } />, true, jobDetails.id) }
         >
           View position
           <span className="icon-arrow-right pl2" />
@@ -39,7 +40,7 @@ export function CareersJobs (props) {
 
 const { object, func } = React.PropTypes;
 CareersJobs.propTypes = {
-  job: object,
+  jobDetails: object,
   dispatch: func
 };
 

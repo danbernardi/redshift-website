@@ -45,15 +45,27 @@
 
 // Team
 
+.about {
+  .modal__close {
+    right: 0;
+    .icon-close {
+      color: $body;
+    }
+  }
+}
+
 .team-member__modal {
   background-repeat: no-repeat;
   background-position: right;
-  // width: 100%;
-  // height: 100%;
   background-color: $white;
-  top: 50%;
+  top: 0;
+  bottom: 0;
   position: absolute;
-  transform: translateY(-50%);
+  width: calc(100% - 5rem);
+  // transform: translateY(-50%);
+  @include breakpoint($mobile-lg) {
+    width: 100%;
+  }
 }
 
 .about--team img {
@@ -102,9 +114,28 @@
 
 .team-member-bio {
   overflow-x: visible;
-  position: absolute;
+  position: relative;
   top: 50%;
   transform: translateY(-50%);
+  z-index: 9;
+  @include breakpoint($mobile-lg) {
+    transform: none;
+    top: 5rem;
+  }
+
+  h2 {
+    text-transform: lowercase;
+    @include breakpoint($mobile-lg) {
+      font-size: 2.8rem;
+      line-height: 1.65;
+    }
+  }
+
+  h5 {
+    @include breakpoint($mobile-lg) {
+      font-size: 1.4rem;
+    }
+  }
 }
 
 .team-info h2,
@@ -122,7 +153,32 @@
 }
 
 .bio--wrap {
+  position: absolute;
+  bottom: 0;
   height: 100%;
-  overflow: hidden;
+  top: 0;
+  @include breakpoint($mobile-lg) {
+    position: relative;
+  }
 }
 
+.bio--wrap__img {
+  position: relative;
+  height: 100%;
+
+  img {
+    position: absolute;
+    bottom: 0;
+    height: 100%;
+    width: auto;
+    @include breakpoint($mobile-lg) {
+      position: fixed;
+      height: 87rem;
+      width: auto;
+      left: 50%;
+      margin-left: -30rem;
+      top: 66%;
+      min-width: 60rem;
+    }
+  }
+}
