@@ -7,7 +7,7 @@ export function CareersJobs (props) {
   const { dispatch, job } = props;
 
   const openModal = (component, openState) => {
-    dispatch(actions.setActiveModal(<JobDescription />, 'job'));
+    dispatch(actions.setActiveModal(component, 'job'));
     dispatch(actions.toggleModal(openState));
   };
 
@@ -24,7 +24,7 @@ export function CareersJobs (props) {
           data-target={ job.id }
           data-type="job-open"
           className="btn btn--arrow js-modal-trigger"
-          onClick={ () => openModal(<JobDescription job={ job } />, true, job.id) }
+          onClick={ () => openModal(<JobDescription jobDetail={ job } />, true, job.id) }
         >
           View position
           <span className="icon-arrow-right pl2" />

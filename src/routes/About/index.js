@@ -8,7 +8,6 @@ import { teamInfo } from 'data/teamInfo';
 import { clientInfo } from 'data/clientInfo';
 
 export function About () {
-  debugger;
   return (
     <div>
       <AboutProcess />

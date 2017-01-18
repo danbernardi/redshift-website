@@ -1,33 +1,10 @@
 import React from 'react';
 import CareersJobs from './CareersJobs';
-// import SrUxDesigner from './CareersJobs/roles/SeniorUX';
-// import SrVisDesigner from './CareersJobs/roles/SeniorVisual';
-// import UxDesigner from './CareersJobs/roles/UXDesigner';
 import * as actions from 'store/actions';
 import { connect } from 'react-redux';
 import Watcher from 'components/Watcher/index';
 import './style.scss';
 import { jobDetails } from 'data/jobDetails';
-
-// const careers = [
-//   {
-//     position: 'Senior UX Designer',
-
-//     id: 'senior-ux-designer',
-//     component: <SrUxDesigner />
-//   },
-//   {
-//     position: 'UX Designer',
-
-//     id: 'ux-designer',
-//     component: <UxDesigner />
-//   },
-//   {
-//     position: 'Senior Visual Designer',
-//     id: 'senior-visual-designer',
-//     component: <SrVisDesigner />
-//   }
-// ];
 
 export class Careers extends React.Component {
   componentDidMount () {
