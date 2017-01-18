@@ -66,10 +66,10 @@ class HomepageCaseStudy extends React.Component {
 
   render () {
     const { study, dispatch, modalState } = this.props;
-    const openModal = (component, openState, id) => {
+    const openModal = (id) => {
       dispatch(actions.setNextCaseStudy(id, true));
       dispatch(actions.setActiveModal(<CaseStudyModalWrapper />, 'casestudy'));
-      dispatch(actions.toggleModal(openState));
+      dispatch(actions.toggleModal(true));
       scrollToID(id, 500);
     };
     const initialStyles = { transition: `opacity 300ms ease-in-out` };
@@ -93,10 +93,10 @@ class HomepageCaseStudy extends React.Component {
           <div className="homepage--scene-text" style={ Object.assign(initialStyles, transformStyles) }>
             <div className="row">
               <div
-                onClick={ () => openModal(study.component, true, study.id) }
+                onClick={ () => openModal(study.id) }
                 className="scene"
               >
-                <h2 className="typ--bold">{ study.caption1 }<br />{ study.caption2 }</h2>
+                <h2 className="typ--bold">{ study.caption.map((caption, index) => (<div key={ index }>{ caption }</div>)) }</h2>
                 <h5 className="btn btn--arrow">
                   <div className="pt6 pt5--dlg pt3--mlg pt1--msm">
                     View project

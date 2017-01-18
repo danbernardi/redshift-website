@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { caseStudies } from 'data/caseStudies';
+import CaseStudy from './index';
 
 const CaseStudyModalWrapper = props => {
   const { caseStudyState } = props;
@@ -9,12 +10,10 @@ const CaseStudyModalWrapper = props => {
   const currentCaseStudy = activeCaseStudies.find(item => item.id === caseStudyState.current[0]);
   const nextCaseStudy = activeCaseStudies.find(item => item.id === caseStudyState.current[1]);
 
-  // console.log(currentCaseStudy, nextCaseStudy);
-
   return (
     <div>
-      { currentCaseStudy && currentCaseStudy.component }
-      { nextCaseStudy && React.cloneElement(nextCaseStudy.component, { animateIn: true }) }
+      { currentCaseStudy && <CaseStudy { ...currentCaseStudy } /> }
+      { nextCaseStudy && <CaseStudy { ...nextCaseStudy } animateIn={ true } /> }
     </div>
   );
 };

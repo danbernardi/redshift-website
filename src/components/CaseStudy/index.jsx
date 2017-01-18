@@ -1,5 +1,6 @@
 import React from 'react';
 import CaseStudySection from './CaseStudySection';
+import { caseStudies } from 'data/caseStudies';
 import { connect } from 'react-redux';
 import * as actions from 'store/actions';
 import { scrollToID } from 'utils/scrollTo';
@@ -31,7 +32,7 @@ class CaseStudy extends React.Component {
     window.clearInterval(this.timer);
   }
 
-  triggerNextCaseStudy (component, nextID) {
+  triggerNextCaseStudy (nextCaseStudy, nextID) {
     const { dispatch } = this.props;
     const casestudy = ReactDOM.findDOMNode(this.refs.casestudy);
     const currentScrollPos = casestudy.scrollTop;
@@ -40,14 +41,17 @@ class CaseStudy extends React.Component {
   };
 
   render () {
-    const { id, name, content, heading, next, sidebar } = this.props;
+    const { id, name, content, heading, sidebar } = this.props;
 
     const initialStyles = {
       transition: 'transform 0.3s ease-in-out'
     };
 
+    const caseStudyIndex = caseStudies.findIndex(item => item.id === id);
+    const nextCaseStudy = caseStudyIndex === caseStudies.length - 1 ? caseStudies[0] : caseStudies[caseStudyIndex + 1];
+
     return (
-      <div classNsame="casestudy__modal">
+      <div className="casestudy__modal">
         { sidebar && <div className="modal__close job__sidebar" /> }
         <section ref="casestudy" className={ `modal__with-sidebar ${id}` } style={ initialStyles }>
           <div className="row">
@@ -64,10 +68,10 @@ class CaseStudy extends React.Component {
             ))
            }
 
-          { typeof next === 'object' &&
-            <div className="casestudy__next py7" onClick={ () => this.triggerNextCaseStudy(next.component, next.id) }>
+          { typeof nextCaseStudy === 'object' &&
+            <div className="casestudy__next py7" onClick={ () => this.triggerNextCaseStudy(nextCaseStudy, nextCaseStudy.id) }>
               <div className="row">
-                <h2 className={ `typ--${next.id}` }>{ next.name }</h2>
+                <h2 className={ `typ--${nextCaseStudy.id}` }>{ nextCaseStudy.name }</h2>
                 <span className="typ--default">View case study</span>
               </div>
             </div>
@@ -83,7 +87,6 @@ CaseStudy.propTypes = {
   name: React.PropTypes.string,
   heading: React.PropTypes.string,
   content: React.PropTypes.array,
-  next: React.PropTypes.object,
   dispatch: React.PropTypes.func,
   caseStudyState: React.PropTypes.object,
   animateIn: React.PropTypes.bool,

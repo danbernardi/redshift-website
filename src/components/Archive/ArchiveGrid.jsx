@@ -24,8 +24,6 @@ const ArchiveGrid = props => {
     ))
   );
 
-  console.log(caseStudyArchives);
-
   return (
     <section className="archive__grid">
       { caseStudyArchives && caseStudyArchives.length
