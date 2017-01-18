@@ -1,8 +1,13 @@
 export const jobDetails = [
   {
+    position: 'Senior UX Designer',
     id: 'sr-ux-designer',
     header: 'UX',
-    position: 'Senior UX Designer',
+    frontpage: [
+      'At Redshift, in addition to being a top-notch UX designer, and leading cross-functional project teams, UX Leads are responsible for regularly presenting work to clients, so the ability to communicate confidently and clearly are essential. Leads must be able to speak fluently about both business objectives and design principles, and to handle feedback and questions with poise.',
+      'UX designers, consultants, project managers, and interactive producers are all potential candidates.',
+      'This role reports to our Director of UX'
+    ],
     description: 'At Redshift, in addition to being a top-notch UX designer, and leading cross-functional project teams, UX Leads are responsible for regularly presenting work to clients, so the ability to communicate confidently and clearly are essential. Leads must be able to speak fluently about both business objectives and design principles, and to handle feedback and questions with poise. UX designers, consultants, project managers, and interactive producers are all potential candidates. This role reports to our Director of UX. This role reports to our Director of UX.',
     responsibilities: [
       'Lead a small team of UX designer, and collaborate cross-functionally with research, visual design, front-end engineering, producers. and company leaders to take products from concept to launch.',
@@ -50,6 +55,9 @@ export const jobDetails = [
     id: 'sr-visual-designer',
     header: 'VISUAL',
     position: 'Senior Visual Designer',
+    frontpage: [
+      'Redshift is seeking a Senior Visual Designer to join our creative team in San Francisco. You will work closely with the Creative Director, UX Producer and larger Redshift team to concept and create interactive solutions for a large variety of digital projects. We are a small shop with big clients so you can expect to work on web sites, kiosks, interfaces, experiences, occasional print and even product design.'
+    ],
     description: 'REDSHIFT is seeking a Senior Visual Designer to join our creative team in San Francisco. You will work closely with the Creative Director, UX Producer and larger REDSHIFT team to concept and create interactive solutions for a large variety of digital projects. We are a small shop with big clients so you can expect to work on web sites, kiosks, interfaces, experiences, occasional print and even product design.',
     skills: [
       'A portfolio of beautiful designs',
@@ -78,6 +86,11 @@ export const jobDetails = [
     id: 'ux-designer',
     header: 'UX',
     position: 'UX Designer',
+    frontpage: [
+      'At Redshift, UX Designers are part of cross-functional project teams, working with a Senior UX Designer, Visual Designer, User Researchers, Front-End Engineers, Producers, and company leaders.',
+      'UX designers, consultants, project managers, and interactive producers are all potential candidates.',
+      'This role reports to our Director of UX'
+    ],
     description: 'At Redshift, UX Designers are part of cross-functional project teams, working with a Senior UX Designer, Visual Designer, User Researchers, Front-End Engineers, Producers, and company leaders. UX designers, consultants, project managers, and interactive producers are all potential candidates. This role reports to our Director of UX.',
     responsibilities: [
       'Under the leadership of a Senior UX Designer, collaborate cross-functionally with other UX Designers, research, visual design, front-end engineering, producers, and company leaders to take products from concept to launch.',

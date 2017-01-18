@@ -5,7 +5,7 @@ export function BioTemplate (props) {
   const { bioContent } = props;
 
   const bio = bioContent.bioStatement.map((paragraph, index) =>
-    <h5 key={ index } className="pb2">{paragraph}</h5>
+    <h5 key={ index } className="pb2">{ paragraph }</h5>
   );
 
   return (
