@@ -1,6 +1,6 @@
 import React from 'react';
 import FooterSocial from './FooterSocial';
-import './Footer.scss';
+import './footer.scss';
 
 export function Footer () {
   return (
