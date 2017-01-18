@@ -6,6 +6,7 @@ const CaseStudySection = props => {
   return (
     <div className={ classes && classes }>
       <img className="full-image" src={ img } />
+
       { copy
         ? <div className={ `row typ--center ${pad && 'py10'}` }>
           { copy.map((copy, index) => (
