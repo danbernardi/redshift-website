@@ -37,9 +37,9 @@ export class Careers extends React.Component {
       <div>
         <section className="about-gradient careers-hero">
           <div className="row">
-            <div className="careers-page-title pb10 pb0--mlg pt4--mlg">
+            <div className="careers-page-title">
               <div className="hero--scene-text">
-                <h1 className="typ--bold pb8 typ--white">Join the team.</h1>
+                <h1 className="typ--bold typ--white">Join the team.</h1>
               </div>
             </div>
           </div>
