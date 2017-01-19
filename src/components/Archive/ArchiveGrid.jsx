@@ -2,33 +2,50 @@ import React from 'react';
 import './Archive.scss';
 import { caseStudyArchives } from 'data/caseStudyArchives';
 import PinkHover from 'components/PinkHover';
+import * as actions from 'store/actions';
+import { connect } from 'react-redux';
 
 import CaseStudyModalWrapper from 'components/CaseStudy/CaseStudyModalWrapper';
 
-const generateCaseStudies = (caseStudyArray) => (
-  caseStudyArray.map((item, index) => (
-    <PinkHover
-      key={ index }
-      classes="archive__item"
-      modal={ {
-        // create ArchiveModal and pass 'component: <ArchiveModal archiveContent={ item }'> from caseStudyArchives data
-        component: <CaseStudyModalWrapper />,
-        openState: true
-      } }
-      imageSrc={ item.thumb }
-    >
-      <p>{ item.id }</p>
-    </PinkHover>
-  ))
-);
+const ArchiveGrid = props => {
+  const { dispatch, modalState } = props;
 
-const ArchiveGrid = () => (
-  <section className="archive__grid">
-    { caseStudyArchives && caseStudyArchives.length
-      ? generateCaseStudies(caseStudyArchives)
-      : null
-    }
-  </section>
-);
+  const generateCaseStudies = (caseStudyArray) => (
+    caseStudyArray.map((item, index) => (
+      <PinkHover
+        key={ index }
+        classes="archive__item"
+        clickHandler={ () => openModal(<CaseStudyModalWrapper />, item.id) }
+        imageSrc={ item.thumb }
+      >
+        <p>{ item.id }</p>
+      </PinkHover>
+    ))
+  );
 
-export default ArchiveGrid;
+  const openModal = (component, id) => {
+    dispatch(actions.setNextCaseStudy(id, true));
+    dispatch(actions.setActiveModal(component, 'casestudy'));
+    if (!modalState.open) { dispatch(actions.toggleModal(true)); }
+  };
+
+  return (
+    <section className="archive__grid">
+      { caseStudyArchives && caseStudyArchives.length
+        ? generateCaseStudies(caseStudyArchives)
+        : null
+      }
+    </section>
+  );
+};
+
+ArchiveGrid.propTypes = {
+  dispatch: React.PropTypes.func,
+  modalState: React.PropTypes.object
+};
+
+const injectStateProps = state => ({
+  modalState: state.modalState
+});
+
+export default connect(injectStateProps)(ArchiveGrid);

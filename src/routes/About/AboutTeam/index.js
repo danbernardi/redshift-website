@@ -1,19 +1,24 @@
 import React from 'react';
 import BioModal from './BioModal';
 import PinkHover from 'components/PinkHover';
+import * as actions from 'store/actions';
+import { connect } from 'react-redux';
 
 const AboutTeam = props => {
-  const { team } = props;
+  const { team, dispatch } = props;
+
+  const openModal = (component, id) => {
+    dispatch(actions.setNextCaseStudy(id, true));
+    dispatch(actions.setActiveModal(component, 'casestudy'));
+    dispatch(actions.toggleModal(true));
+  };
 
   return (
     <div>
       <PinkHover
         classes="quarter-width team-member"
-        modal={ {
-          component: <BioModal bioContent={ team } />,
-          openState: true
-        } }
         imageSrc={ team.photo }
+        clickHandler={ () => openModal(<BioModal bioContent={ team } />, 'bio') }
       >
         <h2 className="typ--bold">{ team.name }</h2>
         <h4>{ team.position }</h4>
@@ -22,9 +27,10 @@ const AboutTeam = props => {
   );
 };
 
-const { object } = React.PropTypes;
+const { object, func } = React.PropTypes;
 AboutTeam.propTypes = {
-  team: object
+  team: object,
+  dispatch: func
 };
 
-export default AboutTeam;
+export default connect()(AboutTeam);
