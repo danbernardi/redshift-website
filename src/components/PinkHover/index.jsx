@@ -1,6 +1,7 @@
 import React from 'react';
 import * as actions from 'store/actions';
 import { connect } from 'react-redux';
+import './styles.scss';
 
 class PinkHover extends React.Component {
   constructor (props) {
@@ -41,13 +42,13 @@ class PinkHover extends React.Component {
         onClick={ () => openModal(modal) }
       >
         <div
-          className="team-hover"
-          style={ hover ? { width: '100%' } : { width: '0', transitionDelay: '0.25s' } }
+          className="pink-hover"
+          style={ hover ? { width: '100%', transitionDelay: '0.25s' } : { width: '0', transitionDelay: '0.25s' } }
         >
-          <div className="team-gradient">
+          <div className="pink-gradient">
             <div
-              className="team-info"
-              style={ hover ? { transform: 'translate(0%, -50%)', transitionDelay: '0.05s' } : { transform: 'translate(-100%, -50%)' } }
+              className="pink-info"
+              style={ hover ? { transform: 'translate(0%, -50%)', transitionDelay: '0.3s' } : { transform: 'translate(-100%, -50%)' } }
             >
               { children }
             </div>
