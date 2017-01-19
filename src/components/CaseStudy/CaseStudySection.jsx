@@ -7,13 +7,14 @@ const CaseStudySection = props => {
     <div className={ classes && classes }>
       <img className="full-image" src={ img } />
 
-      { items ?
-        <div className={ `row typ--center ${pad && 'py10'}` }>
+      { items
+        ? <div className={ `row typ--center ${pad && 'py10'}` }>
           { items.map((item, index) => (
             React.cloneElement(item, { key: index })
           )) }
         </div>
-      : null }
+        : null
+      }
     </div>
   );
 };
