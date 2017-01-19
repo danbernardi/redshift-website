@@ -1,70 +1,30 @@
 import React from 'react';
-import * as actions from 'store/actions';
-import { connect } from 'react-redux';
 import BioModal from './BioModal';
+import PinkHover from 'components/PinkHover';
 
-class AboutTeam extends React.Component {
-  constructor (props) {
-    super(props);
+const AboutTeam = props => {
+  const { team } = props;
 
-    this.state = {
-      hover: false
-    };
-  }
-
-  _onMouseEnterHandler () {
-    this.setState({
-      hover: true
-    });
-  }
-
-  _onMouseLeaveHandler () {
-    this.setState({
-      hover: false
-    });
-  }
-
-  render () {
-    const { team, dispatch } = this.props;
-    const { hover } = this.state;
-    const openModal = (component, openState) => {
-      dispatch(actions.setActiveModal(component, 'bio'));
-      dispatch(actions.toggleModal(openState));
-    };
-
-    return (
-      <div>
-        <div
-          className="quarter-width team-member"
-          onMouseEnter={ () => this.setState({ hover: true }) }
-          onMouseLeave={ () => this.setState({ hover: false }) }
-          onClick={ () => openModal(<BioModal bioContent={ team } />, true, team.id) }
-        >
-          <div
-            className="team-hover"
-            style={ hover ? { width: '100%' } : { width: '0', transitionDelay: '0.25s' } }
-          >
-            <div className="team-gradient">
-              <div
-                className="team-info"
-                style={ hover ? { transform: 'translate(0%, -50%)', transitionDelay: '0.05s' } : { transform: 'translate(-100%, -50%)' } }
-              >
-                <h2 className="typ--bold">{ team.name }</h2>
-                <h4>{ team.position }</h4>
-              </div>
-            </div>
-          </div>
-          <img src={ team.photo } />
-        </div>
-      </div>
-    );
-  }
-}
-const { object, func } = React.PropTypes;
-AboutTeam.propTypes = {
-  team: object,
-  bio: object,
-  dispatch: func
+  return (
+    <div>
+      <PinkHover
+        classes="quarter-width team-member"
+        modal={ {
+          component: <BioModal bioContent={ team } />,
+          openState: true
+        } }
+        imageSrc={ team.photo }
+      >
+        <h2 className="typ--bold">{ team.name }</h2>
+        <h4>{ team.position }</h4>
+      </PinkHover>
+    </div>
+  );
 };
 
-export default connect()(AboutTeam);
+const { object } = React.PropTypes;
+AboutTeam.propTypes = {
+  team: object
+};
+
+export default AboutTeam;
