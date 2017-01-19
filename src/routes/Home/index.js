@@ -36,7 +36,7 @@ export class Home extends React.Component {
         <div id="homepage-work">
           <Watcher offset={ { bottom: '8.5rem' } } stateChange={ (watcher) => this.watcherCallback(watcher) } />
           {
-            caseStudies.map((study, index) => (
+            caseStudies.filter(item => item.featured).map((study, index) => (
               <HomepageCaseStudy key={ index } study={ study } />
             ))
           }

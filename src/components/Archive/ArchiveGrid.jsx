@@ -3,7 +3,7 @@ import './Archive.scss';
 import { caseStudyArchives } from 'data/caseStudyArchives';
 import PinkHover from 'components/PinkHover';
 
-import CSArchive1 from 'routes/Archives/Archive1/CSArchive1';
+import CaseStudyModalWrapper from 'components/CaseStudy/CaseStudyModalWrapper';
 
 const generateCaseStudies = (caseStudyArray) => (
   caseStudyArray.map((item, index) => (
@@ -12,7 +12,7 @@ const generateCaseStudies = (caseStudyArray) => (
       classes="archive__item"
       modal={ {
         // create ArchiveModal and pass 'component: <ArchiveModal archiveContent={ item }'> from caseStudyArchives data
-        component: <CSArchive1 />,
+        component: <CaseStudyModalWrapper />,
         openState: true
       } }
       imageSrc={ item.thumb }
