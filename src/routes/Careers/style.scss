@@ -10,13 +10,17 @@
 }
 
 .careers-hero {
-  height: 45rem;
+  height: 0;
+  padding-top: 24%;
+  position: relative;
+  max-height: 45rem;
+  min-height: 33rem;
 }
 
 .careers-page-title {
-  height: 45rem;
-  top: -50%;
-  transform: translateY(40%);
+  // height: 45rem;
+  top: 40%;
+  position: absolute;
 }
 
 .job__modal {
