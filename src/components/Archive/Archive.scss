@@ -10,6 +10,9 @@
   float: left;
   background-size: cover;
   padding-bottom: 25%;
+  height: 0;
+  position: relative;
+  overflow: hidden;
   // media queries
   @include breakpoint($mobile-lg) {
     width: 33.33333%;

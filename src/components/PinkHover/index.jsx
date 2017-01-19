@@ -28,6 +28,7 @@ class PinkHover extends React.Component {
     const { children, classes, modal, dispatch, imageSrc } = this.props;
     const { hover } = this.state;
     const openModal = ({ component, openState }) => {
+        //   dispatch(actions.setNextCaseStudy(id, true)); - needed for archives?
       dispatch(actions.setActiveModal(component, 'bio'));
       dispatch(actions.toggleModal(openState));
     };

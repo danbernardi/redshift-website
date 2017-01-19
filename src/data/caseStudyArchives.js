@@ -12,67 +12,53 @@ import archive10Thumb from 'routes/Archives/archive10_th.jpg';
 import archive11Thumb from 'routes/Archives/archive11_th.jpg';
 import archive12Thumb from 'routes/Archives/archive12_th.jpg';
 
-import CSArchive1 from 'routes/Archives/Archive1/CSArchive1';
-
 export const caseStudyArchives = [
   {
     id: 'archive 1',
-    thumb: archive1Thumb,
-    component: <CSArchive1 />
+    thumb: archive1Thumb
   },
   {
     id: 'archive 2',
-    thumb: archive2Thumb,
-    component: <CSArchive1 />
+    thumb: archive2Thumb
   },
   {
     id: 'archive 3',
-    thumb: archive3Thumb,
-    component: <CSArchive1 />
+    thumb: archive3Thumb
   },
   {
     id: 'archive 4',
-    thumb: archive4Thumb,
-    component: <CSArchive1 />
+    thumb: archive4Thumb
   },
   {
     id: 'archive 5',
-    thumb: archive5Thumb,
-    component: <CSArchive1 />
+    thumb: archive5Thumb
   },
   {
     id: 'archive 6',
-    thumb: archive6Thumb,
-    component: <CSArchive1 />
+    thumb: archive6Thumb
   },
   {
     id: 'archive 7',
-    thumb: archive7Thumb,
-    component: <CSArchive1 />
+    thumb: archive7Thumb
   },
   {
     id: 'archive 8',
-    thumb: archive8Thumb,
-    component: <CSArchive1 />
+    thumb: archive8Thumb
   },
   {
     id: 'archive 9',
-    thumb: archive9Thumb,
-    component: <CSArchive1 />
+    thumb: archive9Thumb
   },
   {
     id: 'archive 10',
-    thumb: archive10Thumb,
-    component: <CSArchive1 />
+    thumb: archive10Thumb
   },
   {
     id: 'archive 11',
-    thumb: archive11Thumb,
-    component: <CSArchive1 />
+    thumb: archive11Thumb
   },
   {
     id: 'archive 12',
-    thumb: archive12Thumb,
-    component: <CSArchive1 />
+    thumb: archive12Thumb
   }
 ];

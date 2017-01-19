@@ -1,41 +1,34 @@
 import React from 'react';
 import './Archive.scss';
 import { caseStudyArchives } from 'data/caseStudyArchives';
-import { connect } from 'react-redux';
-import * as actions from 'store/actions';
+import PinkHover from 'components/PinkHover';
 
-const ArchiveGrid = props => {
-  const { dispatch } = props;
+import CSArchive1 from 'routes/Archives/Archive1/CSArchive1';
 
-  const openCaseStudyModal = (component, id) => {
-    dispatch(actions.setNextCaseStudy(id, true));
-    dispatch(actions.setActiveModal(component, id));
-    dispatch(actions.toggleModal(true));
-  };
+const generateCaseStudies = (caseStudyArray) => (
+  caseStudyArray.map((item, index) => (
+    <PinkHover
+      key={ index }
+      classes="archive__item"
+      modal={ {
+        // create ArchiveModal and pass 'component: <ArchiveModal archiveContent={ item }'> from caseStudyArchives data
+        component: <CSArchive1 />,
+        openState: true
+      } }
+      imageSrc={ item.thumb }
+    >
+      <p>{ item.id }</p>
+    </PinkHover>
+  ))
+);
 
-  const generateCaseStudies = (caseStudyArray) => (
-    caseStudyArray.map((item, index) => (
-      <div
-        onClick={ () => openCaseStudyModal(item.component, item.id) }
-        key={ index }
-        className="archive__item"
-        style={ { backgroundImage: `url(${item.thumb})` } }
-      />
-    ))
-  );
+const ArchiveGrid = () => (
+  <section className="archive__grid">
+    { caseStudyArchives && caseStudyArchives.length
+      ? generateCaseStudies(caseStudyArchives)
+      : null
+    }
+  </section>
+);
 
-  return (
-    <section className="archive__grid">
-      { caseStudyArchives && caseStudyArchives.length
-        ? generateCaseStudies(caseStudyArchives)
-        : null
-      }
-    </section>
-  );
-};
-
-ArchiveGrid.propTypes = {
-  dispatch: React.PropTypes.func
-};
-
-export default connect()(ArchiveGrid);
+export default ArchiveGrid;
