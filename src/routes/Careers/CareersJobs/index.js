@@ -16,21 +16,19 @@ export function CareersJobs (props) {
   );
 
   return (
-    <div>
-      <section className={ `${job.id} py9 py6--mlg` }>
-        <h1 className="typ--bold">{ job.position }</h1>
-        { frontPage }
-        <h5
-          data-target={ job.id }
-          data-type="job-open"
-          className="btn btn--arrow js-modal-trigger"
-          onClick={ () => openModal(<JobDescription jobDetail={ job } />, true, job.id) }
-        >
-          View position
-          <span className="icon-arrow-right pl2" />
-        </h5>
-      </section>
-    </div>
+    <section className={ `${job.id} py9 py6--mlg` }>
+      <h1 className="typ--bold">{ job.position }</h1>
+      { frontPage }
+      <h5
+        data-target={ job.id }
+        data-type="job-open"
+        className="btn btn--arrow js-modal-trigger"
+        onClick={ () => openModal(<JobDescription jobDetail={ job } />, true, job.id) }
+      >
+        View position
+        <span className="icon-arrow-right pl2" />
+      </h5>
+    </section>
   );
 }
 

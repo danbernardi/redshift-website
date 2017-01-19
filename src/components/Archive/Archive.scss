@@ -1,0 +1,23 @@
+@import 'sass-includes';
+
+.archive__grid {
+  position: relative;
+}
+
+.archive__item {
+  cursor: pointer;
+  width: 25%;
+  float: left;
+  background-size: cover;
+  padding-bottom: 25%;
+  // media queries
+  @include breakpoint($mobile-lg) {
+    width: 33.33333%;
+    padding-bottom: 33.33333%;
+  }
+
+  @include breakpoint($mobile-xsm) {
+    width: 50%;
+    padding-bottom: 50%;
+  }
+}

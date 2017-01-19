@@ -52,10 +52,6 @@
   }
 }
 
-#menu {
-  z-index: 14;
-}
-
 .modal {
   @extend %full-height;
   transform: translateX(100%);

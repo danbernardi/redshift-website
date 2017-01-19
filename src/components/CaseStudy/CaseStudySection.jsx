@@ -1,16 +1,17 @@
 import React from 'react';
 
 const CaseStudySection = props => {
-  const { img, items, pad, classes } = props;
+  const { img, copy, pad, classes } = props;
 
   return (
     <div className={ classes && classes }>
       <img className="full-image" src={ img } />
-
-      { items
+      { copy
         ? <div className={ `row typ--center ${pad && 'py10'}` }>
-          { items.map((item, index) => (
-            React.cloneElement(item, { key: index })
+          { copy.map((copy, index) => (
+            copy.url
+            ? <a href={ copy.url } className={ copy.classes && copy.classes } key={ index }>{ copy.text }</a>
+            : <div className={ copy.classes && copy.classes } key={ index }>{ copy.text }</div>
           )) }
         </div>
         : null
@@ -21,7 +22,7 @@ const CaseStudySection = props => {
 
 CaseStudySection.propTypes = {
   img: React.PropTypes.string,
-  items: React.PropTypes.array,
+  copy: React.PropTypes.array,
   pad: React.PropTypes.bool,
   classes: React.PropTypes.string
 };
