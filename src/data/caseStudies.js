@@ -38,6 +38,14 @@ import FiveTLGImage from 'routes/Home/Five/five-scene-bg-tlg.jpg';
 import FiveMLGImage from 'routes/Home/Five/five-scene-bg-mlg.jpg';
 import FiveMobileImage from 'routes/Home/Five/five-scene-bg-mobile.jpg';
 
+// archive 1
+import archive1Thumb from 'routes/Archives/archive1_th.jpg';
+import archive1Img1 from 'routes/Archives/Archive1/archive1_1.jpg';
+import archive1Img2 from 'routes/Archives/Archive1/archive1_2.jpg';
+import archive1Img3 from 'routes/Archives/Archive1/archive1_3.jpg';
+import archive1Img4 from 'routes/Archives/Archive1/archive1_4.jpg';
+import archive1Img5 from 'routes/Archives/Archive1/archive1_5.jpg';
+
 export const caseStudies = [
   // Norton Antivirus
   {
@@ -83,7 +91,8 @@ export const caseStudies = [
     homepageMobileImage: NortonMobileImage,
     imageAlt: 'Norton creative design',
     caption: ['A single interface', 'for all things Norton'],
-    anchor: true
+    anchor: true,
+    featured: true
   },
 
   // Yumavore
@@ -146,7 +155,8 @@ export const caseStudies = [
     homepageMLGImage: YumavoreMLGImage,
     homepageMobileImage: YumavoreMobileImage,
     imageAlt: 'Yumavore app design',
-    caption: ['A new way to create', 'and share recipes']
+    caption: ['A new way to create', 'and share recipes'],
+    featured: true
   },
 
   // Google Nexus
@@ -187,7 +197,8 @@ export const caseStudies = [
     homepageMLGImage: NexusMLGImage,
     homepageMobileImage: NexusMobileImage,
     imageAlt: 'Nexus product website',
-    caption: ['A new home', 'for Google Nexus']
+    caption: ['A new home', 'for Google Nexus'],
+    featured: true
   },
 
   // Five
@@ -241,6 +252,39 @@ export const caseStudies = [
     homepageMLGImage: FiveMLGImage,
     homepageMobileImage: FiveMobileImage,
     imageAlt: 'Redshift Five App',
-    caption: ['Share and compare', 'your top 5 of anything']
+    caption: ['Share and compare', 'your top 5 of anything'],
+    featured: true
+  },
+
+  // archive 1
+  {
+    id: 'archive 1',
+    name: 'Archive 1',
+    thumb: archive1Thumb,
+    heading: 'In hac habitasse platea dictumst. Vivamus adipiscing fermentum quam volutpat aliquam intege.',
+    sidebar: true,
+    content: [
+      { img: archive1Img1 },
+      { img: archive1Img2 },
+      { img: archive1Img3 },
+      { img: archive1Img4 },
+      { img: archive1Img5 }
+    ]
+  },
+
+  // archive 2
+  {
+    id: 'archive 2',
+    name: 'Archive 2',
+    thumb: archive1Thumb,
+    heading: 'In hac habitasse platea dictumst. Vivamus adipiscing fermentum quam volutpat aliquam intege.',
+    sidebar: true,
+    content: [
+      { img: archive1Img1 },
+      { img: archive1Img2 },
+      { img: archive1Img3 },
+      { img: archive1Img4 },
+      { img: archive1Img5 }
+    ]
   }
 ];
