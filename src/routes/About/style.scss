@@ -48,6 +48,7 @@
 .about {
   .modal__close {
     right: 0;
+
     .icon-close {
       color: $body;
     }
@@ -76,17 +77,6 @@
   position: relative;
   overflow: hidden;
   height: auto;
-}
-
-<<<<<<< 347708c3907410325f9d43ea3de359e2e9451988
-=======
-.team-hover {
-  transition: width 0.2s ease-in;
-  position: absolute;
-  bottom: 0;
-  top: 0;
-  left: 0;
-  width: 0;
 }
 
 .team-member-bio {
