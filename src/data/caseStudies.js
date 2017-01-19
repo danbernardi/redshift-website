@@ -1,9 +1,3 @@
-// import React from 'react';
-// import CSFive from 'routes/Home/Five/CSFive';
-// import CSNexus from 'routes/Home/Nexus/CSNexus';
-// import CSNorton from 'routes/Home/Norton/CSNorton';
-// import CSYumavore from 'routes/Home/Yumavore/CSYumavore';
-
 // norton images
 import norton1 from 'routes/Home/Norton/norton1.jpg';
 import norton2 from 'routes/Home/Norton/norton2.jpg';
@@ -34,7 +28,6 @@ import NexusImage from 'routes/Home/Nexus/nexus-scene-bg.jpg';
 import NexusTLGImage from 'routes/Home/Nexus/nexus-scene-bg-tlg.jpg';
 import NexusMLGImage from 'routes/Home/Nexus/nexus-scene-bg-mlg.jpg';
 import NexusMobileImage from 'routes/Home/Nexus/nexus-scene-bg-mobile.jpg';
-
 
 // five images
 import five1 from 'routes/Home/Five/five1.jpg';
