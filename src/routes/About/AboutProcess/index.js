@@ -9,7 +9,7 @@ export function AboutProcess () {
         <div className="row hero--scene-text">
           <div className="about--process__flex pt6">
             <div className="col-6 col-12--tmd">
-              <h1 className="typ--bold pt9 pt0--mlg">Hello.</h1>
+              <h1 className="typ--bold">Hello.</h1>
               <h4 className="py9 py6--tlg pr10 pr2--mlg">
                 We are Redshift.
                 We combine user experience,

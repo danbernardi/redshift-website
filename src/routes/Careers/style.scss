@@ -9,8 +9,14 @@
   }
 }
 
+.careers-hero {
+  height: 45rem;
+}
+
 .careers-page-title {
-  padding-top: 20rem;
+  height: 45rem;
+  top: -50%;
+  transform: translateY(40%);
 }
 
 .job__modal {
