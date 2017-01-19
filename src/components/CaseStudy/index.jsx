@@ -9,27 +9,42 @@ import './styles.scss';
 
 class CaseStudy extends React.Component {
   componentDidMount () {
-    const { animateIn, caseStudyState } = this.props;
-    const casestudy = ReactDOM.findDOMNode(this.refs.casestudy);
+    const { animateIn } = this.props;
+    this.triggerAnimation(animateIn);
+  }
 
+  componentWillReceiveProps (nextProps) {
+    if (nextProps.id !== this.props.id) {
+      const { animateIn } = this.props;
+      this.triggerAnimation(animateIn);
+    }
+  }
+
+  componentDidUpdate () {
+    if (this.props.id === this.props.caseStudyState.current[0]) {
+      const casestudy = ReactDOM.findDOMNode(this.refs.casestudy);
+      casestudy.scrollTop = this.props.caseStudyState.currentScrollPos;
+    }
+  }
+
+  componentWillUnmount () {
+    window.clearInterval(this.timer);
+  }
+
+  triggerAnimation (animateIn) {
     if (animateIn) {
+      const casestudy = ReactDOM.findDOMNode(this.refs.casestudy);
       // reset translate position to off canvas
       casestudy.style.transition = 'none';
       casestudy.style.transform = 'translateY(100%)';
 
       this.timer = setTimeout(() => {
         // animate in after timeout to solve for race condition
+        casestudy.scrollTop = 0;
         casestudy.style.transition = 'transform 0.3s ease-in-out';
         casestudy.style.transform = 'none';
       }, 1);
-    } else {
-      // set scroll position of outgoing div
-      casestudy.scrollTop = caseStudyState.currentScrollPos;
     }
-  }
-
-  componentWillUnmount () {
-    window.clearInterval(this.timer);
   }
 
   triggerNextCaseStudy (nextCaseStudy, nextID) {
