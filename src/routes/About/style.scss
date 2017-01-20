@@ -21,6 +21,15 @@
   @include breakpoint($tablet-md) {
     display: block;
   }
+  @include breakpoint($mobile-lg) {
+    padding-top: 15rem;
+  }
+
+  h4 {
+    @include breakpoint($mobile-lg) {
+      line-height: 2;
+    }
+  }
 }
 
 .about--process__image {
