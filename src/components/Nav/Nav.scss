@@ -1,20 +1,11 @@
 @import 'sass-includes';
 
-.nav_header {
-  line-height: 1;
-}
-
 .nav {
   background: $white;
   position: fixed;
   top: 0;
   z-index: 10;
   width: 100vw;
-  // padding-top: 14rem;
-  // media queries
-  // @include breakpoint($mobile-lg) {
-  //   padding-top: 20.5rem;
-  // }
 }
 
 .nav__menu h1 {
@@ -35,6 +26,7 @@
 .nav .footer {
   position: absolute;
   bottom: 0;
+  z-index: 99;
 }
 
 .nav__menu {
