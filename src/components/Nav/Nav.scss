@@ -10,11 +10,11 @@
   top: 0;
   z-index: 10;
   width: 100vw;
-  padding-top: 14rem;
+  // padding-top: 14rem;
   // media queries
-  @include breakpoint($mobile-lg) {
-    padding-top: 20.5rem;
-  }
+  // @include breakpoint($mobile-lg) {
+  //   padding-top: 20.5rem;
+  // }
 }
 
 .nav__menu h1 {
@@ -39,6 +39,10 @@
 
 .nav__menu {
   text-align: right;
+  transform: translateY(-8%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   // media queries
   @include breakpoint($mobile-lg) {
     text-align: left;
@@ -48,7 +52,7 @@
     line-height: 1.2;
     color: $body;
     position: relative;
-    top: 4rem;
+    // top: 4rem;
     cursor: pointer;
     opacity: 0;
     transform: translateY(4rem);

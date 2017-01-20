@@ -66,6 +66,12 @@
   top: 0;
   display: inline-block;
   transition: color 0.2s linear;
+  @include breakpoint($tablet-lg) {
+    font-size: 3rem;
+  }
+  @include breakpoint($mobile-sm) {
+    display: none;
+  }
 }
 
 .header__logo {

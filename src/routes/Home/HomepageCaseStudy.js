@@ -103,7 +103,7 @@ class HomepageCaseStudy extends React.Component {
                     <img
                       src={ ArrowRight }
                       alt="Yumavore app design"
-                      className="ml5 ml1--msm arrow"
+                      className="ml2 ml1--msm arrow"
                     />
                   </div>
                 </h5>
