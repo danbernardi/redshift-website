@@ -1,6 +1,4 @@
 import React from 'react';
-import * as actions from 'store/actions';
-import { connect } from 'react-redux';
 import './styles.scss';
 
 class PinkHover extends React.Component {
@@ -26,20 +24,15 @@ class PinkHover extends React.Component {
 
   // const { } = props;
   render () {
-    const { children, classes, modal, dispatch, imageSrc } = this.props;
+    const { children, classes, imageSrc, clickHandler } = this.props;
     const { hover } = this.state;
-    const openModal = ({ component, openState }) => {
-        //   dispatch(actions.setNextCaseStudy(id, true)); - needed for archives?
-      dispatch(actions.setActiveModal(component, 'bio'));
-      dispatch(actions.toggleModal(openState));
-    };
 
     return (
       <div
         className={ classes }
         onMouseEnter={ () => this.setState({ hover: true }) }
         onMouseLeave={ () => this.setState({ hover: false }) }
-        onClick={ () => openModal(modal) }
+        onClick={ () => clickHandler && clickHandler() }
       >
         <div
           className="pink-hover"
@@ -66,7 +59,8 @@ PinkHover.propTypes = {
   classes: string,
   modal: object,
   dispatch: func,
-  imageSrc: string
+  imageSrc: string,
+  clickHandler: func
 };
 
-export default connect()(PinkHover);
+export default PinkHover;

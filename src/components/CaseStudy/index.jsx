@@ -7,6 +7,8 @@ import { scrollToID } from 'utils/scrollTo';
 import ReactDOM from 'react-dom';
 import './styles.scss';
 
+import ArchiveGrid from 'components/Archive/ArchiveGrid';
+
 class CaseStudy extends React.Component {
   componentDidMount () {
     const { animateIn } = this.props;
@@ -56,14 +58,24 @@ class CaseStudy extends React.Component {
   };
 
   render () {
-    const { id, name, content, heading, sidebar } = this.props;
+    const { id, name, content, heading, sidebar, featured } = this.props;
+
+    const featuredCaseStudies = caseStudies.filter((item) => item.featured);
+    const archivedCaseStudies = caseStudies.filter((item) => !item.featured);
+    let activeCaseStudies;
+
+    if (featured) {
+      activeCaseStudies = featuredCaseStudies;
+    } else {
+      activeCaseStudies = archivedCaseStudies;
+    }
+
+    const caseStudyIndex = activeCaseStudies.findIndex(item => item.id === id);
+    const nextCaseStudy = caseStudyIndex === activeCaseStudies.length - 1 ? activeCaseStudies[0] : activeCaseStudies[caseStudyIndex + 1];
 
     const initialStyles = {
       transition: 'transform 0.3s ease-in-out'
     };
-
-    const caseStudyIndex = caseStudies.findIndex(item => item.id === id);
-    const nextCaseStudy = caseStudyIndex === caseStudies.length - 1 ? caseStudies[0] : caseStudies[caseStudyIndex + 1];
 
     return (
       <div className="casestudy__modal">
@@ -91,6 +103,11 @@ class CaseStudy extends React.Component {
               </div>
             </div>
           }
+
+          { !featured || caseStudies.findIndex(item => item.id === id) === featuredCaseStudies.length - 1
+            ? <ArchiveGrid />
+            : null
+          }
         </section>
       </div>
     );
@@ -105,7 +122,8 @@ CaseStudy.propTypes = {
   dispatch: React.PropTypes.func,
   caseStudyState: React.PropTypes.object,
   animateIn: React.PropTypes.bool,
-  sidebar: React.PropTypes.bool
+  sidebar: React.PropTypes.bool,
+  featured: React.PropTypes.bool
 };
 
 const injectStateProps = state => ({
