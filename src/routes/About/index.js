@@ -14,7 +14,7 @@ export function About () {
       <section className="flex theme--dark about--clients pb9 py6--tlg pt8">
         <div className="row hero--scene-text">
           <h1 className="typ--bold">Who we work with</h1>
-          <h2 className="py9 py6--tlg">We work with companies large and small, from start-ups to global brands.</h2>
+          <h4 className="py9 py6--tlg pt2--mlg">We’ve had the privilege of working with some of the world’s top brands and many promising startups.</h4>
           <div className="col-12--dlg">
             {
               _.chunk(clientInfo, 4).map((clientLine, index) => (

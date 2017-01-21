@@ -13,6 +13,7 @@
     z-index: 35;
     position: relative;
     width: 70vw;
+
     @include breakpoint($mobile-lg) {
       width: 90vw;
     }
@@ -87,14 +88,19 @@
 .homepage--scene-text {
   position: relative;
   width: 100%;
+
+  h5 {
+    font-size: 1.8rem;
+  }
   // media queries
+  @include breakpoint($tablet-lg) {
+    h2 {
+      font-size: 3.2rem;
+    }
+  }
   @include breakpoint($mobile-sm) {
     h2 {
       font-size: 3rem;
-    }
-
-    h5 {
-      font-size: 1.8rem;
     }
   }
 }
@@ -160,8 +166,8 @@
   width: calc(100% - 9rem);
   opacity: 1;
   transition: opacity 0.5s linear;
-  padding-left: 6rem;
-  padding-right: 18.5rem;
+  padding-left: 5rem;
+  padding-right: 14rem;
   top: 50%;
   transform: translateY(-50%);
   overflow: auto;
@@ -204,14 +210,14 @@
     padding-top: 527.53%;
   }
 
-  .page-title {
-    position: fixed;
-    top: 0;
-    z-index: 9;
-    color: $white !important;
-    display: none;
-    opacity: 1 !important;
-  }
+  // .page-title {
+  //   position: fixed;
+  //   top: 0;
+  //   z-index: 9;
+  //   color: $white !important;
+  //   display: none;
+  //   opacity: 1 !important;
+  // }
 
   .scene-target {
     margin-top: 47.3%;
