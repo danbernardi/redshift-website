@@ -79,14 +79,41 @@
   }
 }
 
-.about--team img {
-  display: block;
-}
+.about--team {
+  .row {
+    @include breakpoint($mobile-lg) {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
 
-.about--team .team-member {
-  position: relative;
-  overflow: hidden;
-  height: auto;
+  img {
+    display: block;
+  }
+
+  .team-member {
+    position: relative;
+    overflow: hidden;
+    height: auto;
+    text-transform: lowercase;
+  }
+
+  h2,
+  h4 {
+    @include breakpoint($mobile-lg) {
+      font-size: 2.496rem;
+    }
+  }
+
+  .right-arrow {
+    position: absolute;
+    bottom: 4rem;
+    img {
+      @include breakpoint($mobile-lg) {
+        height: 1rem
+      }
+    }
+  }
 }
 
 .team-member-bio {
