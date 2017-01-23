@@ -84,7 +84,7 @@ class HomepageCaseStudy extends React.Component {
     }
 
     return (
-      <section className={ `home-${study.id} flex theme--dark home-section layout--relative` }>
+      <section className={ `home-${study.id} theme--dark home-section layout--relative` }>
         <div id={ study.id } className="scroll--target" />
         <div className="scene-container layout--absolute">
           { this._homepageImage() }
@@ -99,7 +99,7 @@ class HomepageCaseStudy extends React.Component {
                 <h2 className="typ--bold">{ study.caption.map((caption, index) => (<div key={ index }>{ caption }</div>)) }</h2>
                 <h5 className="btn btn--arrow">
                   <div className="pt6 pt5--dlg pt3--mlg pt1--msm">
-                    <a href="http://www.google.com" target="_blank">View project</a>
+                    View project
                     <img
                       src={ ArrowRight }
                       alt="Yumavore app design"
