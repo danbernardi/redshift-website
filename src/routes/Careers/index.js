@@ -35,12 +35,10 @@ export class Careers extends React.Component {
   render () {
     return (
       <div>
-        <section className="about-gradient careers-hero">
-          <div className="row">
-            <div className="careers-page-title">
-              <div className="hero--scene-text">
-                <h1 className="typ--bold typ--white">Join the team.</h1>
-              </div>
+        <section className="about-gradient careers-hero row">
+          <div className="careers-page-title">
+            <div className="hero--scene-text">
+              <h1 className="typ--bold typ--white">Join the team.</h1>
             </div>
           </div>
         </section>
