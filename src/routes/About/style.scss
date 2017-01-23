@@ -75,6 +75,7 @@
   // transform: translateY(-50%);
   @include breakpoint($mobile-lg) {
     width: 100%;
+    overflow-y: scroll;
   }
 }
 
@@ -148,13 +149,12 @@
     height: 100%;
     width: auto;
     @include breakpoint($mobile-lg) {
-      position: fixed;
-      height: 87rem;
+      position: relative;
+      height: auto;
       width: auto;
-      left: 50%;
-      margin-left: -30rem;
-      top: 66%;
-      min-width: 60rem;
+      min-width: 0;
+      top: 5rem;
+      left: 0;
     }
   }
 }

@@ -99,7 +99,7 @@ class HomepageCaseStudy extends React.Component {
                 <h2 className="typ--bold">{ study.caption.map((caption, index) => (<div key={ index }>{ caption }</div>)) }</h2>
                 <h5 className="btn btn--arrow">
                   <div className="pt6 pt5--dlg pt3--mlg pt1--msm">
-                    View project
+                    <a href="http://www.google.com" target="_blank">View project</a>
                     <img
                       src={ ArrowRight }
                       alt="Yumavore app design"
