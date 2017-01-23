@@ -8,13 +8,9 @@ export function RoleTemplate ({ children, name }) {
       <div className="modal__close job__sidebar" />
       <div className="modal__with-sidebar">
         { children }
-        <section>
-          <div className="contact__form py8">
-            <div className="row">
-              <h3 className="pb4">Apply</h3>
-              <JobContact position={ name } />
-            </div>
-          </div>
+        <section className="contact__form py8 row">
+          <h3 className="pb4">Apply</h3>
+          <JobContact position={ name } />
         </section>
       </div>
     </div>

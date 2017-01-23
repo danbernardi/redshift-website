@@ -5,7 +5,7 @@ export function JobDescription ({ jobDetail }) {
   return (
     <RoleTemplate name={ jobDetail.position }>
       <section id={ jobDetail.id } className="job-description">
-        <div className="row pb10 row--maxwidth">
+        <div className="row pb10 pb5--mlg row--maxwidth">
           <h4 className="typ--light careers__type pl4--mlg">{ jobDetail.header }</h4>
           <h1 className="careers-title">{ jobDetail.position }</h1>
           <h3 className="pb10 pb2--mlg typ--light">{ jobDetail.description }</h3>
