@@ -105,7 +105,7 @@ class CaseStudy extends React.Component {
           }
 
           { !featured || caseStudies.findIndex(item => item.id === id) === featuredCaseStudies.length - 1
-            ? <ArchiveGrid />
+            ? <ArchiveGrid clickCallback={ (id) => this.triggerNextCaseStudy(caseStudies.find(item => item.id === id), id) } />
             : null
           }
         </section>
