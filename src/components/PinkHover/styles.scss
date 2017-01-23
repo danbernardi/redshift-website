@@ -14,7 +14,10 @@
   color: $white;
   padding: 0 5rem;
   position: absolute;
-  top: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   // media queries
   @include breakpoint($desktop-sm) {
     padding: 0 3rem;

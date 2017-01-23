@@ -84,7 +84,7 @@ class HomepageCaseStudy extends React.Component {
     }
 
     return (
-      <section className={ `home-${study.id} flex theme--dark home-section layout--relative` }>
+      <section className={ `home-${study.id} theme--dark home-section layout--relative` }>
         <div id={ study.id } className="scroll--target" />
         <div className="scene-container layout--absolute">
           { this._homepageImage() }

@@ -1,6 +1,6 @@
 import React from 'react';
 import './Archive.scss';
-import { caseStudyArchives } from 'data/caseStudyArchives';
+import { caseStudies } from 'data/caseStudies';
 import PinkHover from 'components/PinkHover';
 import * as actions from 'store/actions';
 import { connect } from 'react-redux';
@@ -24,15 +24,25 @@ const ArchiveGrid = props => {
   );
 
   const openModal = (component, id) => {
-    dispatch(actions.setNextCaseStudy(id, true));
-    dispatch(actions.setActiveModal(component, 'casestudy'));
-    if (!modalState.open) { dispatch(actions.toggleModal(true)); }
+    const { clickCallback } = props;
+    if (!modalState.open) {
+      dispatch(actions.setActiveModal(component, 'casestudy'));
+      dispatch(actions.setNextCaseStudy(id, true));
+      dispatch(actions.toggleModal(true));
+    } else if (modalState.modalID === 'casestudy') {
+      clickCallback && clickCallback(id);
+    }
   };
+
+  let archivedCaseStudies;
+  if (caseStudies && caseStudies instanceof Array) {
+    archivedCaseStudies = caseStudies.filter(item => !item.featured);
+  }
 
   return (
     <section className="archive__grid">
-      { caseStudyArchives && caseStudyArchives.length
-        ? generateCaseStudies(caseStudyArchives)
+      { archivedCaseStudies && archivedCaseStudies.length
+        ? generateCaseStudies(archivedCaseStudies)
         : null
       }
     </section>
