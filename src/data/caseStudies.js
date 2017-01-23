@@ -46,6 +46,39 @@ import archive1Img3 from 'routes/Archives/Archive1/archive1_3.jpg';
 import archive1Img4 from 'routes/Archives/Archive1/archive1_4.jpg';
 import archive1Img5 from 'routes/Archives/Archive1/archive1_5.jpg';
 
+// archive 2
+import archive2Thumb from 'routes/Archives/archive2_th.jpg';
+
+// archive 3
+import archive3Thumb from 'routes/Archives/archive3_th.jpg';
+
+// archive 4
+import archive4Thumb from 'routes/Archives/archive4_th.jpg';
+
+// archive 5
+import archive5Thumb from 'routes/Archives/archive5_th.jpg';
+
+// archive 6
+import archive6Thumb from 'routes/Archives/archive6_th.jpg';
+
+// archive 7
+import archive7Thumb from 'routes/Archives/archive7_th.jpg';
+
+// archive 8
+import archive8Thumb from 'routes/Archives/archive8_th.jpg';
+
+// archive 9
+import archive9Thumb from 'routes/Archives/archive9_th.jpg';
+
+// archive 10
+import archive10Thumb from 'routes/Archives/archive10_th.jpg';
+
+// archive 11
+import archive11Thumb from 'routes/Archives/archive11_th.jpg';
+
+// archive 12
+import archive12Thumb from 'routes/Archives/archive12_th.jpg';
+
 export const caseStudies = [
   // Norton Antivirus
   {
@@ -276,7 +309,167 @@ export const caseStudies = [
   {
     id: 'archive 2',
     name: 'Archive 2',
-    thumb: archive1Thumb,
+    thumb: archive2Thumb,
+    heading: 'In hac habitasse platea dictumst. Vivamus adipiscing fermentum quam volutpat aliquam intege.',
+    sidebar: true,
+    content: [
+      { img: archive1Img1 },
+      { img: archive1Img2 },
+      { img: archive1Img3 },
+      { img: archive1Img4 },
+      { img: archive1Img5 }
+    ]
+  },
+
+  // archive 3
+  {
+    id: 'archive 3',
+    name: 'Archive 3',
+    thumb: archive3Thumb,
+    heading: 'In hac habitasse platea dictumst. Vivamus adipiscing fermentum quam volutpat aliquam intege.',
+    sidebar: true,
+    content: [
+      { img: archive1Img1 },
+      { img: archive1Img2 },
+      { img: archive1Img3 },
+      { img: archive1Img4 },
+      { img: archive1Img5 }
+    ]
+  },
+
+  // archive 4
+  {
+    id: 'archive 4',
+    name: 'Archive 4',
+    thumb: archive4Thumb,
+    heading: 'In hac habitasse platea dictumst. Vivamus adipiscing fermentum quam volutpat aliquam intege.',
+    sidebar: true,
+    content: [
+      { img: archive1Img1 },
+      { img: archive1Img2 },
+      { img: archive1Img3 },
+      { img: archive1Img4 },
+      { img: archive1Img5 }
+    ]
+  },
+
+  // archive 5
+  {
+    id: 'archive 5',
+    name: 'Archive 5',
+    thumb: archive5Thumb,
+    heading: 'In hac habitasse platea dictumst. Vivamus adipiscing fermentum quam volutpat aliquam intege.',
+    sidebar: true,
+    content: [
+      { img: archive1Img1 },
+      { img: archive1Img2 },
+      { img: archive1Img3 },
+      { img: archive1Img4 },
+      { img: archive1Img5 }
+    ]
+  },
+
+  // archive 6
+  {
+    id: 'archive 6',
+    name: 'Archive 6',
+    thumb: archive6Thumb,
+    heading: 'In hac habitasse platea dictumst. Vivamus adipiscing fermentum quam volutpat aliquam intege.',
+    sidebar: true,
+    content: [
+      { img: archive1Img1 },
+      { img: archive1Img2 },
+      { img: archive1Img3 },
+      { img: archive1Img4 },
+      { img: archive1Img5 }
+    ]
+  },
+
+  // archive 7
+  {
+    id: 'archive 7',
+    name: 'Archive 7',
+    thumb: archive7Thumb,
+    heading: 'In hac habitasse platea dictumst. Vivamus adipiscing fermentum quam volutpat aliquam intege.',
+    sidebar: true,
+    content: [
+      { img: archive1Img1 },
+      { img: archive1Img2 },
+      { img: archive1Img3 },
+      { img: archive1Img4 },
+      { img: archive1Img5 }
+    ]
+  },
+
+  // archive 8
+  {
+    id: 'archive 8',
+    name: 'Archive 8',
+    thumb: archive8Thumb,
+    heading: 'In hac habitasse platea dictumst. Vivamus adipiscing fermentum quam volutpat aliquam intege.',
+    sidebar: true,
+    content: [
+      { img: archive1Img1 },
+      { img: archive1Img2 },
+      { img: archive1Img3 },
+      { img: archive1Img4 },
+      { img: archive1Img5 }
+    ]
+  },
+
+  // archive 9
+  {
+    id: 'archive 9',
+    name: 'Archive 9',
+    thumb: archive9Thumb,
+    heading: 'In hac habitasse platea dictumst. Vivamus adipiscing fermentum quam volutpat aliquam intege.',
+    sidebar: true,
+    content: [
+      { img: archive1Img1 },
+      { img: archive1Img2 },
+      { img: archive1Img3 },
+      { img: archive1Img4 },
+      { img: archive1Img5 }
+    ]
+  },
+
+  // archive 10
+  {
+    id: 'archive 10',
+    name: 'Archive 10',
+    thumb: archive10Thumb,
+    heading: 'In hac habitasse platea dictumst. Vivamus adipiscing fermentum quam volutpat aliquam intege.',
+    sidebar: true,
+    content: [
+      { img: archive1Img1 },
+      { img: archive1Img2 },
+      { img: archive1Img3 },
+      { img: archive1Img4 },
+      { img: archive1Img5 }
+    ]
+  },
+
+  // archive 11
+  {
+    id: 'archive 11',
+    name: 'Archive 11',
+    thumb: archive11Thumb,
+    heading: 'In hac habitasse platea dictumst. Vivamus adipiscing fermentum quam volutpat aliquam intege.',
+    sidebar: true,
+    content: [
+      { img: archive1Img1 },
+      { img: archive1Img2 },
+      { img: archive1Img3 },
+      { img: archive1Img4 },
+      { img: archive1Img5 }
+    ]
+  },
+
+  // archive 12
+  {
+    id: 'archive 12',
+    name: 'Archive 12',
+    thumb: archive12Thumb,
     heading: 'In hac habitasse platea dictumst. Vivamus adipiscing fermentum quam volutpat aliquam intege.',
     sidebar: true,
     content: [
