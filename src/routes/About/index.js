@@ -13,7 +13,7 @@ export function About () {
       <AboutProcess />
       <section className="flex theme--dark about--clients pb9 py6--tlg pt8">
         <div className="row hero--scene-text">
-          <h1 className="typ--bold">Who we work with</h1>
+          <h1 className="typ--bold">Who we work with.</h1>
           <h4 className="py9 py6--tlg pt2--mlg">We’ve had the privilege of working with some of the world’s top brands and many promising startups.</h4>
           <div className="col-12--dlg">
             {
@@ -26,7 +26,7 @@ export function About () {
       </section>
       <section className="about--team pt9 pt6--tlg pt2--mlg">
         <div className="row hero--scene-text">
-          <h1 className="typ--bold pb8 pb6--tlg">Who we are</h1>
+          <h1 className="typ--bold pb8 pb6--tlg">Who we are.</h1>
           {
             teamInfo.map((team, index) => (
               <AboutTeam key={ index } team={ team } />
