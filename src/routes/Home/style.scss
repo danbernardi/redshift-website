@@ -82,12 +82,12 @@
 .homepage-scene--image {
   width: 100%;
   height: 100%;
-  display: block;
+  // display: block;
 }
 
 .homepage--scene-text {
-  position: relative;
-  width: 100%;
+  // position: relative;
+  // width: 100%;
 
   h5 {
     font-size: 1.8rem;
@@ -117,7 +117,6 @@
 
 .home-section {
   padding-top: 140%;
-  overflow: hidden;
 }
 
 .index-content {
@@ -164,14 +163,14 @@
 .scene {
   position: fixed;
   width: calc(100% - 9rem);
-  opacity: 1;
-  transition: opacity 0.5s linear;
+  // opacity: 1;
+  // transition: opacity 0.5s linear;
   padding-left: 5rem;
   padding-right: 14rem;
   top: 50%;
   transform: translateY(-50%);
-  overflow: auto;
-  cursor: default;
+  // overflow: auto;
+  // cursor: default;
 
   @include breakpoint($desktop-sm) {
     padding-right: 6rem;
