@@ -41,7 +41,7 @@ class PinkHover extends React.Component {
           <div className="pink-gradient">
             <div
               className="pink-info"
-              style={ hover ? { transform: 'translate(0%, -50%)', transitionDelay: '0.3s' } : { transform: 'translate(-100%, -50%)' } }
+              style={ hover ? { transform: 'translate(0%, 0%)', transitionDelay: '0.3s' } : { transform: 'translate(-100%, 0%)' } }
             >
               { children }
             </div>

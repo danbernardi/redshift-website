@@ -3,6 +3,7 @@ import BioModal from './BioModal';
 import PinkHover from 'components/PinkHover';
 import * as actions from 'store/actions';
 import { connect } from 'react-redux';
+import ArrowRight from '../arrow-right-short.png';
 
 const AboutTeam = props => {
   const { team, dispatch } = props;
@@ -22,6 +23,9 @@ const AboutTeam = props => {
       >
         <h2 className="typ--bold">{ team.name }</h2>
         <h4>{ team.position }</h4>
+        <div className="right-arrow">
+          <img src={ ArrowRight } />
+        </div>
       </PinkHover>
     </div>
   );
