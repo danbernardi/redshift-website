@@ -7,17 +7,6 @@ import './style.scss';
 import { jobDetails } from 'data/jobDetails';
 
 export class Careers extends React.Component {
-  componentDidMount () {
-    const { dispatch } = this.props;
-    dispatch(actions.setHeaderTheme('white'));
-  }
-
-  componentWillReceiveProps (newProps) {
-    if (newProps.modalOpen !== this.props.modalOpen) {
-      this.props.dispatch(actions.setHeaderTheme('white'));
-    }
-  }
-
   watcherCallback (watcher) {
     const { dispatch } = this.props;
 
@@ -43,7 +32,11 @@ export class Careers extends React.Component {
           </div>
         </section>
         <section>
-          <Watcher offset={ { bottom: '8.5rem' } } stateChange={ (watcher) => this.watcherCallback(watcher) } />
+          <Watcher
+            offset={ { bottom: '8.5rem' } }
+            enterViewport={ (watcher) => this.watcherCallback(watcher) }
+            stateChange={ (watcher) => this.watcherCallback(watcher) }
+          />
           <div className="row row--maxwidth">
             {
               jobDetails.map((job, index) => (
