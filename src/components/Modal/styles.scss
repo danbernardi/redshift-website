@@ -46,8 +46,11 @@
       font-size: 2rem;
     }
     @include breakpoint($mobile-sm) {
-      // left: 2rem;
+      left: 2rem;
       top: 3.1rem;
+    }
+    @include breakpoint($mobile-xsm) {
+      top: 2.9rem;
     }
   }
 }

@@ -257,7 +257,7 @@ export const caseStudies = [
             text: 'Creating a FIVE is easy too. The app seamlessly integrates with Google Images to bring your lists to life.'
           },
           {
-            classes: 'btn btn--ghost mt5 mb10 typ--five',
+            classes: 'btn btn--ghost mt5 mb6 mt3--mlg mb4--mlg typ--five',
             text: 'coming soon'
           },
           {
