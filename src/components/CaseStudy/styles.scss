@@ -30,11 +30,16 @@
 
 .casestudy__heading {
   max-width: 100rem;
-  padding-top: 17rem;
-  padding-bottom: 35rem;
+  padding-top: 16rem;
+  padding-bottom: 23rem;
   // media queries
-  @include breakpoint($mobile-lg) {
-    padding-bottom: 17rem;
+  @include breakpoint($tablet-lg) {
+    padding-top: 10rem;
+    padding-bottom: 15rem;
+  }
+  @include breakpoint($mobile-sm) {
+    padding-top: 6rem;
+    padding-bottom: 9rem;
   }
 }
 
@@ -42,10 +47,10 @@
   max-width: 125rem;
   width: 80%;
   margin: auto;
-}
-
-.casestudy__name {
-
+  // media queries
+  @include breakpoint($mobile-lg) {
+    width: 100%;
+  }
 }
 
 .casestudy__scroll {

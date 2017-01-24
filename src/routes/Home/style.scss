@@ -160,17 +160,20 @@
   clip: rect(0, auto, auto, 0);
 }
 
+@supports (-ms-accelerator: true) {
+  .scene {
+    position: absolute;
+    top: -100rem;
+  }
+}
+
 .scene {
   position: fixed;
   width: calc(100% - 9rem);
-  // opacity: 1;
-  // transition: opacity 0.5s linear;
   padding-left: 5rem;
   padding-right: 14rem;
   top: 50%;
   transform: translateY(-50%);
-  // overflow: auto;
-  // cursor: default;
 
   @include breakpoint($desktop-sm) {
     padding-right: 6rem;

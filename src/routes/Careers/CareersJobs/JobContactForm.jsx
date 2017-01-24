@@ -8,7 +8,7 @@ export function JobContactForm ({ form }) {
 
   return (
     <div className={ `${form.classes} col-6 col-12--tmd` }>
-      <div className={ `form__group mb6 ${form.formClass}` }>
+      <div className={ `form__group mb6 mb4--msm ${form.formClass}` }>
         {
           form.type === 'file'
             ? <label htmlFor="file-input" name="attachment" >Attachments <img src={ AttachmentImage } /></label>

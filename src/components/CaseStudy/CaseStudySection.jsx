@@ -5,14 +5,17 @@ const CaseStudySection = props => {
 
   return (
     <div className={ classes && classes }>
-      <img className="full-image" src={ img } />
+      { img && <img className="full-image" src={ img } /> }
 
       { copy
-        ? <div className={ `row typ--center ${pad && 'py10'}` }>
+        ? <div className={ `row typ--center ${pad && 'py10 py5--mlg'}` }>
           { copy.map((copy, index) => (
-            copy.url
-            ? <a href={ copy.url } className={ copy.classes && copy.classes } key={ index }>{ copy.text }</a>
-            : <div className={ copy.classes && copy.classes } key={ index }>{ copy.text }</div>
+            <div key={ index }>
+              { copy.url && copy.text
+                ? <a href={ copy.url } className={ copy.classes && copy.classes }>{ copy.text }</a>
+                : <div className={ copy.classes && copy.classes }>{ copy.text }</div> }
+              { copy.src && <img src={ copy.src } /> }
+            </div>
           )) }
         </div>
         : null
