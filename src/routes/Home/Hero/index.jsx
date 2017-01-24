@@ -27,9 +27,9 @@ export function Hero () {
               </div>
             </div>
             <div id="workAnchor" className="case-scroll-icon" onClick={ () => scrollToWork() }>
-              <span>
+              <div className="row">
                 <img src={ DownArrow } />
-              </span>
+              </div>
             </div>
           </div>
         </div>

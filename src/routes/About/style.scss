@@ -80,13 +80,6 @@
 }
 
 .about--team {
-  .row {
-    @include breakpoint($mobile-lg) {
-      padding-left: 0;
-      padding-right: 0;
-    }
-  }
-
   img {
     display: block;
   }
