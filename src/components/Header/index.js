@@ -33,6 +33,10 @@ export class Header extends React.Component {
 
     if (modalState.open) {
       dispatch(actions.toggleModal(false));
+
+      setTimeout(() => {
+        dispatch(actions.setActiveModal(null, null));
+      }, 200);
     }
   };
 

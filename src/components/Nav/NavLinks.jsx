@@ -24,7 +24,6 @@ class NavLinks extends React.Component {
     browserHistory.push(to);
     const body = document.getElementsByTagName('body');
     if (body && body[0]) { body[0].scrollTop = 0; }
-    dispatch(actions.setHeaderTheme('pink'));
 
     this.timer = setTimeout(() => {
       if (to === '/work') {
