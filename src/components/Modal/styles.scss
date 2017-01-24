@@ -19,12 +19,11 @@
   color: $white;
   z-index: 26;
   width: 17rem;
-  // left: 0;
   top: 0;
   height: 100vh;
   // media queries
-  @include breakpoint($tablet-sm) {
-    width: 10rem;
+  @include breakpoint($desktop-sm) {
+    width: 11rem;
   }
   @include breakpoint($mobile-lg) {
     color: $redshift;
@@ -37,8 +36,10 @@
     left: 7rem;
     top: 5rem;
     // media queries
+    @include breakpoint($desktop-sm) {
+      left: 4rem;
+    }
     @include breakpoint($tablet-sm) {
-      left: 3.6rem;
       top: 3.9rem;
     }
     @include breakpoint($mobile-lg) {
@@ -126,8 +127,10 @@
   height: 100%;
   width: calc(100vw - 17rem);
   // media queries
+  @include breakpoint($desktop-sm) {
+    width: calc(100vw - 11rem);
+  }
   @include breakpoint($tablet-sm) {
-    width: calc(100vw - 10rem);
     padding-top: 5.4rem;
   }
   @include breakpoint($mobile-lg) {

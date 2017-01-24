@@ -26,13 +26,11 @@ export function About () {
       </section>
       <section className="about--team pt9 pt6--tlg pt2--mlg">
         <div className="row hero--scene-text">
-          <h1 className="typ--bold pb8 pb6--tlg pl2--mlg">Who we are.</h1>
-          {
-            teamInfo.map((team, index) => (
-              <AboutTeam key={ index } team={ team } />
-            ))
-          }
+          <h1 className="typ--bold pb8 pb6--tlg">Who we are.</h1>
         </div>
+        { teamInfo.map((team, index) => (
+          <AboutTeam key={ index } team={ team } />
+        )) }
       </section>
     </div>
   );

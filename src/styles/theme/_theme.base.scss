@@ -20,34 +20,6 @@ a {
   -webkit-text-fill-color: transparent !important;
 }
 
-.backgroundcliptext {
-  .hero.index-content h1 {
-    @extend %gradient-text;
-    background: linear-gradient(45deg, $redshift, $cranberry);
-    z-index: 35;
-    position: relative;
-    width: 70vw;
-    @include breakpoint($mobile-lg) {
-      width: 90vw;
-    }
-    @include breakpoint($mobile-sm) {
-      font-size: 3.8rem;
-    }
-
-  }
-
-  .hero.about h1 {
-    color: $white;
-  }
-
-  .nav__menu li a {
-    &:hover {
-      @extend %gradient-text;
-      background: linear-gradient(45deg, $redshift, $cranberry);
-    }
-  }
-}
-
 .typ--kaiser {
   color: $kaiser;
 }
