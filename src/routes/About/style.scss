@@ -1,10 +1,10 @@
 @import 'sass-includes';
 
 .about-gradient {
-  background: rgb(236,0,94); /* Old browsers */
-  background: -moz-linear-gradient(top,  rgba(236,0,94,1) 0%, rgba(255,0,172,1) 100%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(top,  rgba(236,0,94,1) 0%,rgba(255,0,172,1) 100%); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to bottom,  rgba(236,0,94,1) 0%,rgba(255,0,172,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  background: rgb(236, 0, 94); /* Old browsers */
+  background: -moz-linear-gradient(top,  rgba(236, 0, 94, 1) 0%, rgba(255, 0, 172, 1) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top,  rgba(236, 0, 94, 1) 0%, rgba(255, 0, 172, 1) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom,  rgba(236, 0,94, 1) 0%, rgba(255, 0, 172, 1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ec005e', endColorstr='#ff00ac',GradientType=0 ); /* IE6-9 */
 }
 
@@ -18,6 +18,7 @@
   align-items: center;
   justify-content: center;
   padding-top: 14rem;
+  // media queries
   @include breakpoint($tablet-md) {
     display: block;
   }
@@ -34,6 +35,7 @@
 
 .about--process__image {
   max-height: 66rem;
+  // media queries
   @include breakpoint($tablet-md) {
     text-align: center;
   }
@@ -56,10 +58,13 @@
 
 .about {
   .modal__close {
+    @extend %page-margins;
     right: 0;
+    text-align: right;
 
     .icon-close {
       color: $body;
+      left: 0;
     }
   }
 }
@@ -93,6 +98,7 @@
 
   h2,
   h4 {
+    // media queries
     @include breakpoint($mobile-lg) {
       font-size: 2.496rem;
     }
@@ -101,10 +107,19 @@
   .right-arrow {
     position: absolute;
     bottom: 4rem;
+
     img {
+      // media queries
       @include breakpoint($mobile-lg) {
-        height: 1rem
+        height: 1rem;
       }
+    }
+  }
+
+  .quarter-width {
+    //media queries
+    @include breakpoint($tablet-md) {
+      width: 50%;
     }
   }
 }
@@ -115,6 +130,7 @@
   top: 50%;
   transform: translateY(-50%);
   z-index: 9;
+  // media queries
   @include breakpoint($mobile-lg) {
     transform: none;
     top: 5rem;
@@ -122,6 +138,7 @@
 
   h2 {
     text-transform: lowercase;
+    // media queries
     @include breakpoint($mobile-lg) {
       font-size: 2.8rem;
       line-height: 1.65;
@@ -129,6 +146,7 @@
   }
 
   h5 {
+    // media queries
     @include breakpoint($mobile-lg) {
       font-size: 1.4rem;
     }
@@ -140,20 +158,12 @@
   line-height: 1.2;
 }
 
-.about--team {
-  .quarter-width {
-    //media queries
-    @include breakpoint($tablet-md) {
-      width: 50%;
-    }
-  }
-}
-
 .bio--wrap {
   position: absolute;
   bottom: 0;
   height: 100%;
   top: 0;
+  // media queries
   @include breakpoint($mobile-lg) {
     position: relative;
   }
@@ -168,6 +178,7 @@
     bottom: 0;
     height: 100%;
     width: auto;
+    // media queries
     @include breakpoint($mobile-lg) {
       position: relative;
       height: auto;
