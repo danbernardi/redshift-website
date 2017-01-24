@@ -1,5 +1,5 @@
 import React from 'react';
-import ArrowRight from './arrow-right-short.png';
+import ArrowRight from 'assets/img/arrow-right-short.png';
 import * as actions from 'store/actions';
 import { connect } from 'react-redux';
 import { scrollToID } from 'utils/scrollTo';
