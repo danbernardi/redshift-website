@@ -27,6 +27,18 @@ class PinkHover extends React.Component {
     const { children, classes, imageSrc, clickHandler } = this.props;
     const { hover } = this.state;
 
+    const initialHoverStyles = { transition: `transform 0.2s ease-in-out 0.25s` };
+    const initialInfoStyles = { transition: `transform 0.2s ease-in-out 0.325s` };
+    let transformStyles = {};
+
+    if (hover) {
+      // if modal is currently active
+      transformStyles = { transform: 'none' };
+    } else {
+      // if modal isn't currently active
+      transformStyles = { transform: 'translateX(-100.1%)' };
+    }
+
     return (
       <div
         className={ classes }
@@ -36,12 +48,12 @@ class PinkHover extends React.Component {
       >
         <div
           className="pink-hover"
-          style={ hover ? { width: '100%', transitionDelay: '0.25s' } : { width: '0', transitionDelay: '0.25s' } }
+          style={ Object.assign(initialHoverStyles, transformStyles) }
         >
           <div className="pink-gradient">
             <div
               className="pink-info"
-              style={ hover ? { transform: 'translate(0%, 0%)', transitionDelay: '0.3s' } : { transform: 'translate(-100%, 0%)' } }
+              style={ Object.assign(initialInfoStyles, transformStyles) }
             >
               { children }
             </div>
