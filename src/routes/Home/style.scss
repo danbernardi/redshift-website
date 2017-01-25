@@ -194,8 +194,8 @@
 
 @supports (-ms-ime-align:auto) {
   .scene {
-    position: absolute;
-    top: -100rem;
+    position: absolute !important;
+    top: -100rem !important;
   }
 }
 
