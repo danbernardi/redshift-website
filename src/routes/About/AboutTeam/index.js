@@ -3,7 +3,6 @@ import BioModal from './BioModal';
 import PinkHover from 'components/PinkHover';
 import * as actions from 'store/actions';
 import { connect } from 'react-redux';
-import ArrowRight from 'assets/img/arrow-right-short.png';
 
 const AboutTeam = props => {
   const { team, dispatch } = props;
@@ -19,11 +18,14 @@ const AboutTeam = props => {
       classes="quarter-width team-member"
       imageSrc={ team.photo }
       clickHandler={ () => openModal(<BioModal bioContent={ team } />, 'bio') }
+      alt={ team.name }
     >
       <h2 className="typ--bold">{ team.name }</h2>
       <h4>{ team.position }</h4>
       <div className="right-arrow">
-        <img src={ ArrowRight } />
+        <picture>
+          <img src={ require('assets/img/arrow-right-short.png') } />
+        </picture>
       </div>
     </PinkHover>
   );

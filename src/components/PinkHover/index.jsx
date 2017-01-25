@@ -24,7 +24,7 @@ class PinkHover extends React.Component {
 
   // const { } = props;
   render () {
-    const { children, classes, imageSrc, clickHandler } = this.props;
+    const { children, classes, imageSrc, clickHandler, alt } = this.props;
     const { hover } = this.state;
 
     const initialHoverStyles = { transition: `transform 0.2s ease-in-out 0.25s` };
@@ -59,7 +59,9 @@ class PinkHover extends React.Component {
             </div>
           </div>
         </div>
-        <img src={ imageSrc } />
+        <picture>
+          <img src={ imageSrc } alt={ alt } />
+        </picture>
       </div>
     );
   }
@@ -72,7 +74,8 @@ PinkHover.propTypes = {
   modal: object,
   dispatch: func,
   imageSrc: string,
-  clickHandler: func
+  clickHandler: func,
+  alt: string
 };
 
 export default PinkHover;
