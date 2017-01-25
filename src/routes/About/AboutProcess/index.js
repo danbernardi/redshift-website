@@ -1,5 +1,4 @@
 import React from 'react';
-import AboutProcessImage from '../process.png';
 
 export function AboutProcess () {
   return (
@@ -15,15 +14,20 @@ export function AboutProcess () {
               </h4>
             </div>
             <div className="col-6 col-12--tmd col-last about--process__image">
-              <img src={ AboutProcessImage } />
+              <picture>
+                <img
+                  src={ require('assets/img/about/process.png') }
+                  alt="research engineering user experience visual design"
+                />
+              </picture>
             </div>
           </div>
         </div>
       </section>
       <picture className="about__office-image">
-        <source srcSet={ require('../about-office.jpg') } media="(min-width: 400px)" />
-        <source srcSet={ require('../office__mobile.jpg') } media="(max-width: 400px)" />
-        <img src={ require('../about-office.jpg') } alt="Office" />
+        <source srcSet={ require('assets/img/about/about-office.jpg') } media="(min-width: 400px)" />
+        <source srcSet={ require('assets/img/about/office__mobile.jpg') } media="(max-width: 400px)" />
+        <img src={ require('assets/img/about/about-office.jpg') } alt="Office" />
       </picture>
     </div>
   );
