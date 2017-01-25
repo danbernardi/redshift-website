@@ -206,9 +206,10 @@
     bottom: 0;
     height: 100%;
     width: auto;
+    padding-top: 10rem;
     // media queries
     @include breakpoint($desktop-sm) {
-      right: -28rem;
+      right: -23rem;
     }
     @include breakpoint($mobile-lg) {
       position: relative;
