@@ -43,31 +43,6 @@ class HomepageCaseStudy extends React.Component {
     this.setState({ break: Math.random() });
   }
 
-  _homepageImage () {
-    const { study } = this.props;
-
-    if (window.windowSize(this.state.break).isLessThan('mobileSm')) {
-      return (
-        <img src={ study.homepageMobileImage } className="homepage-scene--image" />
-      );
-    }
-    if (window.windowSize(this.state.break).isLessThan('mobileLg')) {
-      return (
-        <img src={ study.homepageMLGImage } className="homepage-scene--image" />
-      );
-    }
-    if (window.windowSize(this.state.break).isLessThan('tabletLg')) {
-      return (
-        <img src={ study.homepageTLGImage } className="homepage-scene--image" />
-      );
-    }
-    if (window.windowSize(this.state.break).isGreaterThan('tabletLg')) {
-      return (
-        <img src={ study.homepageImage } className="homepage-scene--image" />
-      );
-    }
-  }
-
   render () {
     const { study, dispatch, modalState } = this.props;
     const openModal = (id) => {
@@ -91,7 +66,15 @@ class HomepageCaseStudy extends React.Component {
       <section className={ `home-${study.id} theme--dark home-section layout--relative` }>
         <div id={ study.id } className="scroll--target" />
         <div className="scene-container layout--absolute">
-          { this._homepageImage() }
+
+          <picture>
+            <source srcSet={ study.homepageImage } media="(min-width: 1040px)" />
+            <source srcSet={ study.homepageMobileImage } media="(max-width: 400px)" />
+            <source srcSet={ study.homepageMLGImage } media="(max-width: 767px)" />
+            <source srcSet={ study.homepageTLGImage } media="(max-width: 1040px)" />
+            <img src={ study.homepageImage } className="homepage-scene--image" />
+          </picture>
+
           <div className={ `cs-${study.id} scene-target` } />
           { study.anchor && <a name="work" className="scene-target work-anchor" /> }
           <div className="homepage--scene-text" style={ Object.assign(initialStyles, transformStyles) }>
