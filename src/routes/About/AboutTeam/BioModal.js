@@ -13,7 +13,7 @@ export function BioTemplate (props) {
       <div className="col-12 bio--wrap">
         <div className="col-6 col-12--mlg team-member-bio">
           <h2 className="typ--bold">{ bioContent.name }</h2>
-          <h2 className="pb10 pb2--mlg">{ bioContent.position }</h2>
+          <h2 className="pb6 pb2--mlg">{ bioContent.position }</h2>
           { bio }
         </div>
         <div className="bio--wrap__img">
