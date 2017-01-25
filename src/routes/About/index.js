@@ -1,11 +1,10 @@
 import React from 'react';
 import AboutProcess from './AboutProcess';
-import AboutClients from './AboutClients';
+import Clients from 'components/Clients';
 import AboutTeam from './AboutTeam';
-import _ from 'lodash';
 import './style.scss';
 import { teamInfo } from 'data/teamInfo';
-import { clientInfo } from 'data/clientInfo';
+import { clientData } from 'data/clients';
 import { connect } from 'react-redux';
 import * as actions from 'store/actions';
 
@@ -23,13 +22,7 @@ export class About extends React.Component {
           <div className="row hero--scene-text">
             <h1 className="typ--bold">Who we work with.</h1>
             <h4 className="py9 py6--tlg pt2--mlg">We’ve had the privilege of working with some of the world’s top brands and many promising startups.</h4>
-            <div className="col-12--dlg">
-              {
-                _.chunk(clientInfo, 4).map((clientLine, index) => (
-                  <AboutClients clientLine={ clientLine } key={ index } />
-                ))
-              }
-            </div>
+            <Clients data={ clientData } />
           </div>
         </section>
         <section className="about--team pt9 pt6--tlg pt2--mlg">
