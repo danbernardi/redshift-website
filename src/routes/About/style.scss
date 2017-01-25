@@ -75,7 +75,7 @@
   top: 0;
   bottom: 0;
   position: absolute;
-  width: calc(100% - 5rem);
+  width: 100%;
   // transform: translateY(-50%);
   @include breakpoint($mobile-lg) {
     width: 100%;
@@ -207,6 +207,9 @@
     height: 100%;
     width: auto;
     // media queries
+    @include breakpoint($desktop-sm) {
+      right: -28rem;
+    }
     @include breakpoint($mobile-lg) {
       position: relative;
       height: auto;
