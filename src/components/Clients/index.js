@@ -2,11 +2,11 @@ import React from 'react';
 import './Clients.scss';
 
 export function AboutClients (props) {
-  const { clients } = props;
+  const { data } = props;
 
   return (
     <div className="clients">
-      { clients.map((client, index) => (
+      { data.map((client, index) => (
         <div key={ index } className="clients__client">
           <img src={ client.image } alt={ client.name } />
         </div>
@@ -17,7 +17,7 @@ export function AboutClients (props) {
 
 const { array } = React.PropTypes;
 AboutClients.propTypes = {
-  clients: array
+  data: array
 };
 
 export default AboutClients;

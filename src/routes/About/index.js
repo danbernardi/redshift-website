@@ -4,7 +4,7 @@ import Clients from 'components/Clients';
 import AboutTeam from './AboutTeam';
 import './style.scss';
 import { teamInfo } from 'data/teamInfo';
-import { clients } from 'data/clients';
+import { clientData } from 'data/clients';
 import { connect } from 'react-redux';
 import * as actions from 'store/actions';
 
@@ -22,7 +22,7 @@ export class About extends React.Component {
           <div className="row hero--scene-text">
             <h1 className="typ--bold">Who we work with.</h1>
             <h4 className="py9 py6--tlg pt2--mlg">We’ve had the privilege of working with some of the world’s top brands and many promising startups.</h4>
-            <Clients clients={ clients } />
+            <Clients data={ clientData } />
           </div>
         </section>
         <section className="about--team pt9 pt6--tlg pt2--mlg">

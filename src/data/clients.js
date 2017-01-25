@@ -1,4 +1,4 @@
-export const clients = [
+export const clientData = [
   { image: require('assets/img/clients/google.jpg'), name: 'google' },
   { image: require('assets/img/clients/symantec.jpg'), name: 'symantec' },
   { image: require('assets/img/clients/opentable.jpg'), name: 'Open Table' },
