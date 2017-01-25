@@ -160,13 +160,6 @@
   clip: rect(0, auto, auto, 0);
 }
 
-@supports (-ms-ime-align:auto) {
-  .scene {
-    position: absolute;
-    top: -100rem;
-  }
-}
-
 .scene {
   position: fixed;
   width: calc(100% - 9rem);
@@ -196,6 +189,13 @@
     padding-left: 0;
     padding-right: 0;
     // bottom: 3rem;
+  }
+}
+
+@supports (-ms-ime-align:auto) {
+  .scene {
+    position: absolute;
+    top: -100rem;
   }
 }
 
