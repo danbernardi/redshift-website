@@ -1,6 +1,7 @@
 import React from 'react';
 import AboutProcessImage from '../process.png';
 import AboutOfficeImage from '../about-office.jpg';
+import OfficeImgMobile from '../office__mobile.jpg';
 
 export function AboutProcess () {
   return (
@@ -21,14 +22,11 @@ export function AboutProcess () {
           </div>
         </div>
       </section>
-      <section className="about__office-image mb8">
-        <div className="scene-container layout--absolute">
-          <img
-            src={ AboutOfficeImage }
-            className="homepage-scene--image"
-          />
-        </div>
-      </section>
+      <picture className="about__office-image">
+        <source srcSet={ AboutOfficeImage } media="(min-width: 400px)" />
+        <source srcSet={ OfficeImgMobile } media="(max-width: 400px)" />
+        <img src={ AboutOfficeImage } alt="Office" />
+      </picture>
     </div>
   );
 }

@@ -8,9 +8,8 @@
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ec005e', endColorstr='#ff00ac',GradientType=0 ); /* IE6-9 */
 }
 
-.about__office-image {
-  padding-top: 57%;
-  height: 0;
+.about__office-image img {
+  width: 100%;
 }
 
 .about--process__flex {
