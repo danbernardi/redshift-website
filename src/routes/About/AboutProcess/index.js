@@ -1,7 +1,5 @@
 import React from 'react';
 import AboutProcessImage from '../process.png';
-import AboutOfficeImage from '../about-office.jpg';
-import OfficeImgMobile from '../office__mobile.jpg';
 
 export function AboutProcess () {
   return (
@@ -23,9 +21,9 @@ export function AboutProcess () {
         </div>
       </section>
       <picture className="about__office-image">
-        <source srcSet={ AboutOfficeImage } media="(min-width: 400px)" />
-        <source srcSet={ OfficeImgMobile } media="(max-width: 400px)" />
-        <img src={ AboutOfficeImage } alt="Office" />
+        <source srcSet={ require('../about-office.jpg') } media="(min-width: 400px)" />
+        <source srcSet={ require('../office__mobile.jpg') } media="(max-width: 400px)" />
+        <img src={ require('../about-office.jpg') } alt="Office" />
       </picture>
     </div>
   );
