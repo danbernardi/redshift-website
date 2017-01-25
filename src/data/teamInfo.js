@@ -119,11 +119,17 @@ export const teamInfo = [
       'Jennie received her B.A. in English Literature from Bryn Mawr College.'
     ]
   },
-  // {
-  //   name: 'Nick Capello',
-  //   position: 'Studio Manager',
-  //   photo: NickImage,
-  // }
+  {
+    name: 'Nick Capello',
+    position: 'Studio Manager',
+    photo: require('assets/img/about/team/nick.jpg'),
+    modalImage: require('assets/img/about/team/modal/nick.jpg'),
+    bioStatement: [
+      'Nick Capello is the studio manager at Redshift.',
+      'Born in Kalamazoo, Michigan (a place he left after 4 months) he has moved 13 different times and lived in more than 5 countries with his roots in Buenos Aires, Argentina. He studied Web/UX Design at the Academy of Art, and has worked on a number of freelance jobs ranging from print design to branding. He thrives on keeping Redshift a place that is not only fun and exciting, but also a creative petri dish.',
+      'His interests include getting up at 4 am on weekends to watch English soccer, making music for aliens, and climbing Redwood trails with his puggle, Duckie (aka the Duckman).'
+    ]
+  },
   {
     id: 'sasha',
     name: 'Sasha Klein',
@@ -215,6 +221,16 @@ export const teamInfo = [
       'Matt Kissick is a user experience designer at Redshift.',
       'He grew up in Ottawa, Canada and went to OCAD University in Toronto. He received a Bachelor of Design in Industrial Design. Prior to Redshift, Matt freelanced as a graphic and web designer.',
       'As a stereotypical Canadian, Matt loves playing hockey, eating maple-based products and wearing many different jackets.'
+    ]
+  },
+  {
+    name: 'Matt Rancatore',
+    position: 'Visual Designer',
+    photo: require('assets/img/about/team/mattr.jpg'),
+    modalImage: require('assets/img/about/team/modal/mattr.jpg'),
+    bioStatement: [
+      'Matt Rancatore is a visual designer at Redshift.',
+      'He grew up in the Bay Area and received a BS in Graphic Design from The Art Institute of California – San Francisco. Prior to working at Redshift, Matt designed magazines, brands, and websites at companies including Wired Magazine, Sidecar Agency, and IDEO. When Matt isn\'t hunched over his computer pushing pixels, he can be found biking up San Francisco\'s notorious hills, in a park napping, or at a baseball game.'
     ]
   },
   {
