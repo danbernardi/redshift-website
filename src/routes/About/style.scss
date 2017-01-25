@@ -102,10 +102,18 @@
     @include breakpoint($mobile-lg) {
       line-height: 1.45;
     }
+    @include breakpoint($mobile-sm) {
+      line-height: 1.2;
+      padding: 0;
+    }
   }
 
   h4 {
     line-height: 1.333;
+    @include breakpoint($mobile-sm) {
+      line-height: 1.1;
+      padding: 0;
+    }
   }
 
   h2,
@@ -113,7 +121,9 @@
     // media queries
     @include breakpoint($mobile-lg) {
       font-size: 2.496rem;
-
+    }
+    @include breakpoint($mobile-sm) {
+      font-size: 2rem;
     }
   }
 
@@ -121,6 +131,10 @@
     position: absolute;
     bottom: 4rem;
     margin-top: 0;
+
+    @include breakpoint($mobile-sm) {
+      bottom: 2rem;
+    }
 
     img {
       // media queries
@@ -167,10 +181,10 @@
   }
 }
 
-.team-info h2,
-.team-info h5 {
-  line-height: 1.2;
-}
+// .team-info h2,
+// .team-info h5 {
+//   line-height: 1.2;
+// }
 
 .bio--wrap {
   position: absolute;
