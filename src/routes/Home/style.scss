@@ -160,7 +160,7 @@
   clip: rect(0, auto, auto, 0);
 }
 
-@supports (-ms-accelerator:true) {
+@supports (-ms-ime-align:auto) {
   .scene {
     position: absolute;
     top: -100rem;
