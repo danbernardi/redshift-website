@@ -14,7 +14,6 @@ export function AboutProcess () {
                 We leverage expertise across multiple disciplines – User experience, Visual design, Engineering, and Research – to create real products and deliver experiences that are usable, beautiful, feasible and grounded in real user needs.
               </h4>
 
-              <div className="show--msm pb6"><ScrollTrigger target="about-process" /></div>
             </div>
             <div className="col-6 col-12--tmd col-last about--process__image">
               <div style={ { bottom: '7rem' } } className="anchor" id="about-process" />
@@ -25,16 +24,13 @@ export function AboutProcess () {
                 />
               </picture>
             </div>
-            <div className="show--msm cf pt6"><ScrollTrigger target="about-office" /></div>
           </div>
         </div>
       </section>
       <div style={ { bottom: '0rem' } } className="anchor" id="about-office" />
-      <picture className="about__office-image">
-        <source srcSet={ require('assets/img/about/about-office.jpg') } media="(min-width: 400px)" />
-        <source srcSet={ require('assets/img/about/office__mobile.jpg') } media="(max-width: 400px)" />
-        <img src={ require('assets/img/about/about-office.jpg') } alt="Office" />
-      </picture>
+      <div className="about__office-image hide--mlg">
+        <img src={ require('assets/img/about/about-office.jpg') } alt="Redshift office" />
+      </div>
     </div>
   );
 }
