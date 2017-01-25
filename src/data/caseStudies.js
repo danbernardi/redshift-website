@@ -6,7 +6,7 @@ export const caseStudies = [
     heading: 'We were chosen by Symantec to design a cloud-based solution which allows customers to discover, buy and manage the entire suite of Norton products.',
     content: [
       {
-        img: require('routes/Home/Norton/norton1.jpg'),
+        img: require('assets/img/home/Norton/norton1.jpg'),
         copy: [
           {
             classes: 'casestudy__text typ--h3',
@@ -15,7 +15,7 @@ export const caseStudies = [
         ]
       },
       {
-        img: require('routes/Home/Norton/norton2.jpg'),
+        img: require('assets/img/home/Norton/norton2.jpg'),
         copy: [
           {
             classes: 'casestudy__text typ--h3 pb7',
@@ -28,7 +28,7 @@ export const caseStudies = [
         ]
       },
       {
-        img: require('routes/Home/Norton/norton4.jpg'),
+        img: require('assets/img/home/Norton/norton4.jpg'),
         copy: [
           {
             classes: 'casestudy__text typ--h4',
@@ -37,10 +37,10 @@ export const caseStudies = [
         ]
       }
     ],
-    homepageImage: require('routes/Home/Norton/norton-scene-bg.jpg'),
-    homepageTLGImage: require('routes/Home/Norton/norton-scene-bg-tlg.jpg'),
-    homepageMLGImage: require('routes/Home/Norton/norton-scene-bg-mlg.jpg'),
-    homepageMobileImage: require('routes/Home/Norton/norton-scene-bg-mobile.jpg'),
+    homepageImage: require('assets/img/home/Norton/norton-scene-bg.jpg'),
+    homepageTLGImage: require('assets/img/home/Norton/norton-scene-bg-tlg.jpg'),
+    homepageMLGImage: require('assets/img/home/Norton/norton-scene-bg-mlg.jpg'),
+    homepageMobileImage: require('assets/img/home/Norton/norton-scene-bg-mobile.jpg'),
     imageAlt: 'Norton creative design',
     caption: ['A single interface', 'for all things Norton'],
     anchor: true,
@@ -54,7 +54,7 @@ export const caseStudies = [
     heading: 'Working with celebrity chef Tyler Florence, we designed a publishing platform that allows anyone to create and share beautiful recipes with the world.',
     content: [
       {
-        img: require('routes/Home/Yumavore/yumavore1.jpg'),
+        img: require('assets/img/home/Yumavore/yumavore1.jpg'),
         copy: [
           {
             classes: 'casestudy__text typ--h3',
@@ -68,7 +68,7 @@ export const caseStudies = [
         ]
       },
       {
-        img: require('routes/Home/Yumavore/yumavore2.jpg'),
+        img: require('assets/img/home/Yumavore/yumavore2.jpg'),
         copy: [
           {
             classes: 'casestudy__text typ--h3',
@@ -77,7 +77,7 @@ export const caseStudies = [
         ]
       },
       {
-        img: require('routes/Home/Yumavore/yumavore3.jpg'),
+        img: require('assets/img/home/Yumavore/yumavore3.jpg'),
         copy: [
           {
             classes: 'casestudy__text typ--h3',
@@ -86,7 +86,7 @@ export const caseStudies = [
         ]
       },
       {
-        img: require('routes/Home/Yumavore/yumavore4.jpg'),
+        img: require('assets/img/home/Yumavore/yumavore4.jpg'),
         copy: [
           {
             classes: 'casestudy__text typ--h3',
@@ -96,16 +96,16 @@ export const caseStudies = [
       },
       {
         pad: false,
-        copy: [{ src: require('routes/Home/Yumavore/yumavore5.jpg') }]
+        copy: [{ src: require('assets/img/home/Yumavore/yumavore5.jpg') }]
       },
       {
-        copy: [{ src: require('routes/Home/Yumavore/yumavore6.jpg') }]
+        copy: [{ src: require('assets/img/home/Yumavore/yumavore6.jpg') }]
       }
     ],
-    homepageImage: require('routes/Home/Yumavore/yumavore-scene-bg.jpg'),
-    homepageTLGImage: require('routes/Home/Yumavore/yumavore-scene-bg-tlg.jpg'),
-    homepageMLGImage: require('routes/Home/Yumavore/yumavore-scene-bg-mlg.jpg'),
-    homepageMobileImage: require('routes/Home/Yumavore/yumavore-scene-bg-mobile.jpg'),
+    homepageImage: require('assets/img/home/Yumavore/yumavore-scene-bg.jpg'),
+    homepageTLGImage: require('assets/img/home/Yumavore/yumavore-scene-bg-tlg.jpg'),
+    homepageMLGImage: require('assets/img/home/Yumavore/yumavore-scene-bg-mlg.jpg'),
+    homepageMobileImage: require('assets/img/home/Yumavore/yumavore-scene-bg-mobile.jpg'),
     imageAlt: 'Yumavore app design',
     caption: ['A new way to create', 'and share recipes'],
     featured: true
@@ -118,7 +118,7 @@ export const caseStudies = [
     heading: 'We partnered with Autofuss and Unit9 to redesign the product site for the Google Nexus family of phones and tablets.',
     content: [
       {
-        img: require('routes/Home/Nexus/nexus1.jpg'),
+        img: require('assets/img/home/Nexus/nexus1.jpg'),
         copy: [
           {
             classes: 'casestudy__text typ--h3',
@@ -127,7 +127,7 @@ export const caseStudies = [
         ]
       },
       {
-        img: require('routes/Home/Nexus/nexus2.jpg'),
+        img: require('assets/img/home/Nexus/nexus2.jpg'),
         copy: [
           {
             classes: 'casestudy__text typ--h3',
@@ -136,18 +136,18 @@ export const caseStudies = [
         ]
       },
       {
-        img: require('routes/Home/Nexus/nexus3.jpg'),
+        img: require('assets/img/home/Nexus/nexus3.jpg'),
         classes: 'mb10'
       },
       {
-        img: require('routes/Home/Nexus/nexus4.jpg'),
+        img: require('assets/img/home/Nexus/nexus4.jpg'),
         classes: 'mt5'
       }
     ],
-    homepageImage: require('routes/Home/Nexus/nexus-scene-bg.jpg'),
-    homepageTLGImage: require('routes/Home/Nexus/nexus-scene-bg-tlg.jpg'),
-    homepageMLGImage: require('routes/Home/Nexus/nexus-scene-bg-mlg.jpg'),
-    homepageMobileImage: require('routes/Home/Nexus/nexus-scene-bg-mobile.jpg'),
+    homepageImage: require('assets/img/home/Nexus/nexus-scene-bg.jpg'),
+    homepageTLGImage: require('assets/img/home/Nexus/nexus-scene-bg-tlg.jpg'),
+    homepageMLGImage: require('assets/img/home/Nexus/nexus-scene-bg-mlg.jpg'),
+    homepageMobileImage: require('assets/img/home/Nexus/nexus-scene-bg-mobile.jpg'),
     imageAlt: 'Nexus product website',
     caption: ['A new home', 'for Google Nexus'],
     featured: true
@@ -160,7 +160,7 @@ export const caseStudies = [
     heading: 'We develop our own products, too. FIVE lets you share your favorite things in a simple and catchy format – the top five list.',
     content: [
       {
-        img: require('routes/Home/Five/five1.jpg'),
+        img: require('assets/img/home/Five/five1.jpg'),
         copy: [
           {
             classes: 'casestudy__text typ--h3',
@@ -169,7 +169,7 @@ export const caseStudies = [
         ]
       },
       {
-        img: require('routes/Home/Five/five2.jpg'),
+        img: require('assets/img/home/Five/five2.jpg'),
         copy: [
           {
             classes: 'casestudy__text typ--h3',
@@ -186,7 +186,7 @@ export const caseStudies = [
         ]
       },
       {
-        img: require('routes/Home/Five/five3.jpg'),
+        img: require('assets/img/home/Five/five3.jpg'),
         copy: [
           {
             classes: 'casestudy__text typ--h3 pb7',
@@ -199,10 +199,10 @@ export const caseStudies = [
         ]
       }
     ],
-    homepageImage: require('routes/Home/Five/five-scene-bg.jpg'),
-    homepageTLGImage: require('routes/Home/Five/five-scene-bg-tlg.jpg'),
-    homepageMLGImage: require('routes/Home/Five/five-scene-bg-mlg.jpg'),
-    homepageMobileImage: require('routes/Home/Five/five-scene-bg-mobile.jpg'),
+    homepageImage: require('assets/img/home/Five/five-scene-bg.jpg'),
+    homepageTLGImage: require('assets/img/home/Five/five-scene-bg-tlg.jpg'),
+    homepageMLGImage: require('assets/img/home/Five/five-scene-bg-mlg.jpg'),
+    homepageMobileImage: require('assets/img/home/Five/five-scene-bg-mobile.jpg'),
     imageAlt: 'Redshift Five App',
     caption: ['Share and compare', 'your top 5 of anything'],
     featured: true
