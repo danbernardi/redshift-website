@@ -1,38 +1,16 @@
 import React from 'react';
-import DownArrow from '../down-arrow.png';
-import { scrollToID } from 'utils/scrollTo';
-
-const scrollToWork = () => {
-  const homeAnchorElement = document.getElementsByClassName('scroll--target');
-  let homeAnchor;
-  if (homeAnchorElement && homeAnchorElement[0]) {
-    homeAnchor = homeAnchorElement[0].getAttribute('id');
-  }
-  scrollToID(homeAnchor, 500);
-};
+import ScrollTrigger from 'components/ScrollTrigger';
 
 export function Hero () {
   return (
-    <section className="full-height flex">
-      <div className="scene-container">
-        <div className="homepage--scene-text">
-          <div className="row">
-            <div className="hero index-content">
-              <div className="scene">
-                <div className="scene-container layout--relative">
-                  <div className="hero--scene-text">
-                    <h1 className="typ--bold">We are Redshift. We design digital products and experiences.</h1>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div id="workAnchor" className="case-scroll-icon" onClick={ () => scrollToWork() }>
-              <div className="row">
-                <img src={ DownArrow } />
-              </div>
-            </div>
+    <section className="scene-container">
+      <div className="hero index-content row">
+        <div className="scene">
+          <div className="layout--relative">
+            <h1 className="hero--scene-text typ--bold">We are Redshift. We design digital products and experiences.</h1>
           </div>
         </div>
+        <ScrollTrigger target="homepage-work" classes="fixed" />
       </div>
     </section>
   );

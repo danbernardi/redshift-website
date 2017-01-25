@@ -16,7 +16,11 @@ export function BioTemplate (props) {
           <h2 className="pb10 pb2--mlg">{ bioContent.position }</h2>
           { bio }
         </div>
-        <div className="bio--wrap__img"><img src={ bioContent.modalImage } /></div>
+        <div className="bio--wrap__img">
+          <picture>
+            <img src={ bioContent.modalImage } />
+          </picture>
+        </div>
       </div>
     </div>
   );
