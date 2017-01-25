@@ -4,6 +4,7 @@ import { caseStudies } from 'data/caseStudies';
 import PinkHover from 'components/PinkHover';
 import * as actions from 'store/actions';
 import { connect } from 'react-redux';
+import ArrowRight from 'assets/img/arrow-right-short.png';
 
 import CaseStudyModalWrapper from 'components/CaseStudy/CaseStudyModalWrapper';
 
@@ -18,7 +19,8 @@ const ArchiveGrid = props => {
         clickHandler={ () => openModal(<CaseStudyModalWrapper />, item.id) }
         imageSrc={ item.thumb }
       >
-        <p>{ item.id }</p>
+        <h2 className="typ--bold">{ item.id }</h2>
+        <div className="right-arrow"><img src={ ArrowRight } /></div>
       </PinkHover>
     ))
   );
