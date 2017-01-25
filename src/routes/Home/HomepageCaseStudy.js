@@ -1,5 +1,4 @@
 import React from 'react';
-import ArrowRight from 'assets/img/arrow-right-short.png';
 import * as actions from 'store/actions';
 import { connect } from 'react-redux';
 import { scrollToID } from 'utils/scrollTo';
@@ -106,7 +105,7 @@ class HomepageCaseStudy extends React.Component {
                   <div className="pt6 pt5--dlg pt3--mlg pt1--msm">
                     View project
                     <img
-                      src={ ArrowRight }
+                      src={ require('assets/img/arrow-right-short.png') }
                       alt="Yumavore app design"
                       className="ml2 ml1--msm arrow"
                     />
