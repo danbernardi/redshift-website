@@ -97,6 +97,10 @@
   .form__group {
     border-bottom: solid 1px #CDCDCD;
     padding-bottom: 2.7rem;
+    // media queries
+    @include breakpoint($mobile-sm) {
+      padding-bottom: 1.4rem;
+    }
   }
 
   input[type=text],
@@ -117,13 +121,18 @@
   display: none;
 }
 
-.form__attach lable {
+.form__attach label {
   width: 100%;
+  display: block;
 }
 
 .form__attach label img {
   float: right;
   cursor: pointer;
+  // media queries
+  @include breakpoint($mobile-sm) {
+    width: 2rem;
+  }
 }
 
 input:-webkit-autofill {

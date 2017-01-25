@@ -12,11 +12,8 @@
     @include redshift-gradient();
     z-index: 35;
     position: relative;
-    width: 70vw;
-
-    @include breakpoint($mobile-lg) {
-      width: 90vw;
-    }
+    max-width: 101rem;
+    // media queries
     @include breakpoint($mobile-sm) {
       font-size: 3.8rem;
     }
@@ -41,11 +38,11 @@
   font-size: 5.8rem;
   transition: opacity 1s ease-in-out;
   opacity: 1;
-  left: 7.5rem;
+  left: 0;
   cursor: pointer;
-  // media queries
-  @include breakpoint($mobile-lg) {
-    left: 2rem;
+
+  img {
+    padding-left: 0.5rem;
   }
 }
 
@@ -73,9 +70,10 @@
 
 .index section {
   position: relative;
+  // media queries
   @media screen and (-webkit-min-device-pixel-ratio: 0) {
     clip: auto;
-    -webkit-mask-image: -webkit-linear-gradient(top, #FFFFFF 0%,#FFFFFF 100%)
+    -webkit-mask-image: -webkit-linear-gradient(top, #FFFFFF 0%, #FFFFFF 100%);
   }
 }
 
@@ -86,20 +84,16 @@
 }
 
 .homepage--scene-text {
-  // position: relative;
-  // width: 100%;
-
   h5 {
     font-size: 1.8rem;
   }
-  // media queries
-  @include breakpoint($tablet-lg) {
-    h2 {
+
+  h2 {
+    // media queries
+    @include breakpoint($tablet-lg) {
       font-size: 3.2rem;
     }
-  }
-  @include breakpoint($mobile-sm) {
-    h2 {
+    @include breakpoint($mobile-sm) {
       font-size: 3rem;
     }
   }
@@ -123,10 +117,7 @@
   .scene {
     padding-left: 0;
     padding-right: 0;
-    width: 85%;
-    @include breakpoint($desktop-lg) {
-      width: 100%;
-    }
+    // media queries
     @include breakpoint($mobile-lg) {
       top: 50%;
       transform: translateY(-50%);
@@ -152,7 +143,6 @@
 }
 
 .scene-container {
-  // position: absolute;
   top: 0;
   left: 0;
   width: 100%;
@@ -160,39 +150,33 @@
   clip: rect(0, auto, auto, 0);
 }
 
+@supports (-ms-accelerator: true) {
+  .scene {
+    position: absolute;
+    top: -100rem;
+  }
+}
+
 .scene {
   position: fixed;
-  width: calc(100% - 9rem);
-  // opacity: 1;
-  // transition: opacity 0.5s linear;
-  padding-left: 5rem;
-  padding-right: 14rem;
+  width: calc(100% - 14rem);
+  padding-left: 7rem;
+  padding-right: 7rem;
   top: 50%;
   transform: translateY(-50%);
-  // overflow: auto;
-  // cursor: default;
-
+  // media queries
   @include breakpoint($desktop-sm) {
-    padding-right: 6rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
+    width: calc(100% - 8rem);
   }
-
-  @include breakpoint($tablet-sm) {
-    padding-left: 3rem;
-    padding-right: 3rem;
-    width: calc(100% - 6rem);
-  }
-
   @include breakpoint($mobile-lg) {
     opacity: 1 !important;
     top: 94%;
     transform: translateY(-94%);
-  }
-
-  @include breakpoint($mobile-sm) {
-    display: block;
     padding-left: 0;
-    padding-right: 0;
-    // bottom: 3rem;
+    padding-right: 2rem;
+    width: calc(100% - 2rem);
   }
 }
 
@@ -209,18 +193,9 @@
     padding-top: 527.53%;
   }
 
-  // .page-title {
-  //   position: fixed;
-  //   top: 0;
-  //   z-index: 9;
-  //   color: $white !important;
-  //   display: none;
-  //   opacity: 1 !important;
-  // }
-
   .scene-target {
     margin-top: 47.3%;
-    // MEDIA QUERIES
+    // media queries
     @include breakpoint($desktop-sm) {
       margin-top: 40%;
     }
@@ -245,7 +220,7 @@
 
   .scene-target {
     margin-top: 20%;
-    // MEDIA QUERIES
+    // media queries
     @include breakpoint($tablet-lg) {
       margin-top: 1%;
     }
@@ -272,7 +247,7 @@
 
   .scene-target {
     margin-top: 36.8%;
-    // MEDIA QUERIES
+    // media queries
     @include breakpoint($tablet-lg) {
       margin-top: 1%;
     }

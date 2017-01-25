@@ -5,7 +5,7 @@ import JobThanks from './JobThanks';
 
 const formItems = [
   {
-    classes: 'pb6--tmd',
+    classes: '',
     formClass: 'form__name',
     type: 'text',
     description: 'Name',
@@ -21,7 +21,7 @@ const formItems = [
     required: true
   },
   {
-    classes: 'pb6--tmd',
+    classes: '',
     formClass: 'form__portfolio',
     type: 'text',
     description: 'Link to Portfolio',
@@ -81,7 +81,7 @@ export class JobContact extends React.Component {
                 <JobContactForm key={ index } form={ form } />
               ))
             }
-            <div className="col-12 pt8">
+            <div className="col-12 pt8 pt4--msm">
               <button
                 ref={ el => { this.button = el; } }
                 className="btn btn--ghost typ--jobs"

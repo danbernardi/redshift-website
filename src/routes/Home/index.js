@@ -34,12 +34,14 @@ export class Home extends React.Component {
       <div>
         <Hero />
         <div id="homepage-work">
-          <Watcher offset={ { bottom: '8.5rem' } } stateChange={ (watcher) => this.watcherCallback(watcher) } />
-          {
-            caseStudies.filter(item => item.featured).map((study, index) => (
-              <HomepageCaseStudy key={ index } study={ study } />
-            ))
-          }
+          <Watcher
+            offset={ { bottom: '8.5rem' } }
+            enterViewport={ (watcher) => this.watcherCallback(watcher) }
+            stateChange={ (watcher) => this.watcherCallback(watcher) }
+          />
+          { caseStudies.filter(item => item.featured).map((study, index) => (
+            <HomepageCaseStudy key={ index } study={ study } />
+          )) }
           <ArchiveGrid />
         </div>
       </div>
