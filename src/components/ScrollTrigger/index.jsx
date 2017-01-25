@@ -11,7 +11,7 @@ export const ScrollTrigger = props => {
 
   return (
     <div className={ `scrolltrigger ${classes}` } onClick={ () => scrollToAnchor(target) }>
-      <img src={ require:('assets/img/down-arrow.png') } />
+      <img src={ require('assets/img/down-arrow.png') } />
     </div>
   );
 };
