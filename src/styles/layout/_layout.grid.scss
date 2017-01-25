@@ -1,26 +1,6 @@
 // grid config
 @lost gutter 3rem;
 
-%container {
-  max-width: $content-width;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-%page-margins {
-  padding-left: 7rem;
-  padding-right: 7rem;
-  // media queries
-  @include breakpoint($tablet-sm) {
-    padding-left: 3rem;
-    padding-right: 3rem;
-  }
-  @include breakpoint($mobile-sm) {
-    padding-left: 2rem;
-    padding-right: 2rem;
-  }
-}
-
 // base grid styles
 .row {
   @extend %container;

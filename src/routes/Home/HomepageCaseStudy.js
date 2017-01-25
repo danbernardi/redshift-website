@@ -16,27 +16,32 @@ class HomepageCaseStudy extends React.Component {
     setTimeout(() => {
       this._scrollTarget();
     }, 100);
-    window.addEventListener('resize', () => {
-      this._scrollTarget();
-      this.setState({ break: Math.random() });
-    });
+
+    this.setScrollTarget = this.setScrollTarget.bind(this);
+    window.addEventListener('resize', this.setScrollTarget);
   }
 
   componentWillUnmount () {
-    window.removeEventListener('resize', () => {
-      this._scrollTarget();
-      this.setState({ break: Math.random() });
-    });
+    window.removeEventListener('resize', this.setScrollTarget);
   }
 
   _scrollTarget () {
-    const windowHeight = window.innerHeight;
-    const targetHeight = document.getElementsByClassName('home-section')[0].offsetHeight;
-    const targetDiv = document.getElementsByClassName('scroll--target');
-    const targetTopValue = ((targetHeight - windowHeight) / 2) + 'px';
-    Array.prototype.forEach.call(targetDiv, (div) => {
-      div.style.top = targetTopValue;
-    });
+    const target = document.getElementsByClassName('home-section');
+
+    if (target && target.length) {
+      const windowHeight = window.innerHeight;
+      const targetHeight = target[0].offsetHeight;
+      const targetDiv = document.getElementsByClassName('scroll--target');
+      const targetTopValue = ((targetHeight - windowHeight) / 2) + 'px';
+      Array.prototype.forEach.call(targetDiv, (div) => {
+        div.style.top = targetTopValue;
+      });
+    }
+  }
+
+  setScrollTarget () {
+    this._scrollTarget();
+    this.setState({ break: Math.random() });
   }
 
   _homepageImage () {
