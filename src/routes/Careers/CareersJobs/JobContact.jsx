@@ -29,7 +29,7 @@ const formItems = [
     required: true
   },
   {
-    classes: 'col-last file__input',
+    classes: 'col-last',
     formClass: 'form__attach',
     type: 'file',
     description: 'attachment',
