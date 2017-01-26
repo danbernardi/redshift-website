@@ -204,20 +204,18 @@
   img {
     position: absolute;
     bottom: 0;
+    right: 6.8rem;
     height: 100%;
+    min-height: 108rem;
     width: auto;
     padding-top: 10rem;
     // media queries
-    @include breakpoint($desktop-sm) {
-      right: -23rem;
+    @media only screen and (max-height: 1080px) {
+      bottom: auto;
+      top: 0;
     }
-    @include breakpoint($mobile-lg) {
-      position: relative;
-      height: auto;
-      width: auto;
-      min-width: 0;
-      top: 5rem;
-      left: 0;
+    @include breakpoint($desktop-sm) {
+      right: -15rem;
     }
   }
 }
