@@ -29,7 +29,9 @@ export class Header extends React.Component {
 
     browserHistory.push('/');
     const body = document.getElementsByTagName('body');
+    const html = document.getElementsByTagName('html');
     if (body && body[0]) { body[0].scrollTop = 0; }
+    if (html && html[0]) { html[0].scrollTop = 0; }
 
     if (modalState.open) {
       dispatch(actions.toggleModal(false));
