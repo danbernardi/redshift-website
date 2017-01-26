@@ -174,6 +174,7 @@
 
   h5 {
     // media queries
+    background-color: #fff;
     @include breakpoint($mobile-lg) {
       font-size: 1.4rem;
     }
@@ -194,17 +195,24 @@
 .bio--wrap__img {
   position: relative;
   height: 100%;
-
+  text-align: center;
   img {
-    position: absolute;
     height: 100%;
     width: auto;
-    @media only screen and (max-height: 1080px) {
-      bottom: auto;
-      top: 0;
+
+    @include breakpoint($desktop-lg) {
+      position: absolute;
+      right: -5rem;
     }
+    @include breakpoint($tablet-lg) {
+      right: -10rem;
+    }
+    // @media only screen and (max-height: 1080px) {
+    //   bottom: auto;
+    //   top: 0;
+    // }
     // @include breakpoint($desktop-sm) {
-    //   right: 0;
+
     // }
   }
 }
