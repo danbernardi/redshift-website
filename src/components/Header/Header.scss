@@ -64,6 +64,7 @@
   text-transform: lowercase;
   z-index: 10;
   top: 0;
+  line-height: 1.2;
   display: inline-block;
   transition: color 0.2s linear;
   @include breakpoint($tablet-lg) {
