@@ -9,14 +9,14 @@ export function BioTemplate (props) {
   );
 
   return (
-    <div className={ `${bioContent.id} team-member__modal row` }>
-      <div className="col-12 bio--wrap">
-        <div className="col-6 col-12--mlg team-member-bio">
+    <div className={ `${bioContent.id} team-member__modal` }>
+      <div className="col-12 bio--wrap row">
+        <div className="col-6 col-12--tmd team-member-bio">
           <h2 className="typ--bold">{ bioContent.name }</h2>
-          <h2 className="pb6 pb2--mlg">{ bioContent.position }</h2>
+          <h2 className="pb6 pb2--dsm">{ bioContent.position }</h2>
           { bio }
         </div>
-        <div className="bio--wrap__img">
+        <div className="bio--wrap__img hide--tmd">
           <img src={ bioContent.modalImage } />
         </div>
       </div>
