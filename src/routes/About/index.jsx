@@ -21,7 +21,12 @@ export class About extends React.Component {
         <section className="flex theme--dark about--clients pb9 py6--tlg pt8">
           <div className="row hero--scene-text">
             <h1 className="typ--bold">Who we work with.</h1>
-            <h4 className="py9 py6--tlg pt2--mlg">We’ve had the privilege of working with some of the world’s top brands and many promising startups.</h4>
+            <h4
+              className="pt6 pb8 pt2--mlg pb4--mlg"
+              style={ { maxWidth: '67rem' } }
+            >
+              We’ve had the privilege of working with some of the world’s top brands and many promising startups.
+            </h4>
             <Clients data={ clientData } />
           </div>
         </section>

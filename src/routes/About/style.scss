@@ -54,7 +54,6 @@
 }
 
 // Team
-
 .about {
   .modal__close {
     @extend %page-margins;
@@ -75,8 +74,8 @@
   top: 0;
   bottom: 0;
   position: absolute;
-  width: calc(100% - 5rem);
-  // transform: translateY(-50%);
+  width: 100%;
+  // media queries
   @include breakpoint($mobile-lg) {
     width: 100%;
     overflow-y: scroll;
@@ -93,6 +92,7 @@
     overflow: hidden;
     height: auto;
     text-transform: lowercase;
+    cursor: pointer;
   }
 
   h2 {
@@ -175,16 +175,12 @@
 
   h5 {
     // media queries
+    background-color: #fff;
     @include breakpoint($mobile-lg) {
       font-size: 1.4rem;
     }
   }
 }
-
-// .team-info h2,
-// .team-info h5 {
-//   line-height: 1.2;
-// }
 
 .bio--wrap {
   position: absolute;
@@ -192,7 +188,7 @@
   height: 100%;
   top: 0;
   // media queries
-  @include breakpoint($mobile-lg) {
+  @include breakpoint($tablet-md) {
     position: relative;
   }
 }
@@ -200,20 +196,40 @@
 .bio--wrap__img {
   position: relative;
   height: 100%;
-
+  text-align: center;
+  left: -65%;
+  transform: translateX(50%);
+  // margin: 0 auto;
+  @include breakpoint($desktop-lg) {
+    left: -75%;
+  }
   img {
-    position: absolute;
-    bottom: 0;
     height: 100%;
     width: auto;
-    // media queries
-    @include breakpoint($mobile-lg) {
-      position: relative;
-      height: auto;
-      width: auto;
-      min-width: 0;
-      top: 5rem;
-      left: 0;
+    position: absolute;
+    @media screen and (max-height: 680px) {
+      min-height: 67.5rem;
     }
+    // @include breakpoint($desktop-lg) {
+    //   right: -5rem;
+    // }
+    // @include breakpoint($tablet-lg) {
+    //   right: -10rem;
+    // }
+    // @media only screen and (max-height: 1080px) {
+    //   bottom: auto;
+    //   top: 0;
+    // }
+    // @include breakpoint($desktop-sm) {
+
+    // }
   }
+}
+
+.about .modal__wrap .icon-close {
+  text-shadow:
+    -3px -3px 6px rgba($white, 0.35),
+    3px -3px 6px rgba($white, 0.35),
+    -3px 3px 6px rgba($white, 0.35),
+    3px 3px 6px rgba($white, 0.35);
 }

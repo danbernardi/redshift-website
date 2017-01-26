@@ -1,5 +1,6 @@
 export const teamInfo = [
   {
+    id: 'david',
     name: 'David Westen',
     position: 'Principal & Founder',
     photo: require('assets/img/about/team/david.jpg'),
@@ -11,6 +12,7 @@ export const teamInfo = [
     ]
   },
   {
+    id: 'steffan',
     name: 'Steffan Schlarb',
     position: 'Creative Director',
     photo: require('assets/img/about/team/steffan.jpg'),
@@ -23,6 +25,7 @@ export const teamInfo = [
     ]
   },
   {
+    id: 'stewart',
     name: 'Stewart Maclennan',
     position: 'Director of Digital Media',
     photo: require('assets/img/about/team/stewart.jpg'),
@@ -34,6 +37,7 @@ export const teamInfo = [
     ]
   },
   {
+    id: 'scott',
     name: 'Scott Lambridis',
     position: 'Lead UX Director',
     photo: require('assets/img/about/team/scott.jpg'),
@@ -51,6 +55,7 @@ export const teamInfo = [
   //   component: <RickBio />
   // },
   {
+    id: 'lucy',
     name: 'Lucy Dotson',
     position: 'Senior UX Designer',
     photo: require('assets/img/about/team/lucy.jpg'),
@@ -62,6 +67,7 @@ export const teamInfo = [
     ]
   },
   {
+    id: 'kyle',
     name: 'Kyle Lloyd',
     position: 'Director of Business Development',
     photo: require('assets/img/about/team/kyle.jpg'),
@@ -73,6 +79,7 @@ export const teamInfo = [
     ]
   },
   {
+    id: 'shannon',
     name: 'Shannon Chin',
     position: 'Senior Interactive Producer',
     photo: require('assets/img/about/team/shannon.jpg'),
@@ -119,11 +126,18 @@ export const teamInfo = [
       'Jennie received her B.A. in English Literature from Bryn Mawr College.'
     ]
   },
-  // {
-  //   name: 'Nick Capello',
-  //   position: 'Studio Manager',
-  //   photo: NickImage,
-  // }
+  {
+    id: 'nick',
+    name: 'Nick Capello',
+    position: 'Studio Manager',
+    photo: require('assets/img/about/team/nick.jpg'),
+    modalImage: require('assets/img/about/team/modal/nick.jpg'),
+    bioStatement: [
+      'Nick Capello is the studio manager at Redshift.',
+      'Born in Kalamazoo, Michigan (a place he left after 4 months) he has moved 13 different times and lived in more than 5 countries with his roots in Buenos Aires, Argentina. He studied Web/UX Design at the Academy of Art, and has worked on a number of freelance jobs ranging from print design to branding. He thrives on keeping Redshift a place that is not only fun and exciting, but also a creative petri dish.',
+      'His interests include getting up at 4 am on weekends to watch English soccer, making music for aliens, and climbing Redwood trails with his puggle, Duckie (aka the Duckman).'
+    ]
+  },
   {
     id: 'sasha',
     name: 'Sasha Klein',
@@ -137,6 +151,7 @@ export const teamInfo = [
     ]
   },
   {
+    id: 'emma',
     name: 'Emma Hazlett',
     position: 'Visual Designer',
     photo: require('assets/img/about/team/emma.jpg'),
@@ -148,6 +163,7 @@ export const teamInfo = [
     ]
   },
   {
+    id: 'jo',
     name: 'Johanna Silver',
     position: 'UX Designer',
     photo: require('assets/img/about/team/jo.jpg'),
@@ -159,6 +175,7 @@ export const teamInfo = [
     ]
   },
   {
+    id: 'sandra',
     name: 'Sandra Wing',
     position: 'UX Researcher',
     photo: require('assets/img/about/team/sandra.jpg'),
@@ -175,6 +192,7 @@ export const teamInfo = [
   //   photo: SuzanneImage,
   // },
   {
+    id: 'lily',
     name: 'Lily Hu',
     position: 'Visual Designer',
     photo: require('assets/img/about/team/lily.jpg'),
@@ -186,6 +204,7 @@ export const teamInfo = [
     ]
   },
   {
+    id: 'trevor',
     name: 'Trevor Alexander',
     position: 'Software Engineer',
     photo: require('assets/img/about/team/trevor.jpg'),
@@ -196,6 +215,7 @@ export const teamInfo = [
     ]
   },
   {
+    id: 'diana',
     name: 'Diana Chin',
     position: 'Director of User Research',
     photo: require('assets/img/about/team/diana.jpg'),
@@ -207,6 +227,7 @@ export const teamInfo = [
     ]
   },
   {
+    id: 'mattk',
     name: 'Matt Kissick',
     position: 'Visual Designer',
     photo: require('assets/img/about/team/mattk.jpg'),
@@ -218,6 +239,18 @@ export const teamInfo = [
     ]
   },
   {
+    id: 'mattr',
+    name: 'Matt Rancatore',
+    position: 'Visual Designer',
+    photo: require('assets/img/about/team/mattr.jpg'),
+    modalImage: require('assets/img/about/team/modal/mattr.jpg'),
+    bioStatement: [
+      'Matt Rancatore is a visual designer at Redshift.',
+      'He grew up in the Bay Area and received a BS in Graphic Design from The Art Institute of California – San Francisco. Prior to working at Redshift, Matt designed magazines, brands, and websites at companies including Wired Magazine, Sidecar Agency, and IDEO. When Matt isn\'t hunched over his computer pushing pixels, he can be found biking up San Francisco\'s notorious hills, in a park napping, or at a baseball game.'
+    ]
+  },
+  {
+    id: 'peter',
     name: 'Peter Odum',
     position: 'Lead User Experience Designer',
     photo: require('assets/img/about/team/peter.jpg'),
@@ -229,6 +262,7 @@ export const teamInfo = [
     ]
   },
   {
+    id: 'tiffany',
     name: 'Tiffany La',
     position: 'User Research',
     photo: require('assets/img/about/team/tiffany.jpg'),

@@ -114,7 +114,7 @@
   @include breakpoint($desktop-sm) {
     padding-left: 4rem;
     padding-right: 4rem;
-    width: calc(100% - 8rem);
+    width: calc(100% - 14rem);
   }
   @include breakpoint($mobile-lg) {
     opacity: 1 !important;
@@ -122,7 +122,10 @@
     transform: translateY(-94%);
     padding-left: 0;
     padding-right: 2rem;
-    width: calc(100% - 2rem);
+    width: calc(100% - 8rem);
+  }
+  @include breakpoint($mobile-sm) {
+    width: calc(100% - 4rem);
   }
 }
 
