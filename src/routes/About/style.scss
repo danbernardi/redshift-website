@@ -227,8 +227,8 @@
 
 .about .modal__wrap .icon-close {
   text-shadow:
-    -1px -1px 0 $white,
-    1px -1px 0 $white,
-    -1px 1px 0 $white,
-    1px 1px 0 $white;
+    -3px -3px 6px rgba($white, 0.35),
+    3px -3px 6px rgba($white, 0.35),
+    -3px 3px 6px rgba($white, 0.35),
+    3px 3px 6px rgba($white, 0.35);
 }
