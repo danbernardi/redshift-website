@@ -186,7 +186,7 @@
   height: 100%;
   top: 0;
   // media queries
-  @include breakpoint($mobile-lg) {
+  @include breakpoint($tablet-md) {
     position: relative;
   }
 }
@@ -203,8 +203,8 @@
       bottom: auto;
       top: 0;
     }
-    @include breakpoint($desktop-sm) {
-      right: -10rem;
-    }
+    // @include breakpoint($desktop-sm) {
+    //   right: 0;
+    // }
   }
 }
