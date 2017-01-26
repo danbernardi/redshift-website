@@ -19,7 +19,7 @@ const ArchiveGrid = props => {
         imageSrc={ item.thumb }
       >
         <h2 className="typ--bold">{ item.id }</h2>
-        <div className="right-arrow"><img src={ reguire('assets/img/arrow-right-short.png') } /></div>
+        <div className="right-arrow"><img src={ require('assets/img/arrow-right-short.png') } /></div>
       </PinkHover>
     ))
   );
