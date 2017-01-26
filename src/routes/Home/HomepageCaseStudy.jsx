@@ -69,10 +69,9 @@ class HomepageCaseStudy extends React.Component {
 
           <picture>
             <source srcSet={ study.homepageImage } media="(min-width: 1040px)" />
-            <source srcSet={ study.homepageMobileImage } media="(max-width: 400px)" />
-            <source srcSet={ study.homepageMLGImage } media="(max-width: 767px)" />
-            <source srcSet={ study.homepageTLGImage } media="(max-width: 1040px)" />
-            <img src={ study.homepageImage } className="homepage-scene--image" />
+            <source srcSet={ study.homepageTLGImage } media="(min-width: 767px)" />
+            <source srcSet={ study.homepageMLGImage } media="(min-width: 540px)" />
+            <img src={ study.homepageMobileImage } className="homepage-scene--image" />
           </picture>
 
           <div className={ `cs-${study.id} scene-target` } />
