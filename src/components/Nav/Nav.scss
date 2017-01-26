@@ -41,18 +41,22 @@
   }
 
   li {
-    line-height: 1.2;
-    color: $body;
     position: relative;
-    // top: 4rem;
+    background: $white;
     cursor: pointer;
     opacity: 0;
     transform: translateY(4rem);
     transition: transform 0.18s ease-in-out, opacity 0.22s ease-in-out;
 
-    &:hover {
-      @extend %gradient-text;
-      @include redshift-gradient();
+    h1 {
+      line-height: 1.2;
+      color: $body;
+      display: inline;
+
+      &:hover {
+        @extend %gradient-text;
+        @include redshift-gradient();
+      }
     }
   }
 
@@ -73,6 +77,14 @@
       }
     }
   }
+}
+
+// safari only hack to disable gradient text
+_::-webkit-full-page-media, _:future, :root .nav__menu li h1:hover {
+  color: $pink;
+  background: $white;
+  -webkit-background-clip: unset !important;
+  -webkit-text-fill-color: $pink !important;
 }
 
 // .nav-fade {
