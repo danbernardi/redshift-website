@@ -196,12 +196,16 @@
   position: relative;
   height: 100%;
   text-align: center;
+  width: 50%;
+  margin: 0 auto;
+  @include breakpoint($desktop-lg) {
+    width: 100%;
+  }
   img {
     height: 100%;
     width: auto;
-
+    position: absolute;
     @include breakpoint($desktop-lg) {
-      position: absolute;
       right: -5rem;
     }
     @include breakpoint($tablet-lg) {
