@@ -196,21 +196,25 @@
   position: relative;
   height: 100%;
   text-align: center;
-  width: 50%;
-  margin: 0 auto;
+  left: -75%;
+  transform: translateX(50%);
+  // margin: 0 auto;
   @include breakpoint($desktop-lg) {
-    width: 100%;
+    // width: 100%;
   }
   img {
     height: 100%;
     width: auto;
     position: absolute;
-    @include breakpoint($desktop-lg) {
-      right: -5rem;
+    @media screen and (max-height: 680px) {
+      min-height: 67.5rem;
     }
-    @include breakpoint($tablet-lg) {
-      right: -10rem;
-    }
+    // @include breakpoint($desktop-lg) {
+    //   right: -5rem;
+    // }
+    // @include breakpoint($tablet-lg) {
+    //   right: -10rem;
+    // }
     // @media only screen and (max-height: 1080px) {
     //   bottom: auto;
     //   top: 0;
