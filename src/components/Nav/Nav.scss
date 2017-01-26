@@ -78,16 +78,3 @@
     }
   }
 }
-
-// safari only hack to disable gradient text
-_::-webkit-full-page-media, _:future, :root .nav__menu li h1:hover {
-  color: $pink;
-  background: $white;
-  -webkit-background-clip: unset !important;
-  -webkit-text-fill-color: $pink !important;
-}
-
-// .nav-fade {
-//   top: 0rem !important;
-//   opacity: 1 !important;
-// }
