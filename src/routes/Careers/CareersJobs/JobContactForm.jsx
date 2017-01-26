@@ -1,40 +1,56 @@
 import React from 'react';
 import AttachmentImage from './attachment.png';
 
-export function JobContactForm ({ form }) {
-  const additionalProps = form.type === 'file'
-    ? { multiple: true, id: 'file-input' }
-    : {};
+export class JobContactForm extends React.Component {
+  constructor (props) {
+    super(props);
+    this.state = { fileName: [] };
+  }
 
-  return (
-    <div className={ `${form.classes} col-6 col-12--tmd` }>
-      <div className={ `form__group mb6 mb4--msm ${form.formClass}` }>
-        {
-          form.type === 'file'
-            ? <label htmlFor="file-input" name="attachment" >Attachments <img src={ AttachmentImage } /></label>
-            : null
-        }
-        <input
-          type={ form.type }
-          placeholder={ form.description }
-          name={ form.name }
-          value={ form.value }
-          // onChange={ event => { onChange(form.description, event.target.value); } }
-          // onBlur={ `if (this.value=='') this.value = ${form.formValue}` }
-          // onFocus={ `if (this.value==${form.formValue}) this.value = ''` }
-          className={ form.required ? 'required' : null }
-          { ...additionalProps }
+  _changeHandler (e) {
+    let moreFiles = this.state.fileName.slice();
+    const stateFileName = e.target.files[0].name;
+    moreFiles.push(stateFileName + ' ');
+    this.setState({ fileName: moreFiles });
+    console.log(moreFiles);
+  }
 
-        />
+  render () {
+    const { form } = this.props;
+    const { fileName } = this.state;
+    const additionalProps = form.type === 'file'
+      ? { multiple: true, id: 'file-input' }
+      : {};
+
+    return (
+      <div className={ `${form.classes} col-6 col-12--tmd` }>
+        <div className={ `form__group mb6 mb4--msm ${form.formClass}` }>
+          {
+            form.type === 'file'
+              ? <label htmlFor="file-input" name="attachment" >Attachments <img src={ AttachmentImage } /></label>
+              : null
+          }
+          <input
+            type={ form.type }
+            placeholder={ form.description }
+            name={ form.name }
+            value={ form.value }
+            className={ form.required ? 'required' : null }
+            { ...additionalProps }
+            onChange={ form.type === 'file' ? this._changeHandler.bind(this) : null }
+          />
+        </div>
+        { fileName && <div className="form__group--filename">{ fileName }</div> }
       </div>
-    </div>
-  );
+    );
+  }
 }
 
-const { object, func } = React.PropTypes;
+const { object, func, string } = React.PropTypes;
 JobContactForm.propTypes = {
   form: object,
-  onChange: func
+  onChange: func,
+  fileName: string
 };
 
 export default JobContactForm;
