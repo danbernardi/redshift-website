@@ -196,11 +196,11 @@
   position: relative;
   height: 100%;
   text-align: center;
-  left: -75%;
+  left: -65%;
   transform: translateX(50%);
   // margin: 0 auto;
   @include breakpoint($desktop-lg) {
-    // width: 100%;
+    left: -75%;
   }
   img {
     height: 100%;
