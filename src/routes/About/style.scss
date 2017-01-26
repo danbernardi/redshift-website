@@ -54,7 +54,6 @@
 }
 
 // Team
-
 .about {
   .modal__close {
     @extend %page-margins;
@@ -76,7 +75,7 @@
   bottom: 0;
   position: absolute;
   width: 100%;
-  // transform: translateY(-50%);
+  // media queries
   @include breakpoint($mobile-lg) {
     width: 100%;
     overflow-y: scroll;
@@ -181,11 +180,6 @@
   }
 }
 
-// .team-info h2,
-// .team-info h5 {
-//   line-height: 1.2;
-// }
-
 .bio--wrap {
   position: absolute;
   bottom: 0;
@@ -203,19 +197,14 @@
 
   img {
     position: absolute;
-    bottom: 0;
-    right: 6.8rem;
     height: 100%;
-    min-height: 108rem;
     width: auto;
-    padding-top: 10rem;
-    // media queries
     @media only screen and (max-height: 1080px) {
       bottom: auto;
       top: 0;
     }
     @include breakpoint($desktop-sm) {
-      right: -15rem;
+      right: -10rem;
     }
   }
 }
