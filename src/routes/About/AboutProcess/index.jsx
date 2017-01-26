@@ -17,12 +17,10 @@ export function AboutProcess () {
             </div>
             <div className="col-6 col-12--tmd col-last about--process__image">
               <div style={ { bottom: '7rem' } } className="anchor" id="about-process" />
-              <picture>
-                <img
-                  src={ require('assets/img/about/process.png') }
-                  alt="research engineering user experience visual design"
-                />
-              </picture>
+              <img
+                src={ require('assets/img/about/process.png') }
+                alt="research engineering user experience visual design"
+              />
             </div>
           </div>
         </div>

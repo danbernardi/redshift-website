@@ -17,9 +17,7 @@ export function BioTemplate (props) {
           { bio }
         </div>
         <div className="bio--wrap__img">
-          <picture>
-            <img src={ bioContent.modalImage } />
-          </picture>
+          <img src={ bioContent.modalImage } />
         </div>
       </div>
     </div>

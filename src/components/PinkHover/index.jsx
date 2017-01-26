@@ -59,9 +59,7 @@ class PinkHover extends React.Component {
             </div>
           </div>
         </div>
-        <picture>
-          <img src={ imageSrc } alt={ alt } />
-        </picture>
+        <img src={ imageSrc } alt={ alt } />
       </div>
     );
   }
