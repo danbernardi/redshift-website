@@ -99,7 +99,7 @@ class CaseStudy extends React.Component {
             <div className="casestudy__next py7 py4--msm" onClick={ () => this.triggerNextCaseStudy(nextCaseStudy, nextCaseStudy.id) }>
               <div className="row">
                 <h2 className={ `typ--${nextCaseStudy.id}` }>{ nextCaseStudy.name }</h2>
-                <span className="typ--default">View case study</span>
+                <span className="typ--default">Next case study</span>
               </div>
             </div>
           }
