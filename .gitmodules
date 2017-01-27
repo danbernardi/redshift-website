@@ -1,0 +1,3 @@
+[submodule "public"]
+	path = public
+	url = https://608969f05bd4ba08fdd75a94937cb5ceefec065f@github.com/weareredshift/redshift-website-static.git
