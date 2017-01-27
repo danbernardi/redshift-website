@@ -2,6 +2,14 @@
 
 .archive__grid {
   position: relative;
+  .archive__item:last-of-type {
+    @include breakpoint($mobile-lg) {
+      display: none;
+    }
+    @include breakpoint($mobile-xsm) {
+      display: inline-block;
+    }
+  }
 }
 
 .archive__item {
