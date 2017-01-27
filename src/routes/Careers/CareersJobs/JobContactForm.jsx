@@ -27,7 +27,7 @@ export class JobContactForm extends React.Component {
         <div className={ `form__group mb6 mb4--msm ${form.formClass}` }>
           {
             form.type === 'file'
-              ? <label htmlFor="file-input" name="attachment" >Attachments <img src={ AttachmentImage } /></label>
+              ? <label htmlFor="file-input" name="attachment" >Attachments <img src={ AttachmentImage } alt="Add a file attachment" /></label>
               : null
           }
           <input

@@ -1,11 +1,17 @@
 import React from 'react';
 
 const CaseStudySection = props => {
-  const { img, copy, pad, classes } = props;
+  const { images, imgAlt, copy, pad, classes } = props;
 
   return (
     <div className={ classes && classes }>
-      { img && <img className="full-image" src={ img } /> }
+      { images &&
+        <picture>
+          <source srcSet={ images.imgDef } media="(min-width: 1040px)" />
+          <source srcSet={ images.imgTlg } media="(min-width: 767px)" />
+          <img src={ images.imgMlg } className="full-image" style={ { marginBottom: '1px' } } alt={ imgAlt } />
+        </picture>
+      }
 
       { copy
         ? <div className={ `row typ--center ${pad && 'py10 py5--mlg'}` }>
@@ -24,11 +30,13 @@ const CaseStudySection = props => {
   );
 };
 
+const { object, string, array, bool } = React.PropTypes;
 CaseStudySection.propTypes = {
-  img: React.PropTypes.string,
-  copy: React.PropTypes.array,
-  pad: React.PropTypes.bool,
-  classes: React.PropTypes.string
+  images: object,
+  imgAlt: string,
+  copy: array,
+  pad: bool,
+  classes: string
 };
 
 CaseStudySection.defaultProps = {

@@ -27,16 +27,16 @@ class PinkHover extends React.Component {
     const { children, classes, imageSrc, clickHandler, alt } = this.props;
     const { hover } = this.state;
 
-    const initialHoverStyles = { transition: `transform 0.2s ease-in-out 0.25s` };
-    const initialInfoStyles = { transition: `transform 0.2s ease-in-out 0.325s` };
+    const initialHoverStyles = { transition: `left 0.2s ease-in-out 0.25s` };
+    const initialInfoStyles = { transition: `left 0.2s ease-in-out 0.325s` };
     let transformStyles = {};
 
     if (hover) {
       // if modal is currently active
-      transformStyles = { transform: 'none' };
+      transformStyles = { left: 0 };
     } else {
       // if modal isn't currently active
-      transformStyles = { transform: 'translateX(-100.1%)' };
+      transformStyles = { left: '-100%' };
     }
 
     return (

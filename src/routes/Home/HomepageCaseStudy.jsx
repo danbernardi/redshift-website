@@ -71,7 +71,7 @@ class HomepageCaseStudy extends React.Component {
             <source srcSet={ study.homepageImage } media="(min-width: 1040px)" />
             <source srcSet={ study.homepageTLGImage } media="(min-width: 767px)" />
             <source srcSet={ study.homepageMLGImage } media="(min-width: 540px)" />
-            <img src={ study.homepageMobileImage } className="homepage-scene--image" />
+            <img src={ study.homepageMobileImage } className="homepage-scene--image" alt={ study.id } />
           </picture>
 
           <div className={ `cs-${study.id} scene-target` } />
