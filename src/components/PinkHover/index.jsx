@@ -36,7 +36,7 @@ class PinkHover extends React.Component {
       transformStyles = { transform: 'none' };
     } else {
       // if modal isn't currently active
-      transformStyles = { transform: 'translateX(-100.1%)' };
+      transformStyles = { transform: 'translateX(calc(-100% - 0.1rem))' };
     }
 
     return (
