@@ -6,13 +6,13 @@ export const caseStudies = [
     heading: 'We were chosen by Symantec to design a cloud-based solution which allows customers to discover, buy and manage the entire suite of Norton products.',
     content: [
       {
-
         images:
         {
           imgDef: require('assets/img/home/Norton/norton1.jpg'),
           imgTlg: require('assets/img/home/Norton/norton1_tlg.jpg'),
           imgMlg: require('assets/img/home/Norton/norton1_mlg.jpg')
         },
+        imgAlt: 'Norton Antivirus 1',
         copy: [
           {
             classes: 'casestudy__text typ--h3',
@@ -27,6 +27,7 @@ export const caseStudies = [
           imgTlg: require('assets/img/home/Norton/norton2_tlg.jpg'),
           imgMlg: require('assets/img/home/Norton/norton2_mlg.jpg')
         },
+        imgAlt: 'Norton Antivirus 2',
         copy: [
           {
             classes: 'casestudy__text typ--h3 pb7',
@@ -45,6 +46,7 @@ export const caseStudies = [
           imgTlg: require('assets/img/home/Norton/norton4_tlg.jpg'),
           imgMlg: require('assets/img/home/Norton/norton4_mlg.jpg')
         },
+        imgAlt: 'Norton Antivirus 3',
         copy: [
           {
             classes: 'casestudy__text typ--h4',
@@ -76,6 +78,7 @@ export const caseStudies = [
           imgTlg: require('assets/img/home/Yumavore/yumavore1_tlg.jpg'),
           imgMlg: require('assets/img/home/Yumavore/yumavore1_mlg.jpg')
         },
+        imgAlt: 'Yumavore 1',
         copy: [
           {
             classes: 'casestudy__text typ--h3',
@@ -95,6 +98,7 @@ export const caseStudies = [
           imgTlg: require('assets/img/home/Yumavore/yumavore2_tlg.jpg'),
           imgMlg: require('assets/img/home/Yumavore/yumavore2_mlg.jpg')
         },
+        imgAlt: 'Yumavore 2',
         copy: [
           {
             classes: 'casestudy__text typ--h3',
@@ -109,6 +113,7 @@ export const caseStudies = [
           imgTlg: require('assets/img/home/Yumavore/yumavore3_tlg.jpg'),
           imgMlg: require('assets/img/home/Yumavore/yumavore3_mlg.jpg')
         },
+        imgAlt: 'Yumavore 3',
         copy: [
           {
             classes: 'casestudy__text typ--h3',
@@ -123,6 +128,7 @@ export const caseStudies = [
           imgTlg: require('assets/img/home/Yumavore/yumavore4_tlg.jpg'),
           imgMlg: require('assets/img/home/Yumavore/yumavore4_mlg.jpg')
         },
+        imgAlt: 'Yumavore 4',
         copy: [
           {
             classes: 'casestudy__text typ--h3',
@@ -160,6 +166,7 @@ export const caseStudies = [
           imgTlg: require('assets/img/home/Nexus/nexus1_tlg.jpg'),
           imgMlg: require('assets/img/home/Nexus/nexus1_mlg.jpg')
         },
+        imgAlt: 'Google Nexus 1',
         copy: [
           {
             classes: 'casestudy__text typ--h3',
@@ -174,6 +181,7 @@ export const caseStudies = [
           imgTlg: require('assets/img/home/Nexus/nexus2_tlg.jpg'),
           imgMlg: require('assets/img/home/Nexus/nexus2_mlg.jpg')
         },
+        imgAlt: 'Google Nexus 2',
         copy: [
           {
             classes: 'casestudy__text typ--h3',
@@ -188,6 +196,7 @@ export const caseStudies = [
           imgTlg: require('assets/img/home/Nexus/nexus3_tlg.jpg'),
           imgMlg: require('assets/img/home/Nexus/nexus3_mlg.jpg')
         },
+        imgAlt: 'Google Nexus 3',
         classes: 'mb10'
       },
       {
@@ -197,6 +206,7 @@ export const caseStudies = [
           imgTlg: require('assets/img/home/Nexus/nexus4_tlg.jpg'),
           imgMlg: require('assets/img/home/Nexus/nexus4_mlg.jpg')
         },
+        imgAlt: 'Google Nexus 4',
         classes: 'mt5'
       }
     ],
@@ -222,6 +232,7 @@ export const caseStudies = [
           imgTlg: require('assets/img/home/Five/five1_tlg.jpg'),
           imgMlg: require('assets/img/home/Five/five1_mlg.jpg')
         },
+        imgAlt: 'Five 1',
         copy: [
           {
             classes: 'casestudy__text typ--h3',
@@ -236,6 +247,7 @@ export const caseStudies = [
           imgTlg: require('assets/img/home/Five/five2_tlg.jpg'),
           imgMlg: require('assets/img/home/Five/five2_mlg.jpg')
         },
+        imgAlt: 'Five 2',
         copy: [
           {
             classes: 'casestudy__text typ--h3',
@@ -258,6 +270,7 @@ export const caseStudies = [
           imgTlg: require('assets/img/home/Five/five3_tlg.jpg'),
           imgMlg: require('assets/img/home/Five/five3_mlg.jpg')
         },
+        imgAlt: 'Five 3',
         copy: [
           {
             classes: 'casestudy__text typ--h3 pb7',
@@ -293,7 +306,8 @@ export const caseStudies = [
           imgDef: require('assets/img/home/archive/norton/campfire_1.jpg'),
           imgTlg: require('assets/img/home/archive/norton/campfire_1_tlg.jpg'),
           imgMlg: require('assets/img/home/archive/norton/campfire_1_mlg.jpg')
-        }
+        },
+        imgAlt: 'Norton Campfire 1'
       },
       {
         images:
@@ -301,7 +315,8 @@ export const caseStudies = [
           imgDef: require('assets/img/home/archive/norton/campfire_2.jpg'),
           imgTlg: require('assets/img/home/archive/norton/campfire_2_tlg.jpg'),
           imgMlg: require('assets/img/home/archive/norton/campfire_2_mlg.jpg')
-        }
+        },
+        imgAlt: 'Norton Campfire 2'
       },
       {
         images:
@@ -309,7 +324,8 @@ export const caseStudies = [
           imgDef: require('assets/img/home/archive/norton/campfire_3.jpg'),
           imgTlg: require('assets/img/home/archive/norton/campfire_3_tlg.jpg'),
           imgMlg: require('assets/img/home/archive/norton/campfire_3_mlg.jpg')
-        }
+        },
+        imgAlt: 'Norton Campfire 3'
       },
       {
         images:
@@ -317,7 +333,8 @@ export const caseStudies = [
           imgDef: require('assets/img/home/archive/norton/campfire_4.jpg'),
           imgTlg: require('assets/img/home/archive/norton/campfire_4_tlg.jpg'),
           imgMlg: require('assets/img/home/archive/norton/campfire_4_mlg.jpg')
-        }
+        },
+        imgAlt: 'Norton Campfire 4'
       },
       {
         images:
@@ -325,7 +342,8 @@ export const caseStudies = [
           imgDef: require('assets/img/home/archive/norton/campfire_5.jpg'),
           imgTlg: require('assets/img/home/archive/norton/campfire_5_tlg.jpg'),
           imgMlg: require('assets/img/home/archive/norton/campfire_5_mlg.jpg')
-        }
+        },
+        imgAlt: 'Norton Campfire 5'
       },
       {
         images:
@@ -333,7 +351,8 @@ export const caseStudies = [
           imgDef: require('assets/img/home/archive/norton/campfire_6.jpg'),
           imgTlg: require('assets/img/home/archive/norton/campfire_6_tlg.jpg'),
           imgMlg: require('assets/img/home/archive/norton/campfire_6_mlg.jpg')
-        }
+        },
+        imgAlt: 'Norton Campfire 6'
       }
     ]
   },
@@ -350,7 +369,8 @@ export const caseStudies = [
           imgDef: require('assets/img/home/archive/google/fiber_1.jpg'),
           imgTlg: require('assets/img/home/archive/google/fiber_1_tlg.jpg'),
           imgMlg: require('assets/img/home/archive/google/fiber_1_mlg.jpg')
-        }
+        },
+        imgAlt: 'Google Fiber 1'
       },
       {
         images:
@@ -358,7 +378,8 @@ export const caseStudies = [
           imgDef: require('assets/img/home/archive/google/fiber_2.jpg'),
           imgTlg: require('assets/img/home/archive/google/fiber_2_tlg.jpg'),
           imgMlg: require('assets/img/home/archive/google/fiber_2_mlg.jpg')
-        }
+        },
+        imgAlt: 'Google Fiber 2'
       },
       {
         images:
@@ -366,7 +387,8 @@ export const caseStudies = [
           imgDef: require('assets/img/home/archive/google/fiber_3.jpg'),
           imgTlg: require('assets/img/home/archive/google/fiber_3_tlg.jpg'),
           imgMlg: require('assets/img/home/archive/google/fiber_3_mlg.jpg')
-        }
+        },
+        imgAlt: 'Google Fiber 3'
       },
       {
         images:
@@ -374,7 +396,8 @@ export const caseStudies = [
           imgDef: require('assets/img/home/archive/google/fiber_4.jpg'),
           imgTlg: require('assets/img/home/archive/google/fiber_4_tlg.jpg'),
           imgMlg: require('assets/img/home/archive/google/fiber_4_mlg.jpg')
-        }
+        },
+        imgAlt: 'Google Fiber 4'
       }
     ]
   },
@@ -391,7 +414,8 @@ export const caseStudies = [
           imgDef: require('assets/img/home/archive/opentable/open_1.jpg'),
           imgTlg: require('assets/img/home/archive/google/fiber_1_tlg.jpg'),
           imgMlg: require('assets/img/home/archive/google/fiber_1_mlg.jpg')
-        }
+        },
+        imgAlt: 'Opentable 1'
       },
       {
         images:
@@ -399,7 +423,8 @@ export const caseStudies = [
           imgDef: require('assets/img/home/archive/opentable/open_2.jpg'),
           imgTlg: require('assets/img/home/archive/google/fiber_2_tlg.jpg'),
           imgMlg: require('assets/img/home/archive/google/fiber_2_mlg.jpg')
-        }
+        },
+        imgAlt: 'Opentable 2'
       },
       {
         images:
@@ -407,13 +432,14 @@ export const caseStudies = [
           imgDef: require('assets/img/home/archive/opentable/open_3.jpg'),
           imgTlg: require('assets/img/home/archive/google/fiber_3_tlg.jpg'),
           imgMlg: require('assets/img/home/archive/google/fiber_3_mlg.jpg')
-        }
+        },
+        imgAlt: 'Opentable 3'
       }
     ]
   },
   {
     id: 'reviver',
-    name: 'Revicer',
+    name: 'Reviver',
     thumb: require('assets/img/home/archive/slate/slate_thumb.jpg'),
     heading: 'Redshift was tasked with creating a personal mobile experience to support the Google Fiber retail spaces. It helped visitors get the most out of the Google Fiber space while also allowing them to experience the delight that only Google can provide.',
     sidebar: true,
@@ -424,7 +450,8 @@ export const caseStudies = [
           imgDef: require('assets/img/home/archive/slate/slate_1.jpg'),
           imgTlg: require('assets/img/home/archive/slate/slate_1_tlg.jpg'),
           imgMlg: require('assets/img/home/archive/slate/slate_1_mlg.jpg')
-        }
+        },
+        imgAlt: 'Reviver 1'
       },
       {
         images:
@@ -432,7 +459,8 @@ export const caseStudies = [
           imgDef: require('assets/img/home/archive/slate/slate_2.jpg'),
           imgTlg: require('assets/img/home/archive/slate/slate_2_tlg.jpg'),
           imgMlg: require('assets/img/home/archive/slate/slate_2_mlg.jpg')
-        }
+        },
+        imgAlt: 'Reviver 2'
       },
       {
         images:
@@ -440,7 +468,8 @@ export const caseStudies = [
           imgDef: require('assets/img/home/archive/slate/slate_3.jpg'),
           imgTlg: require('assets/img/home/archive/slate/slate_3_tlg.jpg'),
           imgMlg: require('assets/img/home/archive/slate/slate_3_mlg.jpg')
-        }
+        },
+        imgAlt: 'Reviver 3'
       },
       {
         images:
@@ -448,7 +477,8 @@ export const caseStudies = [
           imgDef: require('assets/img/home/archive/slate/slate_4.jpg'),
           imgTlg: require('assets/img/home/archive/slate/slate_4_tlg.jpg'),
           imgMlg: require('assets/img/home/archive/slate/slate_4_mlg.jpg')
-        }
+        },
+        imgAlt: 'Reviver 4'
       }
     ]
   }
