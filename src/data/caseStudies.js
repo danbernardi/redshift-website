@@ -207,11 +207,8 @@ export const caseStudies = [
           imgMlg: require('assets/img/home/Nexus/nexus4_mlg.jpg')
         },
          imgAlt: 'Google Nexus 4',
-        classes: 'mb10'
-      },
-      {
         classes: 'mt5'
-      }
+      },
     ],
     homepageImage: require('assets/img/home/Nexus/nexus-scene-bg.jpg'),
     homepageTLGImage: require('assets/img/home/Nexus/nexus-scene-bg-tlg.jpg'),
