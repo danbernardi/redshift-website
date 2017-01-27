@@ -18,7 +18,7 @@ const ArchiveGrid = props => {
         clickHandler={ () => openModal(<CaseStudyModalWrapper />, item.id) }
         imageSrc={ item.thumb }
       >
-        <h2 className="typ--bold">{ item.id }</h2>
+        <h2 className="typ--bold">{ item.name }</h2>
         <div className="right-arrow"><img src={ require('assets/img/arrow-right-short.png') } /></div>
       </PinkHover>
     ))
