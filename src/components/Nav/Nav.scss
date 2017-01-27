@@ -8,6 +8,10 @@
   width: 100vw;
 }
 
+_::-webkit-full-page-media, _:future, :root .nav__menu h1 {
+  outline: solid 1px $white;
+}
+
 .nav__menu h1 {
   line-height: 1.05;
   // media queries
@@ -41,18 +45,22 @@
   }
 
   li {
-    line-height: 1.2;
-    color: $body;
     position: relative;
-    // top: 4rem;
+    background: $white;
     cursor: pointer;
     opacity: 0;
     transform: translateY(4rem);
     transition: transform 0.18s ease-in-out, opacity 0.22s ease-in-out;
 
-    &:hover {
-      @extend %gradient-text;
-      @include redshift-gradient();
+    h1 {
+      line-height: 1.2;
+      color: $body;
+      display: inline;
+
+      &:hover {
+        @extend %gradient-text;
+        @include redshift-gradient();
+      }
     }
   }
 
@@ -74,8 +82,3 @@
     }
   }
 }
-
-// .nav-fade {
-//   top: 0rem !important;
-//   opacity: 1 !important;
-// }

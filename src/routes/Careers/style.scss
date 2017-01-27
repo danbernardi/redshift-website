@@ -103,6 +103,11 @@
     }
   }
 
+  .form__group--filename {
+    position: relative;
+    top: -5rem;
+  }
+
   input[type=text],
   input[type=email],
   label {

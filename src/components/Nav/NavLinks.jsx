@@ -23,12 +23,17 @@ class NavLinks extends React.Component {
 
     browserHistory.push(to);
     const body = document.getElementsByTagName('body');
+    const html = document.getElementsByTagName('html');
     if (body && body[0]) { body[0].scrollTop = 0; }
+    if (html && html[0]) { html[0].scrollTop = 0; }
 
     this.timer = setTimeout(() => {
       if (to === '/work') {
         const work = document.getElementsByName('work');
-        if (work && work[0] && body && body[0]) { body[0].scrollTop = work[0].getBoundingClientRect().top; }
+        if (work && work[0] && body && body[0] && html && html[0]) {
+          body[0].scrollTop = work[0].getBoundingClientRect().top;
+          html[0].scrollTop = work[0].getBoundingClientRect().top;
+        }
       }
 
       dispatch(actions.toggleModal(false));
