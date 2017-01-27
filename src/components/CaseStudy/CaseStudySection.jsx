@@ -1,7 +1,7 @@
 import React from 'react';
 
 const CaseStudySection = props => {
-  const { images, copy, pad, classes } = props;
+  const { images, imgAlt, copy, pad, classes } = props;
 
   return (
     <div className={ classes && classes }>
@@ -9,7 +9,7 @@ const CaseStudySection = props => {
         <picture>
           <source srcSet={ images.imgDef } media="(min-width: 1040px)" />
           <source srcSet={ images.imgTlg } media="(min-width: 767px)" />
-          <img src={ images.imgMlg } className="full-image" style={ { marginBottom: '1px' } } />
+          <img src={ images.imgMlg } className="full-image" style={ { marginBottom: '1px' } } alt={ imgAlt } />
         </picture>
       }
 
@@ -30,9 +30,10 @@ const CaseStudySection = props => {
   );
 };
 
-const { string, array, bool } = React.PropTypes;
+const { object, string, array, bool } = React.PropTypes;
 CaseStudySection.propTypes = {
-  images: array,
+  images: object,
+  imgAlt: string,
   copy: array,
   pad: bool,
   classes: string

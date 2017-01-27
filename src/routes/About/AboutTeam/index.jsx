@@ -23,7 +23,7 @@ const AboutTeam = props => {
       <h2 className="typ--bold">{ team.name }</h2>
       <h4>{ team.position }</h4>
       <div className="right-arrow">
-        <img src={ require('assets/img/arrow-right-short.png') } />
+        <img src={ require('assets/img/arrow-right-short.png') } alt={ `${team.name}, ${team.position}` } />
       </div>
     </PinkHover>
   );

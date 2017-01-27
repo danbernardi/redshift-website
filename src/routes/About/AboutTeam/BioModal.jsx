@@ -17,7 +17,7 @@ export function BioTemplate (props) {
           { bio }
         </div>
         <div className="bio--wrap__img hide--tmd">
-          <img src={ bioContent.modalImage } />
+          <img src={ bioContent.modalImage } alt={ bioContent.name } />
         </div>
       </div>
     </div>
