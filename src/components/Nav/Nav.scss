@@ -12,10 +12,6 @@ _::-webkit-full-page-media, _:future, :root .nav__menu h1 {
   outline: solid 1px $white;
 }
 
-_::-webkit-full-page-media, _:future, :root .nav__menu li h1:hover {
-  outline: solid 1px $white;
-}
-
 .nav__menu h1 {
   line-height: 1.05;
   // media queries
