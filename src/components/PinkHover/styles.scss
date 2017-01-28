@@ -9,11 +9,12 @@
 }
 
 .pink-hover .pink-info {
-  transition: transform 0.2s ease-in-out;
+  transition: left 0.2s ease-in-out;
   color: $white;
   padding: 0 5rem;
   position: absolute;
   height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
