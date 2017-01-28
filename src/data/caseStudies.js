@@ -405,7 +405,7 @@ export const caseStudies = [
     id: 'openTable',
     name: 'Opentable',
     thumb: require('assets/img/home/archive/opentable/open_thumb.jpg'),
-    heading: 'Redshift was tasked with creating a personal mobile experience to support the Google Fiber retail spaces. It helped visitors get the most out of the Google Fiber space while also allowing them to experience the delight that only Google can provide.',
+    heading: 'Redshift designed the “Places I’ve Eaten” Facebook app that allows diners to share their restaurant experiences with friends. It marked the first collaboration between Facebook and OpenTable.',
     sidebar: true,
     content: [
       {
@@ -441,7 +441,7 @@ export const caseStudies = [
     id: 'reviver',
     name: 'Reviver',
     thumb: require('assets/img/home/archive/slate/slate_thumb.jpg'),
-    heading: 'Redshift was tasked with creating a personal mobile experience to support the Google Fiber retail spaces. It helped visitors get the most out of the Google Fiber space while also allowing them to experience the delight that only Google can provide.',
+    heading: 'Reviver came to Redshift to design the interface for Slate, the world’s first digital license plate. The web app helps small businesses manage fleets as well as communicate with customers through an on-board messaging platform.',
     sidebar: true,
     content: [
       {
