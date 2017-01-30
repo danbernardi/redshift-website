@@ -2,6 +2,7 @@ import React from 'react';
 import * as actions from 'store/actions';
 import { connect } from 'react-redux';
 import { scrollToID } from 'utils/scrollTo';
+import Scene from 'components/Scene';
 
 import CaseStudyModalWrapper from 'components/CaseStudy/CaseStudyModalWrapper';
 
@@ -78,10 +79,7 @@ class HomepageCaseStudy extends React.Component {
           { study.anchor && <a name="work" className="scene-target work-anchor" /> }
           <div className="homepage--scene-text" style={ Object.assign(initialStyles, transformStyles) }>
             <div className="row">
-              <div
-                onClick={ () => openModal(study.id) }
-                className="scene"
-              >
+              <Scene clickCallback={ () => openModal(study.id) }>
                 <h2 className="typ--bold">{ study.caption.map((caption, index) => (<div key={ index }>{ caption }</div>)) }</h2>
                 <h5 className="btn btn--arrow">
                   <div className="pt6 pt5--dlg pt3--mlg pt1--msm">
@@ -93,7 +91,7 @@ class HomepageCaseStudy extends React.Component {
                     />
                   </div>
                 </h5>
-              </div>
+              </Scene>
             </div>
           </div>
         </div>
