@@ -389,15 +389,6 @@ export const caseStudies = [
           imgMlg: require('assets/img/home/archive/google/fiber_3_mlg.jpg')
         },
         imgAlt: 'Google Fiber 3'
-      },
-      {
-        images:
-        {
-          imgDef: require('assets/img/home/archive/google/fiber_4.jpg'),
-          imgTlg: require('assets/img/home/archive/google/fiber_4_tlg.jpg'),
-          imgMlg: require('assets/img/home/archive/google/fiber_4_mlg.jpg')
-        },
-        imgAlt: 'Google Fiber 4'
       }
     ]
   },
@@ -412,8 +403,8 @@ export const caseStudies = [
         images:
         {
           imgDef: require('assets/img/home/archive/opentable/open_1.jpg'),
-          imgTlg: require('assets/img/home/archive/google/fiber_1_tlg.jpg'),
-          imgMlg: require('assets/img/home/archive/google/fiber_1_mlg.jpg')
+          imgTlg: require('assets/img/home/archive/opentable/open_1_tlg.jpg'),
+          imgMlg: require('assets/img/home/archive/opentable/open_1_mlg.jpg')
         },
         imgAlt: 'Opentable 1'
       },
@@ -421,8 +412,8 @@ export const caseStudies = [
         images:
         {
           imgDef: require('assets/img/home/archive/opentable/open_2.jpg'),
-          imgTlg: require('assets/img/home/archive/google/fiber_2_tlg.jpg'),
-          imgMlg: require('assets/img/home/archive/google/fiber_2_mlg.jpg')
+          imgTlg: require('assets/img/home/archive/opentable/open_2_tlg.jpg'),
+          imgMlg: require('assets/img/home/archive/opentable/open_2_mlg.jpg')
         },
         imgAlt: 'Opentable 2'
       },
@@ -430,8 +421,8 @@ export const caseStudies = [
         images:
         {
           imgDef: require('assets/img/home/archive/opentable/open_3.jpg'),
-          imgTlg: require('assets/img/home/archive/google/fiber_3_tlg.jpg'),
-          imgMlg: require('assets/img/home/archive/google/fiber_3_mlg.jpg')
+          imgTlg: require('assets/img/home/archive/opentable/open_3_tlg.jpg'),
+          imgMlg: require('assets/img/home/archive/opentable/open_3_mlg.jpg')
         },
         imgAlt: 'Opentable 3'
       }
