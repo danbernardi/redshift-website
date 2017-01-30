@@ -102,6 +102,7 @@
     @include breakpoint($mobile-lg) {
       line-height: 1.45;
     }
+
     @include breakpoint($mobile-sm) {
       line-height: 1.2;
       padding: 0;
@@ -159,6 +160,10 @@
   transform: translateY(-50%);
   z-index: 9;
   // media queries
+  @media screen and (max-height: 680px) {
+    position: static;
+    transform: none;
+  }
   @include breakpoint($mobile-lg) {
     transform: none;
     top: 5rem;
@@ -167,6 +172,10 @@
   h2 {
     text-transform: lowercase;
     // media queries
+    @include breakpoint($desktop-lg) {
+      font-size: 3.6rem;
+    }
+
     @include breakpoint($mobile-lg) {
       font-size: 2.8rem;
       line-height: 1.65;
@@ -174,8 +183,12 @@
   }
 
   h5 {
-    // media queries
     background-color: #fff;
+    // media queries
+    @include breakpoint($desktop-lg) {
+      font-size: 2.1rem;
+    }
+
     @include breakpoint($mobile-lg) {
       font-size: 1.4rem;
     }

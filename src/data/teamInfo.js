@@ -73,7 +73,6 @@ export const teamInfo = [
     photo: require('assets/img/about/team/kyle.jpg'),
     modalImage: require('assets/img/about/team/modal/kyle.jpg'),
     bioStatement: [
-      'Kyle Lloyd is the Director of Business Development at Redshift',
       'Kyle grew up in Austin, TX and went to school at Texas State University in San Marcos where he earned a BBA in Marketing. He prides himself in building successful sales organizations from the ground up, and prior to Redshift, Kyle worked for pharmaceutical companies, technology accelerators, and other world-renowned digital design firms.',
       'A proud Texan (in name only), Kyle indefinitely resides in San Francisco, CA with his longtime partner. You can find him any given weekend on hiking trails around the Bay Area.'
     ]
@@ -229,7 +228,7 @@ export const teamInfo = [
   {
     id: 'mattk',
     name: 'Matt Kissick',
-    position: 'Visual Designer',
+    position: 'UX Designer',
     photo: require('assets/img/about/team/mattk.jpg'),
     modalImage: require('assets/img/about/team/modal/mattk.jpg'),
     bioStatement: [
