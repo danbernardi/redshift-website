@@ -1,18 +1,5 @@
 @import 'sass-includes';
 
-.modal--logo-close__swap {
-  .header .logo { display: none; }
-
-  .header .modal__close {
-    display: block;
-    color: $white !important;
-  }
-}
-
-.modal--open-toggle {
-  transform: none !important;
-}
-
 .modal__close {
   cursor: pointer;
   position: fixed;
@@ -76,54 +63,13 @@
   }
 }
 
-.modal__content {
-  display: none;
-}
-
-.modal__inner {
-  transition: transform 0.3s ease-in-out;
-  transform: translateX(100%);
-  background: $white;
-  overflow: auto;
-  height: 100%;
-  position: absolute;
-  width: 100%;
-  right: 0;
-  top: 0;
-  z-index: 1;
-  -webkit-overflow-scrolling: touch;
-}
-
-.modal__inner.current {
-  transform: none;
-}
-
-.modal__inner.next {
-  transform: translateY(100%);
-  transition: none;
-}
-
-.modal.team {
-  z-index: 10;
-  width: 100vw;
-  top: 10vh;
-  min-height: 80vh;
-  height: 0;
-  overflow: hidden;
-}
-
-.modal.team .menu {
-  position: absolute;
-  right: 5rem;
-  top: 5rem;
-}
-
 .modal__with-sidebar {
   position: absolute;
   padding-top: 6.5rem;
   background: $white;
   right: 0;
   overflow: auto;
+  -webkit-overflow-scrolling: touch;
   height: 100%;
   width: calc(100vw - 17rem);
   // media queries
