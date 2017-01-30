@@ -66,18 +66,6 @@
   padding-top: 140%;
 }
 
-.index-content {
-  .scene {
-    padding-left: 0;
-    padding-right: 0;
-    // media queries
-    @include breakpoint($mobile-lg) {
-      top: 50%;
-      transform: translateY(-50%);
-    }
-  }
-}
-
 .hero {
   height: 100vh;
 

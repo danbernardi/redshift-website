@@ -15,11 +15,6 @@
   }
   @include breakpoint($mobile-lg) {
     opacity: 1 !important;
-
-    top: auto !important;
-    bottom: 3rem !important;
-    transform: none !important;
-
     padding-left: 0;
     padding-right: 2rem;
     width: calc(100% - 8rem);
@@ -27,6 +22,20 @@
   @include breakpoint($mobile-sm) {
     width: calc(100% - 4rem);
   }
+}
+
+#homepage-work .scene {
+  // media queries
+  @include breakpoint($mobile-lg) {
+    top: auto !important;
+    bottom: 3rem !important;
+    transform: none !important;
+  }
+}
+
+.index-content .scene {
+    padding-left: 0;
+    padding-right: 0;
 }
 
 @supports (-ms-ime-align:auto) {
