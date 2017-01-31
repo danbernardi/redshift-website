@@ -66,18 +66,6 @@
   padding-top: 140%;
 }
 
-.index-content {
-  .scene {
-    padding-left: 0;
-    padding-right: 0;
-    // media queries
-    @include breakpoint($mobile-lg) {
-      top: 50%;
-      transform: translateY(-50%);
-    }
-  }
-}
-
 .hero {
   height: 100vh;
 
@@ -103,38 +91,6 @@
   clip: rect(0, auto, auto, 0);
 }
 
-.scene {
-  position: fixed;
-  width: calc(100% - 14rem);
-  padding-left: 7rem;
-  padding-right: 7rem;
-  top: 50%;
-  transform: translateY(-50%);
-  // media queries
-  @include breakpoint($desktop-sm) {
-    padding-left: 4rem;
-    padding-right: 4rem;
-    width: calc(100% - 14rem);
-  }
-  @include breakpoint($mobile-lg) {
-    opacity: 1 !important;
-    top: 94%;
-    transform: translateY(-94%);
-    padding-left: 0;
-    padding-right: 2rem;
-    width: calc(100% - 8rem);
-  }
-  @include breakpoint($mobile-sm) {
-    width: calc(100% - 4rem);
-  }
-}
-
-@supports (-ms-ime-align:auto) {
-  .home-section .scene {
-    position: absolute !important;
-    top: -100rem !important;
-  }
-}
 
 .scene-target {
   top: 0;
