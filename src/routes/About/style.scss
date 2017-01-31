@@ -75,6 +75,8 @@
   bottom: 0;
   position: absolute;
   width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
   // media queries
   @include breakpoint($mobile-lg) {
     width: 100%;
@@ -154,16 +156,16 @@
 }
 
 .team-member-bio {
-  overflow-x: visible;
   position: relative;
-  top: 50%;
-  transform: translateY(-50%);
   z-index: 9;
+  // height: 100%;
+  width: 50%;
   // media queries
-  @media screen and (max-height: 680px) {
-    position: static;
-    transform: none;
+
+  @include breakpoint($tablet-md) {
+    width: 100%;
   }
+
   @include breakpoint($mobile-lg) {
     transform: none;
     top: 5rem;
@@ -196,26 +198,22 @@
 }
 
 .bio--wrap {
-  position: absolute;
-  bottom: 0;
   height: 100%;
-  top: 0;
+  display: flex;
+  align-items: center;
   // media queries
+  @media screen and (max-height: 680px) {
+    align-items: flex-start;
+    height: auto;
+  }
   @include breakpoint($tablet-md) {
     position: relative;
   }
 }
 
 .bio--wrap__img {
-  position: relative;
   height: 100%;
   text-align: center;
-  left: -65%;
-  transform: translateX(50%);
-  // margin: 0 auto;
-  @include breakpoint($desktop-lg) {
-    left: -75%;
-  }
   img {
     height: 100%;
     width: auto;
@@ -223,26 +221,14 @@
     @media screen and (max-height: 680px) {
       min-height: 67.5rem;
     }
-    // @include breakpoint($desktop-lg) {
-    //   right: -5rem;
-    // }
-    // @include breakpoint($tablet-lg) {
-    //   right: -10rem;
-    // }
-    // @media only screen and (max-height: 1080px) {
-    //   bottom: auto;
-    //   top: 0;
-    // }
-    // @include breakpoint($desktop-sm) {
-
-    // }
   }
 }
 
 .about .modal__wrap .icon-close {
-  text-shadow:
-    -3px -3px 6px rgba($white, 0.35),
-    3px -3px 6px rgba($white, 0.35),
-    -3px 3px 6px rgba($white, 0.35),
-    3px 3px 6px rgba($white, 0.35);
+  left: -1rem;
+  &:before {
+    background-color: #ffffff;
+    border-radius: 50%;
+    padding: 1rem;
+  }
 }
