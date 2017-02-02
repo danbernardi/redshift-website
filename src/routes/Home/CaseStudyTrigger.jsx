@@ -44,22 +44,33 @@ class CaseStudyTrigger extends React.Component {
   }
 
   render () {
-    const { id, images, anchor, caption, dispatch, modalState, index, featuredCaseStudyState } = this.props;
+    const { id, images, caption, dispatch, modalState, index, featuredCaseStudyState } = this.props;
     const openModal = (id) => {
       dispatch(actions.setNextCaseStudy(id, true));
       dispatch(actions.setActiveModal(<CaseStudyModalWrapper />, 'casestudy'));
       dispatch(actions.toggleModal(true));
       scrollToID(id, 500);
     };
-    const initialTextStyles = { transition: `opacity 300ms ease-in-out` };
+    const initialTextStyles = { transition: `opacity 600ms ease-out, transform 600ms ease-in-out` };
     let textTransformStyles = {};
 
-    if (modalState.open) {
+    if (modalState.open || featuredCaseStudyState.activeID !== index) {
       // if modal is currently active
-      textTransformStyles = { opacity: 0, pointerEvents: 'none' };
+      textTransformStyles = {
+        transform: 'translateY(10rem)',
+        opacity: 0,
+        pointerEvents: 'none',
+        transitionDelay: '0s'
+      };
     } else {
       // if modal isn't currently active
-      textTransformStyles = { opacity: 1, pointerEvents: 'auto' };
+      textTransformStyles = {
+        transform: 'none',
+        opacity: 1,
+        pointerEvents: 'auto',
+        transitionDelay: '0.6s',
+        transitionTimingFunction: 'ease-out'
+      };
     }
 
     const initialTransformStyles = { transition: `transform ${featuredCaseStudyState.animate ? '1s' : '0s'} ease-in-out`, top: 0 };
@@ -75,9 +86,7 @@ class CaseStudyTrigger extends React.Component {
 
     return (
       <section className={ `cs__${id} theme--dark cs__section` } style={ Object.assign(initialTransformStyles, transformStyles) }>
-        <div id={ id } className="scroll--target" />
-        <div className="scene-container layout--absolute">
-
+        <div className="scene__container">
           <picture>
             <source srcSet={ images.def } media="(min-width: 1040px)" />
             <source srcSet={ images.tlg } media="(min-width: 767px)" />
@@ -85,24 +94,20 @@ class CaseStudyTrigger extends React.Component {
             <img src={ images.msm } className="homepage-scene--image" alt={ images.alt } />
           </picture>
 
-          <div className={ `cs-${id} scene-target` } />
-          { anchor && <a name="work" className="scene-target work-anchor" /> }
-          <div className="homepage--scene-text" style={ Object.assign(initialTextStyles, textTransformStyles) }>
-            <div className="row">
-              <Scene clickCallback={ () => openModal(id) }>
-                <h2 className="typ--bold">{ caption.map((caption, index) => (<div key={ index }>{ caption }</div>)) }</h2>
-                <h5 className="btn btn--arrow">
-                  <div className="pt6 pt5--dlg pt3--mlg pt1--msm">
-                    View project
-                    <img
-                      src={ require('assets/img/arrow-right-short.png') }
-                      alt="Yumavore app design"
-                      className="ml2 ml1--msm arrow"
-                    />
-                  </div>
-                </h5>
-              </Scene>
-            </div>
+          <div className="scene__text row" style={ Object.assign(initialTextStyles, textTransformStyles) }>
+            <Scene clickCallback={ () => openModal(id) }>
+              <h2 className="typ--bold">{ caption.map((caption, index) => (<div key={ index }>{ caption }</div>)) }</h2>
+              <h5 className="btn btn--arrow">
+                <div className="pt6 pt5--dlg pt3--mlg pt1--msm">
+                  View project
+                  <img
+                    src={ require('assets/img/arrow-right-short.png') }
+                    alt="Yumavore app design"
+                    className="ml2 ml1--msm arrow"
+                  />
+                </div>
+              </h5>
+            </Scene>
           </div>
         </div>
       </section>
@@ -110,11 +115,10 @@ class CaseStudyTrigger extends React.Component {
   }
 }
 
-const { object, func, string, array, bool, number } = React.PropTypes;
+const { object, func, string, array, number } = React.PropTypes;
 CaseStudyTrigger.propTypes = {
   id: string,
   images: object,
-  anchor: bool,
   caption: array,
   dispatch: func,
   modalState: object,
