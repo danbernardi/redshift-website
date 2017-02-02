@@ -16,7 +16,6 @@ function preventDefaultForScrollKeys (e) {
 }
 
 export function getScrollDirection (event) {
-  console.log(event.type, event);
   let direction;
 
   if (event.type === 'wheel') {

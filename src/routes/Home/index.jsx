@@ -12,34 +12,52 @@ import { onScroll, getScrollDirection, getSwipeDirection } from 'utils/scrollJac
 
 export class Home extends React.Component {
   componentDidMount () {
-    const { dispatch } = this.props;
-    dispatch(actions.setHeaderTheme('pink'));
-    onScroll((e) => this.scrollHandler(e), 60);
+    const { dispatch, featuredCaseStudyState } = this.props;
+    if (featuredCaseStudyState.activeID >= 0) {
+      dispatch(actions.setHeaderTheme('white'));
+    } else {
+      dispatch(actions.setHeaderTheme('pink'));
+    }
+
+    onScroll((e) => this.scrollHandler(e), 100);
     getSwipeDirection();
   }
 
-  scrollHandler (event) {
+  componentDidUpdate () {
     const { dispatch, featuredCaseStudyState } = this.props;
-    const activeCaseStudyID = featuredCaseStudyState.activeID;
-    const featuredCaseStudies = caseStudies.filter(item => item.featured);
-    let nextCSIndex;
 
-    // determines whether the scroll event was a down scroll or an up scroll
-    const direction = event.type === 'touchmove' ? window.touchEventYDirection : getScrollDirection(event);
+    if (featuredCaseStudyState.activeID >= 0) {
+      dispatch(actions.setHeaderTheme('white'));
+    } else {
+      dispatch(actions.setHeaderTheme('pink'));
+    }
+  }
 
-    if (activeCaseStudyID >= featuredCaseStudies.length - 1 && direction === 'down') {
-      // if scroll down while already at the last case study
-      nextCSIndex = activeCaseStudyID;
-    } else if (activeCaseStudyID <= -1 && direction === 'up') {
-      // if scroll up while already at the hero section
-      nextCSIndex = activeCaseStudyID;
-    } else if (direction === 'down') {
-      // if scroll under any other circumstance
-      nextCSIndex = activeCaseStudyID + 1;
-      dispatch(actions.goToNextCaseStudy(nextCSIndex));
-    } else if (direction === 'up') {
-      nextCSIndex = activeCaseStudyID - 1;
-      dispatch(actions.revertToPreviousCaseStudy(nextCSIndex));
+  scrollHandler (event) {
+    const { dispatch, featuredCaseStudyState, modalState } = this.props;
+
+    if (!modalState.open) {
+      const activeCaseStudyID = featuredCaseStudyState.activeID;
+      const featuredCaseStudies = caseStudies.filter(item => item.featured);
+      let nextCSIndex;
+
+      // determines whether the scroll event was a down scroll or an up scroll
+      const direction = event.type === 'touchmove' ? window.touchEventYDirection : getScrollDirection(event);
+
+      if (activeCaseStudyID >= featuredCaseStudies.length - 1 && direction === 'down') {
+        // if scroll down while already at the last case study
+        nextCSIndex = activeCaseStudyID;
+      } else if (activeCaseStudyID <= -1 && direction === 'up') {
+        // if scroll up while already at the hero section
+        nextCSIndex = activeCaseStudyID;
+      } else if (direction === 'down') {
+        // if scroll under any other circumstance
+        nextCSIndex = activeCaseStudyID + 1;
+        dispatch(actions.goToNextCaseStudy(nextCSIndex));
+      } else if (direction === 'up') {
+        nextCSIndex = activeCaseStudyID - 1;
+        dispatch(actions.revertToPreviousCaseStudy(nextCSIndex));
+      }
     }
   }
 
@@ -78,11 +96,13 @@ export class Home extends React.Component {
 
 Home.propTypes = {
   dispatch: React.PropTypes.func,
-  featuredCaseStudyState: React.PropTypes.object
+  featuredCaseStudyState: React.PropTypes.object,
+  modalState: React.PropTypes.object
 };
 
 const injectStateProps = state => ({
-  featuredCaseStudyState: state.featuredCaseStudyState
+  featuredCaseStudyState: state.featuredCaseStudyState,
+  modalState: state.modalState
 });
 
 export default connect(injectStateProps)(Home);

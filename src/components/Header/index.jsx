@@ -33,6 +33,10 @@ export class Header extends React.Component {
     if (body && body[0]) { body[0].scrollTop = 0; }
     if (html && html[0]) { html[0].scrollTop = 0; }
 
+    let animate = true;
+    if (modalState.open) { animate = false; }
+    dispatch(actions.goToNextCaseStudy(-1, animate, []));
+
     if (modalState.open) {
       dispatch(actions.toggleModal(false));
 

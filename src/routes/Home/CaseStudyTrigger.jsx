@@ -62,15 +62,15 @@ class CaseStudyTrigger extends React.Component {
       textTransformStyles = { opacity: 1, pointerEvents: 'auto' };
     }
 
-    const initialTransformStyles = { transition: `transform 1000ms ease-in-out`, top: 0 };
+    const initialTransformStyles = { transition: `transform ${featuredCaseStudyState.animate ? '1s' : '0s'} ease-in-out`, top: 0 };
     let transformStyles = {};
 
     if (featuredCaseStudyState.activeID === index) {
       transformStyles = { transform: 'none' };
-    } else if (featuredCaseStudyState.previousIDs.indexOf(index) !== -1) {
-      transformStyles = { transform: 'translateY(-100%)' };
-    } else {
+    } else if (featuredCaseStudyState.previousIDs.indexOf(index) === -1) {
       transformStyles = { transform: 'translateY(100%)' };
+    } else {
+      transformStyles = { transform: 'translateY(-100%)' };
     }
 
     return (

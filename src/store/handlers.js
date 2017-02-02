@@ -51,17 +51,21 @@ export const caseStudyState = {
 };
 
 export const featuredCaseStudyState = {
-  _init: { activeID: -1, previousIDs: [] },
+  _init: { activeID: -1, previousIDs: [], animate: true },
   GO_TO_NEXT_CASE_STUDY: (state, action) => {
-    const newPrevious = state.previousIDs.slice();
-    newPrevious.push(state.activeID);
-    return Object.assign({}, state, { activeID: action.nextID, previousIDs: newPrevious });
+    let newPrevious = state.previousIDs.slice();
+    if (action.reset) {
+      newPrevious = action.reset;
+    } else {
+      newPrevious.push(state.activeID);
+    }
+    return Object.assign({}, state, { activeID: action.nextID, previousIDs: newPrevious, animate: action.animate });
   },
   REVERT_TO_PREVIOUS_CASE_STUDY: (state, action) => {
     const newPrevious = state.previousIDs.slice();
     const removalIndex = newPrevious.indexOf(action.prevID);
     newPrevious.splice(removalIndex, 1);
-    return Object.assign({}, state, { activeID: state.activeID - 1, previousIDs: newPrevious });
+    return Object.assign({}, state, { activeID: state.activeID - 1, previousIDs: newPrevious, animate: action.animate });
   }
 };
 
