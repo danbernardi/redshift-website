@@ -50,9 +50,14 @@ if (project.env === 'development') {
 
   app.use((req, res, next) => {
     var host = req.get('Host');
-    if (host === 'weareredshift.com') {
-      return res.redirect(301, 'http://www.redshiftdigital.com/' + req.originalUrl);
+    if (host === 'weareredshift.com' || host === 'www.weareredshift.com') {
+      return res.redirect(301, 'http://www.redshiftdigital.com' + req.originalUrl);
     }
+
+    if (!host.match(/^www\..*/i)) {
+      return res.redirect(301, "http://www." + host);
+    }
+
     return next();
   });
 
