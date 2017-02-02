@@ -1,10 +1,10 @@
 import React from 'react';
-import ScrollTrigger from 'components/ScrollTrigger';
-import { caseStudies } from 'data/caseStudies';
 import Scene from 'components/Scene';
+import * as actions from 'store/actions';
+import { connect } from 'react-redux';
 
-export function Hero () {
-  const firstCaseStudyID = caseStudies && caseStudies.length && caseStudies[0].id;
+export function Hero (props) {
+  const { dispatch } = props;
 
   return (
     <section className="scene-container">
@@ -14,10 +14,16 @@ export function Hero () {
             <h1 className="hero--scene-text typ--bold">We are Redshift. We design digital products and experiences.</h1>
           </div>
         </Scene>
-        <ScrollTrigger target={ firstCaseStudyID || 'homepage-work' } classes="fixed" />
+        <div className="scrolltrigger fixed" onClick={ () => dispatch(actions.goToNextCaseStudy(0)) }>
+          <img src={ require('assets/img/down-arrow.png') } alt="Scroll to the next section" />
+        </div>
       </div>
     </section>
   );
 }
 
-export default Hero;
+Hero.propTypes = {
+  dispatch: React.PropTypes.func
+};
+
+export default connect()(Hero);

@@ -50,6 +50,21 @@ export const caseStudyState = {
   }
 };
 
+export const featuredCaseStudyState = {
+  _init: { activeID: -1, previousIDs: [] },
+  GO_TO_NEXT_CASE_STUDY: (state, action) => {
+    const newPrevious = state.previousIDs.slice();
+    newPrevious.push(state.activeID);
+    return Object.assign({}, state, { activeID: action.nextID, previousIDs: newPrevious });
+  },
+  REVERT_TO_PREVIOUS_CASE_STUDY: (state, action) => {
+    const newPrevious = state.previousIDs.slice();
+    const removalIndex = newPrevious.indexOf(action.prevID);
+    newPrevious.splice(removalIndex, 1);
+    return Object.assign({}, state, { activeID: state.activeID - 1, previousIDs: newPrevious });
+  }
+};
+
 export const headerTheme = {
   _init: 'pink',
   SET_HEADER_THEME: (state, action) => action.theme

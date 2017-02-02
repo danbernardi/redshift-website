@@ -55,11 +55,13 @@ export const caseStudies = [
         ]
       }
     ],
-    homepageImage: require('assets/img/home/Norton/norton-scene-bg.jpg'),
-    homepageTLGImage: require('assets/img/home/Norton/norton-scene-bg-tlg.jpg'),
-    homepageMLGImage: require('assets/img/home/Norton/norton-scene-bg-mlg.jpg'),
-    homepageMobileImage: require('assets/img/home/Norton/norton-scene-bg-mobile.jpg'),
-    imageAlt: 'Norton creative design',
+    images: {
+      def: require('assets/img/home/Norton/norton-scene-bg.jpg'),
+      tlg: require('assets/img/home/Norton/norton-scene-bg-tlg.jpg'),
+      mlg: require('assets/img/home/Norton/norton-scene-bg-mlg.jpg'),
+      msm: require('assets/img/home/Norton/norton-scene-bg-mobile.jpg'),
+      alt: 'Norton creative design'
+    },
     caption: ['A single interface', 'for all things Norton'],
     anchor: true,
     featured: true
@@ -144,11 +146,13 @@ export const caseStudies = [
         copy: [{ src: require('assets/img/home/Yumavore/yumavore6.jpg') }]
       }
     ],
-    homepageImage: require('assets/img/home/Yumavore/yumavore-scene-bg.jpg'),
-    homepageTLGImage: require('assets/img/home/Yumavore/yumavore-scene-bg-tlg.jpg'),
-    homepageMLGImage: require('assets/img/home/Yumavore/yumavore-scene-bg-mlg.jpg'),
-    homepageMobileImage: require('assets/img/home/Yumavore/yumavore-scene-bg-mobile.jpg'),
-    imageAlt: 'Yumavore app design',
+    images: {
+      def: require('assets/img/home/Yumavore/yumavore-scene-bg.jpg'),
+      tlg: require('assets/img/home/Yumavore/yumavore-scene-bg-tlg.jpg'),
+      mlg: require('assets/img/home/Yumavore/yumavore-scene-bg-mlg.jpg'),
+      msm: require('assets/img/home/Yumavore/yumavore-scene-bg-mobile.jpg'),
+      alt: 'Yumavore app design'
+    },
     caption: ['A new way to create', 'and share recipes'],
     featured: true
   },
@@ -210,11 +214,13 @@ export const caseStudies = [
         classes: 'mt5'
       }
     ],
-    homepageImage: require('assets/img/home/Nexus/nexus-scene-bg.jpg'),
-    homepageTLGImage: require('assets/img/home/Nexus/nexus-scene-bg-tlg.jpg'),
-    homepageMLGImage: require('assets/img/home/Nexus/nexus-scene-bg-mlg.jpg'),
-    homepageMobileImage: require('assets/img/home/Nexus/nexus-scene-bg-mobile.jpg'),
-    imageAlt: 'Nexus product website',
+    images: {
+      def: require('assets/img/home/Nexus/nexus-scene-bg.jpg'),
+      tlg: require('assets/img/home/Nexus/nexus-scene-bg-tlg.jpg'),
+      mlg: require('assets/img/home/Nexus/nexus-scene-bg-mlg.jpg'),
+      msm: require('assets/img/home/Nexus/nexus-scene-bg-mobile.jpg'),
+      alt: 'Nexus product website'
+    },
     caption: ['A new home', 'for Google Nexus'],
     featured: true
   },
@@ -283,11 +289,13 @@ export const caseStudies = [
         ]
       }
     ],
-    homepageImage: require('assets/img/home/Five/five-scene-bg.jpg'),
-    homepageTLGImage: require('assets/img/home/Five/five-scene-bg-tlg.jpg'),
-    homepageMLGImage: require('assets/img/home/Five/five-scene-bg-mlg.jpg'),
-    homepageMobileImage: require('assets/img/home/Five/five-scene-bg-mobile.jpg'),
-    imageAlt: 'Redshift Five App',
+    images: {
+      def: require('assets/img/home/Five/five-scene-bg.jpg'),
+      tlg: require('assets/img/home/Five/five-scene-bg-tlg.jpg'),
+      mlg: require('assets/img/home/Five/five-scene-bg-mlg.jpg'),
+      msm: require('assets/img/home/Five/five-scene-bg-mobile.jpg'),
+      alt: 'Redshift Five App'
+    },
     caption: ['Share and compare', 'your top 5 of anything'],
     featured: true
   },

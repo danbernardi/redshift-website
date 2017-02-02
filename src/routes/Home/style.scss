@@ -62,8 +62,11 @@
   }
 }
 
-.home-section {
+.cs__section {
   padding-top: 140%;
+  position: fixed;
+  transform: translateY(100%);
+  width: 100%;
 }
 
 .hero {
