@@ -51,8 +51,13 @@ if (project.env === 'development') {
   app.use((req, res, next) => {
     var host = req.get('Host');
     if (host === 'weareredshift.com') {
-      return res.redirect(301, 'http://www.redshiftdigital.com/' + req.originalUrl);
+      return res.redirect(301, 'http://redshiftdigital.com' + req.originalUrl);
     }
+
+    if (host === 'www.redshiftdigital.com') {
+      return res.redirect(301, 'http://redshiftdigital.com' + req.originalUrl);
+    }
+
     return next();
   });
 
