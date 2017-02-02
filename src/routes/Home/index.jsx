@@ -8,7 +8,7 @@ import './style.scss';
 
 import { caseStudies } from 'data/caseStudies';
 // import ArchiveGrid from 'components/Archive/ArchiveGrid';
-import { onScroll, getScrollDirection, getSwipeDirection } from 'utils/scrollJack';
+import { onScroll, getScrollDirection } from 'utils/scrollJack';
 
 export class Home extends React.Component {
   componentDidMount () {
@@ -20,7 +20,6 @@ export class Home extends React.Component {
     }
 
     onScroll((e) => this.scrollHandler(e), 100);
-    getSwipeDirection();
   }
 
   componentDidUpdate () {
@@ -42,7 +41,7 @@ export class Home extends React.Component {
       let nextCSIndex;
 
       // determines whether the scroll event was a down scroll or an up scroll
-      const direction = event.type === 'touchmove' ? window.touchEventYDirection : getScrollDirection(event);
+      const direction = getScrollDirection(event);
 
       if (activeCaseStudyID >= featuredCaseStudies.length - 1 && direction === 'down') {
         // if scroll down while already at the last case study
