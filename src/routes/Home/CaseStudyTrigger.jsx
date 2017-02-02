@@ -51,13 +51,13 @@ class CaseStudyTrigger extends React.Component {
       dispatch(actions.toggleModal(true));
       scrollToID(id, 500);
     };
-    const initialTextStyles = { transition: `opacity 600ms ease-out, transform 600ms ease-in-out` };
+    const initialTextStyles = { transition: `opacity 400ms ease-out, transform 150ms ease-in-out` };
     let textTransformStyles = {};
 
     if (modalState.open || featuredCaseStudyState.activeID !== index) {
       // if modal is currently active
       textTransformStyles = {
-        transform: 'translateY(10rem)',
+        transform: 'translateY(5rem)',
         opacity: 0,
         pointerEvents: 'none',
         transitionDelay: '0s'
@@ -68,7 +68,7 @@ class CaseStudyTrigger extends React.Component {
         transform: 'none',
         opacity: 1,
         pointerEvents: 'auto',
-        transitionDelay: '0.6s',
+        transitionDelay: '1s',
         transitionTimingFunction: 'ease-out'
       };
     }
@@ -84,6 +84,26 @@ class CaseStudyTrigger extends React.Component {
       transformStyles = { transform: 'translateY(-100%)' };
     }
 
+    const initialCTATransformStyles = { transition: `opacity 400ms ease-out` };
+    let transformCTAStyles = {};
+
+    if (modalState.open || featuredCaseStudyState.activeID !== index) {
+      // if modal is currently active
+      transformCTAStyles = {
+        opacity: 0,
+        pointerEvents: 'none',
+        transitionDelay: '0s'
+      };
+    } else {
+      // if modal isn't currently active
+      transformCTAStyles = {
+        opacity: 1,
+        pointerEvents: 'auto',
+        transitionDelay: '1.3s',
+        transitionTimingFunction: 'ease-out'
+      };
+    }
+
     return (
       <section className={ `cs__${id} theme--dark cs__section` } style={ Object.assign(initialTransformStyles, transformStyles) }>
         <div className="scene__container">
@@ -94,11 +114,13 @@ class CaseStudyTrigger extends React.Component {
             <img src={ images.msm } className="homepage-scene--image" alt={ images.alt } />
           </picture>
 
-          <div className="scene__text row" style={ Object.assign(initialTextStyles, textTransformStyles) }>
+          <div className="scene__text row">
             <Scene clickCallback={ () => openModal(id) }>
-              <h2 className="typ--bold">{ caption.map((caption, index) => (<div key={ index }>{ caption }</div>)) }</h2>
+              <h2 className="typ--bold" style={ Object.assign(initialTextStyles, textTransformStyles) }>
+                { caption.map((caption, index) => (<div key={ index }>{ caption }</div>)) }
+              </h2>
               <h5 className="btn btn--arrow">
-                <div className="pt6 pt5--dlg pt3--mlg pt1--msm">
+                <div className="pt6 pt5--dlg pt3--mlg pt1--msm" style={ Object.assign(initialCTATransformStyles, transformCTAStyles) }>
                   View project
                   <img
                     src={ require('assets/img/arrow-right-short.png') }
