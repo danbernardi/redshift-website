@@ -42,6 +42,14 @@ export const setHeaderTheme = (theme) => ({
   type: 'SET_HEADER_THEME', theme
 });
 
+export const goToNextCaseStudy = (nextID, animate = true, reset = false) => ({
+  type: 'GO_TO_NEXT_CASE_STUDY', nextID, animate, reset
+});
+
+export const revertToPreviousCaseStudy = (prevID, animate = true) => ({
+  type: 'REVERT_TO_PREVIOUS_CASE_STUDY', prevID, animate
+});
+
 // windowsize
 export const updateWindowWidth = (windowWidth) => ({
   type: 'UPDATE_WINDOW_WIDTH', windowWidth

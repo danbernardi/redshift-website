@@ -3,7 +3,6 @@ import CaseStudySection from './CaseStudySection';
 import { caseStudies } from 'data/caseStudies';
 import { connect } from 'react-redux';
 import * as actions from 'store/actions';
-import { scrollToID } from 'utils/scrollTo';
 import ReactDOM from 'react-dom';
 import './styles.scss';
 
@@ -43,18 +42,23 @@ class CaseStudy extends React.Component {
       this.timer = setTimeout(() => {
         // animate in after timeout to solve for race condition
         casestudy.scrollTop = 0;
-        casestudy.style.transition = 'transform 0.3s ease-in-out';
+        casestudy.style.transition = 'transform 0.75s ease-in-out';
         casestudy.style.transform = 'none';
       }, 1);
     }
   }
 
   triggerNextCaseStudy (nextCaseStudy, nextID) {
-    const { dispatch } = this.props;
+    const { dispatch, featuredCaseStudyState } = this.props;
     const casestudy = ReactDOM.findDOMNode(this.refs.casestudy);
     const currentScrollPos = casestudy.scrollTop;
     dispatch(actions.setNextCaseStudy(nextID, false, currentScrollPos));
-    scrollToID(nextID, 500);
+
+    if (caseStudies.filter(item => item.featured).length - 1 === featuredCaseStudyState.activeID) {
+      dispatch(actions.goToNextCaseStudy(0, true, [-1]));
+    } else {
+      dispatch(actions.goToNextCaseStudy(featuredCaseStudyState.activeID + 1, true));
+    }
   };
 
   render () {
@@ -104,10 +108,9 @@ class CaseStudy extends React.Component {
             </div>
           }
 
-          { !featured || caseStudies.findIndex(item => item.id === id) === featuredCaseStudies.length - 1
-            ? <ArchiveGrid clickCallback={ (id) => this.triggerNextCaseStudy(caseStudies.find(item => item.id === id), id) } />
-            : null
-          }
+          {/* !featured || caseStudies.findIndex(item => item.id === id) === featuredCaseStudies.length - 1 &&
+            <ArchiveGrid clickCallback={ (id) => this.triggerNextCaseStudy(caseStudies.find(item => item.id === id), id) } />
+          */}
         </section>
       </div>
     );
@@ -123,11 +126,13 @@ CaseStudy.propTypes = {
   caseStudyState: React.PropTypes.object,
   animateIn: React.PropTypes.bool,
   sidebar: React.PropTypes.bool,
-  featured: React.PropTypes.bool
+  featured: React.PropTypes.bool,
+  featuredCaseStudyState: React.PropTypes.object
 };
 
 const injectStateProps = state => ({
-  caseStudyState: state.caseStudyState
+  caseStudyState: state.caseStudyState,
+  featuredCaseStudyState: state.featuredCaseStudyState
 });
 
 export default connect(injectStateProps)(CaseStudy);

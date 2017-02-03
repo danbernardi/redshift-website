@@ -62,12 +62,26 @@
   }
 }
 
-.home-section {
+.cs__section {
   padding-top: 140%;
+  position: relative;
+  width: 100%;
+  text-align: right;
+  overflow: hidden;
+
+  &:nth-of-type(2n) {
+    text-align: left;
+  }
+}
+
+.scrolltarget {
+  position: absolute;
 }
 
 .hero {
   height: 100vh;
+
+  .scene { position: absolute; }
 
   .hero--scene-text {
     position: relative;
@@ -83,37 +97,25 @@
   }
 }
 
-.scene-container {
+.scene__container {
   top: 0;
   left: 0;
   width: 100%;
   height: auto;
+  position: absolute;
   clip: rect(0, auto, auto, 0);
 }
 
-
-.scene-target {
-  top: 0;
+.scene__text {
   position: absolute;
-  height: 0;
-  width: 50%;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
-.home-yumavore {
+.cs__yumavore {
   // media queries
   @include breakpoint($mobile-sm) {
     padding-top: 527.53%;
-  }
-
-  .scene-target {
-    margin-top: 47.3%;
-    // media queries
-    @include breakpoint($desktop-sm) {
-      margin-top: 40%;
-    }
-    @include breakpoint($tablet-lg) {
-      margin-top: 1%;
-    }
   }
 
   .homepage--scene-text {
@@ -124,21 +126,10 @@
   }
 }
 
-.home-norton {
+.cs__norton {
   // media queries
   @include breakpoint($mobile-sm) {
     padding-top: 423.73%;
-  }
-
-  .scene-target {
-    margin-top: 20%;
-    // media queries
-    @include breakpoint($tablet-lg) {
-      margin-top: 1%;
-    }
-    @include breakpoint($mobile-lg) {
-      margin-top: 65%;
-    }
   }
 
   .homepage--scene-text {
@@ -151,18 +142,10 @@
   }
 }
 
-.home-nexus {
+.cs__nexus {
   // media queries
   @include breakpoint($mobile-sm) {
     padding-top: 487.73%;
-  }
-
-  .scene-target {
-    margin-top: 36.8%;
-    // media queries
-    @include breakpoint($tablet-lg) {
-      margin-top: 1%;
-    }
   }
 
   .homepage--scene-text {
@@ -176,18 +159,10 @@
   }
 }
 
-.home-five {
+.cs__five {
   // media queries
   @include breakpoint($mobile-sm) {
     padding-top: 322.4%;
-  }
-
-  .scene-target {
-    margin-top: 36.6%;
-    // media queries
-    @include breakpoint($tablet-lg) {
-      margin-top: 1%;
-    }
   }
 
   .homepage--scene-text {
