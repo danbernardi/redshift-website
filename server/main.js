@@ -47,20 +47,6 @@ if (project.env === 'development') {
     'section in the README for more information on deployment strategies.'
   );
 
-
-  app.use((req, res, next) => {
-    var host = req.get('Host');
-    if (host === 'weareredshift.com' || host === 'www.weareredshift.com') {
-      return res.redirect(301, 'http://www.redshiftdigital.com' + req.originalUrl);
-    }
-
-    if (!host.match(/^www\..*/i)) {
-      return res.redirect(301, "http://www." + host);
-    }
-
-    return next();
-  });
-
   // Serving ~/dist by default. Ideally these files should be served by
   // the web server and not the app server, but this helps to demo the
   // server in production.
