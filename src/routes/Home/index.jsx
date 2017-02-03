@@ -4,6 +4,7 @@ import CaseStudyTrigger from './CaseStudyTrigger';
 import Watcher from 'components/Watcher/index';
 import { connect } from 'react-redux';
 import * as actions from 'store/actions';
+import { scrollToID } from 'utils/scrollTo';
 import './style.scss';
 
 import { caseStudies } from 'data/caseStudies';
@@ -11,24 +12,29 @@ import { caseStudies } from 'data/caseStudies';
 import { onScroll, getScrollDirection } from 'utils/scrollJack';
 
 export class Home extends React.Component {
+  constructor (props) {
+    super(props);
+
+    this.duration = 1000;
+  }
+
   componentDidMount () {
-    const { dispatch, featuredCaseStudyState } = this.props;
-    if (featuredCaseStudyState.activeID >= 0) {
-      dispatch(actions.setHeaderTheme('white'));
-    } else {
-      dispatch(actions.setHeaderTheme('pink'));
-    }
+    const { dispatch } = this.props;
+
+    const html = document.getElementsByTagName('html');
+    if (html && html[0]) { html[0].classList.add('disable-scroll'); }
+    dispatch(actions.setHeaderTheme('pink'));
 
     onScroll((e) => this.scrollHandler(e), 100);
   }
 
-  componentDidUpdate () {
-    const { dispatch, featuredCaseStudyState } = this.props;
+  componentDidUpdate (prevProps) {
+    const { featuredCaseStudyState } = this.props;
 
-    if (featuredCaseStudyState.activeID >= 0) {
-      dispatch(actions.setHeaderTheme('white'));
-    } else {
-      dispatch(actions.setHeaderTheme('pink'));
+    if (prevProps.featuredCaseStudyState.activeID !== featuredCaseStudyState.activeID) {
+      let duration = this.duration;
+      if (!featuredCaseStudyState.animate) { duration = 0; }
+      setTimeout(() => scrollToID(`cs__${featuredCaseStudyState.activeID}`, duration), 200);
     }
   }
 

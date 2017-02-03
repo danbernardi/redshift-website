@@ -7,7 +7,7 @@ export function Hero (props) {
   const { dispatch } = props;
 
   return (
-    <section className="scene-container">
+    <section className="scene-container" id="cs__-1">
       <div className="hero index-content row">
         <Scene>
           <div className="layout--relative">

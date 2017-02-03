@@ -38,13 +38,14 @@ export class CoreLayout extends React.Component {
   render () {
     const pathClass = {
       '': 'root',
+      work: 'work',
       about: 'about',
       careers: 'careers'
     }[location.pathname.slice(1)];
     const { children } = this.props;
 
     return (
-      <div className={ `${pathClass} page-wrap` } id="content">
+      <div className={ `${pathClass && pathClass} page-wrap` } id="content">
         <Modal />
 
         <div className="content-wrap">

@@ -64,14 +64,18 @@
 
 .cs__section {
   padding-top: 140%;
-  position: fixed;
-  transform: translateY(100%);
+  position: relative;
   width: 100%;
   text-align: right;
+  overflow: hidden;
 
   &:nth-of-type(2n) {
     text-align: left;
   }
+}
+
+.scrolltarget {
+  position: absolute;
 }
 
 .hero {
@@ -108,7 +112,7 @@
   transform: translateY(-50%);
 }
 
-.home-yumavore {
+.cs__yumavore {
   // media queries
   @include breakpoint($mobile-sm) {
     padding-top: 527.53%;
@@ -122,7 +126,7 @@
   }
 }
 
-.home-norton {
+.cs__norton {
   // media queries
   @include breakpoint($mobile-sm) {
     padding-top: 423.73%;
@@ -138,7 +142,7 @@
   }
 }
 
-.home-nexus {
+.cs__nexus {
   // media queries
   @include breakpoint($mobile-sm) {
     padding-top: 487.73%;
@@ -155,7 +159,7 @@
   }
 }
 
-.home-five {
+.cs__five {
   // media queries
   @include breakpoint($mobile-sm) {
     padding-top: 322.4%;

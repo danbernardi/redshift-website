@@ -13,12 +13,20 @@ class CaseStudyTrigger extends React.Component {
   }
 
   componentDidMount () {
+    const { index, featuredCaseStudyState } = this.props;
+
     setTimeout(() => {
       this._scrollTarget();
     }, 100);
 
     this.setScrollTarget = this.setScrollTarget.bind(this);
     window.addEventListener('resize', this.setScrollTarget);
+
+    if (index === 0) {
+      let duration = 1000;
+      if (location.pathname === '/work' || location.pathname === '/') { duration = 0; }
+      setTimeout(() => scrollToID(`cs__${featuredCaseStudyState.activeID}`, duration), 200);
+    }
   }
 
   componentWillUnmount () {
@@ -31,9 +39,10 @@ class CaseStudyTrigger extends React.Component {
     if (target && target.length) {
       const windowHeight = window.innerHeight;
       const targetHeight = target[0].offsetHeight;
+      const targetDiv = document.getElementsByClassName('scrolltarget');
       const targetTopValue = ((targetHeight - windowHeight) / 2) + 'px';
-      Array.prototype.forEach.call(target, (div) => {
-        div.style.top = `-${targetTopValue}`;
+      Array.prototype.forEach.call(targetDiv, (div) => {
+        div.style.top = targetTopValue;
       });
     }
   }
@@ -73,17 +82,6 @@ class CaseStudyTrigger extends React.Component {
       };
     }
 
-    const initialTransformStyles = { transition: `transform ${featuredCaseStudyState.animate ? '1s' : '0s'} ease-in-out`, top: 0 };
-    let transformStyles = {};
-
-    if (featuredCaseStudyState.activeID === index) {
-      transformStyles = { transform: 'none' };
-    } else if (featuredCaseStudyState.previousIDs.indexOf(index) === -1) {
-      transformStyles = { transform: 'translateY(100%)' };
-    } else {
-      transformStyles = { transform: 'translateY(-100%)' };
-    }
-
     const initialCTATransformStyles = { transition: `opacity 400ms ease-out` };
     let transformCTAStyles = {};
 
@@ -105,7 +103,7 @@ class CaseStudyTrigger extends React.Component {
     }
 
     return (
-      <section className={ `cs__${id} theme--dark cs__section` } style={ Object.assign(initialTransformStyles, transformStyles) }>
+      <section className={ `cs__${id} theme--dark cs__section` }>
         <div className="scene__container">
           <picture>
             <source srcSet={ images.def } media="(min-width: 1040px)" />
@@ -114,6 +112,7 @@ class CaseStudyTrigger extends React.Component {
             <img src={ images.msm } className="homepage-scene--image" alt={ images.alt } />
           </picture>
 
+          <div className="scrolltarget" id={ `cs__${index}` } />
           <div className="scene__text row">
             <Scene clickCallback={ () => openModal(id) }>
               <h2 className="typ--bold" style={ Object.assign(initialTextStyles, textTransformStyles) }>
