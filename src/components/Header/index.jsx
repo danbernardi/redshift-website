@@ -28,7 +28,7 @@ export class Header extends React.Component {
     const { modalState, dispatch } = this.props;
 
     let animate = true;
-    if (modalState.open) {
+    if (modalState.open || (location.pathname !== '/' && location.pathname !== '/work')) {
       browserHistory.push('/');
       const body = document.getElementsByTagName('body');
       const html = document.getElementsByTagName('html');
