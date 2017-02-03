@@ -113,6 +113,7 @@
     "json-loader": "^0.5.4",
     "lodash": "^4.17.4",
     "lost": "^8.0.0",
+    "mo-js": "^0.288.1",
     "modernizr": "^3.3.1",
     "modernizr-loader": "^1.0.0",
     "moment": "^2.17.1",
