@@ -9,7 +9,7 @@ import CaseStudyModalWrapper from 'components/CaseStudy/CaseStudyModalWrapper';
 class CaseStudyTrigger extends React.Component {
   constructor (props) {
     super(props);
-    this.state = {};
+    this.state = { animateIn: false };
   }
 
   componentDidMount () {
@@ -27,10 +27,26 @@ class CaseStudyTrigger extends React.Component {
       if (location.pathname === '/work' || location.pathname === '/') { duration = 0; }
       setTimeout(() => scrollToID(`cs__${featuredCaseStudyState.activeID}`, duration), 200);
     }
+
+    if (featuredCaseStudyState.activeID === index) {
+      this.triggerAnimateIn();
+    }
   }
 
   componentWillUnmount () {
     window.removeEventListener('resize', this.setScrollTarget);
+  }
+
+  componentDidUpdate (prevProps) {
+    const { index, featuredCaseStudyState } = this.props;
+    if (featuredCaseStudyState.activeID === index &&
+        prevProps.featuredCaseStudyState.activeID !== featuredCaseStudyState.activeID) {
+      this.triggerAnimateIn();
+    }
+  }
+
+  triggerAnimateIn () {
+    this.setState({ animateIn: true });
   }
 
   _scrollTarget () {
@@ -53,7 +69,9 @@ class CaseStudyTrigger extends React.Component {
   }
 
   render () {
-    const { id, images, caption, dispatch, modalState, index, featuredCaseStudyState } = this.props;
+    const { id, images, caption, dispatch, modalState, index } = this.props;
+    const { animateIn } = this.state;
+
     const openModal = (id) => {
       dispatch(actions.setNextCaseStudy(id, true));
       dispatch(actions.setActiveModal(<CaseStudyModalWrapper />, 'casestudy'));
@@ -63,7 +81,7 @@ class CaseStudyTrigger extends React.Component {
     const initialTextStyles = { transition: `opacity 400ms ease-out, transform 150ms ease-in-out` };
     let textTransformStyles = {};
 
-    if (modalState.open || featuredCaseStudyState.activeID !== index) {
+    if (modalState.open || !animateIn) {
       // if modal is currently active
       textTransformStyles = {
         transform: 'translateY(5rem)',
@@ -85,7 +103,7 @@ class CaseStudyTrigger extends React.Component {
     const initialCTATransformStyles = { transition: `opacity 400ms ease-out` };
     let transformCTAStyles = {};
 
-    if (modalState.open || featuredCaseStudyState.activeID !== index) {
+    if (modalState.open || !animateIn) {
       // if modal is currently active
       transformCTAStyles = {
         opacity: 0,

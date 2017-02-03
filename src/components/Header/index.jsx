@@ -27,23 +27,24 @@ export class Header extends React.Component {
   triggerRouteChange () {
     const { modalState, dispatch } = this.props;
 
-    browserHistory.push('/');
-    const body = document.getElementsByTagName('body');
-    const html = document.getElementsByTagName('html');
-    if (body && body[0]) { body[0].scrollTop = 0; }
-    if (html && html[0]) { html[0].scrollTop = 0; }
-
     let animate = true;
-    if (modalState.open) { animate = false; }
-    dispatch(actions.goToNextCaseStudy(-1, animate, []));
-
     if (modalState.open) {
+      browserHistory.push('/');
+      const body = document.getElementsByTagName('body');
+      const html = document.getElementsByTagName('html');
+      if (body && body[0]) { body[0].scrollTop = 0; }
+      if (html && html[0]) { html[0].scrollTop = 0; }
+
       dispatch(actions.toggleModal(false));
 
       setTimeout(() => {
         dispatch(actions.setActiveModal(null, null));
       }, 200);
+
+      animate = false;
     }
+
+    dispatch(actions.goToNextCaseStudy(-1, animate, []));
   };
 
   toggleHeaderModal () {
