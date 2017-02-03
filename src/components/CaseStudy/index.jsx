@@ -4,9 +4,8 @@ import { caseStudies } from 'data/caseStudies';
 import { connect } from 'react-redux';
 import * as actions from 'store/actions';
 import ReactDOM from 'react-dom';
+import mojs from 'mo-js';
 import './styles.scss';
-
-import ArchiveGrid from 'components/Archive/ArchiveGrid';
 
 class CaseStudy extends React.Component {
   componentDidMount () {
@@ -22,14 +21,26 @@ class CaseStudy extends React.Component {
   }
 
   componentDidUpdate () {
-    if (this.props.id === this.props.caseStudyState.current[0]) {
+    const { caseStudyState, id } = this.props;
+    if (id === caseStudyState.current[0]) {
       const casestudy = ReactDOM.findDOMNode(this.refs.casestudy);
-      casestudy.scrollTop = this.props.caseStudyState.currentScrollPos;
+      casestudy.scrollTop = caseStudyState.currentScrollPos;
+
+      // if (caseStudyState.current[1] && caseStudyState.current[0] === id) {
+      //   this.triggerOutAnimation();
+      // }
     }
   }
 
   componentWillUnmount () {
     window.clearInterval(this.timer);
+  }
+
+  triggerOutAnimation () {
+    // const casestudy = ReactDOM.findDOMNode(this.refs.casestudy);
+    // // reset translate position to off canvas
+    // casestudy.style.transition = 'transform 0.75s ease-in-out';
+    // casestudy.style.transform = 'translateY(-100%)';
   }
 
   triggerAnimation (animateIn) {
@@ -38,13 +49,13 @@ class CaseStudy extends React.Component {
       // reset translate position to off canvas
       casestudy.style.transition = 'none';
       casestudy.style.transform = 'translateY(100%)';
+      casestudy.scrollTop = 0;
 
-      this.timer = setTimeout(() => {
-        // animate in after timeout to solve for race condition
-        casestudy.scrollTop = 0;
-        casestudy.style.transition = 'transform 0.75s ease-in-out';
-        casestudy.style.transform = 'none';
-      }, 1);
+      new mojs.Tween({
+        duration: 750,
+        easing: 'ease.inout',
+        onUpdate: (progress) => { casestudy.style.transform = `translateY(${progress * 100}%)`; }
+      }).playBackward();
     }
   }
 
@@ -86,7 +97,7 @@ class CaseStudy extends React.Component {
         { sidebar && <div className="modal__close job__sidebar" /> }
         <section ref="casestudy" className={ `modal__with-sidebar ${id}` } style={ initialStyles }>
           <div className="row">
-            <h4 className="casestudy__name typ--caps pl4--mlg">{ name }</h4>
+            <h4 className="casestudy__name pl4--mlg" ref="name">{ name }</h4>
             <h1 className="casestudy__heading">{ heading }</h1>
           </div>
 
