@@ -53,7 +53,7 @@ class CaseStudy extends React.Component {
 
       new mojs.Tween({
         duration: 750,
-        easing: 'ease.inout',
+        easing: 'cubic.inout',
         onUpdate: (progress) => { casestudy.style.transform = `translateY(${progress * 100}%)`; }
       }).playBackward();
     }
