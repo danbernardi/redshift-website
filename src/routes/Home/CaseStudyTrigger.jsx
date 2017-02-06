@@ -22,12 +22,6 @@ class CaseStudyTrigger extends React.Component {
     this.setScrollTarget = this.setScrollTarget.bind(this);
     window.addEventListener('resize', this.setScrollTarget);
 
-    if (index === 0) {
-      let duration = 1000;
-      if (location.pathname === '/work' || location.pathname === '/') { duration = 0; }
-      setTimeout(() => scrollToID(`cs__${featuredCaseStudyState.activeID}`, duration), 200);
-    }
-
     if (featuredCaseStudyState.activeID === index) {
       this.triggerAnimateIn();
     }
