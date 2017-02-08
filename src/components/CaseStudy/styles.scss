@@ -29,6 +29,7 @@
   width: 100%;
   position: absolute;
   z-index: 1;
+<<<<<<< HEAD
   // media queries
   @include breakpoint($mobile-sm) {
     min-height: 13.5rem;
@@ -41,6 +42,12 @@
       top: 4rem;
     }
   }
+=======
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+>>>>>>> Tweaks the way nextCaseStudyTrigger is animated
 }
 
 .casestudy__heading {
