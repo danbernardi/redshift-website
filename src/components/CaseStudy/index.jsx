@@ -8,9 +8,11 @@ import mojs from 'mo-js';
 import ModalCloseBtn from 'components/Modal/ModalCloseBtn';
 import './styles.scss';
 
+
 class CaseStudy extends React.Component {
   componentDidMount () {
     const { animateIn } = this.props;
+
     this.triggerAnimation(animateIn);
   }
 
@@ -45,6 +47,7 @@ class CaseStudy extends React.Component {
   }
 
   triggerAnimation (animateIn) {
+
     if (animateIn) {
       const casestudy = ReactDOM.findDOMNode(this.refs.casestudy);
       // reset translate position to off canvas
@@ -54,7 +57,7 @@ class CaseStudy extends React.Component {
 
       new mojs.Tween({
         duration: 750,
-        easing: 'cubic.inout',
+        easing: this.props.easing || 'quint.inout',
         onUpdate: (progress) => { casestudy.style.transform = `translateY(${progress * 100}%)`; }
       }).playBackward();
     }
