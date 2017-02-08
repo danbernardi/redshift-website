@@ -63,6 +63,16 @@ class CaseStudy extends React.Component {
     }
   }
 
+  triggerNextAnimation () {
+    const next = ReactDOM.findDOMNode(this.refs.next);
+
+    new mojs.Tween({
+      duration: 750,
+      easing: 'cubic.inout',
+      onUpdate: (progress) => { debugger; next.style.height = progress * '100vh'; }
+    }).play();
+  }
+
   triggerNextCaseStudy (nextCaseStudy, nextID) {
     const { dispatch, featuredCaseStudyState } = this.props;
     const casestudy = ReactDOM.findDOMNode(this.refs.casestudy);
@@ -74,6 +84,8 @@ class CaseStudy extends React.Component {
     } else {
       dispatch(actions.goToNextCaseStudy(featuredCaseStudyState.activeID + 1, true));
     }
+
+    // this.triggerNextAnimation();
   };
 
   render () {
@@ -101,32 +113,30 @@ class CaseStudy extends React.Component {
         { sidebar && <div className="modal__close job__sidebar" /> }
         <ModalCloseBtn />
         <section ref="casestudy" className={ `modal__with-sidebar ${id}` } style={ initialStyles }>
-          <div className="row">
-            <h4 className="casestudy__name" ref="name">{ name }</h4>
-            <h1 className="casestudy__heading">{ heading }</h1>
-          </div>
-
-          { content && content.length &&
-            content.map((section, index) => (
-              <CaseStudySection
-                key={ index }
-                { ...section }
-              />
-            ))
-           }
-
-          { typeof nextCaseStudy === 'object' &&
-            <div className="casestudy__next py7 py4--msm" onClick={ () => this.triggerNextCaseStudy(nextCaseStudy, nextCaseStudy.id) }>
-              <div className="row">
-                <h2 className={ `typ--${nextCaseStudy.id}` }>{ nextCaseStudy.name }</h2>
-                <span className="typ--default">Next case study</span>
-              </div>
+          <div className="layout--relative">
+            <div className="row">
+              <h4 className="casestudy__name" ref="name">{ name }</h4>
+              <h1 className="casestudy__heading">{ heading }</h1>
             </div>
-          }
 
-          {/* !featured || caseStudies.findIndex(item => item.id === id) === featuredCaseStudies.length - 1 &&
-            <ArchiveGrid clickCallback={ (id) => this.triggerNextCaseStudy(caseStudies.find(item => item.id === id), id) } />
-          */}
+            { content && content.length &&
+              content.map((section, index) => (
+                <CaseStudySection
+                  key={ index }
+                  { ...section }
+                />
+              ))
+             }
+
+            { typeof nextCaseStudy === 'object' &&
+              <div ref="next" className="casestudy__next py7 py4--msm" onClick={ () => this.triggerNextCaseStudy(nextCaseStudy, nextCaseStudy.id) }>
+                <div className="row">
+                  <h2 className={ `typ--${nextCaseStudy.id}` }>{ nextCaseStudy.name }</h2>
+                  <span className="typ--default">Next case study</span>
+                </div>
+              </div>
+            }
+          </div>
         </section>
       </div>
     );
