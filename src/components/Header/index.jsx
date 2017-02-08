@@ -6,6 +6,7 @@ import './Header.scss';
 import './HeaderClose.scss';
 import * as actions from 'store/actions';
 import Nav from 'components/Nav/index';
+import { scrollDocToZero } from 'utils/scrollTo';
 
 export class Header extends React.Component {
   constructor (props) {
@@ -30,10 +31,7 @@ export class Header extends React.Component {
     let animate = true;
     if (modalState.open || (location.pathname !== '/' && location.pathname !== '/work')) {
       browserHistory.push('/');
-      const body = document.getElementsByTagName('body');
-      const html = document.getElementsByTagName('html');
-      if (body && body[0]) { body[0].scrollTop = 0; }
-      if (html && html[0]) { html[0].scrollTop = 0; }
+      scrollDocToZero();
 
       dispatch(actions.toggleModal(false));
 

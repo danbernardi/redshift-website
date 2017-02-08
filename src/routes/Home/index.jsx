@@ -12,12 +12,6 @@ import { caseStudies } from 'data/caseStudies';
 import { onScroll, getScrollDirection } from 'utils/scrollJack';
 
 export class Home extends React.Component {
-  constructor (props) {
-    super(props);
-
-    this.duration = 1000;
-  }
-
   componentDidMount () {
     const { dispatch } = this.props;
 
@@ -29,12 +23,11 @@ export class Home extends React.Component {
   }
 
   componentDidUpdate (prevProps) {
-    const { featuredCaseStudyState } = this.props;
+    const { featuredCaseStudyState, modalState } = this.props;
 
-    if (prevProps.featuredCaseStudyState.activeID !== featuredCaseStudyState.activeID) {
-      let duration = this.duration;
-      if (!featuredCaseStudyState.animate) { duration = 0; }
-      setTimeout(() => scrollToID(`cs__${featuredCaseStudyState.activeID}`, duration), 200);
+    if (prevProps.featuredCaseStudyState.activeID !== featuredCaseStudyState.activeID ||
+        (prevProps.modalState.open === true && modalState.open === false)) {
+      setTimeout(() => scrollToID(`cs__${featuredCaseStudyState.activeID}`, 1000), 200);
     }
   }
 

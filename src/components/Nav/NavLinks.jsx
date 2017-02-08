@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { browserHistory } from 'react-router';
-import { scrollToID } from 'utils/scrollTo';
+import { scrollDocToZero } from 'utils/scrollTo';
 import * as actions from 'store/actions';
 
 class NavLinks extends React.Component {
@@ -25,10 +25,7 @@ class NavLinks extends React.Component {
     browserHistory.push(to);
 
     this.timer = setTimeout(() => {
-      const body = document.getElementsByTagName('body');
-      const html = document.getElementsByTagName('html');
-      if (body && body[0]) { body[0].scrollTop = 0; }
-      if (html && html[0]) { html[0].scrollTop = 0; }
+      scrollDocToZero();
 
       if (to === '/work') { dispatch(actions.goToNextCaseStudy(0, false, [-1])); }
 
