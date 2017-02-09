@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { browserHistory } from 'react-router';
 import { scrollDocToZero } from 'utils/scrollTo';
+import { Link } from 'react-router';
 import * as actions from 'store/actions';
 
 class NavLinks extends React.Component {
@@ -21,8 +22,6 @@ class NavLinks extends React.Component {
 
   routingHandler (to) {
     const { dispatch } = this.props;
-
-    browserHistory.push(to);
 
     this.timer = setTimeout(() => {
       scrollDocToZero();
@@ -49,9 +48,9 @@ class NavLinks extends React.Component {
         {
           links.map((navLink, i) => (
             <li key={ i }>
-              <h1 className="typ--bold" onClick={ () => this.routingHandler(navLink.to) }>
+              <Link to={ navLink.to } className="typ--h1 typ--bold" onClick={ () => this.routingHandler() }>
                 { navLink.name }
-              </h1>
+              </Link>
             </li>
           ))
         }
