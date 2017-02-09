@@ -28,7 +28,7 @@ const ArchiveGrid = props => {
     const { clickCallback } = props;
     if (!modalState.open) {
       dispatch(actions.setActiveModal(component, 'casestudy'));
-      dispatch(actions.setNextCaseStudy(id, true));
+      dispatch(actions.setNextCaseStudy(id));
       dispatch(actions.toggleModal(true));
     } else if (modalState.modalID === 'casestudy') {
       clickCallback && clickCallback(id);
