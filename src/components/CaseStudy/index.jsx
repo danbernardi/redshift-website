@@ -128,7 +128,12 @@ CaseStudy.propTypes = {
   sidebar: React.PropTypes.bool,
   featured: React.PropTypes.bool,
   easing: React.PropTypes.func,
+<<<<<<< HEAD
   clickNextHandler: React.PropTypes.func
+=======
+  clickNextHandler: React.PropTypes.func,
+  caseStudyState: React.PropTypes.object
+>>>>>>> Tweaks case study swap animation / refactors / simplifies
 };
 
 export default CaseStudy;
