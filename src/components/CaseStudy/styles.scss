@@ -24,12 +24,29 @@
 
 .casestudy__next {
   background-color: $light-gray;
+  min-height: 18.5rem;
   cursor: pointer;
   z-index: 1;
-  position: absolute;
-  bottom: 0;
-  left: 0;
+  // media queries
+  @include breakpoint($mobile-sm) {
+    min-height: 13.5rem;
+  }
+
+  .row {
+    top: 5.3rem;
+    // media queries
+    @include breakpoint($mobile-sm) {
+      top: 4rem;
+    }
+  }
+}
+
+.casestudy__nextshadow {
+  pointer-events: none;
+  opacity: 1;
   width: 100%;
+  position: absolute;
+  z-index: 9;
 }
 
 .casestudy__heading {
