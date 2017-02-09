@@ -74,7 +74,7 @@ class CaseStudy extends React.Component {
     if (!featured) activeCaseStudies = archivedCaseStudies;
 
     const caseStudyIndex = activeCaseStudies.findIndex(item => item.id === id);
-    const nextCaseStudy = caseStudyIndex === activeCaseStudies.length - 1 ? activeCaseStudies[0] : activeCaseStudies[caseStudyIndex + 1];
+    const nextCaseStudy = caseStudyIndex === activeCaseStudies.length ? null : activeCaseStudies[caseStudyIndex + 1];
 
     return (
       <div className="casestudy__modal">
@@ -97,7 +97,7 @@ class CaseStudy extends React.Component {
                }
             </div>
 
-            { typeof nextCaseStudy === 'object' &&
+            { nextCaseStudy && typeof nextCaseStudy === 'object' &&
               <Measure onMeasure={ dimensions => { this.setState({ dimensions }); } }>
                 <div
                   ref="next"
