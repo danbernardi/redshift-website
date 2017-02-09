@@ -107,10 +107,11 @@ export class Header extends React.Component {
             onClick={ () => this.toggleHeaderModal() }
             className="menu__trigger layout--right typ--link"
           >
-            <span className={ `icon-hamburger ${modalState.open && modalState.modalID === 'nav' && 'close-icon'}` }>
+            {/* TODO update to route when modals are routable */}
+            <a href="javascript:void(0)" className={ `icon-hamburger ${modalState.open && modalState.modalID === 'nav' && 'close-icon'}` }>
               <span />
               <span />
-            </span>
+            </a>
           </div>
         </div>
       </header>
