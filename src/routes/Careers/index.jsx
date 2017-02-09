@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import Watcher from 'components/Watcher/index';
 import './style.scss';
 import { jobDetails } from 'data/jobDetails';
+import Footer from 'components/Footer';
 
 export class Careers extends React.Component {
   watcherCallback (watcher) {
@@ -44,7 +45,8 @@ export class Careers extends React.Component {
               ))
             }
           </div>
-        </section>
+        </section>'
+        <Footer />
       </div>
     );
   }

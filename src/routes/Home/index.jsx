@@ -5,6 +5,7 @@ import Watcher from 'components/Watcher/index';
 import { connect } from 'react-redux';
 import * as actions from 'store/actions';
 import { scrollToID } from 'utils/scrollTo';
+import Footer from 'components/Footer';
 import './style.scss';
 
 import { caseStudies } from 'data/caseStudies';
@@ -87,6 +88,7 @@ export class Home extends React.Component {
             <CaseStudyTrigger index={ index } key={ index } { ...study } />
           )) }
         </div>
+        <Footer />
       </div>
     );
   }

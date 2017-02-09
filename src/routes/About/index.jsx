@@ -6,6 +6,7 @@ import './style.scss';
 import { teamInfo } from 'data/teamInfo';
 import { clientData } from 'data/clients';
 import { connect } from 'react-redux';
+import Footer from 'components/Footer';
 import * as actions from 'store/actions';
 
 export class About extends React.Component {
@@ -38,6 +39,7 @@ export class About extends React.Component {
             <AboutTeam key={ index } team={ team } />
           )) }
         </section>
+        <Footer />
       </div>
     );
   }
