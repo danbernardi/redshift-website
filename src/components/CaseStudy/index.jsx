@@ -128,8 +128,7 @@ CaseStudy.propTypes = {
   sidebar: React.PropTypes.bool,
   featured: React.PropTypes.bool,
   easing: React.PropTypes.func,
-  clickNextHandler: React.PropTypes.func,
-  caseStudyState: React.PropTypes.object
+  clickNextHandler: React.PropTypes.func
 };
 
 export default CaseStudy;
