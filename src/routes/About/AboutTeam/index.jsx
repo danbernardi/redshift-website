@@ -1,38 +1,30 @@
 import React from 'react';
-import BioModal from './BioModal';
+import { Link } from 'react-router';
 import PinkHover from 'components/PinkHover';
-import * as actions from 'store/actions';
-import { connect } from 'react-redux';
 
 const AboutTeam = props => {
-  const { team, dispatch } = props;
-
-  const openModal = (component, id) => {
-    dispatch(actions.setNextCaseStudy(id));
-    dispatch(actions.setActiveModal(component, 'casestudy'));
-    dispatch(actions.toggleModal(true));
-  };
+  const { team } = props;
 
   return (
-    <PinkHover
-      classes="quarter-width team-member"
-      imageSrc={ team.photo }
-      clickHandler={ () => openModal(<BioModal bioContent={ team } />, 'bio') }
-      alt={ team.name }
-    >
-      <h2 className="typ--bold">{ team.name }</h2>
-      <h4>{ team.position }</h4>
-      <div className="right-arrow">
-        <img src={ require('assets/img/arrow-right-short.png') } alt={ `${team.name}, ${team.position}` } />
-      </div>
-    </PinkHover>
+    <Link to={ `/about/${team.id}` }>
+      <PinkHover
+        classes="quarter-width team-member"
+        imageSrc={ team.photo }
+        alt={ team.name }
+      >
+        <h2 className="typ--bold">{ team.name }</h2>
+        <h4>{ team.position }</h4>
+        <div className="right-arrow">
+          <img src={ require('assets/img/arrow-right-short.png') } alt={ `${team.name}, ${team.position}` } />
+        </div>
+      </PinkHover>
+    </Link>
   );
 };
 
-const { object, func } = React.PropTypes;
+const { object } = React.PropTypes;
 AboutTeam.propTypes = {
-  team: object,
-  dispatch: func
+  team: object
 };
 
-export default connect()(AboutTeam);
+export default AboutTeam;

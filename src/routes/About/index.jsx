@@ -7,12 +7,22 @@ import { teamInfo } from 'data/teamInfo';
 import { clientData } from 'data/clients';
 import { connect } from 'react-redux';
 import Footer from 'components/Footer';
+import BioModal from './AboutTeam/BioModal';
 import * as actions from 'store/actions';
 
 export class About extends React.Component {
   componentDidMount () {
-    const { dispatch } = this.props;
+    const { dispatch, modal } = this.props;
     dispatch(actions.setHeaderTheme('pink'));
+
+    if (modal) this.openModal(modal);
+  }
+
+  openModal (id) {
+    const { dispatch } = this.props;
+
+    dispatch(actions.setActiveModal(<BioModal bioContent={ teamInfo.find(t => t.id === id) } />, 'bio'));
+    dispatch(actions.toggleModal(true));
   }
 
   render () {
@@ -46,7 +56,8 @@ export class About extends React.Component {
 }
 
 About.propTypes = {
-  dispatch: React.PropTypes.func
+  dispatch: React.PropTypes.func,
+  modal: React.PropTypes.string
 };
 
 export default connect()(About);

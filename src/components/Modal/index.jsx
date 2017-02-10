@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import ModalCloseBtn from './ModalCloseBtn';
 import './styles.scss';
 
 const Modal = props => {

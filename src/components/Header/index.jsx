@@ -30,7 +30,7 @@ export class Header extends React.Component {
     const { modalState, dispatch } = this.props;
 
     let animate = true;
-    if (modalState.open || (location.pathname !== '/' && location.pathname !== '/work')) {
+    if (modalState.open || (location.pathname !== '/' && location.pathname.split('/')[1] !== '/work')) {
       browserHistory.push('/');
       scrollDocToZero();
 
@@ -52,7 +52,7 @@ export class Header extends React.Component {
     if (modalState.open) {
       dispatch(actions.toggleModal(false));
       this.timer = setTimeout(() => { dispatch(actions.setActiveModal(null, null)); }, 200);
-    } else if (!modalState.modalID) {
+    } else {
       dispatch(actions.setActiveModal(<Nav />, 'nav'));
       dispatch(actions.toggleModal(true));
     }
@@ -96,7 +96,7 @@ export class Header extends React.Component {
               className="page-title"
               style={ { color: modalState.open && modalState.modalID === 'nav'
                 ? 'white'
-                : this.getPageTitle(location.pathname.replace('/', '')).color } }>
+                : this.getPageTitle(location.pathname.split('/')[1]).color } }>
               { logoHovered
                 ? 'redshift'
                 : null

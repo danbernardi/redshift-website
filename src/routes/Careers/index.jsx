@@ -6,8 +6,21 @@ import Watcher from 'components/Watcher/index';
 import './style.scss';
 import { jobDetails } from 'data/jobDetails';
 import Footer from 'components/Footer';
+import JobDescription from './CareersJobs/roles/JobDescription';
 
 export class Careers extends React.Component {
+  componentDidMount () {
+    const { modal } = this.props;
+    if (modal) this.openModal(modal);
+  }
+
+  openModal (id) {
+    const { dispatch } = this.props;
+
+    dispatch(actions.setActiveModal(<JobDescription jobDetail={ jobDetails.find(job => job.id === id) } />, 'job'));
+    dispatch(actions.toggleModal(true));
+  }
+
   watcherCallback (watcher) {
     const { dispatch } = this.props;
 
@@ -54,7 +67,8 @@ export class Careers extends React.Component {
 
 Careers.propTypes = {
   dispatch: React.PropTypes.func,
-  modalOpen: React.PropTypes.bool
+  modalOpen: React.PropTypes.bool,
+  modal: React.PropTypes.string
 };
 
 const mapStateToProps = state => ({
