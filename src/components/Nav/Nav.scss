@@ -77,6 +77,10 @@ _::-webkit-full-page-media, _:future, :root .nav__menu h1 {
 
       &:nth-of-type(3n) {
         transition-delay: 0.15s;
+      }
+
+      &:nth-of-type(4n) {
+        transition-delay: 0.2s;
         transition-timing: ease-out;
       }
     }

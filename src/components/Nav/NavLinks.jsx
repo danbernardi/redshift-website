@@ -48,9 +48,15 @@ class NavLinks extends React.Component {
         {
           links.map((navLink, i) => (
             <li key={ i }>
-              <Link to={ navLink.to } className="typ--h1 typ--bold" onClick={ () => this.routingHandler() }>
-                { navLink.name }
-              </Link>
+              { navLink.to &&
+                <Link to={ navLink.to } className="typ--h1 typ--bold" onClick={ () => this.routingHandler() }>
+                  { navLink.name }
+                </Link>
+              }
+
+              { navLink.outgoing &&
+                <a className="typ--h1 typ--bold" target="_blank" href={ navLink.outgoing }>{ navLink.name }</a>
+              }
             </li>
           ))
         }

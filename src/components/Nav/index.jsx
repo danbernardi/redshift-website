@@ -19,7 +19,7 @@ const Nav = () => {
     },
     {
       name: 'Blog',
-      to: 'http://weareredshift.tumblr.com/'
+      outgoing: 'http://weareredshift.tumblr.com/'
     }
   ];
 
