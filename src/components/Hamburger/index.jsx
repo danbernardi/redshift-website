@@ -6,10 +6,11 @@ export const Hamburger = props => {
   const { modalState, close } = props;
 
   return (
-    <span className={ `icon-hamburger ${(modalState.open && modalState.modalID === 'nav' || close) && 'close-icon'}` }>
+    <a href="javascript:void(0)" className={ `icon-hamburger ${(modalState.open && modalState.modalID === 'nav' || close) && 'close-icon'}` }>
+      {/* TODO update to route when modals are routable */}
       <span />
       <span />
-    </span>
+    </a>
   );
 };
 

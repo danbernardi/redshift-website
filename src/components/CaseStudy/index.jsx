@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import * as actions from 'store/actions';
 import ReactDOM from 'react-dom';
 import mojs from 'mo-js';
+import ModalCloseBtn from 'components/Modal/ModalCloseBtn';
 import './styles.scss';
 
 class CaseStudy extends React.Component {
@@ -95,9 +96,10 @@ class CaseStudy extends React.Component {
     return (
       <div className="casestudy__modal">
         { sidebar && <div className="modal__close job__sidebar" /> }
+        <ModalCloseBtn />
         <section ref="casestudy" className={ `modal__with-sidebar ${id}` } style={ initialStyles }>
           <div className="row">
-            <h4 className="casestudy__name pl4--mlg" ref="name">{ name }</h4>
+            <h4 className="casestudy__name" ref="name">{ name }</h4>
             <h1 className="casestudy__heading">{ heading }</h1>
           </div>
 
