@@ -34,8 +34,8 @@ export const toggleModal = (open) => ({
   type: 'TOGGLE_MODAL', open
 });
 
-export const setNextCaseStudy = (nextID, reset = false, scrollPos) => ({
-  type: 'SET_NEXT_CASE_STUDY', nextID, reset, scrollPos
+export const setNextCaseStudy = (nextID) => ({
+  type: 'SET_NEXT_CASE_STUDY', nextID
 });
 
 export const setHeaderTheme = (theme) => ({

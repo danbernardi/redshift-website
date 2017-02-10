@@ -8,7 +8,7 @@ const AboutTeam = props => {
   const { team, dispatch } = props;
 
   const openModal = (component, id) => {
-    dispatch(actions.setNextCaseStudy(id, true));
+    dispatch(actions.setNextCaseStudy(id));
     dispatch(actions.setActiveModal(component, 'casestudy'));
     dispatch(actions.toggleModal(true));
   };

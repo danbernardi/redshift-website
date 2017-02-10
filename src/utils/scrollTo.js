@@ -13,8 +13,8 @@ export function scrollToID (id, duration = 200) {
   const end = elem.getBoundingClientRect().top + start;
 
   new mojs.Tween({
-    duration,
-    easing: 'cubic.inout',
+    duration: 400,
+    easing: 'cubic.out',
     onUpdate: (progress) => { doc.scrollTop = start + (end - start) * progress; }
   }).play();
 }

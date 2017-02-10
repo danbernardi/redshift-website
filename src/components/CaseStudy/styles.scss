@@ -24,8 +24,23 @@
 
 .casestudy__next {
   background-color: $light-gray;
+  min-height: 18.5rem;
   cursor: pointer;
+  width: 100%;
+  position: absolute;
   z-index: 1;
+  // media queries
+  @include breakpoint($mobile-sm) {
+    min-height: 13.5rem;
+  }
+
+  .row {
+    top: 5.3rem;
+    // media queries
+    @include breakpoint($mobile-sm) {
+      top: 4rem;
+    }
+  }
 }
 
 .casestudy__heading {
@@ -69,4 +84,12 @@
 
 .casestudy__arrows {
   font-size: 12rem;
+}
+
+.casestudy__modal .modal__with-sidebar > div {
+  padding-bottom: 18.5rem;
+  // media queries
+  @include breakpoint($mobile-sm) {
+    padding-bottom: 13.5rem;
+  }
 }

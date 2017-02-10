@@ -67,7 +67,7 @@ class CaseStudyTrigger extends React.Component {
     const { animateIn } = this.state;
 
     const openModal = (id) => {
-      dispatch(actions.setNextCaseStudy(id, true));
+      dispatch(actions.setNextCaseStudy(id));
       dispatch(actions.setActiveModal(<CaseStudyModalWrapper />, 'casestudy'));
       dispatch(actions.toggleModal(true));
       scrollToID(id, 500);
