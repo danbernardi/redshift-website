@@ -6,19 +6,19 @@ import './Nav.scss';
 const Nav = () => {
   const navLinks = [
     {
-      name: 'Work',
+      name: 'Work.',
       to: '/work'
     },
     {
-      name: 'About',
+      name: 'About.',
       to: '/about'
     },
     {
-      name: 'Careers',
+      name: 'Careers.',
       to: '/careers'
     },
     {
-      name: 'Blog',
+      name: 'Blog.',
       outgoing: 'http://weareredshift.tumblr.com/'
     }
   ];
