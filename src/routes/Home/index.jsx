@@ -32,7 +32,7 @@ export class Home extends React.Component {
     dispatch(actions.setActiveModal(<CaseStudyModalWrapper />, 'casestudy'));
     dispatch(actions.toggleModal(true));
 
-    scrollToID(id, 500);
+    setTimeout(() => { scrollToID(`cs__${id}`, 500); }, 200);
   };
 
   componentDidUpdate (prevProps) {

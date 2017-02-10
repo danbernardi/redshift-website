@@ -2,6 +2,7 @@ import React from 'react';
 import CaseStudySection from './CaseStudySection';
 import { caseStudies } from 'data/caseStudies';
 import { mapRange } from 'utils/animation';
+import { browserHistory, Link } from 'react-router';
 import ReactDOM from 'react-dom';
 import mojs from 'mo-js';
 import ModalCloseBtn from 'components/Modal/ModalCloseBtn';
@@ -64,7 +65,7 @@ class CaseStudy extends React.Component {
   }
 
   render () {
-    const { id, name, content, heading, sidebar, featured, clickNextHandler } = this.props;
+    const { id, name, content, heading, sidebar, featured } = this.props;
 
     const featuredCaseStudies = caseStudies.filter((item) => item.featured);
     const archivedCaseStudies = caseStudies.filter((item) => !item.featured);
@@ -80,7 +81,7 @@ class CaseStudy extends React.Component {
       <div className="casestudy__modal">
         { sidebar && <div className="modal__close job__sidebar" /> }
 
-        <ModalCloseBtn />
+        <ModalCloseBtn closeCallback={ () => browserHistory.push('/work') } />
         <section ref="casestudy" className={ `modal__with-sidebar ${id}` }>
           <div className="layout--relative">
             <div className="row"><h4 className="casestudy__name pl4--mlg" ref="name">{ name }</h4></div>
@@ -99,17 +100,17 @@ class CaseStudy extends React.Component {
 
             { nextCaseStudy && typeof nextCaseStudy === 'object' &&
               <Measure onMeasure={ dimensions => { this.setState({ dimensions }); } }>
-                <div
+                <Link
                   ref="next"
-                  style={ { bottom: 0, height: 'auto', opacity: 1 } }
+                  to={ `/work/${nextCaseStudy.id}` }
+                  style={ { display: 'block', bottom: 0, height: 'auto', opacity: 1 } }
                   className="casestudy__next"
-                  onClick={ () => clickNextHandler instanceof Function && clickNextHandler(nextCaseStudy, nextCaseStudy.id) }
                 >
                   <div className="row">
                     <h2 ref="next-name" className={ `typ--${nextCaseStudy.id}` }>{ nextCaseStudy.name }</h2>
                     <span ref="next-label" className="typ--default">Next case study</span>
                   </div>
-                </div>
+                </Link>
               </Measure>
             }
           </div>
@@ -127,13 +128,7 @@ CaseStudy.propTypes = {
   dispatch: React.PropTypes.func,
   sidebar: React.PropTypes.bool,
   featured: React.PropTypes.bool,
-  easing: React.PropTypes.func,
-<<<<<<< HEAD
-  clickNextHandler: React.PropTypes.func
-=======
-  clickNextHandler: React.PropTypes.func,
-  caseStudyState: React.PropTypes.object
->>>>>>> Tweaks case study swap animation / refactors / simplifies
+  easing: React.PropTypes.func
 };
 
 export default CaseStudy;

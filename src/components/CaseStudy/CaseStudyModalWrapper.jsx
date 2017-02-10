@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { caseStudies } from 'data/caseStudies';
 import CaseStudy from './index';
 import TransitionGroup from 'react-addons-transition-group';
-import * as actions from 'store/actions';
 
 // import MojsCurveEditor from 'mojs-curve-editor';
 
@@ -18,17 +17,7 @@ import * as actions from 'store/actions';
 const easing = null; // mojsCurve.getEasing();
 
 const CaseStudyModalWrapper = props => {
-  const { caseStudyState, dispatch, featuredCaseStudyState } = props;
-
-  const triggerNextCaseStudy = (nextCaseStudy, nextID) => {
-    dispatch(actions.setNextCaseStudy(nextID));
-
-    if (caseStudies.filter(item => item.featured).length - 1 === featuredCaseStudyState.activeID) {
-      dispatch(actions.goToNextCaseStudy(0, true, [-1]));
-    } else {
-      dispatch(actions.goToNextCaseStudy(featuredCaseStudyState.activeID + 1, true));
-    }
-  };
+  const { caseStudyState } = props;
 
   const caseStudyComponents = caseStudies.map((cs, index) => ({
     id: cs.id,
@@ -37,7 +26,6 @@ const CaseStudyModalWrapper = props => {
         { ...cs }
         key={ index }
         easing={ easing }
-        clickNextHandler={ (nextCaseStudy, nextID) => triggerNextCaseStudy(nextCaseStudy, nextID) }
         caseStudyState={ caseStudyState }
       />
     )

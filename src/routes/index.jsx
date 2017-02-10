@@ -4,11 +4,23 @@ import Home from './Home';
 import About from './About';
 import Careers from './Careers';
 import { caseStudies } from 'data/caseStudies';
+import { jobDetails } from 'data/jobDetails';
+import { teamInfo } from 'data/teamInfo';
 
 export function createRoutes () {
-  const caseStudyRoutes = caseStudies.map(cs => ({
-    path: cs.id,
-    component: () => <Home modal={ `${cs.id}` } />
+  const caseStudyRoutes = caseStudies.map(casestudy => ({
+    path: casestudy.id,
+    component: () => <Home modal={ casestudy.id } />
+  }));
+
+  const teamRoutes = teamInfo.map(member => ({
+    path: member.id,
+    component: () => <About modal={ member.id } />
+  }));
+
+  const jobRoutes = jobDetails.map(job => ({
+    path: job.id,
+    component: () => <Careers modal={ job.id } />
   }));
 
   return ({
@@ -16,12 +28,20 @@ export function createRoutes () {
     component: CoreLayout,
     indexRoute: { component: Home },
     childRoutes: [
-      { path: 'about', component: About },
-      { path: 'careers', component: Careers },
       {
         path: 'work',
         indexRoute: { component: Home },
         childRoutes: caseStudyRoutes
+      },
+      {
+        path: 'about',
+        indexRoute: { component: About },
+        childRoutes: teamRoutes
+      },
+      {
+        path: 'careers',
+        indexRoute: { component: Careers },
+        childRoutes: jobRoutes
       }
     ]
   });

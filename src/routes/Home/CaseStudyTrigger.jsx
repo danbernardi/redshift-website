@@ -104,7 +104,7 @@ class CaseStudyTrigger extends React.Component {
     }
 
     return (
-      <section className={ `cs__${id} theme--dark cs__section` }>
+      <section id={ `cs__${id}` } className={ `cs__${id} theme--dark cs__section` }>
         <div className="scene__container">
           <picture>
             <source srcSet={ images.def } media="(min-width: 1040px)" />
