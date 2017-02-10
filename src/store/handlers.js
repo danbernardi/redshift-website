@@ -1,3 +1,5 @@
+import React from 'react';
+import Nav from 'components/Nav';
 import { fromJS } from 'immutable';
 
 // Handlers map actions to reducing functions,
@@ -29,7 +31,7 @@ export const checkboxes = {
 };
 
 export const modalState = {
-  _init: { modalID: null, component: null, open: false },
+  _init: { modalID: 'nav', component: <Nav />, open: false },
   TOGGLE_MODAL: (state, action) => Object.assign({}, state, { open: action.open }),
   SET_ACTIVE_MODAL: (state, action) => Object.assign({}, state, { component: action.component, modalID: action.modalID })
 };

@@ -52,7 +52,7 @@ export class Header extends React.Component {
     if (modalState.open) {
       dispatch(actions.toggleModal(false));
       this.timer = setTimeout(() => { dispatch(actions.setActiveModal(null, null)); }, 200);
-    } else if (!modalState.modalID) {
+    } else {
       dispatch(actions.setActiveModal(<Nav />, 'nav'));
       dispatch(actions.toggleModal(true));
     }
