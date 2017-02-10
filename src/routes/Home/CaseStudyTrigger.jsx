@@ -58,7 +58,7 @@ class CaseStudyTrigger extends React.Component {
   }
 
   render () {
-    const { id, images, caption, dispatch, modalState, index } = this.props;
+    const { id, images, caption, modalState, index } = this.props;
     const { animateIn } = this.state;
 
     const initialTextStyles = { transition: `opacity 400ms ease-out, transform 150ms ease-in-out` };
@@ -115,27 +115,10 @@ class CaseStudyTrigger extends React.Component {
 
           <div className="scrolltarget" id={ `cs__${index}` } />
           <div className="scene__text row">
-<<<<<<< HEAD
-            <Scene clickCallback={ () => openModal(id) }>
-              <h2 className="typ--bold" style={ Object.assign(initialTextStyles, textTransformStyles) }>
-                { caption.map((caption, index) => (<span style={ { display: 'block' } } key={ index }>{ caption }</span>)) }
-              </h2>
-              <h5 className="btn btn--arrow">
-                <div className="pt6 pt5--dlg pt3--mlg pt1--msm" style={ Object.assign(initialCTATransformStyles, transformCTAStyles) }>
-                  View project
-                  <img
-                    src={ require('assets/img/arrow-right-short.png') }
-                    alt="Yumavore app design"
-                    className="ml2 ml1--msm arrow"
-                  />
-                </div>
-              </h5>
-            </Scene>
-=======
             <Link to={ `/work/${id}` }>
               <Scene>
                 <h2 className="typ--bold" style={ Object.assign(initialTextStyles, textTransformStyles) }>
-                  { caption.map((caption, index) => (<div key={ index }>{ caption }</div>)) }
+                  { caption.map((caption, index) => (<span style={ { display: 'block' } } key={ index }>{ caption }</span>)) }
                 </h2>
                 <h5 className="btn btn--arrow">
                   <div className="pt6 pt5--dlg pt3--mlg pt1--msm" style={ Object.assign(initialCTATransformStyles, transformCTAStyles) }>
@@ -149,7 +132,6 @@ class CaseStudyTrigger extends React.Component {
                 </h5>
               </Scene>
             </Link>
->>>>>>> Ties case study modals to routes
           </div>
         </div>
       </section>
@@ -162,7 +144,6 @@ CaseStudyTrigger.propTypes = {
   id: string,
   images: object,
   caption: array,
-  dispatch: func,
   modalState: object,
   featuredCaseStudyState: object,
   index: number

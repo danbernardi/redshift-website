@@ -11,7 +11,7 @@ const ModalCloseBtn = props => {
     const timing = setTimeout(() => {
       dispatch(actions.setActiveModal(null, null));
       clearInterval(timing);
-    }, 200);
+    }, animationTiming);
 
     if (closeCallback instanceof Function) closeCallback();
   };
