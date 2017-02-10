@@ -28,10 +28,13 @@ export class Home extends React.Component {
   componentDidMount () {
     const { dispatch, modal } = this.props;
 
-    const html = document.getElementsByTagName('html');
-    if (html && html[0]) { html[0].classList.add('disable-scroll'); }
+    // const html = document.getElementsByTagName('html');
+    // if (html && html[0]) { html[0].classList.add('disable-scroll'); }
     dispatch(actions.setHeaderTheme('pink'));
-    onScroll((e) => this.scrollHandler(e), 100);
+    onScroll((e) => {
+      const index = getScrollDirection(e) === 'up' ? this.state.bannerIndex + 1 : this.state.bannerIndex - 1;
+      this.scrollToIndex(index);
+    });
 
     if (modal) this.openModal(modal);
   }
@@ -69,7 +72,6 @@ export class Home extends React.Component {
   }
 
   scrollToPosition (targetScrollPosition) {
-
     const scrollStartPosition = window.scrollY;
 
     const duration = Math.abs(targetScrollPosition - scrollStartPosition) / 2;
