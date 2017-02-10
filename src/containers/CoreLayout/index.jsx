@@ -6,6 +6,9 @@ import './CoreLayout.scss';
 
 export class CoreLayout extends React.Component {
   componentDidMount () {
+
+    return;
+
     if (window.emailjs) return;
 
     const script = document.createElement('script');
