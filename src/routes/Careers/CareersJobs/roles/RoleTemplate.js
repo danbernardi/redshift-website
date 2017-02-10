@@ -1,11 +1,13 @@
 import React from 'react';
 import JobContact from '../JobContact';
+import ModalCloseBtn from 'components/Modal/ModalCloseBtn';
 import '../../style.scss';
 
 export function RoleTemplate ({ children, name }) {
   return (
     <div className="job--modal">
-      <div className="modal__close job__sidebar" />
+      <div className="job__sidebar" />
+      <ModalCloseBtn />
       <div className="modal__with-sidebar">
         { children }
         <section className="contact__form py8 row">

@@ -7,6 +7,7 @@ import './HeaderClose.scss';
 import * as actions from 'store/actions';
 import Nav from 'components/Nav/index';
 import { scrollDocToZero } from 'utils/scrollTo';
+import Hamburger from 'components/Hamburger';
 
 export class Header extends React.Component {
   constructor (props) {
@@ -106,12 +107,8 @@ export class Header extends React.Component {
             style={ Object.assign(initialStyles, logoTransformStyles) }
             onClick={ () => this.toggleHeaderModal() }
             className="menu__trigger layout--right typ--link"
-          >
-            {/* TODO update to route when modals are routable */}
-            <a href="javascript:void(0)" className={ `icon-hamburger ${modalState.open && modalState.modalID === 'nav' && 'close-icon'}` }>
-              <span />
-              <span />
-            </a>
+          >            
+            <Hamburger />
           </div>
         </div>
       </header>

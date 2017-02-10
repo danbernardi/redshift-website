@@ -1,6 +1,7 @@
 import React from 'react';
 import * as actions from 'store/actions';
 import { connect } from 'react-redux';
+import Hamburger from 'components/Hamburger';
 
 const ModalCloseBtn = props => {
   const { animationTiming, dispatch, modalState } = props;
@@ -10,10 +11,10 @@ const ModalCloseBtn = props => {
     const timing = setTimeout(() => {
       dispatch(actions.setActiveModal(null, null));
       clearInterval(timing);
-    }, animationTiming);
+    }, 200);
   };
 
-  const initialStyles = { transition: `opacity ${animationTiming}ms ease-in-out` };
+  const initialStyles = { transition: `opacity ${200}ms ease-in-out` };
   let transformStyles = {};
 
   if (modalState.open && modalState.modalID !== 'nav') {
@@ -27,8 +28,8 @@ const ModalCloseBtn = props => {
   return (
     <div
       style={ Object.assign(initialStyles, transformStyles) }
-      className="modal__close" onClick={ () => closeModal() }>
-      <span className="icon-close" />
+      className="modal__close row" onClick={ () => closeModal() }>
+      <Hamburger close={ true } />
     </div>
   );
 };

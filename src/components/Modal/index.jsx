@@ -20,8 +20,6 @@ const Modal = props => {
 
   return (
     <div className="modal__wrap">
-      <ModalCloseBtn animationTiming={ animationTiming } />
-
       <div className="modal" style={ Object.assign(initialStyles, transformStyles) }>
         { modalState.component }
       </div>

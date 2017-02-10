@@ -1,4 +1,5 @@
 import React from 'react';
+import ModalCloseBtn from 'components/Modal/ModalCloseBtn';
 import '../style.scss';
 
 export function BioTemplate (props) {
@@ -10,6 +11,7 @@ export function BioTemplate (props) {
 
   return (
     <div className={ `${bioContent.id} team-member__modal` }>
+      <ModalCloseBtn />
       <div className="col-12 bio--wrap row">
         <div className="team-member-bio py5">
           <h2 className="typ--bold">{ bioContent.name }</h2>
