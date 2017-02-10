@@ -1,10 +1,7 @@
 import React from 'react';
-import * as actions from 'store/actions';
 import { connect } from 'react-redux';
-import { scrollToID } from 'utils/scrollTo';
+import { Link } from 'react-router';
 import Scene from 'components/Scene';
-
-import CaseStudyModalWrapper from 'components/CaseStudy/CaseStudyModalWrapper';
 
 class CaseStudyTrigger extends React.Component {
   constructor (props) {
@@ -15,9 +12,7 @@ class CaseStudyTrigger extends React.Component {
   componentDidMount () {
     const { index, featuredCaseStudyState } = this.props;
 
-    setTimeout(() => {
-      this._scrollTarget();
-    }, 100);
+    setTimeout(() => { this._scrollTarget(); }, 100);
 
     this.setScrollTarget = this.setScrollTarget.bind(this);
     window.addEventListener('resize', this.setScrollTarget);
@@ -66,12 +61,6 @@ class CaseStudyTrigger extends React.Component {
     const { id, images, caption, dispatch, modalState, index } = this.props;
     const { animateIn } = this.state;
 
-    const openModal = (id) => {
-      dispatch(actions.setNextCaseStudy(id));
-      dispatch(actions.setActiveModal(<CaseStudyModalWrapper />, 'casestudy'));
-      dispatch(actions.toggleModal(true));
-      scrollToID(id, 500);
-    };
     const initialTextStyles = { transition: `opacity 400ms ease-out, transform 150ms ease-in-out` };
     let textTransformStyles = {};
 
@@ -126,6 +115,7 @@ class CaseStudyTrigger extends React.Component {
 
           <div className="scrolltarget" id={ `cs__${index}` } />
           <div className="scene__text row">
+<<<<<<< HEAD
             <Scene clickCallback={ () => openModal(id) }>
               <h2 className="typ--bold" style={ Object.assign(initialTextStyles, textTransformStyles) }>
                 { caption.map((caption, index) => (<span style={ { display: 'block' } } key={ index }>{ caption }</span>)) }
@@ -141,6 +131,25 @@ class CaseStudyTrigger extends React.Component {
                 </div>
               </h5>
             </Scene>
+=======
+            <Link to={ `/work/${id}` }>
+              <Scene>
+                <h2 className="typ--bold" style={ Object.assign(initialTextStyles, textTransformStyles) }>
+                  { caption.map((caption, index) => (<div key={ index }>{ caption }</div>)) }
+                </h2>
+                <h5 className="btn btn--arrow">
+                  <div className="pt6 pt5--dlg pt3--mlg pt1--msm" style={ Object.assign(initialCTATransformStyles, transformCTAStyles) }>
+                    View project
+                    <img
+                      src={ require('assets/img/arrow-right-short.png') }
+                      alt="Yumavore app design"
+                      className="ml2 ml1--msm arrow"
+                    />
+                  </div>
+                </h5>
+              </Scene>
+            </Link>
+>>>>>>> Ties case study modals to routes
           </div>
         </div>
       </section>

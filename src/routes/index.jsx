@@ -1,17 +1,28 @@
+import React from 'react';
 import CoreLayout from 'containers/CoreLayout';
 import Home from './Home';
 import About from './About';
 import Careers from './Careers';
+import { caseStudies } from 'data/caseStudies';
 
 export function createRoutes () {
+  const caseStudyRoutes = caseStudies.map(cs => ({
+    path: cs.id,
+    component: () => <Home modal={ `${cs.id}` } />
+  }));
+
   return ({
     path: '/',
     component: CoreLayout,
     indexRoute: { component: Home },
     childRoutes: [
-      { path: 'work', component: Home },
       { path: 'about', component: About },
-      { path: 'careers', component: Careers }
+      { path: 'careers', component: Careers },
+      {
+        path: 'work',
+        indexRoute: { component: Home },
+        childRoutes: caseStudyRoutes
+      }
     ]
   });
 }

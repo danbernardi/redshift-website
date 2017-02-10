@@ -1,14 +1,12 @@
-.theme--dark {
-  color: $white;
-}
-
-.theme--dark .btn {
-  color: $white;
-}
-
 html,
 a {
   color: $body;
+}
+
+.theme--dark,
+.theme--dark a,
+.theme--dark .btn {
+  color: $white;
 }
 
 .typ--yumavore {

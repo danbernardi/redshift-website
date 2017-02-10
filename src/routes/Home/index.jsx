@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import * as actions from 'store/actions';
 import { scrollToID } from 'utils/scrollTo';
 import Footer from 'components/Footer';
+import CaseStudyModalWrapper from 'components/CaseStudy/CaseStudyModalWrapper';
 import './style.scss';
 
 import { caseStudies } from 'data/caseStudies';
@@ -14,14 +15,25 @@ import { onScroll, getScrollDirection } from 'utils/scrollJack';
 
 export class Home extends React.Component {
   componentDidMount () {
-    const { dispatch } = this.props;
+    const { dispatch, modal } = this.props;
 
     const html = document.getElementsByTagName('html');
     if (html && html[0]) { html[0].classList.add('disable-scroll'); }
     dispatch(actions.setHeaderTheme('pink'));
-
     onScroll((e) => this.scrollHandler(e), 100);
+
+    if (modal) this.openModal(modal);
   }
+
+  openModal (id) {
+    const { dispatch } = this.props;
+
+    dispatch(actions.setNextCaseStudy(id));
+    dispatch(actions.setActiveModal(<CaseStudyModalWrapper />, 'casestudy'));
+    dispatch(actions.toggleModal(true));
+
+    scrollToID(id, 500);
+  };
 
   componentDidUpdate (prevProps) {
     const { featuredCaseStudyState, modalState } = this.props;
@@ -97,7 +109,8 @@ export class Home extends React.Component {
 Home.propTypes = {
   dispatch: React.PropTypes.func,
   featuredCaseStudyState: React.PropTypes.object,
-  modalState: React.PropTypes.object
+  modalState: React.PropTypes.object,
+  modal: React.PropTypes.string
 };
 
 const injectStateProps = state => ({
