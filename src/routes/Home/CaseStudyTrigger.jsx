@@ -128,7 +128,7 @@ class CaseStudyTrigger extends React.Component {
           <div className="scene__text row">
             <Scene clickCallback={ () => openModal(id) }>
               <h2 className="typ--bold" style={ Object.assign(initialTextStyles, textTransformStyles) }>
-                { caption.map((caption, index) => (<div key={ index }>{ caption }</div>)) }
+                { caption.map((caption, index) => (<span style={ { display: 'block' } } key={ index }>{ caption }</span>)) }
               </h2>
               <h5 className="btn btn--arrow">
                 <div className="pt6 pt5--dlg pt3--mlg pt1--msm" style={ Object.assign(initialCTATransformStyles, transformCTAStyles) }>
