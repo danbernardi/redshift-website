@@ -16,6 +16,10 @@ const Nav = () => {
     {
       name: 'Careers',
       to: '/careers'
+    },
+    {
+      name: 'Blog',
+      outgoing: 'http://weareredshift.tumblr.com/'
     }
   ];
 
