@@ -2,9 +2,10 @@ import React from 'react';
 import FooterSocial from './FooterSocial';
 import './footer.scss';
 
-export function Footer () {
+export function Footer (props) {
+  const { onDidMount } = props;
   return (
-    <footer className="footer py6 py3--mlg cf">
+    <footer ref={ (el) => onDidMount instanceof Function && onDidMount(el) } className="footer py6 py3--mlg cf">
       <div className="row">
         <div className="hide--msm">
           <FooterSocial />
@@ -23,6 +24,10 @@ export function Footer () {
       </div>
     </footer>
   );
+};
+
+Footer.propTypes = {
+  onDidMount: React.PropTypes.func
 };
 
 export default Footer;

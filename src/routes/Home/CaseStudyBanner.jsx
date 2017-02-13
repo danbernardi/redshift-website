@@ -13,8 +13,7 @@ class CaseStudyBanner extends React.Component {
   }
 
   render () {
-    const { id, images, caption, dispatch, modalState, index } = this.props;
-    const { animateIn } = this.state;
+    const { id, images, caption, dispatch, onDidMount } = this.props;
 
     const openModal = (id) => {
       dispatch(actions.setNextCaseStudy(id, true));
@@ -22,6 +21,7 @@ class CaseStudyBanner extends React.Component {
       dispatch(actions.toggleModal(true));
       scrollToID(id, 500);
     };
+
     const initialTextStyles = { opacity: 1, transition: `opacity 400ms ease-out, transform 150ms ease-in-out` };
     let textTransformStyles = {};
 
@@ -29,7 +29,10 @@ class CaseStudyBanner extends React.Component {
     let transformCTAStyles = {};
 
     return (
-      <section ref={ (el) => this.props.onDidMount(el) } className={ `cs__${id} theme--dark cs__section` }>
+      <section
+        ref={ (el) => onDidMount instanceof Function && onDidMount(el) }
+        className={ `cs__${id} theme--dark cs__section` }
+      >
         <div className="scene__container">
           <picture>
             <source srcSet={ images.def } media="(min-width: 1040px)" />
@@ -69,7 +72,8 @@ CaseStudyBanner.propTypes = {
   dispatch: func,
   modalState: object,
   featuredCaseStudyState: object,
-  index: number
+  index: number,
+  onDidMount: func
 };
 
 const injectStateProps = state => ({

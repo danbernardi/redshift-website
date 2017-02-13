@@ -50,6 +50,10 @@ export const revertToPreviousCaseStudy = (prevID, animate = true) => ({
   type: 'REVERT_TO_PREVIOUS_CASE_STUDY', prevID, animate
 });
 
+export const setActiveBanner = (bannerIndex) => ({
+  type: 'SET_ACTIVE_BANNER', bannerIndex
+});
+
 // windowsize
 export const updateWindowWidth = (windowWidth) => ({
   type: 'UPDATE_WINDOW_WIDTH', windowWidth

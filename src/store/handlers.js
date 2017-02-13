@@ -64,3 +64,8 @@ export const headerTheme = {
   _init: 'pink',
   SET_HEADER_THEME: (state, action) => action.theme
 };
+
+export const activeBanner = {
+  _init: 0,
+  SET_ACTIVE_BANNER: (state, action) => action.bannerIndex
+};
