@@ -3,6 +3,7 @@ import * as actions from 'store/actions';
 import { connect } from 'react-redux';
 import { scrollToID } from 'utils/scrollTo';
 import Scene from 'components/Scene';
+import { Link } from 'react-router';
 
 import CaseStudyModalWrapper from 'components/CaseStudy/CaseStudyModalWrapper';
 
@@ -42,21 +43,23 @@ class CaseStudyBanner extends React.Component {
           </picture>
 
           <div className="scene__text row">
-            <Scene clickCallback={ () => openModal(id) }>
-              <h2 className="typ--bold" style={ Object.assign(initialTextStyles, textTransformStyles) }>
-                { caption.map((caption, index) => (<div key={ index }>{ caption }</div>)) }
-              </h2>
-              <h5 className="btn btn--arrow">
-                <div className="pt6 pt5--dlg pt3--mlg pt1--msm" style={ Object.assign(initialCTATransformStyles, transformCTAStyles) }>
-                  View project
-                  <img
-                    src={ require('assets/img/arrow-right-short.png') }
-                    alt="Yumavore app design"
-                    className="ml2 ml1--msm arrow"
-                  />
-                </div>
-              </h5>
-            </Scene>
+            <Link to={ `/work/${id}` }>
+              <Scene clickCallback={ () => openModal(id) }>
+                <h2 className="typ--bold" style={ Object.assign(initialTextStyles, textTransformStyles) }>
+                  { caption.map((caption, index) => (<div key={ index }>{ caption }</div>)) }
+                </h2>
+                <h5 className="btn btn--arrow">
+                  <div className="pt6 pt5--dlg pt3--mlg pt1--msm" style={ Object.assign(initialCTATransformStyles, transformCTAStyles) }>
+                    View project
+                    <img
+                      src={ require('assets/img/arrow-right-short.png') }
+                      alt="Yumavore app design"
+                      className="ml2 ml1--msm arrow"
+                    />
+                  </div>
+                </h5>
+              </Scene>
+            </Link>
           </div>
         </div>
       </section>
