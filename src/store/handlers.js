@@ -65,7 +65,12 @@ export const headerTheme = {
   SET_HEADER_THEME: (state, action) => action.theme
 };
 
-export const activeBanner = {
-  _init: 0,
-  SET_ACTIVE_BANNER: (state, action) => action.bannerIndex
+export const bannerState = {
+  _init: { active: 0, complete: [] },
+  SET_ACTIVE_BANNER: (state, action) => Object.assign({}, state, { active: action.bannerIndex }),
+  ADD_BANNER_TO_COMPLETE: (state, action) => {
+    const newComplete = state.complete.slice();
+    newComplete.push(action.bannerIndex);
+    return Object.assign({}, state, { complete: newComplete });
+  }
 };

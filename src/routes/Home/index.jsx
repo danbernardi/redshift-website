@@ -36,10 +36,10 @@ export class Home extends React.Component {
 
   // Deteremines scroll direction and navigates to next or previous scrollPoint
   onScrollStart (event) {
-    const { modalState, activeBanner } = this.props;
+    const { modalState, bannerState } = this.props;
 
     if (!modalState.open) {
-      const index = getScrollDirection(event) === 'down' ? activeBanner + 1 : activeBanner - 1;
+      const index = getScrollDirection(event) === 'down' ? bannerState.active + 1 : bannerState.active - 1;
       this.scrollToIndex(index);
     }
   }
@@ -128,6 +128,8 @@ export class Home extends React.Component {
   }
 
   render () {
+    const { bannerState } = this.props;
+
     //Get featured case studies for home page display
     const featuredCSBanners = caseStudies.filter(cs => cs.featured).map((study, index) => (
       <CaseStudyBanner
@@ -135,6 +137,7 @@ export class Home extends React.Component {
         key={ index }
         { ...study }
         onDidMount={ this.addScrollPoint.bind(this) }
+        activeBannerElement={ this.scrollPoints[bannerState.active] }
       />
     ));
 
@@ -158,13 +161,13 @@ Home.propTypes = {
   featuredCaseStudyState: React.PropTypes.object,
   modalState: React.PropTypes.object,
   modal: React.PropTypes.string,
-  activeBanner: React.PropTypes.number
+  bannerState: React.PropTypes.object
 };
 
 const injectStateProps = state => ({
   featuredCaseStudyState: state.featuredCaseStudyState,
   modalState: state.modalState,
-  activeBanner: state.activeBanner
+  bannerState: state.bannerState
 });
 
 export default connect(injectStateProps)(Home);
