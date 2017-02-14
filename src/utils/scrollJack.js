@@ -3,6 +3,7 @@ import { scrollDebounce } from 'utils/debounce';
 // stores Y value when a touch event is initiated
 let touchStartY;
 
+// returns 'up' or 'down' depending on scroll direction of passed event
 export function getScrollDirection (event) {
   let direction;
 
@@ -18,6 +19,7 @@ export function getScrollDirection (event) {
   return direction;
 }
 
+// creates scroll handlers for various input devices
 export function onScroll (wait, leadingFunc, trailingFunc) {
   window.ontouchstart = (event) => { touchStartY = event.pageY; };
   window.onwheel = scrollDebounce(wait, leadingFunc, trailingFunc);

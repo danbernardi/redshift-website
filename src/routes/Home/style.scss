@@ -81,7 +81,10 @@
 .hero {
   height: 100vh;
 
-  .scene { position: absolute; }
+  .scene {
+    position: absolute;
+    left: 0;
+  }
 
   .hero--scene-text {
     position: relative;

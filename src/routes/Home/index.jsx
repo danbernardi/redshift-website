@@ -10,10 +10,7 @@ import * as browser from 'utils/browserTests';
 import { mapRange } from 'utils/animation';
 import mojs from 'mo-js';
 import { getClosestNumber } from 'utils/closestNumber';
-// import { scrollTo } from 'utils/scrollTo';
-
 import { caseStudies } from 'data/caseStudies';
-// import ArchiveGrid from 'components/Archive/ArchiveGrid';
 import { onScroll, getScrollDirection } from 'utils/scrollJack';
 
 export class Home extends React.Component {
@@ -33,10 +30,11 @@ export class Home extends React.Component {
 
     // timeout of 1 waits for body to return correct scrollTop
     if (!modal) setTimeout(() => this.scrollToClosestIndex(), 200);
-    onScroll(50, (event) => this.onScrollStart(event), () => this.enableScroll());
+    onScroll(40, (event) => this.onScrollStart(event), () => this.enableScroll());
     if (modal) this.openModal(modal);
   }
 
+  // Deteremines scroll direction and navigates to next or previous scrollPoint
   onScrollStart (event) {
     const { modalState, activeBanner } = this.props;
 
@@ -46,26 +44,30 @@ export class Home extends React.Component {
     }
   }
 
+  // Scrolls to the closest scrollPoint to the current page scroll value
   scrollToClosestIndex () {
     let doc = document.querySelector('body');
     if (browser.isFirefox) doc = document.querySelector('html');
 
     if (doc) {
       const closestNumber = getClosestNumber(doc.scrollTop, this.scrollPoints.map(p => p.offsetTop));
-      const currentIndex = this.scrollPoints.findIndex(p => { console.log(p.offsetTop); return p.offsetTop === closestNumber });
+      const currentIndex = this.scrollPoints.findIndex(p => p.offsetTop === closestNumber);
       this.scrollToIndex(currentIndex);
     }
   }
 
+  // enables free page scrolling
   enableScroll () {
     const { modalState } = this.props;
     if (!modalState.open) this.html.classList.remove('disable-scroll');
   }
 
+  // disables free page scrolling
   disableScroll () {
     this.html.classList.add('disable-scroll');
   }
 
+  // opens a case study modal depending on id
   openModal (id) {
     const { dispatch } = this.props;
 
@@ -77,14 +79,17 @@ export class Home extends React.Component {
     this.scrollToIndex(elementIndex);
   };
 
+  // adds a scrollPoint element to this.scrollPoints
   addScrollPoint (element) {
     if (element && this.scrollPoints.indexOf(element) === -1) this.scrollPoints.push(element);
   }
 
+  // returns index of this.scrollPoints element that matches id
   getScrollElementIndex (id) {
     return this.scrollPoints.findIndex(p => p.classList.contains(`cs__${id}`));
   }
 
+  // scrolls to the scrollPoint that matches passed index
   scrollToIndex (bannerIndex) {
     const { dispatch } = this.props;
 
@@ -99,11 +104,13 @@ export class Home extends React.Component {
     this.scrollToPosition(targetCenter - frameHeight / 2);
   }
 
+  // animates page scrolling to a specific location
   scrollToPosition (targetScrollPosition) {
     const scrollStartPosition = window.scrollY;
     this.disableScroll();
 
-    const duration = Math.abs(targetScrollPosition - scrollStartPosition) / 2;
+    // const duration = Math.abs(targetScrollPosition - scrollStartPosition) / 3;
+    const duration = 600;
     new mojs.Tween({
       duration,
       easing: 'cubic.out',
@@ -115,6 +122,7 @@ export class Home extends React.Component {
     }).play();
   }
 
+  // returns offset center of passed element in relation to viewport height
   getScrollElementCenter (element) {
     return element.offsetTop - (element.offsetHeight / 2);
   }

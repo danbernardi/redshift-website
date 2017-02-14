@@ -10,7 +10,7 @@ export class Hero extends React.Component {
       <section ref={ (el) => onDidMount(el) } className="scene-container">
         <div className="hero index-content row">
           <Scene>
-            <div className="layout--relative">
+            <div className="layout--relative row">
               <h1 className="hero--scene-text typ--bold">We are Redshift. We design digital products and experiences.</h1>
             </div>
           </Scene>
