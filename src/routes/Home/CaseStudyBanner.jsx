@@ -1,33 +1,57 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
+import mojs from 'mo-js';
 import * as actions from 'store/actions';
 import { connect } from 'react-redux';
-import { scrollToID } from 'utils/scrollTo';
 import Scene from 'components/Scene';
 import { Link } from 'react-router';
+import { mapRange } from 'utils/animation';
 
 import CaseStudyModalWrapper from 'components/CaseStudy/CaseStudyModalWrapper';
 
-class CaseStudyBanner extends React.Component {
-  constructor (props) {
-    super(props);
-    this.state = { animateIn: false };
+export class CaseStudyBanner extends React.Component {
+  componentDidUpdate () {
+    const { activeBannerElement, id, bannerState } = this.props;
+    if (activeBannerElement.classList[0].split('cs__')[1] === id &&
+        bannerState.complete.indexOf(id) === -1) {
+      this.animateIn();
+    }
   }
 
+  animateIn () {
+    const { dispatch, id } = this.props;
+    const text = ReactDOM.findDOMNode(this.refs.text);
+
+    new mojs.Tween({
+      duration: 300,
+      delay: 600,
+      easing: 'cubic.out',
+      onUpdate: (progress) => {
+        const mappedTransform = mapRange(progress, 0, 1, 20, 0);
+        text.style.opacity = progress;
+        text.style.transform = `translateY(${mappedTransform}px)`;
+      },
+      onPlaybackComplete: () => dispatch(actions.addBannerToComplete(id))
+    }).play();
+  }
+
+  openModal (id) {
+    const { dispatch } = this.props;
+    dispatch(actions.setNextCaseStudy(id, true));
+    dispatch(actions.setActiveModal(<CaseStudyModalWrapper />, 'casestudy'));
+    dispatch(actions.toggleModal(true));
+  };
+
   render () {
-    const { id, images, caption, dispatch, onDidMount } = this.props;
+    const { id, images, caption, onDidMount, bannerState } = this.props;
 
-    const openModal = (id) => {
-      dispatch(actions.setNextCaseStudy(id, true));
-      dispatch(actions.setActiveModal(<CaseStudyModalWrapper />, 'casestudy'));
-      dispatch(actions.toggleModal(true));
-      scrollToID(id, 500);
-    };
+    let styles;
 
-    const initialTextStyles = { opacity: 1, transition: `opacity 400ms ease-out, transform 150ms ease-in-out` };
-    let textTransformStyles = {};
-
-    const initialCTATransformStyles = { opacity: 1, transition: `opacity 400ms ease-out` };
-    let transformCTAStyles = {};
+    if (bannerState.complete.indexOf(id) === -1) {
+      styles = { opacity: 0, transform: 'translateY(20px)' };
+    } else {
+      styles = { opacity: 1, transform: 'translateY(0px)' };
+    }
 
     return (
       <section
@@ -42,14 +66,14 @@ class CaseStudyBanner extends React.Component {
             <img src={ images.msm } className="homepage-scene--image" alt={ images.alt } />
           </picture>
 
-          <div className="scene__text row">
+          <div className="scene__text row" ref="text" style={ styles }>
             <Link to={ `/work/${id}` }>
-              <Scene clickCallback={ () => openModal(id) }>
-                <h2 className="typ--bold" style={ Object.assign(initialTextStyles, textTransformStyles) }>
+              <Scene clickCallback={ () => this.openModal(id) }>
+                <h2 className="typ--bold">
                   { caption.map((caption, index) => (<div key={ index }>{ caption }</div>)) }
                 </h2>
                 <h5 className="btn btn--arrow">
-                  <div className="pt6 pt5--dlg pt3--mlg pt1--msm" style={ Object.assign(initialCTATransformStyles, transformCTAStyles) }>
+                  <div className="pt6 pt5--dlg pt3--mlg pt1--msm">
                     View project
                     <img
                       src={ require('assets/img/arrow-right-short.png') }
@@ -73,15 +97,14 @@ CaseStudyBanner.propTypes = {
   images: object,
   caption: array,
   dispatch: func,
-  modalState: object,
-  featuredCaseStudyState: object,
   index: number,
-  onDidMount: func
+  onDidMount: func,
+  activeBannerElement: object,
+  bannerState: object
 };
 
 const injectStateProps = state => ({
-  modalState: state.modalState,
-  featuredCaseStudyState: state.featuredCaseStudyState
+  bannerState: state.bannerState
 });
 
 export default connect(injectStateProps)(CaseStudyBanner);
