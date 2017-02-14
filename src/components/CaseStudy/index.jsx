@@ -27,7 +27,7 @@ class CaseStudy extends React.Component {
 
     new mojs.Tween({
       duration: 400,
-      delay: 400,
+      delay: 600,
       easing: 'cubic.inout',
       onUpdate: (progress) => {
         const mappedBlur = mapRange(progress, 0, 1, 6, 0);
@@ -47,8 +47,8 @@ class CaseStudy extends React.Component {
     nextName.style.color = '#4a4a4a';
 
     new mojs.Tween({
-      duration: 400,
-      easing: 'cubic.inout',
+      duration: 600,
+      easing: 'cubic.out',
       onUpdate: (progress) => {
         const startFontSize = Number(window.getComputedStyle(nextName, null).getPropertyValue('font-size').replace('px', ''));
         const endFontSize = Number(window.getComputedStyle(name, null).getPropertyValue('font-size').replace('px', ''));

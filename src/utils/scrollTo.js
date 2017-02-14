@@ -14,7 +14,7 @@ export function scrollToID (id, duration = 200) {
 
     new mojs.Tween({
       duration,
-      easing: 'cubic.out',
+      easing: 'cubic.inout',
       onUpdate: (progress) => { doc.scrollTop = start + (end - start) * progress; }
     }).play();
   }
