@@ -46,6 +46,10 @@
 
 
 .icon-hamburger.close-icon span {
+  background: $body;
+}
+
+.header .icon-hamburger.close-icon span {
   background: $white;
 }
 
