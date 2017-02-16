@@ -6,7 +6,8 @@ a {
 
 .theme--dark,
 .theme--dark a,
-.theme--dark .btn {
+.theme--dark .btn,
+.theme--dark .social-icons [class^='icon-'] {
   color: $white;
 }
 
@@ -17,6 +18,10 @@ a {
 %gradient-text {
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
+}
+
+.typ--redshift {
+  color: $redshift;
 }
 
 .typ--kaiser {

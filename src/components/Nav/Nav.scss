@@ -1,7 +1,7 @@
 @import 'sass-includes';
 
 .nav {
-  background: $white;
+  background: $redshift;
   position: fixed;
   top: 0;
   z-index: 10;
@@ -46,21 +46,16 @@ _::-webkit-full-page-media, _:future, :root .nav__menu h1 {
 
   li {
     position: relative;
-    background: $white;
     cursor: pointer;
     opacity: 0;
     transform: translateY(4rem);
     transition: transform 0.18s ease-in-out, opacity 0.22s ease-in-out;
 
+    a:hover { color: $black; }
+
     h1 {
       line-height: 1.2;
-      color: $body;
       display: inline;
-
-      &:hover {
-        @extend %gradient-text;
-        @include redshift-gradient();
-      }
     }
   }
 

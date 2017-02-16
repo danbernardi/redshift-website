@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { browserHistory } from 'react-router';
 import { scrollDocToZero } from 'utils/scrollTo';
 import { Link } from 'react-router';
 import * as actions from 'store/actions';

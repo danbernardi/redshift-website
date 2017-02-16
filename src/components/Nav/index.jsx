@@ -24,7 +24,7 @@ const Nav = () => {
   ];
 
   return (
-    <div className="nav full-height">
+    <div className="nav full-height theme--dark">
       <div className="row">
         <NavLinks links={ navLinks } />
       </div>
