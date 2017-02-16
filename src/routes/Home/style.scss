@@ -6,29 +6,19 @@
   top: 0;
 }
 
-.backgroundcliptext {
-  .hero.index-content h1 {
-    @extend %gradient-text;
-    @include redshift-gradient();
-    z-index: 35;
-    position: relative;
-    max-width: 101rem;
-    // media queries
-    @include breakpoint($mobile-sm) {
-      font-size: 3.8rem;
-    }
+.hero.index-content h1 {
+  color: $body;
+  z-index: 35;
+  position: relative;
+  max-width: 101rem;
+  // media queries
+  @include breakpoint($mobile-sm) {
+    font-size: 3.8rem;
   }
+}
 
-  .hero.about h1 {
-    color: $white;
-  }
-
-  .nav__menu li a {
-    &:hover {
-      @extend %gradient-text;
-      @include redshift-gradient();
-    }
-  }
+.hero.about h1 {
+  color: $white;
 }
 
 .work-title {

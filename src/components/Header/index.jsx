@@ -89,7 +89,7 @@ export class Header extends React.Component {
             <span className="logo">
               <span
                 className="icon-redshift pr2"
-                style={ { color: modalState.open && modalState.modalID === 'nav' && '#4a4a4a' } }
+                style={ { color: modalState.open && modalState.modalID === 'nav' && '#FFFFFF' } }
               />
             </span>
             <h3

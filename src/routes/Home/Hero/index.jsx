@@ -11,7 +11,7 @@ export class Hero extends React.Component {
         <div className="hero index-content row">
           <Scene>
             <div className="layout--relative row">
-              <h1 className="hero--scene-text typ--bold">We are Redshift. We design digital products and experiences.</h1>
+              <h1 className="hero--scene-text typ--bold">We are Redshift<span className="typ--redshift">.</span> We design digital products and experiences<span className="typ--redshift">.</span></h1>
             </div>
           </Scene>
           <div className="scrolltrigger fixed" onClick={ () => clickCallback instanceof Function && clickCallback(1) }>
