@@ -12,7 +12,7 @@ import CaseStudyModalWrapper from 'components/CaseStudy/CaseStudyModalWrapper';
 export class CaseStudyBanner extends React.Component {
   componentDidUpdate () {
     const { activeBannerElement, id, bannerState } = this.props;
-    if (activeBannerElement.classList[0].split('cs__')[1] === id &&
+    if (activeBannerElement !== undefined && activeBannerElement.classList[0].split('cs__')[1] === id &&
         bannerState.complete.indexOf(id) === -1) {
       this.animateIn();
     }
