@@ -107,7 +107,7 @@ export class Header extends React.Component {
             style={ Object.assign(initialStyles, logoTransformStyles) }
             onClick={ () => this.toggleHeaderModal() }
             className="menu__trigger layout--right typ--link"
-          >            
+          >
             <Hamburger />
           </div>
         </div>
