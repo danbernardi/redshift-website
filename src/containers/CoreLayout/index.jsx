@@ -1,6 +1,7 @@
 import React from 'react';
 import Modal from 'components/Modal';
 import Header from 'components/Header';
+import Loader from 'components/Loader';
 import 'styles/core.scss';
 import './CoreLayout.scss';
 
@@ -46,6 +47,7 @@ export class CoreLayout extends React.Component {
 
     return (
       <div className={ `${pathClass && pathClass} page-wrap` } id="content">
+        <Loader />
         <Modal />
 
         <div className="content-wrap">

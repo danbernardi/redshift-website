@@ -58,6 +58,10 @@ export const addBannerToComplete = (bannerIndex) => ({
   type: 'ADD_BANNER_TO_COMPLETE', bannerIndex
 });
 
+export const setAsLoaded = (loaded) => ({
+  type: 'SET_AS_LOADED', loaded
+});
+
 // windowsize
 export const updateWindowWidth = (windowWidth) => ({
   type: 'UPDATE_WINDOW_WIDTH', windowWidth

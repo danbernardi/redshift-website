@@ -2,16 +2,25 @@ import React from 'react';
 import Scene from 'components/Scene';
 import mojs from 'mo-js';
 import ReactDOM from 'react-dom';
+import { connect } from 'react-redux';
 
 export class Hero extends React.Component {
-  componentDidMount () {
+  componentDidUpdate (prevProps) {
+    const { loaded } = this.props;
+
     const us = ReactDOM.findDOMNode(this.refs.us);
     const mission = ReactDOM.findDOMNode(this.refs.mission);
     const scroller = ReactDOM.findDOMNode(this.refs.scroller);
 
-    this.animateIn(us, 500);
-    this.animateIn(mission, 1000);
-    this.animateIn(scroller, 1300);
+    if (loaded && !prevProps.loaded) {
+      this.animateIn(us, 0);
+      this.animateIn(mission, 600);
+      this.animateIn(scroller, 1200);
+    } else if (prevProps.loaded) {
+      us.style.opacity = 1;
+      mission.style.opacity = 1;
+      scroller.style.opacity = 1;
+    }
   }
 
   animateIn (el, delay) {
@@ -26,9 +35,9 @@ export class Hero extends React.Component {
   }
 
   render () {
-    const { onDidMount, clickCallback } = this.props;
+    const { onDidMount, clickCallback, loaded } = this.props;
 
-    const styles = {
+    let styles = {
       opacity: 0
     };
 
@@ -53,7 +62,12 @@ export class Hero extends React.Component {
 
 Hero.propTypes = {
   onDidMount: React.PropTypes.func,
-  clickCallback: React.PropTypes.func
+  clickCallback: React.PropTypes.func,
+  loaded: React.PropTypes.bool
 };
 
-export default Hero;
+const injectStateProps = state => ({
+  loaded: state.loaded
+});
+
+export default connect(injectStateProps)(Hero);
