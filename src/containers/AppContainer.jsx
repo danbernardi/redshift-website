@@ -19,14 +19,14 @@ class AppContainer extends Component {
     const { dispatch } = this.props;
     const body = document.getElementsByTagName('body');
     if (body && body[0]) { setTimeout(() => { body[0].style.opacity = '1'; }, 100); }
-    if (location.pathname === '/work') { dispatch(actions.goToNextCaseStudy(0, false, [-1])); }
+    // if (location.pathname === '/work') { dispatch(actions.goToNextCaseStudy(0, false, [-1])); }
   }
 
   componentWillReceiveProps (nextProps) {
     const html = document.getElementsByTagName('html');
 
     // halt normal page scrolling if modal is open
-    if (nextProps.modalState.open || location.pathname === '/' || location.pathname === '/work') {
+    if (nextProps.modalState.open) {
       if (html && html[0]) { html[0].classList.add('disable-scroll'); }
     } else {
       if (html && html[0]) { html[0].classList.remove('disable-scroll'); }

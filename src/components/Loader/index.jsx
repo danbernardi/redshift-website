@@ -23,6 +23,8 @@ import './Loader.scss';
 export class Loader extends React.Component {
   componentDidMount () {
     this.animateIn();
+    const html = document.querySelector('html');
+    html.classList.add('disable-scroll');
   }
 
   animateIn () {
@@ -45,17 +47,19 @@ export class Loader extends React.Component {
     const { dispatch } = this.props;
 
     const loader = ReactDOM.findDOMNode(this.refs.loader);
+    const html = document.querySelector('html');
 
     new mojs.Tween({
       duration: 200,
       easing: 'cubic.out',
       onUpdate: progress => {
-        const mappedOpacity = mapRange(progress, 0, 1, 1, 0)
+        const mappedOpacity = mapRange(progress, 0, 1, 1, 0);
         loader.style.opacity = mappedOpacity;
       },
       onComplete: () => {
         loader.style.display = 'none';
         dispatch(actions.setAsLoaded(true));
+        html.classList.remove('disable-scroll');
       }
     }).play();
   }
