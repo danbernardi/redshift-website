@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import Scene from 'components/Scene';
 import { Link } from 'react-router';
 import { mapRange } from 'utils/animation';
+import Watcher from 'components/Watcher';
 
 import CaseStudyModalWrapper from 'components/CaseStudy/CaseStudyModalWrapper';
 
@@ -22,17 +23,19 @@ export class CaseStudyBanner extends React.Component {
     const { dispatch, id } = this.props;
     const text = ReactDOM.findDOMNode(this.refs.text);
 
-    new mojs.Tween({
-      duration: 300,
-      delay: 600,
-      easing: 'cubic.out',
-      onUpdate: (progress) => {
-        const mappedTransform = mapRange(progress, 0, 1, 20, 0);
-        text.style.opacity = progress;
-        text.style.transform = `translateY(${mappedTransform}px)`;
-      },
-      onPlaybackComplete: () => dispatch(actions.addBannerToComplete(id))
-    }).play();
+    if (text) {
+      new mojs.Tween({
+        duration: 300,
+        delay: 600,
+        easing: 'cubic.out',
+        onUpdate: (progress) => {
+          const mappedTransform = mapRange(progress, 0, 1, 20, 0);
+          text.style.opacity = progress;
+          text.style.transform = `translateY(${mappedTransform}px)`;
+        },
+        onPlaybackComplete: () => dispatch(actions.addBannerToComplete(id))
+      }).play();
+    }
   }
 
   openModal (id) {
@@ -40,6 +43,13 @@ export class CaseStudyBanner extends React.Component {
     dispatch(actions.setNextCaseStudy(id, true));
     dispatch(actions.setActiveModal(<CaseStudyModalWrapper />, 'casestudy'));
     dispatch(actions.toggleModal(true));
+  };
+
+  watcherCallback (watcher) {
+    const { bannerState, id } = this.props;
+    if (watcher.isFullyInViewport && bannerState.complete.indexOf(id) === -1) {
+      this.animateIn();
+    }
   };
 
   render () {
@@ -68,6 +78,10 @@ export class CaseStudyBanner extends React.Component {
 
           <div className="scene__text row" ref="text" style={ styles }>
             <Link to={ `/work/${id}` }>
+              <Watcher
+                enterViewport={ (watcher) => this.watcherCallback(watcher) }
+                stateChange={ (watcher) => this.watcherCallback(watcher) }
+              />
               <Scene clickCallback={ () => this.openModal(id) }>
                 <h2 className="typ--bold">
                   { caption.map((caption, index) => (<div key={ index }>{ caption }</div>)) }

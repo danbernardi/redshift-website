@@ -27,11 +27,12 @@ export class Home extends React.Component {
 
   componentDidMount () {
     const { dispatch, modal } = this.props;
-    dispatch(actions.setHeaderTheme('pink'));
+    // dispatch(actions.setHeaderTheme('pink'));
+    // this.html.classList.add('disable-scroll');
 
     // timeout of 1 waits for body to return correct scrollTop
     if (!modal) setTimeout(() => this.scrollToClosestIndex(), 200);
-    onScroll(40, (event) => this.onScrollStart(event), () => this.enableScroll());
+    // onScroll(40, (event) => this.onScrollStart(event));
     if (modal) this.openModal(modal);
   }
 
@@ -108,7 +109,7 @@ export class Home extends React.Component {
   // animates page scrolling to a specific location
   scrollToPosition (targetScrollPosition) {
     const scrollStartPosition = window.scrollY;
-    this.disableScroll();
+    // this.disableScroll();
 
     // const duration = Math.abs(targetScrollPosition - scrollStartPosition) / 3;
     const duration = 600;
@@ -118,8 +119,8 @@ export class Home extends React.Component {
       onUpdate: (progress) => {
         const pos = mapRange(progress, 0, 1, scrollStartPosition, targetScrollPosition);
         window.scrollTo(0, pos);
-      },
-      onPlaybackComplete: () => this.enableScroll()
+      }
+      // onPlaybackComplete: () => this.enableScroll()
     }).play();
   }
 
@@ -130,6 +131,7 @@ export class Home extends React.Component {
 
   watcherCallback (watcher) {
     const { dispatch } = this.props;
+
 
     if (watcher.isAboveViewport) {
       // watcher is in view
