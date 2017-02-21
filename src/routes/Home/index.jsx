@@ -28,10 +28,11 @@ export class Home extends React.Component {
   componentDidMount () {
     const { dispatch, modal } = this.props;
     dispatch(actions.setHeaderTheme('pink'));
+    this.html.classList.add('disable-scroll');
 
     // timeout of 1 waits for body to return correct scrollTop
     if (!modal) setTimeout(() => this.scrollToClosestIndex(), 200);
-    onScroll(40, (event) => this.onScrollStart(event), () => this.enableScroll());
+    onScroll(40, (event) => this.onScrollStart(event));
     if (modal) this.openModal(modal);
   }
 
@@ -118,8 +119,8 @@ export class Home extends React.Component {
       onUpdate: (progress) => {
         const pos = mapRange(progress, 0, 1, scrollStartPosition, targetScrollPosition);
         window.scrollTo(0, pos);
-      },
-      onPlaybackComplete: () => this.enableScroll()
+      }
+      // onPlaybackComplete: () => this.enableScroll()
     }).play();
   }
 
