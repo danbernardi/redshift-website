@@ -1,14 +1,14 @@
 export const clientData = [
-  { image: require('assets/img/clients/google.jpg'), name: 'google' },
-  { image: require('assets/img/clients/symantec.jpg'), name: 'symantec' },
-  { image: require('assets/img/clients/opentable.jpg'), name: 'Open Table' },
-  { image: require('assets/img/clients/groupon.jpg'), name: 'Group On' },
-  { image: require('assets/img/clients/kaiser.jpg'), name: 'Kaiser Permanente' },
-  { image: require('assets/img/clients/wu.jpg'), name: 'Western Union' },
-  { image: require('assets/img/clients/taskrabbit.jpg'), name: 'Task Rabbit' },
-  { image: require('assets/img/clients/yumavore.jpg'), name: 'Yumavore' },
-  { image: require('assets/img/clients/cisco.jpg'), name: 'Cisco' },
-  { image: require('assets/img/clients/chatwork.jpg'), name: 'Chatwork' },
-  { image: require('assets/img/clients/vlocity.jpg'), name: 'Vlocity' },
-  { image: require('assets/img/clients/mypoints.jpg'), name: 'MyPoints' }
+  { image: require('assets/img/clients/google.png'), name: 'google' },
+  { image: require('assets/img/clients/panasonic.png'), name: 'panasonic' },
+  { image: require('assets/img/clients/opentable.png'), name: 'Open Table' },
+  { image: require('assets/img/clients/kaiser.png'), name: 'Kaiser Permanente' },
+  { image: require('assets/img/clients/wu.png'), name: 'Western Union' },
+  { image: require('assets/img/clients/taskrabbit.png'), name: 'Task Rabbit' },
+  { image: require('assets/img/clients/facebook.png'), name: 'Facebook' },
+  { image: require('assets/img/clients/chatwork.png'), name: 'Chatwork' },
+  { image: require('assets/img/clients/mypoints.png'), name: 'MyPoints' },
+  { image: require('assets/img/clients/symantec.png'), name: 'Symantec' },
+  { image: require('assets/img/clients/groupon.png'), name: 'Groupon' },
+  { image: require('assets/img/clients/vlocity.png'), name: 'Vlocity' }
 ];
