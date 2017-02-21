@@ -12,6 +12,7 @@ import mojs from 'mo-js';
 import { getClosestNumber } from 'utils/closestNumber';
 import { caseStudies } from 'data/caseStudies';
 import { onScroll, getScrollDirection } from 'utils/scrollJack';
+import Watcher from 'components/Watcher';
 
 export class Home extends React.Component {
   constructor (props) {
@@ -127,6 +128,20 @@ export class Home extends React.Component {
     return element.offsetTop - (element.offsetHeight / 2);
   }
 
+  watcherCallback (watcher) {
+    const { dispatch } = this.props;
+
+    if (watcher.isAboveViewport) {
+      // watcher is in view
+      dispatch(actions.setHeaderTheme('white'));
+    }
+
+    if (watcher.isFullyInViewport) {
+      // watcher is partly out of view
+      dispatch(actions.setHeaderTheme('pink'));
+    }
+  };
+
   render () {
     const { bannerState } = this.props;
 
@@ -148,6 +163,11 @@ export class Home extends React.Component {
           clickCallback={ this.scrollToIndex.bind(this) }
         />
         <div id="homepage-work">
+          <Watcher
+            offset={ { bottom: '8.5rem' } }
+            enterViewport={ (watcher) => this.watcherCallback(watcher) }
+            stateChange={ (watcher) => this.watcherCallback(watcher) }
+          />
           { featuredCSBanners }
         </div>
         <Footer onDidMount={ this.addScrollPoint.bind(this) } />
