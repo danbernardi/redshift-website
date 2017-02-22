@@ -8,7 +8,6 @@ class PinkHover extends React.Component {
     super(props);
 
     this.state = {
-      animationInProgress: false,
       hover: false
     };
   }
@@ -19,8 +18,6 @@ class PinkHover extends React.Component {
 
   setupAnimation () {
     const hoverElem = ReactDOM.findDOMNode(this.refs.hover);
-    // hoverElem.style.opacity = 0;
-
     this.animate = new mojs.Tween({
       easing: 'cubic.inout',
       backwardEasing: 'cubic.inout',
@@ -28,11 +25,6 @@ class PinkHover extends React.Component {
       delay: 100,
       onUpdate: progress => {
         hoverElem.style.transform = `translateX(calc(${100 - (progress * 100)}% + 1px))`;
-      },
-      onPlaybackStart: () => this.setState({ animationInProgress: true }),
-      onPlaybackComplete: () => {
-        this.setState({ animationInProgress: false });
-        // hoverElem.style.opacity = 1;
       }
     });
   }
