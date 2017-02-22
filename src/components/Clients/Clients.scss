@@ -12,11 +12,14 @@
 }
 
 .clients__client {
-  width: 33.3333333%;
+  width: 25%;
   float: left;
   height: 14rem;
   position: relative;
   // media queries
+  @include breakpoint($desktop-lg) {
+    width: 33.3333333%;
+  }
   @include breakpoint($mobile-lg) {
     height: 12rem;
   }
@@ -32,10 +35,16 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    padding: 0 3rem;
+    padding: 0 5rem;
     // media queries
+    @include breakpoint($mobile-lg) {
+      padding: 0 3.5rem;
+    }
+    @include breakpoint($mobile-sm) {
+      padding: 0 5rem;
+    }
     @include breakpoint($mobile-xsm) {
-      padding: 0 1.5rem;
+      padding: 0 3rem;
     }
   }
 }

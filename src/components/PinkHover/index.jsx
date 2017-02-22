@@ -1,4 +1,6 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
+import mojs from 'mo-js';
 import './styles.scss';
 
 class PinkHover extends React.Component {
@@ -6,60 +8,62 @@ class PinkHover extends React.Component {
     super(props);
 
     this.state = {
+      animationInProgress: false,
       hover: false
     };
   }
 
-  _onMouseEnterHandler () {
-    this.setState({
-      hover: true
+  componentDidMount () {
+    this.setupAnimation();
+  }
+
+  setupAnimation () {
+    const hoverElem = ReactDOM.findDOMNode(this.refs.hover);
+    // hoverElem.style.opacity = 0;
+
+    this.animate = new mojs.Tween({
+      easing: 'cubic.inout',
+      backwardEasing: 'cubic.inout',
+      duration: 250,
+      delay: 100,
+      onUpdate: progress => {
+        hoverElem.style.transform = `translateX(calc(${100 - (progress * 100)}% + 1px))`;
+      },
+      onPlaybackStart: () => this.setState({ animationInProgress: true }),
+      onPlaybackComplete: () => {
+        this.setState({ animationInProgress: false });
+        // hoverElem.style.opacity = 1;
+      }
     });
   }
 
-  _onMouseLeaveHandler () {
-    this.setState({
-      hover: false
-    });
+  animateIn () {
+    this.animate.pause().play().resume();
   }
 
-  // const { } = props;
+  animateOut () {
+    this.animate.pause().playBackward().resume();
+  }
+
   render () {
     const { children, classes, imageSrc, clickHandler, alt } = this.props;
-    const { hover } = this.state;
-
-    const initialHoverStyles = { transition: `left 0.2s ease-in-out 0.25s` };
-    const initialInfoStyles = { transition: `left 0.2s ease-in-out 0.325s` };
-    let transformStyles = {};
-
-    if (hover) {
-      // if modal is currently active
-      transformStyles = { left: 0 };
-    } else {
-      // if modal isn't currently active
-      transformStyles = { left: '-100%' };
-    }
 
     return (
       <div
         className={ classes }
-        onMouseEnter={ () => this.setState({ hover: true }) }
-        onMouseLeave={ () => this.setState({ hover: false }) }
+        onMouseEnter={ () => this.animateIn() }
+        onMouseLeave={ () => this.animateOut() }
         onClick={ () => clickHandler && clickHandler() }
       >
-        <div
-          className="pink-hover"
-          style={ Object.assign(initialHoverStyles, transformStyles) }
-        >
-          <div className="pink-gradient">
-            <div
-              className="pink-info"
-              style={ Object.assign(initialInfoStyles, transformStyles) }
-            >
-              { children }
-            </div>
-          </div>
+        <div ref="hover" className="pink-hover">
+          <div className="pink-info">{ children }</div>
         </div>
-        <img src={ imageSrc } alt={ alt } />
+        <img
+          className="pinkhover__img"
+          ref="img"
+          src={ imageSrc }
+          alt={ alt }
+        />
       </div>
     );
   }

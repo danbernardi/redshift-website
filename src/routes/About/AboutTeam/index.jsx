@@ -12,8 +12,8 @@ const AboutTeam = props => {
         imageSrc={ team.photo }
         alt={ team.name }
       >
-        <h2 className="typ--bold">{ team.name }</h2>
-        <h4>{ team.position }</h4>
+        <span className="member__name typ--bold">{ team.name }</span>
+        <span className="member__position">{ team.position }</span>
         <div className="right-arrow">
           <img src={ require('assets/img/arrow-right-short.png') } alt={ `${team.name}, ${team.position}` } />
         </div>
