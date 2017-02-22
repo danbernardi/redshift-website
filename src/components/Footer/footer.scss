@@ -5,11 +5,14 @@
   width: 100%;
 }
 
-.footer ul {
-  float: left;
+.content-main .footer {
   z-index: 1;
   background: $white;
   position: relative;
+}
+
+.footer ul {
+  float: left;
   // media queries
   @include breakpoint($mobile-lg) {
     padding-bottom: 0.4rem;

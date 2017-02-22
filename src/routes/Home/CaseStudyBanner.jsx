@@ -26,7 +26,7 @@ export class CaseStudyBanner extends React.Component {
     if (text) {
       new mojs.Tween({
         duration: 300,
-        delay: 600,
+        delay: 100,
         easing: 'cubic.out',
         onUpdate: (progress) => {
           const mappedTransform = mapRange(progress, 0, 1, 20, 0);

@@ -3,6 +3,7 @@ import Scene from 'components/Scene';
 import mojs from 'mo-js';
 import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
+import 'components/ScrollTrigger/ScrollTrigger.scss';
 
 export class Hero extends React.Component {
   componentDidUpdate (prevProps) {

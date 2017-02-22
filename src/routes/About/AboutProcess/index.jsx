@@ -13,7 +13,7 @@ export function AboutProcess () {
           </div>
         </div>
 
-        <div className="col-6 col-12--tmd col-last about--process__image typ--center">
+        <div className="col-6 col-12--tmd col-last mt5--tmd about--process__image typ--center">
           <img
             src={ require('assets/img/about/process.png') }
             alt="research engineering user experience visual design"
