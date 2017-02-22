@@ -56,7 +56,8 @@
   padding-top: 140%;
   position: relative;
   width: 100%;
-  text-align: right;
+  // text-align: right;
+  text-align: left;
   overflow: hidden;
   // media queries
   @include breakpoint($mobile-sm) {
@@ -64,7 +65,8 @@
   }
 
   &:nth-of-type(2n) {
-    text-align: left;
+    // text-align: left;
+    text-align: right;
   }
 }
 
@@ -107,6 +109,7 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
+  margin-top: -9rem;
 }
 
 .homepage-scene--image {
