@@ -21,7 +21,7 @@
 #homepage-work {
   .scene {
     // media queries
-    @include breakpoint($mobile-lg) {
+    @include breakpoint($tablet-lg) {
       padding-left: 0;
       padding-right: 0;
     }
@@ -29,10 +29,13 @@
 
   .scene__text {
     // media queries
+    
     @include breakpoint($mobile-lg) {
       opacity: 1 !important;
       transform: none !important;
-      margin-top: 25rem;
+      top: auto;
+      bottom: 1rem;
+      margin-top: 0;
     }
   }
 }
