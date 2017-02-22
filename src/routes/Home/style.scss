@@ -58,6 +58,10 @@
   width: 100%;
   text-align: right;
   overflow: hidden;
+  // media queries
+  @include breakpoint($mobile-sm) {
+    padding-top: 355.43%;
+  }
 
   &:nth-of-type(2n) {
     text-align: left;
@@ -103,68 +107,6 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-}
-
-.cs__yumavore {
-  // media queries
-  @include breakpoint($mobile-sm) {
-    padding-top: 355.43%;
-  }
-
-  .homepage--scene-text {
-    // media queries
-    @include breakpoint($mobile-lg) {
-      bottom: 38%;
-    }
-  }
-}
-
-.cs__norton {
-  // media queries
-  @include breakpoint($mobile-sm) {
-    padding-top: 355.73%;
-  }
-
-  .homepage--scene-text {
-    text-align: right;
-    // media queries
-    @include breakpoint($mobile-sm) {
-      bottom: 61%;
-      text-align: left;
-    }
-  }
-}
-
-.cs__nexus {
-  // media queries
-  @include breakpoint($mobile-sm) {
-    padding-top: 355.63%;
-  }
-
-  .homepage--scene-text {
-    bottom: 46.2%;
-    text-align: right;
-    // media queries
-    @include breakpoint($mobile-sm) {
-      bottom: 41.7%;
-      text-align: left;
-    }
-  }
-}
-
-.cs__five {
-  // media queries
-  @include breakpoint($mobile-sm) {
-    padding-top: 355.7%;
-  }
-
-  .homepage--scene-text {
-    text-align: left;
-    // media queries
-    @include breakpoint($mobile-sm) {
-      bottom: 39.2%;
-    }
-  }
 }
 
 .homepage-scene--image {
