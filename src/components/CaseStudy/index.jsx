@@ -84,7 +84,7 @@ class CaseStudy extends React.Component {
         <ModalCloseBtn closeCallback={ () => browserHistory.push('/work') } />
         <section ref="casestudy" className={ `modal__with-sidebar ${id}` }>
           <div className="layout--relative">
-            <div className="row"><h4 className="casestudy__name pl4--mlg" ref="name">{ name }</h4></div>
+            <div className="row"><h4 className="casestudy__name" ref="name">{ name }</h4></div>
 
             <div ref="blur">
               <div className="row"><h1 className="casestudy__heading">{ heading }</h1></div>

@@ -24,19 +24,15 @@
     @include breakpoint($mobile-lg) {
       padding-left: 0;
       padding-right: 0;
-      transform: none;
-      top: auto !important;
     }
   }
 
   .scene__text {
     // media queries
     @include breakpoint($mobile-lg) {
-      top: auto !important;
-      bottom: 3rem !important;
+      opacity: 1 !important;
       transform: none !important;
-      position: fixed;
-      padding: 0 2rem;
+      margin-top: 25rem;
     }
   }
 }
@@ -46,7 +42,7 @@
   padding-right: 0;
 }
 
-@supports (-ms-ime-align:auto) {
+@supports (-ms-ime-align: auto) {
   .home-section .scene {
     position: absolute !important;
     top: -100rem !important;
