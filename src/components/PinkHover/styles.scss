@@ -2,16 +2,25 @@
 
 .pink-hover {
   position: absolute;
-  top: 0;
+  bottom: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  background: $redshift;
+  display: flex;
+  align-items: center;
+  transform: translateX(calc(100% + 1px));
+  z-index: 2;
+  // opacity: 0;
+}
+
+.pinkhover__img {
+  z-index: 1;
 }
 
 .pink-hover .pink-info {
-  transition: left 0.2s ease-in-out;
   color: $white;
-  padding: 0 5rem;
+  padding: 0 3rem;
   position: absolute;
   height: 100%;
   width: 100%;
@@ -28,13 +37,8 @@
 }
 
 .right-arrow {
-  width: 5.3rem;
-  margin-top: 2rem;
-}
-
-.pink-gradient {
-  width: 100%;
-  height: 100%;
-  background: rgba($pink, 0.65);
-  background: linear-gradient(135deg, rgba(#EC005E, 0.65) 0%, rgba(#FF00AC, 0.65) 100%);
+  position: absolute;
+  right: 2rem;
+  bottom: 4.8rem;
+  width: 5rem;
 }

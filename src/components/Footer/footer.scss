@@ -5,6 +5,12 @@
   width: 100%;
 }
 
+.content-main .footer {
+  z-index: 1;
+  background: $white;
+  position: relative;
+}
+
 .footer ul {
   float: left;
   // media queries

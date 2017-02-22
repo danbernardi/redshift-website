@@ -29,8 +29,8 @@ export class About extends React.Component {
     return (
       <div>
         <AboutProcess />
-        <section className="flex theme--dark about--clients pb9 py6--tlg pt8">
-          <div className="row hero--scene-text">
+        <section className="about__clients theme--dark py7">
+          <div className="row">
             <h1 className="typ--bold">Who we work with.</h1>
             <h4
               className="pt6 pb8 pt2--mlg pb4--mlg"
@@ -41,9 +41,9 @@ export class About extends React.Component {
             <Clients data={ clientData } />
           </div>
         </section>
-        <section className="about--team pt9 pt6--tlg pt2--mlg">
+        <section className="about--team pt9 pt6--tlg">
           <div className="row hero--scene-text">
-            <h1 className="typ--bold pb8 pb6--tlg">Who we are.</h1>
+            <h1 className="typ--bold pb8 pb6--tlg">Who we are<span className="typ--redshift">.</span></h1>
           </div>
           { teamInfo.map((team, index) => (
             <AboutTeam key={ index } team={ team } />

@@ -12,37 +12,49 @@
   width: 100%;
 }
 
-.about--process__flex {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding-top: 14rem;
+.about__process__img {
+  width: 100%;
+  padding: 3rem;
   // media queries
-  @include breakpoint($tablet-md) {
-    display: block;
-  }
   @include breakpoint($mobile-lg) {
-    padding-top: 15rem;
-  }
-
-  h4 {
-    @include breakpoint($mobile-lg) {
-      line-height: 2;
-    }
+    padding: 1rem;
   }
 }
 
-.about--process__image {
-  max-height: 66rem;
-  // media queries
-  @include breakpoint($tablet-md) {
-    text-align: center;
-  }
+.about__clients {
+  background: $dark-grey;
 }
+
+// .about--process__flex {
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   padding-top: 14rem;
+//   // media queries
+//   @include breakpoint($tablet-md) {
+//     display: block;
+//   }
+//   @include breakpoint($mobile-lg) {
+//     padding-top: 15rem;
+//   }
+
+//   h4 {
+//     @include breakpoint($mobile-lg) {
+//       line-height: 2;
+//     }
+//   }
+// }
+
+// .about--process__image {
+//   max-height: 66rem;
+//   // media queries
+//   @include breakpoint($tablet-md) {
+//     text-align: center;
+//   }
+// }
 
 .about section {
   position: relative;
-  color: #4A4A4A;
 }
 
 .about--clients h2 {
@@ -93,8 +105,27 @@
     position: relative;
     overflow: hidden;
     height: auto;
-    text-transform: lowercase;
+    // text-transform: lowercase;
     cursor: pointer;
+  }
+
+  .member__name {
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+
+  .member__position {
+    padding-right: 5rem;
+  }
+
+  .member__name,
+  .member__position {
+    @include font-size(h4);
+    width: 100%;
+    display: block;
+    // overflow: hidden;
+    // text-overflow: ellipsis;
+    // white-space: nowrap;
   }
 
   h2 {
@@ -127,23 +158,6 @@
     }
     @include breakpoint($mobile-sm) {
       font-size: 2rem;
-    }
-  }
-
-  .right-arrow {
-    position: absolute;
-    bottom: 4rem;
-    margin-top: 0;
-
-    @include breakpoint($mobile-sm) {
-      bottom: 2rem;
-    }
-
-    img {
-      // media queries
-      @include breakpoint($mobile-lg) {
-        height: 0.7rem;
-      }
     }
   }
 
