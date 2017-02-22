@@ -3,7 +3,12 @@ import React from 'react';
 export function AboutProcess () {
   return (
     <section className="about__process mb10">
-      <img className="about__process__img mb5" src={ require('assets/img/about/about__hero.jpg') } alt="Redshift team" />
+
+      <picture>
+        <source srcSet={ require('assets/img/about/about__hero.jpg') } media="(min-width: 540px)" />
+        <img className="about__process__img mb5 mb2--msm" src={ require('assets/img/about/about__hero-mobile.jpg') } alt="Redshift team" />
+      </picture>
+      
       <div className="row">
         <div className="col-6 col-12--tmd">
           <h1 className="typ--bold mb4">Hello there<span className="typ--redshift">.</span></h1>

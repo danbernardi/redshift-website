@@ -15,6 +15,10 @@
 .about__process__img {
   width: 100%;
   padding: 3rem;
+  // media queries
+  @include breakpoint($mobile-lg) {
+    padding: 1rem;
+  }
 }
 
 .about__clients {
