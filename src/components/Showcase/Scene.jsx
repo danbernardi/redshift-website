@@ -36,7 +36,7 @@ export class Scene extends React.Component {
     this.animate = new mojs.Tween({
       duration: 2000,
       delay: 200,
-      backwardEasing: 'cubic.inout',
+      easing: 'cubic.inout',
       onUpdate: (progress) => {
         paths.forEach(path => {
           const totalLength = path.getTotalLength();
