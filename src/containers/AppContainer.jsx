@@ -16,7 +16,7 @@ class AppContainer extends Component {
   }
 
   componentDidMount () {
-    const { dispatch } = this.props;
+    // const { dispatch } = this.props;
     const body = document.getElementsByTagName('body');
     if (body && body[0]) { setTimeout(() => { body[0].style.opacity = '1'; }, 100); }
     // if (location.pathname === '/work') { dispatch(actions.goToNextCaseStudy(0, false, [-1])); }
