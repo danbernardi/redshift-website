@@ -1,5 +1,5 @@
 import React from 'react';
-import './Scene.scss';
+// import './Scene.scss';
 
 export class Scene extends React.Component {
   constructor (props) {

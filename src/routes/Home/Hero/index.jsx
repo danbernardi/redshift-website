@@ -36,22 +36,27 @@ export class Hero extends React.Component {
   }
 
   render () {
-    const { onDidMount, clickCallback, loaded } = this.props;
+    const { onDidMount, clickCallback } = this.props;
 
     let styles = {
       opacity: 0
     };
 
     return (
-      <section ref={ (el) => onDidMount(el) } className="scene-container">
-        <div className="hero index-content row">
-          <Scene>
-            <div className="layout--relative row">
-              <h1 className="hero--scene-text typ--bold">
-                <span ref="us" style={ styles }>We are Redshift<span className="typ--redshift">.</span>
-                </span> <span ref="mission" style={ styles }>We design digital products and experiences<span className="typ--redshift">.</span></span></h1>
-            </div>
-          </Scene>
+      <section
+        ref={ (el) => onDidMount instanceof Function && onDidMount(el) }
+        className="hero layout--fullheight layout--flex"
+      >
+        <div className="row">
+          <h1 className="typ--bold" style={ { maxWidth: '110rem' } }>
+            <span ref="us" style={ styles }>
+              We are Redshift<span className="typ--redshift">. </span>
+            </span>
+            <span ref="mission" style={ styles }>
+              We design digital products and experiences<span className="typ--redshift">.</span>
+            </span>
+          </h1>
+
           <div ref="scroller" style={ styles } className="scrolltrigger fixed" onClick={ () => clickCallback instanceof Function && clickCallback(1) }>
             <img src={ require('assets/img/down-arrow.png') } alt="Scroll to the next section" />
           </div>

@@ -1,0 +1,58 @@
+@import 'sass-includes';
+
+.scene {
+  position: relative;
+  z-index: 1;
+  color: $white;
+}
+
+.scene__cta {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.scene__caption {
+  text-align: center;
+  width: 100%;
+
+  span { display: block; }
+}
+
+.scene__overlay {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 4;
+}
+
+.scene__device {
+  position: relative;
+  right: -50rem;
+  top: 14%;
+  z-index: 10;
+
+  path {
+    fill: transparent;
+    stroke: $white;
+  }
+}
+
+.scene__link {
+  color: $white;
+  position: relative;
+  padding: 6rem 0;
+
+  &:after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 4.3rem;
+    height: 0.2rem;
+    background: $white;
+    transform: translateX(-50%);
+    display: block;
+    width: 50%;
+  }
+}
