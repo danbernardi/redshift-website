@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Link } from 'react-router';
 import { mapRange } from 'utils/animation';
 import mojs from 'mo-js';
 import { connect } from 'react-redux';
+import SceneDevice from './SceneDevice';
+import SceneText from './SceneText';
 import './Scene.scss';
 
 export class Scene extends React.Component {
@@ -123,27 +124,20 @@ export class Scene extends React.Component {
         data-id={ id }
         style={ { pointerEvents: inactive ? 'none' : 'auto' } }
       >
+
         <div className="parallax__layer parallax__layer--deep">
-          <div ref="device" className="scene__device">
-            { svg && svg }
-            { overlay && <img style={ { width: '685px', left: '74px', top: '254px' } } ref="overlay" className="scene__overlay" src={ overlay } alt={ id } /> }
-          </div>
+          <SceneDevice
+            id={ id }
+            svg={ svg }
+            overlay={ overlay }
+          />
         </div>
 
         <div className="parallax__layer parallax__layer--back">
-          <div ref="cta" className="scene__cta typ--center typ--white">
-            <div className="row">
-              <h2 className="scene__caption mb4 typ--bold">
-                { caption.map((string, index) => (
-                  <span key={ index }>{ string }</span>
-                )) }
-              </h2>
-
-              <Link className="scene__link typ--bold typ--h6" to={ `/work/${id}` }>
-                View project
-              </Link>
-            </div>
-          </div>
+          <SceneText
+            id={ id }
+            caption={ caption }
+          />
         </div>
       </div>
     );
