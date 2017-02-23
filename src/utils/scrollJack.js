@@ -29,13 +29,13 @@ export function onScroll (wait, leadingFunc, trailingFunc) {
 }
 
  // enables free page scrolling
-export function enableScroll () {
-  const html = document.querySelector('html');
-  html.classList.remove('disable-scroll');
+export function enableScroll (elem) {
+  const scroller = elem || document.querySelector('html');
+  scroller.classList.remove('disable-scroll');
 }
 
 // disables free page scrolling
-export function disableScroll () {
-  const html = document.querySelector('html');
-  html.classList.add('disable-scroll');
+export function disableScroll (elem) {
+  const scroller = elem || document.querySelector('html');
+  scroller.classList.add('disable-scroll');
 }
