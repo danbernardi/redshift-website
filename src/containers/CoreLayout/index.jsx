@@ -37,23 +37,17 @@ export class CoreLayout extends React.Component {
   }
 
   render () {
-    const pathClass = {
-      '': 'root',
-      work: 'work',
-      about: 'about',
-      careers: 'careers'
-    }[location.pathname.slice(1)];
     const { children } = this.props;
 
     return (
-      <div className={ `${pathClass && pathClass} page-wrap` } id="content">
+      <div className="page-wrap">
         <Loader />
         <Modal />
 
         <div className="content-wrap">
           <Header />
           {/* class needed for page somewhere */}
-          <div className={ `${pathClass} content-main content-swap` }>
+          <div className="content-main">
             { children }
           </div>
           {/* <Footer /> */}
