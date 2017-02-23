@@ -7,6 +7,8 @@ export const caseStudies = [
     id: 'kaiser',
     name: 'Kaiser Permanente',
     color: '#1FB4E7',
+    svg: <YumavoreSVG />,
+    overlay: require('assets/img/case-studies/yumavore_overlay.png'),
     heading: 'Kaiser Permanente worked with Redshift to pioneer the healthcare space by creating an entirely new digital experience – one that puts the patient in charge.',
     content: [
       {
@@ -242,6 +244,8 @@ export const caseStudies = [
   {
     id: 'nexus',
     color: '#CF2BA4',
+    svg: <YumavoreSVG />,
+    overlay: require('assets/img/case-studies/yumavore_overlay.png'),
     name: 'Google Nexus',
     heading: 'We partnered with Autofuss and Unit9 to redesign the product site for the Google Nexus family of phones and tablets.',
     content: [
@@ -312,6 +316,8 @@ export const caseStudies = [
     id: 'five',
     name: 'Five',
     color: '#936FEE',
+    svg: <YumavoreSVG />,
+    overlay: require('assets/img/case-studies/yumavore_overlay.png'),
     heading: 'We develop our own products, too. FIVE lets you share your favorite things in a simple and catchy format – the top five list.',
     content: [
       {
@@ -388,6 +394,8 @@ export const caseStudies = [
     id: 'norton',
     name: 'Norton Antivirus',
     color: '#FFC300',
+    svg: <YumavoreSVG />,
+    overlay: require('assets/img/case-studies/yumavore_overlay.png'),
     heading: 'We were chosen by Symantec to design a cloud-based solution which allows customers to discover, buy and manage the entire suite of Norton products.',
     content: [
       {

@@ -11,7 +11,8 @@ export class Scene extends React.Component {
     super(props);
 
     this.state = {
-      animationInProgress: false
+      animationInProgress: false,
+      inactive: true
     };
   }
 
@@ -19,23 +20,44 @@ export class Scene extends React.Component {
     this.resetDevice();
   }
 
-  componentDidUpdate (prevProps) {
+  componentDidUpdate (prevProps, prevState) {
     const { bannerState, index } = this.props;
 
     if (prevProps.bannerState.active !== bannerState.active) {
-      if (bannerState.active === index) this.drawDevice();
-      if (bannerState.active !== index) this.resetDevice();
+      if (bannerState.active === index) {
+        this.drawDevice();
+        this.fadeText('in');
+      }
+
+      if (bannerState.active !== index && !prevState.inactive) {
+        this.resetDevice();
+        this.fadeText('out');
+      }
     }
+  }
+
+  fadeText (direction) {
+    const cta = ReactDOM.findDOMNode(this.refs.cta);
+
+    const animate = new mojs.Tween({
+      duration: 500,
+      easing: 'cubic.inout',
+      onUpdate: progress => { cta.style.opacity = progress; }
+    });
+
+    if (direction === 'in') animate.play();
+    if (direction === 'out') animate.playBackward();
   }
 
   drawDevice () {
     const device = ReactDOM.findDOMNode(this.refs.device);
     const paths = device.querySelectorAll('path');
-    console.log(this.props.id);
+    this.setState({ inactive: false });
+    device.style.opacity = 1;
 
     this.animate = new mojs.Tween({
       duration: 2000,
-      delay: 200,
+      delay: 400,
       easing: 'cubic.inout',
       onUpdate: (progress) => {
         paths.forEach(path => {
@@ -56,52 +78,72 @@ export class Scene extends React.Component {
     const paths = device.querySelectorAll('path');
     const overlay = ReactDOM.findDOMNode(this.refs.overlay);
 
-    if (overlay) overlay.style.opacity = 0;
-
     if (animationInProgress) this.animate.pause();
+    this.setState({ inactive: true });
 
-    paths.forEach(path => {
-      const totalLength = path.getTotalLength();
-      path.style.strokeDasharray = `${totalLength}, ${totalLength}`;
-      path.style.strokeDashoffset = `-${totalLength}`;
-    });
+    new mojs.Tween({
+      duration: 600,
+      easing: 'cubic.inout',
+      onUpdate: progress => {
+        device.style.opacity = progress;
+        if (overlay) overlay.style.opacity = progress;
+      },
+      onPlaybackComplete: () => {
+        paths.forEach(path => {
+          const totalLength = path.getTotalLength();
+          path.style.strokeDasharray = `${totalLength}, ${totalLength}`;
+          path.style.strokeDashoffset = totalLength;
+          // path.style.strokeDashoffset = 0;
+        });
+      }
+    }).playBackward();
   }
 
   fadeInOverlay () {
     const overlay = ReactDOM.findDOMNode(this.refs.overlay);
 
-    new mojs.Tween({
-      duration: 400,
-      onUpdate: progress => {
-        overlay.style.opacity = progress;
-      }
-    }).play();
+    if (overlay) {
+      new mojs.Tween({
+        duration: 400,
+        onUpdate: progress => {
+          overlay.style.opacity = progress;
+        }
+      }).play();
+    }
   }
 
   render () {
     const { id, caption, onDidMount, svg, overlay } = this.props;
+    const { inactive } = this.state;
 
     return (
       <div
         ref={ (el) => onDidMount instanceof Function && onDidMount(el) }
-        className={ `scene sc__${id} layout--fullheight row` }
+        className={ `scene sc__${id} layout--fullheight parallax__group` }
         data-id={ id }
+        style={ { pointerEvents: inactive ? 'none' : 'auto' } }
       >
-        <div ref="device" className="scene__device">
-          { svg && svg }
-          { overlay && <img ref="overlay" className="scene__overlay" src={ overlay } alt={ id } /> }
+        <div className="parallax__layer parallax__layer--deep">
+          <div ref="device" className="scene__device">
+            { svg && svg }
+            { overlay && <img style={ { width: '685px', left: '74px', top: '254px' } } ref="overlay" className="scene__overlay" src={ overlay } alt={ id } /> }
+          </div>
         </div>
 
-        <div className="scene__cta typ--center typ--white">
-          <h2 className="scene__caption mb4 typ--bold">
-            { caption.map((string, index) => (
-              <span key={ index }>{ string }</span>
-            )) }
-          </h2>
+        <div className="parallax__layer parallax__layer--back">
+          <div ref="cta" className="scene__cta typ--center typ--white">
+            <div className="row">
+              <h2 className="scene__caption mb4 typ--bold">
+                { caption.map((string, index) => (
+                  <span key={ index }>{ string }</span>
+                )) }
+              </h2>
 
-          <Link className="scene__link typ--bold typ--h6" to={ `/work/${id}` }>
-            View project
-          </Link>
+              <Link className="scene__link typ--bold typ--h6" to={ `/work/${id}` }>
+                View project
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     );

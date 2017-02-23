@@ -1,5 +1,4 @@
 import React from 'react';
-import Scene from 'components/Scene';
 import mojs from 'mo-js';
 import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
@@ -53,7 +52,7 @@ export class Hero extends React.Component {
               We are Redshift<span className="typ--redshift">. </span>
             </span>
             <span ref="mission" style={ styles }>
-              We design digital products and experiences<span className="typ--redshift">.</span>
+              We design digital products and experiences.
             </span>
           </h1>
 

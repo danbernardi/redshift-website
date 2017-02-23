@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import Scene from './Scene';
 import { onScroll, getScrollDirection, enableScroll, disableScroll } from 'utils/scrollJack';
 import { connect } from 'react-redux';
@@ -17,11 +18,13 @@ export class Showcase extends React.Component {
 
   componentDidMount () {
     onScroll(100, (event) => this.onScrollStart(event));
-    disableScroll();
+    const showcase = ReactDOM.findDOMNode(this.refs.showcase);
+    disableScroll(showcase);
   }
 
   componentWillUnmount () {
-    enableScroll();
+    const showcase = ReactDOM.findDOMNode(this.refs.showcase);
+    enableScroll(showcase);
   }
 
   // Deteremines scroll direction and navigates to next or previous scrollPoint
@@ -60,17 +63,21 @@ export class Showcase extends React.Component {
 
   // animates page scrolling to a specific location
   scrollToPosition (targetScrollPosition) {
-    const scrollStartPosition = window.scrollY;
+    const showcase = ReactDOM.findDOMNode(this.refs.showcase);
 
-    new mojs.Tween({
-      duration: this.duration,
-      easing: 'cubic.out',
-      onUpdate: (progress) => {
-        const pos = mapRange(progress, 0, 1, scrollStartPosition, targetScrollPosition);
-        window.scrollTo(0, pos);
-      }
-      // onPlaybackComplete: () => this.enableScroll()
-    }).play();
+    if (showcase) {
+      const scrollStartPosition = showcase.scrollTop;
+
+      new mojs.Tween({
+        duration: this.duration,
+        easing: 'cubic.out',
+        onUpdate: (progress) => {
+          const pos = mapRange(progress, 0, 1, scrollStartPosition, targetScrollPosition);
+          showcase.scrollTop = pos;
+        }
+        // onPlaybackComplete: () => this.enableScroll()
+      }).play();
+    }
   }
 
   render () {
@@ -78,7 +85,7 @@ export class Showcase extends React.Component {
     const { sceneColor } = this.state;
 
     return (
-      <section className="showcase" style={ {
+      <section ref="showcase" className="showcase parallax" style={ {
         backgroundColor: sceneColor,
         transition: `background-color ${this.duration}ms ease-out`
       } }>
