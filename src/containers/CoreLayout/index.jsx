@@ -44,7 +44,6 @@ export class CoreLayout extends React.Component {
       careers: 'careers'
     }[location.pathname.slice(1)];
     const { children } = this.props;
-
     return (
       <div className={ `${pathClass && pathClass} page-wrap` } id="content">
         <Loader />

@@ -1,0 +1,22 @@
+@import 'sass-includes';
+
+.four0four {
+  background: $redshift;
+
+  h2 {
+    position: relative;
+    margin-bottom: 25rem;
+
+    &:after {
+      content: '';
+      width: 9rem;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 0.2rem;
+      display: block;
+      background: $white;
+      margin-top: 4rem;
+    }
+  }
+}

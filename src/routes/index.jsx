@@ -49,7 +49,7 @@ export function createRoutes () {
         indexRoute: { component: FourOhFour }
       },
       {
-        path: '/*',
+        path: '*',
         onEnter: (nextState, replace) => replace('/404')
       }
     ]
