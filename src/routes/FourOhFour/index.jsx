@@ -20,10 +20,10 @@ class FourOhFour extends React.Component {
           </h2>
 
           <h5 className="mb1">Here are some things that do exist</h5>
-          <ul className="list--inline">
-            <li><Link className="typ--bold px1" to="/work">Our work</Link></li>
-            <li><Link className="typ--bold px1" to="/about">About us</Link></li>
-            <li><Link className="typ--bold px1" to="/careers">Careers</Link></li>
+          <ul>
+            <li><Link className="typ--bold px2 mb1--mxsm" to="/work">Our work</Link></li>
+            <li><Link className="typ--bold px2 mb1--mxsm" to="/about">About us</Link></li>
+            <li><Link className="typ--bold px2 mb1--mxsm" to="/careers">Careers</Link></li>
           </ul>
         </div>
       </div>

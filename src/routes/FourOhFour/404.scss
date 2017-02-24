@@ -6,6 +6,10 @@
   h2 {
     position: relative;
     margin-bottom: 25rem;
+    // media queries
+    @include breakpoint($mobile-xsm) {
+      margin-bottom: 10rem;
+    }
 
     &:after {
       content: '';
@@ -17,6 +21,14 @@
       display: block;
       background: $white;
       margin-top: 4rem;
+    }
+  }
+
+  ul li {
+    display: inline-block;
+    // media queries
+    @include breakpoint($mobile-xsm) {
+      display: block;
     }
   }
 }
