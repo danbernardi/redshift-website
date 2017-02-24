@@ -17,14 +17,14 @@ export class Showcase extends React.Component {
   }
 
   componentDidMount () {
-    onScroll(100, (event) => this.onScrollStart(event));
+    // onScroll(100, (event) => this.onScrollStart(event));
     const showcase = ReactDOM.findDOMNode(this.refs.showcase);
-    disableScroll(showcase);
+    // disableScroll(showcase);
   }
 
   componentWillUnmount () {
     const showcase = ReactDOM.findDOMNode(this.refs.showcase);
-    enableScroll(showcase);
+    // enableScroll(showcase);
   }
 
   // Deteremines scroll direction and navigates to next or previous scrollPoint
@@ -86,10 +86,13 @@ export class Showcase extends React.Component {
 
     return (
       <section ref="showcase" className="showcase parallax" style={ {
-        backgroundColor: sceneColor,
+        // backgroundColor: sceneColor,
         transition: `background-color ${this.duration}ms ease-out`
       } }>
-        { React.cloneElement(leadingScene, { onDidMount: (el) => this.addScrollPoint(el) }) }
+        <div className="parallax__group">
+          { React.cloneElement(leadingScene, { onDidMount: (el) => this.addScrollPoint(el) }) }
+        </div>
+
         { scenes.map((scene, index) => (
           <Scene
             onDidMount={ (el) => this.addScrollPoint(el) }

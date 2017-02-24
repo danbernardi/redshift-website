@@ -15,10 +15,21 @@ export class Scene extends React.Component {
       animationInProgress: false,
       inactive: true
     };
+
+    this.parallax = [
+      { bg: 'base', fore: 'fore' },
+      { bg: 'back', fore: 'base' },
+      { bg: 'base', fore: 'fore' },
+      { bg: 'deep', fore: 'back' },
+      { bg: 'base', fore: 'fore' },
+      { bg: 'back', fore: 'base' },
+      { bg: 'base', fore: 'fore' }
+    ]
+    ;
   }
 
   componentDidMount () {
-    this.resetDevice();
+    // this.resetDevice();
   }
 
   componentDidUpdate (prevProps, prevState) {
@@ -26,13 +37,13 @@ export class Scene extends React.Component {
 
     if (prevProps.bannerState.active !== bannerState.active) {
       if (bannerState.active === index) {
-        this.drawDevice();
-        this.fadeText('in');
+        // this.drawDevice();
+        // this.fadeText('in');
       }
 
       if (bannerState.active !== index && !prevState.inactive) {
-        this.resetDevice();
-        this.fadeText('out');
+        // this.resetDevice();
+        // this.fadeText('out');
       }
     }
   }
@@ -114,7 +125,7 @@ export class Scene extends React.Component {
   }
 
   render () {
-    const { id, caption, onDidMount, svg, overlay } = this.props;
+    const { id, caption, onDidMount, svg, overlay, color, index } = this.props;
     const { inactive } = this.state;
 
     return (
@@ -124,8 +135,9 @@ export class Scene extends React.Component {
         data-id={ id }
         style={ { pointerEvents: inactive ? 'none' : 'auto' } }
       >
+        <div className={ `scene__bg parallax__layer parallax__layer--${this.parallax[index].bg}` } style={ { backgroundColor: color } } />
 
-        <div className="parallax__layer parallax__layer--deep">
+        <div className={ `parallax__layer parallax__layer--${this.parallax[index].fore}` }>
           <SceneDevice
             id={ id }
             svg={ svg }
@@ -133,7 +145,7 @@ export class Scene extends React.Component {
           />
         </div>
 
-        <div className="parallax__layer parallax__layer--back">
+        <div className={ `parallax__layer parallax__layer--${this.parallax[index].fore}` }>
           <SceneText
             id={ id }
             caption={ caption }
@@ -151,7 +163,8 @@ Scene.propTypes = {
   onDidMount: React.PropTypes.func,
   svg: React.PropTypes.node,
   overlay: React.PropTypes.string,
-  bannerState: React.PropTypes.object
+  bannerState: React.PropTypes.object,
+  color: React.PropTypes.string
 };
 
 const injectStateProps = state => ({

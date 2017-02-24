@@ -7,7 +7,7 @@ export const SceneDevice = props => {
   return (
     <div className="scene__device">
       { svg && svg }
-      { overlay && <img style={ { width: '685px', left: '74px', top: '254px' } } ref="overlay" className="scene__overlay" src={ overlay } alt={ id } /> }
+      { overlay && <img style={ { width: '685px', left: '74px', top: '254px' } } className="scene__overlay" src={ overlay } alt={ id } /> }
     </div>
   );
 };

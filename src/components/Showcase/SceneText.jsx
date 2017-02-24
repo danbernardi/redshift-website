@@ -7,17 +7,15 @@ export const Device = props => {
 
   return (
     <div className="scene__cta typ--center typ--white">
-      <div className="row">
-        <h2 className="scene__caption mb4 typ--bold">
-          { caption.map((string, index) => (
-            <span key={ index }>{ string }</span>
-          )) }
-        </h2>
+      <h2 className="scene__caption mb4 typ--bold">
+        { caption.map((string, index) => (
+          <span key={ index }>{ string }</span>
+        )) }
+      </h2>
 
-        <Link className="scene__link typ--bold typ--h6" to={ `/work/${id}` }>
-          View project
-        </Link>
-      </div>
+      <Link className="scene__link typ--bold typ--h6" to={ `/work/${id}` }>
+        View project
+      </Link>
     </div>
   );
 };

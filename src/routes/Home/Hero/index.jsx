@@ -2,6 +2,7 @@ import React from 'react';
 import mojs from 'mo-js';
 import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
+import './Hero.scss';
 import 'components/ScrollTrigger/ScrollTrigger.scss';
 
 export class Hero extends React.Component {
@@ -44,17 +45,22 @@ export class Hero extends React.Component {
     return (
       <section
         ref={ (el) => onDidMount instanceof Function && onDidMount(el) }
-        className="hero layout--fullheight layout--flex"
+        className="hero"
       >
-        <div className="row">
-          <h1 className="typ--bold" style={ { maxWidth: '110rem' } }>
-            <span ref="us" style={ styles }>
-              We are Redshift<span className="typ--redshift">. </span>
-            </span>
-            <span ref="mission" style={ styles }>
-              We design digital products and experiences.
-            </span>
-          </h1>
+
+        <div className="parallax__layer parallax__layer--base" style={ { backgroundColor: '#fff' } } />
+
+        <div className="parallax__layer parallax__layer--base">
+          <div className="row" style={ { top: '50%', transform: 'translateY(-50%)' } }>
+            <h1 className="typ--bold" style={ { maxWidth: '110rem' } }>
+              <span ref="us" style={ styles }>
+                We are Redshift<span className="typ--redshift">. </span>
+              </span>
+              <span ref="mission" style={ styles }>
+                We design digital products and experiences.
+              </span>
+            </h1>
+          </div>
 
           <div ref="scroller" style={ styles } className="scrolltrigger fixed" onClick={ () => clickCallback instanceof Function && clickCallback(1) }>
             <img src={ require('assets/img/down-arrow.png') } alt="Scroll to the next section" />
