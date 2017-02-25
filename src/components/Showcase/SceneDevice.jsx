@@ -2,19 +2,21 @@ import React from 'react';
 import mojs from 'mo-js';
 
 export const SceneDevice = props => {
-  const { id, svg, overlay } = props;
+  const { id, body, overlay, shadow } = props;
 
   return (
     <div className="scene__device">
-      { svg && svg }
-      { overlay && <img style={ { width: '685px', left: '74px', top: '254px' } } className="scene__overlay" src={ overlay } alt={ id } /> }
+      { body && <img className="scene__device__body" src={ body } alt={ id } /> }
+      { overlay && <img className="scene__device__overlay" src={ overlay } alt={ id } /> }
+      { shadow && <img className="scene__device__shadow" src={ shadow } alt={ id } /> }
     </div>
   );
 };
 
 SceneDevice.propTypes = {
-  svg: React.PropTypes.node,
+  body: React.PropTypes.string,
   overlay: React.PropTypes.string,
+  shadow: React.PropTypes.string,
   id: React.PropTypes.string
 };
 

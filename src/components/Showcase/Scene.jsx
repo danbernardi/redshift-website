@@ -13,19 +13,8 @@ export class Scene extends React.Component {
 
     this.state = {
       animationInProgress: false,
-      inactive: true
+      active: true
     };
-
-    this.parallax = [
-      { bg: 'base', fore: 'fore' },
-      { bg: 'back', fore: 'base' },
-      { bg: 'base', fore: 'fore' },
-      { bg: 'deep', fore: 'back' },
-      { bg: 'base', fore: 'fore' },
-      { bg: 'back', fore: 'base' },
-      { bg: 'base', fore: 'fore' }
-    ]
-    ;
   }
 
   componentDidMount () {
@@ -36,121 +25,38 @@ export class Scene extends React.Component {
     const { bannerState, index } = this.props;
 
     if (prevProps.bannerState.active !== bannerState.active) {
-      if (bannerState.active === index) {
-        // this.drawDevice();
-        // this.fadeText('in');
-      }
-
-      if (bannerState.active !== index && !prevState.inactive) {
-        // this.resetDevice();
-        // this.fadeText('out');
-      }
+      if (bannerState.active === index) this.setActive(true);
+      if (bannerState.active !== index && prevState.active) this.setActive(false);
     }
   }
 
-  fadeText (direction) {
-    const cta = ReactDOM.findDOMNode(this.refs.cta);
-
-    const animate = new mojs.Tween({
-      duration: 500,
-      easing: 'cubic.inout',
-      onUpdate: progress => { cta.style.opacity = progress; }
-    });
-
-    if (direction === 'in') animate.play();
-    if (direction === 'out') animate.playBackward();
-  }
-
-  drawDevice () {
-    const device = ReactDOM.findDOMNode(this.refs.device);
-    const paths = device.querySelectorAll('path');
-    this.setState({ inactive: false });
-    device.style.opacity = 1;
-
-    this.animate = new mojs.Tween({
-      duration: 2000,
-      delay: 400,
-      easing: 'cubic.inout',
-      onUpdate: (progress) => {
-        paths.forEach(path => {
-          const totalLength = path.getTotalLength();
-          const mappedOffset = mapRange(progress, 0, 1, totalLength, 0);
-          path.style.strokeDashoffset = mappedOffset;
-        });
-      },
-      onPlaybackStart: () => this.setState({ animationInProgress: true }),
-      onPlaybackStop: () => this.setState({ animationInProgress: false }),
-      onPlaybackComplete: () => this.fadeInOverlay()
-    }).play();
-  }
-
-  resetDevice () {
-    const { animationInProgress } = this.state;
-    const device = ReactDOM.findDOMNode(this.refs.device);
-    const paths = device.querySelectorAll('path');
-    const overlay = ReactDOM.findDOMNode(this.refs.overlay);
-
-    if (animationInProgress) this.animate.pause();
-    this.setState({ inactive: true });
-
-    new mojs.Tween({
-      duration: 600,
-      easing: 'cubic.inout',
-      onUpdate: progress => {
-        device.style.opacity = progress;
-        if (overlay) overlay.style.opacity = progress;
-      },
-      onPlaybackComplete: () => {
-        paths.forEach(path => {
-          const totalLength = path.getTotalLength();
-          path.style.strokeDasharray = `${totalLength}, ${totalLength}`;
-          path.style.strokeDashoffset = totalLength;
-          // path.style.strokeDashoffset = 0;
-        });
-      }
-    }).playBackward();
-  }
-
-  fadeInOverlay () {
-    const overlay = ReactDOM.findDOMNode(this.refs.overlay);
-
-    if (overlay) {
-      new mojs.Tween({
-        duration: 400,
-        onUpdate: progress => {
-          overlay.style.opacity = progress;
-        }
-      }).play();
-    }
+  setActive (state) {
+    this.setState({ active: state });
   }
 
   render () {
-    const { id, caption, onDidMount, svg, overlay, color, index } = this.props;
-    const { inactive } = this.state;
+    const { id, caption, onDidMount, device } = this.props;
+    const { active } = this.state;
 
     return (
       <div
         ref={ (el) => onDidMount instanceof Function && onDidMount(el) }
-        className={ `scene sc__${id} layout--fullheight parallax__group` }
+        className={ `scene sc__${id}` }
         data-id={ id }
-        style={ { pointerEvents: inactive ? 'none' : 'auto' } }
+        style={ { pointerEvents: active ? 'auto' : 'none' } }
       >
-        <div className={ `scene__bg parallax__layer parallax__layer--${this.parallax[index].bg}` } style={ { backgroundColor: color } } />
 
-        <div className={ `parallax__layer parallax__layer--${this.parallax[index].fore}` }>
-          <SceneDevice
-            id={ id }
-            svg={ svg }
-            overlay={ overlay }
-          />
-        </div>
+        <SceneDevice
+          id={ id }
+          { ...device }
+          active={ active }
+        />
 
-        <div className={ `parallax__layer parallax__layer--${this.parallax[index].fore}` }>
-          <SceneText
-            id={ id }
-            caption={ caption }
-          />
-        </div>
+        <SceneText
+          id={ id }
+          caption={ caption }
+          active={ active }
+        />
       </div>
     );
   }
@@ -161,8 +67,7 @@ Scene.propTypes = {
   id: React.PropTypes.string,
   caption: React.PropTypes.array,
   onDidMount: React.PropTypes.func,
-  svg: React.PropTypes.node,
-  overlay: React.PropTypes.string,
+  device: React.PropTypes.object,
   bannerState: React.PropTypes.object,
   color: React.PropTypes.string
 };

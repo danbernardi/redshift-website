@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="939px" height="795px" viewBox="0 0 939 795" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>Device</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Device">
+            <path d="M934.125601,570.986412 C933.066429,582.360792 926.133632,596.068931 913.70879,603.217599 L596.378374,785.794555 C567.657704,802.319074 526.655055,795.530459 504.797058,770.632513 L10.3178875,207.382573 C-0.933795413,194.566038 -1.99909809,171.945355 4.06598317,160.119367" id="Rectangle-24" fill="#E1A100"></path>
+            <path d="M14.3178875,192.382573 C-3.90185525,171.62888 1.96602412,146.144528 27.4378245,135.455947 L336.749675,5.66124094 C362.215359,-5.02477361 398.699631,2.11958012 418.251737,21.6307365 L925.650607,527.96692 C945.197269,547.472643 941.641039,574.448112 917.70879,588.217599 L600.378374,770.794555 C571.657704,787.319074 530.655055,780.530459 508.797058,755.632513 L14.3178875,192.382573 Z" id="Rectangle-24" fill="#FFC300"></path>
+            <ellipse id="Oval-9" fill="#E1A100" opacity="0.328125" cx="726" cy="629.5" rx="40" ry="33.5"></ellipse>
+            <ellipse id="Oval-10" fill="#F5B700" cx="136.5" cy="126" rx="9.5" ry="6"></ellipse>
+            <rect id="Rectangle-25" fill="#F5B700" transform="translate(205.000000, 94.500000) rotate(-24.000000) translate(-205.000000, -94.500000) " x="169" y="91" width="72" height="7" rx="3.5"></rect>
+        </g>
+    </g>
+</svg>

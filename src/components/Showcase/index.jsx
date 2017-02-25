@@ -17,14 +17,12 @@ export class Showcase extends React.Component {
   }
 
   componentDidMount () {
-    // onScroll(100, (event) => this.onScrollStart(event));
-    const showcase = ReactDOM.findDOMNode(this.refs.showcase);
-    // disableScroll(showcase);
+    onScroll(100, (event) => this.onScrollStart(event));
+    disableScroll();
   }
 
   componentWillUnmount () {
-    const showcase = ReactDOM.findDOMNode(this.refs.showcase);
-    // enableScroll(showcase);
+    enableScroll();
   }
 
   // Deteremines scroll direction and navigates to next or previous scrollPoint
@@ -66,14 +64,14 @@ export class Showcase extends React.Component {
     const showcase = ReactDOM.findDOMNode(this.refs.showcase);
 
     if (showcase) {
-      const scrollStartPosition = showcase.scrollTop;
+      const scrollStartPosition = window.scrollY;
 
       new mojs.Tween({
         duration: this.duration,
         easing: 'cubic.out',
         onUpdate: (progress) => {
           const pos = mapRange(progress, 0, 1, scrollStartPosition, targetScrollPosition);
-          showcase.scrollTop = pos;
+          window.scrollTo(0, pos);
         }
         // onPlaybackComplete: () => this.enableScroll()
       }).play();
@@ -85,13 +83,12 @@ export class Showcase extends React.Component {
     const { sceneColor } = this.state;
 
     return (
-      <section ref="showcase" className="showcase parallax" style={ {
-        // backgroundColor: sceneColor,
+      <section ref="showcase" className="showcase" style={ {
+        backgroundColor: sceneColor,
         transition: `background-color ${this.duration}ms ease-out`
       } }>
-        <div className="parallax__group">
-          { React.cloneElement(leadingScene, { onDidMount: (el) => this.addScrollPoint(el) }) }
-        </div>
+
+        { React.cloneElement(leadingScene, { onDidMount: (el) => this.addScrollPoint(el) }) }
 
         { scenes.map((scene, index) => (
           <Scene

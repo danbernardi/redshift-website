@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1280px" height="908px" viewBox="0 0 1280 908" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>Device body</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="1.68801891%" y1="2.74476627%" x2="48.6331988%" y2="90.7843909%" id="linearGradient-1">
+            <stop stop-color="#F56B51" offset="0%"></stop>
+            <stop stop-color="#BB351D" offset="100%"></stop>
+        </linearGradient>
+        <path d="M1278.97448,573.326333 C1280.33554,587.915813 1272.81901,597.476752 1258.9926,602.492461 L426.172816,904.608535 C404.19061,912.582863 377.006361,902.555079 365.451164,882.203927 L6.56206826,250.124094 C-4.99136759,229.776042 1.4721172,225.188729 10.7797732,205.963484" id="path-2"></path>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Device-body">
+            <g id="Body">
+                <use fill="#DB543A" xlink:href="#path-2"></use>
+                <use fill="url(#linearGradient-1)" xlink:href="#path-2"></use>
+            </g>
+            <path d="M11.3926358,238.002013 C-0.15596651,217.662475 8.95806874,196.91518 31.7507799,191.661316 L858.849001,1.00995366 C871.874547,-1.99251679 888.614925,4.48139742 896.233313,15.4606659 L1273.69023,559.434129 C1282.07146,571.512767 1277.65833,585.370085 1263.84668,590.380439 L431.012136,892.501869 C409.029929,900.476197 381.84568,890.448412 370.299236,870.112674 L11.3926358,238.002013 Z" id="Body" fill="#FF765C"></path>
+            <ellipse id="Oval-3" fill="#DB533A" opacity="0.277570199" cx="222.238627" cy="534.753373" rx="6.84151557" ry="7.41101276"></ellipse>
+        </g>
+    </g>
+</svg>

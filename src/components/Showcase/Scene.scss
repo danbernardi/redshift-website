@@ -4,12 +4,15 @@
   position: relative;
   // z-index: 1;
   color: $white;
+  height: 200vh;
 }
 
 .scene__cta {
   position: absolute;
-  bottom: 11rem;
   width: 56.7rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
 }
 
 .scene__caption {
@@ -19,19 +22,30 @@
   span { display: block; }
 }
 
-.scene__overlay {
-  opacity: 0;
+.scene__device__overlay {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 4;
+  z-index: 3;
+}
+
+.scene__device__body {
+  position: relative;
+  z-index: 2;
+}
+
+.scene__device__shadow {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
 }
 
 .scene__device {
   position: relative;
-  right: -50rem;
-  top: 14%;
-  z-index: 10;
+  z-index: 1;
+  top: 50%;
+  transform: translateY(-50%);
 
   path {
     fill: transparent;
@@ -56,3 +70,57 @@
     width: 50%;
   }
 }
+
+
+// case study specific styles
+.sc__norton {
+  .scene__cta {
+    left: 0;
+  }
+
+  .scene__device {
+    width: 71%;
+    right: -50rem;
+  }
+}
+
+.sc__nexus {
+  .scene__cta {
+    right: 0;
+    margin-top: calc(50vh - 18.7rem);
+  }
+
+  .scene__device {
+    left: -6rem;
+    width: 88%;
+  }
+}
+
+.sc__yumavore {
+  .scene__cta {
+    left: 0;
+    margin-top: calc(50vh - 18.7rem);
+  }
+
+  .scene__device {
+    right: -21rem;
+    width: 97%;
+    float: right;
+  }
+}
+
+.sc__five {
+  .scene__cta {
+    right: 4vw;
+    margin-top: calc(25vh - 18.7rem);
+  }
+
+  .scene__device {
+    width: 68%;
+    left: -4rem;
+  }
+}
+
+
+
+
