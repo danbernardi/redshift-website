@@ -51,6 +51,11 @@
     fill: transparent;
     stroke: $white;
   }
+
+  img {
+    max-width: none;
+    width: 100%;
+  }
 }
 
 .scene__link {
