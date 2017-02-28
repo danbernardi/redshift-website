@@ -3,6 +3,12 @@ export const caseStudies = [
   // {
   //   id: 'kaiser',
   //   name: 'Kaiser Permanente',
+  //   color: '#1FB4E7',
+  //   device: {
+  //     shadow: require('assets/img/case-studies/kaiser/kaiser_shadow.png'),
+  //     body: require('assets/img/case-studies/kaiser/kaiser_body.png'),
+  //     overlay: require('assets/img/case-studies/kaiser/kaiser_overlay.png')
+  //   },
   //   heading: 'Kaiser Permanente worked with Redshift to pioneer the healthcare space by creating an entirely new digital experience – one that puts the patient in charge.',
   //   content: [
   //     {
@@ -141,10 +147,151 @@ export const caseStudies = [
   //   featured: true
   // },
 
+  // Norton Antivirus
+  {
+    id: 'norton',
+    name: 'Norton Antivirus',
+    color: '#FFC300',
+    device: {
+      shadow: require('assets/img/case-studies/norton/norton_shadow.svg'),
+      body: require('assets/img/case-studies/norton/norton_body.svg'),
+      overlay: require('assets/img/case-studies/norton/norton_overlay.png')
+    },
+    caption: ['A single interface', 'for all things Norton'],
+    featured: true,
+    heading: 'We were chosen by Symantec to design a cloud-based solution which allows customers to discover, buy and manage the entire suite of Norton products.',
+    content: [
+      {
+        images:
+        {
+          imgDef: require('assets/img/home/Norton/norton1.jpg'),
+          imgTlg: require('assets/img/home/Norton/norton1_tlg.jpg'),
+          imgMlg: require('assets/img/home/Norton/norton1_mlg.jpg')
+        },
+        imgAlt: 'Norton Antivirus 1',
+        copy: [
+          {
+            classes: 'casestudy__text typ--h3',
+            text: 'All your protected devices are connected in a single, simple interface.'
+          }
+        ]
+      },
+      {
+        images:
+        {
+          imgDef: require('assets/img/home/Norton/norton2.jpg'),
+          imgTlg: require('assets/img/home/Norton/norton2_tlg.jpg'),
+          imgMlg: require('assets/img/home/Norton/norton2_mlg.jpg')
+        },
+        imgAlt: 'Norton Antivirus 2',
+        copy: [
+          {
+            classes: 'casestudy__text typ--h3 pb7',
+            text: 'One central interface gives users access to Norton’s entire product lineup with one-click installation.'
+          },
+          {
+            classes: 'casestudy__text typ--h3',
+            text: 'Discover and deploy Norton on all your connected devices, from anywhere.'
+          }
+        ]
+      },
+      {
+        images:
+        {
+          imgDef: require('assets/img/home/Norton/norton4.jpg'),
+          imgTlg: require('assets/img/home/Norton/norton4_tlg.jpg'),
+          imgMlg: require('assets/img/home/Norton/norton4_mlg.jpg')
+        },
+        imgAlt: 'Norton Antivirus 3',
+        copy: [
+          {
+            classes: 'casestudy__text typ--h4',
+            text: 'Winner of a 2012 Communicator Award and shortlisted for a 2012 Design Week Award. Norton employees can easily explore patterns in critical data driving the business with one touch.'
+          }
+        ]
+      }
+    ]
+  },
+
+  // Google Nexus
+  {
+    id: 'nexus',
+    color: '#3AD283',
+    name: 'Google Nexus',
+    device: {
+      shadow: require('assets/img/case-studies/nexus/nexus_shadow.svg'),
+      body: require('assets/img/case-studies/nexus/nexus_body.svg'),
+      overlay: require('assets/img/case-studies/nexus/nexus_overlay.png')
+    },
+    caption: ['A new home', 'for Google Nexus'],
+    featured: true,
+    heading: 'We partnered with Autofuss and Unit9 to redesign the product site for the Google Nexus family of phones and tablets.',
+    content: [
+      {
+        images:
+        {
+          imgDef: require('assets/img/home/Nexus/nexus1.jpg'),
+          imgTlg: require('assets/img/home/Nexus/nexus1_tlg.jpg'),
+          imgMlg: require('assets/img/home/Nexus/nexus1_mlg.jpg')
+        },
+        imgAlt: 'Google Nexus 1',
+        copy: [
+          {
+            classes: 'casestudy__text typ--h3',
+            text: 'Instead of focusing on product specs, we designed rich, interactive moments which let customers experience new features, and understand how the device will help them in their real life.'
+          }
+        ]
+      },
+      {
+        images:
+        {
+          imgDef: require('assets/img/home/Nexus/nexus2.jpg'),
+          imgTlg: require('assets/img/home/Nexus/nexus2_tlg.jpg'),
+          imgMlg: require('assets/img/home/Nexus/nexus2_mlg.jpg')
+        },
+        imgAlt: 'Google Nexus 2',
+        copy: [
+          {
+            classes: 'casestudy__text typ--h3',
+            text: 'To highlight the Nexus 7’s HDR camera, we let users take before and after photos which show the technology at work. It’s the next best thing to holding the device in your hand.'
+          }
+        ]
+      },
+      {
+        images:
+        {
+          imgDef: require('assets/img/home/Nexus/nexus3.jpg'),
+          imgTlg: require('assets/img/home/Nexus/nexus3_tlg.jpg'),
+          imgMlg: require('assets/img/home/Nexus/nexus3_mlg.jpg')
+        },
+        imgAlt: 'Google Nexus 3',
+        classes: 'mb10'
+      },
+      {
+        images:
+        {
+          imgDef: require('assets/img/home/Nexus/nexus4.jpg'),
+          imgTlg: require('assets/img/home/Nexus/nexus4_tlg.jpg'),
+          imgMlg: require('assets/img/home/Nexus/nexus4_mlg.jpg')
+        },
+        imgAlt: 'Google Nexus 4',
+        classes: 'mt5'
+      }
+    ]
+  },
+
   // Yumavore
   {
     id: 'yumavore',
     name: 'Yumavore',
+    color: '#FF765C',
+    device: {
+      shadow: require('assets/img/case-studies/yumavore/yumavore_shadow.svg'),
+      body: require('assets/img/case-studies/yumavore/yumavore_body.svg'),
+      overlay: require('assets/img/case-studies/yumavore/yumavore_overlay.png')
+    },
+    caption: ['A new way to create', 'and share recipes'],
+    featured: true,
     heading: 'Working with celebrity chef Tyler Florence, we designed a publishing platform that allows anyone to create and share beautiful recipes with the world.',
     content: [
       {
@@ -219,90 +366,21 @@ export const caseStudies = [
       {
         copy: [{ src: require('assets/img/home/Yumavore/yumavore6.jpg') }]
       }
-    ],
-    images: {
-      def: require('assets/img/home/Yumavore/yumavore-scene-bg.jpg'),
-      tlg: require('assets/img/home/Yumavore/yumavore-scene-bg-tlg.jpg'),
-      mlg: require('assets/img/home/Yumavore/yumavore-scene-bg-mlg.jpg'),
-      msm: require('assets/img/home/Yumavore/yumavore-scene-bg-mobile.jpg'),
-      alt: 'Yumavore app design'
-    },
-    caption: ['A new way to create', 'and share recipes'],
-    featured: true
-  },
-
-  // Google Nexus
-  {
-    id: 'nexus',
-    name: 'Google Nexus',
-    heading: 'We partnered with Autofuss and Unit9 to redesign the product site for the Google Nexus family of phones and tablets.',
-    content: [
-      {
-        images:
-        {
-          imgDef: require('assets/img/home/Nexus/nexus1.jpg'),
-          imgTlg: require('assets/img/home/Nexus/nexus1_tlg.jpg'),
-          imgMlg: require('assets/img/home/Nexus/nexus1_mlg.jpg')
-        },
-        imgAlt: 'Google Nexus 1',
-        copy: [
-          {
-            classes: 'casestudy__text typ--h3',
-            text: 'Instead of focusing on product specs, we designed rich, interactive moments which let customers experience new features, and understand how the device will help them in their real life.'
-          }
-        ]
-      },
-      {
-        images:
-        {
-          imgDef: require('assets/img/home/Nexus/nexus2.jpg'),
-          imgTlg: require('assets/img/home/Nexus/nexus2_tlg.jpg'),
-          imgMlg: require('assets/img/home/Nexus/nexus2_mlg.jpg')
-        },
-        imgAlt: 'Google Nexus 2',
-        copy: [
-          {
-            classes: 'casestudy__text typ--h3',
-            text: 'To highlight the Nexus 7’s HDR camera, we let users take before and after photos which show the technology at work. It’s the next best thing to holding the device in your hand.'
-          }
-        ]
-      },
-      {
-        images:
-        {
-          imgDef: require('assets/img/home/Nexus/nexus3.jpg'),
-          imgTlg: require('assets/img/home/Nexus/nexus3_tlg.jpg'),
-          imgMlg: require('assets/img/home/Nexus/nexus3_mlg.jpg')
-        },
-        imgAlt: 'Google Nexus 3',
-        classes: 'mb10'
-      },
-      {
-        images:
-        {
-          imgDef: require('assets/img/home/Nexus/nexus4.jpg'),
-          imgTlg: require('assets/img/home/Nexus/nexus4_tlg.jpg'),
-          imgMlg: require('assets/img/home/Nexus/nexus4_mlg.jpg')
-        },
-        imgAlt: 'Google Nexus 4',
-        classes: 'mt5'
-      }
-    ],
-    images: {
-      def: require('assets/img/home/Nexus/nexus-scene-bg.jpg'),
-      tlg: require('assets/img/home/Nexus/nexus-scene-bg-tlg.jpg'),
-      mlg: require('assets/img/home/Nexus/nexus-scene-bg-mlg.jpg'),
-      msm: require('assets/img/home/Nexus/nexus-scene-bg-mobile.jpg'),
-      alt: 'Nexus product website'
-    },
-    caption: ['A new home', 'for Google Nexus'],
-    featured: true
+    ]
   },
 
   // Five
   {
     id: 'five',
     name: 'Five',
+    color: '#936FEE',
+    device: {
+      shadow: require('assets/img/case-studies/five/five_shadow.svg'),
+      body: require('assets/img/case-studies/five/five_body.svg'),
+      overlay: require('assets/img/case-studies/five/five_overlay.png')
+    },
+    caption: ['Share and compare', 'your top 5 of anything'],
+    featured: true,
     heading: 'We develop our own products, too. FIVE lets you share your favorite things in a simple and catchy format – the top five list.',
     content: [
       {
@@ -362,265 +440,188 @@ export const caseStudies = [
           }
         ]
       }
-    ],
-    images: {
-      def: require('assets/img/home/Five/five-scene-bg.jpg'),
-      tlg: require('assets/img/home/Five/five-scene-bg-tlg.jpg'),
-      mlg: require('assets/img/home/Five/five-scene-bg-mlg.jpg'),
-      msm: require('assets/img/home/Five/five-scene-bg-mobile.jpg'),
-      alt: 'Redshift Five App'
-    },
-    caption: ['Share and compare', 'your top 5 of anything'],
-    featured: true
-  },
-
-  // Norton Antivirus
-  {
-    id: 'norton',
-    name: 'Norton Antivirus',
-    heading: 'We were chosen by Symantec to design a cloud-based solution which allows customers to discover, buy and manage the entire suite of Norton products.',
-    content: [
-      {
-        images:
-        {
-          imgDef: require('assets/img/home/Norton/norton1.jpg'),
-          imgTlg: require('assets/img/home/Norton/norton1_tlg.jpg'),
-          imgMlg: require('assets/img/home/Norton/norton1_mlg.jpg')
-        },
-        imgAlt: 'Norton Antivirus 1',
-        copy: [
-          {
-            classes: 'casestudy__text typ--h3',
-            text: 'All your protected devices are connected in a single, simple interface.'
-          }
-        ]
-      },
-      {
-        images:
-        {
-          imgDef: require('assets/img/home/Norton/norton2.jpg'),
-          imgTlg: require('assets/img/home/Norton/norton2_tlg.jpg'),
-          imgMlg: require('assets/img/home/Norton/norton2_mlg.jpg')
-        },
-        imgAlt: 'Norton Antivirus 2',
-        copy: [
-          {
-            classes: 'casestudy__text typ--h3 pb7',
-            text: 'One central interface gives users access to Norton’s entire product lineup with one-click installation.'
-          },
-          {
-            classes: 'casestudy__text typ--h3',
-            text: 'Discover and deploy Norton on all your connected devices, from anywhere.'
-          }
-        ]
-      },
-      {
-        images:
-        {
-          imgDef: require('assets/img/home/Norton/norton4.jpg'),
-          imgTlg: require('assets/img/home/Norton/norton4_tlg.jpg'),
-          imgMlg: require('assets/img/home/Norton/norton4_mlg.jpg')
-        },
-        imgAlt: 'Norton Antivirus 3',
-        copy: [
-          {
-            classes: 'casestudy__text typ--h4',
-            text: 'Winner of a 2012 Communicator Award and shortlisted for a 2012 Design Week Award. Norton employees can easily explore patterns in critical data driving the business with one touch.'
-          }
-        ]
-      }
-    ],
-    images: {
-      def: require('assets/img/home/Norton/norton-scene-bg.jpg'),
-      tlg: require('assets/img/home/Norton/norton-scene-bg-tlg.jpg'),
-      mlg: require('assets/img/home/Norton/norton-scene-bg-mlg.jpg'),
-      msm: require('assets/img/home/Norton/norton-scene-bg-mobile.jpg'),
-      alt: 'Norton creative design'
-    },
-    caption: ['A single interface', 'for all things Norton'],
-    anchor: true,
-    featured: true
-  },
-
-  // norton campfire
-  {
-    id: 'nortonCampfire',
-    name: 'Norton Campfire',
-    thumb: require('assets/img/home/archive/norton/campfire_thumb.jpg'),
-    heading: 'Redshift created Campfire, a touchscreen kiosk providing a rich, interactive visualization of live data from Norton\'s online store. Winner of the 2012 Communicator Award.',
-    sidebar: true,
-    content: [
-      {
-        images:
-        {
-          imgDef: require('assets/img/home/archive/norton/campfire_1.jpg'),
-          imgTlg: require('assets/img/home/archive/norton/campfire_1_tlg.jpg'),
-          imgMlg: require('assets/img/home/archive/norton/campfire_1_mlg.jpg')
-        },
-        imgAlt: 'Norton Campfire 1'
-      },
-      {
-        images:
-        {
-          imgDef: require('assets/img/home/archive/norton/campfire_2.jpg'),
-          imgTlg: require('assets/img/home/archive/norton/campfire_2_tlg.jpg'),
-          imgMlg: require('assets/img/home/archive/norton/campfire_2_mlg.jpg')
-        },
-        imgAlt: 'Norton Campfire 2'
-      },
-      {
-        images:
-        {
-          imgDef: require('assets/img/home/archive/norton/campfire_3.jpg'),
-          imgTlg: require('assets/img/home/archive/norton/campfire_3_tlg.jpg'),
-          imgMlg: require('assets/img/home/archive/norton/campfire_3_mlg.jpg')
-        },
-        imgAlt: 'Norton Campfire 3'
-      },
-      {
-        images:
-        {
-          imgDef: require('assets/img/home/archive/norton/campfire_4.jpg'),
-          imgTlg: require('assets/img/home/archive/norton/campfire_4_tlg.jpg'),
-          imgMlg: require('assets/img/home/archive/norton/campfire_4_mlg.jpg')
-        },
-        imgAlt: 'Norton Campfire 4'
-      },
-      {
-        images:
-        {
-          imgDef: require('assets/img/home/archive/norton/campfire_5.jpg'),
-          imgTlg: require('assets/img/home/archive/norton/campfire_5_tlg.jpg'),
-          imgMlg: require('assets/img/home/archive/norton/campfire_5_mlg.jpg')
-        },
-        imgAlt: 'Norton Campfire 5'
-      },
-      {
-        images:
-        {
-          imgDef: require('assets/img/home/archive/norton/campfire_6.jpg'),
-          imgTlg: require('assets/img/home/archive/norton/campfire_6_tlg.jpg'),
-          imgMlg: require('assets/img/home/archive/norton/campfire_6_mlg.jpg')
-        },
-        imgAlt: 'Norton Campfire 6'
-      }
-    ]
-  },
-  {
-    id: 'googleFiber',
-    name: 'Google Fiber',
-    thumb: require('assets/img/home/archive/google/fiber_thumb.jpg'),
-    heading: 'Redshift was tasked with creating a personal mobile experience to support the Google Fiber retail spaces. It helped visitors get the most out of the Google Fiber space while also allowing them to experience the delight that only Google can provide.',
-    sidebar: true,
-    content: [
-      {
-        images:
-        {
-          imgDef: require('assets/img/home/archive/google/fiber_1.jpg'),
-          imgTlg: require('assets/img/home/archive/google/fiber_1_tlg.jpg'),
-          imgMlg: require('assets/img/home/archive/google/fiber_1_mlg.jpg')
-        },
-        imgAlt: 'Google Fiber 1'
-      },
-      {
-        images:
-        {
-          imgDef: require('assets/img/home/archive/google/fiber_2.jpg'),
-          imgTlg: require('assets/img/home/archive/google/fiber_2_tlg.jpg'),
-          imgMlg: require('assets/img/home/archive/google/fiber_2_mlg.jpg')
-        },
-        imgAlt: 'Google Fiber 2'
-      },
-      {
-        images:
-        {
-          imgDef: require('assets/img/home/archive/google/fiber_3.jpg'),
-          imgTlg: require('assets/img/home/archive/google/fiber_3_tlg.jpg'),
-          imgMlg: require('assets/img/home/archive/google/fiber_3_mlg.jpg')
-        },
-        imgAlt: 'Google Fiber 3'
-      }
-    ]
-  },
-  {
-    id: 'openTable',
-    name: 'Opentable',
-    thumb: require('assets/img/home/archive/opentable/open_thumb.jpg'),
-    heading: 'Redshift designed the “Places I’ve Eaten” Facebook app that allows diners to share their restaurant experiences with friends. It marked the first collaboration between Facebook and OpenTable.',
-    sidebar: true,
-    content: [
-      {
-        images:
-        {
-          imgDef: require('assets/img/home/archive/opentable/open_1.jpg'),
-          imgTlg: require('assets/img/home/archive/opentable/open_1_tlg.jpg'),
-          imgMlg: require('assets/img/home/archive/opentable/open_1_mlg.jpg')
-        },
-        imgAlt: 'Opentable 1'
-      },
-      {
-        images:
-        {
-          imgDef: require('assets/img/home/archive/opentable/open_2.jpg'),
-          imgTlg: require('assets/img/home/archive/opentable/open_2_tlg.jpg'),
-          imgMlg: require('assets/img/home/archive/opentable/open_2_mlg.jpg')
-        },
-        imgAlt: 'Opentable 2'
-      },
-      {
-        images:
-        {
-          imgDef: require('assets/img/home/archive/opentable/open_3.jpg'),
-          imgTlg: require('assets/img/home/archive/opentable/open_3_tlg.jpg'),
-          imgMlg: require('assets/img/home/archive/opentable/open_3_mlg.jpg')
-        },
-        imgAlt: 'Opentable 3'
-      }
-    ]
-  },
-  {
-    id: 'reviver',
-    name: 'Reviver',
-    thumb: require('assets/img/home/archive/slate/slate_thumb.jpg'),
-    heading: 'Reviver came to Redshift to design the interface for Slate, the world’s first digital license plate. The web app helps small businesses manage fleets as well as communicate with customers through an on-board messaging platform.',
-    sidebar: true,
-    content: [
-      {
-        images:
-        {
-          imgDef: require('assets/img/home/archive/slate/slate_1.jpg'),
-          imgTlg: require('assets/img/home/archive/slate/slate_1_tlg.jpg'),
-          imgMlg: require('assets/img/home/archive/slate/slate_1_mlg.jpg')
-        },
-        imgAlt: 'Reviver 1'
-      },
-      {
-        images:
-        {
-          imgDef: require('assets/img/home/archive/slate/slate_2.jpg'),
-          imgTlg: require('assets/img/home/archive/slate/slate_2_tlg.jpg'),
-          imgMlg: require('assets/img/home/archive/slate/slate_2_mlg.jpg')
-        },
-        imgAlt: 'Reviver 2'
-      },
-      {
-        images:
-        {
-          imgDef: require('assets/img/home/archive/slate/slate_3.jpg'),
-          imgTlg: require('assets/img/home/archive/slate/slate_3_tlg.jpg'),
-          imgMlg: require('assets/img/home/archive/slate/slate_3_mlg.jpg')
-        },
-        imgAlt: 'Reviver 3'
-      },
-      {
-        images:
-        {
-          imgDef: require('assets/img/home/archive/slate/slate_4.jpg'),
-          imgTlg: require('assets/img/home/archive/slate/slate_4_tlg.jpg'),
-          imgMlg: require('assets/img/home/archive/slate/slate_4_mlg.jpg')
-        },
-        imgAlt: 'Reviver 4'
-      }
     ]
   }
+
+  // norton campfire
+  // {
+  //   id: 'nortonCampfire',
+  //   name: 'Norton Campfire',
+  //   thumb: require('assets/img/home/archive/norton/campfire_thumb.jpg'),
+  //   heading: 'Redshift created Campfire, a touchscreen kiosk providing a rich, interactive visualization of live data from Norton\'s online store. Winner of the 2012 Communicator Award.',
+  //   sidebar: true,
+  //   content: [
+  //     {
+  //       images:
+  //       {
+  //         imgDef: require('assets/img/home/archive/norton/campfire_1.jpg'),
+  //         imgTlg: require('assets/img/home/archive/norton/campfire_1_tlg.jpg'),
+  //         imgMlg: require('assets/img/home/archive/norton/campfire_1_mlg.jpg')
+  //       },
+  //       imgAlt: 'Norton Campfire 1'
+  //     },
+  //     {
+  //       images:
+  //       {
+  //         imgDef: require('assets/img/home/archive/norton/campfire_2.jpg'),
+  //         imgTlg: require('assets/img/home/archive/norton/campfire_2_tlg.jpg'),
+  //         imgMlg: require('assets/img/home/archive/norton/campfire_2_mlg.jpg')
+  //       },
+  //       imgAlt: 'Norton Campfire 2'
+  //     },
+  //     {
+  //       images:
+  //       {
+  //         imgDef: require('assets/img/home/archive/norton/campfire_3.jpg'),
+  //         imgTlg: require('assets/img/home/archive/norton/campfire_3_tlg.jpg'),
+  //         imgMlg: require('assets/img/home/archive/norton/campfire_3_mlg.jpg')
+  //       },
+  //       imgAlt: 'Norton Campfire 3'
+  //     },
+  //     {
+  //       images:
+  //       {
+  //         imgDef: require('assets/img/home/archive/norton/campfire_4.jpg'),
+  //         imgTlg: require('assets/img/home/archive/norton/campfire_4_tlg.jpg'),
+  //         imgMlg: require('assets/img/home/archive/norton/campfire_4_mlg.jpg')
+  //       },
+  //       imgAlt: 'Norton Campfire 4'
+  //     },
+  //     {
+  //       images:
+  //       {
+  //         imgDef: require('assets/img/home/archive/norton/campfire_5.jpg'),
+  //         imgTlg: require('assets/img/home/archive/norton/campfire_5_tlg.jpg'),
+  //         imgMlg: require('assets/img/home/archive/norton/campfire_5_mlg.jpg')
+  //       },
+  //       imgAlt: 'Norton Campfire 5'
+  //     },
+  //     {
+  //       images:
+  //       {
+  //         imgDef: require('assets/img/home/archive/norton/campfire_6.jpg'),
+  //         imgTlg: require('assets/img/home/archive/norton/campfire_6_tlg.jpg'),
+  //         imgMlg: require('assets/img/home/archive/norton/campfire_6_mlg.jpg')
+  //       },
+  //       imgAlt: 'Norton Campfire 6'
+  //     }
+  //   ]
+  // },
+  // {
+  //   id: 'googleFiber',
+  //   name: 'Google Fiber',
+  //   thumb: require('assets/img/home/archive/google/fiber_thumb.jpg'),
+  //   heading: 'Redshift was tasked with creating a personal mobile experience to support the Google Fiber retail spaces. It helped visitors get the most out of the Google Fiber space while also allowing them to experience the delight that only Google can provide.',
+  //   sidebar: true,
+  //   content: [
+  //     {
+  //       images:
+  //       {
+  //         imgDef: require('assets/img/home/archive/google/fiber_1.jpg'),
+  //         imgTlg: require('assets/img/home/archive/google/fiber_1_tlg.jpg'),
+  //         imgMlg: require('assets/img/home/archive/google/fiber_1_mlg.jpg')
+  //       },
+  //       imgAlt: 'Google Fiber 1'
+  //     },
+  //     {
+  //       images:
+  //       {
+  //         imgDef: require('assets/img/home/archive/google/fiber_2.jpg'),
+  //         imgTlg: require('assets/img/home/archive/google/fiber_2_tlg.jpg'),
+  //         imgMlg: require('assets/img/home/archive/google/fiber_2_mlg.jpg')
+  //       },
+  //       imgAlt: 'Google Fiber 2'
+  //     },
+  //     {
+  //       images:
+  //       {
+  //         imgDef: require('assets/img/home/archive/google/fiber_3.jpg'),
+  //         imgTlg: require('assets/img/home/archive/google/fiber_3_tlg.jpg'),
+  //         imgMlg: require('assets/img/home/archive/google/fiber_3_mlg.jpg')
+  //       },
+  //       imgAlt: 'Google Fiber 3'
+  //     }
+  //   ]
+  // },
+  // {
+  //   id: 'openTable',
+  //   name: 'Opentable',
+  //   thumb: require('assets/img/home/archive/opentable/open_thumb.jpg'),
+  //   heading: 'Redshift designed the “Places I’ve Eaten” Facebook app that allows diners to share their restaurant experiences with friends. It marked the first collaboration between Facebook and OpenTable.',
+  //   sidebar: true,
+  //   content: [
+  //     {
+  //       images:
+  //       {
+  //         imgDef: require('assets/img/home/archive/opentable/open_1.jpg'),
+  //         imgTlg: require('assets/img/home/archive/opentable/open_1_tlg.jpg'),
+  //         imgMlg: require('assets/img/home/archive/opentable/open_1_mlg.jpg')
+  //       },
+  //       imgAlt: 'Opentable 1'
+  //     },
+  //     {
+  //       images:
+  //       {
+  //         imgDef: require('assets/img/home/archive/opentable/open_2.jpg'),
+  //         imgTlg: require('assets/img/home/archive/opentable/open_2_tlg.jpg'),
+  //         imgMlg: require('assets/img/home/archive/opentable/open_2_mlg.jpg')
+  //       },
+  //       imgAlt: 'Opentable 2'
+  //     },
+  //     {
+  //       images:
+  //       {
+  //         imgDef: require('assets/img/home/archive/opentable/open_3.jpg'),
+  //         imgTlg: require('assets/img/home/archive/opentable/open_3_tlg.jpg'),
+  //         imgMlg: require('assets/img/home/archive/opentable/open_3_mlg.jpg')
+  //       },
+  //       imgAlt: 'Opentable 3'
+  //     }
+  //   ]
+  // },
+  // {
+  //   id: 'reviver',
+  //   name: 'Reviver',
+  //   thumb: require('assets/img/home/archive/slate/slate_thumb.jpg'),
+  //   heading: 'Reviver came to Redshift to design the interface for Slate, the world’s first digital license plate. The web app helps small businesses manage fleets as well as communicate with customers through an on-board messaging platform.',
+  //   sidebar: true,
+  //   content: [
+  //     {
+  //       images:
+  //       {
+  //         imgDef: require('assets/img/home/archive/slate/slate_1.jpg'),
+  //         imgTlg: require('assets/img/home/archive/slate/slate_1_tlg.jpg'),
+  //         imgMlg: require('assets/img/home/archive/slate/slate_1_mlg.jpg')
+  //       },
+  //       imgAlt: 'Reviver 1'
+  //     },
+  //     {
+  //       images:
+  //       {
+  //         imgDef: require('assets/img/home/archive/slate/slate_2.jpg'),
+  //         imgTlg: require('assets/img/home/archive/slate/slate_2_tlg.jpg'),
+  //         imgMlg: require('assets/img/home/archive/slate/slate_2_mlg.jpg')
+  //       },
+  //       imgAlt: 'Reviver 2'
+  //     },
+  //     {
+  //       images:
+  //       {
+  //         imgDef: require('assets/img/home/archive/slate/slate_3.jpg'),
+  //         imgTlg: require('assets/img/home/archive/slate/slate_3_tlg.jpg'),
+  //         imgMlg: require('assets/img/home/archive/slate/slate_3_mlg.jpg')
+  //       },
+  //       imgAlt: 'Reviver 3'
+  //     },
+  //     {
+  //       images:
+  //       {
+  //         imgDef: require('assets/img/home/archive/slate/slate_4.jpg'),
+  //         imgTlg: require('assets/img/home/archive/slate/slate_4_tlg.jpg'),
+  //         imgMlg: require('assets/img/home/archive/slate/slate_4_mlg.jpg')
+  //       },
+  //       imgAlt: 'Reviver 4'
+  //     }
+  //   ]
+  // }
 ];

@@ -71,8 +71,8 @@ export const loaded = {
 };
 
 export const bannerState = {
-  _init: { active: 0, complete: [] },
-  SET_ACTIVE_BANNER: (state, action) => Object.assign({}, state, { active: action.bannerIndex }),
+  _init: { active: 0, complete: [], color: '#FFFFFF' },
+  SET_ACTIVE_BANNER: (state, action) => Object.assign({}, state, { active: action.bannerIndex, color: action.bannerColor }),
   ADD_BANNER_TO_COMPLETE: (state, action) => {
     const newComplete = state.complete.slice();
     newComplete.push(action.bannerIndex);

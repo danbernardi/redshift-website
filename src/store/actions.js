@@ -50,8 +50,8 @@ export const revertToPreviousCaseStudy = (prevID, animate = true) => ({
   type: 'REVERT_TO_PREVIOUS_CASE_STUDY', prevID, animate
 });
 
-export const setActiveBanner = (bannerIndex) => ({
-  type: 'SET_ACTIVE_BANNER', bannerIndex
+export const setActiveBanner = (bannerIndex, bannerColor) => ({
+  type: 'SET_ACTIVE_BANNER', bannerIndex, bannerColor
 });
 
 export const addBannerToComplete = (bannerIndex) => ({

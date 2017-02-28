@@ -22,8 +22,20 @@ export function getScrollDirection (event) {
 // creates scroll handlers for various input devices
 export function onScroll (wait, leadingFunc, trailingFunc) {
   window.ontouchstart = (event) => { touchStartY = event.pageY; };
-  window.onwheel = scrollDebounce(wait, leadingFunc, trailingFunc);
-  window.onmousewheel = scrollDebounce(wait, leadingFunc, trailingFunc);
-  window.ontouchend = scrollDebounce(wait, leadingFunc, trailingFunc);
-  document.onkeydown = scrollDebounce(wait, leadingFunc, trailingFunc);
+  window.onwheel = wait > 0 ? scrollDebounce(wait, leadingFunc, trailingFunc) : leadingFunc;
+  window.onmousewheel = wait > 0 ? scrollDebounce(wait, leadingFunc, trailingFunc) : leadingFunc;
+  window.ontouchend = wait > 0 ? scrollDebounce(wait, leadingFunc, trailingFunc) : leadingFunc;
+  document.onkeydown = wait > 0 ? scrollDebounce(wait, leadingFunc, trailingFunc) : leadingFunc;
+}
+
+ // enables free page scrolling
+export function enableScroll (elem) {
+  const scroller = elem || document.querySelector('html');
+  scroller.classList.remove('disable-scroll');
+}
+
+// disables free page scrolling
+export function disableScroll (elem) {
+  const scroller = elem || document.querySelector('html');
+  scroller.classList.add('disable-scroll');
 }

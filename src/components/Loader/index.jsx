@@ -59,7 +59,7 @@ export class Loader extends React.Component {
       onComplete: () => {
         loader.style.display = 'none';
         dispatch(actions.setAsLoaded(true));
-        html.classList.remove('disable-scroll');
+        // html.classList.remove('disable-scroll');
       }
     }).play();
   }

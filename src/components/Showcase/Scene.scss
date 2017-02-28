@@ -1,0 +1,131 @@
+@import 'sass-includes';
+
+.scene {
+  position: relative;
+  // z-index: 1;
+  color: $white;
+  height: 200vh;
+}
+
+.scene__cta {
+  position: absolute;
+  width: 56.7rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+.scene__caption {
+  text-align: center;
+  width: 100%;
+
+  span { display: block; }
+}
+
+.scene__device__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+}
+
+.scene__device__body {
+  position: relative;
+  z-index: 2;
+}
+
+.scene__device__shadow {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+}
+
+.scene__device {
+  position: relative;
+  z-index: 1;
+  top: 50%;
+  transform: translateY(-50%);
+
+  path {
+    fill: transparent;
+    stroke: $white;
+  }
+
+  img {
+    max-width: none;
+    width: 100%;
+  }
+}
+
+.scene__link {
+  color: $white;
+  position: relative;
+  padding: 6rem 0;
+
+  &:after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 4.3rem;
+    height: 0.2rem;
+    background: $white;
+    transform: translateX(-50%);
+    display: block;
+    width: 50%;
+  }
+}
+
+
+// case study specific styles
+.sc__norton {
+  .scene__cta {
+    left: 0;
+  }
+
+  .scene__device {
+    width: 71%;
+    right: -50rem;
+  }
+}
+
+.sc__nexus {
+  .scene__cta {
+    right: 0;
+    margin-top: calc(50vh - 18.7rem);
+  }
+
+  .scene__device {
+    left: -6rem;
+    width: 88%;
+  }
+}
+
+.sc__yumavore {
+  .scene__cta {
+    left: 0;
+    margin-top: calc(50vh - 18.7rem);
+  }
+
+  .scene__device {
+    right: -21rem;
+    width: 97%;
+    float: right;
+  }
+}
+
+.sc__five {
+  .scene__cta {
+    right: 4vw;
+    margin-top: calc(25vh - 18.7rem);
+  }
+
+  .scene__device {
+    width: 68%;
+    left: -4rem;
+  }
+}
+
+
+
+
