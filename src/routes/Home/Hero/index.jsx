@@ -50,10 +50,10 @@ export class Hero extends React.Component {
         <div className="row" style={ { top: '50%', transform: 'translateY(-50%)' } }>
           <h1 className="typ--bold" style={ { maxWidth: '110rem' } }>
             <span ref="us" style={ styles }>
-              We are Redshift<span className="typ--redshift">. </span>
+              We are Redshift.&nbsp;
             </span>
             <span ref="mission" style={ styles }>
-              We design digital products and experiences.
+              We design digital products and experiences<span className="typ--redshift">.</span>
             </span>
           </h1>
         </div>
