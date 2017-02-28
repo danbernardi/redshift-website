@@ -221,7 +221,10 @@ export const caseStudies = [
     device: {
       shadow: require('assets/img/case-studies/nexus/nexus_shadow.svg'),
       body: require('assets/img/case-studies/nexus/nexus_body.svg'),
-      overlay: require('assets/img/case-studies/nexus/nexus_overlay.png')
+      overlay: require('assets/img/case-studies/nexus/nexus_overlay.png'),
+      shadowmlg: require('assets/img/case-studies/nexus/nexus_shadow-mlg.svg'),
+      bodymlg: require('assets/img/case-studies/nexus/nexus_body-mlg.svg'),
+      overlaymlg: require('assets/img/case-studies/nexus/nexus_overlay-mlg.png')
     },
     caption: ['A new home', 'for Google Nexus'],
     featured: true,

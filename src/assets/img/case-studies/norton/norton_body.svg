@@ -1,16 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="946px" height="854px" viewBox="0 0 946 854" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="958px" height="834px" viewBox="0 0 958 834" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
-    <title>Slice</title>
+    <title>NortonSlice</title>
     <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Device" transform="translate(7.000000, 0.000000)">
-            <path d="M934.125601,570.986412 C933.066429,582.360792 926.133632,596.068931 913.70879,603.217599 L596.378374,785.794555 C567.657704,802.319074 526.655055,795.530459 504.797058,770.632513 L10.3178875,207.382573 C-0.933795413,194.566038 -1.99909809,171.945355 4.06598317,160.119367" id="Rectangle-24" fill="#E1A100"></path>
-            <path d="M14.3178875,192.382573 C-3.90185525,171.62888 1.96602412,146.144528 27.4378245,135.455947 L336.749675,5.66124094 C362.215359,-5.02477361 398.699631,2.11958012 418.251737,21.6307365 L925.650607,527.96692 C945.197269,547.472643 941.641039,574.448112 917.70879,588.217599 L600.378374,770.794555 C571.657704,787.319074 530.655055,780.530459 508.797058,755.632513 L14.3178875,192.382573 Z" id="Rectangle-24" fill="#FFC300"></path>
-            <ellipse id="Oval-9" fill="#E1A100" opacity="0.328125" cx="726" cy="629.5" rx="40" ry="33.5"></ellipse>
-            <ellipse id="Oval-10" fill="#F5B700" cx="136.5" cy="126" rx="9.5" ry="6"></ellipse>
-            <rect id="Rectangle-25" fill="#F5B700" transform="translate(205.000000, 94.500000) rotate(-24.000000) translate(-205.000000, -94.500000) " x="169" y="91" width="72" height="7" rx="3.5"></rect>
+    <defs>
+        <linearGradient x1="1.88753224%" y1="0%" x2="60.334864%" y2="95.0385455%" id="linearGradient-1">
+            <stop stop-color="#DC9F07" offset="0%"></stop>
+            <stop stop-color="#AB7B00" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="54.0141071%" y1="3.34607324%" x2="59.3694705%" y2="96.1731057%" id="linearGradient-2">
+            <stop stop-color="#FDCE36" offset="0%"></stop>
+            <stop stop-color="#FFC300" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Featured-Work" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Norton">
+            <g id="body" transform="translate(14.000000, 0.000000)">
+                <path d="M934.125601,574.986412 C933.066429,586.360792 926.133632,600.068931 913.70879,607.217599 L596.378374,789.794555 C567.657704,806.319074 526.655055,799.530459 504.797058,774.632513 L10.3178875,211.382573 C-0.933795413,198.566038 -1.99909809,175.945355 4.06598317,164.119367" id="Rectangle-24" fill="url(#linearGradient-1)"></path>
+                <path d="M14.3178875,196.382573 C-3.90185525,175.62888 1.81101116,149.751598 27.0524341,138.595315 L328.135066,5.52187289 C353.387905,-5.63945556 389.948185,0.879374895 409.7903,20.0777953 L930.112044,523.519861 C949.956146,542.720203 946.770195,569.65635 922.979277,583.693311 L600.047539,774.227355 C571.509584,791.06513 530.655055,784.530459 508.797058,759.632513 L14.3178875,196.382573 Z" id="Rectangle-24" fill="url(#linearGradient-2)"></path>
+                <ellipse id="Oval-9" fill="#ECAB07" opacity="0.501924819" cx="726" cy="633.5" rx="40" ry="33.5"></ellipse>
+                <ellipse id="Oval-10" fill="#FFC303" cx="136.5" cy="130" rx="9.5" ry="6"></ellipse>
+                <rect id="Rectangle-25" fill="#FFC303" transform="translate(205.000000, 98.500000) rotate(-22.000000) translate(-205.000000, -98.500000) " x="169" y="95" width="72" height="7" rx="3.5"></rect>
+            </g>
         </g>
     </g>
 </svg>

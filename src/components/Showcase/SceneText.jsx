@@ -1,5 +1,5 @@
 import React from 'react';
-import mojs from 'mo-js';
+// import mojs from 'mo-js';
 import { Link } from 'react-router';
 
 export class Device extends React.Component {
@@ -17,8 +17,8 @@ export class Device extends React.Component {
     const { caption, id } = this.props;
 
     return (
-      <div className="scene__cta typ--center typ--white">
-        <h2 className="scene__caption mb4 typ--bold">
+      <div className="scene__cta typ--white mx10 mx3--mlg">
+        <h2 className="scene__caption mb4 mb2--mlg typ--bold">
           { caption.map((string, index) => (
             <span key={ index }>{ string }</span>
           )) }

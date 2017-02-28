@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="946px" height="854px" viewBox="0 0 946 854" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="958px" height="834px" viewBox="0 0 958 834" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
-    <title>Slice</title>
+    <title>NortonSlice</title>
     <desc>Created with Sketch.</desc>
     <defs></defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <path d="M11.3178875,262.382573 C-6.90185525,241.62888 -1.03397588,216.144528 24.4378245,205.455947 L333.749675,75.6612409 C359.215359,64.9752264 395.699631,72.1195801 415.251737,91.6307365 L922.650607,597.96692 C942.197269,617.472643 938.641039,644.448112 914.70879,658.217599 L597.378374,840.794555 C568.657704,857.319074 527.655055,850.530459 505.797058,825.632513 L11.3178875,262.382573 Z" id="shadow" fill="#ECAB07"></path>
+    <g id="Featured-Work" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Norton" fill="#ECAB07">
+            <g id="shadow" transform="translate(0.000000, 21.000000)">
+                <path d="M11.7484803,205.877455 C-6.15678754,184.850446 -2.98057057,154.076231 18.8692696,137.202673 C18.8692696,137.202673 26.5857311,131.067787 27.6757812,130.5625 C28.7658314,130.057213 324.765333,5.6813902 324.765333,5.6813902 C350.22237,-5.01575248 386.402586,2.43150373 405.565424,22.3042226 L924.33692,560.293434 C943.504541,580.171113 939.641039,607.448112 915.70879,621.217599 L598.378374,803.794555 C569.657704,820.319074 528.958531,813.261854 507.469373,788.026113 L11.7484803,205.877455 Z"></path>
+            </g>
+        </g>
     </g>
 </svg>

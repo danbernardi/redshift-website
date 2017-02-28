@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="1291px" height="970px" viewBox="0 0 1291 970" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="1295px" height="948px" viewBox="0 0 1295 948" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
-    <title>Slice</title>
+    <title>Overlay</title>
     <desc>Created with Sketch.</desc>
     <defs></defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.695086051">
-        <path d="M9.80515395,620.769382 C-6.94293835,604.446856 -1.71025496,588.815587 21.4903303,585.856266 L847.430172,480.504554 C860.685931,478.813732 881.471405,481.510573 893.861626,486.530465 L1197.59746,609.588885 C1211.22237,615.109011 1211.31282,624.295666 1197.80535,630.105329 L419.115894,965.025547 C397.627568,974.267838 366.630877,968.528223 349.882735,952.205648 L9.80515395,620.769382 Z" id="shadow" fill="#D14E35"></path>
+    <g id="Featured-Work" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.695086051">
+        <g id="YumavoreSlice" fill="#D14E35">
+            <g id="Shadow" transform="translate(1.000000, 484.000000)">
+                <path d="M11.8131378,138.566327 C-6.04393334,123.460514 -1.71025496,108.815587 21.4903303,105.856266 L847.430172,0.504553849 C860.685931,-1.18626768 881.471405,1.51057294 893.861626,6.53046467 L1197.59746,129.588885 C1211.22237,135.109011 1211.22925,144.052961 1197.59648,149.572375 L443.689909,454.801852 C422.009245,463.579568 389.959325,458.451111 372.100506,443.34382 L11.8131378,138.566327 Z" id="shadow"></path>
+            </g>
+        </g>
     </g>
 </svg>
