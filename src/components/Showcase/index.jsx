@@ -6,6 +6,8 @@ import { connect } from 'react-redux';
 import * as actions from 'store/actions';
 import mojs from 'mo-js';
 import { mapRange } from 'utils/animation';
+import * as browser from 'utils/browserTests';
+import { getClosestNumber } from 'utils/closestNumber';
 
 export class Showcase extends React.Component {
   constructor (props) {
@@ -19,6 +21,11 @@ export class Showcase extends React.Component {
   componentDidMount () {
     onScroll(100, (event) => this.onScrollStart(event));
     disableScroll();
+
+    // timeout of 1 waits for body to return correct scrollTop
+    setTimeout(() => this.scrollToClosestIndex(), 200);
+
+    console.log('mounted');
   }
 
   componentWillUnmount () {
@@ -27,10 +34,12 @@ export class Showcase extends React.Component {
 
   // Deteremines scroll direction and navigates to next or previous scrollPoint
   onScrollStart (event) {
-    const { bannerState } = this.props;
+    const { bannerState, modalState } = this.props;
 
-    const index = getScrollDirection(event) === 'down' ? bannerState.active + 1 : bannerState.active - 1;
-    this.scrollToIndex(index);
+    if (!modalState.open) {
+      const index = getScrollDirection(event) === 'down' ? bannerState.active + 1 : bannerState.active - 1;
+      this.scrollToIndex(index);
+    }
   }
 
   // adds a scrollPoint element to this.scrollPoints
@@ -49,8 +58,7 @@ export class Showcase extends React.Component {
     if (bannerIndex > 0) dispatch(actions.setHeaderTheme('white'));
     if (bannerIndex === 0) dispatch(actions.setHeaderTheme('pink'));
 
-    this.setState({ sceneColor });
-    dispatch(actions.setActiveBanner(bannerIndex));
+    dispatch(actions.setActiveBanner(bannerIndex, sceneColor));
 
     const target = this.scrollPoints[bannerIndex];
     const frameHeight = window.innerHeight;
@@ -78,13 +86,24 @@ export class Showcase extends React.Component {
     }
   }
 
+   // Scrolls to the closest scrollPoint to the current page scroll value
+  scrollToClosestIndex () {
+    let doc = document.querySelector('body');
+    if (browser.isFirefox) doc = document.querySelector('html');
+
+    if (doc) {
+      const closestNumber = getClosestNumber(doc.scrollTop, this.scrollPoints.map(p => p.offsetTop));
+      const currentIndex = this.scrollPoints.findIndex(p => p.offsetTop === closestNumber);
+      this.scrollToIndex(currentIndex);
+    }
+  }
+
   render () {
-    const { scenes, leadingScene } = this.props;
-    const { sceneColor } = this.state;
+    const { scenes, leadingScene, bannerState } = this.props;
 
     return (
       <section ref="showcase" className="showcase" style={ {
-        backgroundColor: sceneColor,
+        backgroundColor: bannerState.color,
         transition: `background-color ${this.duration}ms ease-out`
       } }>
 
@@ -107,11 +126,13 @@ Showcase.propTypes = {
   leadingScene: React.PropTypes.node,
   scenes: React.PropTypes.array,
   bannerState: React.PropTypes.object,
-  dispatch: React.PropTypes.func
+  dispatch: React.PropTypes.func,
+  modalState: React.PropTypes.object
 };
 
 const injectStateProps = state => ({
-  bannerState: state.bannerState
+  bannerState: state.bannerState,
+  modalState: state.modalState
 });
 
 export default connect(injectStateProps)(Showcase);
