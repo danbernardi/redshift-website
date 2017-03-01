@@ -11,7 +11,6 @@ export class Hero extends React.Component {
     const us = ReactDOM.findDOMNode(this.refs.us);
     const mission = ReactDOM.findDOMNode(this.refs.mission);
     const scroller = ReactDOM.findDOMNode(this.refs.scroller);
-    console.log(scroller);
 
     if (loaded && !prevProps.loaded) {
       this.animateIn(us, 0);
