@@ -2,18 +2,21 @@ import React from 'react';
 import * as actions from 'store/actions';
 import { connect } from 'react-redux';
 import Hamburger from 'components/Hamburger';
+import { enableScroll } from 'utils/scrollJack';
 
 const ModalCloseBtn = props => {
   const { animationTiming, dispatch, modalState, closeCallback } = props;
 
   const closeModal = () => {
     dispatch(actions.toggleModal(false));
+    enableScroll();
     const timing = setTimeout(() => {
       dispatch(actions.setActiveModal(null, null));
       clearInterval(timing);
     }, animationTiming);
 
     if (closeCallback instanceof Function) closeCallback();
+    console.log('close');
   };
 
   const initialStyles = { transition: `opacity ${animationTiming}ms ease-in-out` };
