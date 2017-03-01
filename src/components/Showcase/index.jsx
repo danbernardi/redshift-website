@@ -25,7 +25,7 @@ export class Showcase extends React.Component {
     // timeout of 1 waits for body to return correct scrollTop
     setTimeout(() => this.scrollToClosestIndex(), 200);
 
-    console.log('mounted');
+    // console.log('mounted');
   }
 
   componentWillUnmount () {
@@ -40,8 +40,6 @@ export class Showcase extends React.Component {
       const index = getScrollDirection(event) === 'down' ? bannerState.active + 1 : bannerState.active - 1;
       this.scrollToIndex(index);
     }
-
-    console.log('scroll');
   }
 
   // adds a scrollPoint element to this.scrollPoints
