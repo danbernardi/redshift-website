@@ -3,6 +3,7 @@ import CoreLayout from 'containers/CoreLayout';
 import Home from './Home';
 import About from './About';
 import Careers from './Careers';
+import FourOhFour from './FourOhFour';
 import { caseStudies } from 'data/caseStudies';
 import { jobDetails } from 'data/jobDetails';
 import { teamInfo } from 'data/teamInfo';
@@ -42,6 +43,14 @@ export function createRoutes () {
         path: 'careers',
         indexRoute: { component: Careers },
         childRoutes: jobRoutes
+      },
+      {
+        path: '404',
+        indexRoute: { component: FourOhFour }
+      },
+      {
+        path: '*',
+        onEnter: (nextState, replace) => replace('/404')
       }
     ]
   });

@@ -22,7 +22,8 @@ export class Header extends React.Component {
     return {
       work: { label: 'work', color: 'white' },
       about: { label: 'about', color: '' },
-      careers: { label: 'careers', color: '' }
+      careers: { label: 'careers', color: '' },
+      '404': { label: '404', color: 'white' }
     }[path || 'work'];
   };
 
