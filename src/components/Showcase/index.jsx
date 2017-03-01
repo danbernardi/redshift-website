@@ -25,7 +25,7 @@ export class Showcase extends React.Component {
     // timeout of 1 waits for body to return correct scrollTop
     setTimeout(() => this.scrollToClosestIndex(), 200);
 
-    console.log('mounted');
+    // console.log('mounted');
   }
 
   componentWillUnmount () {
