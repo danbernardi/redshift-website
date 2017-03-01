@@ -14,6 +14,7 @@ export function getScrollDirection (event) {
     if (event.key === 'ArrowUp') direction = 'up';
   } else if (event.type === 'touchend') {
     direction = event.pageY < touchStartY ? 'down' : 'up';
+    if (event.pageY === touchStartY) direction = null;
   }
 
   return direction;

@@ -37,8 +37,11 @@ export class Showcase extends React.Component {
     const { bannerState, modalState } = this.props;
 
     if (!modalState.open) {
-      const index = getScrollDirection(event) === 'down' ? bannerState.active + 1 : bannerState.active - 1;
-      this.scrollToIndex(index);
+      const scrollDirection = getScrollDirection(event);
+      if (scrollDirection) {
+        const index = scrollDirection === 'down' ? bannerState.active + 1 : bannerState.active - 1;
+        this.scrollToIndex(index);
+      }
     }
   }
 
