@@ -1,14 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="1039px" height="978px" viewBox="0 0 1039 978" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="1040px" height="958px" viewBox="0 0 1040 958" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
-    <title>Slice</title>
+    <title>overlay</title>
     <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="phone">
-            <path d="M944.049483,108.245555 C950.61557,120.850365 948.676939,143.981035 936.820399,159.720603 L452.522037,815.902117 C424.6087,852.957097 367.124549,868.85274 324.146265,851.413604 L33.5285923,737.548438 C14.3312701,729.758813 1.01826639,702.734734 1.08189587,686.278187" id="frame" fill="#8861EA"></path>
-            <path d="M512.307332,32.8346731 C531.435203,9.23814254 570.897421,-4.21798678 600.461824,2.7826835 L909.050336,75.8545617 C943.445409,83.9991053 954.275982,113.633115 933.251248,142.030264 L447.967618,797.480731 C420.360478,834.768436 363.008183,851.140165 319.894287,834.058552 L29.7074778,719.087296 C-1.09774517,706.882347 -9.15415994,676.120172 11.7065944,650.385921 L512.307332,32.8346731 Z" id="frame" fill="#936FEE"></path>
-            <rect id="Rectangle-3" fill="#8861E9" transform="translate(212.654109, 741.693617) rotate(21.000000) translate(-212.654109, -741.693617) " x="140.154109" y="737.193617" width="145" height="9" rx="4.5"></rect>
+    <defs>
+        <linearGradient x1="97.2106349%" y1="0%" x2="33.7932777%" y2="97.0833668%" id="linearGradient-1">
+            <stop stop-color="#7657C2" offset="0%"></stop>
+            <stop stop-color="#563E92" offset="100%"></stop>
+        </linearGradient>
+        <path d="M944.049483,108.245555 C950.61557,120.850365 948.676939,143.981035 936.820399,159.720603 L452.522037,815.902117 C424.6087,852.957097 367.124549,868.85274 324.146265,851.413604 L33.5285923,737.548438 C14.3312701,729.758813 1.01826639,702.734734 1.08189587,686.278187" id="path-2"></path>
+        <linearGradient x1="50%" y1="10.3202037%" x2="33.4542093%" y2="102.588085%" id="linearGradient-3">
+            <stop stop-color="#9B7BEC" offset="0%"></stop>
+            <stop stop-color="#936FEE" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Featured-Work" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="FiveSlice">
+            <g id="body" transform="translate(1.000000, 0.000000)">
+                <g id="frame">
+                    <use fill="#644BA3" xlink:href="#path-2"></use>
+                    <use fill="url(#linearGradient-1)" xlink:href="#path-2"></use>
+                </g>
+                <path d="M512.307332,32.8346731 C531.435203,9.23814254 570.897421,-4.21798678 600.461824,2.7826835 L909.050336,75.8545617 C943.445409,83.9991053 954.275982,113.633115 933.251248,142.030264 L447.967618,797.480731 C420.360478,834.768436 363.008183,851.140165 319.894287,834.058552 L29.7074778,719.087296 C-1.09774517,706.882347 -9.15415994,676.120172 11.7065944,650.385921 L512.307332,32.8346731 Z" id="frame" fill="url(#linearGradient-3)"></path>
+                <rect id="Rectangle-3" fill="#7C5CCE" opacity="0.721580616" transform="translate(212.654109, 741.693617) rotate(21.000000) translate(-212.654109, -741.693617) " x="140.154109" y="737.193617" width="145" height="9" rx="4.5"></rect>
+            </g>
         </g>
     </g>
 </svg>

@@ -1,5 +1,5 @@
 import React from 'react';
-import mojs from 'mo-js';
+// import mojs from 'mo-js';
 
 export class SceneDevice extends React.Component {
   componentWillReceiveProps (nextProps) {

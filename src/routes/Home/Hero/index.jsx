@@ -52,8 +52,13 @@ export class Hero extends React.Component {
             <span ref="us" style={ styles }>
               We are Redshift.&nbsp;
             </span>
+            <br className="show--tsm" />
             <span ref="mission" style={ styles }>
-              We design digital products and experiences<span className="typ--redshift">.</span>
+              We design&nbsp;
+              <br className="show--tsm" />
+              digital products&nbsp;
+              <br className="show--tsm" />
+              and experiences<span className="typ--redshift">.</span>
             </span>
           </h1>
         </div>

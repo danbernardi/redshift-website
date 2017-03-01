@@ -17,8 +17,7 @@ export const formRouteWithReducer = store => ({ name, path, Component, reducer }
   }
 });
 
-window.windowSize = () => {
-  const value = window.innerWidth;
+function _breakpointObject (value) {
   const breakpoints = {
     desktopLg: 1400,
     desktopSm: 1200,
@@ -38,6 +37,18 @@ window.windowSize = () => {
     value,
     breakpoints
   });
-};
+}
+
+export function windowSize (state = _breakpointObject(1200), action) {
+  switch (action.type) {
+    case 'UPDATE_WINDOW_WIDTH':
+      if (action.windowWidth) {
+        return _breakpointObject(action.windowWidth);
+      }
+      break;
+    default:
+      return state;
+  }
+}
 
 export default makeRootReducer;

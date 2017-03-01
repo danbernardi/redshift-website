@@ -13,12 +13,31 @@
   top: 50%;
   transform: translateY(-50%);
   z-index: 2;
+  font-size: 2rem;
+  // media queries
+  @include breakpoint($tablet-sm) {
+    width: 100%;
+    text-align: left;
+    top: 67.6%;
+  }
+}
+
+.scene__cta h2 {
+  // media queries
+  @include breakpoint($mobile-lg) {
+    font-size: 2.4rem;
+  }
+}
+
+.scent__cta .scene__link {
+  // media queries
+  @include breakpoint($mobile-lg) {
+    font-size: 1.4rem;
+  }
 }
 
 .scene__caption {
-  text-align: center;
   width: 100%;
-
   span { display: block; }
 }
 
@@ -46,6 +65,11 @@
   z-index: 1;
   top: 50%;
   transform: translateY(-50%);
+  // media queries
+  @include breakpoint($tablet-sm) {
+    top: 45.7%;
+  }
+
 
   path {
     fill: transparent;
@@ -73,59 +97,138 @@
     transform: translateX(-50%);
     display: block;
     width: 50%;
+    // media queries
+    @include breakpoint($tablet-sm) {
+      height: 0.1rem;
+      left: 2.5rem;
+      bottom: 4.8rem;
+    }
+  }
+}
+
+.sc__norton,
+.sc__yumavore {
+  .scene__cta {
+    left: 0;
+    text-align: left;
+  }
+
+  .scene__link {
+    &:after {
+      left: 25%;
+    }
   }
 }
 
 
+.sc__nexus,
+.sc__five {
+  .scene__cta {
+    right: 0;
+    text-align: right;
+  }
+
+  .scene__link {
+    &:after {
+      left: 75%;
+    }
+  }
+}
+
 // case study specific styles
 .sc__norton {
+
   .scene__cta {
-    left: 0;
+    top: 57.6%;
+    // media queries
+    @include breakpoint($tablet-sm) {
+      top: 67.4%;
+    }
   }
 
   .scene__device {
-    width: 71%;
-    right: -50rem;
+    width: 64%;
+    right: -33.6%;
+    top: 52.2%;
+    // media queries
+    @include breakpoint($tablet-sm) {
+      right: 6.9rem;
+      width: 152%;
+      top: 46.5%;
+    }
   }
 }
 
 .sc__nexus {
   .scene__cta {
     right: 0;
-    margin-top: calc(50vh - 18.7rem);
+    top: 57%;
+    // media queries
+    @include breakpoint($tablet-sm) {
+      margin-top: 0;
+      top: 66.3%;
+    }
   }
 
   .scene__device {
-    left: -6rem;
-    width: 88%;
+    left: -61%;
+    width: 124%;
+    top: 51.4%;
+    // media queries
+    @include breakpoint($tablet-sm) {
+      left: -112%;
+      width: 242%;
+      top: 46.4%;
+    }
   }
 }
 
 .sc__yumavore {
   .scene__cta {
     left: 0;
-    margin-top: calc(50vh - 18.7rem);
+    margin-top: calc(50vh - 22.6rem);
+    // media queries
+    @include breakpoint($tablet-sm) {
+      margin-top: 0;
+    }
   }
 
   .scene__device {
-    right: -21rem;
-    width: 97%;
+    right: -23%;
+    width: 96%;
+    top: 47%;
     float: right;
+    // media queries
+    @include breakpoint($tablet-sm) {
+      top: 43%;
+      right: -29%;
+      width: 165%;
+    }
   }
 }
 
 .sc__five {
   .scene__cta {
     right: 4vw;
-    margin-top: calc(25vh - 18.7rem);
+    margin-top: calc(25vh - 5.1rem);
+    // media queries
+    @include breakpoint($tablet-sm) {
+      margin-top: 0;
+    }
   }
 
   .scene__device {
     width: 68%;
-    left: -4rem;
+    left: -2.5%;
+    // media queries
+    @include breakpoint($tablet-sm) {
+      width: 169%;
+      left: -47.5%;
+      top: 48.7%;
+    }
+    @include breakpoint($mobile-sm) {
+      width: 197%;
+      left: -58.5%;
+    }
   }
 }
-
-
-
-

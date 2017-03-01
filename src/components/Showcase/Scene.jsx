@@ -1,7 +1,7 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { mapRange } from 'utils/animation';
-import mojs from 'mo-js';
+// import ReactDOM from 'react-dom';
+// import { mapRange } from 'utils/animation';
+// import mojs from 'mo-js';
 import { connect } from 'react-redux';
 import SceneDevice from './SceneDevice';
 import SceneText from './SceneText';

@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="1215px" height="711px" viewBox="0 0 1215 711" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="1885px" height="922px" viewBox="0 0 1885 922" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
-    <title>Slice</title>
+    <title>overlay</title>
     <desc>Created with Sketch.</desc>
     <defs></defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <path d="M105.979313,217.916331 C111.729322,198.882828 132.290785,186.118831 151.886903,189.404174 L1192.86378,363.926816 C1216.39601,367.87206 1221.33798,384.274495 1203.90584,400.559069 L888.905622,694.822636 C878.011289,704.999788 857.390745,710.565306 842.858936,707.255978 L57.2149523,528.341367 C33.954212,523.044201 20.6924252,500.230368 27.587973,477.404937 L105.979313,217.916331 Z" id="Shadow" fill="#1DAC62"></path>
+    <g id="Featured-Work" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="NexusSlice" fill="#1CB063">
+            <g id="shadow" transform="translate(677.000000, 684.000000)">
+                <path d="M39.6326957,0.95817908 L937.699909,15.6812006 C960.525447,16.0554052 997.52461,17.2816449 1020.31773,18.4189797 L1190.47267,26.9093988 C1205.09172,27.6388628 1206.36646,33.6191032 1193.3342,40.2593392 L994.750792,141.442178 C986.927662,145.428244 973.492656,149.254361 964.743794,149.987972 L20.2791878,229.183326 L0.565518366,168.889935 L39.6326957,0.95817908 Z" id="Rectangle-22"></path>
+            </g>
+        </g>
     </g>
 </svg>
