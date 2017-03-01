@@ -16,7 +16,6 @@ const ModalCloseBtn = props => {
     }, animationTiming);
 
     if (closeCallback instanceof Function) closeCallback();
-    console.log('close');
   };
 
   const initialStyles = { transition: `opacity ${animationTiming}ms ease-in-out` };
