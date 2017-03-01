@@ -1,7 +1,14 @@
 @import 'sass-includes';
 
+.hero h1 {
+  @media (max-width: 767px) and (orientation: landscape) {
+    font-size: 3rem;
+  }
+}
+
 .scene {
   position: relative;
+  overflow: hidden;
   // z-index: 1;
   color: $white;
   height: 200vh;
@@ -19,6 +26,9 @@
     width: 100%;
     text-align: left;
     top: 67.6%;
+  }
+  @media (max-width: 767px) and (orientation: landscape) {
+    top: 62.3%;
   }
 }
 
@@ -144,6 +154,9 @@
     @include breakpoint($tablet-sm) {
       top: 67.4%;
     }
+    @media (max-width: 767px) and (orientation: landscape) {
+      top: 62.3%;
+    }
   }
 
   .scene__device {
@@ -155,6 +168,10 @@
       right: 6.9rem;
       width: 152%;
       top: 46.5%;
+    }
+    @media (max-width: 767px) and (orientation: landscape) {
+      width: 95%;
+      right: -9.1rem;
     }
   }
 }
@@ -168,6 +185,9 @@
       margin-top: 0;
       top: 66.3%;
     }
+    @media (max-width: 767px) and (orientation: landscape) {
+      top: 62.3%;
+    }
   }
 
   .scene__device {
@@ -179,6 +199,10 @@
       left: -112%;
       width: 242%;
       top: 46.4%;
+    }
+    @media (max-width: 767px) and (orientation: landscape) {
+      left: -50%;
+      width: 125%;
     }
   }
 }
@@ -203,6 +227,10 @@
       top: 43%;
       right: -29%;
       width: 165%;
+    }
+    @media (max-width: 767px) and (orientation: landscape) {
+      right: -15%;
+      width: 92%;
     }
   }
 }
@@ -229,6 +257,10 @@
     @include breakpoint($mobile-sm) {
       width: 197%;
       left: -58.5%;
+    }
+    @media (max-width: 767px) and (orientation: landscape) {
+      width: 79%;
+      left: -4.5%;
     }
   }
 }
