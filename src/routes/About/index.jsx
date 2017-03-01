@@ -14,7 +14,6 @@ export class About extends React.Component {
   componentDidMount () {
     const { dispatch, modal } = this.props;
     dispatch(actions.setHeaderTheme('pink'));
-
     if (modal) this.openModal(modal);
   }
 
