@@ -2,10 +2,14 @@
 
 .scrolltrigger {
   z-index: 0;
-  // transition: opacity 1s ease-in-out;
-  // opacity: 1;
-  cursor: pointer;
-  position: relative;
+  // cursor: pointer;
+  position: absolute;
+  bottom: 4rem;
+  left: 7rem;
+  // media queries
+  @include breakpoint($mobile-lg) {
+    left: 4rem;
+  }
 
   img {
     padding-left: 0.5rem;

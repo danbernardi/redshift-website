@@ -40,6 +40,8 @@ export class Showcase extends React.Component {
       const index = getScrollDirection(event) === 'down' ? bannerState.active + 1 : bannerState.active - 1;
       this.scrollToIndex(index);
     }
+
+    console.log('scroll');
   }
 
   // adds a scrollPoint element to this.scrollPoints

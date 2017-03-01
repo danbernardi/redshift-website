@@ -11,6 +11,7 @@ export class Hero extends React.Component {
     const us = ReactDOM.findDOMNode(this.refs.us);
     const mission = ReactDOM.findDOMNode(this.refs.mission);
     const scroller = ReactDOM.findDOMNode(this.refs.scroller);
+    console.log(scroller);
 
     if (loaded && !prevProps.loaded) {
       this.animateIn(us, 0);
@@ -63,7 +64,7 @@ export class Hero extends React.Component {
           </h1>
         </div>
 
-        <div ref="scroller" style={ styles } className="scrolltrigger fixed" onClick={ () => clickCallback instanceof Function && clickCallback(1) }>
+        <div ref="scroller" style={ styles } className="scrolltrigger" onClick={ () => clickCallback instanceof Function && clickCallback(1) }>
           <img src={ require('assets/img/down-arrow.png') } alt="Scroll to the next section" />
         </div>
       </section>
