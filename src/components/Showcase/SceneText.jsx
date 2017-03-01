@@ -17,7 +17,7 @@ export class Device extends React.Component {
     const { caption, id } = this.props;
 
     return (
-      <div className="scene__cta typ--white mx10 mx3--mlg">
+      <div className="scene__cta typ--white mx10 mx8--dsm mx3--tlg">
         <h2 className="scene__caption mb4 mb2--mlg typ--bold">
           { caption.map((string, index) => (
             <span key={ index }>{ string }</span>
