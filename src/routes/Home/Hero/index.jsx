@@ -48,7 +48,7 @@ export class Hero extends React.Component {
       >
 
         <div className="row" style={ { top: '50%', transform: 'translateY(-50%)' } }>
-          <h1 className="typ--bold" style={ { maxWidth: '110rem' } }>
+          <h1 className="typ--bold typ--redshift" style={ { maxWidth: '110rem' } }>
             <span ref="us" style={ styles }>
               We are Redshift.&nbsp;
             </span>
