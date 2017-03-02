@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { scrollDocToZero } from 'utils/scrollTo';
 import { Link } from 'react-router';
 import * as actions from 'store/actions';
-import { disableScroll } from 'utils/scrollJack';
 
 class NavLinks extends React.Component {
   constructor (props) {
