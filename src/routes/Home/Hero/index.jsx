@@ -12,11 +12,11 @@ export class Hero extends React.Component {
     const mission = ReactDOM.findDOMNode(this.refs.mission);
     const scroller = ReactDOM.findDOMNode(this.refs.scroller);
 
-    if (loaded && !prevProps.loaded) {
+    if (loaded && !prevProps.loaded)  {
       this.animateIn(us, 0);
       this.animateIn(mission, 600);
       this.animateIn(scroller, 1200);
-    } else if (prevProps.loaded) {
+    } else if (prevProps.loaded || location.pathname === '/work') {
       us.style.opacity = 1;
       mission.style.opacity = 1;
       scroller.style.opacity = 1;

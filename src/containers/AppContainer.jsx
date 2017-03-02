@@ -27,9 +27,9 @@ class AppContainer extends Component {
 
     // halt normal page scrolling if modal is open
     if (nextProps.modalState.open) {
-      if (html && html[0]) { html[0].classList.add('disable-scroll'); }
-    } else if (!nextProps.modalState.open) {
-      // if (html && html[0]) { html[0].classList.remove('disable-scroll'); }
+      if (html && html[0]) { html[0].classList.add('disable-scroll'); console.log('modalStateOpen'); }
+    } else if (!nextProps.modalState.open && ['/', '/work'].indexOf(location.pathname) === -1) {
+      if (html && html[0]) { html[0].classList.remove('disable-scroll'); console.log('modalStateClosed'); }
     }
   }
 
@@ -49,7 +49,8 @@ const injectStateProps = state => ({
 });
 
 AppContainer.propTypes = {
-  dispatch: React.PropTypes.func
+  dispatch: React.PropTypes.func,
+  modalState: React.PropTypes.object
 };
 
 export default connect(injectStateProps)(AppContainer);

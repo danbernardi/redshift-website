@@ -40,7 +40,7 @@ export class CoreLayout extends React.Component {
     const { children } = this.props;
     return (
       <div className="page-wrap">
-        <Loader />
+        { location.pathname === '/' && <Loader /> }
         <Modal />
 
         <div className="content-wrap">
