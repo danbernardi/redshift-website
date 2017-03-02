@@ -5,9 +5,22 @@
   width: 100%;
 }
 
+.footer__tall {
+  height: 100vh;
+  display: flex;
+  align-items: flex-end;
+}
+
+.footer__center {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  transform: translateY(-50%);
+}
+
 .content-main .footer {
   z-index: 1;
-  background: $white;
+  // background: $white;
   position: relative;
 }
 

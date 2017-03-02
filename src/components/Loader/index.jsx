@@ -17,7 +17,6 @@ import { connect } from 'react-redux';
 
 // const easing = mojsCurve.getEasing();
 
-
 import './Loader.scss';
 
 export class Loader extends React.Component {
@@ -33,7 +32,7 @@ export class Loader extends React.Component {
 
     new mojs.Tween({
       duration: 300,
-      delay: 2000,
+      delay: 1000,
       easing: 'quint.in',
       onUpdate: progress => {
         const mappedScale = mapRange(progress, 0, 1, 1, 50);
