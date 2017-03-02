@@ -8,6 +8,9 @@ import mojs from 'mo-js';
 import { mapRange } from 'utils/animation';
 import * as browser from 'utils/browserTests';
 import { getClosestNumber } from 'utils/closestNumber';
+import Footer from 'components/Footer';
+import { Link } from 'react-router';
+import { scrollDocToZero } from 'utils/scrollTo';
 
 export class Showcase extends React.Component {
   constructor (props) {
@@ -59,7 +62,7 @@ export class Showcase extends React.Component {
     if (bannerIndex < 0 || bannerIndex >= this.scrollPoints.length) return false;
 
     if (bannerIndex > 0) dispatch(actions.setHeaderTheme('white'));
-    if (bannerIndex === 0) dispatch(actions.setHeaderTheme('pink'));
+    if (bannerIndex === 0 || bannerIndex === this.scrollPoints.length - 1) dispatch(actions.setHeaderTheme('pink'));
 
     dispatch(actions.setActiveBanner(bannerIndex, sceneColor));
 
@@ -101,6 +104,10 @@ export class Showcase extends React.Component {
     }
   }
 
+  scrollToTop () {
+    scrollDocToZero();
+  }
+
   render () {
     const { scenes, leadingScene, bannerState } = this.props;
 
@@ -120,6 +127,18 @@ export class Showcase extends React.Component {
             { ...scene }
           />
         )) }
+
+        <Footer classes="footer__tall" onDidMount={ (el) => this.addScrollPoint(el) }>
+          <div className="footer__center">
+            <div className="row">
+              <ul className="typ--bold">
+                <li className="typ--h1" onClick={ () => this.scrollToTop() }><Link className="typ--redshift" to="/about">About.</Link></li>
+                <li className="typ--h1" onClick={ () => this.scrollToTop() }><Link className="typ--redshift" to="/careers">Careers.</Link></li>
+                <li className="typ--h1"><a className="typ--redshift" href="http://weareredshift.tumblr.com/" target="_blank">Blog.</a></li>
+              </ul>
+            </div>
+          </div>
+        </Footer>
       </section>
     );
   }

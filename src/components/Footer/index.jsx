@@ -3,9 +3,11 @@ import FooterSocial from './FooterSocial';
 import './footer.scss';
 
 export function Footer (props) {
-  const { onDidMount } = props;
+  const { onDidMount, classes, children } = props;
   return (
-    <footer ref={ (el) => onDidMount instanceof Function && onDidMount(el) } className="footer py6 py3--mlg cf">
+    <footer ref={ (el) => onDidMount instanceof Function && onDidMount(el) } className={ `footer py6 py3--mlg cf ${classes && classes}` }>
+      { children && children }
+
       <div className="row">
         <div className="hide--msm">
           <FooterSocial />
@@ -27,7 +29,9 @@ export function Footer (props) {
 };
 
 Footer.propTypes = {
-  onDidMount: React.PropTypes.func
+  onDidMount: React.PropTypes.func,
+  classes: React.PropTypes.string,
+  children: React.PropTypes.node
 };
 
 export default Footer;
