@@ -62,8 +62,7 @@
 
 .casestudy__text {
   max-width: 125rem;
-  width: 80%;
-  margin: auto;
+  color: $lighttext;
   // media queries
   @include breakpoint($mobile-lg) {
     width: 100%;

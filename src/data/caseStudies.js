@@ -159,7 +159,7 @@ export const caseStudies = [
     },
     caption: ['A single interface', 'for all things Norton'],
     featured: true,
-    heading: 'We were chosen by Symantec to design a cloud-based solution which allows customers to discover, buy and manage the entire suite of Norton products.',
+    heading: 'The world’s fourth largest software company approached Redshift with a critical challenge: How can we get more Norton on more devices?',
     content: [
       {
         images:
@@ -171,8 +171,8 @@ export const caseStudies = [
         imgAlt: 'Norton Antivirus 1',
         copy: [
           {
-            classes: 'casestudy__text typ--h3',
-            text: 'All your protected devices are connected in a single, simple interface.'
+            classes: 'casestudy__text typ--h4',
+            text: 'Norton’s security software is ubiquitous on desktop PCs, but the modern home contains Macs, smartphones, tablets, smart TVs, and other connected devices. We proposed a system that unites all of these connected devices in a single, simple interface.'
           }
         ]
       },
@@ -186,12 +186,8 @@ export const caseStudies = [
         imgAlt: 'Norton Antivirus 2',
         copy: [
           {
-            classes: 'casestudy__text typ--h3 pb7',
-            text: 'One central interface gives users access to Norton’s entire product lineup with one-click installation.'
-          },
-          {
-            classes: 'casestudy__text typ--h3',
-            text: 'Discover and deploy Norton on all your connected devices, from anywhere.'
+            classes: 'casestudy__text typ--h4',
+            text: 'Many users are unaware of Norton’s offerings such as Online Family, Backup, and Zone. The new console makes trying and buying products as simple as switching on a new feature. Software is automatically deployed to all devices from the cloud, and billed in a single subscription.'
           }
         ]
       },
@@ -205,8 +201,12 @@ export const caseStudies = [
         imgAlt: 'Norton Antivirus 3',
         copy: [
           {
+            classes: 'casestudy__text typ--h4 pb7',
+            text: 'In the past, each Norton product had its own separate interface, which made it very awkward to use multiple products together. The new solution lets users control and protect all their devices—from any device. For example, Mom can use her smartphone to remotely change Online Family settings for the home PC.'
+          },
+          {
             classes: 'casestudy__text typ--h4',
-            text: 'Winner of a 2012 Communicator Award and shortlisted for a 2012 Design Week Award. Norton employees can easily explore patterns in critical data driving the business with one touch.'
+            text: 'This work, which included both web and native apps, was considered the most ambitious and significant UX initiative on the company’s roadmap.'
           }
         ]
       }
@@ -228,7 +228,7 @@ export const caseStudies = [
     },
     caption: ['A new home', 'for Google Nexus'],
     featured: true,
-    heading: 'We partnered with Autofuss and Unit9 to redesign the product site for the Google Nexus family of phones and tablets.',
+    heading: 'Google asked Redshift to reinvent the way their customers experience Nexus products online.',
     content: [
       {
         images:
@@ -241,7 +241,7 @@ export const caseStudies = [
         copy: [
           {
             classes: 'casestudy__text typ--h3',
-            text: 'Instead of focusing on product specs, we designed rich, interactive moments which let customers experience new features, and understand how the device will help them in their real life.'
+            text: 'Instead of focusing on specs, we built the site around a set of rich, interactive “moments,” which show features in action. For example, to demonstrate the new HDR camera we let users take photos under backlit conditions using a virtual Nexus phone.'
           }
         ]
       },
@@ -256,7 +256,7 @@ export const caseStudies = [
         copy: [
           {
             classes: 'casestudy__text typ--h3',
-            text: 'To highlight the Nexus 7’s HDR camera, we let users take before and after photos which show the technology at work. It’s the next best thing to holding the device in your hand.'
+            text: 'For diehard Nexus fans, it’s what’s under the hood that matters most. Inspired by “teardowns” that are popular on tech blogs, we created a interactive 3D model that allows these customers to virtually deconstruct the phone component by component.'
           }
         ]
       },
@@ -268,7 +268,13 @@ export const caseStudies = [
           imgMlg: require('assets/img/home/Nexus/nexus3_mlg.jpg')
         },
         imgAlt: 'Google Nexus 3',
-        classes: 'mb10'
+        classes: 'mb10',
+        copy: [
+          {
+            classes: 'casestudy__text typ--h3',
+            text: 'Google wanted the site to be transactional as well as inspirational. So we streamlined the shopping flows to reduce friction to a minimum, and maximize conversion.'
+          }
+        ]
       },
       {
         images:
@@ -278,7 +284,13 @@ export const caseStudies = [
           imgMlg: require('assets/img/home/Nexus/nexus4_mlg.jpg')
         },
         imgAlt: 'Google Nexus 4',
-        classes: 'mt5'
+        classes: 'mt5',
+        copy: [
+          {
+            classes: 'casestudy__text typ--h3',
+            text: 'We love working with Google because they aim high. The Nexus site broke new ground for how to showcase hardware products online.'
+          }
+        ]
       }
     ]
   },
@@ -295,7 +307,7 @@ export const caseStudies = [
     },
     caption: ['A new way to create', 'and share recipes'],
     featured: true,
-    heading: 'Working with celebrity chef Tyler Florence, we designed a publishing platform that allows anyone to create and share beautiful recipes with the world.',
+    heading: 'Working with celebrity chef Tyler Florence, Redshift designed a publishing platform that allows anyone to share beautiful recipes with food lovers everywhere.',
     content: [
       {
         images:
@@ -307,13 +319,8 @@ export const caseStudies = [
         imgAlt: 'Yumavore 1',
         copy: [
           {
-            classes: 'casestudy__text typ--h3',
-            text: 'We reimagined the recipe format for mobile devices, showing the ingredients you need for each step.'
-          },
-          {
-            classes: 'btn btn--ghost mt5 typ--yumavore',
-            text: 'download the app',
-            url: 'https://itunes.apple.com/us/app/yumavore/id1043281685?mt=8:'
+            classes: 'casestudy__text typ--h4',
+            text: 'By observing home chefs, we discovered that flipping between ingredients and directions (as most apps require) can be very frustrating while cooking with a phone. So, we remixed the traditional recipe format with a design that shows ingredients and steps side-by-side.'
           }
         ]
       },
@@ -327,8 +334,8 @@ export const caseStudies = [
         imgAlt: 'Yumavore 2',
         copy: [
           {
-            classes: 'casestudy__text typ--h3',
-            text: 'Capture photos, choose ingredients, and format your recipe with a simple drag and drop.'
+            classes: 'casestudy__text typ--h4',
+            text: 'Yumavore is more than a cooking app; it is a publishing tool that enables chefs to create beautiful recipes with photos, video, smart ingredients lists, timers, and more. Text and graphics can be edited and organized with tap-and-drag simplicity.'
           }
         ]
       },
@@ -342,8 +349,8 @@ export const caseStudies = [
         imgAlt: 'Yumavore 3',
         copy: [
           {
-            classes: 'casestudy__text typ--h3',
-            text: 'Yumavore makes shopping easy by collecting multiple recipes into an intelligent list which can be viewed by store aisle.'
+            classes: 'casestudy__text typ--h4',
+            text: 'Like other apps, Yumavore can combine recipes to build smart shopping lists. But unlike other apps, Yumavore’s list can be organized by grocery aisle, so shoppers spend less time criss-crossing the supermarket.'
           }
         ]
       },
@@ -357,8 +364,8 @@ export const caseStudies = [
         imgAlt: 'Yumavore 4',
         copy: [
           {
-            classes: 'casestudy__text typ--h3',
-            text: 'Redshift also designed Yumavore’s logo and visual identity.'
+            classes: 'casestudy__text typ--h4',
+            text: 'Yumavore is available in the app store, featuring user-created content from thousands of professional and home chefs.'
           }
         ]
       },
@@ -367,7 +374,12 @@ export const caseStudies = [
         copy: [{ src: require('assets/img/home/Yumavore/yumavore5.jpg') }]
       },
       {
-        copy: [{ src: require('assets/img/home/Yumavore/yumavore6.jpg') }]
+        copy: [{ src: require('assets/img/home/Yumavore/yumavore6.jpg') },
+          {
+            classes: 'btn btn--ghost mt5 typ--yumavore',
+            text: 'download the app',
+            url: 'https://itunes.apple.com/us/app/yumavore/id1043281685?mt=8:'
+          }]
       }
     ]
   },
@@ -384,7 +396,7 @@ export const caseStudies = [
     },
     caption: ['Share and compare', 'your top 5 of anything'],
     featured: true,
-    heading: 'We develop our own products, too. FIVE lets you share your favorite things in a simple and catchy format – the top five list.',
+    heading: 'Redshift’s first product, Five, is a social app that lets you share and compare your top five of everything.',
     content: [
       {
         images:
@@ -397,7 +409,7 @@ export const caseStudies = [
         copy: [
           {
             classes: 'casestudy__text typ--h3',
-            text: 'A fun, interesting twist on the social media platform. Our gesture-driven interface puts the content front and center.'
+            text: 'SF’s secret swimming spots. Best breakfast cocktails. Cover songs that blow away the original. Five is an app that lets you curate your favorite things in a simple, addictive format: the top five list.'
           }
         ]
       },
@@ -412,16 +424,16 @@ export const caseStudies = [
         copy: [
           {
             classes: 'casestudy__text typ--h3',
-            text: 'Creating a FIVE is easy too. The app seamlessly integrates with Google Images to bring your lists to life.'
-          },
-          {
-            classes: 'btn btn--ghost mt5 mb6 mt3--mlg mb4--mlg typ--five',
-            text: 'coming soon'
-          },
-          {
-            classes: 'casestudy__text typ--h3 mt10',
-            text: 'You can share, comment, or even add suggestions to other lists.'
+            text: 'To keep the focus on the content, we designed a minimal interface that relies on gestures and animation instead of bars and buttons. When users swipe up to open a five, a signature animation creates a dramatic reveal.'
           }
+          // {
+          //   classes: 'btn btn--ghost mt5 mb6 mt3--mlg mb4--mlg typ--five',
+          //   text: 'coming soon'
+          // },
+          // {
+          //   classes: 'casestudy__text typ--h3 mt10',
+          //   text: 'You can share, comment, or even add suggestions to other lists.'
+          // }
         ]
       },
       {
@@ -435,11 +447,11 @@ export const caseStudies = [
         copy: [
           {
             classes: 'casestudy__text typ--h3 pb7',
-            text: 'Heavy prototyping and testing was done throughout the process.'
+            text: 'The first version of Five included a drafts feature for saving incomplete lists, but most users never got around to finishing them. So we eliminated the drafts, and allowed other users fill in the unfinished lists. Losing the feature solved the problem—and made the app much more engaging in the process.'
           },
           {
             classes: 'casestudy__text typ--h3 pb8',
-            text: 'Look for it in the App Store starting September 2016'
+            text: 'Be one of the first to try out the new app. It just might become one of your top five favorites!'
           }
         ]
       }

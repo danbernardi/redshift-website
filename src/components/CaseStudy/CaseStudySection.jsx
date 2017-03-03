@@ -14,7 +14,7 @@ const CaseStudySection = props => {
       }
 
       { copy
-        ? <div className={ `row typ--center ${pad && 'py10 py5--mlg'}` }>
+        ? <div className={ `row ${pad && 'py10 py5--mlg'}` }>
           { copy.map((copy, index) => (
             <div key={ index }>
               { copy.url && copy.text
