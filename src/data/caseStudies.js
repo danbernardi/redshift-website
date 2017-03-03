@@ -295,7 +295,7 @@ export const caseStudies = [
     },
     caption: ['A new way to create', 'and share recipes'],
     featured: true,
-    heading: 'Working with celebrity chef Tyler Florence, we designed a publishing platform that allows anyone to create and share beautiful recipes with the world.',
+    heading: 'Working with celebrity chef Tyler Florence, Redshift designed a publishing platform that allows anyone to share beautiful recipes with food lovers everywhere.',
     content: [
       {
         images:
@@ -308,12 +308,7 @@ export const caseStudies = [
         copy: [
           {
             classes: 'casestudy__text typ--h3',
-            text: 'We reimagined the recipe format for mobile devices, showing the ingredients you need for each step.'
-          },
-          {
-            classes: 'btn btn--ghost mt5 typ--yumavore',
-            text: 'download the app',
-            url: 'https://itunes.apple.com/us/app/yumavore/id1043281685?mt=8:'
+            text: 'By observing home chefs, we discovered that flipping between ingredients and directions (as most apps require) can be very frustrating while cooking with a phone. So, we remixed the traditional recipe format with a design that shows ingredients and steps side-by-side.'
           }
         ]
       },
@@ -328,7 +323,7 @@ export const caseStudies = [
         copy: [
           {
             classes: 'casestudy__text typ--h3',
-            text: 'Capture photos, choose ingredients, and format your recipe with a simple drag and drop.'
+            text: 'Yumavore is more than a cooking app; it is a publishing tool that enables chefs to create beautiful recipes with photos, video, smart ingredients lists, timers, and more. Text and graphics can be edited and organized with tap-and-drag simplicity.'
           }
         ]
       },
@@ -343,7 +338,7 @@ export const caseStudies = [
         copy: [
           {
             classes: 'casestudy__text typ--h3',
-            text: 'Yumavore makes shopping easy by collecting multiple recipes into an intelligent list which can be viewed by store aisle.'
+            text: 'Like other apps, Yumavore can combine recipes to build smart shopping lists. But unlike other apps, Yumavore’s list can be organized by grocery aisle, so shoppers spend less time criss-crossing the supermarket.'
           }
         ]
       },
@@ -358,7 +353,7 @@ export const caseStudies = [
         copy: [
           {
             classes: 'casestudy__text typ--h3',
-            text: 'Redshift also designed Yumavore’s logo and visual identity.'
+            text: 'Yumavore is available in the app store, featuring user-created content from thousands of professional and home chefs.'
           }
         ]
       },
@@ -367,7 +362,12 @@ export const caseStudies = [
         copy: [{ src: require('assets/img/home/Yumavore/yumavore5.jpg') }]
       },
       {
-        copy: [{ src: require('assets/img/home/Yumavore/yumavore6.jpg') }]
+        copy: [{ src: require('assets/img/home/Yumavore/yumavore6.jpg') },
+          {
+            classes: 'btn btn--ghost mt5 typ--yumavore',
+            text: 'download the app',
+            url: 'https://itunes.apple.com/us/app/yumavore/id1043281685?mt=8:'
+          }]
       }
     ]
   },
