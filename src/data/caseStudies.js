@@ -171,7 +171,7 @@ export const caseStudies = [
         imgAlt: 'Norton Antivirus 1',
         copy: [
           {
-            classes: 'casestudy__text typ--h4',
+            classes: 'casestudy__text typ--h3',
             text: 'Norton’s security software is ubiquitous on desktop PCs, but the modern home contains Macs, smartphones, tablets, smart TVs, and other connected devices. We proposed a system that unites all of these connected devices in a single, simple interface.'
           }
         ]
@@ -186,7 +186,7 @@ export const caseStudies = [
         imgAlt: 'Norton Antivirus 2',
         copy: [
           {
-            classes: 'casestudy__text typ--h4',
+            classes: 'casestudy__text typ--h3',
             text: 'Many users are unaware of Norton’s offerings such as Online Family, Backup, and Zone. The new console makes trying and buying products as simple as switching on a new feature. Software is automatically deployed to all devices from the cloud, and billed in a single subscription.'
           }
         ]
@@ -201,11 +201,11 @@ export const caseStudies = [
         imgAlt: 'Norton Antivirus 3',
         copy: [
           {
-            classes: 'casestudy__text typ--h4 pb7',
+            classes: 'casestudy__text typ--h3 pb7',
             text: 'In the past, each Norton product had its own separate interface, which made it very awkward to use multiple products together. The new solution lets users control and protect all their devices—from any device. For example, Mom can use her smartphone to remotely change Online Family settings for the home PC.'
           },
           {
-            classes: 'casestudy__text typ--h4',
+            classes: 'casestudy__text typ--h3',
             text: 'This work, which included both web and native apps, was considered the most ambitious and significant UX initiative on the company’s roadmap.'
           }
         ]
@@ -319,7 +319,7 @@ export const caseStudies = [
         imgAlt: 'Yumavore 1',
         copy: [
           {
-            classes: 'casestudy__text typ--h4',
+            classes: 'casestudy__text typ--h3',
             text: 'By observing home chefs, we discovered that flipping between ingredients and directions (as most apps require) can be very frustrating while cooking with a phone. So, we remixed the traditional recipe format with a design that shows ingredients and steps side-by-side.'
           }
         ]
@@ -334,7 +334,7 @@ export const caseStudies = [
         imgAlt: 'Yumavore 2',
         copy: [
           {
-            classes: 'casestudy__text typ--h4',
+            classes: 'casestudy__text typ--h3',
             text: 'Yumavore is more than a cooking app; it is a publishing tool that enables chefs to create beautiful recipes with photos, video, smart ingredients lists, timers, and more. Text and graphics can be edited and organized with tap-and-drag simplicity.'
           }
         ]
@@ -349,7 +349,7 @@ export const caseStudies = [
         imgAlt: 'Yumavore 3',
         copy: [
           {
-            classes: 'casestudy__text typ--h4',
+            classes: 'casestudy__text typ--h3',
             text: 'Like other apps, Yumavore can combine recipes to build smart shopping lists. But unlike other apps, Yumavore’s list can be organized by grocery aisle, so shoppers spend less time criss-crossing the supermarket.'
           }
         ]
@@ -364,7 +364,7 @@ export const caseStudies = [
         imgAlt: 'Yumavore 4',
         copy: [
           {
-            classes: 'casestudy__text typ--h4',
+            classes: 'casestudy__text typ--h3',
             text: 'Yumavore is available in the app store, featuring user-created content from thousands of professional and home chefs.'
           }
         ]
