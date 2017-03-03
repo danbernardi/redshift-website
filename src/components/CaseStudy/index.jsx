@@ -87,7 +87,11 @@ class CaseStudy extends React.Component {
             <div className="row"><h4 className="casestudy__name" ref="name">{ name }</h4></div>
 
             <div ref="blur">
-              <div className="row"><h1 className="casestudy__heading">{ heading }</h1></div>
+              <div className="row">
+                <h1 className={ `typ--${id} typ--bold casestudy__heading` }>
+                  { heading }
+                </h1>
+              </div>
               { content && content.length &&
                 content.map((section, index) => (
                   <CaseStudySection
@@ -107,7 +111,7 @@ class CaseStudy extends React.Component {
                   className="casestudy__next"
                 >
                   <div className="row">
-                    <h2 ref="next-name" className={ `typ--${nextCaseStudy.id}` }>{ nextCaseStudy.name }</h2>
+                    <h2 ref="next-name" className={ `typ--${nextCaseStudy.id} typ--bold` }>{ nextCaseStudy.name }</h2>
                     <span ref="next-label" className="typ--default">Next case study</span>
                   </div>
                 </Link>
