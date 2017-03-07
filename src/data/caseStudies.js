@@ -1,156 +1,8 @@
 export const caseStudies = [
-  // Kaiser Permanente
-  // {
-  //   id: 'kaiser',
-  //   name: 'Kaiser Permanente',
-  //   color: '#1FB4E7',
-  //   device: {
-  //     shadow: require('assets/img/case-studies/kaiser/kaiser_shadow.png'),
-  //     body: require('assets/img/case-studies/kaiser/kaiser_body.png'),
-  //     overlay: require('assets/img/case-studies/kaiser/kaiser_overlay.png')
-  //   },
-  //   heading: 'Kaiser Permanente worked with Redshift to pioneer the healthcare space by creating an entirely new digital experience – one that puts the patient in charge.',
-  //   content: [
-  //     {
-  //       images:
-  //       {
-  //         imgDef: require('assets/img/home/KP/kp1.jpg'),
-  //         imgTlg: require('assets/img/home/KP/kp1_tlg.jpg'),
-  //         imgMlg: require('assets/img/home/KP/kp1_mlg.jpg')
-  //       },
-  //       imgAlt: 'Kaiser Permanente 1',
-  //       copy: [
-  //         {
-  //           classes: 'casestudy__text typ--h3',
-  //           text: 'We conducted hundreds of interviews and determined a universal approach to the design was vital – we needed to create a satisfying experience for millions of prospective and existing KP members of different ages, languages, backgrounds and ethnicities.'
-  //         }
-  //       ]
-  //     },
-  //     {
-  //       images:
-  //       {
-  //         imgDef: require('assets/img/home/KP/kp2.jpg'),
-  //         imgTlg: require('assets/img/home/KP/kp2_tlg.jpg'),
-  //         imgMlg: require('assets/img/home/KP/kp2_mlg.jpg')
-  //       },
-  //       imgAlt: 'Kaiser Permanente 2'
-  //     },
-  //     {
-  //       images:
-  //       {
-  //         imgDef: require('assets/img/home/KP/kp3.jpg'),
-  //         imgTlg: require('assets/img/home/KP/kp3_tlg.jpg'),
-  //         imgMlg: require('assets/img/home/KP/kp3_mlg.jpg')
-  //       },
-  //       imgAlt: 'Kaiser Permanente 3',
-  //       copy: [
-  //         {
-  //           classes: 'casestudy__text typ--h4',
-  //           text: 'We questioned every aspect of the traditional healthcare system – from the exam room to the smartphone.'
-  //         }
-  //       ]
-  //     },
-  //     {
-  //       images:
-  //       {
-  //         imgDef: require('assets/img/home/KP/kp4.jpg'),
-  //         imgTlg: require('assets/img/home/KP/kp4_tlg.jpg'),
-  //         imgMlg: require('assets/img/home/KP/kp4_mlg.jpg')
-  //       },
-  //       imgAlt: 'Kaiser Permanente 4',
-  //       copy: [
-  //         {
-  //           classes: 'casestudy__text typ--h4',
-  //           text: 'To create a digital experience as innovative and modern as Kaiser’s approach to medicine, we chose to focus on a patient-driven, mobile-first design, allowing users to access their healthcare anytime, anywhere.'
-  //         }
-  //       ]
-  //     },
-  //     {
-  //       images:
-  //       {
-  //         imgDef: require('assets/img/home/KP/kp5.jpg'),
-  //         imgTlg: require('assets/img/home/KP/kp5_tlg.jpg'),
-  //         imgMlg: require('assets/img/home/KP/kp5_mlg.jpg')
-  //       },
-  //       imgAlt: 'Kaiser Permanente 5'
-  //     },
-  //     {
-  //       images:
-  //       {
-  //         imgDef: require('assets/img/home/KP/kp6.jpg'),
-  //         imgTlg: require('assets/img/home/KP/kp6_tlg.jpg'),
-  //         imgMlg: require('assets/img/home/KP/kp6_mlg.jpg')
-  //       },
-  //       imgAlt: 'Kaiser Permanente 6',
-  //       copy: [
-  //         {
-  //           classes: 'casestudy__text typ--h4',
-  //           text: 'Redshift worked with Kaiser to pull over 200 existing websites into a single, simple, more modern and more personalized website experience. We focused on warm, friendly messaging, rich imagery and clear calls-to-action.'
-  //         }
-  //       ]
-  //     },
-  //     {
-  //       images:
-  //       {
-  //         imgDef: require('assets/img/home/KP/kp7.jpg'),
-  //         imgTlg: require('assets/img/home/KP/kp7_tlg.jpg'),
-  //         imgMlg: require('assets/img/home/KP/kp7_mlg.jpg')
-  //       },
-  //       imgAlt: 'Kaiser Permanente 7',
-  //       copy: [
-  //         {
-  //           classes: 'casestudy__text typ--h4',
-  //           text: 'We designed new tools to help KP doctors and patients communicate and share information, and to provide more transparency around healthcare costs.'
-  //         }
-  //       ]
-  //     },
-  //     {
-  //       images:
-  //       {
-  //         imgDef: require('assets/img/home/KP/kp8.jpg'),
-  //         imgTlg: require('assets/img/home/KP/kp8_tlg.jpg'),
-  //         imgMlg: require('assets/img/home/KP/kp8_mlg.jpg')
-  //       },
-  //       imgAlt: 'Kaiser Permanente 8',
-  //       copy: [
-  //         {
-  //           classes: 'casestudy__text typ--h4',
-  //           text: 'We also designed new ways for patients to manage their healthcare online. Whether it’s keeping track of prescriptions, managing a medical condition, accessing medical records or monitoring the health of their entire family, KP members have the tools to take charge and live a healthy life.'
-  //         }
-  //       ]
-  //     },
-  //     {
-  //       images:
-  //       {
-  //         imgDef: require('assets/img/home/KP/kp9.jpg'),
-  //         imgTlg: require('assets/img/home/KP/kp9_tlg.jpg'),
-  //         imgMlg: require('assets/img/home/KP/kp9_mlg.jpg')
-  //       },
-  //       imgAlt: 'Kaiser Permanente 9',
-  //       copy: [
-  //         {
-  //           classes: 'casestudy__text typ--h4',
-  //           text: 'The release of the new home page is the first of many steps in an ambitious series Redshift and Kaiser Permanente have launched to revamp all the organization’s digital touch points.'
-  //         }
-  //       ]
-  //     }
-  //   ],
-  //   images: {
-  //     def: require('assets/img/home/KP/kp-scene-bg.jpg'),
-  //     tlg: require('assets/img/home/KP/kp-scene-bg.jpg'),
-  //     mlg: require('assets/img/home/KP/kp-scene-bg.jpg'),
-  //     msm: require('assets/img/home/KP/kp-scene-bg-mobile.jpg'),
-  //     alt: 'Norton creative design'
-  //   },
-  //   caption: ['Reimagining the', 'Future of Healthcare'],
-  //   anchor: true,
-  //   featured: true
-  // },
-
   // Norton Antivirus
   {
     id: 'norton',
-    name: 'Norton Antivirus',
+    name: 'Norton Online',
     color: '#FFC300',
     device: {
       shadow: require('assets/img/case-studies/norton/norton_shadow.svg'),
@@ -168,7 +20,7 @@ export const caseStudies = [
           imgTlg: require('assets/img/home/Norton/norton1_tlg.jpg'),
           imgMlg: require('assets/img/home/Norton/norton1_mlg.jpg')
         },
-        imgAlt: 'Norton Antivirus 1',
+        imgAlt: 'Norton Online 1',
         copy: [
           {
             classes: 'casestudy__text typ--h3',
@@ -183,7 +35,7 @@ export const caseStudies = [
           imgTlg: require('assets/img/home/Norton/norton2_tlg.jpg'),
           imgMlg: require('assets/img/home/Norton/norton2_mlg.jpg')
         },
-        imgAlt: 'Norton Antivirus 2',
+        imgAlt: 'Norton Online 2',
         copy: [
           {
             classes: 'casestudy__text typ--h3',
@@ -198,11 +50,15 @@ export const caseStudies = [
           imgTlg: require('assets/img/home/Norton/norton4_tlg.jpg'),
           imgMlg: require('assets/img/home/Norton/norton4_mlg.jpg')
         },
-        imgAlt: 'Norton Antivirus 3',
+        imgAlt: 'Norton Online 3',
         copy: [
           {
             classes: 'casestudy__text typ--h3 pb7',
             text: 'In the past, each Norton product had its own separate interface, which made it very awkward to use multiple products together. The new solution lets users control and protect all their devices—from any device. For example, Mom can use her smartphone to remotely change Online Family settings for the home PC.'
+          },
+          {
+            classes: 'casestudy__text typ--h3 pb7',
+            text: 'The look and feel we created was a departure for Norton, whose software has usually employed a dark, “high-tech” look. We wanted the new console to feel light, modern, and approachable. Simple icons, ample whitespace, and bright splashes of color make a powerful product feel easy to use.'
           },
           {
             classes: 'casestudy__text typ--h3',
@@ -256,7 +112,7 @@ export const caseStudies = [
         copy: [
           {
             classes: 'casestudy__text typ--h3',
-            text: 'For diehard Nexus fans, it’s what’s under the hood that matters most. Inspired by “teardowns” that are popular on tech blogs, we created a interactive 3D model that allows these customers to virtually deconstruct the phone component by component.'
+            text: 'For diehard Nexus fans, it’s what’s under the hood that matters most. Inspired by “teardowns” that are popular on tech blogs, we created an interactive 3D model that allows these customers to virtually deconstruct the phone component by component.'
           }
         ]
       },
@@ -447,7 +303,7 @@ export const caseStudies = [
         copy: [
           {
             classes: 'casestudy__text typ--h3 pb7',
-            text: 'The first version of Five included a drafts feature for saving incomplete lists, but most users never got around to finishing them. So we eliminated the drafts, and allowed other users fill in the unfinished lists. Losing the feature solved the problem—and made the app much more engaging in the process.'
+            text: 'The first version of Five included a drafts feature for saving incomplete lists, but most users never got around to finishing them. So we eliminated the drafts, and allowed other users to fill in the unfinished lists. Losing the feature solved the problem—and made the app much more engaging in the process.'
           },
           {
             classes: 'casestudy__text typ--h3 pb8',
@@ -638,5 +494,152 @@ export const caseStudies = [
   //       imgAlt: 'Reviver 4'
   //     }
   //   ]
-  // }
+  // },
+  // Kaiser Permanente
+  // {
+  //   id: 'kaiser',
+  //   name: 'Kaiser Permanente',
+  //   color: '#1FB4E7',
+  //   device: {
+  //     shadow: require('assets/img/case-studies/kaiser/kaiser_shadow.png'),
+  //     body: require('assets/img/case-studies/kaiser/kaiser_body.png'),
+  //     overlay: require('assets/img/case-studies/kaiser/kaiser_overlay.png')
+  //   },
+  //   heading: 'Kaiser Permanente worked with Redshift to pioneer the healthcare space by creating an entirely new digital experience – one that puts the patient in charge.',
+  //   content: [
+  //     {
+  //       images:
+  //       {
+  //         imgDef: require('assets/img/home/KP/kp1.jpg'),
+  //         imgTlg: require('assets/img/home/KP/kp1_tlg.jpg'),
+  //         imgMlg: require('assets/img/home/KP/kp1_mlg.jpg')
+  //       },
+  //       imgAlt: 'Kaiser Permanente 1',
+  //       copy: [
+  //         {
+  //           classes: 'casestudy__text typ--h3',
+  //           text: 'We conducted hundreds of interviews and determined a universal approach to the design was vital – we needed to create a satisfying experience for millions of prospective and existing KP members of different ages, languages, backgrounds and ethnicities.'
+  //         }
+  //       ]
+  //     },
+  //     {
+  //       images:
+  //       {
+  //         imgDef: require('assets/img/home/KP/kp2.jpg'),
+  //         imgTlg: require('assets/img/home/KP/kp2_tlg.jpg'),
+  //         imgMlg: require('assets/img/home/KP/kp2_mlg.jpg')
+  //       },
+  //       imgAlt: 'Kaiser Permanente 2'
+  //     },
+  //     {
+  //       images:
+  //       {
+  //         imgDef: require('assets/img/home/KP/kp3.jpg'),
+  //         imgTlg: require('assets/img/home/KP/kp3_tlg.jpg'),
+  //         imgMlg: require('assets/img/home/KP/kp3_mlg.jpg')
+  //       },
+  //       imgAlt: 'Kaiser Permanente 3',
+  //       copy: [
+  //         {
+  //           classes: 'casestudy__text typ--h4',
+  //           text: 'We questioned every aspect of the traditional healthcare system – from the exam room to the smartphone.'
+  //         }
+  //       ]
+  //     },
+  //     {
+  //       images:
+  //       {
+  //         imgDef: require('assets/img/home/KP/kp4.jpg'),
+  //         imgTlg: require('assets/img/home/KP/kp4_tlg.jpg'),
+  //         imgMlg: require('assets/img/home/KP/kp4_mlg.jpg')
+  //       },
+  //       imgAlt: 'Kaiser Permanente 4',
+  //       copy: [
+  //         {
+  //           classes: 'casestudy__text typ--h4',
+  //           text: 'To create a digital experience as innovative and modern as Kaiser’s approach to medicine, we chose to focus on a patient-driven, mobile-first design, allowing users to access their healthcare anytime, anywhere.'
+  //         }
+  //       ]
+  //     },
+  //     {
+  //       images:
+  //       {
+  //         imgDef: require('assets/img/home/KP/kp5.jpg'),
+  //         imgTlg: require('assets/img/home/KP/kp5_tlg.jpg'),
+  //         imgMlg: require('assets/img/home/KP/kp5_mlg.jpg')
+  //       },
+  //       imgAlt: 'Kaiser Permanente 5'
+  //     },
+  //     {
+  //       images:
+  //       {
+  //         imgDef: require('assets/img/home/KP/kp6.jpg'),
+  //         imgTlg: require('assets/img/home/KP/kp6_tlg.jpg'),
+  //         imgMlg: require('assets/img/home/KP/kp6_mlg.jpg')
+  //       },
+  //       imgAlt: 'Kaiser Permanente 6',
+  //       copy: [
+  //         {
+  //           classes: 'casestudy__text typ--h4',
+  //           text: 'Redshift worked with Kaiser to pull over 200 existing websites into a single, simple, more modern and more personalized website experience. We focused on warm, friendly messaging, rich imagery and clear calls-to-action.'
+  //         }
+  //       ]
+  //     },
+  //     {
+  //       images:
+  //       {
+  //         imgDef: require('assets/img/home/KP/kp7.jpg'),
+  //         imgTlg: require('assets/img/home/KP/kp7_tlg.jpg'),
+  //         imgMlg: require('assets/img/home/KP/kp7_mlg.jpg')
+  //       },
+  //       imgAlt: 'Kaiser Permanente 7',
+  //       copy: [
+  //         {
+  //           classes: 'casestudy__text typ--h4',
+  //           text: 'We designed new tools to help KP doctors and patients communicate and share information, and to provide more transparency around healthcare costs.'
+  //         }
+  //       ]
+  //     },
+  //     {
+  //       images:
+  //       {
+  //         imgDef: require('assets/img/home/KP/kp8.jpg'),
+  //         imgTlg: require('assets/img/home/KP/kp8_tlg.jpg'),
+  //         imgMlg: require('assets/img/home/KP/kp8_mlg.jpg')
+  //       },
+  //       imgAlt: 'Kaiser Permanente 8',
+  //       copy: [
+  //         {
+  //           classes: 'casestudy__text typ--h4',
+  //           text: 'We also designed new ways for patients to manage their healthcare online. Whether it’s keeping track of prescriptions, managing a medical condition, accessing medical records or monitoring the health of their entire family, KP members have the tools to take charge and live a healthy life.'
+  //         }
+  //       ]
+  //     },
+  //     {
+  //       images:
+  //       {
+  //         imgDef: require('assets/img/home/KP/kp9.jpg'),
+  //         imgTlg: require('assets/img/home/KP/kp9_tlg.jpg'),
+  //         imgMlg: require('assets/img/home/KP/kp9_mlg.jpg')
+  //       },
+  //       imgAlt: 'Kaiser Permanente 9',
+  //       copy: [
+  //         {
+  //           classes: 'casestudy__text typ--h4',
+  //           text: 'The release of the new home page is the first of many steps in an ambitious series Redshift and Kaiser Permanente have launched to revamp all the organization’s digital touch points.'
+  //         }
+  //       ]
+  //     }
+  //   ],
+  //   images: {
+  //     def: require('assets/img/home/KP/kp-scene-bg.jpg'),
+  //     tlg: require('assets/img/home/KP/kp-scene-bg.jpg'),
+  //     mlg: require('assets/img/home/KP/kp-scene-bg.jpg'),
+  //     msm: require('assets/img/home/KP/kp-scene-bg-mobile.jpg'),
+  //     alt: 'Norton creative design'
+  //   },
+  //   caption: ['Reimagining the', 'Future of Healthcare'],
+  //   anchor: true,
+  //   featured: true
+  // },
 ];
