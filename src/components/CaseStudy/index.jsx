@@ -111,8 +111,8 @@ class CaseStudy extends React.Component {
                   className="casestudy__next"
                 >
                   <div className="row">
+                    <span ref="next-label" className="typ--light">View next case study</span>
                     <h2 ref="next-name" className={ `typ--${nextCaseStudy.id} typ--bold` }>{ nextCaseStudy.name }</h2>
-                    <span ref="next-label" className="typ--default">Next case study</span>
                   </div>
                 </Link>
               </Measure>
