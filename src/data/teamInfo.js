@@ -215,7 +215,7 @@ export const teamInfo = [
   },
   {
     id: 'diana',
-    name: 'Diana Chin',
+    name: 'Diana Cheng',
     position: 'Director of User Research',
     photo: require('assets/img/about/team/diana.jpg'),
     modalImage: require('assets/img/about/team/modal/diana.jpg'),
