@@ -166,12 +166,18 @@ export const caseStudies = [
     heading: 'Working with celebrity chef Tyler Florence, Redshift designed a publishing platform that allows anyone to share beautiful recipes with food lovers everywhere.',
     content: [
       {
-        images:
-        {
-          imgDef: require('assets/img/home/Yumavore/yumavore1.jpg'),
-          imgTlg: require('assets/img/home/Yumavore/yumavore1_tlg.jpg'),
-          imgMlg: require('assets/img/home/Yumavore/yumavore1_mlg.jpg')
-        },
+        video: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/video/yumavore_768x1024.mp4',
+        // classes: 'typ--center',
+        maxWidth: '44%',
+        videoImage: require('assets/img/case-studies/ipad.png'),
+        videoPadding: '11% 0',
+
+        // images:
+        // {
+        //   imgDef: require('assets/img/home/Yumavore/yumavore1.jpg'),
+        //   imgTlg: require('assets/img/home/Yumavore/yumavore1_tlg.jpg'),
+        //   imgMlg: require('assets/img/home/Yumavore/yumavore1_mlg.jpg')
+        // },
         imgAlt: 'Yumavore 1',
         copy: [
           {
@@ -183,9 +189,9 @@ export const caseStudies = [
       {
         images:
         {
-          imgDef: require('assets/img/home/Yumavore/yumavore2.jpg'),
-          imgTlg: require('assets/img/home/Yumavore/yumavore2_tlg.jpg'),
-          imgMlg: require('assets/img/home/Yumavore/yumavore2_mlg.jpg')
+          imgDef: require('assets/img/home/Yumavore/yumavore1.jpg'),
+          imgTlg: require('assets/img/home/Yumavore/yumavore1_tlg.jpg'),
+          imgMlg: require('assets/img/home/Yumavore/yumavore1_mlg.jpg')
         },
         imgAlt: 'Yumavore 2',
         copy: [
@@ -255,12 +261,17 @@ export const caseStudies = [
     heading: 'Redshift’s first product, Five, is a social app that lets you share and compare your top five of everything.',
     content: [
       {
-        images:
-        {
-          imgDef: require('assets/img/home/Five/five1.jpg'),
-          imgTlg: require('assets/img/home/Five/five1_tlg.jpg'),
-          imgMlg: require('assets/img/home/Five/five1_mlg.jpg')
-        },
+        video: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/video/five_374x666.mp4',
+        // classes: 'typ--center',
+        maxWidth: '31%',
+        videoImage: require('assets/img/case-studies/iphone.png'),
+        videoPadding: '45.8% 0 41% 0',
+        // images:
+        // {
+        //   imgDef: require('assets/img/home/Five/five1.jpg'),
+        //   imgTlg: require('assets/img/home/Five/five1_tlg.jpg'),
+        //   imgMlg: require('assets/img/home/Five/five1_mlg.jpg')
+        // },
         imgAlt: 'Five 1',
         copy: [
           {
@@ -272,9 +283,9 @@ export const caseStudies = [
       {
         images:
         {
-          imgDef: require('assets/img/home/Five/five2.jpg'),
-          imgTlg: require('assets/img/home/Five/five2_tlg.jpg'),
-          imgMlg: require('assets/img/home/Five/five2_mlg.jpg')
+          imgDef: require('assets/img/home/Five/five1.jpg'),
+          imgTlg: require('assets/img/home/Five/five1_tlg.jpg'),
+          imgMlg: require('assets/img/home/Five/five1_mlg.jpg')
         },
         imgAlt: 'Five 2',
         copy: [

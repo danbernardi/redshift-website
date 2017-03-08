@@ -1,5 +1,36 @@
 @import 'sass-includes';
 
+.video-container {
+  background-color: #000000;
+  text-align: center;
+  padding: 0;
+  margin: 0 auto;
+  width: 100%;
+  // max-width: 76.8rem;
+  height: auto;
+}
+
+.video-image {
+  width: 100%;
+  position: absolute;
+}
+
+.video-container video {
+  width: 100%;
+  height: auto;
+  display: block;
+  // padding: 25% 0;
+  margin: 0;
+}
+
+// .Rvideo-nosupport
+//   {
+//   color: #FFFFFF;
+//   padding-top: 110px;
+//   padding-bottom: 110px;
+//   }
+
+
 .case-study {
   width: calc(100vw - 17rem);
   z-index: 4;
