@@ -23,6 +23,7 @@ export function getScrollDirection (event) {
 // creates scroll handlers for various input devices
 export function onScroll (wait, leadingFunc, trailingFunc) {
   window.ontouchstart = (event) => { touchStartY = event.pageY; };
+  window.ontouchmove = wait > 0 ? scrollDebounce(wait, leadingFunc, trailingFunc) : leadingFunc;
   window.onwheel = wait > 0 ? scrollDebounce(wait, leadingFunc, trailingFunc) : leadingFunc;
   window.onmousewheel = wait > 0 ? scrollDebounce(wait, leadingFunc, trailingFunc) : leadingFunc;
   window.ontouchend = wait > 0 ? scrollDebounce(wait, leadingFunc, trailingFunc) : leadingFunc;
