@@ -166,10 +166,12 @@ export const caseStudies = [
     heading: 'Working with celebrity chef Tyler Florence, Redshift designed a publishing platform that allows anyone to share beautiful recipes with food lovers everywhere.',
     content: [
       {
-        video: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/video/yumavore_768x1024.mp4',
-        maxWidth: '44%',
-        videoImage: require('assets/img/case-studies/ipad.png'),
-        videoPadding: '11% 0',
+        video: {
+          url: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/video/yumavore_768x1024.mp4',
+          maxWidth: '44%',
+          videoImage: require('assets/img/case-studies/ipad.png'),
+          videoPadding: '11% 0'
+        },
         copy: [
           {
             classes: 'casestudy__text typ--h3',
@@ -253,11 +255,12 @@ export const caseStudies = [
     heading: 'Redshift’s first product, Five, is a social app that lets you share and compare your top five of everything.',
     content: [
       {
-        video: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/video/five_374x666.mp4',
-        maxWidth: '31%',
-        videoImage: require('assets/img/case-studies/iphone.png'),
-        videoPadding: '14.3% 0px 12.5%',
-        imgAlt: 'Five 1',
+        video: {
+          url: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/video/five_374x666.mp4',
+          maxWidth: '31%',
+          videoImage: require('assets/img/case-studies/iphone.png'),
+          videoPadding: '14.4% 0px 12.3%'
+        },
         copy: [
           {
             classes: 'casestudy__text typ--h3',

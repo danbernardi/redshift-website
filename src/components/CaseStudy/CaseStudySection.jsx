@@ -16,18 +16,18 @@ class CaseStudySection extends React.Component {
   }
 
   render () {
-    const { videoPadding, videoImage, maxWidth, video, images, imgAlt, copy, pad, classes, containerClass } = this.props;
+    const { video, images, imgAlt, copy, pad, classes, containerClass } = this.props;
 
     return (
       <div className={ classes && classes }>
         { video &&
           <div className="layout--relative">
             <picture className="video-image">
-              <img src={ videoImage } className="full-image" />
+              <img src={ video.videoImage } className="full-image" />
             </picture>
-            <div className="video-container" style={ { maxWidth: maxWidth, padding: videoPadding } } >
+            <div className="video-container" style={ { maxWidth: video.maxWidth, padding: video.videoPadding } } >
               <video id="caseStudyVideo" loop="true">
-                <source src={ video } type="video/mp4" />
+                <source src={ video.url } type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
             </div>
@@ -42,8 +42,8 @@ class CaseStudySection extends React.Component {
           </picture>
         }
 
-        { copy
-          ? <div className={ `row ${pad && 'py10 py5--mlg'} ${containerClass}` }>
+        { copy &&
+          <div className={ `row ${pad && 'py10 py5--mlg'} ${containerClass}` }>
             { copy.map((copy, index) => (
               <div key={ index }>
                 { copy.src && <img src={ copy.src } /> }
@@ -54,7 +54,6 @@ class CaseStudySection extends React.Component {
               </div>
             )) }
           </div>
-          : null
         }
       </div>
     );
@@ -64,7 +63,7 @@ class CaseStudySection extends React.Component {
 const { object, string, array, bool, number } = React.PropTypes;
 CaseStudySection.propTypes = {
   containerClass: string,
-  video: string,
+  video: object,
   videoImage: string,
   videoPadding: string,
   maxWidth: number,

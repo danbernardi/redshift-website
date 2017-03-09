@@ -145,12 +145,12 @@ input:-webkit-autofill {
 }
 
 .job__sidebar {
-  background-color: #EE05BA;
-  width: 17rem;
+  // background-color: #EE05BA;
+  width: 8rem;
   position: fixed;
   left: 0;
   top: 0;
-  height: 100vh;
+  bottom: 0;
   // media queries
   @include breakpoint($mobile-lg) {
     display: none;
