@@ -13,6 +13,8 @@ import Footer from 'components/Footer';
 import { Link } from 'react-router';
 import { scrollDocToZero } from 'utils/scrollTo';
 
+window.scrollAnimationInProgress = false;
+
 export class Showcase extends React.Component {
   constructor (props) {
     super(props);
@@ -29,60 +31,23 @@ export class Showcase extends React.Component {
 
     enableScroll();
     this.scrollObservable = Rx.Observable.fromEvent(window, 'scroll');
-     // Get the three major events
-    // this.mouseup = Rx.Observable.fromEvent(window, 'mouseup');
-    // this.mousemove = Rx.Observable.fromEvent(window, 'mousemove');
-    // this.mousedown = Rx.Observable.fromEvent(window, 'mousedown');
-
-    // this.mouseDrag = this.mousedown.flatMap((mouseDownEvent) => {
-    //   return this.mousemove.map((mouseMoveEvent) => {
-    //     return mouseMoveEvent;
-    //   }).takeUntil(this.mouseup);
-    // });
-
-    // const scrollDrag = Rx.Observable.fromEvent(window, 'mousedown').takeUntil(mouseup);
-
-    // const mouseDrag = this.scrollDrag.subscribe((event) => console.log(event));
-
-
-    // this.mouseDrag.subscribe((dragEvent) => {
-    //   console.log('dragging');
-    // });
-
     this.scrollYPosition = window.pageYOffset;
 
     const scrollSubscription = this.scrollObservable.subscribe(
       (scrollEvent) => {
-        debugger;
-        const newYPosition = window.pageYOffset;
-        const direction = getScrollDirection(this.scrollYPosition, newYPosition);
-
-
+        console.log(this.scrollAnimationInProgress)
         if (this.scrollAnimationInProgress) {
           return;
         } else {
-          this.scrollStart(direction);
-          this.updateScrollPosition(newYPosition);
+          this.scrollAnimationInProgress = true;
+          setTimeout(() => {
+            const newYPosition = window.pageYOffset;
+            const direction = getScrollDirection(this.scrollYPosition, newYPosition);
+            this.scrollStart(direction);
+            this.updateScrollPosition(newYPosition);
+          }, 200);
         }
-
-        // debugger;
-      },
-      function (err) {
-        console.log('Error: %s', err);
-      },
-      function () {
-        console.log('Completed');
-    });
-
-
-
-    // onScroll(100, (event) => this.onScrollStart(event));
-    // disableScroll();
-
-    // // timeout of 1 waits for body to return correct scrollTop
-    // setTimeout(() => this.scrollToClosestIndex(), 200);
-
-    // console.log('mounted');
+      });
   }
 
   updateScrollPosition (yPosition) {
@@ -167,8 +132,10 @@ export class Showcase extends React.Component {
   }
 
   scrollComplete () {
-    console.log('complete');
-    this.scrollAnimationInProgress = false;
+    this.completeTimout = setTimeout(() => {
+      this.scrollAnimationInProgress = false;
+      console.log('complete');
+    }, 500);
   }
 
   render () {
