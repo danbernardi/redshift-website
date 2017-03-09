@@ -28,31 +28,38 @@ export class Showcase extends React.Component {
   }
 
   componentDidMount () {
-
     enableScroll();
     this.scrollObservable = Rx.Observable.fromEvent(window, 'scroll');
     this.scrollYPosition = window.pageYOffset;
 
     const scrollSubscription = this.scrollObservable.subscribe(
       (scrollEvent) => {
-        console.log(this.scrollAnimationInProgress)
         if (this.scrollAnimationInProgress) {
           return;
         } else {
+
           this.scrollAnimationInProgress = true;
-          setTimeout(() => {
-            const newYPosition = window.pageYOffset;
-            const direction = getScrollDirection(this.scrollYPosition, newYPosition);
-            this.scrollStart(direction);
-            this.updateScrollPosition(newYPosition);
-          }, 200);
+          const { bannerState, modalState } = this.props;
+
+          const newYPosition = window.pageYOffset;
+          const direction = getScrollDirection(this.scrollYPosition, newYPosition);
+          const index = direction === 'down' ? bannerState.active + 1 : bannerState.active - 1;
+          this.scrollToIndex(index);
+
+          this.scrollYPosition = newYPosition;
+
+          setTimeout( () => {
+            this.scrollAnimationInProgress = false;
+          }, 1000);
+
+          // this.scrollStart('down');
+          // this.updateScrollPosition(newYPosition);
         }
       });
   }
 
   updateScrollPosition (yPosition) {
     this.scrollYPosition = yPosition;
-    console.log(this.scrollYPosition);
   }
 
   componentWillUnmount () {
@@ -98,21 +105,28 @@ export class Showcase extends React.Component {
 
   // animates page scrolling to a specific location
   scrollToPosition (targetScrollPosition) {
-    const showcase = ReactDOM.findDOMNode(this.refs.showcase);
+    // const showcase = ReactDOM.findDOMNode(this.refs.showcase);
+    console.log('scrollToPosition fired');
+    this.scrollComplete();
+    window.scrollTo(0, targetScrollPosition);
+    console.log('complete');
 
-    if (showcase) {
-      const scrollStartPosition = window.scrollY;
 
-      new mojs.Tween({
-        duration: this.duration,
-        easing: 'cubic.out',
-        onUpdate: (progress) => {
-          const pos = mapRange(progress, 0, 1, scrollStartPosition, targetScrollPosition);
-          window.scrollTo(0, pos);
-        },
-        onPlaybackComplete: () => this.scrollComplete()
-      }).play();
-    }
+    // if (showcase) {
+      // const scrollStartPosition = window.scrollY;
+
+
+
+      // new mojs.Tween({
+      //   duration: this.duration,
+      //   easing: 'cubic.out',
+      //   onUpdate: (progress) => {
+      //     const pos = mapRange(progress, 0, 1, scrollStartPosition, targetScrollPosition);
+      //     window.scrollTo(0, pos);
+      //   },
+      //   onPlaybackComplete: () => this.scrollComplete()
+      // }).play();
+    // }
   }
 
    // Scrolls to the closest scrollPoint to the current page scroll value
