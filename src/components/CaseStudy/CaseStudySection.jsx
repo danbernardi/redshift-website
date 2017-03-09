@@ -16,7 +16,7 @@ class CaseStudySection extends React.Component {
   }
 
   render () {
-    const { videoPadding, videoImage, maxWidth, video, images, imgAlt, copy, pad, classes } = this.props;
+    const { videoPadding, videoImage, maxWidth, video, images, imgAlt, copy, pad, classes, containerClass } = this.props;
 
     return (
       <div className={ classes && classes }>
@@ -43,13 +43,14 @@ class CaseStudySection extends React.Component {
         }
 
         { copy
-          ? <div className={ `row ${pad && 'py10 py5--mlg'}` }>
+          ? <div className={ `row ${pad && 'py10 py5--mlg'} ${containerClass}` }>
             { copy.map((copy, index) => (
               <div key={ index }>
-                { copy.url && copy.text
-                  ? <a href={ copy.url } className={ copy.classes && copy.classes }>{ copy.text }</a>
-                  : <div className={ copy.classes && copy.classes }>{ copy.text }</div> }
                 { copy.src && <img src={ copy.src } /> }
+                { copy.url && copy.text
+                  ? <a href={ copy.url } target="_blank" className={ copy.classes && copy.classes }>{ copy.text }</a>
+                  : <div className={ copy.classes && copy.classes }>{ copy.text }</div> }
+
               </div>
             )) }
           </div>
@@ -62,6 +63,7 @@ class CaseStudySection extends React.Component {
 
 const { object, string, array, bool, number } = React.PropTypes;
 CaseStudySection.propTypes = {
+  containerClass: string,
   video: string,
   videoImage: string,
   videoPadding: string,

@@ -167,18 +167,9 @@ export const caseStudies = [
     content: [
       {
         video: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/video/yumavore_768x1024.mp4',
-        // classes: 'typ--center',
         maxWidth: '44%',
         videoImage: require('assets/img/case-studies/ipad.png'),
         videoPadding: '11% 0',
-
-        // images:
-        // {
-        //   imgDef: require('assets/img/home/Yumavore/yumavore1.jpg'),
-        //   imgTlg: require('assets/img/home/Yumavore/yumavore1_tlg.jpg'),
-        //   imgMlg: require('assets/img/home/Yumavore/yumavore1_mlg.jpg')
-        // },
-        imgAlt: 'Yumavore 1',
         copy: [
           {
             classes: 'casestudy__text typ--h3',
@@ -189,9 +180,9 @@ export const caseStudies = [
       {
         images:
         {
-          imgDef: require('assets/img/home/Yumavore/yumavore1.jpg'),
-          imgTlg: require('assets/img/home/Yumavore/yumavore1_tlg.jpg'),
-          imgMlg: require('assets/img/home/Yumavore/yumavore1_mlg.jpg')
+          imgDef: require('assets/img/home/Yumavore/yumavore7.jpg'),
+          imgTlg: require('assets/img/home/Yumavore/yumavore7_tlg.jpg'),
+          imgMlg: require('assets/img/home/Yumavore/yumavore7_mlg.jpg')
         },
         imgAlt: 'Yumavore 2',
         copy: [
@@ -204,11 +195,11 @@ export const caseStudies = [
       {
         images:
         {
-          imgDef: require('assets/img/home/Yumavore/yumavore3.jpg'),
-          imgTlg: require('assets/img/home/Yumavore/yumavore3_tlg.jpg'),
-          imgMlg: require('assets/img/home/Yumavore/yumavore3_mlg.jpg')
+          imgDef: require('assets/img/home/Yumavore/yumavore8.jpg'),
+          imgTlg: require('assets/img/home/Yumavore/yumavore8_tlg.jpg'),
+          imgMlg: require('assets/img/home/Yumavore/yumavore8_mlg.jpg')
         },
-        imgAlt: 'Yumavore 3',
+        imgAlt: 'Yumavore 8',
         copy: [
           {
             classes: 'casestudy__text typ--h3',
@@ -236,6 +227,7 @@ export const caseStudies = [
         copy: [{ src: require('assets/img/home/Yumavore/yumavore5.jpg') }]
       },
       {
+        containerClass: 'typ--center',
         copy: [{ src: require('assets/img/home/Yumavore/yumavore6.jpg') },
           {
             classes: 'btn btn--ghost mt5 typ--yumavore',
@@ -262,16 +254,9 @@ export const caseStudies = [
     content: [
       {
         video: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/video/five_374x666.mp4',
-        // classes: 'typ--center',
         maxWidth: '31%',
         videoImage: require('assets/img/case-studies/iphone.png'),
-        videoPadding: '45.8% 0 41% 0',
-        // images:
-        // {
-        //   imgDef: require('assets/img/home/Five/five1.jpg'),
-        //   imgTlg: require('assets/img/home/Five/five1_tlg.jpg'),
-        //   imgMlg: require('assets/img/home/Five/five1_mlg.jpg')
-        // },
+        videoPadding: '14.3% 0px 12.5%',
         imgAlt: 'Five 1',
         copy: [
           {
@@ -293,35 +278,50 @@ export const caseStudies = [
             classes: 'casestudy__text typ--h3',
             text: 'To keep the focus on the content, we designed a minimal interface that relies on gestures and animation instead of bars and buttons. When users swipe up to open a five, a signature animation creates a dramatic reveal.'
           }
-          // {
-          //   classes: 'btn btn--ghost mt5 mb6 mt3--mlg mb4--mlg typ--five',
-          //   text: 'coming soon'
-          // },
-          // {
-          //   classes: 'casestudy__text typ--h3 mt10',
-          //   text: 'You can share, comment, or even add suggestions to other lists.'
-          // }
         ]
       },
       {
-        images:
-        {
-          imgDef: require('assets/img/home/Five/five3.jpg'),
-          imgTlg: require('assets/img/home/Five/five3_tlg.jpg'),
-          imgMlg: require('assets/img/home/Five/five3_mlg.jpg')
-        },
+        video: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/video/five_374x666.mp4',
+        maxWidth: '31%',
+        videoImage: require('assets/img/case-studies/iphone.png'),
+        videoPadding: '14.3% 0px 12.5%',
+
         imgAlt: 'Five 3',
         copy: [
           {
             classes: 'casestudy__text typ--h3 pb7',
             text: 'The first version of Five included a drafts feature for saving incomplete lists, but most users never got around to finishing them. So we eliminated the drafts, and allowed other users to fill in the unfinished lists. Losing the feature solved the problem—and made the app much more engaging in the process.'
-          },
-          {
-            classes: 'casestudy__text typ--h3 pb8',
-            text: 'Be one of the first to try out the new app. It just might become one of your top five favorites!'
           }
         ]
+      },
+      {
+        images:
+        {
+          imgDef: require('assets/img/home/Five/five4.jpg'),
+          imgTlg: require('assets/img/home/Five/five4_tlg.jpg'),
+          imgMlg: require('assets/img/home/Five/five4_mlg.jpg')
+        },
+        imgAlt: 'Five 4',
+        copy: [
+          {
+
+          }
+        ]
+      },
+      {
+        containerClass: 'typ--center',
+        copy: [{
+          src: require('assets/img/home/Five/five5.jpg'),
+          classes: 'casestudy__text typ--h3',
+          text: 'Be one of the first to try out the new app. It just might become one of your top five favorites!'
+        },
+        {
+          classes: 'btn btn--ghost mt5 typ--five',
+          text: 'download the app',
+          url: 'https://itunes.apple.com/us/app/five-share-and-compare-your-top-five-of-anything/id1160849650?mt=8'
+        }]
       }
+
     ]
   }
 
