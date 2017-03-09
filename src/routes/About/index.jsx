@@ -28,7 +28,7 @@ export class About extends React.Component {
     return (
       <div>
         <AboutProcess />
-        <section className="about__clients theme--dark py7">
+        <section className="col-12 about__clients theme--dark py7">
           <div className="row">
             <h1 className="typ--bold">Who we work with.</h1>
             <h4
