@@ -30,6 +30,10 @@ export function AboutProcess () {
 
   return (
     <section className="about__process mb10">
+      <picture>
+        <source srcSet={ require('assets/img/about/about__hero.jpg') } media="(min-width: 540px)" />
+        <img className="about__process__img mb5 mb2--msm" src={ require('assets/img/about/about__hero-mobile.jpg') } alt="Redshift team" />
+      </picture>
       <div className="col-12 row pb10">
         <h1 className="typ--bold mb4">We are Redshift<span className="typ--redshift">.</span></h1>
         <h3>We believe in improving people’s lives with simple, meaningful design.</h3>
