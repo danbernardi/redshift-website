@@ -15,6 +15,10 @@ a {
   color: $yumavore;
 }
 
+.theme--gray {
+  background-color: $background-gray;
+}
+
 %gradient-text {
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;

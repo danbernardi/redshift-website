@@ -1,5 +1,23 @@
 @import 'sass-includes';
 
+.about-curve {
+  &:before {
+    content: '';
+    height: 5rem;
+    width: 5rem;
+    background-color: $redshift;
+    display: block;
+    margin: 1.3rem auto;
+    position: relative;
+    border-radius: 50%;
+  }
+}
+
+.about-curve img {
+  top: 30rem;
+  position: relative;
+}
+
 .about-gradient {
   background: rgb(236, 0, 94); /* Old browsers */
   background: -moz-linear-gradient(top,  rgba(236, 0, 94, 1) 0%, rgba(255, 0, 172, 1) 100%); /* FF3.6-15 */
