@@ -30,7 +30,7 @@ export class Showcase extends React.Component {
     this.scrollYPosition = window.pageYOffset;
 
     //Subscribe to the devices scroll event
-    this.scrollObservable.subscribe(() => {
+    this.scrollSubscription = this.scrollObservable.subscribe(() => {
       if (this.scrollAnimationInProgress) {
         return;
       } else {
@@ -41,6 +41,7 @@ export class Showcase extends React.Component {
   }
 
   componentWillUnmount () {
+    this.scrollSubscription.unsubscribe();
     enableScroll();
   }
 
