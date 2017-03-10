@@ -11,7 +11,7 @@ export class Home extends React.Component {
   componentDidMount () {
     const { modal } = this.props;
     if (modal) this.openModal(modal);
-    // disableScroll();
+    disableScroll();
   }
 
   // opens a case study modal depending on id
@@ -21,6 +21,9 @@ export class Home extends React.Component {
     dispatch(actions.setNextCaseStudy(id));
     dispatch(actions.setActiveModal(<CaseStudyModalWrapper />, 'casestudy'));
     dispatch(actions.toggleModal(true));
+
+    const elementIndex = this.getScrollElementIndex(id);
+    this.scrollToIndex(elementIndex);
   };
 
   // returns index of this.scrollPoints element that matches id

@@ -1,9 +1,7 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import Rx from 'rxjs/Rx';
-import _ from 'lodash';
 import Scene from './Scene';
-import { onScroll, getScrollDirection, enableScroll, disableScroll } from 'utils/scrollJack';
+import { getScrollDirection, enableScroll, disableScroll } from 'utils/scrollJack';
 import { connect } from 'react-redux';
 import * as actions from 'store/actions';
 import mojs from 'mo-js';
@@ -13,8 +11,6 @@ import { getClosestNumber } from 'utils/closestNumber';
 import Footer from 'components/Footer';
 import { Link } from 'react-router';
 import { scrollDocToZero } from 'utils/scrollTo';
-
-window.scrollAnimationInProgress = false;
 
 export class Showcase extends React.Component {
   constructor (props) {
@@ -33,46 +29,19 @@ export class Showcase extends React.Component {
     this.scrollObservable = Rx.Observable.fromEvent(window, 'scroll');
     this.scrollYPosition = window.pageYOffset;
 
-
     //Subscribe to the devices scroll event
-    const scrollSubscription = this.scrollObservable.subscribe(
-      (scrollEvent) => {
-        if (this.scrollAnimationInProgress) {
-          return;
-        } else {
-          console.log('fired')
-          disableScroll();
-          this.scrollToScene();
-        }
-      });
+    this.scrollObservable.subscribe(() => {
+      if (this.scrollAnimationInProgress) {
+        return;
+      } else {
+        disableScroll();
+        this.scrollToScene();
+      }
+    });
   }
 
   componentWillUnmount () {
     enableScroll();
-  }
-
-
-  scrollToScene () {
-    this.scrollAnimationInProgress = true;
-    const { bannerState, modalState } = this.props;
-
-    const newYPosition = window.pageYOffset;
-    const direction = getScrollDirection(this.scrollYPosition, newYPosition);
-    console.log('direction: ', direction)
-    const index = direction === 'down' ? bannerState.active + 1 : bannerState.active - 1;
-    this.scrollToIndex(index);
-  }
-
-  // Deteremines scroll direction and navigates to next or previous scrollPoint
-  scrollStart (scrollDirection) {
-    const { bannerState, modalState } = this.props;
-
-    if (!modalState.open) {
-      if (scrollDirection) {
-        const index = scrollDirection === 'down' ? bannerState.active + 1 : bannerState.active - 1;
-        this.scrollToIndex(index);
-      }
-    }
   }
 
   // adds a scrollPoint element to this.scrollPoints
@@ -80,16 +49,26 @@ export class Showcase extends React.Component {
     if (element && this.scrollPoints.indexOf(element) === -1) this.scrollPoints.push(element);
   }
 
+  //determines direction of scroll and triggers animation
+  scrollToScene () {
+    this.scrollAnimationInProgress = true;
+    const { bannerState } = this.props;
+
+    const newYPosition = window.pageYOffset;
+    const direction = getScrollDirection(this.scrollYPosition, newYPosition);
+    const index = direction === 'down' ? bannerState.active + 1 : bannerState.active - 1;
+    this.scrollToIndex(index);
+  }
+
   // scrolls to the scrollPoint that matches passed index
   scrollToIndex (bannerIndex) {
-    const { bannerState, dispatch, scenes } = this.props;
+    const { dispatch, scenes } = this.props;
     const activeScene = scenes[bannerIndex - 1];
     const sceneColor = activeScene ? activeScene.color : '#fff';
 
     if (bannerIndex < 0 || bannerIndex >= this.scrollPoints.length) {
       this.scrollAnimationInProgress = false;
       return;
-      // bannerIndex = bannerState.active;
     };
 
     if (bannerIndex > 0) dispatch(actions.setHeaderTheme('white'));
@@ -116,7 +95,6 @@ export class Showcase extends React.Component {
         window.scrollTo(0, pos);
       },
       onPlaybackComplete: () => {
-        console.log('complete');
         setTimeout(() => {
           this.scrollAnimationInProgress = false;
           this.scrollYPosition = window.pageYOffset;
@@ -136,10 +114,6 @@ export class Showcase extends React.Component {
       const currentIndex = this.scrollPoints.findIndex(p => p.offsetTop === closestNumber);
       this.scrollToIndex(currentIndex);
     }
-  }
-
-  scrollToTop () {
-    scrollDocToZero();
   }
 
   render () {
@@ -166,8 +140,8 @@ export class Showcase extends React.Component {
           <div className="footer__center">
             <div className="row">
               <ul className="typ--bold">
-                <li className="typ--h1" onClick={ () => this.scrollToTop() }><Link className="typ--redshift" to="/about">About.</Link></li>
-                <li className="typ--h1" onClick={ () => this.scrollToTop() }><Link className="typ--redshift" to="/careers">Careers.</Link></li>
+                <li className="typ--h1" onClick={ () => scrollDocToZero() }><Link className="typ--redshift" to="/about">About.</Link></li>
+                <li className="typ--h1" onClick={ () => scrollDocToZero() }><Link className="typ--redshift" to="/careers">Careers.</Link></li>
                 <li className="typ--h1"><a className="typ--redshift" href="http://weareredshift.tumblr.com/" target="_blank">Blog.</a></li>
               </ul>
             </div>
