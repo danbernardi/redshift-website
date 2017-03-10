@@ -46,5 +46,5 @@ export function enableScroll (elem) {
 // disables free page scrolling
 export function disableScroll (elem) {
   const scroller = elem || document.querySelector('html');
-  // scroller.classList.add('disable-scroll');
+  scroller.classList.add('disable-scroll');
 }

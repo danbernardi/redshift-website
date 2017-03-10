@@ -23,7 +23,7 @@ export class Loader extends React.Component {
   componentDidMount () {
     this.animateIn();
     const html = document.querySelector('html');
-    html.classList.add('disable-scroll');
+    // html.classList.add('disable-scroll');
   }
 
   animateIn () {

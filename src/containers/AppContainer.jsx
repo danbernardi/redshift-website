@@ -23,13 +23,11 @@ class AppContainer extends Component {
   }
 
   componentWillReceiveProps (nextProps) {
-    const html = document.getElementsByTagName('html');
-
-    //halt normal page scrolling if modal is open
+    // halt normal page scrolling if modal is open
     if (nextProps.modalState.open) {
-      if (html && html[0]) { html[0].classList.add('disable-scroll'); }
-    } else if (!nextProps.modalState.open && ['/', '/work'].indexOf(location.pathname) === -1) {
-      if (html && html[0]) { html[0].classList.remove('disable-scroll'); }
+      disableScroll();
+    } else if (!nextProps.modalState.open) {
+      enableScroll();
     }
   }
 
