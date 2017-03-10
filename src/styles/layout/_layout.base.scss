@@ -56,6 +56,11 @@ ol {
   align-items: center;
 }
 
+.hero-image {
+  width: calc(100% - 8rem);
+  margin: 4rem;
+}
+
 .full-image {
   width: 100%;
   display: block;

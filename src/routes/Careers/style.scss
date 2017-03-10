@@ -17,6 +17,21 @@
   min-height: 33rem;
 }
 
+.career-section {
+  border-bottom: solid 0.1rem $medium-gray;
+}
+
+.job__view {
+  &:after {
+    content: '';
+    height: 0.2rem;
+    width: 6.5rem;
+    display: block;
+    background-color: $redshift;
+    margin-top: 2rem;
+  }
+}
+
 .careers-page-title {
   // height: 45rem;
   top: 40%;

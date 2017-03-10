@@ -36,12 +36,23 @@ export class Careers extends React.Component {
   };
 
   render () {
+    const careerHero = {
+      imgDef: require('assets/img/careers/rs_team.jpg'),
+      imgTlg: require('assets/img/careers/rs_team-tlg.jpg'),
+      imgMlg: require('assets/img/careers/rs_team-mlg.jpg')
+    };
+
     return (
       <div>
-        <section className="about-gradient careers-hero row">
+        <picture>
+          <source srcSet={ careerHero.imgTlg } media="(min-width: 1040px)" />
+          <source srcSet={ careerHero.imgMlg } media="(min-width: 767px)" />
+          <img src={ careerHero.imgDef } className="hero-image" alt="Redshift Careers" />
+        </picture>
+        <section className="row">
           <div className="careers-page-title">
             <div className="hero--scene-text">
-              <h1 className="typ--bold typ--white">Join the team.</h1>
+              <h1 className="typ--bold typ--redshift">Join the team.</h1>
             </div>
           </div>
         </section>
