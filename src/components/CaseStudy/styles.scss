@@ -1,12 +1,28 @@
 @import 'sass-includes';
 
+.casestudy__modal {
+  .modal__close {
+    .icon-hamburger {
+      float: left;
+    }
+
+    .icon-hamburger.close-icon span {
+      background: $white;
+    }
+  }
+}
+
+.modal__close.row {
+  padding-left: 2.8rem;
+  padding-right: 2.8rem;
+}
+
 .video-container {
   background-color: #000000;
   text-align: center;
   padding: 0;
   margin: 0 auto;
   width: 100%;
-  // max-width: 76.8rem;
   height: auto;
 }
 
@@ -19,38 +35,49 @@
   width: 100%;
   height: auto;
   display: block;
-  // padding: 25% 0;
   margin: 0;
 }
 
-// .Rvideo-nosupport
-//   {
-//   color: #FFFFFF;
-//   padding-top: 110px;
-//   padding-bottom: 110px;
-//   }
+.casestudy__name {
+  color: $medium-gray;
+}
 
+.casestudy__dots {
+  padding-top: 12rem;
+}
 
-.case-study {
-  width: calc(100vw - 17rem);
-  z-index: 4;
-  // media queries
-  @include breakpoint($tablet-sm) {
-    width: calc(100vw - 10rem);
-  }
-  @include breakpoint($mobile-lg) {
-    width: 100vw;
+.casestudy__dot {
+  animation: pulse 2.3s 3;
+  height: 2rem;
+  width: 2rem;
+  margin-bottom: 1rem;
+  border-radius: 50%;
+  // background-color: rgb(255, 199, 0);
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
   }
 
-  .casestudy__name {
-    // media queries
-    @include breakpoint($mobile-lg) {
-      margin-left: 6rem;
-    }
-    @include breakpoint($mobile-sm) {
-      margin-left: 4.2rem;
-    }
+  50% {
+    opacity: 0.1;
   }
+}
+
+.dot--two {animation-delay: 0.5s;}
+.dot--three {animation-delay: 1s;}
+
+.casestudy__next--sidebar {
+  width: 8rem;
+  height: 100%;
+  float: left;
+  position: absolute;
+}
+
+.casestudy__next--text {
+  padding-left: 8rem;
 }
 
 .casestudy__next {
@@ -59,7 +86,7 @@
   cursor: pointer;
   width: 100%;
   bottom: 0;
-  left: 0;
+  left: -8rem;
   position: absolute;
   z-index: 1;
   // media queries
@@ -79,7 +106,7 @@
 .casestudy__heading {
   max-width: 100rem;
   padding-top: 16rem;
-  padding-bottom: 23rem;
+  padding-bottom: 4rem;
   // media queries
   @include breakpoint($tablet-lg) {
     padding-top: 10rem;

@@ -14,13 +14,13 @@ export const caseStudies = [
     heading: 'The world’s fourth largest software company approached Redshift with a critical challenge: How can we get more Norton on more devices?',
     content: [
       {
-        images:
-        {
-          imgDef: require('assets/img/home/Norton/norton1.jpg'),
-          imgTlg: require('assets/img/home/Norton/norton1_tlg.jpg'),
-          imgMlg: require('assets/img/home/Norton/norton1_mlg.jpg')
+        video: {
+          url: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/video/five_374x666.mp4',
+          maxWidth: '28.5%',
+          videoImage: require('assets/img/case-studies/iphone.png'),
+          videoPadding: '17% 0 15.3%',
+          videoMargin: '-10.6%'
         },
-        imgAlt: 'Norton Online 1',
         copy: [
           {
             classes: 'casestudy__text typ--h3',
@@ -31,11 +31,11 @@ export const caseStudies = [
       {
         images:
         {
-          imgDef: require('assets/img/home/Norton/norton2.jpg'),
-          imgTlg: require('assets/img/home/Norton/norton2_tlg.jpg'),
-          imgMlg: require('assets/img/home/Norton/norton2_mlg.jpg')
+          imgDef: require('assets/img/home/Norton/norton6.jpg'),
+          imgTlg: require('assets/img/home/Norton/norton6_tlg.jpg'),
+          imgMlg: require('assets/img/home/Norton/norton6_mlg.jpg')
         },
-        imgAlt: 'Norton Online 2',
+        imgAlt: 'Norton Online 6',
         copy: [
           {
             classes: 'casestudy__text typ--h3',
@@ -46,20 +46,40 @@ export const caseStudies = [
       {
         images:
         {
-          imgDef: require('assets/img/home/Norton/norton4.jpg'),
-          imgTlg: require('assets/img/home/Norton/norton4_tlg.jpg'),
-          imgMlg: require('assets/img/home/Norton/norton4_mlg.jpg')
+          imgDef: require('assets/img/home/Norton/norton7.jpg'),
+          imgTlg: require('assets/img/home/Norton/norton7_tlg.jpg'),
+          imgMlg: require('assets/img/home/Norton/norton7_mlg.jpg')
         },
-        imgAlt: 'Norton Online 3',
+        imgAlt: 'Norton Online 7',
         copy: [
           {
             classes: 'casestudy__text typ--h3 pb7',
             text: 'In the past, each Norton product had its own separate interface, which made it very awkward to use multiple products together. The new solution lets users control and protect all their devices—from any device. For example, Mom can use her smartphone to remotely change Online Family settings for the home PC.'
-          },
+          }
+        ]
+      },
+      {
+        images:
+        {
+          imgDef: require('assets/img/home/Norton/norton1.jpg'),
+          imgTlg: require('assets/img/home/Norton/norton1_tlg.jpg'),
+          imgMlg: require('assets/img/home/Norton/norton1_mlg.jpg')
+        },
+        copy: [
           {
             classes: 'casestudy__text typ--h3 pb7',
             text: 'The look and feel we created was a departure for Norton, whose software has usually employed a dark, “high-tech” look. We wanted the new console to feel light, modern, and approachable. Simple icons, ample whitespace, and bright splashes of color make a powerful product feel easy to use.'
-          },
+          }
+        ]
+      },
+      {
+        images:
+        {
+          imgDef: require('assets/img/home/Norton/norton8.jpg'),
+          imgTlg: require('assets/img/home/Norton/norton8_tlg.jpg'),
+          imgMlg: require('assets/img/home/Norton/norton8_mlg.jpg')
+        },
+        copy: [
           {
             classes: 'casestudy__text typ--h3',
             text: 'This work, which included both web and native apps, was considered the most ambitious and significant UX initiative on the company’s roadmap.'
@@ -87,13 +107,13 @@ export const caseStudies = [
     heading: 'Google asked Redshift to reinvent the way their customers experience Nexus products online.',
     content: [
       {
-        images:
-        {
-          imgDef: require('assets/img/home/Nexus/nexus1.jpg'),
-          imgTlg: require('assets/img/home/Nexus/nexus1_tlg.jpg'),
-          imgMlg: require('assets/img/home/Nexus/nexus1_mlg.jpg')
+        video: {
+          url: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/video/five_374x666.mp4',
+          maxWidth: '28.5%',
+          videoImage: require('assets/img/case-studies/iphone.png'),
+          videoPadding: '17% 0 15.3%',
+          videoMargin: '-10.6%'
         },
-        imgAlt: 'Google Nexus 1',
         copy: [
           {
             classes: 'casestudy__text typ--h3',
@@ -104,9 +124,9 @@ export const caseStudies = [
       {
         images:
         {
-          imgDef: require('assets/img/home/Nexus/nexus2.jpg'),
-          imgTlg: require('assets/img/home/Nexus/nexus2_tlg.jpg'),
-          imgMlg: require('assets/img/home/Nexus/nexus2_mlg.jpg')
+          imgDef: require('assets/img/home/Nexus/nexus6.jpg'),
+          imgTlg: require('assets/img/home/Nexus/nexus6_tlg.jpg'),
+          imgMlg: require('assets/img/home/Nexus/nexus6_mlg.jpg')
         },
         imgAlt: 'Google Nexus 2',
         copy: [
@@ -119,9 +139,9 @@ export const caseStudies = [
       {
         images:
         {
-          imgDef: require('assets/img/home/Nexus/nexus3.jpg'),
-          imgTlg: require('assets/img/home/Nexus/nexus3_tlg.jpg'),
-          imgMlg: require('assets/img/home/Nexus/nexus3_mlg.jpg')
+          imgDef: require('assets/img/home/Nexus/nexus7.jpg'),
+          imgTlg: require('assets/img/home/Nexus/nexus7_tlg.jpg'),
+          imgMlg: require('assets/img/home/Nexus/nexus7_mlg.jpg')
         },
         imgAlt: 'Google Nexus 3',
         classes: 'mb10',
@@ -135,9 +155,9 @@ export const caseStudies = [
       {
         images:
         {
-          imgDef: require('assets/img/home/Nexus/nexus4.jpg'),
-          imgTlg: require('assets/img/home/Nexus/nexus4_tlg.jpg'),
-          imgMlg: require('assets/img/home/Nexus/nexus4_mlg.jpg')
+          imgDef: require('assets/img/home/Nexus/nexus8.jpg'),
+          imgTlg: require('assets/img/home/Nexus/nexus8_tlg.jpg'),
+          imgMlg: require('assets/img/home/Nexus/nexus8_mlg.jpg')
         },
         imgAlt: 'Google Nexus 4',
         classes: 'mt5',
@@ -166,10 +186,12 @@ export const caseStudies = [
     heading: 'Working with celebrity chef Tyler Florence, Redshift designed a publishing platform that allows anyone to share beautiful recipes with food lovers everywhere.',
     content: [
       {
-        video: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/video/yumavore_768x1024.mp4',
-        maxWidth: '44%',
-        videoImage: require('assets/img/case-studies/ipad.png'),
-        videoPadding: '11% 0',
+        video: {
+          url: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/video/yumavore_768x1024.mp4',
+          maxWidth: '44%',
+          videoImage: require('assets/img/case-studies/ipad.png'),
+          videoPadding: '11% 0'
+        },
         copy: [
           {
             classes: 'casestudy__text typ--h3',
@@ -253,11 +275,13 @@ export const caseStudies = [
     heading: 'Redshift’s first product, Five, is a social app that lets you share and compare your top five of everything.',
     content: [
       {
-        video: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/video/five_374x666.mp4',
-        maxWidth: '31%',
-        videoImage: require('assets/img/case-studies/iphone.png'),
-        videoPadding: '14.3% 0px 12.5%',
-        imgAlt: 'Five 1',
+        video: {
+          url: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/video/five_374x666.mp4',
+          maxWidth: '28.5%',
+          videoImage: require('assets/img/case-studies/iphone.png'),
+          videoPadding: '17% 0 15.3%',
+          videoMargin: '-10.6%'
+        },
         copy: [
           {
             classes: 'casestudy__text typ--h3',
@@ -281,12 +305,13 @@ export const caseStudies = [
         ]
       },
       {
-        video: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/video/five_374x666.mp4',
-        maxWidth: '31%',
-        videoImage: require('assets/img/case-studies/iphone.png'),
-        videoPadding: '14.3% 0px 12.5%',
-
-        imgAlt: 'Five 3',
+        video: {
+          url: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/video/five_374x666.mp4',
+          maxWidth: '28.5%',
+          videoImage: require('assets/img/case-studies/iphone.png'),
+          videoPadding: '17% 0 15.3%',
+          videoMargin: '-10.6%'
+        },
         copy: [
           {
             classes: 'casestudy__text typ--h3 pb7',

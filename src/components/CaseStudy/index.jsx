@@ -65,7 +65,7 @@ class CaseStudy extends React.Component {
   }
 
   render () {
-    const { id, name, content, heading, sidebar, featured } = this.props;
+    const { id, name, content, heading, featured } = this.props;
 
     const featuredCaseStudies = caseStudies.filter((item) => item.featured);
     const archivedCaseStudies = caseStudies.filter((item) => !item.featured);
@@ -79,18 +79,24 @@ class CaseStudy extends React.Component {
 
     return (
       <div className="casestudy__modal">
-        { sidebar && <div className="modal__close job__sidebar" /> }
-
         <ModalCloseBtn closeCallback={ () => browserHistory.push('/work') } />
         <section ref="casestudy" className={ `modal__with-sidebar ${id}` }>
-          <div className="layout--relative">
+          <div className={ `job__sidebar bg--${id}` } />
+          <div className="layout--relative ml8">
             <div className="row"><h4 className="casestudy__name" ref="name">{ name }</h4></div>
 
             <div ref="blur">
               <div className="row">
-                <h1 className={ `typ--${id} typ--bold casestudy__heading` }>
-                  { heading }
-                </h1>
+                <div className="casestudy__heading">
+                  <h1 className={ `typ--${id} typ--bold` }>
+                    { heading }
+                  </h1>
+                  <div className="casestudy__dots">
+                    <div className={ `casestudy__dot dot--one bg--${id}` } />
+                    <div className={ `casestudy__dot dot--two bg--${id}` } />
+                    <div className={ `casestudy__dot dot--three bg--${id}` } />
+                  </div>
+                </div>
               </div>
               { content && content.length &&
                 content.map((section, index) => (
@@ -110,9 +116,12 @@ class CaseStudy extends React.Component {
                   style={ { display: 'block', bottom: 0, height: 'auto', opacity: 1 } }
                   className="casestudy__next"
                 >
+                  <div className={ `casestudy__next--sidebar bg--${nextCaseStudy.id}` } />
                   <div className="row">
-                    <span ref="next-label" className="typ--light">View next case study</span>
-                    <h2 ref="next-name" className={ `typ--${nextCaseStudy.id} typ--bold` }>{ nextCaseStudy.name }</h2>
+                    <div className="casestudy__next--text">
+                      <span ref="next-label" className="typ--light">View next case study</span>
+                      <h2 ref="next-name" className={ `typ--${nextCaseStudy.id} typ--bold` }>{ nextCaseStudy.name }</h2>
+                    </div>
                   </div>
                 </Link>
               </Measure>

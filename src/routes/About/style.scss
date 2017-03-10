@@ -30,6 +30,11 @@
   width: 100%;
 }
 
+.about__process video {
+  margin: 4rem;
+  width: calc(100% - 8rem);
+}
+
 .about__process__img {
   width: 100%;
   padding: 3rem;
