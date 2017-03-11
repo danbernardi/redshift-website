@@ -10,7 +10,7 @@ class CaseStudySection extends React.Component {
   }
 
   componentDidMount () {
-    setTimeout(() => {
+    this.props.video && setTimeout(() => {
       document.getElementById('caseStudyVideo').play();
     }, 5000);
   }

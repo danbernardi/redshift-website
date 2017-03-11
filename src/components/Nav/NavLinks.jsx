@@ -9,15 +9,15 @@ class NavLinks extends React.Component {
     super(props);
 
     this.state = {
-      staggerIn: false
+      staggerIn: true
     };
   }
 
-  componentDidMount () {
-    setTimeout(() => {
-      this.setState({ staggerIn: true });
-    }, 100);
-  }
+  // componentDidMount () {
+  //   setTimeout(() => {
+  //     this.setState({ staggerIn: true });
+  //   }, 100);
+  // }
 
   routingHandler (to) {
     const { dispatch } = this.props;
