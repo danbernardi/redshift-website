@@ -21,7 +21,7 @@ export class Header extends React.Component {
   getPageTitle (path) {
     return {
       work: { label: 'work', color: 'white' },
-      about: { label: 'about', color: '' },
+      about: { label: 'about', color: 'pink' },
       careers: { label: 'careers', color: '' },
       '404': { label: '404', color: 'white' }
     }[path || 'work'];

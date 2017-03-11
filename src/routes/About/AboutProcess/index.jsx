@@ -58,7 +58,7 @@ class AboutProcess extends React.Component {
             <h2 className="typ--bold">Redshift is a digital experience firm that’s out of this world.</h2>
             <h5>We leverage expertise across multiple disciplines – User experience, Visual design, Engineering, and Research – to create real products and deliver out-of-this-world experiences that are usable, beautiful, feasible and grounded in real user needs.</h5>
           </div>
-          <div className="col-12">
+          {/* <div className="col-12">
             <img style={ { width: '100%', position: 'absolute' } } src={ require('assets/img/about/about_curve.png') } />
             { icons.map((icon, i) => (
               <div className="col-3 typ--center" key={ i } style={ { padding: '11% 0' } }>
@@ -66,7 +66,7 @@ class AboutProcess extends React.Component {
                 <h5>{ icon.text }</h5>
               </div>
             )) }
-          </div>
+          </div> */}
         </div>
       </section>
     );
