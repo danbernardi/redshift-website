@@ -16,19 +16,26 @@ export class Home extends React.Component {
 
   // opens a case study modal depending on id
   openModal (id) {
+
     const { dispatch } = this.props;
 
     dispatch(actions.setNextCaseStudy(id));
     dispatch(actions.setActiveModal(<CaseStudyModalWrapper />, 'casestudy'));
     dispatch(actions.toggleModal(true));
 
+    //TODO: Refactor this
     const elementIndex = this.getScrollElementIndex(id);
-    this.scrollToIndex(elementIndex);
+    if(elementIndex) {
+      this.scrollToIndex(elementIndex);
+    }
   };
 
   // returns index of this.scrollPoints element that matches id
   getScrollElementIndex (id) {
-    return this.scrollPoints.findIndex(p => p.classList.contains(`cs__${id}`));
+
+    if(this.scrollPoints) {
+      return this.scrollPoints.findIndex(p => p.classList.contains(`cs__${id}`));
+    }
   }
 
   render () {
