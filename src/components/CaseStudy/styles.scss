@@ -17,7 +17,7 @@
 }
 
 .casestudy__title {
-  top: 33%;
+  top: 45%;
   transform: translateY(-50%);
   position: relative;
 }
@@ -58,8 +58,11 @@
 
 .casestudy__dots {
   position: absolute;
-  bottom: 12rem;
+  bottom: 7rem;
   text-align: center;
+  @media (max-width: 767px) and (orientation: landscape) {
+    bottom: 3rem;
+  }
 }
 
 .casestudy__dot {
@@ -142,19 +145,20 @@
 }
 
 .casestudy__heading {
+  height: calc(100vh - 5rem);
   max-width: 100rem;
-  padding-top: 16rem;
-  padding-bottom: 4rem;
+  // padding-top: 16rem;
+  // padding-bottom: 4rem;
   position: relative;
   // media queries
-  @include breakpoint($tablet-lg) {
-    padding-top: 10rem;
-    padding-bottom: 15rem;
-  }
-  @include breakpoint($mobile-sm) {
-    padding-top: 6rem;
-    padding-bottom: 9rem;
-  }
+  // @include breakpoint($tablet-lg) {
+  //   padding-top: 10rem;
+  //   padding-bottom: 15rem;
+  // }
+  // @include breakpoint($mobile-sm) {
+  //   padding-top: 6rem;
+  //   padding-bottom: 9rem;
+  // }
 }
 
 .casestudy__text {
