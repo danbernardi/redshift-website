@@ -14,13 +14,13 @@ export const caseStudies = [
     heading: 'The world’s fourth largest software company approached Redshift with a critical challenge: How can we get more Norton on more devices?',
     content: [
       {
-        video: {
-          url: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/video/five_374x666.mp4',
-          maxWidth: '28.5%',
-          videoImage: require('assets/img/case-studies/iphone.png'),
-          videoPadding: '17% 0 15.3%',
-          videoMargin: '-10.6%'
-        },
+        // video: {
+        //   url: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/video/five_374x666.mp4',
+        //   maxWidth: '28.5%',
+        //   videoImage: require('assets/img/case-studies/iphone.png'),
+        //   videoPadding: '17% 0 15.3%',
+        //   videoMargin: '-10.6%'
+        // },
         copy: [
           {
             classes: 'casestudy__text typ--h3',
@@ -31,9 +31,9 @@ export const caseStudies = [
       {
         images:
         {
-          imgDef: require('assets/img/home/Norton/norton6.jpg'),
-          imgTlg: require('assets/img/home/Norton/norton6_tlg.jpg'),
-          imgMlg: require('assets/img/home/Norton/norton6_mlg.jpg')
+          imgDef: require('assets/img/home/Norton/norton7.jpg'),
+          imgTlg: require('assets/img/home/Norton/norton7_tlg.jpg'),
+          imgMlg: require('assets/img/home/Norton/norton7_mlg.jpg')
         },
         imgAlt: 'Norton Online 6',
         copy: [
@@ -46,9 +46,9 @@ export const caseStudies = [
       {
         images:
         {
-          imgDef: require('assets/img/home/Norton/norton7.jpg'),
-          imgTlg: require('assets/img/home/Norton/norton7_tlg.jpg'),
-          imgMlg: require('assets/img/home/Norton/norton7_mlg.jpg')
+          imgDef: require('assets/img/home/Norton/norton6.jpg'),
+          imgTlg: require('assets/img/home/Norton/norton6_tlg.jpg'),
+          imgMlg: require('assets/img/home/Norton/norton6_mlg.jpg')
         },
         imgAlt: 'Norton Online 7',
         copy: [
@@ -107,13 +107,19 @@ export const caseStudies = [
     heading: 'Google asked Redshift to reinvent the way their customers experience Nexus products online.',
     content: [
       {
-        video: {
-          url: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/video/five_374x666.mp4',
-          maxWidth: '28.5%',
-          videoImage: require('assets/img/case-studies/iphone.png'),
-          videoPadding: '17% 0 15.3%',
-          videoMargin: '-10.6%'
+        images:
+        {
+          imgDef: require('assets/img/home/Nexus/nexus1.jpg'),
+          imgTlg: require('assets/img/home/Nexus/nexus1_tlg.jpg'),
+          imgMlg: require('assets/img/home/Nexus/nexus1_mlg.jpg')
         },
+        // video: {
+        //   url: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/video/five_374x666.mp4',
+        //   maxWidth: '28.5%',
+        //   videoImage: require('assets/img/case-studies/iphone.png'),
+        //   videoPadding: '17% 0 15.3%',
+        //   videoMargin: '-10.6%'
+        // },
         copy: [
           {
             classes: 'casestudy__text typ--h3',
@@ -305,13 +311,13 @@ export const caseStudies = [
         ]
       },
       {
-        video: {
-          url: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/video/five_374x666.mp4',
-          maxWidth: '28.5%',
-          videoImage: require('assets/img/case-studies/iphone.png'),
-          videoPadding: '17% 0 15.3%',
-          videoMargin: '-10.6%'
-        },
+        // video: {
+        //   url: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/video/five_374x666.mp4',
+        //   maxWidth: '28.5%',
+        //   videoImage: require('assets/img/case-studies/iphone.png'),
+        //   videoPadding: '17% 0 15.3%',
+        //   videoMargin: '-10.6%'
+        // },
         copy: [
           {
             classes: 'casestudy__text typ--h3 pb7',
