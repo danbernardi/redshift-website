@@ -1,4 +1,5 @@
 import React from 'react';
+/* eslint react/jsx-boolean-value: 0 */
 
 class AboutProcess extends React.Component {
   constructor (props) {
@@ -15,39 +16,46 @@ class AboutProcess extends React.Component {
     }, 2000);
   }
 
-  render() {
-    const icons = [
-      {
-        img: require('assets/img/about/telescope.png'),
-        alt: 'telescope',
-        label: 'Research',
-        text: 'lorem ipsum'
-      },
-      {
-        img: require('assets/img/about/constellation.png'),
-        alt: 'constellation',
-        label: 'UX',
-        text: 'lorem ipsum'
-      },
-      {
-        img: require('assets/img/about/comet.png'),
-        alt: 'comet',
-        label: 'Visual Design',
-        text: 'lorem ipsum'
-      },
-      {
-        img: require('assets/img/about/rocket.png'),
-        alt: 'rocket',
-        label: 'Engineering',
-        text: 'lorem ipsum'
-      }
-    ];
+  render () {
+    // const icons = [
+    //   {
+    //     img: require('assets/img/about/telescope.png'),
+    //     alt: 'telescope',
+    //     label: 'Research',
+    //     text: 'lorem ipsum'
+    //   },
+    //   {
+    //     img: require('assets/img/about/constellation.png'),
+    //     alt: 'constellation',
+    //     label: 'UX',
+    //     text: 'lorem ipsum'
+    //   },
+    //   {
+    //     img: require('assets/img/about/comet.png'),
+    //     alt: 'comet',
+    //     label: 'Visual Design',
+    //     text: 'lorem ipsum'
+    //   },
+    //   {
+    //     img: require('assets/img/about/rocket.png'),
+    //     alt: 'rocket',
+    //     label: 'Engineering',
+    //     text: 'lorem ipsum'
+    //   }
+    // ];
 
     const videoImage = require('assets/img/about/office-video-still-arrow.jpg');
 
     return (
       <section className="about__process mb10">
-        <video id="aboutVideo" poster={ videoImage } >
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          id="aboutVideo"
+          poster={ videoImage }
+        >
           <source src="https://s3-us-west-1.amazonaws.com/rs-website-cdn/video/redshift_office_video.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
