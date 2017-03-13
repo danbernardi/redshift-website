@@ -1,4 +1,5 @@
 import React from 'react';
+/* eslint react/jsx-boolean-value: 0 */
 
 class AboutProcess extends React.Component {
   constructor (props) {
@@ -47,7 +48,14 @@ class AboutProcess extends React.Component {
 
     return (
       <section className="about__process mb10">
-        <video autoPlay loop muted playsInline id="aboutVideo" poster={ videoImage } >
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          id="aboutVideo"
+          poster={ videoImage }
+        >
           <source src="https://s3-us-west-1.amazonaws.com/rs-website-cdn/video/redshift_office_video.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
