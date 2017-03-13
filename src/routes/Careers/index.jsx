@@ -49,12 +49,8 @@ export class Careers extends React.Component {
           <source srcSet={ careerHero.imgMlg } media="(min-width: 767px)" />
           <img src={ careerHero.imgDef } className="hero-image" alt="Redshift Careers" />
         </picture>
-        <section className="row">
-          <div className="careers-page-title">
-            <div className="hero--scene-text">
-              <h1 className="typ--bold typ--redshift">Join the team.</h1>
-            </div>
-          </div>
+        <section className="row pt9 pt6--mlg">
+          <h1 className="typ--bold typ--redshift">Join the team.</h1>
         </section>
         <section>
           <Watcher
