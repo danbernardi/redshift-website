@@ -20,21 +20,19 @@ class CaseStudy extends React.Component {
 
   componentWillEnter (callback) { callback(); }
 
-  componentDidEnter () {
-    const blur = ReactDOM.findDOMNode(this.refs.blur);
-    blur.style.opacity = 0;
-    blur.style.filter = 'blur(6px)';
+  componentDidMount () {
+    const sidebar = this.sidebar;
 
-    new mojs.Tween({
-      duration: 400,
-      delay: 600,
-      easing: 'cubic.inout',
+    const sidebarAnimation = new mojs.Tween({
+      duration: 600,
+      delay: 200,
+      easing: 'cubic.out',
       onUpdate: (progress) => {
-        const mappedBlur = mapRange(progress, 0, 1, 6, 0);
-        blur.style.filter = `blur(${mappedBlur}px)`;
-        blur.style.opacity = progress;
+        sidebar.style.opacity = progress;
       }
-    }).play();
+    });
+
+    sidebarAnimation.play();
   }
 
   componentWillLeave (unmountComponent) {
@@ -54,9 +52,11 @@ class CaseStudy extends React.Component {
         const endFontSize = Number(window.getComputedStyle(name, null).getPropertyValue('font-size').replace('px', ''));
         const mappedHeight = mapRange(progress, 0, 1, dimensions.height, window.innerHeight);
         const mappedFontSize = mapRange(progress, 0, 1, startFontSize, endFontSize);
+        const mappedFontWeight = mapRange(progress, 0, 1, 600, 100);
         const mappedOpacity = mapRange(progress, 0, 1, 1, 0);
         next.style.height = `${mappedHeight}px`;
         nextName.style.fontSize = `${mappedFontSize}px`;
+        nextName.style.fontWeight = mappedFontWeight;
         nextLabel.style.opacity = mappedOpacity;
         next.style.backgroundColor = '#fff';
       },
@@ -81,9 +81,13 @@ class CaseStudy extends React.Component {
       <div className="casestudy__modal">
         <ModalCloseBtn closeCallback={ () => browserHistory.push('/work') } />
         <section ref="casestudy" className={ `modal__with-sidebar ${id}` }>
-          <div className={ `job__sidebar bg--${id}` } />
-          <div className="layout--relative ml8 ml0--mlg">
-            <div className="row"><h4 className="casestudy__name pl3--mlg" ref="name">{ name }</h4></div>
+          <div className={ `job__sidebar bg--${id}` }  ref={
+            (sidebar) => {
+              this.sidebar = sidebar;
+            }
+          } />
+          <div className="layout--relative ml8 ml0--mlg bg--white">
+            <div className="row"><h4 className="casestudy__name" ref="name">{ name }</h4></div>
 
             <div ref="blur">
               <div className="row">

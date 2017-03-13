@@ -43,9 +43,11 @@ class AboutProcess extends React.Component {
       }
     ];
 
+    const videoImage = require('assets/img/about/office-video-still-arrow.jpg');
+
     return (
       <section className="about__process mb10">
-        <video id="aboutVideo">
+        <video id="aboutVideo" poster={ videoImage } >
           <source src="https://s3-us-west-1.amazonaws.com/rs-website-cdn/video/redshift_office_video.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>

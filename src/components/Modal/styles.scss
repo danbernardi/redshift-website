@@ -5,13 +5,14 @@
   position: absolute !important;
   color: $body;
   z-index: 26;
-  right: 0;
+  left: 0;
   // top: 6.5rem;
   text-align: right;
   padding-top: 4.5rem;
   // media queries
   @include breakpoint($mobile-lg) {
     padding-top: 3.3rem;
+    right: 0;
   }
 
   .icon-close {
@@ -41,8 +42,8 @@
 
 .modal__with-sidebar {
   position: absolute;
-  padding-top: 4.1rem;
-  background: $white;
+  // padding-top: 4.1rem;
+  // background: $white;
   right: 0;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
@@ -56,7 +57,7 @@
   //   padding-top: 3.3rem;
   //   width: 100vw;
   // }
-  @include breakpoint($mobile-lg) {
-    padding-top: 3.2rem;
-  }
+  // @include breakpoint($mobile-lg) {
+  //   padding-top: 3.2rem;
+  // }
 }
