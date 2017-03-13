@@ -69,7 +69,7 @@ export class Careers extends React.Component {
               ))
             }
           </div>
-        </section>'
+        </section>
         <Footer />
       </div>
     );
