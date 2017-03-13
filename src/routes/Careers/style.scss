@@ -166,6 +166,9 @@ input:-webkit-autofill {
   left: 0;
   top: 0;
   bottom: 0;
+  opacity: 0;
+  // transition: opacity 0.5s;
+  // transition-delay: 0.5s;
   // media queries
   @include breakpoint($mobile-lg) {
     display: none;

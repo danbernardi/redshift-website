@@ -4,6 +4,10 @@
   .modal__close {
     .icon-hamburger {
       float: left;
+      // media queries
+      @include breakpoint($mobile-lg) {
+        float: right;
+      }
     }
 
     .icon-hamburger.close-icon span {
@@ -25,6 +29,7 @@
 .modal__close.row {
   padding-left: 2.8rem;
   padding-right: 2.8rem;
+  width: auto;
   // media queries
   @include breakpoint($mobile-sm) {
     padding-left: 1.8rem;
@@ -54,6 +59,11 @@
 
 .casestudy__name {
   color: $medium-gray;
+  padding-top: 4.1rem;
+  //media queries
+  @include breakpoint($mobile-lg) {
+    padding-top: 3.2rem;
+  }
 }
 
 .casestudy__dots {
