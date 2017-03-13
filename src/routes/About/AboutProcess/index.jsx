@@ -60,7 +60,7 @@ class AboutProcess extends React.Component {
           Your browser does not support the video tag.
         </video>
         <div className="col-12 row pb10">
-          <h1 className="typ--bold mb4">We are Redshift<span className="typ--redshift">.</span></h1>
+          <h1 className="typ--bold my4">We are Redshift<span className="typ--redshift">.</span></h1>
           <h3>We believe in improving people’s lives with simple, meaningful design.</h3>
         </div>
         <div className="col-12 theme--gray py10">

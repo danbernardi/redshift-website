@@ -86,15 +86,15 @@ class CaseStudy extends React.Component {
               this.sidebar = sidebar;
             }
           } />
-          <div className="layout--relative ml8 ml0--mlg bg--white">
+          <div className="layout--relative ml8 ml1--mlg bg--white">
             <div className="row"><h4 className="casestudy__name" ref="name">{ name }</h4></div>
 
             <div ref="blur">
               <div className="row">
                 <div className="casestudy__heading layout--fullheight">
-                  <h2 className={ `typ--${id} typ--bold casestudy__title` }>
+                  <h1 className={ `typ--${id} typ--bold casestudy__title` }>
                     { heading }
-                  </h2>
+                  </h1>
                   <div className="casestudy__dots">
                     <div className={ `casestudy__dot dot--one bg--${id}` } />
                     <div className={ `casestudy__dot dot--two bg--${id}` } />

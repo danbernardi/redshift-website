@@ -6,7 +6,6 @@
   color: $body;
   z-index: 26;
   left: 0;
-  // top: 6.5rem;
   text-align: right;
   padding-top: 4.5rem;
   // media queries
@@ -27,7 +26,6 @@
   position: fixed;
   top: 0;
   right: 0;
-  // overflow: auto;
   height: 100%;
   width: 100%;
   z-index: 13;
@@ -42,22 +40,9 @@
 
 .modal__with-sidebar {
   position: absolute;
-  // padding-top: 4.1rem;
-  // background: $white;
   right: 0;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
   height: 100%;
   width: 100vw;
-  // media queries
-  // @include breakpoint($desktop-sm) {
-  //   width: calc(100vw - 11rem);
-  // }
-  // @include breakpoint($mobile-lg) {
-  //   padding-top: 3.3rem;
-  //   width: 100vw;
-  // }
-  // @include breakpoint($mobile-lg) {
-  //   padding-top: 3.2rem;
-  // }
 }

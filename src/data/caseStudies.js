@@ -247,7 +247,7 @@ export const caseStudies = [
         copy: [
           {
             classes: 'casestudy__text typ--h3',
-            text: 'Yumavore is available in the app store, featuring user-created content from thousands of professional and home chefs.'
+            text: 'We also created Yumavore’s visual identity, which features an elegant logo, sophisticated typefaces, and a palette of black, white, and coral. The simplicity of this visual system allows food photography to take center stage.'
           }
         ]
       },
@@ -257,12 +257,16 @@ export const caseStudies = [
       },
       {
         containerClass: 'typ--center',
-        copy: [{ src: require('assets/img/home/Yumavore/yumavore6.jpg') },
-          {
-            classes: 'btn btn--ghost mt5 typ--yumavore',
-            text: 'download the app',
-            url: 'https://itunes.apple.com/us/app/yumavore/id1043281685?mt=8:'
-          }]
+        copy: [{
+          src: require('assets/img/home/Yumavore/yumavore6.jpg'),
+          classes: 'casestudy__text typ--h3',
+          text: 'Yumavore is available in the app store, featuring user-created content from thousands of professional and home chefs.'
+        },
+        {
+          classes: 'btn btn--ghost mt5 typ--yumavore',
+          text: 'download the app',
+          url: 'https://itunes.apple.com/us/app/yumavore/id1043281685?mt=8'
+        }]
       }
     ]
   },
@@ -354,7 +358,6 @@ export const caseStudies = [
           url: 'https://itunes.apple.com/us/app/five-share-and-compare-your-top-five-of-anything/id1160849650?mt=8'
         }]
       }
-
     ]
   }
 

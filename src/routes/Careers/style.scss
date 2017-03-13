@@ -32,12 +32,6 @@
   }
 }
 
-.careers-page-title {
-  // height: 45rem;
-  top: 40%;
-  position: absolute;
-}
-
 .job__modal {
   width: 100vw;
   z-index: 4;
@@ -171,7 +165,7 @@ input:-webkit-autofill {
   // transition-delay: 0.5s;
   // media queries
   @include breakpoint($mobile-lg) {
-    display: none;
+    width: 1rem;
   }
 }
 
