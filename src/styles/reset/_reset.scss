@@ -87,6 +87,11 @@ video {
   vertical-align: baseline;
 }
 
+*::-webkit-media-controls-start-playback-button {
+  display: none!important;
+  -webkit-appearance: none;
+}
+
 html {
   line-height: 1;
 }

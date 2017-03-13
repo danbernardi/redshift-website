@@ -26,7 +26,7 @@ class CaseStudySection extends React.Component {
               <img src={ video.videoImage } className="full-image" />
             </picture>
             <div className="video-container" style={ { maxWidth: video.maxWidth, padding: video.videoPadding } } >
-              <video id="caseStudyVideo" loop="true" poster={ video.videoPoster } style={ { margin: video.videoMargin } }>
+              <video id="caseStudyVideo" loop muted playsInline poster={ video.videoPoster } style={ { margin: video.videoMargin } }>
                 <source src={ video.url } type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
