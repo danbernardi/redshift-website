@@ -1,5 +1,13 @@
 export function getScrollDirection (previousYPosition, currentYPosition) {
-  return previousYPosition <= currentYPosition ? 'down' : 'up';
+  if (previousYPosition < currentYPosition) {
+    return 'down';
+  }
+
+  if (previousYPosition > currentYPosition) {
+    return 'up';
+  }
+
+  return null;
 }
 
  // enables free page scrolling

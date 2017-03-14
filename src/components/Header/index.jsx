@@ -10,14 +10,6 @@ import { scrollDocToZero } from 'utils/scrollTo';
 import Hamburger from 'components/Hamburger';
 
 export class Header extends React.Component {
-  constructor (props) {
-    super(props);
-
-    this.state = {
-      logoHovered: false
-    };
-  }
-
   getPageTitle (path) {
     return {
       work: { label: 'work', color: 'white' },
@@ -65,7 +57,6 @@ export class Header extends React.Component {
 
   render () {
     const { modalState, headerTheme } = this.props;
-    const { logoHovered } = this.state;
 
     const initialStyles = { transition: `opacity 200ms ease-in-out` };
     let logoTransformStyles = {};
@@ -82,27 +73,16 @@ export class Header extends React.Component {
       <header className={ `header ${headerTheme}-theme` }>
         <div className="row">
           <div
-            onMouseEnter={ () => this.setState({ logoHovered: true }) }
-            onMouseLeave={ () => this.setState({ logoHovered: false }) }
             onClick={ () => this.triggerRouteChange() }
             style={ Object.assign(initialStyles, logoTransformStyles) }
-            className={ `header__logo layout--left ${logoHovered ? 'hovered' : ''}` }>
+            className="header__logo layout--left"
+            >
             <span className="logo">
               <span
                 className="icon-redshift pr2"
                 style={ { color: modalState.open && modalState.modalID === 'nav' && '#FFFFFF' } }
               />
             </span>
-            <h3
-              className="page-title"
-              style={ { color: modalState.open && modalState.modalID === 'nav'
-                ? 'white'
-                : this.getPageTitle(location.pathname.split('/')[1]).color } }>
-              { logoHovered
-                ? 'redshift'
-                : null
-              }
-            </h3>
           </div>
           <div
             style={ Object.assign(initialStyles, logoTransformStyles) }

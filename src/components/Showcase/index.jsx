@@ -29,6 +29,9 @@ export class Showcase extends React.Component {
     this.scrollObservable = Rx.Observable.fromEvent(window, 'scroll');
     this.scrollYPosition = window.pageYOffset;
 
+    // If the page had been previously scrolled, resume where we left off
+    if (this.props.bannerState.active) { this.scrollToIndex(this.props.bannerState.active); }
+
     //Subscribe to the devices scroll event
     this.scrollSubscription = this.scrollObservable.subscribe(() => {
       if (this.scrollAnimationInProgress) {
@@ -52,17 +55,23 @@ export class Showcase extends React.Component {
 
   //determines direction of scroll and triggers animation
   scrollToScene () {
-    this.scrollAnimationInProgress = true;
+    // this.scrollAnimationInProgress = true;
     const { bannerState } = this.props;
 
     const newYPosition = window.pageYOffset;
     const direction = getScrollDirection(this.scrollYPosition, newYPosition);
-    const index = direction === 'down' ? bannerState.active + 1 : bannerState.active - 1;
-    this.scrollToIndex(index);
+    if (direction) {
+      const index = direction === 'down' ? bannerState.active + 1 : bannerState.active - 1;
+      this.scrollToIndex(index);
+    } else {
+      this.scrollAnimationInProgress = false;
+    }
   }
 
   // scrolls to the scrollPoint that matches passed index
   scrollToIndex (bannerIndex) {
+    if (!this.scrollAnimationInProgress) { this.scrollAnimationInProgress = true; }
+
     const { dispatch, scenes } = this.props;
     const activeScene = scenes[bannerIndex - 1];
     const sceneColor = activeScene ? activeScene.color : '#fff';
@@ -126,7 +135,7 @@ export class Showcase extends React.Component {
         transition: `background-color ${this.duration}ms ease-out`
       } }>
 
-        { React.cloneElement(leadingScene, { onDidMount: (el) => this.addScrollPoint(el) } ) }
+        { React.cloneElement(leadingScene, { onDidMount: (el) => this.addScrollPoint(el), clickCallback: this.scrollToIndex.bind(this) }) }
 
         { scenes.map((scene, index) => (
           <Scene

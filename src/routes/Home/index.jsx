@@ -5,12 +5,12 @@ import Hero from './Hero';
 import { connect } from 'react-redux';
 import * as actions from 'store/actions';
 import CaseStudyModalWrapper from 'components/CaseStudy/CaseStudyModalWrapper';
-import { disableScroll } from 'utils/scrollJack';
 
 export class Home extends React.Component {
   componentDidMount () {
     const { modal } = this.props;
     if (modal) this.openModal(modal);
+    this.props.dispatch(actions.setHeaderTheme('pink'));
   }
 
   // opens a case study modal depending on id

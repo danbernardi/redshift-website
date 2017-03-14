@@ -1,6 +1,7 @@
 import React from 'react';
 import mojs from 'mo-js';
 import ReactDOM from 'react-dom';
+import * as actions from 'store/actions';
 import { connect } from 'react-redux';
 import 'components/ScrollTrigger/ScrollTrigger.scss';
 
@@ -11,7 +12,7 @@ export class Hero extends React.Component {
     this.mission = ReactDOM.findDOMNode(this.refs.mission);
     this.scroller = ReactDOM.findDOMNode(this.refs.scroller);
 
-    if (location.pathname === '/work') {
+    if (location.pathname === '/work' || this.props.loaded ) {
       this.animatePageIn();
     }
   }
@@ -72,7 +73,7 @@ export class Hero extends React.Component {
 
         <div ref="scroller" style={ styles } className="scrolltrigger" onClick={ () => {
           clickCallback(1);
-        }}>
+        } }>
           <img src={ require('assets/img/down-arrow.png') } alt="Scroll to the next section" />
         </div>
       </section>
