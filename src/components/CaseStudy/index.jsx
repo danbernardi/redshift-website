@@ -87,7 +87,7 @@ class CaseStudy extends React.Component {
             }
           } />
           <div className="layout--relative ml8 ml1--mlg bg--white">
-            <div className="row"><h4 className="casestudy__name" ref="name">{ name }</h4></div>
+            <div className="row"><h4 className="modal__title" ref="name">{ name }</h4></div>
 
             <div ref="blur">
               <div className="row">

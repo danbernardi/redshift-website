@@ -9,7 +9,7 @@ export function RoleTemplate ({ children, name }) {
     <div className="job--modal">
       <div className="job__sidebar" />
       <ModalCloseBtn closeCallback={ () => browserHistory.push('/careers') } />
-      <div className="modal__with-sidebar">
+      <div className="modal__with-sidebar bg--white">
         { children }
         <section className="contact__form py8 row">
           <h3 className="pb4">Apply</h3>
