@@ -57,49 +57,40 @@
   margin: 0;
 }
 
-.casestudy__dots {
-  position: absolute;
-  bottom: 7rem;
-  text-align: center;
-  @media (max-width: 767px) and (orientation: landscape) {
-    bottom: 3rem;
+.casestudy__name {
+  color: $medium-gray;
+  padding-top: 4.1rem;
+  //media queries
+  @include breakpoint($mobile-lg) {
+    padding-top: 3.2rem;
   }
 }
 
-.casestudy__dot {
-  animation: pulse 1.5s 2;
-  margin-bottom: 1rem;
-  border-radius: 50%;
+.casestudy__scrollarrow {
+  position: absolute;
+  bottom: 8rem;
   opacity: 0;
-  // background-color: rgb(255, 199, 0);
+  animation: pulse 3s;
+  animation-delay: 1.2s;
 }
 
 @keyframes pulse {
-  0%,
-  100% {
-    opacity: 0.8;
-  }
-
-  50% {
-    opacity: 0;
-  }
-}
-
-.dot--one {
-  height: 1rem;
-  width: 1rem;
-}
-
-.dot--two {
-  animation-delay: 0.5s;
-  height: 1.1rem;
-  width: 1.1rem;
-}
-
-.dot--three {
-  animation-delay: 0.75s;
-  height: 1.2rem;
-  width: 1.2rem;
+  0% { opacidy: 0; bottom: 11rem; }
+  2.5% { opacity: 1; }
+  10% { opacity: 1; bottom: 8rem; }
+  // 15% { opacity: 1; bottom: 8rem; }
+  25% { opacity: 1; bottom: 10rem; }
+  35% { opacity: 1; bottom: 8rem; }
+  // 40% { opacity: 1; bottom: 8rem; }
+  47.5% { opacity: 1; bottom: 9rem; }
+  // 52.5% { opacity: 1; bottom: 9rem;}
+  60% { opacity: 1; bottom: 8rem; }
+  // 65% { opacity: 1; bottom: 8rem; }
+  75% { opacity: 1; bottom: 10rem; }
+  // 85% { opacity: 1; bottom: 8rem; }
+  90% { opacity: 1; bottom: 8rem; }
+  99.5% { opacity: 0; }
+  90% { bottom: 4rem; opacity: 0; }
 }
 
 .casestudy__next--sidebar {
