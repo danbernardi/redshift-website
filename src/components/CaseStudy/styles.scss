@@ -75,22 +75,22 @@
 }
 
 @keyframes pulse {
-  0% { bottom: 12rem; }
+  0% { opacidy: 0; bottom: 11rem; }
   2.5% { opacity: 1; }
   10% { opacity: 1; bottom: 8rem; }
-  15% { opacity: 1; bottom: 8rem; }
+  // 15% { opacity: 1; bottom: 8rem; }
   25% { opacity: 1; bottom: 10rem; }
   35% { opacity: 1; bottom: 8rem; }
-  40% { opacity: 1; bottom: 8rem; }
-  47.5% { bottom: 12rem; opacity: 1;  }
-  52.5% { opacity: 1; bottom: 12rem;}
+  // 40% { opacity: 1; bottom: 8rem; }
+  47.5% { opacity: 1; bottom: 9rem; }
+  // 52.5% { opacity: 1; bottom: 9rem;}
   60% { opacity: 1; bottom: 8rem; }
-  65% { opacity: 1; bottom: 8rem; }
+  // 65% { opacity: 1; bottom: 8rem; }
   75% { opacity: 1; bottom: 10rem; }
-  85% { opacity: 1; bottom: 8rem; }
+  // 85% { opacity: 1; bottom: 8rem; }
   90% { opacity: 1; bottom: 8rem; }
   99.5% { opacity: 0; }
-  100% { bottom: 12rem; opacity: 0; }
+  90% { bottom: 4rem; opacity: 0; }
 }
 
 .casestudy__next--sidebar {
