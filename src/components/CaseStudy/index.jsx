@@ -95,10 +95,8 @@ class CaseStudy extends React.Component {
                   <h1 className={ `typ--${id} typ--bold casestudy__title` }>
                     { heading }
                   </h1>
-                  <div className="casestudy__dots">
-                    <div className={ `casestudy__dot dot--one bg--${id}` } />
-                    <div className={ `casestudy__dot dot--two bg--${id}` } />
-                    <div className={ `casestudy__dot dot--three bg--${id}` } />
+                  <div className="casestudy__scrollarrow">
+                    <img src={ require('assets/img/down-arrow.png') } alt="Scroll down" />
                   </div>
                 </div>
               </div>
