@@ -126,7 +126,7 @@ export class Showcase extends React.Component {
         transition: `background-color ${this.duration}ms ease-out`
       } }>
 
-        { React.cloneElement(leadingScene, { onDidMount: (el) => this.addScrollPoint(el), clickCallback: this.scrollToIndex.bind(this) } ) }
+        { React.cloneElement(leadingScene, { onDidMount: (el) => this.addScrollPoint(el) } ) }
 
         { scenes.map((scene, index) => (
           <Scene

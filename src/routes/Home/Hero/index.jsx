@@ -5,25 +5,32 @@ import { connect } from 'react-redux';
 import 'components/ScrollTrigger/ScrollTrigger.scss';
 
 export class Hero extends React.Component {
-  componentDidUpdate (prevProps) {
-    const { loaded } = this.props;
 
-    const us = ReactDOM.findDOMNode(this.refs.us);
-    const mission = ReactDOM.findDOMNode(this.refs.mission);
-    const scroller = ReactDOM.findDOMNode(this.refs.scroller);
+  componentDidMount () {
+    this.us = ReactDOM.findDOMNode(this.refs.us);
+    this.mission = ReactDOM.findDOMNode(this.refs.mission);
+    this.scroller = ReactDOM.findDOMNode(this.refs.scroller);
 
-    if (loaded && !prevProps.loaded) {
-      this.animateIn(us, 0);
-      this.animateIn(mission, 600);
-      this.animateIn(scroller, 1200);
-    } else if (prevProps.loaded || location.pathname === '/work') {
-      us.style.opacity = 1;
-      mission.style.opacity = 1;
-      scroller.style.opacity = 1;
+    if (location.pathname === '/work') {
+      this.animatePageIn();
     }
   }
 
-  animateIn (el, delay) {
+  shouldComponentUpdate (nextProps) {
+    return this.props.loaded !== nextProps.loaded;
+  }
+
+  componentDidUpdate () {
+    this.animatePageIn();
+  }
+
+  animatePageIn () {
+    this.animateElementIn(this.us, 0);
+    this.animateElementIn(this.mission, 600);
+    this.animateElementIn(this.scroller, 1200);
+  }
+
+  animateElementIn (el, delay) {
     new mojs.Tween({
       duration: 600,
       delay,
@@ -64,7 +71,7 @@ export class Hero extends React.Component {
         </div>
 
         <div ref="scroller" style={ styles } className="scrolltrigger" onClick={ () => {
-          //clickCallback(0); }
+          clickCallback(1);
         }}>
           <img src={ require('assets/img/down-arrow.png') } alt="Scroll to the next section" />
         </div>

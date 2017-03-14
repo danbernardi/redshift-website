@@ -11,25 +11,15 @@ export class Home extends React.Component {
   componentDidMount () {
     const { modal } = this.props;
     if (modal) this.openModal(modal);
-    //This breaks the scroll jack functionality on the homepage
-    // disableScroll();
   }
 
   // opens a case study modal depending on id
   openModal (id) {
     const { dispatch } = this.props;
-
     dispatch(actions.setNextCaseStudy(id));
     dispatch(actions.setActiveModal(<CaseStudyModalWrapper />, 'casestudy'));
     dispatch(actions.toggleModal(true));
   };
-
-  // returns index of this.scrollPoints element that matches id
-  getScrollElementIndex (id) {
-    if (this.scrollPoints) {
-      return this.scrollPoints.findIndex(p => p.classList.contains(`cs__${id}`));
-    }
-  }
 
   render () {
     return (
