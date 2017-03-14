@@ -14,14 +14,6 @@ export const caseStudies = [
     heading: 'The world’s fourth largest software company approached Redshift with a critical challenge: How can we get more Norton on more devices?',
     content: [
       {
-        video: {
-          url: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/video/norton_950x624.mp4',
-          url_sm: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/video/norton_950x624_sm.mp4',
-          maxWidth: '71.4%',
-          videoImage: require('assets/img/case-studies/laptop.png'),
-          videoPadding: '7.6% 0 10.7%',
-          videoPoster: require('assets/img/home/Norton/norton-video-arrow.jpg')
-        },
         copy: [
           {
             classes: 'casestudy__text typ--h3',
@@ -30,13 +22,14 @@ export const caseStudies = [
         ]
       },
       {
-        images:
-        {
-          imgDef: require('assets/img/home/Norton/norton7.jpg'),
-          imgTlg: require('assets/img/home/Norton/norton7_tlg.jpg'),
-          imgMlg: require('assets/img/home/Norton/norton7_mlg.jpg')
+        video: {
+          url: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/video/norton_950x624.mp4',
+          url_sm: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/video/norton_950x624_sm.mp4',
+          maxWidth: '71.4%',
+          videoImage: require('assets/img/case-studies/laptop.png'),
+          videoPadding: '7.6% 0 10.7%',
+          videoPoster: require('assets/img/home/Norton/norton-video-arrow.jpg')
         },
-        imgAlt: 'Norton Online 6',
         copy: [
           {
             classes: 'casestudy__text typ--h3',
@@ -321,13 +314,15 @@ export const caseStudies = [
         ]
       },
       {
-        // video: {
-        //   url: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/video/five_374x666.mp4',
-        //   maxWidth: '28.5%',
-        //   videoImage: require('assets/img/case-studies/iphone.png'),
-        //   videoPadding: '17% 0 15.3%',
-        //   videoMargin: '-10.6%'
-        // },
+        video: {
+          url: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/video/five_blinds_640x1136.mp4',
+          url_sm: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/video/five_blinds_640x1136.mp4',
+          maxWidth: '28.5%',
+          videoImage: require('assets/img/case-studies/iphone.png'),
+          videoPadding: '17% 0 15.3%',
+          videoMargin: '-10.6%',
+          videoPoster: require('assets/img/home/Five/five-video-arrow.jpg')
+        },
         copy: [
           {
             classes: 'casestudy__text typ--h3 pb7',
