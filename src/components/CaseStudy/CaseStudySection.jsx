@@ -12,8 +12,9 @@ class CaseStudySection extends React.Component {
   }
 
   componentDidMount () {
+    const { video } = this.props;
     this.props.video && setTimeout(() => {
-      document.getElementById('caseStudyVideo').play();
+      document.getElementById(`caseStudyVideo-${video.id}`).play();
     }, 5000);
   }
 
@@ -28,7 +29,7 @@ class CaseStudySection extends React.Component {
               <img src={ video.videoImage } className="full-image" />
             </picture>
             <div className="video-container" style={ { maxWidth: video.maxWidth, padding: video.videoPadding } } >
-              <video id="caseStudyVideo"
+              <video id={ `caseStudyVideo-${video.id}` }
                 loop
                 muted
                 playsInline

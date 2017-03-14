@@ -26,11 +26,11 @@ class AppContainer extends Component {
     const html = document.getElementsByTagName('html');
 
     // halt normal page scrolling if modal is open
-    if (nextProps.modalState.open) {
-      if (html && html[0]) { html[0].classList.add('disable-scroll'); console.log('modalStateOpen'); }
-    } else if (!nextProps.modalState.open && ['/', '/work'].indexOf(location.pathname) === -1) {
-      if (html && html[0]) { html[0].classList.remove('disable-scroll'); console.log('modalStateClosed'); }
-    }
+    // if (nextProps.modalState.open) {
+    //   if (html && html[0]) { html[0].classList.add('disable-scroll'); console.log('modalStateOpen'); }
+    // } else if (!nextProps.modalState.open && ['/', '/work'].indexOf(location.pathname) === -1) {
+    //   if (html && html[0]) { html[0].classList.remove('disable-scroll'); console.log('modalStateClosed'); }
+    // }
   }
 
   render () {
