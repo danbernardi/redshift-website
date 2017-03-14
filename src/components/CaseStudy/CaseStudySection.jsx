@@ -35,7 +35,8 @@ class CaseStudySection extends React.Component {
                 poster={ video.videoPoster }
                 style={ { margin: video.videoMargin } }
               >
-                <source src={ video.url } type="video/mp4" />
+                <source src={ video.url } media="screen and (max-width:768px)" type="video/mp4" />
+                <source src={ video.url_sm } media="screen and (max-width:767px)" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
             </div>
