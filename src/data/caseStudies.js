@@ -23,6 +23,7 @@ export const caseStudies = [
       },
       {
         video: {
+          id: 'norton',
           url: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/video/norton_950x624.mp4',
           url_sm: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/video/norton_950x624_sm.mp4',
           maxWidth: '71.4%',
@@ -108,6 +109,7 @@ export const caseStudies = [
         //   imgMlg: require('assets/img/home/Nexus/nexus1_mlg.jpg')
         // },
         video: {
+          id: 'nexus',
           url: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/video/nexus_n7_950x624.mp4',
           url_sm: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/video/nexus_n7_950x624.mp4_sm',
           maxWidth: '71.4%',
@@ -188,6 +190,7 @@ export const caseStudies = [
     content: [
       {
         video: {
+          id: 'yumavore',
           url: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/video/yumavore_768x1024.mp4',
           url_sm: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/video/yumavore_768x1024_sm.mp4',
           maxWidth: '44%',
@@ -283,6 +286,7 @@ export const caseStudies = [
     content: [
       {
         video: {
+          id: 'five',
           url: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/video/five_374x666.mp4',
           url_sm: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/video/five_374x666_sm.mp4',
           maxWidth: '28.5%',
@@ -315,6 +319,7 @@ export const caseStudies = [
       },
       {
         video: {
+          id: 'five2',
           url: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/video/five_blinds_640x1136.mp4',
           url_sm: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/video/five_blinds_640x1136.mp4',
           maxWidth: '28.5%',
