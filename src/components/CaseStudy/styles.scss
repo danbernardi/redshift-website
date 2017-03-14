@@ -108,7 +108,7 @@
   padding-left: 8rem;
   // media queries
   @include breakpoint($mobile-lg) {
-    padding-left: 0;
+    padding-left: 1rem;
   }
 }
 
