@@ -5,38 +5,21 @@ import Hero from './Hero';
 import { connect } from 'react-redux';
 import * as actions from 'store/actions';
 import CaseStudyModalWrapper from 'components/CaseStudy/CaseStudyModalWrapper';
-import { disableScroll } from 'utils/scrollJack';
 
 export class Home extends React.Component {
   componentDidMount () {
     const { modal } = this.props;
     if (modal) this.openModal(modal);
-    disableScroll();
+    this.props.dispatch(actions.setHeaderTheme('pink'));
   }
 
   // opens a case study modal depending on id
   openModal (id) {
-
     const { dispatch } = this.props;
-
     dispatch(actions.setNextCaseStudy(id));
     dispatch(actions.setActiveModal(<CaseStudyModalWrapper />, 'casestudy'));
     dispatch(actions.toggleModal(true));
-
-    //TODO: Refactor this
-    const elementIndex = this.getScrollElementIndex(id);
-    if(elementIndex) {
-      this.scrollToIndex(elementIndex);
-    }
   };
-
-  // returns index of this.scrollPoints element that matches id
-  getScrollElementIndex (id) {
-
-    if(this.scrollPoints) {
-      return this.scrollPoints.findIndex(p => p.classList.contains(`cs__${id}`));
-    }
-  }
 
   render () {
     return (

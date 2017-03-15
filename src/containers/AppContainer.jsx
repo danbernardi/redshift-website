@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { browserHistory, Router } from 'react-router';
 import { Provider, connect } from 'react-redux';
+import { enableScroll, disableScroll } from 'utils/scrollJack';
 // import * as actions from 'store/actions';
 import 'modernizr';
 import './styles.scss';
@@ -16,20 +17,16 @@ class AppContainer extends Component {
   }
 
   componentDidMount () {
-    // const { dispatch } = this.props;
     const body = document.getElementsByTagName('body');
     if (body && body[0]) { setTimeout(() => { body[0].style.opacity = '1'; }, 100); }
-    // if (location.pathname === '/work') { dispatch(actions.goToNextCaseStudy(0, false, [-1])); }
   }
 
   componentWillReceiveProps (nextProps) {
-    const html = document.getElementsByTagName('html');
-
-    //halt normal page scrolling if modal is open
+    // halt normal page scrolling if modal is open
     if (nextProps.modalState.open) {
-      if (html && html[0]) { html[0].classList.add('disable-scroll'); }
-    } else if (!nextProps.modalState.open && ['/', '/work'].indexOf(location.pathname) === -1) {
-      if (html && html[0]) { html[0].classList.remove('disable-scroll'); }
+      disableScroll();
+    } else if (!nextProps.modalState.open) {
+      enableScroll();
     }
   }
 

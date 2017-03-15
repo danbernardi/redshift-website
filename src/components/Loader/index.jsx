@@ -4,6 +4,7 @@ import mojs from 'mo-js';
 import { mapRange } from 'utils/animation';
 import * as actions from 'store/actions';
 import { connect } from 'react-redux';
+import { disableScroll } from 'utils/scrollJack';
 
 // import MojsCurveEditor from 'mojs-curve-editor';
 
@@ -22,8 +23,7 @@ import './Loader.scss';
 export class Loader extends React.Component {
   componentDidMount () {
     this.animateIn();
-    const html = document.querySelector('html');
-    html.classList.add('disable-scroll');
+    disableScroll();
   }
 
   animateIn () {
@@ -46,7 +46,6 @@ export class Loader extends React.Component {
     const { dispatch } = this.props;
 
     const loader = ReactDOM.findDOMNode(this.refs.loader);
-    const html = document.querySelector('html');
 
     new mojs.Tween({
       duration: 200,
