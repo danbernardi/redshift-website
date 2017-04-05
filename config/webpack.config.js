@@ -8,6 +8,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const project = require('./project.config');
 const debug = require('debug')('app:config:webpack');
 const lostGrid = require('lost');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const __DEV__ = project.globals.__DEV__;
 const __PROD__ = project.globals.__PROD__;
@@ -71,7 +72,11 @@ webpackConfig.plugins = [
     minify: {
       collapseWhitespace: true
     }
-  })
+  }),
+  new CopyWebpackPlugin([
+    { from: project.paths.client('sitemap.xml') },
+    { from: project.paths.client('robots.txt') }
+  ])
 ];
 
 // Ensure that the compiler exits on errors during testing so that
