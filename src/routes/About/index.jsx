@@ -2,6 +2,7 @@ import React from 'react';
 import AboutProcess from './AboutProcess';
 import Clients from 'components/Clients';
 import AboutTeam from './AboutTeam';
+import HowWeWork from './HowWeWork';
 import './style.scss';
 import { teamInfo } from 'data/teamInfo';
 import { clientData } from 'data/clients';
@@ -28,6 +29,7 @@ export class About extends React.Component {
     return (
       <div>
         <AboutProcess />
+        <HowWeWork />
         <section className="col-12 about__clients theme--dark py7">
           <div className="row">
             <h1 className="typ--bold">Who we work with.</h1>
