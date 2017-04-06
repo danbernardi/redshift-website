@@ -17,7 +17,6 @@ export class Showcase extends React.Component {
     super(props);
 
     this.scrollPoints = [];
-    this.scrollIds = [];
     this.duration = 600;
     this.scrollObservable = null;
     this.scrollYPosition = null;
