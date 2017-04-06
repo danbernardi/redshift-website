@@ -17,30 +17,52 @@ export class Showcase extends React.Component {
     super(props);
 
     this.scrollPoints = [];
+    this.scrollIds = [];
     this.duration = 600;
     this.scrollObservable = null;
     this.scrollYPosition = null;
     this.scrollAnimationInProgress = false;
+    this.container = null;
     this.state = { sceneColor: '#fff' };
   }
 
   componentDidMount () {
     enableScroll();
-    this.scrollObservable = Rx.Observable.fromEvent(window, 'scroll');
-    this.scrollYPosition = window.pageYOffset;
 
-    // If the page had been previously scrolled, resume where we left off
-    if (this.props.bannerState.active) { this.scrollToIndex(this.props.bannerState.active); }
+    if (this.container) {
+      this.scrollObservable = Rx.Observable.fromEvent(window, 'scroll');
+      this.scrollYPosition = window.pageYOffset;
 
-    //Subscribe to the devices scroll event
-    this.scrollSubscription = this.scrollObservable.subscribe(() => {
-      if (this.scrollAnimationInProgress) {
-        return;
-      } else {
-        disableScroll();
-        this.scrollToScene();
-      }
-    });
+      // If the page had been previously scrolled, resume where we left off
+      if (this.props.bannerState.active) { this.scrollToIndex(this.props.bannerState.active); }
+
+      //Subscribe to the devices scroll event
+      this.scrollSubscription = this.scrollObservable.subscribe(() => {
+        if (this.props.modalState.open) {
+          disableScroll();
+          return;
+        }
+
+        if (this.scrollAnimationInProgress) {
+          return;
+        } else {
+          disableScroll();
+          this.scrollToScene();
+        }
+      });
+    }
+  }
+
+  componentWillReceiveProps (nextProps) {
+    if (nextProps.modalState === this.props.modalState) {
+      return;
+    }
+
+    if (nextProps.modalState.open) {
+      disableScroll();
+    } else if (nextProps.modalState.open === false) {
+      enableScroll();
+    }
   }
 
   componentWillUnmount () {
@@ -49,8 +71,13 @@ export class Showcase extends React.Component {
   }
 
   // adds a scrollPoint element to this.scrollPoints
-  addScrollPoint (element) {
-    if (element && this.scrollPoints.indexOf(element) === -1) this.scrollPoints.push(element);
+  addScrollPoint (element, id) {
+    if (element && this.scrollPoints.indexOf(element) === -1) {
+      this.scrollPoints.push({
+        id,
+        element
+      });
+    };
   }
 
   //determines direction of scroll and triggers animation
@@ -86,7 +113,7 @@ export class Showcase extends React.Component {
 
     dispatch(actions.setActiveBanner(bannerIndex, sceneColor));
 
-    const target = this.scrollPoints[bannerIndex];
+    const target = this.scrollPoints[bannerIndex].element;
     const frameHeight = window.innerHeight;
     const targetCenter = target.offsetTop + (target.offsetHeight / 2);
 
@@ -121,7 +148,7 @@ export class Showcase extends React.Component {
 
     if (doc) {
       const closestNumber = getClosestNumber(doc.scrollTop, this.scrollPoints.map(p => p.offsetTop));
-      const currentIndex = this.scrollPoints.findIndex(p => p.offsetTop === closestNumber);
+      const currentIndex = this.scrollPoints.findIndex(p => p.element.offsetTop === closestNumber);
       this.scrollToIndex(currentIndex);
     }
   }
@@ -130,23 +157,23 @@ export class Showcase extends React.Component {
     const { scenes, leadingScene, bannerState } = this.props;
 
     return (
-      <section ref="showcase" className="showcase" style={ {
+      <section ref={ (element) => { this.container = element; } } className="showcase" style={ {
         backgroundColor: bannerState.color,
         transition: `background-color ${this.duration}ms ease-out`
       } }>
 
-        { React.cloneElement(leadingScene, { onDidMount: (el) => this.addScrollPoint(el), clickCallback: this.scrollToIndex.bind(this) }) }
+        { React.cloneElement(leadingScene, { onDidMount: (el) => this.addScrollPoint(el, 'hero'), clickCallback: this.scrollToIndex.bind(this) }) }
 
         { scenes.map((scene, index) => (
           <Scene
-            onDidMount={ (el) => this.addScrollPoint(el) }
+            onDidMount={ (el) => this.addScrollPoint(el, scene.id) }
             key={ index }
             index={ index + 1 }
             { ...scene }
           />
         )) }
 
-        <Footer classes="footer__tall" onDidMount={ (el) => this.addScrollPoint(el) }>
+        <Footer classes="footer__tall" onDidMount={ (el) => this.addScrollPoint(el, 'footer') }>
           <div className="footer__center">
             <div className="row">
               <ul className="typ--bold">
@@ -172,6 +199,7 @@ Showcase.propTypes = {
 
 const injectStateProps = state => ({
   bannerState: state.bannerState,
+  locationHistory: state.locationHistory,
   modalState: state.modalState
 });
 

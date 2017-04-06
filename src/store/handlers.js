@@ -10,6 +10,20 @@ export const location = {
   LOCATION_CHANGE: (state, action) => action.location
 };
 
+export const locationHistory = {
+  _init: {
+    lastPath: null,
+    history: []
+  },
+  LOCATION_CHANGE: (state, action) => {
+    const newLocationHistory = state;
+    newLocationHistory.lastPath = state.history.length ? state.history[state.history.length - 1].pathname : '/';
+    newLocationHistory.history.push(action.location);
+
+    return newLocationHistory;
+  }
+};
+
 export const dropdowns = {
   _init: fromJS({}),
   SET_DROPDOWN_VALUES: (state, action) => state.merge({ [action.id]: action.values })
