@@ -4,7 +4,7 @@ const webpack = require('webpack');
 const webpackConfig = require('../config/webpack.config');
 const project = require('../config/project.config');
 const compress = require('compression');
-const feed = require('./routes/feed');
+const feed = require('./routes/slackFeed');
 
 
 const app = express();

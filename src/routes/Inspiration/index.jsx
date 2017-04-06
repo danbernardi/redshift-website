@@ -29,14 +29,23 @@ export class Inspiration extends React.Component {
         const attachment = message.attachments[0];
         const { title, text } = attachment;
         const imgUrl = attachment.image_url || null;
+        const videoHtml = attachment.video_html || null;
         const titleLink = attachment.title_link;
 
         return(
           <div className="mb8" key={ index }>
-            <h3 className="mb4"><a href={ titleLink }>{ title }</a></h3>
+            <h3 className="mb4"><a target="_blank" href={ titleLink }>{ title }</a></h3>
             {
               imgUrl ?
               <img src={ imgUrl } alt="" />
+              : null
+            }
+
+            {
+              videoHtml ?
+              <div dangerouslySetInnerHTML={{__html: videoHtml}}>
+
+              </div>
               : null
             }
 

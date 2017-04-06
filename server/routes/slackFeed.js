@@ -18,8 +18,11 @@ router.get('/:channel_name', (req, res, next) => {
 
     if (channel) {
       slack.api('channels.history', { 'channel': channel.id, 'count': process.env.HISTORY_LENGTH }, (err, response) => {
-        res.send(response.messages.filter((message) => {
-          return message.attachments;
+
+        console.log(response)
+        res.send(response.messages.filter((message, index) => {
+          //Only show posts with images
+          return message.attachments && message.attachments[0].image_url;
         }));
       });
     }
