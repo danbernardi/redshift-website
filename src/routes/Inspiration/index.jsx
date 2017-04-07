@@ -1,7 +1,7 @@
 import React from 'react';
 import Footer from 'components/Footer';
 import './Inspiration.scss';
-
+import { ellipsisString } from 'utils/string';
 export class Inspiration extends React.Component {
   constructor (props) {
     super(props);
@@ -32,6 +32,8 @@ export class Inspiration extends React.Component {
         const videoHtml = attachment.video_html || null;
         const titleLink = attachment.title_link;
 
+        const articleText = text ? ellipsisString(text, 200) : '';
+
         return (
           <div className="inspiration__item" key={ index }>
             <a className="inspiration__link" target="_blank" href={ titleLink }>
@@ -46,7 +48,7 @@ export class Inspiration extends React.Component {
                 : null
               }
 
-              <p className="mb0">{text}</p>
+              <p className="mb0">{ articleText }</p>
             </a>
           </div>
         );
@@ -56,7 +58,7 @@ export class Inspiration extends React.Component {
     return (
       <div className="pt10">
         <div className="row row--maxwidth mb8 mb3--msm">
-          <h1 className="typ--redshift typ--bold mb4 mt8 mt4--mlg mt0--msm mb3--tlg mb0--mlg">Inspiration</h1>
+          <h1 className="typ--redshift typ--bold mb4 mt8 mt4--mlg mt0--msm mb3--tlg mb0--mlg">Be inspired. <br /> Here's what inspires us.</h1>
           <section className="pt9 pt6--tlg pt3--msm inspiration__grid">
             {feedItems}
           </section>
