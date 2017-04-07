@@ -2,6 +2,7 @@ import React from 'react';
 import CoreLayout from 'containers/CoreLayout';
 import Home from './Home';
 import About from './About';
+import NewAbout from './NewAbout';
 import Careers from './Careers';
 import FourOhFour from './FourOhFour';
 import { caseStudies } from 'data/caseStudies';
@@ -38,6 +39,10 @@ export function createRoutes () {
         path: 'about',
         indexRoute: { component: About },
         childRoutes: teamRoutes
+      },
+      {
+        path: 'new-about',
+        indexRoute: { component: NewAbout },
       },
       {
         path: 'careers',
