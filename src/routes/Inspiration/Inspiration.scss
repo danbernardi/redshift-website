@@ -3,13 +3,32 @@
 .inspiration__grid {
   column-count: 3;
   column-gap: 2rem;
+  // media queries
+  @include breakpoint($tablet-lg) {
+    column-count: 2;
+  }
+
+  @include breakpoint($mobile-lg) {
+    column-count: 1;
+  }
 }
 
 .inspiration__item {
   break-inside: avoid;
   margin-bottom: 2rem;
-  padding: 3rem;
   border: 0.1rem solid rgba($medium-gray, 0.2);
+  transition: background-color 0.2s ease-in-out;
 
-  a { color: $redshift; }
+  .inspiration__link {
+    padding: 3rem;
+    display: block;
+  }
+
+  &:hover {
+    background: $light-gray;    
+  }
+}
+
+.inspiration__itemtitle {
+  color: $redshift;
 }

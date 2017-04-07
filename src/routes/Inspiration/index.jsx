@@ -34,28 +34,30 @@ export class Inspiration extends React.Component {
 
         return (
           <div className="inspiration__item" key={ index }>
-            <h4 className="mb4"><a target="_blank" href={ titleLink }>{ title }</a></h4>
-            { imgUrl
-              ? <img src={ imgUrl } alt="" />
-              : null
-            }
+            <a className="inspiration__link" target="_blank" href={ titleLink }>
+              <h4 className="inspiration__itemtitle mb2">{ title }</h4>
+              { imgUrl
+                ? <img className="mb1" src={ imgUrl } alt="" />
+                : null
+              }
 
-            { videoHtml
-              ? <div dangerouslySetInnerHTML={ { __html: videoHtml } } />
-              : null
-            }
+              { videoHtml
+                ? <div dangerouslySetInnerHTML={ { __html: videoHtml } } />
+                : null
+              }
 
-            <p>{text}</p>
+              <p className="mb0">{text}</p>
+            </a>
           </div>
         );
       });
     }
 
     return (
-      <div style={ { marginTop: '175px' } }>
-        <div className="row row--maxwidth">
-          <h1 className="typ--redshift typ--bold mb4 mb3--tlg">Inspiration</h1>
-          <section className="pt9 pt6--tlg inspiration__grid">
+      <div className="pt10">
+        <div className="row row--maxwidth mb8 mb3--msm">
+          <h1 className="typ--redshift typ--bold mb4 mt8 mt4--mlg mt0--msm mb3--tlg mb0--mlg">Inspiration</h1>
+          <section className="pt9 pt6--tlg pt3--msm inspiration__grid">
             {feedItems}
           </section>
         </div>
