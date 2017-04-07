@@ -5,6 +5,8 @@ import About from './About';
 import NewAbout from './NewAbout';
 import Careers from './Careers';
 import FourOhFour from './FourOhFour';
+import Inspiration from './Inspiration';
+
 import { caseStudies } from 'data/caseStudies';
 import { jobDetails } from 'data/jobDetails';
 import { teamInfo } from 'data/teamInfo';
@@ -48,6 +50,10 @@ export function createRoutes () {
         path: 'careers',
         indexRoute: { component: Careers },
         childRoutes: jobRoutes
+      },
+      {
+        path: 'inspiration',
+        indexRoute: { component: Inspiration }
       },
       {
         path: '404',

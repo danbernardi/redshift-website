@@ -1,0 +1,38 @@
+@import 'sass-includes';
+
+.inspiration__grid {
+  column-count: 3;
+  column-gap: 2rem;
+  // media queries
+  @include breakpoint($tablet-lg) {
+    column-count: 2;
+  }
+
+  @include breakpoint($mobile-lg) {
+    column-count: 1;
+  }
+}
+
+.inspiration__item {
+  break-inside: avoid;
+  margin-bottom: 2rem;
+
+  .inspiration__link {
+    border: 0.2rem solid transparent;
+    padding: 3rem;
+    background: $light-gray;
+    display: block;
+    transition: border-color 0.15s ease-in-out, transform 0.15s ease-in-out;
+    -webkit-backface-visibility: hidden;
+
+    &:hover {
+      border-color: $redshift;
+      transform: scale(1.1, 1.1);
+      box-shadow: 0.1rem 0.1rem 4rem 2rem rgba($black, 0.06);
+    }
+  }
+}
+
+.inspiration__itemtitle {
+  color: $redshift;
+}

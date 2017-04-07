@@ -4,14 +4,24 @@ const webpack = require('webpack');
 const webpackConfig = require('../config/webpack.config');
 const project = require('../config/project.config');
 const compress = require('compression');
+const feed = require('./routes/slackFeed');
+
 
 const app = express();
+
+// Requests to API paths shouldn't reroute to '/'
+const apiPaths = ['feed'];
+const rewrites = apiPaths.map(path => ({
+  from: new RegExp(`/${path}/s*`),
+  to: context => context.parsedUrl.path
+}));
 
 // This rewrites all routes requests to the root /index.html file
 // (ignoring file requests). If you want to implement universal
 // rendering, you'll want to remove this middleware.
-app.use(require('connect-history-api-fallback')());
+app.use(require('connect-history-api-fallback')({ rewrites }));
 
+app.use('/feed', feed);
 // Apply gzip compression
 app.use(compress());
 
