@@ -1,15 +1,15 @@
 import React from 'react';
 import Footer from 'components/Footer';
+import './Inspiration.scss';
 
 export class Inspiration extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props);
 
     this.state = {
       feed: null
     };
   }
-
 
   componentDidMount () {
     fetch('/feed/inspiration').then((res) => {
@@ -22,8 +22,8 @@ export class Inspiration extends React.Component {
   }
 
   render () {
-
     let feedItems = [];
+
     if (this.state.feed) {
       feedItems = this.state.feed.map((message, index) => {
         const attachment = message.attachments[0];
@@ -32,20 +32,16 @@ export class Inspiration extends React.Component {
         const videoHtml = attachment.video_html || null;
         const titleLink = attachment.title_link;
 
-        return(
-          <div className="mb8" key={ index }>
-            <h3 className="mb4"><a target="_blank" href={ titleLink }>{ title }</a></h3>
-            {
-              imgUrl ?
-              <img src={ imgUrl } alt="" />
+        return (
+          <div className="inspiration__item" key={ index }>
+            <h4 className="mb4"><a target="_blank" href={ titleLink }>{ title }</a></h4>
+            { imgUrl
+              ? <img src={ imgUrl } alt="" />
               : null
             }
 
-            {
-              videoHtml ?
-              <div dangerouslySetInnerHTML={{__html: videoHtml}}>
-
-              </div>
+            { videoHtml
+              ? <div dangerouslySetInnerHTML={ { __html: videoHtml } } />
               : null
             }
 
@@ -53,15 +49,17 @@ export class Inspiration extends React.Component {
           </div>
         );
       });
-
     }
 
     return (
-      <div className="row row--maxwidth" style={{ marginTop: '175px' }}>
-        <h1 className="typ--redshift typ--bold mb4 mb3--tlg">Inspiration</h1>
-        <section className="pt9 pt6--tlg">
-          {feedItems}
-        </section>
+      <div style={ { marginTop: '175px' } }>
+        <div className="row row--maxwidth">
+          <h1 className="typ--redshift typ--bold mb4 mb3--tlg">Inspiration</h1>
+          <section className="pt9 pt6--tlg inspiration__grid">
+            {feedItems}
+          </section>
+        </div>
+
         <Footer />
       </div>
     );
