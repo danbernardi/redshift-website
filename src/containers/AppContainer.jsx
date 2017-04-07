@@ -5,6 +5,9 @@ import { enableScroll, disableScroll } from 'utils/scrollJack';
 // import * as actions from 'store/actions';
 import 'modernizr';
 import './styles.scss';
+import ReactGA from 'react-ga';
+
+ReactGA.initialize('UA-48401766-1');
 
 class AppContainer extends Component {
   static propTypes = {
@@ -21,6 +24,11 @@ class AppContainer extends Component {
     if (body && body[0]) { setTimeout(() => { body[0].style.opacity = '1'; }, 100); }
   }
 
+  logPageView () {
+    ReactGA.set({ page: window.location.pathname });
+    ReactGA.pageview(window.location.pathname);
+  }
+
   componentWillReceiveProps (nextProps) {
     // halt normal page scrolling if modal is open
     if (nextProps.modalState.open) {
@@ -35,7 +43,7 @@ class AppContainer extends Component {
 
     return (
       <Provider store={ store }>
-        <Router history={ browserHistory } children={ routes } />
+        <Router history={ browserHistory } children={ routes } onUpdate={ this.logPageView } />
       </Provider>
     );
   }
