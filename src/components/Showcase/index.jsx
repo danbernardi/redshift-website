@@ -60,7 +60,6 @@ export class Showcase extends React.Component {
     if (nextProps.modalState.open) {
       disableScroll();
     } else if (nextProps.modalState.open === false) {
-      debugger;
       enableScroll();
     }
   }
