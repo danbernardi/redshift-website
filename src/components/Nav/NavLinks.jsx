@@ -25,7 +25,7 @@ class NavLinks extends React.Component {
 
     ReactGA.event({
       category: CaseStudy,
-      action: { `NavClick${to}` }
+      action: `NavClick${to}`
     });
 
     this.timer = setTimeout(() => {

@@ -17,7 +17,7 @@ export class Device extends React.Component {
   caseStudyClick(id) {
     ReactGA.event({
       category: CaseStudy,
-      action: {`CaseStudyClick${id}`}
+      action: `CaseStudyClick${id}`
     });
   }
 
