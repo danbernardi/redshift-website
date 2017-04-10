@@ -8,6 +8,7 @@ import * as actions from 'store/actions';
 import Nav from 'components/Nav/index';
 import { scrollDocToZero } from 'utils/scrollTo';
 import Hamburger from 'components/Hamburger';
+import ReactGA from 'react-ga';
 
 export class Header extends React.Component {
   getPageTitle (path) {
@@ -48,6 +49,10 @@ export class Header extends React.Component {
     } else {
       dispatch(actions.setActiveModal(<Nav />, 'nav'));
       dispatch(actions.toggleModal(true));
+      ReactGA.event({
+        category: 'Navigation',
+        action: 'Hamburger Click'
+      });
     }
   };
 
