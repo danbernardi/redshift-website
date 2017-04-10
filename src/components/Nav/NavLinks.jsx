@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { scrollDocToZero } from 'utils/scrollTo';
 import { Link } from 'react-router';
 import * as actions from 'store/actions';
+import ReactGA from 'react-ga';
 
 class NavLinks extends React.Component {
   constructor (props) {
@@ -21,6 +22,11 @@ class NavLinks extends React.Component {
 
   routingHandler (to) {
     const { dispatch } = this.props;
+
+    ReactGA.event({
+      category: CaseStudy,
+      action: { `NavClick${to}` }
+    });
 
     this.timer = setTimeout(() => {
       scrollDocToZero();

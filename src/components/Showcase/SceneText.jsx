@@ -1,6 +1,7 @@
 import React from 'react';
 // import mojs from 'mo-js';
 import { Link } from 'react-router';
+import ReactGA from 'react-ga';
 
 export class Device extends React.Component {
   componentWillReceiveProps (nextProps) {
@@ -11,6 +12,13 @@ export class Device extends React.Component {
     if (nextProps.active && !active) {
       // animate text in
     }
+  }
+
+  caseStudyClick(id) {
+    ReactGA.event({
+      category: CaseStudy,
+      action: {`CaseStudyClick${id}`}
+    });
   }
 
   render () {
@@ -24,7 +32,7 @@ export class Device extends React.Component {
           )) }
         </h2>
 
-        <Link className="scene__link typ--bold typ--h6" to={ `/work/${id}` }>
+        <Link className="scene__link typ--bold typ--h6" to={ `/work/${id}` } onClick={()=>{this.caseStudyClick(id)}}>
           View project
         </Link>
       </div>
