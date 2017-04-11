@@ -5,7 +5,7 @@ import SceneText from './SceneText';
 import './Scene.scss';
 
 
-// import { TimeLineMax } from 'gsap';
+import { TimeLineMax } from 'gsap';
 
 
 export class Scene extends React.Component {
@@ -22,25 +22,28 @@ export class Scene extends React.Component {
   }
 
   componentDidMount () {
-    console.log(this)
+    // this.timeline = new TimelineMax({onUpdate: () => {
+    //   this.setState({
+    //     animationProgress: this.timeline.progress()
+    //   })
+    // }});
 
-    this.timeline = new TimelineMax({onUpdate: () => {
-      this.setState({
-        animationProgress: this.timeline.progress()
-      })
-    }});
+    // let tlValues = { progress: 0 };
+    // this.timeline.pause();
 
-    let tlValues = { progress: 0 };
-    this.timeline.pause();
-
-    this.timeline
-      .to(tlValues, 1, { progress: 100, onUpdate: (val) => {
-        console.log(this.timeline.progress())
-      }});
+    // this.timeline
+    //   .to(tlValues, 1, { progress: 100, onUpdate: (val) => {
+    //     console.log(this.timeline.progress())
+    //   }});
 
   }
 
+  shouldComponentUpdate (nextProps) {
+    return nextProps.animationProgress >= 0 && nextProps.animationProgress <= 100;
+  }
+
   componentDidUpdate (prevProps, prevState) {
+
     // const { bannerState, index } = this.props;
 
     // if (prevProps.bannerState.active !== bannerState.active) {
@@ -52,7 +55,6 @@ export class Scene extends React.Component {
   setActive (state) {
     this.setState({ active: state });
   }
-
 
   animate () {
 
@@ -67,7 +69,8 @@ export class Scene extends React.Component {
   }
 
   render () {
-    const { id, caption, onDidMount, device } = this.props;
+    const { id, caption, onDidMount, device, animationProgress } = this.props;
+    console.log(animationProgress)
     const { active } = this.state;
 
     return (
@@ -81,7 +84,7 @@ export class Scene extends React.Component {
           { ...device }
           active={ active }
           ref={ (element) => { this.SceneDevice = element } }
-          styles = {{ opacity: this.state.animationProgress }}
+          animationProgress = { animationProgress }
         />
 
         <SceneText
@@ -89,6 +92,7 @@ export class Scene extends React.Component {
           caption={ caption }
           active={ active }
           ref={ (element) => { this.SceneText = element } }
+          animationProgress = { animationProgress }
         />
       </div>
     );

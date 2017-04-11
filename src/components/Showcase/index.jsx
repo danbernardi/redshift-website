@@ -12,7 +12,6 @@ import Footer from 'components/Footer';
 import { Link } from 'react-router';
 import { scrollDocToZero } from 'utils/scrollTo';
 
-
 import AnimationWrapper from 'components/AnimationWrapper';
 
 export class Showcase extends React.Component {
@@ -25,39 +24,14 @@ export class Showcase extends React.Component {
     this.scrollYPosition = null;
     this.scrollAnimationInProgress = false;
     this.container = null;
-    this.state = { sceneColor: '#fff' };
-
-
-    //animation
-    this.animationProgress = 0;
-
+    this.state = {
+      sceneColor: '#fff',
+      animationProgress: 0
+    };
   }
 
   componentDidMount () {
     enableScroll();
-
-    if (this.container) {
-      this.scrollObservable = Rx.Observable.fromEvent(window, 'scroll');
-      this.scrollYPosition = window.pageYOffset;
-
-      // If the page had been previously scrolled, resume where we left off
-      if (this.props.bannerState.active) { this.scrollToIndex(this.props.bannerState.active); }
-
-      //Subscribe to the devices scroll event
-      this.scrollSubscription = this.scrollObservable.subscribe(() => {
-        // if (this.props.modalState.open) {
-        //   disableScroll();
-        //   return;
-        // }
-
-        // if (this.scrollAnimationInProgress) {
-        //   return;
-        // } else {
-        //   disableScroll();
-        //   this.scrollToScene();
-        // }
-      });
-    }
   }
 
   componentWillReceiveProps (nextProps) {
@@ -73,7 +47,6 @@ export class Showcase extends React.Component {
   }
 
   componentWillUnmount () {
-    this.scrollSubscription.unsubscribe();
     enableScroll();
   }
 
@@ -87,11 +60,8 @@ export class Showcase extends React.Component {
     };
   }
 
-  //determines direction of scroll and triggers animation
-  scrollToScene () {
-    disableScroll();
-    this.scrollAnimationInProgress = true;
-    const { bannerState } = this.props;
+  sceneAnimationRange (multiplier, segments, timeLineLength = 100) {
+    const segmentLength = timeLineLength / segments;
 
     const newYPosition = window.pageYOffset;
     const direction = getScrollDirection(this.scrollYPosition, newYPosition);
@@ -102,59 +72,55 @@ export class Showcase extends React.Component {
       this.scrollAnimationInProgress = false;
       enableScroll();
     }
+
+    return {
+      low: multiplier * segmentLength - (segmentLength / 2),
+      high: multiplier * segmentLength + (segmentLength / 2)
+    };
   }
 
-  // scrolls to the scrollPoint that matches passed index
-  scrollToIndex (bannerIndex) {
-    if (!this.scrollAnimationInProgress) { this.scrollAnimationInProgress = true; }
-
-    const { dispatch, scenes } = this.props;
-
-    const activeScene = scenes[bannerIndex - 1];
-    const sceneColor = activeScene ? activeScene.color : '#fff';
-
-    if (bannerIndex < 0 || bannerIndex >= this.scrollPoints.length) {
-      this.scrollAnimationInProgress = false;
-      return;
-    };
-
-    if (bannerIndex > 0) dispatch(actions.setHeaderTheme('white'));
-    if (bannerIndex === 0 || bannerIndex === this.scrollPoints.length - 1) dispatch(actions.setHeaderTheme('pink'));
-
-    dispatch(actions.setActiveBanner(bannerIndex, sceneColor));
-
-    const target = this.scrollPoints[bannerIndex].element;
-    const frameHeight = window.innerHeight;
-    const targetCenter = target.offsetTop + (target.offsetHeight / 2);
-
-    this.scrollToPosition(targetCenter - frameHeight / 2);
+  isInRange (val, min, max) {
+    return val >= min && val <= max;
   }
 
   render () {
-    const { scenes, leadingScene, bannerState } = this.props;
+    const { scenes, leadingScene } = this.props;
     let sceneBgColor = '#fff';
     const ap = this.state.animationProgress;
 
+    let i = 1;
+    const childCount = 6;
 
-    if (ap >=20 && ap < 40) {
-      sceneBgColor = scenes[0].color;
+    while (i < childCount) {
+      const range = this.sceneAnimationRange(i, childCount);
+
+      if (this.isInRange(ap, range.low, range.high)) {
+        sceneBgColor = scenes[i] ? scenes[i].color : '#fff';
+      }
+
+      i++;
     }
 
-    if (ap >=40 && ap < 60) {
-      sceneBgColor = scenes[1].color;
-    }
 
-    if (ap >=60 && ap < 80) {
-      sceneBgColor = scenes[2].color;
-    }
+    // if (ap >= 16.6 && ap < 40) {
+    //   sceneBgColor = scenes[0].color;
+    // }
 
-    if (ap >=80 && ap < 95) {
-      sceneBgColor = scenes[3].color;
-    }
+    // if (ap >= 40 && ap < 60) {
+    //   sceneBgColor = scenes[1].color;
+    // }
 
-    if (ap >=95 && ap <= 100) {
-      sceneBgColor = "#fff";
-    }
+    // if (ap >= 60 && ap < 80) {
+    //   sceneBgColor = scenes[2].color;
+    // }
+
+    // if (ap >= 80 && ap < 95) {
+    //   sceneBgColor = scenes[3].color;
+    // }
+
+    // if (ap >= 95 && ap <= 100) {
+    //   sceneBgColor = "#fff";
+    // }
 
     return (
       <section ref={ (element) => { this.container = element; } } className="showcase" style={ {
@@ -169,8 +135,7 @@ export class Showcase extends React.Component {
             animationProgress
           });
         } }>
-          { React.cloneElement(leadingScene, { onDidMount: (el) => this.addScrollPoint(el, 'hero'), clickCallback: this.scrollToIndex.bind(this) }) }
-
+          { React.cloneElement(leadingScene, { onDidMount: (el) => this.addScrollPoint(el, 'hero'), clickCallback: () => { /*do something with arrow click*/ } }) }
 
           { scenes.map((scene, index) => (
             <Scene
@@ -180,7 +145,6 @@ export class Showcase extends React.Component {
               { ...scene }
             />
           )) }
-
 
           <Footer classes="footer__tall" onDidMount={ (el) => this.addScrollPoint(el, 'footer') }>
             <div className="footer__center">

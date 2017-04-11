@@ -3,6 +3,7 @@ import React from 'react';
 
 export class SceneDevice extends React.Component {
   componentWillReceiveProps (nextProps) {
+
     const { active } = this.props;
     if (!nextProps.active && active) {
       // animate device out
@@ -13,10 +14,11 @@ export class SceneDevice extends React.Component {
   }
 
   render () {
-    const { id, body, overlay, shadow, styles} = this.props;
+    const { id, body, overlay, shadow, animationProgress } = this.props;
+    console.log('ap', animationProgress)
 
     return (
-      <div className="scene__device" style={ { ...styles } }>
+      <div className="scene__device" >
         { body && <img className="scene__device__body" src={ body } alt={ id } /> }
         { overlay && <img className="scene__device__overlay" src={ overlay } alt={ id } /> }
         { shadow && <img className="scene__device__shadow" src={ shadow } alt={ id } /> }
