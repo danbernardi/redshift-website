@@ -73,6 +73,13 @@ export class Showcase extends React.Component {
       enableScroll();
     }
 
+    if (multiplier === segments ) {
+      return {
+        low: timeLineLength - segmentLength,
+        high: 100
+      };
+    }
+
     return {
       low: multiplier * segmentLength - (segmentLength / 2),
       high: multiplier * segmentLength + (segmentLength / 2)
@@ -95,32 +102,11 @@ export class Showcase extends React.Component {
       const range = this.sceneAnimationRange(i, childCount);
 
       if (this.isInRange(ap, range.low, range.high)) {
-        sceneBgColor = scenes[i] ? scenes[i].color : '#fff';
+        sceneBgColor = scenes[i-1] ? scenes[i-1].color : '#fff';
       }
 
       i++;
     }
-
-
-    // if (ap >= 16.6 && ap < 40) {
-    //   sceneBgColor = scenes[0].color;
-    // }
-
-    // if (ap >= 40 && ap < 60) {
-    //   sceneBgColor = scenes[1].color;
-    // }
-
-    // if (ap >= 60 && ap < 80) {
-    //   sceneBgColor = scenes[2].color;
-    // }
-
-    // if (ap >= 80 && ap < 95) {
-    //   sceneBgColor = scenes[3].color;
-    // }
-
-    // if (ap >= 95 && ap <= 100) {
-    //   sceneBgColor = "#fff";
-    // }
 
     return (
       <section ref={ (element) => { this.container = element; } } className="showcase" style={ {
