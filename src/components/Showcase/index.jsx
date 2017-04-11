@@ -45,7 +45,6 @@ export class Showcase extends React.Component {
         if (this.scrollAnimationInProgress) {
           return;
         } else {
-          // disableScroll();
           this.scrollToScene();
         }
       });
@@ -81,8 +80,8 @@ export class Showcase extends React.Component {
 
   //determines direction of scroll and triggers animation
   scrollToScene () {
-    this.scrollAnimationInProgress = true;
     disableScroll();
+    this.scrollAnimationInProgress = true;
     const { bannerState } = this.props;
 
     const newYPosition = window.pageYOffset;
@@ -138,7 +137,7 @@ export class Showcase extends React.Component {
           this.scrollAnimationInProgress = false;
           this.scrollYPosition = window.pageYOffset;
           enableScroll();
-        }, this.duration*2);
+        }, this.duration);
       }
     }).play();
   }

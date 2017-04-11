@@ -1,4 +1,7 @@
 @import 'sass-includes';
+.showcase {
+  overflow-y: hidden;
+}
 
 .hero h1 {
   @media (max-width: 767px) and (orientation: landscape) {
