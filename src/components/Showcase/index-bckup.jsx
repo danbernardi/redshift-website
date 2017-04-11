@@ -13,7 +13,7 @@ import { Link } from 'react-router';
 import { scrollDocToZero } from 'utils/scrollTo';
 
 
-import AnimationWrapper from 'components/AnimationWrapper';
+
 
 export class Showcase extends React.Component {
   constructor (props) {
@@ -26,11 +26,6 @@ export class Showcase extends React.Component {
     this.scrollAnimationInProgress = false;
     this.container = null;
     this.state = { sceneColor: '#fff' };
-
-
-    //animation
-    this.animationProgress = 0;
-
   }
 
   componentDidMount () {
@@ -45,17 +40,17 @@ export class Showcase extends React.Component {
 
       //Subscribe to the devices scroll event
       this.scrollSubscription = this.scrollObservable.subscribe(() => {
-        // if (this.props.modalState.open) {
-        //   disableScroll();
-        //   return;
-        // }
+        if (this.props.modalState.open) {
+          disableScroll();
+          return;
+        }
 
-        // if (this.scrollAnimationInProgress) {
-        //   return;
-        // } else {
-        //   disableScroll();
-        //   this.scrollToScene();
-        // }
+        if (this.scrollAnimationInProgress) {
+          return;
+        } else {
+          disableScroll();
+          this.scrollToScene();
+        }
       });
     }
   }
@@ -89,8 +84,7 @@ export class Showcase extends React.Component {
 
   //determines direction of scroll and triggers animation
   scrollToScene () {
-    disableScroll();
-    this.scrollAnimationInProgress = true;
+    // this.scrollAnimationInProgress = true;
     const { bannerState } = this.props;
 
     const newYPosition = window.pageYOffset;
@@ -100,7 +94,6 @@ export class Showcase extends React.Component {
       this.scrollToIndex(index);
     } else {
       this.scrollAnimationInProgress = false;
-      enableScroll();
     }
   }
 
@@ -109,7 +102,6 @@ export class Showcase extends React.Component {
     if (!this.scrollAnimationInProgress) { this.scrollAnimationInProgress = true; }
 
     const { dispatch, scenes } = this.props;
-
     const activeScene = scenes[bannerIndex - 1];
     const sceneColor = activeScene ? activeScene.color : '#fff';
 
@@ -130,70 +122,70 @@ export class Showcase extends React.Component {
     this.scrollToPosition(targetCenter - frameHeight / 2);
   }
 
+  // animates page scrolling to a specific location
+  scrollToPosition (targetScrollPosition) {
+    const scrollStartPosition = window.scrollY;
+
+    new mojs.Tween({
+      duration: this.duration,
+      easing: 'cubic.out',
+      onUpdate: (progress) => {
+        const pos = mapRange(progress, 0, 1, scrollStartPosition, targetScrollPosition);
+        window.scrollTo(0, pos);
+      },
+      onPlaybackComplete: () => {
+        setTimeout(() => {
+          this.scrollAnimationInProgress = false;
+          this.scrollYPosition = window.pageYOffset;
+          enableScroll();
+        }, this.duration);
+      }
+    }).play();
+  }
+
+   // Scrolls to the closest scrollPoint to the current page scroll value
+  scrollToClosestIndex () {
+    let doc = document.querySelector('body');
+    if (browser.isFirefox) doc = document.querySelector('html');
+
+    if (doc) {
+      const closestNumber = getClosestNumber(doc.scrollTop, this.scrollPoints.map(p => p.offsetTop));
+      const currentIndex = this.scrollPoints.findIndex(p => p.element.offsetTop === closestNumber);
+      this.scrollToIndex(currentIndex);
+    }
+  }
+
   render () {
     const { scenes, leadingScene, bannerState } = this.props;
-    let sceneBgColor = '#fff';
-    const ap = this.state.animationProgress;
-
-
-    if (ap >=20 && ap < 40) {
-      sceneBgColor = scenes[0].color;
-    }
-
-    if (ap >=40 && ap < 60) {
-      sceneBgColor = scenes[1].color;
-    }
-
-    if (ap >=60 && ap < 80) {
-      sceneBgColor = scenes[2].color;
-    }
-
-    if (ap >=80 && ap < 95) {
-      sceneBgColor = scenes[3].color;
-    }
-
-    if (ap >=95 && ap <= 100) {
-      sceneBgColor = "#fff";
-    }
 
     return (
       <section ref={ (element) => { this.container = element; } } className="showcase" style={ {
-        backgroundColor: sceneBgColor || '#fff',
-        transition: `background-color ${this.duration}ms ease-out`,
-        width: '100%',
-        height: '100%'
+        backgroundColor: bannerState.color,
+        transition: `background-color ${this.duration}ms ease-out`
       } }>
 
-        <AnimationWrapper onAnimationProgress={ (animationProgress) => {
-          this.setState({
-            animationProgress
-          });
-        } }>
-          { React.cloneElement(leadingScene, { onDidMount: (el) => this.addScrollPoint(el, 'hero'), clickCallback: this.scrollToIndex.bind(this) }) }
+        { React.cloneElement(leadingScene, { onDidMount: (el) => this.addScrollPoint(el, 'hero'), clickCallback: this.scrollToIndex.bind(this) }) }
 
+        { scenes.map((scene, index) => (
+          <Scene
+            onDidMount={ (el) => this.addScrollPoint(el, scene.id) }
+            key={ index }
+            index={ index + 1 }
+            { ...scene }
+          />
+        )) }
 
-          { scenes.map((scene, index) => (
-            <Scene
-              onDidMount={ (el) => this.addScrollPoint(el, scene.id) }
-              key={ index }
-              index={ index + 1 }
-              { ...scene }
-            />
-          )) }
-
-
-          <Footer classes="footer__tall" onDidMount={ (el) => this.addScrollPoint(el, 'footer') }>
-            <div className="footer__center">
-              <div className="row">
-                <ul className="typ--bold">
-                  <li className="typ--h1" onClick={ () => scrollDocToZero() }><Link className="typ--redshift" to="/about">About.</Link></li>
-                  <li className="typ--h1" onClick={ () => scrollDocToZero() }><Link className="typ--redshift" to="/careers">Careers.</Link></li>
-                  <li className="typ--h1"><a className="typ--redshift" href="http://weareredshift.tumblr.com/" target="_blank">Blog.</a></li>
-                </ul>
-              </div>
+        <Footer classes="footer__tall" onDidMount={ (el) => this.addScrollPoint(el, 'footer') }>
+          <div className="footer__center">
+            <div className="row">
+              <ul className="typ--bold">
+                <li className="typ--h1" onClick={ () => scrollDocToZero() }><Link className="typ--redshift" to="/about">About.</Link></li>
+                <li className="typ--h1" onClick={ () => scrollDocToZero() }><Link className="typ--redshift" to="/careers">Careers.</Link></li>
+                <li className="typ--h1"><a className="typ--redshift" href="http://weareredshift.tumblr.com/" target="_blank">Blog.</a></li>
+              </ul>
             </div>
-          </Footer>
-        </ AnimationWrapper>
+          </div>
+        </Footer>
       </section>
     );
   }

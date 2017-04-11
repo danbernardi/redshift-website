@@ -13,10 +13,10 @@ export class SceneDevice extends React.Component {
   }
 
   render () {
-    const { id, body, overlay, shadow } = this.props;
+    const { id, body, overlay, shadow, styles} = this.props;
 
     return (
-      <div className="scene__device">
+      <div className="scene__device" style={ { ...styles } }>
         { body && <img className="scene__device__body" src={ body } alt={ id } /> }
         { overlay && <img className="scene__device__overlay" src={ overlay } alt={ id } /> }
         { shadow && <img className="scene__device__shadow" src={ shadow } alt={ id } /> }

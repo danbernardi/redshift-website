@@ -1,11 +1,12 @@
 import React from 'react';
-// import ReactDOM from 'react-dom';
-// import { mapRange } from 'utils/animation';
-// import mojs from 'mo-js';
 import { connect } from 'react-redux';
 import SceneDevice from './SceneDevice';
 import SceneText from './SceneText';
 import './Scene.scss';
+
+
+// import { TimeLineMax } from 'gsap';
+
 
 export class Scene extends React.Component {
   constructor (props) {
@@ -13,25 +14,56 @@ export class Scene extends React.Component {
 
     this.state = {
       animationInProgress: false,
+      animationProgress: 0,
       active: true
     };
+
+    // this.timeline = null;
   }
 
   componentDidMount () {
-    // this.resetDevice();
+    console.log(this)
+
+    this.timeline = new TimelineMax({onUpdate: () => {
+      this.setState({
+        animationProgress: this.timeline.progress()
+      })
+    }});
+
+    let tlValues = { progress: 0 };
+    this.timeline.pause();
+
+    this.timeline
+      .to(tlValues, 1, { progress: 100, onUpdate: (val) => {
+        console.log(this.timeline.progress())
+      }});
+
   }
 
   componentDidUpdate (prevProps, prevState) {
-    const { bannerState, index } = this.props;
+    // const { bannerState, index } = this.props;
 
-    if (prevProps.bannerState.active !== bannerState.active) {
-      if (bannerState.active === index) this.setActive(true);
-      if (bannerState.active !== index && prevState.active) this.setActive(false);
-    }
+    // if (prevProps.bannerState.active !== bannerState.active) {
+    //   if (bannerState.active === index) this.setActive(true);
+    //   if (bannerState.active !== index && prevState.active) this.setActive(false);
+    // }
   }
 
   setActive (state) {
     this.setState({ active: state });
+  }
+
+
+  animate () {
+
+  }
+
+  playAnimation () {
+    this.timeline.play();
+  }
+
+  pauseAnimation () {
+    this.timeline.pause();
   }
 
   render () {
@@ -40,7 +72,6 @@ export class Scene extends React.Component {
 
     return (
       <div
-        ref={ (el) => onDidMount instanceof Function && onDidMount(el) }
         className={ `scene sc__${id}` }
         data-id={ id }
         style={ { pointerEvents: active ? 'auto' : 'none' } }
@@ -49,12 +80,15 @@ export class Scene extends React.Component {
           id={ id }
           { ...device }
           active={ active }
+          ref={ (element) => { this.SceneDevice = element } }
+          styles = {{ opacity: this.state.animationProgress }}
         />
 
         <SceneText
           id={ id }
           caption={ caption }
           active={ active }
+          ref={ (element) => { this.SceneText = element } }
         />
       </div>
     );
