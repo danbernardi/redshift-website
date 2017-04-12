@@ -15,8 +15,6 @@ export class SceneDevice extends React.Component {
 
   render () {
     const { id, body, overlay, shadow, animationProgress } = this.props;
-    console.log('ap', animationProgress)
-
     return (
       <div className="scene__device" >
         { body && <img className="scene__device__body" src={ body } alt={ id } /> }

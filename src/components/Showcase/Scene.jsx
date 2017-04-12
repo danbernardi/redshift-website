@@ -70,7 +70,7 @@ export class Scene extends React.Component {
 
   render () {
     const { id, caption, onDidMount, device, animationProgress } = this.props;
-    console.log(animationProgress)
+    console.log(`scene: ${id} `, animationProgress)
     const { active } = this.state;
 
     return (
