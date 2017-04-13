@@ -1,63 +1,104 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import SceneDevice from './SceneDevice';
+import { Link } from 'react-router';
 import SceneText from './SceneText';
+import { isInRange } from 'utils/animation';
 import './Scene.scss';
 
-
-import { TimeLineMax } from 'gsap';
+import GSAP from 'react-gsap-enhancer';
 
 
 export class Scene extends React.Component {
   constructor (props) {
     super(props);
 
+    this.timeline = null;
     this.state = {
       animationInProgress: false,
       animationProgress: 0,
       active: true
     };
 
-    // this.timeline = null;
   }
 
   componentDidMount () {
-    // this.timeline = new TimelineMax({onUpdate: () => {
-    //   this.setState({
-    //     animationProgress: this.timeline.progress()
-    //   })
-    // }});
+    const direction = this.props.index % 2 === 0 ? 'right' : 'left';
+    console.log(direction)
 
-    // let tlValues = { progress: 0 };
-    // this.timeline.pause();
 
-    // this.timeline
-    //   .to(tlValues, 1, { progress: 100, onUpdate: (val) => {
-    //     console.log(this.timeline.progress())
-    //   }});
-
+    this.timeline = this.addAnimation(this.animateIn, {
+      direction
+    });
   }
 
   shouldComponentUpdate (nextProps) {
-    return nextProps.animationProgress >= 0 && nextProps.animationProgress <= 100;
+    return isInRange(nextProps.animationProgress, 0, 1);
   }
 
-  componentDidUpdate (prevProps, prevState) {
-
-    // const { bannerState, index } = this.props;
-
-    // if (prevProps.bannerState.active !== bannerState.active) {
-    //   if (bannerState.active === index) this.setActive(true);
-    //   if (bannerState.active !== index && prevState.active) this.setActive(false);
-    // }
+  componentWillReceiveProps (nextProps) {
+    const { animationProgress } = nextProps;
+    if (isInRange(animationProgress, 0, 1)) {
+      this.setState({
+        animationProgress
+      }, () => {
+        this.timeline.progress(animationProgress);
+      });
+    }
   }
 
   setActive (state) {
     this.setState({ active: state });
   }
 
-  animate () {
+  animateIn ({ target, options }) {
+    const device = target.find({ animationName: 'device' });
+    const deviceBody = target.find({ animationName: 'device-body' });
+    const deviceOverlay = target.find({ animationName: 'device-overlay' });
+    const deviceShadow = target.find({ animationName: 'device-shadow' });
 
+
+    const sceneText = target.find({ animationName: 'cta-text' });
+    const sceneCaption = target.find({ animationName: 'cta-caption' });
+    const sceneLink = target.find({ animationName: 'cta-link' });
+
+    const defaultOptions = {
+      direction: 'right',
+      directionOffset: '-100%',
+      transformOrigin: 'left bottom',
+      rotation: 90,
+      shadowOpacity: 0.2
+    };
+
+    const myOptions = {
+      direction: 'right'
+    };
+
+    const tlOptions = Object.assign({}, defaultOptions, myOptions);
+
+
+    return new TimelineMax({
+      onUpdate: () => {
+        //Do stuff here
+      }
+    })
+    .pause()
+    .from(device, 4, {
+      [tlOptions.direction]: '-100%',
+      ease: Power3.easeOut,
+      rotation:30, transformOrigin:"left 50%"
+    }, 'deviceIn')
+    .from(deviceShadow, 4, {
+      top: '50%'
+    }, 'deviceIn')
+    .from(deviceShadow, 4, {
+      opacity: tlOptions.shadowOpacity
+    }, 'deviceIn')
+
+    .from(sceneText, 6, {
+      opacity: 0
+    }, 'deviceIn')
+    .addPause(10);
   }
 
   playAnimation () {
@@ -69,31 +110,35 @@ export class Scene extends React.Component {
   }
 
   render () {
-    const { id, caption, onDidMount, device, animationProgress } = this.props;
-    console.log(`scene: ${id} `, animationProgress)
+    const { id, caption } = this.props;
+    const { body, overlay, shadow } = this.props.device;
     const { active } = this.state;
 
     return (
       <div
         className={ `scene sc__${id}` }
         data-id={ id }
-        style={ { pointerEvents: active ? 'auto' : 'none' } }
+        style={ { pointerEvents: active ? 'auto' : 'none', borderTop: '1px solid grey' } }
       >
-        <SceneDevice
-          id={ id }
-          { ...device }
-          active={ active }
-          ref={ (element) => { this.SceneDevice = element } }
-          animationProgress = { animationProgress }
-        />
 
-        <SceneText
-          id={ id }
-          caption={ caption }
-          active={ active }
-          ref={ (element) => { this.SceneText = element } }
-          animationProgress = { animationProgress }
-        />
+        <div animationName="device" className="scene__device" >
+          { body && <img animationName="device-body" className="scene__device__body" src={ body } alt={ id } /> }
+          { overlay && <img animationName="device-overlay" className="scene__device__overlay" src={ overlay } alt={ id } /> }
+          { shadow && <img animationName="device-shadow" className="scene__device__shadow" src={ shadow } alt={ id } /> }
+        </div>
+
+        <div animationName="cta-text" className="scene__cta typ--white mx10 mx8--dsm mx3--tlg">
+          <h2 animationName="cta-caption" className="scene__caption mb4 mb2--mlg typ--bold">
+            { caption.map((string, index) => (
+              <span key={ index }>{ string }</span>
+            )) }
+          </h2>
+
+          <Link animationName="cta-link" className="scene__link typ--bold typ--h6" to={ `/work/${id}` } >
+            View project
+          </Link>
+        </div>
+
       </div>
     );
   }
@@ -113,4 +158,4 @@ const injectStateProps = state => ({
   bannerState: state.bannerState
 });
 
-export default connect(injectStateProps)(Scene);
+export default connect(injectStateProps)(GSAP()(Scene));

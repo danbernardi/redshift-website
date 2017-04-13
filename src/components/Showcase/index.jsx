@@ -5,9 +5,7 @@ import { Link } from 'react-router';
 import { scrollDocToZero } from 'utils/scrollTo';
 import { connect } from 'react-redux';
 import Rx from 'rxjs/Rx';
-import { mapRange } from 'utils/animation';
-
-import AnimationWrapper from 'components/AnimationWrapper';
+import { mapRange, isInRange } from 'utils/animation';
 
 export class Showcase extends React.Component {
   constructor (props) {
@@ -26,6 +24,10 @@ export class Showcase extends React.Component {
   }
 
   componentDidMount () {
+    // if(location.pathname) {
+    //   this.container.scrollTop = window.innerHeight * 1.5;
+    // }
+
     this.createObservables(this.container);
   }
 
@@ -78,8 +80,9 @@ export class Showcase extends React.Component {
    * @param  {Number} timeLineLength Duration of overall animation
    * @return {Object}                Returns an object with a low and high key
    */
-  sceneAnimationRange (index, segments, timeLineLength = 100) {
-    const segmentLength = (timeLineLength + (timeLineLength / segments)) / segments;
+  sceneAnimationRange (index, segments, timeLineLength = 1) {
+    //Minus a segment to account for scroll bar height and overflow
+    const segmentLength = (timeLineLength / (segments - 1));
 
     return {
       low: index * segmentLength - (segmentLength / 2),
@@ -87,17 +90,6 @@ export class Showcase extends React.Component {
     };
   }
 
-  /**
-   * Checks if numuber is contained within a range.  Inclusive of
-   * minimum, exclusive of maximum;
-   * @param  {Number}  val Value to check
-   * @param  {Number}  min Minimum range
-   * @param  {Number}  max Maximum range (exclusive)
-   * @return {Boolean} Returns true or false
-   */
-  isInRange (val, min, max) {
-    return val >= min && val <= max;
-  }
 
   /**
    * Creates a scroll observable and maps it to a timeline in state
@@ -109,7 +101,7 @@ export class Showcase extends React.Component {
     //Subscribe to the devices scroll event
     this.scrollSubscription = this.scrollObservable.subscribe((scrollEvent) => {
       const target = scrollEvent.target;
-      const animationProgress = mapRange(target.scrollTop, 0, target.scrollHeight - target.offsetHeight, 0, 100);
+      const animationProgress = mapRange(target.scrollTop, 0, target.scrollHeight, 0, 1);
 
       this.setState({
         animationProgress
@@ -127,11 +119,10 @@ export class Showcase extends React.Component {
     let i = 0;
     const childCount = 6;
 
-
     while (i < childCount) {
-      const range = this.sceneAnimationRange(i, childCount);
+      const range = this.sceneAnimationRange(i, childCount, 1);
 
-      if (this.isInRange(ap, range.low, range.high)) {
+      if (isInRange(ap, range.low, range.high)) {
         sceneBgColor = this.colors[i];
       }
 
@@ -147,7 +138,6 @@ export class Showcase extends React.Component {
         position: 'fixed',
         overflowY: 'scroll',
         top: 0,
-        border: '1px solid red'
       } }>
 
         { /* For animation debugging*/ }
@@ -160,15 +150,13 @@ export class Showcase extends React.Component {
           } }) */}
 
         { this.children.map((child, index) => {
-            const range = this.sceneAnimationRange(index, this.children.length);
+          const range = this.sceneAnimationRange(index, this.children.length, 1);
 
-            //Pass animation progress to each child
-           const individualProgress = mapRange(this.state.animationProgress, range.low, range.high, 0, 100);
-            return React.cloneElement(child, { animationProgress: individualProgress });
+          //Pass animation progress to each child
+          const individualProgress = mapRange(this.state.animationProgress, range.low, range.high, 0, 1);
+            return React.cloneElement(child, { animationProgress: individualProgress, index });
           })
         }
-
-
 
       </section>
     );
