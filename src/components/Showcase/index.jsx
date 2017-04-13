@@ -18,7 +18,6 @@ export class Showcase extends React.Component {
     this.children = this.buildChildren();
 
     this.state = {
-      sceneColor: '#fff',
       animationProgress: 0
     };
   }
@@ -111,8 +110,6 @@ export class Showcase extends React.Component {
 
 
   render () {
-    const { scenes, leadingScene } = this.props;
-
     let sceneBgColor = '#fff';
     const ap = this.state.animationProgress;
 
@@ -122,7 +119,8 @@ export class Showcase extends React.Component {
     while (i < childCount) {
       const range = this.sceneAnimationRange(i, childCount, 1);
 
-      if (isInRange(ap, range.low, range.high)) {
+      // The + 1/24 is padding to trigger proper color change on the footer
+      if (isInRange(ap + 1/24, range.low, range.high)) {
         sceneBgColor = this.colors[i];
       }
 

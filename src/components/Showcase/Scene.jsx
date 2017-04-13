@@ -1,13 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import SceneDevice from './SceneDevice';
 import { Link } from 'react-router';
-import SceneText from './SceneText';
 import { isInRange } from 'utils/animation';
 import './Scene.scss';
-
 import GSAP from 'react-gsap-enhancer';
-
 
 export class Scene extends React.Component {
   constructor (props) {
@@ -23,12 +19,15 @@ export class Scene extends React.Component {
   }
 
   componentDidMount () {
-    const direction = this.props.index % 2 === 0 ? 'right' : 'left';
-    console.log(direction)
+    const direction = this.props.index % 2 === 0 ? 'left' : 'right';
+    const directionOffset = direction === 'right' ? '-100%' : '-200%';
 
 
     this.timeline = this.addAnimation(this.animateIn, {
-      direction
+      direction,
+      directionOffset,
+      transformOrigin: direction === 'left' ? 'right top' : 'left top',
+      rotation: direction === 'left' ? '-25' : '25'
     });
   }
 
@@ -70,11 +69,7 @@ export class Scene extends React.Component {
       shadowOpacity: 0.2
     };
 
-    const myOptions = {
-      direction: 'right'
-    };
-
-    const tlOptions = Object.assign({}, defaultOptions, myOptions);
+    const tlOptions = Object.assign({}, defaultOptions, options);
 
 
     return new TimelineMax({
@@ -84,9 +79,10 @@ export class Scene extends React.Component {
     })
     .pause()
     .from(device, 4, {
-      [tlOptions.direction]: '-100%',
+      [tlOptions.direction]: tlOptions.directionOffset,
       ease: Power3.easeOut,
-      rotation:30, transformOrigin:"left 50%"
+      rotation: tlOptions.rotation,
+      transformOrigin: tlOptions.transformOrigin
     }, 'deviceIn')
     .from(deviceShadow, 4, {
       top: '50%'
@@ -118,7 +114,7 @@ export class Scene extends React.Component {
       <div
         className={ `scene sc__${id}` }
         data-id={ id }
-        style={ { pointerEvents: active ? 'auto' : 'none', borderTop: '1px solid grey' } }
+        style={ { pointerEvents: active ? 'auto' : 'none' } }
       >
 
         <div animationName="device" className="scene__device" >
