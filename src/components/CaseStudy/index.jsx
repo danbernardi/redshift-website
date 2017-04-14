@@ -41,7 +41,7 @@ class CaseStudy extends React.Component {
     const nextName = ReactDOM.findDOMNode(this.refs['next-name']);
     const nextLabel = ReactDOM.findDOMNode(this.refs['next-label']);
     const { dimensions } = this.state;
-    nextName.style.transition = 'color 600ms ease-in-out, background-color 600ms ease-out 100ms';
+    nextName.style.transition = 'color 400ms ease-in-out, background-color 400ms ease-out 100ms';
     nextName.style.color = '#a3a3a3';
 
     new mojs.Tween({
