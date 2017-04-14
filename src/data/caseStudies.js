@@ -4,7 +4,6 @@ export const caseStudies = [
     id: 'norton',
     name: 'Norton Online',
     color: '#FFC300',
-    anchor: 'work',
     device: {
       shadow: require('assets/img/case-studies/norton/norton_shadow.svg'),
       body: require('assets/img/case-studies/norton/norton_body.svg'),

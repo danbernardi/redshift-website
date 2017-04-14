@@ -89,7 +89,6 @@ export class Showcase extends React.Component {
     };
   }
 
-
   /**
    * Creates a scroll observable and maps it to a timeline in state
    * @param  {Object} element A dom element
@@ -108,7 +107,6 @@ export class Showcase extends React.Component {
     });
   }
 
-
   render () {
     let sceneBgColor = '#fff';
     const ap = this.state.animationProgress;
@@ -120,7 +118,7 @@ export class Showcase extends React.Component {
       const range = this.sceneAnimationRange(i, childCount, 1);
 
       // The + 1/24 is padding to trigger proper color change on the footer
-      if (isInRange(ap + 1/24, range.low, range.high)) {
+      if (isInRange(ap + 1 / 24, range.low, range.high)) {
         sceneBgColor = this.colors[i];
       }
 
@@ -135,7 +133,7 @@ export class Showcase extends React.Component {
         height: window.innerHeight,
         position: 'fixed',
         overflowY: 'scroll',
-        top: 0,
+        top: 0
       } }>
 
         { /* For animation debugging*/ }
