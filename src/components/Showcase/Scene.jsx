@@ -35,7 +35,7 @@ export class Scene extends React.Component {
   }
 
   render () {
-    const { id, caption, onDidMount, device } = this.props;
+    const { anchor, id, caption, onDidMount, device } = this.props;
     const { active } = this.state;
 
     return (
@@ -45,7 +45,7 @@ export class Scene extends React.Component {
         data-id={ id }
         style={ { pointerEvents: active ? 'auto' : 'none' } }
       >
-
+        { anchor && <div id={ anchor } /> }
         <SceneDevice
           id={ id }
           { ...device }

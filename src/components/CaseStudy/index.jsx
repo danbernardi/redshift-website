@@ -14,7 +14,7 @@ class CaseStudy extends React.Component {
     super(props);
 
     this.state = {
-      dimensions: { height: -1, width: -1 }
+      dimensions: { height: -4, width: 0 }
     };
   }
 
@@ -41,8 +41,8 @@ class CaseStudy extends React.Component {
     const nextName = ReactDOM.findDOMNode(this.refs['next-name']);
     const nextLabel = ReactDOM.findDOMNode(this.refs['next-label']);
     const { dimensions } = this.state;
-    nextName.style.transition = 'color 400ms ease-in-out, background-color 400ms ease-out 100ms';
-    nextName.style.color = '#4a4a4a';
+    nextName.style.transition = 'color 600ms ease-in-out, background-color 400ms ease-out 100ms';
+    nextName.style.color = '#a3a3a3';
 
     new mojs.Tween({
       duration: 600,
@@ -53,7 +53,7 @@ class CaseStudy extends React.Component {
         const mappedHeight = mapRange(progress, 0, 1, dimensions.height, window.innerHeight);
         const mappedFontSize = mapRange(progress, 0, 1, startFontSize, endFontSize);
         const mappedFontWeight = mapRange(progress, 0, 1, 600, 100);
-        const mappedOpacity = mapRange(progress, 0, 1, 1, 0);
+        const mappedOpacity = mapRange(progress, 0, 0.5, 0.5, 0);
         next.style.height = `${mappedHeight}px`;
         nextName.style.fontSize = `${mappedFontSize}px`;
         nextName.style.fontWeight = mappedFontWeight;
@@ -79,7 +79,7 @@ class CaseStudy extends React.Component {
 
     return (
       <div className="casestudy__modal">
-        <ModalCloseBtn closeCallback={ () => browserHistory.push('/work') } />
+        <ModalCloseBtn closeCallback={ () => browserHistory.push('#work') } />
         <section ref="casestudy" className={ `modal__with-sidebar ${id}` }>
           <div className={ `job__sidebar bg--${id}` }  ref={
             (sidebar) => {
@@ -119,10 +119,10 @@ class CaseStudy extends React.Component {
                   className="casestudy__next"
                 >
                   <div className={ `casestudy__next--sidebar bg--${nextCaseStudy.id}` } />
-                  <div className="row">
-                    <div className="casestudy__next--text">
+                  <div className="layout--relative ml8 ml1--mlg">
+                    <div className="row">
                       <span ref="next-label" className="typ--light">View next case study</span>
-                      <h2 ref="next-name" className={ `typ--${nextCaseStudy.id} typ--bold` }>{ nextCaseStudy.name }</h2>
+                      <h2 ref="next-name" className={ `typ--${nextCaseStudy.id}` }>{ nextCaseStudy.name }</h2>
                     </div>
                   </div>
                 </Link>

@@ -24,7 +24,7 @@ export class Header extends React.Component {
     const { modalState, dispatch } = this.props;
 
     let animate = true;
-    if (modalState.open || (location.pathname !== '/' && location.pathname.split('/')[1] !== '/work')) {
+    if (modalState.open || (location.pathname !== '/' && location.pathname.split('/')[1] !== '/#work')) {
       browserHistory.push('/');
       scrollDocToZero();
 

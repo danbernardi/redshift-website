@@ -2,6 +2,7 @@ export const caseStudies = [
   // Norton Antivirus
   {
     id: 'norton',
+    anchor: 'work',
     name: 'Norton Online',
     color: '#FFC300',
     device: {
