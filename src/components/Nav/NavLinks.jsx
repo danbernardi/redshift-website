@@ -25,7 +25,7 @@ class NavLinks extends React.Component {
     this.timer = setTimeout(() => {
       scrollDocToZero();
 
-      if (to === '/#work') { dispatch(actions.goToNextCaseStudy(0, false, [-1])); }
+      if (to === '/work') { dispatch(actions.goToNextCaseStudy(0, false, [-1])); }
 
       dispatch(actions.toggleModal(false));
       setTimeout(() => {

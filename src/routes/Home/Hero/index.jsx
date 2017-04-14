@@ -12,7 +12,7 @@ export class Hero extends React.Component {
     this.mission = ReactDOM.findDOMNode(this.refs.mission);
     this.scroller = ReactDOM.findDOMNode(this.refs.scroller);
 
-    if (location.pathname === '/#work' || this.props.loaded ) {
+    if (location.pathname === '/work' || this.props.loaded ) {
       this.animatePageIn();
     }
   }

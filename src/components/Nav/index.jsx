@@ -7,7 +7,7 @@ const Nav = () => {
   const navLinks = [
     {
       name: 'Work.',
-      to: '/#work'
+      to: '/work'
     },
     {
       name: 'About.',
