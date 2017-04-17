@@ -1,6 +1,4 @@
 import React from 'react';
-import AboutAnimation from './AboutAnimation';
-import AnimationWrapper from 'components/AnimationWrapper';
 import AboutHero from './AboutHero';
 import AboutVillage from './AboutVillage';
 import AboutExplore from './AboutExplore';
@@ -10,11 +8,6 @@ export class NewAbout extends React.Component {
   render () {
     return (
       <div className="row">
-        <AnimationWrapper />
-
-
-
-
         <AboutHero />
         <AboutVillage />
         <AboutExplore />

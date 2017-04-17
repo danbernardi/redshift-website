@@ -107,12 +107,22 @@ export class Showcase extends React.Component {
     });
   }
 
+  setSceneTransitionPoints () {
+
+  }
+
+  transitionScene (sceneIndex) {
+    this.setState({
+      activeScene: sceneIndex
+    });
+  }
+
   render () {
     let sceneBgColor = '#fff';
     const ap = this.state.animationProgress;
 
     let i = 0;
-    const childCount = 6;
+    const childCount = this.children.length;
 
     while (i < childCount) {
       const range = this.sceneAnimationRange(i, childCount, 1);

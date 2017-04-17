@@ -4985,6 +4985,10 @@ react-ga@^2.1.2:
   dependencies:
     object-assign "^4.0.1"
 
+react-gsap-enhancer@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/react-gsap-enhancer/-/react-gsap-enhancer-0.3.0.tgz#b9f9fd19315875768c433e0943c2a41eea43b7d2"
+
 react-immutable-proptypes@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/react-immutable-proptypes/-/react-immutable-proptypes-2.1.0.tgz#023d6f39bb15c97c071e9e60d00d136eac5fa0b4"

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import { isInRange } from 'utils/animation';
 import './Scene.scss';
+import { TimelineMax } from 'gsap';
 import GSAP from 'react-gsap-enhancer';
 
 export class Scene extends React.Component {
@@ -15,13 +16,11 @@ export class Scene extends React.Component {
       animationProgress: 0,
       active: true
     };
-
   }
 
   componentDidMount () {
     const direction = this.props.index % 2 === 0 ? 'left' : 'right';
     const directionOffset = '-200%';
-
 
     this.timeline = this.addAnimation(this.animateIn, {
       direction,
@@ -72,35 +71,41 @@ export class Scene extends React.Component {
     const tlOptions = Object.assign({}, defaultOptions, options);
 
 
+    //Timeline progresses from 0 - 1
+    //Pieces delays and overlaps should total 1
+
     return new TimelineMax({
       onUpdate: () => {
         //Do stuff here
       }
     })
     .pause()
-    .from(device, 4, {
+    .from(device, 0.4, {
       [tlOptions.direction]: tlOptions.directionOffset,
       ease: Power3.easeOut,
       rotation: tlOptions.rotation,
       transformOrigin: tlOptions.transformOrigin
     }, 'deviceIn')
-    .from(deviceShadow, 4, {
+    .from(deviceShadow, 0.4, {
       top: '50%'
     }, 'deviceIn')
-    .from(deviceShadow, 4, {
+    .from(deviceShadow, 0.4, {
       opacity: tlOptions.shadowOpacity
     }, 'deviceIn')
 
-    .from(sceneText, 6, {
+    .from(sceneText, 0.6, {
       opacity: 0
     }, 'deviceIn')
-    .addPause(10);
+    .addPause(0.4);
   }
 
+
+  // Plays the animation
   playAnimation () {
     this.timeline.play();
   }
 
+  // Pauses the animation
   pauseAnimation () {
     this.timeline.pause();
   }
