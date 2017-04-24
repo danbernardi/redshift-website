@@ -120,6 +120,7 @@ export class Scene extends React.Component {
         className={ `scene sc__${id}` }
         data-id={ id }
         style={ { pointerEvents: active ? 'auto' : 'none' } }
+        ref={ this.props.onDidMount }
       >
 
         <div animationName="device" className="scene__device" >

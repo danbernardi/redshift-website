@@ -16,6 +16,8 @@ export class Showcase extends React.Component {
     this.scrollObservable = null;
     this.colors = ['#FFFFFF'].concat(this.props.scenes.map((scene) => scene.color)).concat(['#FFFFFF']);
     this.children = this.buildChildren();
+    this.scrollPoints = [];
+    this.sceneBounds = [];
 
     this.state = {
       animationProgress: 0
@@ -28,17 +30,28 @@ export class Showcase extends React.Component {
     // }
 
     this.createObservables(this.container);
+
+    //Wait to get accurate height
+    setTimeout(() => {
+      this.sceneBounds = this.setSceneBounds();
+    }, 300);
   }
 
   //TODO: move this logic to Home component and pass as children
   buildChildren () {
-    const children = [
+    const children = React.Children.toArray([
       this.header(),
       this.sections(),
       this.footer()
-    ];
+    ]);
 
-    return React.Children.toArray(children);
+    return children.map((child, index) => {
+      return React.cloneElement(child, {
+        animationProgress: 0,
+        index,
+        onDidMount: (el) => this.addScrollPoint(el, index)
+      });
+    });
   }
 
   header () {
@@ -79,9 +92,9 @@ export class Showcase extends React.Component {
    * @param  {Number} timeLineLength Duration of overall animation
    * @return {Object}                Returns an object with a low and high key
    */
-  sceneAnimationRange (index, segments, timeLineLength = 1) {
+  sceneAnimationRange (index, segments, segmentLength, timeLineLength = 1) {
     //Minus a segment to account for scroll bar height and overflow
-    const segmentLength = (timeLineLength / (segments - 1));
+    // const segmentLength = (timeLineLength / (segments - 1));
 
     return {
       low: index * segmentLength - (segmentLength / 2),
@@ -107,8 +120,26 @@ export class Showcase extends React.Component {
     });
   }
 
-  setSceneTransitionPoints () {
+  addScrollPoint (element) {
+    console.log('scrollpoint added: ', element);
+    if (element && this.scrollPoints.indexOf(element) === -1) {
+      this.scrollPoints.push({
+        element
+      });
+    };
+  }
 
+  setSceneBounds () {
+    return this.scrollPoints.map((scene, index) => {
+      const timelinePercentage = scene.element.offsetHeight / this.container.scrollHeight;
+      const range = this.sceneAnimationRange(index, childCount, timelinePercentage, 1);
+
+
+      return {
+        height: scene.element.offsetHeight,
+        percentage: scene.element.offsetHeight / this.container.scrollHeight
+      };
+    });
   }
 
   transitionScene (sceneIndex) {
@@ -118,6 +149,10 @@ export class Showcase extends React.Component {
   }
 
   render () {
+    if (this.scrollPoints.length === this.children.length) {
+      this.setSceneBounds();
+    }
+
     let sceneBgColor = '#fff';
     const ap = this.state.animationProgress;
 
@@ -134,6 +169,18 @@ export class Showcase extends React.Component {
 
       i++;
     }
+
+    // const renderChildren = this.children.map((child, index) => {
+    //   const range = this.sceneAnimationRange(index, this.children.length, 1);
+
+    //   //Pass animation progress to each child
+    //   const individualProgress = mapRange(this.state.animationProgress, range.low, range.high, 0, 1);
+    //   return React.cloneElement(child, {
+    //     animationProgress: individualProgress,
+    //     index,
+    //     onDidMount: (el) => this.addScrollPoint(el, index)
+    //   });
+    // });
 
     return (
       <section ref={ (element) => { this.container = element; } } className="showcase" style={ {
@@ -155,15 +202,7 @@ export class Showcase extends React.Component {
             //do something with arrow click
           } }) */}
 
-        { this.children.map((child, index) => {
-          const range = this.sceneAnimationRange(index, this.children.length, 1);
-
-          //Pass animation progress to each child
-          const individualProgress = mapRange(this.state.animationProgress, range.low, range.high, 0, 1);
-            return React.cloneElement(child, { animationProgress: individualProgress, index });
-          })
-        }
-
+        { this.children }
       </section>
     );
   }
