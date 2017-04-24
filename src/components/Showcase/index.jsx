@@ -92,14 +92,11 @@ export class Showcase extends React.Component {
    * @param  {Number} timeLineLength Duration of overall animation
    * @return {Object}                Returns an object with a low and high key
    */
-  sceneAnimationRange (index, segments, segmentLength, timeLineLength = 1) {
+  sceneAnimationRange (index, segments, timeLineLength = 1) {
     //Minus a segment to account for scroll bar height and overflow
-    // const segmentLength = (timeLineLength / (segments - 1));
+    const segmentLength = (timeLineLength / (segments - 1));
 
-    return {
-      low: index * segmentLength - (segmentLength / 2),
-      high: index * segmentLength + (segmentLength / 2)
-    };
+    return this.sceneBounds[index].bounds;
   }
 
   /**
@@ -121,7 +118,6 @@ export class Showcase extends React.Component {
   }
 
   addScrollPoint (element) {
-    console.log('scrollpoint added: ', element);
     if (element && this.scrollPoints.indexOf(element) === -1) {
       this.scrollPoints.push({
         element
@@ -130,16 +126,28 @@ export class Showcase extends React.Component {
   }
 
   setSceneBounds () {
-    return this.scrollPoints.map((scene, index) => {
+    let currentTimePosition = 0;
+    const segments =  this.scrollPoints.map((scene, index) => {
+      const height = scene.element.offsetHeight;
       const timelinePercentage = scene.element.offsetHeight / this.container.scrollHeight;
-      const range = this.sceneAnimationRange(index, childCount, timelinePercentage, 1);
+      const low = currentTimePosition;
+      const high = currentTimePosition + timelinePercentage;
 
-
-      return {
-        height: scene.element.offsetHeight,
-        percentage: scene.element.offsetHeight / this.container.scrollHeight
+      const segmentMeta = {
+        height,
+        timelinePercentage,
+        bounds: {
+          low,
+          high
+        }
       };
+
+      // increment position
+      currentTimePosition = high;
+      return segmentMeta;
     });
+
+    return segments;
   }
 
   transitionScene (sceneIndex) {
@@ -149,25 +157,24 @@ export class Showcase extends React.Component {
   }
 
   render () {
-    if (this.scrollPoints.length === this.children.length) {
-      this.setSceneBounds();
-    }
 
     let sceneBgColor = '#fff';
-    const ap = this.state.animationProgress;
+    if (this.sceneBounds.length) {
+      const ap = this.state.animationProgress;
 
-    let i = 0;
-    const childCount = this.children.length;
+      let i = 0;
+      const childCount = this.children.length;
 
-    while (i < childCount) {
-      const range = this.sceneAnimationRange(i, childCount, 1);
+      while (i < childCount) {
+        const range = this.sceneBounds[i].bounds;
 
-      // The + 1/24 is padding to trigger proper color change on the footer
-      if (isInRange(ap + 1 / 24, range.low, range.high)) {
-        sceneBgColor = this.colors[i];
+        // The + 1/24 is padding to trigger proper color change on the footer
+        if (isInRange(ap + 1 / 24, range.low, range.high)) {
+          sceneBgColor = this.colors[i];
+        }
+
+        i++;
       }
-
-      i++;
     }
 
     // const renderChildren = this.children.map((child, index) => {
