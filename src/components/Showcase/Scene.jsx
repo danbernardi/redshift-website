@@ -69,10 +69,10 @@ export class Scene extends React.Component {
     };
 
     const tlOptions = Object.assign({}, defaultOptions, options);
-
-
     //Timeline progresses from 0 - 1
     //Pieces delays and overlaps should total 1
+
+    const deviceTiming = 0.25;
 
     return new TimelineMax({
       onUpdate: () => {
@@ -80,25 +80,23 @@ export class Scene extends React.Component {
       }
     })
     .pause()
-    .from(device, 0.4, {
+    .from(device, deviceTiming, {
       [tlOptions.direction]: tlOptions.directionOffset,
       ease: Power3.easeOut,
       rotation: tlOptions.rotation,
       transformOrigin: tlOptions.transformOrigin
     }, 'deviceIn')
-    .from(deviceShadow, 0.4, {
+    .from(deviceShadow, deviceTiming, {
       top: '50%'
     }, 'deviceIn')
-    .from(deviceShadow, 0.4, {
+    .from(deviceShadow, deviceTiming, {
       opacity: tlOptions.shadowOpacity
     }, 'deviceIn')
-
-    .from(sceneText, 0.6, {
+    .from(sceneText, 0.1, {
       opacity: 0
     }, 'deviceIn')
     .addPause(0.4);
   }
-
 
   // Plays the animation
   playAnimation () {

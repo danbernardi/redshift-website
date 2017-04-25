@@ -14,6 +14,8 @@ export class Showcase extends React.Component {
     this.duration = 500;
     this.container = null;
     this.scrollObservable = null;
+
+    //Adding white for header and footer
     this.colors = ['#FFFFFF'].concat(this.props.scenes.map((scene) => scene.color)).concat(['#FFFFFF']);
     this.children = this.buildChildren();
     this.scrollPoints = [];
@@ -25,10 +27,6 @@ export class Showcase extends React.Component {
   }
 
   componentDidMount () {
-    // if(location.pathname) {
-    //   this.container.scrollTop = window.innerHeight * 1.5;
-    // }
-
     this.createObservables(this.container);
 
     //Wait to get accurate height
@@ -95,7 +93,7 @@ export class Showcase extends React.Component {
     //Subscribe to the devices scroll event
     this.scrollSubscription = this.scrollObservable.subscribe((scrollEvent) => {
       const target = scrollEvent.target;
-      const animationProgress = mapRange(target.scrollTop, 0, target.scrollHeight, 0, 1);
+      const animationProgress = mapRange(target.scrollTop, 0, target.scrollHeight - this.scrollPoints[0].element.offsetHeight, 0, 1);
 
       this.setState({
         animationProgress
@@ -113,9 +111,11 @@ export class Showcase extends React.Component {
 
   setSceneMeta () {
     let currentTimePosition = 0;
+    const scrollHeight = this.container.scrollHeight;
+
     const segments = this.scrollPoints.map((scene) => {
       const height = scene.element.offsetHeight;
-      const timelinePercentage = scene.element.offsetHeight / this.container.scrollHeight;
+      const timelinePercentage = height / scrollHeight;
       const low = currentTimePosition;
       const high = currentTimePosition + timelinePercentage;
 
@@ -144,7 +144,7 @@ export class Showcase extends React.Component {
   }
 
   render () {
-    let sceneBgColor = '#fff';
+    let sceneBgColor = this.colors[0];
     if (this.sceneMeta.length) {
       const ap = this.state.animationProgress;
 
@@ -155,25 +155,14 @@ export class Showcase extends React.Component {
         const range = this.sceneMeta[i].bounds;
 
         // The + 1/24 is padding to trigger proper color change on the footer
-        if (isInRange(ap + 1 / 24, range.low, range.high)) {
+        // where 1 is the length of the timeline
+        if (isInRange(ap, range.low, range.high)) {
           sceneBgColor = this.colors[i];
         }
 
         i++;
       }
     }
-
-    // const renderChildren = this.children.map((child, index) => {
-    //   const range = this.sceneAnimationRange(index, this.children.length, 1);
-
-    //   //Pass animation progress to each child
-    //   const individualProgress = mapRange(this.state.animationProgress, range.low, range.high, 0, 1);
-    //   return React.cloneElement(child, {
-    //     animationProgress: individualProgress,
-    //     index,
-    //     onDidMount: (el) => this.addScrollPoint(el, index)
-    //   });
-    // });
 
     return (
       <section ref={ (element) => { this.container = element; } } className="showcase" style={ {
@@ -195,15 +184,19 @@ export class Showcase extends React.Component {
             //do something with arrow click
           } }) */}
 
-        { this.sceneMeta.length ? this.children.map((child, index) => {
-          return React.cloneElement(child, {
-            animationProgress: mapRange(this.state.animationProgress, this.sceneMeta[index].bounds.low, this.sceneMeta[index].bounds.high, 0, 1),
-            index,
-            onDidMount: (el) => this.addScrollPoint(el, index)
-          });
-        })
-        : this.children /* We need to mount the children initially to get their height */
-      }
+        {
+          /* If the children have mounted, update the animation progress for each component */
+          this.sceneMeta.length ? this.children.map((child, index) => {
+            return React.cloneElement(child, {
+              animationProgress: mapRange(this.state.animationProgress, this.sceneMeta[index].bounds.low, this.sceneMeta[index].bounds.high, 0, 1),
+              index,
+              onDidMount: (el) => this.addScrollPoint(el, index)
+            });
+          })
+
+          /* We need to mount the children initially to get their height */
+          : this.children
+        }
       </section>
     );
   }
