@@ -17,7 +17,7 @@ export class Showcase extends React.Component {
     this.colors = ['#FFFFFF'].concat(this.props.scenes.map((scene) => scene.color)).concat(['#FFFFFF']);
     this.children = this.buildChildren();
     this.scrollPoints = [];
-    this.sceneBounds = [];
+    this.sceneMeta = [];
 
     this.state = {
       animationProgress: 0
@@ -33,7 +33,7 @@ export class Showcase extends React.Component {
 
     //Wait to get accurate height
     setTimeout(() => {
-      this.sceneBounds = this.setSceneBounds();
+      this.sceneMeta = this.setSceneMeta();
     }, 300);
   }
 
@@ -86,20 +86,6 @@ export class Showcase extends React.Component {
   }
 
   /**
-   * Returns a low (start) and high (end) relative to a timeline
-   * @param  {Number} index     The index of the segment
-   * @param  {Number} segments  The number of segements
-   * @param  {Number} timeLineLength Duration of overall animation
-   * @return {Object}                Returns an object with a low and high key
-   */
-  sceneAnimationRange (index, segments, timeLineLength = 1) {
-    //Minus a segment to account for scroll bar height and overflow
-    const segmentLength = (timeLineLength / (segments - 1));
-
-    return this.sceneBounds[index].bounds;
-  }
-
-  /**
    * Creates a scroll observable and maps it to a timeline in state
    * @param  {Object} element A dom element
    */
@@ -125,9 +111,9 @@ export class Showcase extends React.Component {
     };
   }
 
-  setSceneBounds () {
+  setSceneMeta () {
     let currentTimePosition = 0;
-    const segments =  this.scrollPoints.map((scene, index) => {
+    const segments = this.scrollPoints.map((scene) => {
       const height = scene.element.offsetHeight;
       const timelinePercentage = scene.element.offsetHeight / this.container.scrollHeight;
       const low = currentTimePosition;
@@ -136,6 +122,7 @@ export class Showcase extends React.Component {
       const segmentMeta = {
         height,
         timelinePercentage,
+        animationProgress: 0,
         bounds: {
           low,
           high
@@ -157,16 +144,15 @@ export class Showcase extends React.Component {
   }
 
   render () {
-
     let sceneBgColor = '#fff';
-    if (this.sceneBounds.length) {
+    if (this.sceneMeta.length) {
       const ap = this.state.animationProgress;
 
       let i = 0;
       const childCount = this.children.length;
 
       while (i < childCount) {
-        const range = this.sceneBounds[i].bounds;
+        const range = this.sceneMeta[i].bounds;
 
         // The + 1/24 is padding to trigger proper color change on the footer
         if (isInRange(ap + 1 / 24, range.low, range.high)) {
@@ -209,7 +195,15 @@ export class Showcase extends React.Component {
             //do something with arrow click
           } }) */}
 
-        { this.children }
+        { this.sceneMeta.length ? this.children.map((child, index) => {
+          return React.cloneElement(child, {
+            animationProgress: mapRange(this.state.animationProgress, this.sceneMeta[index].bounds.low, this.sceneMeta[index].bounds.high, 0, 1),
+            index,
+            onDidMount: (el) => this.addScrollPoint(el, index)
+          });
+        })
+        : this.children /* We need to mount the children initially to get their height */
+      }
       </section>
     );
   }
