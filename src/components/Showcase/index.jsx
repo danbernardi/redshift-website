@@ -20,6 +20,7 @@ export class Showcase extends React.Component {
     this.children = this.buildChildren();
     this.scrollPoints = [];
     this.sceneMeta = [];
+    this.timelineEnd = 0;
 
     this.state = {
       animationProgress: 0
@@ -69,7 +70,7 @@ export class Showcase extends React.Component {
   //TODO: Abstract to own component
   footer () {
     return (
-      <Footer classes="footer__tall" >
+      <Footer classes="footer__tall">
         <div className="footer__center">
           <div className="row">
             <ul className="typ--bold">
@@ -93,7 +94,7 @@ export class Showcase extends React.Component {
     //Subscribe to the devices scroll event
     this.scrollSubscription = this.scrollObservable.subscribe((scrollEvent) => {
       const target = scrollEvent.target;
-      const animationProgress = mapRange(target.scrollTop, 0, target.scrollHeight - this.scrollPoints[0].element.offsetHeight, 0, 1);
+      const animationProgress = mapRange(target.scrollTop, 0, target.scrollHeight - window.innerHeight, 0, 1);
 
       this.setState({
         animationProgress
@@ -115,7 +116,7 @@ export class Showcase extends React.Component {
 
     const segments = this.scrollPoints.map((scene) => {
       const height = scene.element.offsetHeight;
-      const timelinePercentage = height / scrollHeight;
+      const timelinePercentage = height / (scrollHeight - window.innerHeight);
       const low = currentTimePosition;
       const high = currentTimePosition + timelinePercentage;
 
@@ -153,9 +154,6 @@ export class Showcase extends React.Component {
 
       while (i < childCount) {
         const range = this.sceneMeta[i].bounds;
-
-        // The + 1/24 is padding to trigger proper color change on the footer
-        // where 1 is the length of the timeline
         if (isInRange(ap, range.low, range.high)) {
           sceneBgColor = this.colors[i];
         }
@@ -176,9 +174,13 @@ export class Showcase extends React.Component {
       } }>
 
         { /* For animation debugging*/ }
+
+
+      {/*
         <div style={ { position: 'fixed', top: 10, left: 20 } }>
           {this.state.animationProgress}
         </div>
+      */}
 
         { /* React.cloneElement(leadingScene, { clickCallback: () => {
             //do something with arrow click

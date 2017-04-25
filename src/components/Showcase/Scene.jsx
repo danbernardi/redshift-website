@@ -50,15 +50,15 @@ export class Scene extends React.Component {
   }
 
   animateIn ({ target, options }) {
-    const device = target.find({ animationName: 'device' });
-    const deviceBody = target.find({ animationName: 'device-body' });
-    const deviceOverlay = target.find({ animationName: 'device-overlay' });
-    const deviceShadow = target.find({ animationName: 'device-shadow' });
+    const sceneWrapper = target;
+    const device = target.find({ 'data-animationName': 'device' });
+    const deviceBody = target.find({ 'data-animationName': 'device-body' });
+    const deviceOverlay = target.find({ 'data-animationName': 'device-overlay' });
+    const deviceShadow = target.find({ 'data-animationName': 'device-shadow' });
 
-
-    const sceneText = target.find({ animationName: 'cta-text' });
-    const sceneCaption = target.find({ animationName: 'cta-caption' });
-    const sceneLink = target.find({ animationName: 'cta-link' });
+    const sceneText = target.find({ 'data-animationName': 'cta-text' });
+    const sceneCaption = target.find({ 'data-animationName': 'cta-caption' });
+    const sceneLink = target.find({ 'data-animationName': 'cta-link' });
 
     const defaultOptions = {
       direction: 'right',
@@ -86,16 +86,20 @@ export class Scene extends React.Component {
       rotation: tlOptions.rotation,
       transformOrigin: tlOptions.transformOrigin
     }, 'deviceIn')
+
     .from(deviceShadow, deviceTiming, {
       top: '50%'
     }, 'deviceIn')
+
     .from(deviceShadow, deviceTiming, {
       opacity: tlOptions.shadowOpacity
     }, 'deviceIn')
+
     .from(sceneText, 0.1, {
       opacity: 0
     }, 'deviceIn')
-    .addPause(0.4);
+
+    .addPause(0.75);
   }
 
   // Plays the animation
@@ -121,20 +125,20 @@ export class Scene extends React.Component {
         ref={ this.props.onDidMount }
       >
 
-        <div animationName="device" className="scene__device" >
-          { body && <img animationName="device-body" className="scene__device__body" src={ body } alt={ id } /> }
-          { overlay && <img animationName="device-overlay" className="scene__device__overlay" src={ overlay } alt={ id } /> }
-          { shadow && <img animationName="device-shadow" className="scene__device__shadow" src={ shadow } alt={ id } /> }
+        <div data-animationName="device" className="scene__device" >
+          { body && <img data-animationName="device-body" className="scene__device__body" src={ body } alt={ id } /> }
+          { overlay && <img data-animationName="device-overlay" className="scene__device__overlay" src={ overlay } alt={ id } /> }
+          { shadow && <img data-animationName="device-shadow" className="scene__device__shadow" src={ shadow } alt={ id } /> }
         </div>
 
-        <div animationName="cta-text" className="scene__cta typ--white mx10 mx8--dsm mx3--tlg">
-          <h2 animationName="cta-caption" className="scene__caption mb4 mb2--mlg typ--bold">
+        <div data-animationName="cta-text" className="scene__cta typ--white mx10 mx8--dsm mx3--tlg">
+          <h2 data-animationName="cta-caption" className="scene__caption mb4 mb2--mlg typ--bold">
             { caption.map((string, index) => (
               <span key={ index }>{ string }</span>
             )) }
           </h2>
 
-          <Link animationName="cta-link" className="scene__link typ--bold typ--h6" to={ `/work/${id}` } >
+          <Link data-animationName="cta-link" className="scene__link typ--bold typ--h6" to={ `/work/${id}` } >
             View project
           </Link>
         </div>
