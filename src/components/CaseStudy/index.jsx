@@ -81,7 +81,7 @@ class CaseStudy extends React.Component {
       <div className="casestudy__modal">
         <ModalCloseBtn closeCallback={ () => browserHistory.push('/work') } />
         <section ref="casestudy" className={ `modal__with-sidebar ${id}` }>
-          <div className={ `job__sidebar bg--${id}` }  ref={
+          <div className={ `job__sidebar bg--${id}` } ref={
             (sidebar) => {
               this.sidebar = sidebar;
             }
@@ -140,10 +140,7 @@ CaseStudy.propTypes = {
   name: React.PropTypes.string,
   heading: React.PropTypes.string,
   content: React.PropTypes.array,
-  dispatch: React.PropTypes.func,
-  sidebar: React.PropTypes.bool,
-  featured: React.PropTypes.bool,
-  easing: React.PropTypes.func
+  featured: React.PropTypes.bool
 };
 
 export default CaseStudy;
