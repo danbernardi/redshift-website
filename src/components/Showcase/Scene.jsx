@@ -45,7 +45,6 @@ export class Scene extends React.Component {
         data-id={ id }
         style={ { pointerEvents: active ? 'auto' : 'none' } }
       >
-
         <SceneDevice
           id={ id }
           { ...device }

@@ -42,7 +42,7 @@ class CaseStudy extends React.Component {
     const nextLabel = ReactDOM.findDOMNode(this.refs['next-label']);
     const { dimensions } = this.state;
     nextName.style.transition = 'color 400ms ease-in-out, background-color 400ms ease-out 100ms';
-    nextName.style.color = '#4a4a4a';
+    nextName.style.color = '#a3a3a3';
 
     new mojs.Tween({
       duration: 600,
@@ -119,10 +119,10 @@ class CaseStudy extends React.Component {
                   className="casestudy__next"
                 >
                   <div className={ `casestudy__next--sidebar bg--${nextCaseStudy.id}` } />
-                  <div className="row">
-                    <div className="casestudy__next--text">
+                  <div className="layout--relative ml8 ml1--mlg">
+                    <div className="row">
                       <span ref="next-label" className="typ--light">View next case study</span>
-                      <h2 ref="next-name" className={ `typ--${nextCaseStudy.id} typ--bold` }>{ nextCaseStudy.name }</h2>
+                      <h2 ref="next-name" className={ `typ--${nextCaseStudy.id}` }>{ nextCaseStudy.name }</h2>
                     </div>
                   </div>
                 </Link>
