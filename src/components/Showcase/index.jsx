@@ -1,190 +1,204 @@
 import React from 'react';
-import Rx from 'rxjs/Rx';
 import Scene from './Scene';
-import { getScrollDirection, enableScroll, disableScroll } from 'utils/scrollJack';
-import { connect } from 'react-redux';
-import * as actions from 'store/actions';
-import mojs from 'mo-js';
-import { mapRange } from 'utils/animation';
-import * as browser from 'utils/browserTests';
-import { getClosestNumber } from 'utils/closestNumber';
 import Footer from 'components/Footer';
 import { Link } from 'react-router';
 import { scrollDocToZero } from 'utils/scrollTo';
+import { connect } from 'react-redux';
+import Rx from 'rxjs/Rx';
+import { mapRange, isInRange } from 'utils/animation';
 
 export class Showcase extends React.Component {
   constructor (props) {
     super(props);
 
-    this.scrollPoints = [];
-    this.duration = 600;
-    this.scrollObservable = null;
-    this.scrollYPosition = null;
-    this.scrollAnimationInProgress = false;
+    this.duration = 500;
     this.container = null;
-    this.state = { sceneColor: '#fff' };
+    this.scrollObservable = null;
+
+    //Adding white for header and footer
+    this.colors = ['#FFFFFF'].concat(this.props.scenes.map((scene) => scene.color)).concat(['#FFFFFF']);
+    this.children = this.buildChildren();
+    this.scrollPoints = [];
+    this.sceneMeta = [];
+    this.timelineEnd = 0;
+
+    this.state = {
+      animationProgress: 0
+    };
   }
 
   componentDidMount () {
-    enableScroll();
+    this.createObservables(this.container);
 
-    if (this.container) {
-      this.scrollObservable = Rx.Observable.fromEvent(window, 'scroll');
-      this.scrollYPosition = window.pageYOffset;
+    //Wait to get accurate height
+    setTimeout(() => {
+      this.sceneMeta = this.setSceneMeta();
+    }, 300);
+  }
 
-      // If the page had been previously scrolled, resume where we left off
-      if (this.props.bannerState.active) { this.scrollToIndex(this.props.bannerState.active); }
+  //TODO: move this logic to Home component and pass as children
+  buildChildren () {
+    const children = React.Children.toArray([
+      this.header(),
+      this.sections(),
+      this.footer()
+    ]);
 
-      //Subscribe to the devices scroll event
-      this.scrollSubscription = this.scrollObservable.subscribe(() => {
-        if (this.props.modalState.open) {
-          disableScroll();
-          return;
-        }
-
-        if (this.scrollAnimationInProgress) {
-          return;
-        } else {
-          this.scrollToScene();
-        }
+    return children.map((child, index) => {
+      return React.cloneElement(child, {
+        animationProgress: 0,
+        index,
+        onDidMount: (el) => this.addScrollPoint(el, index)
       });
-    }
+    });
   }
 
-  componentWillReceiveProps (nextProps) {
-    if (nextProps.modalState === this.props.modalState) {
-      return;
-    }
-
-    if (nextProps.modalState.open) {
-      disableScroll();
-    } else if (nextProps.modalState.open === false) {
-      enableScroll();
-    }
+  header () {
+    return React.cloneElement(this.props.leadingScene);
   }
 
-  componentWillUnmount () {
-    this.scrollSubscription.unsubscribe();
-    enableScroll();
+  sections () {
+    return this.props.scenes.map((scene, index) => (
+      <Scene
+        key={ index }
+        index={ index + 1 }
+        { ...scene }
+      />
+    ));
   }
 
-  // adds a scrollPoint element to this.scrollPoints
-  addScrollPoint (element, id) {
+  //TODO: Abstract to own component
+  footer () {
+    return (
+      <Footer classes="footer__tall">
+        <div className="footer__center">
+          <div className="row">
+            <ul className="typ--bold">
+              <li className="typ--h1" onClick={ () => scrollDocToZero() }><Link className="typ--redshift" to="/about">About.</Link></li>
+              <li className="typ--h1" onClick={ () => scrollDocToZero() }><Link className="typ--redshift" to="/careers">Careers.</Link></li>
+              <li className="typ--h1"><a className="typ--redshift" href="http://weareredshift.tumblr.com/" target="_blank">Blog.</a></li>
+            </ul>
+          </div>
+        </div>
+      </Footer>
+    );
+  }
+
+  /**
+   * Creates a scroll observable and maps it to a timeline in state
+   * @param  {Object} element A dom element
+   */
+  createObservables (element) {
+    this.scrollObservable = Rx.Observable.fromEvent(element, 'scroll');
+
+    //Subscribe to the devices scroll event
+    this.scrollSubscription = this.scrollObservable.subscribe((scrollEvent) => {
+      const target = scrollEvent.target;
+      const animationProgress = mapRange(target.scrollTop, 0, target.scrollHeight - window.innerHeight, 0, 1);
+
+      this.setState({
+        animationProgress
+      });
+    });
+  }
+
+  addScrollPoint (element) {
     if (element && this.scrollPoints.indexOf(element) === -1) {
       this.scrollPoints.push({
-        id,
         element
       });
     };
   }
 
-  //determines direction of scroll and triggers animation
-  scrollToScene () {
-    disableScroll();
-    this.scrollAnimationInProgress = true;
-    const { bannerState } = this.props;
+  setSceneMeta () {
+    let currentTimePosition = 0;
+    const scrollHeight = this.container.scrollHeight;
 
-    const newYPosition = window.pageYOffset;
-    const direction = getScrollDirection(this.scrollYPosition, newYPosition);
-    if (direction) {
-      const index = direction === 'down' ? bannerState.active + 1 : bannerState.active - 1;
-      this.scrollToIndex(index);
-    } else {
-      this.scrollAnimationInProgress = false;
-      enableScroll();
-    }
+    const segments = this.scrollPoints.map((scene) => {
+      const height = scene.element.offsetHeight;
+      const timelinePercentage = height / (scrollHeight - window.innerHeight);
+      const low = currentTimePosition;
+      const high = currentTimePosition + timelinePercentage;
+
+      const segmentMeta = {
+        height,
+        timelinePercentage,
+        animationProgress: 0,
+        bounds: {
+          low,
+          high
+        }
+      };
+
+      // increment position
+      currentTimePosition = high;
+      return segmentMeta;
+    });
+
+    return segments;
   }
 
-  // scrolls to the scrollPoint that matches passed index
-  scrollToIndex (bannerIndex) {
-    if (!this.scrollAnimationInProgress) { this.scrollAnimationInProgress = true; }
-
-    const { dispatch, scenes } = this.props;
-    const activeScene = scenes[bannerIndex - 1];
-    const sceneColor = activeScene ? activeScene.color : '#fff';
-
-    if (bannerIndex < 0 || bannerIndex >= this.scrollPoints.length) {
-      this.scrollAnimationInProgress = false;
-      return;
-    };
-
-    if (bannerIndex > 0) dispatch(actions.setHeaderTheme('white'));
-    if (bannerIndex === 0 || bannerIndex === this.scrollPoints.length - 1) dispatch(actions.setHeaderTheme('pink'));
-
-    dispatch(actions.setActiveBanner(bannerIndex, sceneColor));
-
-    const target = this.scrollPoints[bannerIndex].element;
-    const frameHeight = window.innerHeight;
-    const targetCenter = target.offsetTop + (target.offsetHeight / 2);
-
-    this.scrollToPosition(targetCenter - frameHeight / 2);
-  }
-
-  // animates page scrolling to a specific location
-  scrollToPosition (targetScrollPosition) {
-    const scrollStartPosition = window.scrollY;
-
-    new mojs.Tween({
-      duration: this.duration,
-      easing: 'cubic.out',
-      onUpdate: (progress) => {
-        const pos = mapRange(progress, 0, 1, scrollStartPosition, targetScrollPosition);
-        window.scrollTo(0, pos);
-      },
-      onPlaybackComplete: () => {
-        // enableScroll();
-        setTimeout(() => {
-          this.scrollAnimationInProgress = false;
-          this.scrollYPosition = window.pageYOffset;
-          enableScroll();
-        }, this.duration);
-      }
-    }).play();
-  }
-
-   // Scrolls to the closest scrollPoint to the current page scroll value
-  scrollToClosestIndex () {
-    let doc = document.querySelector('body');
-    if (browser.isFirefox) doc = document.querySelector('html');
-
-    if (doc) {
-      const closestNumber = getClosestNumber(doc.scrollTop, this.scrollPoints.map(p => p.offsetTop));
-      const currentIndex = this.scrollPoints.findIndex(p => p.element.offsetTop === closestNumber);
-      this.scrollToIndex(currentIndex);
-    }
+  transitionScene (sceneIndex) {
+    this.setState({
+      activeScene: sceneIndex
+    });
   }
 
   render () {
-    const { scenes, leadingScene, bannerState } = this.props;
+    let sceneBgColor = this.colors[0];
+    if (this.sceneMeta.length) {
+      const ap = this.state.animationProgress;
+
+      let i = 0;
+      const childCount = this.children.length;
+
+      while (i < childCount) {
+        const range = this.sceneMeta[i].bounds;
+        if (isInRange(ap, range.low, range.high)) {
+          sceneBgColor = this.colors[i];
+        }
+
+        i++;
+      }
+    }
 
     return (
       <section ref={ (element) => { this.container = element; } } className="showcase" style={ {
-        backgroundColor: bannerState.color,
-        transition: `background-color ${this.duration}ms ease-out`
+        backgroundColor: sceneBgColor || '#fff',
+        transition: `background-color ${this.duration}ms ease-out`,
+        width: '100%',
+        height: window.innerHeight,
+        position: 'fixed',
+        overflowY: 'scroll',
+        top: 0
       } }>
 
-        { React.cloneElement(leadingScene, { onDidMount: (el) => this.addScrollPoint(el, 'hero'), clickCallback: this.scrollToIndex.bind(this) }) }
+        { /* For animation debugging*/ }
 
-        { scenes.map((scene, index) => (
-          <Scene
-            onDidMount={ (el) => this.addScrollPoint(el, scene.id) }
-            key={ index }
-            index={ index + 1 }
-            { ...scene }
-          />
-        )) }
 
-        <Footer classes="footer__tall" onDidMount={ (el) => this.addScrollPoint(el, 'footer') }>
-          <div className="footer__center">
-            <div className="row">
-              <ul className="typ--bold">
-                <li className="typ--h1" onClick={ () => scrollDocToZero() }><Link className="typ--redshift" to="/about">About.</Link></li>
-                <li className="typ--h1" onClick={ () => scrollDocToZero() }><Link className="typ--redshift" to="/careers">Careers.</Link></li>
-                <li className="typ--h1"><a className="typ--redshift" href="http://weareredshift.tumblr.com/" target="_blank">Blog.</a></li>
-              </ul>
-            </div>
-          </div>
-        </Footer>
+      {/*
+        <div style={ { position: 'fixed', top: 10, left: 20 } }>
+          {this.state.animationProgress}
+        </div>
+      */}
+
+        { /* React.cloneElement(leadingScene, { clickCallback: () => {
+            //do something with arrow click
+          } }) */}
+
+        {
+          /* If the children have mounted, update the animation progress for each component */
+          this.sceneMeta.length ? this.children.map((child, index) => {
+            return React.cloneElement(child, {
+              animationProgress: mapRange(this.state.animationProgress, this.sceneMeta[index].bounds.low, this.sceneMeta[index].bounds.high, 0, 1),
+              index,
+              onDidMount: (el) => this.addScrollPoint(el, index)
+            });
+          })
+
+          /* We need to mount the children initially to get their height */
+          : this.children
+        }
       </section>
     );
   }

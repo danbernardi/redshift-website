@@ -1,32 +1,47 @@
 import React from 'react';
-// import ReactDOM from 'react-dom';
-// import { mapRange } from 'utils/animation';
-// import mojs from 'mo-js';
 import { connect } from 'react-redux';
-import SceneDevice from './SceneDevice';
-import SceneText from './SceneText';
+import { Link } from 'react-router';
+import { isInRange } from 'utils/animation';
 import './Scene.scss';
+import { TimelineMax } from 'gsap';
+import GSAP from 'react-gsap-enhancer';
 
 export class Scene extends React.Component {
   constructor (props) {
     super(props);
 
+    this.timeline = null;
     this.state = {
       animationInProgress: false,
+      animationProgress: 0,
       active: true
     };
   }
 
   componentDidMount () {
-    // this.resetDevice();
+    const direction = this.props.index % 2 === 0 ? 'left' : 'right';
+    const directionOffset = '-200%';
+
+    this.timeline = this.addAnimation(this.animateIn, {
+      direction,
+      directionOffset,
+      transformOrigin: direction === 'left' ? 'right top' : 'left top',
+      rotation: direction === 'left' ? '-25' : '25'
+    });
   }
 
-  componentDidUpdate (prevProps, prevState) {
-    const { bannerState, index } = this.props;
+  shouldComponentUpdate (nextProps) {
+    return isInRange(nextProps.animationProgress, 0, 1);
+  }
 
-    if (prevProps.bannerState.active !== bannerState.active) {
-      if (bannerState.active === index) this.setActive(true);
-      if (bannerState.active !== index && prevState.active) this.setActive(false);
+  componentWillReceiveProps (nextProps) {
+    const { animationProgress } = nextProps;
+    if (isInRange(animationProgress, 0, 1)) {
+      this.setState({
+        animationProgress
+      }, () => {
+        this.timeline.progress(animationProgress);
+      });
     }
   }
 
@@ -34,28 +49,100 @@ export class Scene extends React.Component {
     this.setState({ active: state });
   }
 
+  animateIn ({ target, options }) {
+    const sceneWrapper = target;
+    const device = target.find({ 'data-animationName': 'device' });
+    const deviceBody = target.find({ 'data-animationName': 'device-body' });
+    const deviceOverlay = target.find({ 'data-animationName': 'device-overlay' });
+    const deviceShadow = target.find({ 'data-animationName': 'device-shadow' });
+
+    const sceneText = target.find({ 'data-animationName': 'cta-text' });
+    const sceneCaption = target.find({ 'data-animationName': 'cta-caption' });
+    const sceneLink = target.find({ 'data-animationName': 'cta-link' });
+
+    const defaultOptions = {
+      direction: 'right',
+      directionOffset: '-100%',
+      transformOrigin: 'left bottom',
+      rotation: 90,
+      shadowOpacity: 0.2
+    };
+
+    const tlOptions = Object.assign({}, defaultOptions, options);
+    //Timeline progresses from 0 - 1
+    //Pieces delays and overlaps should total 1
+
+    const deviceTiming = 0.25;
+
+    return new TimelineMax({
+      onUpdate: () => {
+        //Do stuff here
+      }
+    })
+    .pause()
+    .from(device, deviceTiming, {
+      [tlOptions.direction]: tlOptions.directionOffset,
+      ease: Power3.easeOut,
+      rotation: tlOptions.rotation,
+      transformOrigin: tlOptions.transformOrigin
+    }, 'deviceIn')
+
+    .from(deviceShadow, deviceTiming, {
+      top: '50%'
+    }, 'deviceIn')
+
+    .from(deviceShadow, deviceTiming, {
+      opacity: tlOptions.shadowOpacity
+    }, 'deviceIn')
+
+    .from(sceneText, 0.1, {
+      opacity: 0
+    }, 'deviceIn')
+
+    .addPause(0.75);
+  }
+
+  // Plays the animation
+  playAnimation () {
+    this.timeline.play();
+  }
+
+  // Pauses the animation
+  pauseAnimation () {
+    this.timeline.pause();
+  }
+
   render () {
-    const { id, caption, onDidMount, device } = this.props;
+    const { id, caption } = this.props;
+    const { body, overlay, shadow } = this.props.device;
     const { active } = this.state;
 
     return (
       <div
-        ref={ (el) => onDidMount instanceof Function && onDidMount(el) }
         className={ `scene sc__${id}` }
         data-id={ id }
         style={ { pointerEvents: active ? 'auto' : 'none' } }
+        ref={ this.props.onDidMount }
       >
-        <SceneDevice
-          id={ id }
-          { ...device }
-          active={ active }
-        />
 
-        <SceneText
-          id={ id }
-          caption={ caption }
-          active={ active }
-        />
+        <div data-animationName="device" className="scene__device" >
+          { body && <img data-animationName="device-body" className="scene__device__body" src={ body } alt={ id } /> }
+          { overlay && <img data-animationName="device-overlay" className="scene__device__overlay" src={ overlay } alt={ id } /> }
+          { shadow && <img data-animationName="device-shadow" className="scene__device__shadow" src={ shadow } alt={ id } /> }
+        </div>
+
+        <div data-animationName="cta-text" className="scene__cta typ--white mx10 mx8--dsm mx3--tlg">
+          <h2 data-animationName="cta-caption" className="scene__caption mb4 mb2--mlg typ--bold">
+            { caption.map((string, index) => (
+              <span key={ index }>{ string }</span>
+            )) }
+          </h2>
+
+          <Link data-animationName="cta-link" className="scene__link typ--bold typ--h6" to={ `/work/${id}` } >
+            View project
+          </Link>
+        </div>
+
       </div>
     );
   }
@@ -75,4 +162,4 @@ const injectStateProps = state => ({
   bannerState: state.bannerState
 });
 
-export default connect(injectStateProps)(Scene);
+export default connect(injectStateProps)(GSAP()(Scene));
