@@ -1,4 +1,103 @@
 export const caseStudies = [
+  // Kaiser Permanente
+  {
+    id: 'kaiser',
+    name: 'Kaiser Permanente',
+    color: '#1FB4E7',
+    device: {
+      shadow: require('assets/img/case-studies/kaiser/kaiser_shadow.svg'),
+      body: require('assets/img/case-studies/kaiser/kaiser_body.svg'),
+      overlay: require('assets/img/case-studies/kaiser/kaiser_overlay.png')
+    },
+    heading: 'Kaiser Permanente has partnered with Redshift to create an entirely new digital healthcare experience—one that puts the patient in charge.',
+    content: [
+      {
+        images:
+        {
+          imgDef: require('assets/img/home/KP/kp4.jpg'),
+          imgTlg: require('assets/img/home/KP/kp4_tlg.jpg'),
+          imgMlg: require('assets/img/home/KP/kp4_mlg.jpg')
+        },
+        imgAlt: 'Kaiser Permanente 1',
+        copy: [
+          {
+            classes: 'casestudy__text typ--h3',
+            text: 'KP has dozens of legacy websites. Our first task was to bring these together into a single online destination that is simple, modern, and personalized.'
+          }
+        ]
+      },
+      {
+        images:
+        {
+          imgDef: require('assets/img/home/KP/kp5.jpg'),
+          imgTlg: require('assets/img/home/KP/kp5_tlg.jpg'),
+          imgMlg: require('assets/img/home/KP/kp5_mlg.jpg')
+        },
+        imgAlt: 'Kaiser Permanente 2',
+        copy: [
+          {
+            classes: 'casestudy__text typ--h3',
+            text: 'We designed new ways for patients to manage their healthcare online. Now members can access medical records, track their prescriptions, manage healthcare costs, and monitor the health of their entire family.'
+          }
+        ]
+      },
+      {
+        images:
+        {
+          imgDef: require('assets/img/home/KP/kp6.jpg'),
+          imgTlg: require('assets/img/home/KP/kp6_tlg.jpg'),
+          imgMlg: require('assets/img/home/KP/kp6_mlg.jpg')
+        },
+        imgAlt: 'Kaiser Permanente 3',
+        copy: [
+          {
+            classes: 'casestudy__text'
+            //blank space?
+          }
+        ]
+      },
+      {
+        images:
+        {
+          imgDef: require('assets/img/home/KP/kp3.jpg'),
+          imgTlg: require('assets/img/home/KP/kp3_tlg.jpg'),
+          imgMlg: require('assets/img/home/KP/kp3_mlg.jpg')
+        },
+        imgAlt: 'Kaiser Permanente 4',
+        copy: [
+          {
+            classes: 'casestudy__text typ--h4',
+            text: 'The future of digital healthcare at KP is patient-driven and mobile-first, allowing users to access their healthcare anytime, anywhere.'
+          }
+        ]
+      },
+      {
+        images:
+        {
+          imgDef: require('assets/img/home/KP/kp7.jpg'),
+          imgTlg: require('assets/img/home/KP/kp7_tlg.jpg'),
+          imgMlg: require('assets/img/home/KP/kp7_mlg.jpg')
+        },
+        imgAlt: 'Kaiser Permanente 5',
+        copy: [
+          {
+            classes: 'casestudy__text typ--h4',
+            text: 'Visit Kaiser Permanente’s new home page at KP.org — the first of several steps in an ambitious effort to revamp all the organization’s digital touch points.'
+          }
+        ]
+      }
+    ],
+    images: {
+      def: require('assets/img/home/KP/kp-scene-bg.jpg'),
+      tlg: require('assets/img/home/KP/kp-scene-bg.jpg'),
+      mlg: require('assets/img/home/KP/kp-scene-bg.jpg'),
+      msm: require('assets/img/home/KP/kp-scene-bg-mobile.jpg'),
+      alt: 'Norton creative design'
+    },
+    caption: ['Reimagining the', 'Future of Healthcare'],
+    anchor: true,
+    featured: true
+  },
   // Norton Antivirus
   {
     id: 'norton',
@@ -540,103 +639,5 @@ export const caseStudies = [
   //     }
   //   ]
   // },
-  // Kaiser Permanente
-  {
-    id: 'kaiser',
-    name: 'Kaiser Permanente',
-    color: '#1FB4E7',
-    // device: {
-    //   shadow: require('assets/img/case-studies/kaiser/kaiser_shadow.svg'),
-    //   body: require('assets/img/case-studies/kaiser/kaiser_body.svg'),
-    //   overlay: require('assets/img/case-studies/kaiser/kaiser_overlay.png')
-    // },
-    heading: 'Kaiser Permanente has partnered with Redshift to create an entirely new digital healthcare experience—one that puts the patient in charge.',
-    content: [
-      {
-        images:
-        {
-          imgDef: require('assets/img/home/KP/kp4.jpg'),
-          imgTlg: require('assets/img/home/KP/kp4_tlg.jpg'),
-          imgMlg: require('assets/img/home/KP/kp4_mlg.jpg')
-        },
-        imgAlt: 'Kaiser Permanente 1',
-        copy: [
-          {
-            classes: 'casestudy__text typ--h3',
-            text: 'KP has dozens of legacy websites. Our first task was to bring these together into a single online destination that is simple, modern, and personalized.'
-          }
-        ]
-      },
-      {
-        images:
-        {
-          imgDef: require('assets/img/home/KP/kp5.jpg'),
-          imgTlg: require('assets/img/home/KP/kp5_tlg.jpg'),
-          imgMlg: require('assets/img/home/KP/kp5_mlg.jpg')
-        },
-        imgAlt: 'Kaiser Permanente 2',
-        copy: [
-          {
-            classes: 'casestudy__text typ--h3',
-            text: 'We designed new ways for patients to manage their healthcare online. Now members can access medical records, track their prescriptions, manage healthcare costs, and monitor the health of their entire family.'
-          }
-        ]
-      },
-      {
-        images:
-        {
-          imgDef: require('assets/img/home/KP/kp6.jpg'),
-          imgTlg: require('assets/img/home/KP/kp6_tlg.jpg'),
-          imgMlg: require('assets/img/home/KP/kp6_mlg.jpg')
-        },
-        imgAlt: 'Kaiser Permanente 3',
-        copy: [
-          {
-            classes: 'casestudy__text'
-            //blank space?
-          }
-        ]
-      },
-      {
-        images:
-        {
-          imgDef: require('assets/img/home/KP/kp3.jpg'),
-          imgTlg: require('assets/img/home/KP/kp3_tlg.jpg'),
-          imgMlg: require('assets/img/home/KP/kp3_mlg.jpg')
-        },
-        imgAlt: 'Kaiser Permanente 4',
-        copy: [
-          {
-            classes: 'casestudy__text typ--h4',
-            text: 'The future of digital healthcare at KP is patient-driven and mobile-first, allowing users to access their healthcare anytime, anywhere.'
-          }
-        ]
-      },
-      {
-        images:
-        {
-          imgDef: require('assets/img/home/KP/kp7.jpg'),
-          imgTlg: require('assets/img/home/KP/kp7_tlg.jpg'),
-          imgMlg: require('assets/img/home/KP/kp7_mlg.jpg')
-        },
-        imgAlt: 'Kaiser Permanente 5',
-        copy: [
-          {
-            classes: 'casestudy__text typ--h4',
-            text: 'Visit Kaiser Permanente’s new home page at KP.org — the first of several steps in an ambitious effort to revamp all the organization’s digital touch points.'
-          }
-        ]
-      }
-    ],
-    images: {
-      def: require('assets/img/home/KP/kp-scene-bg.jpg'),
-      tlg: require('assets/img/home/KP/kp-scene-bg.jpg'),
-      mlg: require('assets/img/home/KP/kp-scene-bg.jpg'),
-      msm: require('assets/img/home/KP/kp-scene-bg-mobile.jpg'),
-      alt: 'Norton creative design'
-    },
-    caption: ['Reimagining the', 'Future of Healthcare'],
-    anchor: true,
-    featured: true
-  }
+
 ];

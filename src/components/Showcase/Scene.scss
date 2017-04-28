@@ -145,7 +145,8 @@
 
 
 .sc__nexus,
-.sc__five {
+.sc__five,
+.sc__kaiser {
   .scene__cta {
     right: 0;
     text-align: right;
@@ -184,6 +185,21 @@
     @media (max-width: 767px) and (orientation: landscape) {
       width: 95%;
       right: -9.1rem;
+    }
+  }
+}
+
+.sc__kaiser {
+  .scene__device {
+    left: -61%;
+  }
+
+  .scene__cta {
+    right: 4vw;
+    margin-top: calc(25vh - 5.1rem);
+    // media queries
+    @include breakpoint($tablet-sm) {
+      margin-top: 0;
     }
   }
 }
