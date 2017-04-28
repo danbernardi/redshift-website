@@ -191,7 +191,12 @@
 
 .sc__kaiser {
   .scene__device {
-    left: -61%;
+    left: -30%;
+    // media queries
+    @include breakpoint($tablet-lg) {
+      left: -102%;
+      width: 219%;
+    }
   }
 
   .scene__cta {
