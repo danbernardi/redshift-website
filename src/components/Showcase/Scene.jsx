@@ -50,7 +50,6 @@ export class Scene extends React.Component {
     return this.animationInRange;
   }
 
-
   setActive (state) {
     this.setState({ active: state });
   }

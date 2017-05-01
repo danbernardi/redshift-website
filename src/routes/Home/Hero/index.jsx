@@ -102,7 +102,7 @@ export class Hero extends React.Component {
           </h1>
         </div>
 
-        {this.props.animationProgress <= 0.3 ?
+        { this.props.animationProgress <= 0.3 ?
           <div ref={ (element) => { this.scroller = element; } } style={ styles } className="scrolltrigger" onClick={ () => {
             clickCallback(1);
           } }>
