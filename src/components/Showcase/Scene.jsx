@@ -20,7 +20,7 @@ export class Scene extends React.Component {
 
   componentDidMount () {
     const direction = this.props.index % 2 === 0 ? 'left' : 'right';
-    const directionOffset = '-200%';
+    const directionOffset = direction === 'left' ? '-200%' : '200%';
 
     this.timeline = this.addAnimation(this.animateIn, {
       direction,
@@ -61,8 +61,7 @@ export class Scene extends React.Component {
     const sceneLink = target.find({ 'data-animationName': 'cta-link' });
 
     const defaultOptions = {
-      direction: 'right',
-      directionOffset: '-100%',
+      directionOffset: '100%',
       transformOrigin: 'left bottom',
       rotation: 90,
       shadowOpacity: 0.2
@@ -72,7 +71,8 @@ export class Scene extends React.Component {
     //Timeline progresses from 0 - 1
     //Pieces delays and overlaps should total 1
 
-    const deviceTiming = 0.25;
+    const deviceInTiming = 0.20;
+    const deviceOutTiming = 0.25;
 
     return new TimelineMax({
       onUpdate: () => {
@@ -80,26 +80,43 @@ export class Scene extends React.Component {
       }
     })
     .pause()
-    .from(device, deviceTiming, {
-      [tlOptions.direction]: tlOptions.directionOffset,
-      ease: Power3.easeOut,
+    .from(device, deviceInTiming, {
+      x: tlOptions.directionOffset,
+      ease: Power1.easeOut,
       rotation: tlOptions.rotation,
       transformOrigin: tlOptions.transformOrigin
     }, 'deviceIn')
 
-    .from(deviceShadow, deviceTiming, {
-      top: '50%'
+    .from(deviceShadow, deviceInTiming, {
+      y: '50%'
     }, 'deviceIn')
 
-    .from(deviceShadow, deviceTiming, {
+    .from(deviceShadow, deviceInTiming, {
       opacity: tlOptions.shadowOpacity
     }, 'deviceIn')
 
-    .from(sceneText, 0.1, {
-      opacity: 0
-    }, 'deviceIn')
+    // .from(sceneText, 0.1, {
+    //   opacity: 0
+    // }, 'deviceIn')
 
-    .addPause(0.75);
+    .addPause(0.30)
+
+    .to(device, deviceOutTiming, {
+      ease: Power3.easeIn,
+      // x: '-50%',
+      y: '-200%'
+    }, 'deviceOut')
+
+    .to(sceneText, 0.2, {
+      opacity: 0
+    }, 'deviceOut-=.15')
+    .to(deviceShadow, deviceOutTiming, {
+      ease: Power3.easeIn,
+      y: '10%',
+      x: '-10%'
+    }, 'deviceOut')
+
+
   }
 
   // Plays the animation
@@ -116,6 +133,8 @@ export class Scene extends React.Component {
     const { id, caption } = this.props;
     const { body, overlay, shadow } = this.props.device;
     const { active } = this.state;
+
+    console.log(this.props.animationProgress)
 
     return (
       <div

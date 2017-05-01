@@ -1,5 +1,6 @@
 import React from 'react';
 import Scene from './Scene';
+import Hero from 'routes/Home/Hero';
 import Footer from 'components/Footer';
 import { Link } from 'react-router';
 import { scrollDocToZero } from 'utils/scrollTo';
@@ -21,6 +22,7 @@ export class Showcase extends React.Component {
     this.scrollPoints = [];
     this.sceneMeta = [];
     this.timelineEnd = 0;
+    this.lastScroll = window.performance.now();
 
     this.state = {
       animationProgress: 0
@@ -54,7 +56,8 @@ export class Showcase extends React.Component {
   }
 
   header () {
-    return React.cloneElement(this.props.leadingScene);
+    return (<Hero />);
+    // return React.cloneElement(this.props.leadingScene);
   }
 
   sections () {
@@ -93,6 +96,23 @@ export class Showcase extends React.Component {
 
     //Subscribe to the devices scroll event
     this.scrollSubscription = this.scrollObservable.subscribe((scrollEvent) => {
+
+      const now = window.performance.now();
+      const timeDelta = now - this.lastScroll;
+      this.lastScroll = now;
+
+      if (timeDelta >= 300) {
+        console.log('scrollStart');
+      }
+
+      if (this.scrollEndTimer) {
+        clearTimeout(this.scrollEndTimer);
+      }
+
+      this.scrollEndTimer = setTimeout(() => {
+        console.log('scrollEnd');
+      }, 150);
+
       const target = scrollEvent.target;
       const animationProgress = mapRange(target.scrollTop, 0, target.scrollHeight - window.innerHeight, 0, 1);
 

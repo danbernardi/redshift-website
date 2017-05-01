@@ -1,28 +1,61 @@
 import React from 'react';
 import mojs from 'mo-js';
-import ReactDOM from 'react-dom';
-import * as actions from 'store/actions';
+import GSAP from 'react-gsap-enhancer';
+import { isInRange } from 'utils/animation';
 import { connect } from 'react-redux';
 import 'components/ScrollTrigger/ScrollTrigger.scss';
 
 export class Hero extends React.Component {
+  constructor (props) {
+    super(props);
+
+    this.timeline = null;
+    this.state = {
+      animationProgress: 0
+    };
+  }
 
   componentDidMount () {
-    this.us = ReactDOM.findDOMNode(this.refs.us);
-    this.mission = ReactDOM.findDOMNode(this.refs.mission);
-    this.scroller = ReactDOM.findDOMNode(this.refs.scroller);
-
-    if (location.pathname === '/work' || this.props.loaded ) {
+    if (location.pathname === '/work' || this.props.loaded) {
       this.animatePageIn();
     }
+
+    this.timeline = this.addAnimation(this.createTimeline);
   }
 
   shouldComponentUpdate (nextProps) {
-    return this.props.loaded !== nextProps.loaded;
+    return this.props.loaded !== nextProps.loaded && isInRange(nextProps.animationProgress, 0, 1);
   }
 
   componentDidUpdate () {
     this.animatePageIn();
+  }
+
+  componentWillReceiveProps (nextProps) {
+    const { animationProgress } = nextProps;
+    if (isInRange(animationProgress, 0, 1)) {
+      this.setState({
+        animationProgress
+      }, () => {
+        this.timeline.progress(animationProgress);
+      });
+    }
+  }
+
+  createTimeline ({ target, options }) {
+    const sceneWrapper = target;
+    const defaultOptions = {};
+
+    const tlOptions = Object.assign({}, defaultOptions, options);
+    //Timeline progresses from 0 - 1
+    //Pieces, delays and overlaps should total 1
+
+    return new TimelineMax({
+      onUpdate: () => {
+        //Do stuff here
+      }
+    })
+    .pause()
   }
 
   animatePageIn () {
@@ -49,19 +82,21 @@ export class Hero extends React.Component {
       opacity: 0
     };
 
+    console.log(this.props.animationProgress)
+
     return (
       <section
-        ref={ (el) => onDidMount instanceof Function && onDidMount(el) }
+        ref={ this.props.onDidMount }
         className="hero layout--fullheight"
       >
 
         <div className="row" style={ { top: '50%', transform: 'translateY(-50%)' } }>
           <h1 className="typ--bold typ--redshift" style={ { maxWidth: '110rem' } }>
-            <span ref="us" style={ styles }>
+            <span ref={ (element) => { this.us = element; } } style={ styles }>
               We are Redshift.&nbsp;
             </span>
             <br className="show--tsm" />
-            <span ref="mission" style={ styles }>
+            <span ref={ (element) => { this.mission = element; } } style={ styles }>
               We design&nbsp;
               <br className="show--tsm" />
               digital products&nbsp;
@@ -71,11 +106,14 @@ export class Hero extends React.Component {
           </h1>
         </div>
 
-        <div ref="scroller" style={ styles } className="scrolltrigger" onClick={ () => {
-          clickCallback(1);
-        } }>
-          <img src={ require('assets/img/down-arrow.png') } alt="Scroll to the next section" />
-        </div>
+        {this.props.animationProgress <= 0.3 ?
+          <div ref={ (element) => { this.scroller = element; } } style={ styles } className="scrolltrigger" onClick={ () => {
+            clickCallback(1);
+          } }>
+            <img src={ require('assets/img/down-arrow.png') } alt="Scroll to the next section" />
+          </div>
+          : null
+        }
       </section>
     );
   }
@@ -91,4 +129,4 @@ const injectStateProps = state => ({
   loaded: state.loaded
 });
 
-export default connect(injectStateProps)(Hero);
+export default connect(injectStateProps)(GSAP()(Hero));

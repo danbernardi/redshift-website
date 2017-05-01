@@ -14,7 +14,8 @@
   overflow: hidden;
   // z-index: 1;
   color: $white;
-  height: 150vh;
+  height: 100vh;
+  // border: 1px solid black;
 }
 
 .scene__cta {
@@ -74,7 +75,8 @@
 }
 
 .scene__device {
-  position: relative;
+  will-change: transform;
+  position: fixed;
   z-index: 1;
   top: 50%;
   transform: translateY(-50%);
@@ -164,7 +166,7 @@
 
   .scene__device {
     width: 64%;
-    right: -33.6%;
+    right: -10%;
     top: 52.2%;
     // media queries
     @include breakpoint($tablet-sm) {
