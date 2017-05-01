@@ -21,6 +21,7 @@ export class Scene extends React.Component {
   componentDidMount () {
     const direction = this.props.index % 2 === 0 ? 'left' : 'right';
     const directionOffset = direction === 'left' ? '-200%' : '200%';
+    this.animationInRange = null;
 
     this.timeline = this.addAnimation(this.animateIn, {
       direction,
@@ -30,20 +31,25 @@ export class Scene extends React.Component {
     });
   }
 
-  shouldComponentUpdate (nextProps) {
-    return isInRange(nextProps.animationProgress, 0, 1);
-  }
-
   componentWillReceiveProps (nextProps) {
     const { animationProgress } = nextProps;
+    this.animationInRange = isInRange(animationProgress, 0, 1);
+
     if (isInRange(animationProgress, 0, 1)) {
       this.setState({
         animationProgress
       }, () => {
         this.timeline.progress(animationProgress);
       });
+    } else {
+      this.timeline.progress(0);
     }
   }
+
+  shouldComponentUpdate (nextProps) {
+    return this.animationInRange;
+  }
+
 
   setActive (state) {
     this.setState({ active: state });
