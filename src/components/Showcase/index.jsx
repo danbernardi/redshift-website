@@ -189,17 +189,17 @@ export class Showcase extends React.Component {
   }
 
   goToScene (index) {
-    if (!isInRange(index, 0, this.sceneMeta.length - 1 )) {
+    if (!isInRange(index, 0, this.sceneMeta.length - 1)) {
       console.warn('Scene index out of range', index);
       return null;
     }
 
     const scene = this.sceneMeta[index];
+    console.log(scene.top);
     const position = index === 0 ? scene.top : scene.center;
 
     this.animateToScrollPosition(this.container, position);
   }
-
 
   //Creates the initial scenes with some convienient props surfaced
   setSceneMeta () {
@@ -282,13 +282,13 @@ export class Showcase extends React.Component {
           : this.children
         }
         <button
-          style = {{ position: 'fixed', bottom: 100, right: 20,  background: 'grey', padding: 10, color: 'white'}}
+          style={ { zIndex: '50', position: 'fixed', bottom: 100, right: 20, background: 'grey', padding: 10, color: 'white' } }
           onClick={ () => this.goToScene(this.currentScene + 1) }>
           Next
         </button>
 
         <button
-          style = {{ position: 'fixed', bottom: 100, right: 100,  background: 'grey', padding: 10, color: 'white'}}
+          style={ { zIndex: '50', position: 'fixed', bottom: 100, right: 100, background: 'grey', padding: 10, color: 'white' } }
           onClick={ () => this.goToScene(this.currentScene - 1) }>
           Previous
         </button>
