@@ -7,6 +7,7 @@ import { scrollDocToZero } from 'utils/scrollTo';
 import { connect } from 'react-redux';
 import Rx from 'rxjs/Rx';
 import { mapRange, isInRange } from 'utils/animation';
+import { getScrollDirection } from 'utils/scrollJack';
 import gsap from 'gsap';
 
 export class Showcase extends React.Component {
@@ -16,6 +17,8 @@ export class Showcase extends React.Component {
     this.duration = 500;
     this.container = null;
     this.scrollObservable = null;
+    this.isAnimating = false;
+    this.lastScrollPosition = 0;
 
     //Adding white for header and footer
     this.colors = ['#FFFFFF'].concat(this.props.scenes.map((scene) => scene.color)).concat(['#FFFFFF']);
@@ -24,6 +27,7 @@ export class Showcase extends React.Component {
     this.sceneMeta = [];
     this.timelineEnd = 0;
     this.lastScroll = window.performance.now();
+    this.currentScene = 0;
 
     this.state = {
       animationProgress: 0
@@ -102,6 +106,24 @@ export class Showcase extends React.Component {
       const timeDelta = now - this.lastScroll;
       this.lastScroll = now;
 
+      // const scrollPosition = scrollEvent.srcElement.scrollTop;
+      // const scrollDirection = getScrollDirection(this.lastScrollPosition, scrollPosition);
+      // this.lastScrollPosition = scrollPosition;
+
+      // if (!this.isAnimating) {
+      //   this.isAnimating = true;
+      //   const container = this.container;
+      //   let nextSceneIndex = scrollDirection && scrollDirection === 'down' ? this.currentScene + 1 : this.currentScene - 1;
+
+      //   if (!scrollDirection && !isInRange(nextSceneIndex, 0, this.sceneMeta.length - 1)) {
+      //     nextSceneIndex = this.currentScene;
+      //   }
+
+      //   const nextScene = this.sceneMeta[nextSceneIndex].target;
+      //   const nextScenePosition = nextScene.offsetTop + (nextScene.offsetHeight / 2);
+      //   this.animateToScrollPosition(container, nextScenePosition);
+      // }
+
       if (timeDelta >= 300) {
         console.log('scrollStart');
       }
@@ -112,6 +134,7 @@ export class Showcase extends React.Component {
 
       this.scrollEndTimer = setTimeout(() => {
         console.log('scrollEnd');
+        // this.onScrollEnd.bind(this);
       }, 150);
 
       const target = scrollEvent.target;
@@ -132,30 +155,63 @@ export class Showcase extends React.Component {
   }
 
   onScrollEnd () {
-
+    // debugger;
+    // this.animateToScrollPosition(this.container, this.scenesMeta[this.currentScene + 1].offsetTop);
   }
 
-  animateToScrollPosition (container, toPosition, duration = 2) {
+  animateToScrollPosition (container, toPosition, duration = 0.5) {
+    this.isAnimating = true;
+    if (this.scrollTween) {
+      this.scrollTween.kill();
+    }
+
     const scrollPosition = {
       x: container.scrollTop
     };
 
-    TweenMax.to(scrollPosition, duration, { x: toPosition, onUpdate: () => {
-      this.container.scrollTop = scrollPosition.x;
-    }});
+    this.scrollTween = TweenMax.to(
+      scrollPosition,
+      duration, {
+        x: toPosition,
+        onUpdate: () => {
+          this.container.scrollTop = scrollPosition.x;
+        },
+        onComplete: () => {
+          this.isAnimating = false;
+        }
+      }
+    );
   }
 
+  goToScene (index) {
+    if (!isInRange(index, 0, this.sceneMeta.length - 1 )) {
+      console.warn('Scene index out of range', index);
+      return null;
+    }
+
+    const scene = this.sceneMeta[index];
+    const position = index === 0 ? scene.top : scene.center;
+
+    this.animateToScrollPosition(this.container, position);
+  }
+
+
+  //Creates the initial scenes with some convienient props surfaced
   setSceneMeta () {
     let currentTimePosition = 0;
     const scrollHeight = this.container.scrollHeight;
 
     const segments = this.scrollPoints.map((scene) => {
+      const top = scene.element.offsetTop;
       const height = scene.element.offsetHeight;
+      const center = top + (height / 2);
       const timelinePercentage = height / (scrollHeight - window.innerHeight);
       const low = currentTimePosition;
       const high = currentTimePosition + timelinePercentage;
 
       const segmentMeta = {
+        target: scene.element,
+        center,
         height,
         timelinePercentage,
         animationProgress: 0,
@@ -173,28 +229,23 @@ export class Showcase extends React.Component {
     return segments;
   }
 
-  transitionScene (sceneIndex) {
-    this.setState({
-      activeScene: sceneIndex
-    });
+  calculateCurrentScene () {
+    let i = 0;
+    const childCount = this.sceneMeta.length;
+
+    while (i < childCount) {
+      const range = this.sceneMeta[i].bounds;
+      if (isInRange(this.state.animationProgress, range.low, range.high)) {
+        return i;
+      }
+      i++;
+    }
   }
 
   render () {
-    let sceneBgColor = this.colors[0];
+    let sceneBgColor = this.colors[this.currentScene];
     if (this.sceneMeta.length) {
-      const ap = this.state.animationProgress;
-
-      let i = 0;
-      const childCount = this.children.length;
-
-      while (i < childCount) {
-        const range = this.sceneMeta[i].bounds;
-        if (isInRange(ap, range.low, range.high)) {
-          sceneBgColor = this.colors[i];
-        }
-
-        i++;
-      }
+      this.currentScene = this.calculateCurrentScene();
     }
 
     return (
@@ -207,17 +258,6 @@ export class Showcase extends React.Component {
         overflowY: 'scroll',
         top: 0
       } }>
-
-        <button onClick={ () => this.animateToScrollPosition(this.container, 1000) }>Test</button>
-
-        { /* For animation debugging*/ }
-
-
-      {/*
-        <div style={ { position: 'fixed', top: 10, left: 20 } }>
-          {this.state.animationProgress}
-        </div>
-      */}
 
         { /* React.cloneElement(leadingScene, { clickCallback: () => {
             //do something with arrow click
@@ -236,6 +276,17 @@ export class Showcase extends React.Component {
           /* We need to mount the children initially to get their height */
           : this.children
         }
+        <button
+          style = {{ position: 'fixed', bottom: 100, right: 20,  background: 'grey', padding: 10, color: 'white'}}
+          onClick={ () => this.goToScene(this.currentScene + 1) }>
+          Next
+        </button>
+
+        <button
+          style = {{ position: 'fixed', bottom: 100, right: 100,  background: 'grey', padding: 10, color: 'white'}}
+          onClick={ () => this.goToScene(this.currentScene - 1) }>
+          Previous
+        </button>
       </section>
     );
   }

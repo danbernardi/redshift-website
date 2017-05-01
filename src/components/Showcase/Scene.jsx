@@ -95,9 +95,9 @@ export class Scene extends React.Component {
       opacity: tlOptions.shadowOpacity
     }, 'deviceIn')
 
-    // .from(sceneText, 0.1, {
-    //   opacity: 0
-    // }, 'deviceIn')
+    .from(sceneText, 0.1, {
+      y: '200%'
+    }, 'deviceIn')
 
     .addPause(0.30)
 
@@ -115,6 +115,7 @@ export class Scene extends React.Component {
       y: '10%',
       x: '-10%'
     }, 'deviceOut')
+    .add('sceneComplete')
 
 
   }
