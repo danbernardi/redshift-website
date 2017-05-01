@@ -1,5 +1,4 @@
 import React from 'react';
-import mojs from 'mo-js';
 import GSAP from 'react-gsap-enhancer';
 import { isInRange } from 'utils/animation';
 import { connect } from 'react-redux';
@@ -10,6 +9,7 @@ export class Hero extends React.Component {
     super(props);
 
     this.timeline = null;
+    this.animationComplete = false;
     this.state = {
       animationProgress: 0
     };
@@ -17,7 +17,7 @@ export class Hero extends React.Component {
 
   componentDidMount () {
     if (location.pathname === '/work' || this.props.loaded) {
-      this.animatePageIn();
+      // this.animatePageIn();
     }
 
     this.timeline = this.addAnimation(this.createTimeline);
@@ -37,7 +37,7 @@ export class Hero extends React.Component {
       this.setState({
         animationProgress
       }, () => {
-        this.timeline.progress(animationProgress);
+        // this.timeline.progress(animationProgress);
       });
     }
   }
@@ -46,6 +46,10 @@ export class Hero extends React.Component {
     const sceneWrapper = target;
     const defaultOptions = {};
 
+    const text1 = target.find({ 'data-animationName': 'text1' });
+    const text2 = target.find({ 'data-animationName': 'text2' });
+    const scroller = target.find({ 'data-animationName': 'scroller' });
+
     const tlOptions = Object.assign({}, defaultOptions, options);
     //Timeline progresses from 0 - 1
     //Pieces, delays and overlaps should total 1
@@ -53,26 +57,14 @@ export class Hero extends React.Component {
     return new TimelineMax({
       onUpdate: () => {
         //Do stuff here
+      },
+      onComplete: () => {
+        this.complete = true;
       }
     })
-    .pause()
-  }
+    // .pause()
+    .staggerTo([text1, text2, scroller], 1, { opacity: 1 }, 0.5);
 
-  animatePageIn () {
-    this.animateElementIn(this.us, 0);
-    this.animateElementIn(this.mission, 600);
-    this.animateElementIn(this.scroller, 1200);
-  }
-
-  animateElementIn (el, delay) {
-    new mojs.Tween({
-      duration: 600,
-      delay,
-      easing: 'cubic.inout',
-      onUpdate: progress => {
-        el.style.opacity = progress;
-      }
-    }).play();
   }
 
   render () {
@@ -82,7 +74,6 @@ export class Hero extends React.Component {
       opacity: 0
     };
 
-
     return (
       <section
         ref={ onDidMount }
@@ -91,18 +82,18 @@ export class Hero extends React.Component {
 
         <div className="row" style={ { top: '50%', transform: 'translateY(-50%)' } }>
           <h1 className="typ--bold typ--redshift" style={ { maxWidth: '110rem' } }>
-            <span ref={ (element) => { this.us = element; } } style={ styles }>
+            <span data-animationName="text1" style={ styles }>
               Redshift creates <br />
             </span>
             <br className="show--tsm" />
-            <span ref={ (element) => { this.mission = element; } } style={ styles }>
+            <span data-animationName="text2" style={ styles }>
               simple, meaningful digital products<span className="typ--redshift">.</span>
             </span>
           </h1>
         </div>
 
         { this.props.animationProgress <= 0.3 ?
-          <div ref={ (element) => { this.scroller = element; } } style={ styles } className="scrolltrigger" onClick={ () => {
+          <div data-animationName="scroller"  style={ styles } className="scrolltrigger" onClick={ () => {
             clickCallback(1);
           } }>
             <img src={ require('assets/img/down-arrow.png') } alt="Scroll to the next section" />
@@ -117,7 +108,8 @@ export class Hero extends React.Component {
 Hero.propTypes = {
   onDidMount: React.PropTypes.func,
   clickCallback: React.PropTypes.func,
-  loaded: React.PropTypes.bool
+  loaded: React.PropTypes.bool,
+  animationProgress: React.PropTypes.number
 };
 
 const injectStateProps = state => ({
