@@ -130,7 +130,7 @@ export class Showcase extends React.Component {
       // }
 
       if (timeDelta >= 300) {
-        console.log('scrollStart');
+        // console.log('scrollStart');
       }
 
       if (this.scrollEndTimer) {
@@ -138,7 +138,7 @@ export class Showcase extends React.Component {
       }
 
       this.scrollEndTimer = setTimeout(() => {
-        console.log('scrollEnd');
+        // console.log('scrollEnd');
         // this.onScrollEnd.bind(this);
       }, 150);
 
@@ -164,7 +164,7 @@ export class Showcase extends React.Component {
     // this.animateToScrollPosition(this.container, this.scenesMeta[this.currentScene + 1].offsetTop);
   }
 
-  animateToScrollPosition (container, toPosition, duration = 0.5) {
+  animateToScrollPosition (container, toPosition, duration = 1.5) {
     this.isAnimating = true;
     if (this.scrollTween) {
       this.scrollTween.kill();
@@ -195,7 +195,6 @@ export class Showcase extends React.Component {
     }
 
     const scene = this.sceneMeta[index];
-    console.log(scene.top);
     const position = index === 0 ? scene.top : scene.center;
 
     this.animateToScrollPosition(this.container, position);
@@ -252,6 +251,8 @@ export class Showcase extends React.Component {
     if (this.sceneMeta.length) {
       this.currentScene = this.calculateCurrentScene();
     }
+
+    console.log(this.currentScene);
 
     return (
       <section ref={ (element) => { this.container = element; } } className="showcase" style={ {

@@ -104,7 +104,7 @@ export class Scene extends React.Component {
       top: '100%'
     }, 'deviceIn')
 
-    .addPause(0.30)
+    .addPause(0.55)
 
     .to(sceneText, deviceOutTiming, {
       top: '-100%'
