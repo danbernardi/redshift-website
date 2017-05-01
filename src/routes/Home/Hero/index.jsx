@@ -82,8 +82,6 @@ export class Hero extends React.Component {
       opacity: 0
     };
 
-    console.log(this.props.animationProgress)
-
     return (
       <section
         ref={ this.props.onDidMount }

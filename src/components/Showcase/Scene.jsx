@@ -144,8 +144,6 @@ export class Scene extends React.Component {
     const { body, overlay, shadow } = this.props.device;
     const { active } = this.state;
 
-    console.log(this.props.animationProgress)
-
     return (
       <div
         className={ `scene sc__${id}` }

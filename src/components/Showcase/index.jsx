@@ -9,6 +9,7 @@ import Rx from 'rxjs/Rx';
 import { mapRange, isInRange } from 'utils/animation';
 import { getScrollDirection } from 'utils/scrollJack';
 import gsap from 'gsap';
+import { setHeaderTheme } from 'store/actions';
 
 export class Showcase extends React.Component {
   constructor (props) {
@@ -233,6 +234,16 @@ export class Showcase extends React.Component {
     return segments;
   }
 
+  sceneWillUpdate (currentScene, nextScene) {
+    const { dispatch } = this.props;
+
+    if (nextScene === 0 || nextScene === this.sceneMeta.length - 1) {
+      dispatch(setHeaderTheme('pink'));
+    } else {
+      dispatch(setHeaderTheme('white'));
+    }
+  }
+
   calculateCurrentScene () {
     let i = 0;
     const childCount = this.sceneMeta.length;
@@ -240,6 +251,10 @@ export class Showcase extends React.Component {
     while (i < childCount) {
       const range = this.sceneMeta[i].bounds;
       if (isInRange(this.state.animationProgress, range.low, range.high)) {
+        if (i !== this.currentScene) {
+          this.sceneWillUpdate(this.currentScene, i);
+        }
+
         return i;
       }
       i++;
@@ -251,8 +266,6 @@ export class Showcase extends React.Component {
     if (this.sceneMeta.length) {
       this.currentScene = this.calculateCurrentScene();
     }
-
-    console.log(this.currentScene);
 
     return (
       <section ref={ (element) => { this.container = element; } } className="showcase" style={ {
