@@ -24,11 +24,11 @@ export class Hero extends React.Component {
   }
 
   shouldComponentUpdate (nextProps) {
-    return this.props.loaded !== nextProps.loaded && isInRange(nextProps.animationProgress, 0, 1);
+    return isInRange(nextProps.animationProgress, 0, 1);
   }
 
   componentDidUpdate () {
-    this.animatePageIn();
+    // this.animatePageIn();
   }
 
   componentWillReceiveProps (nextProps) {
@@ -82,9 +82,10 @@ export class Hero extends React.Component {
       opacity: 0
     };
 
+
     return (
       <section
-        ref={ this.props.onDidMount }
+        ref={ onDidMount }
         className="hero layout--fullheight"
       >
 

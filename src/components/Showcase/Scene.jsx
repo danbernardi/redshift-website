@@ -125,8 +125,6 @@ export class Scene extends React.Component {
       x: '-10%'
     }, 'deviceOut')
     .add('sceneComplete')
-
-
   }
 
   // Plays the animation

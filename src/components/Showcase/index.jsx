@@ -216,6 +216,7 @@ export class Showcase extends React.Component {
 
       const segmentMeta = {
         target: scene.element,
+        top,
         center,
         height,
         timelinePercentage,
