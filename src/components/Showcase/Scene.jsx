@@ -100,11 +100,15 @@ export class Scene extends React.Component {
       opacity: tlOptions.shadowOpacity
     }, 'deviceIn')
 
-    .from(sceneText, 0.1, {
-      y: '200%'
+    .from(sceneText, deviceInTiming, {
+      top: '100%'
     }, 'deviceIn')
 
     .addPause(0.30)
+
+    .to(sceneText, deviceOutTiming, {
+      top: '-100%'
+    }, 'deviceOut')
 
     .to(device, deviceOutTiming, {
       ease: Power3.easeIn,
@@ -112,9 +116,9 @@ export class Scene extends React.Component {
       y: '-200%'
     }, 'deviceOut')
 
-    .to(sceneText, 0.2, {
-      opacity: 0
-    }, 'deviceOut-=.15')
+    // .to(sceneText, 0.2, {
+    //   opacity: 0
+    // }, 'deviceOut-=.15')
     .to(deviceShadow, deviceOutTiming, {
       ease: Power3.easeIn,
       y: '10%',
@@ -149,7 +153,6 @@ export class Scene extends React.Component {
         style={ { pointerEvents: active ? 'auto' : 'none' } }
         ref={ this.props.onDidMount }
       >
-
         <div data-animationName="device" className="scene__device" >
           { body && <img data-animationName="device-body" className="scene__device__body" src={ body } alt={ id } /> }
           { overlay && <img data-animationName="device-overlay" className="scene__device__overlay" src={ overlay } alt={ id } /> }
@@ -157,15 +160,17 @@ export class Scene extends React.Component {
         </div>
 
         <div data-animationName="cta-text" className="scene__cta typ--white mx10 mx8--dsm mx3--tlg">
-          <h2 data-animationName="cta-caption" className="scene__caption mb4 mb2--mlg typ--bold">
-            { caption.map((string, index) => (
-              <span key={ index }>{ string }</span>
-            )) }
-          </h2>
+          <div>
+            <h2 data-animationName="cta-caption" className="scene__caption mb4 mb2--mlg typ--bold">
+              { caption.map((string, index) => (
+                <span key={ index }>{ string }</span>
+              )) }
+            </h2>
 
-          <Link data-animationName="cta-link" className="scene__link typ--bold typ--h6" to={ `/work/${id}` } >
-            View project
-          </Link>
+            <Link data-animationName="cta-link" className="scene__link typ--bold typ--h6" to={ `/work/${id}` } >
+              View project
+            </Link>
+          </div>
         </div>
 
       </div>
