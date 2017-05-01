@@ -93,15 +93,11 @@ export class Hero extends React.Component {
         <div className="row" style={ { top: '50%', transform: 'translateY(-50%)' } }>
           <h1 className="typ--bold typ--redshift" style={ { maxWidth: '110rem' } }>
             <span ref={ (element) => { this.us = element; } } style={ styles }>
-              We are Redshift.&nbsp;
+              Redshift creates <br />
             </span>
             <br className="show--tsm" />
             <span ref={ (element) => { this.mission = element; } } style={ styles }>
-              We design&nbsp;
-              <br className="show--tsm" />
-              digital products&nbsp;
-              <br className="show--tsm" />
-              and experiences<span className="typ--redshift">.</span>
+              simple, meaningful digital products<span className="typ--redshift">.</span>
             </span>
           </h1>
         </div>

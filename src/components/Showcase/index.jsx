@@ -7,6 +7,7 @@ import { scrollDocToZero } from 'utils/scrollTo';
 import { connect } from 'react-redux';
 import Rx from 'rxjs/Rx';
 import { mapRange, isInRange } from 'utils/animation';
+import gsap from 'gsap';
 
 export class Showcase extends React.Component {
   constructor (props) {
@@ -130,6 +131,20 @@ export class Showcase extends React.Component {
     };
   }
 
+  onScrollEnd () {
+
+  }
+
+  animateToScrollPosition (container, toPosition, duration = 2) {
+    const scrollPosition = {
+      x: container.scrollTop
+    };
+
+    TweenMax.to(scrollPosition, duration, { x: toPosition, onUpdate: () => {
+      this.container.scrollTop = scrollPosition.x;
+    }});
+  }
+
   setSceneMeta () {
     let currentTimePosition = 0;
     const scrollHeight = this.container.scrollHeight;
@@ -192,6 +207,8 @@ export class Showcase extends React.Component {
         overflowY: 'scroll',
         top: 0
       } }>
+
+        <button onClick={ () => this.animateToScrollPosition(this.container, 1000) }>Test</button>
 
         { /* For animation debugging*/ }
 
