@@ -1,7 +1,6 @@
 import React from 'react';
 import Showcase from 'components/Showcase';
 import { caseStudies } from 'data/caseStudies';
-import Hero from './Hero';
 import { connect } from 'react-redux';
 import * as actions from 'store/actions';
 import CaseStudyModalWrapper from 'components/CaseStudy/CaseStudyModalWrapper';
@@ -24,7 +23,7 @@ export class Home extends React.Component {
   render () {
     return (
       <div className="home">
-        <Showcase leadingScene={ <Hero /> } scenes={ caseStudies.filter(cs => cs.featured) } />
+        <Showcase scenes={ caseStudies.filter(cs => cs.featured) } />
       </div>
     );
   }

@@ -1,6 +1,8 @@
 @import 'sass-includes';
+
 .showcase {
   overflow-y: hidden;
+  position: relative;
 }
 
 .hero h1 {
@@ -15,23 +17,30 @@
   // z-index: 1;
   color: $white;
   height: 150vh;
+  // border: 1px solid black;
 }
 
 .scene__cta {
-  position: absolute;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  position: fixed;
   width: 56.7rem;
-  top: 50%;
-  transform: translateY(-50%);
   z-index: 2;
   font-size: 2rem;
+  top: 0;
   // media queries
-  @include breakpoint($tablet-sm) {
-    width: 100%;
-    text-align: left;
-    top: 67.6%;
-  }
-  @media (max-width: 767px) and (orientation: landscape) {
-    top: 62.3%;
+  // @include breakpoint($tablet-sm) {
+  //   width: 100%;
+  //   text-align: left;
+  //   top: 67.6%;
+  // }
+  // @media (max-width: 767px) and (orientation: landscape) {
+  //   top: 62.3%;
+  // }
+
+  > div {
+    position: absolute;
   }
 }
 
@@ -74,7 +83,8 @@
 }
 
 .scene__device {
-  position: relative;
+  will-change: transform;
+  position: fixed;
   z-index: 1;
   top: 50%;
   transform: translateY(-50%);
@@ -150,8 +160,7 @@
 
 // case study specific styles
 .sc__norton {
-
-  .scene__cta {
+  .scene__cta > div {
     top: 57.6%;
     // media queries
     @include breakpoint($tablet-sm) {
@@ -164,7 +173,7 @@
 
   .scene__device {
     width: 64%;
-    right: -33.6%;
+    right: -10%;
     top: 52.2%;
     // media queries
     @include breakpoint($tablet-sm) {
@@ -180,7 +189,7 @@
 }
 
 .sc__nexus {
-  .scene__cta {
+  .scene__cta > div {
     right: 0;
     top: 57%;
     // media queries
@@ -211,7 +220,7 @@
 }
 
 .sc__yumavore {
-  .scene__cta {
+  .scene__cta > div {
     left: 0;
     margin-top: calc(50vh - 22.6rem);
     // media queries
@@ -239,7 +248,7 @@
 }
 
 .sc__five {
-  .scene__cta {
+  .scene__cta > div {
     right: 4vw;
     margin-top: calc(25vh - 5.1rem);
     // media queries

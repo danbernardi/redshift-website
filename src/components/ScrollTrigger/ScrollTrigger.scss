@@ -3,29 +3,11 @@
 .scrolltrigger {
   @extend %page-margins;
   z-index: 0;
-  // cursor: pointer;
-  position: absolute;
-  // bottom: 4rem;
-  // left: 7rem;
-  // // media queries
-  // @include breakpoint($mobile-lg) {
-  //   left: 4rem;
-  // }
-  // @include breakpoint($mobile-sm) {
-  //   left: 2rem;
-  // }
-
+  position: fixed;
   bottom: 2.8rem;
   left: 0;
 
   img {
     padding-left: 0.5rem;
   }
-
-  // &.fixed {
-  //   @extend %page-margins;
-  //   position: fixed;
-  //   bottom: 2.8rem;
-  //   left: 0;
-  // }
 }

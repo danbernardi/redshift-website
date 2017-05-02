@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import { isInRange } from 'utils/animation';
 import './Scene.scss';
-import { TimelineMax } from 'gsap';
+import { TimelineMax, Power3, Power1 } from 'gsap';
 import GSAP from 'react-gsap-enhancer';
 
 export class Scene extends React.Component {
@@ -20,7 +20,8 @@ export class Scene extends React.Component {
 
   componentDidMount () {
     const direction = this.props.index % 2 === 0 ? 'left' : 'right';
-    const directionOffset = '-200%';
+    const directionOffset = direction === 'left' ? '-200%' : '200%';
+    this.animationInRange = null;
 
     this.timeline = this.addAnimation(this.animateIn, {
       direction,
@@ -30,19 +31,23 @@ export class Scene extends React.Component {
     });
   }
 
-  shouldComponentUpdate (nextProps) {
-    return isInRange(nextProps.animationProgress, 0, 1);
-  }
-
   componentWillReceiveProps (nextProps) {
     const { animationProgress } = nextProps;
+    this.animationInRange = isInRange(animationProgress, 0, 1);
+
     if (isInRange(animationProgress, 0, 1)) {
       this.setState({
         animationProgress
       }, () => {
         this.timeline.progress(animationProgress);
       });
+    } else {
+      this.timeline.progress(0);
     }
+  }
+
+  shouldComponentUpdate () {
+    return this.animationInRange;
   }
 
   setActive (state) {
@@ -50,19 +55,19 @@ export class Scene extends React.Component {
   }
 
   animateIn ({ target, options }) {
-    const sceneWrapper = target;
+    // const sceneWrapper = target;
     const device = target.find({ 'data-animationName': 'device' });
-    const deviceBody = target.find({ 'data-animationName': 'device-body' });
-    const deviceOverlay = target.find({ 'data-animationName': 'device-overlay' });
+    // const deviceBody = target.find({ 'data-animationName': 'device-body' });
+    // const deviceOverlay = target.find({ 'data-animationName': 'device-overlay' });
+
     const deviceShadow = target.find({ 'data-animationName': 'device-shadow' });
 
     const sceneText = target.find({ 'data-animationName': 'cta-text' });
-    const sceneCaption = target.find({ 'data-animationName': 'cta-caption' });
-    const sceneLink = target.find({ 'data-animationName': 'cta-link' });
+    // const sceneCaption = target.find({ 'data-animationName': 'cta-caption' });
+    // const sceneLink = target.find({ 'data-animationName': 'cta-link' });
 
     const defaultOptions = {
-      direction: 'right',
-      directionOffset: '-100%',
+      directionOffset: '100%',
       transformOrigin: 'left bottom',
       rotation: 90,
       shadowOpacity: 0.2
@@ -72,34 +77,58 @@ export class Scene extends React.Component {
     //Timeline progresses from 0 - 1
     //Pieces delays and overlaps should total 1
 
-    const deviceTiming = 0.25;
+    const deviceInTiming = 0.25;
+    const deviceOutTiming = 0.25;
 
-    return new TimelineMax({
-      onUpdate: () => {
-        //Do stuff here
-      }
-    })
+    return new TimelineMax()
     .pause()
-    .from(device, deviceTiming, {
-      [tlOptions.direction]: tlOptions.directionOffset,
-      ease: Power3.easeOut,
+
+    .from(device, deviceInTiming, {
+      x: tlOptions.directionOffset,
+      ease: Power1.easeOut,
       rotation: tlOptions.rotation,
       transformOrigin: tlOptions.transformOrigin
     }, 'deviceIn')
 
-    .from(deviceShadow, deviceTiming, {
-      top: '50%'
+    .from(deviceShadow, deviceInTiming, {
+      y: '50%'
     }, 'deviceIn')
 
-    .from(deviceShadow, deviceTiming, {
+    .from(deviceShadow, deviceInTiming, {
       opacity: tlOptions.shadowOpacity
     }, 'deviceIn')
 
-    .from(sceneText, 0.1, {
-      opacity: 0
-    }, 'deviceIn')
+    .from(sceneText, deviceInTiming / 2, {
+      top: '100%',
+      ease: Power3.easeOut
+    }, `deviceIn+=${deviceInTiming / 2}`)
 
-    .addPause(0.75);
+    //At  deviceInTiming
+
+    .addPause(0.45)
+
+    .to(device, deviceOutTiming, {
+      ease: Power3.easeIn,
+      // x: '-50%',
+      y: '-200%'
+    }, 'deviceOut')
+
+    .to(deviceShadow, deviceOutTiming, {
+      ease: Power3.easeIn,
+      y: '10%',
+      x: '-10%'
+    }, 'deviceOut')
+
+    .to(sceneText, deviceOutTiming, {
+      ease: Power3.easeIn,
+      top: '-100%'
+    }, 'deviceOut+=0.05')
+
+    .to(sceneText, 0.1, {
+      opacity: 0
+    }, 'deviceOut+=0.20')
+
+    .add('sceneComplete');
   }
 
   // Plays the animation
@@ -124,7 +153,6 @@ export class Scene extends React.Component {
         style={ { pointerEvents: active ? 'auto' : 'none' } }
         ref={ this.props.onDidMount }
       >
-
         <div data-animationName="device" className="scene__device" >
           { body && <img data-animationName="device-body" className="scene__device__body" src={ body } alt={ id } /> }
           { overlay && <img data-animationName="device-overlay" className="scene__device__overlay" src={ overlay } alt={ id } /> }
@@ -132,15 +160,17 @@ export class Scene extends React.Component {
         </div>
 
         <div data-animationName="cta-text" className="scene__cta typ--white mx10 mx8--dsm mx3--tlg">
-          <h2 data-animationName="cta-caption" className="scene__caption mb4 mb2--mlg typ--bold">
-            { caption.map((string, index) => (
-              <span key={ index }>{ string }</span>
-            )) }
-          </h2>
+          <div>
+            <h2 data-animationName="cta-caption" className="scene__caption mb4 mb2--mlg typ--bold">
+              { caption.map((string, index) => (
+                <span key={ index }>{ string }</span>
+              )) }
+            </h2>
 
-          <Link data-animationName="cta-link" className="scene__link typ--bold typ--h6" to={ `/work/${id}` } >
-            View project
-          </Link>
+            <Link data-animationName="cta-link" className="scene__link typ--bold typ--h6" to={ `/work/${id}` } >
+              View project
+            </Link>
+          </div>
         </div>
 
       </div>
