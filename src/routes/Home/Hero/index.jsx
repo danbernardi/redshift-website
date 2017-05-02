@@ -98,11 +98,11 @@ export class Hero extends React.Component {
         <div className="row" style={ { top: '50%', transform: 'translateY(-50%)' } }>
           <h1 className="typ--bold typ--redshift" style={ { maxWidth: '110rem' } }>
             <span data-animationName="text1" style={ styles }>
-              Redshift creates <br />
+              Redshift creates simple,&nbsp;
             </span>
-            <br className="show--tsm" />
+            <br className="hide--tsm" />
             <span data-animationName="text2" style={ styles }>
-              simple, meaningful digital products<span className="typ--redshift">.</span>
+              meaningful digital products<span className="typ--redshift">.</span>
             </span>
           </h1>
         </div>
