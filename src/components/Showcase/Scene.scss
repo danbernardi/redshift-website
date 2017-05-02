@@ -199,8 +199,8 @@
     }
   }
 
-  .scene__cta {
-    right: 4vw;
+  .scene__cta > div {
+    right: 0;
     margin-top: calc(25vh - 5.1rem);
     // media queries
     @include breakpoint($tablet-sm) {
