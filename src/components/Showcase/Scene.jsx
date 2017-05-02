@@ -76,7 +76,7 @@ export class Scene extends React.Component {
     //Timeline progresses from 0 - 1
     //Pieces delays and overlaps should total 1
 
-    const deviceInTiming = 0.20;
+    const deviceInTiming = 0.25;
     const deviceOutTiming = 0.25;
 
     return new TimelineMax({
@@ -85,6 +85,8 @@ export class Scene extends React.Component {
       }
     })
     .pause()
+
+
     .from(device, deviceInTiming, {
       x: tlOptions.directionOffset,
       ease: Power1.easeOut,
@@ -100,15 +102,15 @@ export class Scene extends React.Component {
       opacity: tlOptions.shadowOpacity
     }, 'deviceIn')
 
-    .from(sceneText, deviceInTiming, {
-      top: '100%'
-    }, 'deviceIn')
+    .from(sceneText, deviceInTiming / 2, {
+      top: '100%',
+      ease: Power3.easeOut,
+    }, `deviceIn+=${deviceInTiming / 2}`)
 
-    .addPause(0.55)
+    //At deviceInTiming
 
-    .to(sceneText, deviceOutTiming, {
-      top: '-100%'
-    }, 'deviceOut')
+    .addPause(0.45)
+
 
     .to(device, deviceOutTiming, {
       ease: Power3.easeIn,
@@ -116,14 +118,22 @@ export class Scene extends React.Component {
       y: '-200%'
     }, 'deviceOut')
 
-    // .to(sceneText, 0.2, {
-    //   opacity: 0
-    // }, 'deviceOut-=.15')
     .to(deviceShadow, deviceOutTiming, {
       ease: Power3.easeIn,
       y: '10%',
       x: '-10%'
     }, 'deviceOut')
+
+    .to(sceneText, deviceOutTiming, {
+      ease: Power3.easeIn,
+      top: '-100%'
+    }, 'deviceOut+=0.05')
+
+    .to(sceneText, 0.1, {
+      opacity: 0
+    }, 'deviceOut+=0.20')
+
+
     .add('sceneComplete')
   }
 
