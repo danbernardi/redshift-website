@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import { isInRange } from 'utils/animation';
 import './Scene.scss';
-import { TimelineMax } from 'gsap';
+import { TimelineMax, Power3, Power1 } from 'gsap';
 import GSAP from 'react-gsap-enhancer';
 
 export class Scene extends React.Component {
@@ -46,7 +46,7 @@ export class Scene extends React.Component {
     }
   }
 
-  shouldComponentUpdate (nextProps) {
+  shouldComponentUpdate () {
     return this.animationInRange;
   }
 
@@ -55,15 +55,16 @@ export class Scene extends React.Component {
   }
 
   animateIn ({ target, options }) {
-    const sceneWrapper = target;
+    // const sceneWrapper = target;
     const device = target.find({ 'data-animationName': 'device' });
-    const deviceBody = target.find({ 'data-animationName': 'device-body' });
-    const deviceOverlay = target.find({ 'data-animationName': 'device-overlay' });
+    // const deviceBody = target.find({ 'data-animationName': 'device-body' });
+    // const deviceOverlay = target.find({ 'data-animationName': 'device-overlay' });
+
     const deviceShadow = target.find({ 'data-animationName': 'device-shadow' });
 
     const sceneText = target.find({ 'data-animationName': 'cta-text' });
-    const sceneCaption = target.find({ 'data-animationName': 'cta-caption' });
-    const sceneLink = target.find({ 'data-animationName': 'cta-link' });
+    // const sceneCaption = target.find({ 'data-animationName': 'cta-caption' });
+    // const sceneLink = target.find({ 'data-animationName': 'cta-link' });
 
     const defaultOptions = {
       directionOffset: '100%',
@@ -79,13 +80,8 @@ export class Scene extends React.Component {
     const deviceInTiming = 0.25;
     const deviceOutTiming = 0.25;
 
-    return new TimelineMax({
-      onUpdate: () => {
-        //Do stuff here
-      }
-    })
+    return new TimelineMax()
     .pause()
-
 
     .from(device, deviceInTiming, {
       x: tlOptions.directionOffset,
@@ -104,7 +100,7 @@ export class Scene extends React.Component {
 
     .from(sceneText, deviceInTiming / 2, {
       top: '100%',
-      ease: Power3.easeOut,
+      ease: Power3.easeOut
     }, `deviceIn+=${deviceInTiming / 2}`)
 
     //At  deviceInTiming
@@ -132,8 +128,7 @@ export class Scene extends React.Component {
       opacity: 0
     }, 'deviceOut+=0.20')
 
-
-    .add('sceneComplete')
+    .add('sceneComplete');
   }
 
   // Plays the animation
