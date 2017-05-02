@@ -29,15 +29,15 @@
   z-index: 2;
   font-size: 2rem;
   top: 0;
-  // media queries
-  // @include breakpoint($tablet-sm) {
-  //   width: 100%;
-  //   text-align: left;
-  //   top: 67.6%;
-  // }
-  // @media (max-width: 767px) and (orientation: landscape) {
-  //   top: 62.3%;
-  // }
+  //media queries
+  @include breakpoint($tablet-sm) {
+    width: 100%;
+    text-align: left;
+    // top: 67.6%;
+  }
+  @media (max-width: 767px) and (orientation: landscape) {
+    // top: 62.3%;
+  }
 
   > div {
     position: absolute;
@@ -178,8 +178,8 @@
     top: 52.2%;
     // media queries
     @include breakpoint($tablet-sm) {
-      right: 6.9rem;
-      width: 152%;
+      right: -3.1rem;
+      width: 112%;
       top: 46.5%;
     }
     @media (max-width: 767px) and (orientation: landscape) {
@@ -229,8 +229,8 @@
     top: 51.4%;
     // media queries
     @include breakpoint($tablet-sm) {
-      left: -112%;
-      width: 242%;
+      left: -95%;
+      width: 202%;
       top: 46.4%;
     }
     @media (max-width: 767px) and (orientation: landscape) {
