@@ -7,8 +7,7 @@ import { scrollDocToZero } from 'utils/scrollTo';
 import { connect } from 'react-redux';
 import Rx from 'rxjs/Rx';
 import { mapRange, isInRange } from 'utils/animation';
-import { getScrollDirection } from 'utils/scrollJack';
-import gsap from 'gsap';
+import gsap, { TweenMax } from 'gsap';
 import { setHeaderTheme } from 'store/actions';
 
 export class Showcase extends React.Component {
@@ -68,7 +67,6 @@ export class Showcase extends React.Component {
         }
       }
     />);
-    // return React.cloneElement(this.props.leadingScene);
   }
 
   sections () {
@@ -107,7 +105,6 @@ export class Showcase extends React.Component {
 
     //Subscribe to the devices scroll event
     this.scrollSubscription = this.scrollObservable.subscribe((scrollEvent) => {
-
       const now = window.performance.now();
       const timeDelta = now - this.lastScroll;
       this.lastScroll = now;
