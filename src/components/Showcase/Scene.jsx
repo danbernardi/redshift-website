@@ -107,10 +107,9 @@ export class Scene extends React.Component {
       ease: Power3.easeOut,
     }, `deviceIn+=${deviceInTiming / 2}`)
 
-    //At deviceInTiming
+    //At  deviceInTiming
 
     .addPause(0.45)
-
 
     .to(device, deviceOutTiming, {
       ease: Power3.easeIn,

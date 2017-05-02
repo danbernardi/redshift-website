@@ -313,17 +313,12 @@ export class Showcase extends React.Component {
 }
 
 Showcase.propTypes = {
-  // leadingScene: React.PropTypes.node,
   scenes: React.PropTypes.array,
-  // bannerState: React.PropTypes.object,
   dispatch: React.PropTypes.func
-  // modalState: React.PropTypes.object
 };
 
 const injectStateProps = state => ({
-  // bannerState: state.bannerState,
   locationHistory: state.locationHistory
-  // modalState: state.modalState
 });
 
 export default connect(injectStateProps)(Showcase);
