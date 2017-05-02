@@ -44,7 +44,7 @@ export function createRoutes () {
       },
       {
         path: 'new-about',
-        indexRoute: { component: NewAbout },
+        indexRoute: { component: NewAbout }
       },
       {
         path: 'careers',
