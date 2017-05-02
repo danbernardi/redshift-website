@@ -17,18 +17,17 @@ export class Hero extends React.Component {
 
   componentDidMount () {
     if (location.pathname === '/work' || this.props.loaded) {
-      // this.animatePageIn();
+      //TODO: Rework how this scene transition function is passed down
+      //This moves to the next scene
+      this.props.clickCallback(1);
     }
 
-    this.timeline = this.addAnimation(this.createTimeline);
+    this.introTimeline = this.addAnimation(this.createIntroTimeline);
+    this.timeline = this.addAnimation(this.createOutroTimeline);
   }
 
   shouldComponentUpdate (nextProps) {
     return isInRange(nextProps.animationProgress, 0, 1);
-  }
-
-  componentDidUpdate () {
-    // this.animatePageIn();
   }
 
   componentWillReceiveProps (nextProps) {
@@ -37,12 +36,28 @@ export class Hero extends React.Component {
       this.setState({
         animationProgress
       }, () => {
-        // this.timeline.progress(animationProgress);
+        this.timeline.progress(animationProgress);
       });
     }
   }
 
-  createTimeline ({ target, options }) {
+  createIntroTimeline ({ target }) {
+    const text1 = target.find({ 'data-animationName': 'text1' });
+    const text2 = target.find({ 'data-animationName': 'text2' });
+    const scroller = target.find({ 'data-animationName': 'scroller' });
+
+    return new TimelineMax({
+      onUpdate: () => {
+        //Do stuff here
+      },
+      onComplete: () => {
+        this.introComplete = true;
+      }
+    })
+    .staggerTo([text1, text2, scroller], 1, { opacity: 1 }, 0.5);
+  }
+
+  createOutroTimeline ({ target, options }) {
     const sceneWrapper = target;
     const defaultOptions = {};
 
@@ -62,9 +77,9 @@ export class Hero extends React.Component {
         this.complete = true;
       }
     })
-    // .pause()
-    .staggerTo([text1, text2, scroller], 1, { opacity: 1 }, 0.5);
-
+    .pause()
+    .addPause(0.15)
+    .staggerTo([text1, text2, scroller], 0.5, { opacity: 0 }, 0.05);
   }
 
   render () {
@@ -92,13 +107,12 @@ export class Hero extends React.Component {
           </h1>
         </div>
 
-        { this.props.animationProgress <= 0.3 ?
-          <div data-animationName="scroller"  style={ styles } className="scrolltrigger" onClick={ () => {
-            clickCallback(1);
-          } }>
-            <img src={ require('assets/img/down-arrow.png') } alt="Scroll to the next section" />
-          </div>
-          : null
+        { this.props.animationProgress <= 0.3 ? <div data-animationName="scroller" style={ styles } className="scrolltrigger" onClick={ () => {
+          clickCallback(1);
+        } }>
+          <img src={ require('assets/img/down-arrow.png') } alt="Scroll to the next section" />
+        </div>
+        : null
         }
       </section>
     );
