@@ -41,9 +41,7 @@ const CaseStudyModalWrapper = props => {
 };
 
 CaseStudyModalWrapper.propTypes = {
-  dispatch: React.PropTypes.func,
-  caseStudyState: React.PropTypes.object,
-  featuredCaseStudyState: React.PropTypes.object
+  caseStudyState: React.PropTypes.object
 };
 
 const injectStateProps = state => ({

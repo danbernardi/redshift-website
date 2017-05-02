@@ -27,6 +27,9 @@
     @include breakpoint($mobile-xsm) {
       font-size: 3.8rem;
     }
+    @include breakpoint($mobile-xxsm) {
+      font-size: 3.4rem;
+    }
   }
 
   @if $type == 'h2' {
