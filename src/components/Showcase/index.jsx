@@ -106,6 +106,32 @@ export class Showcase extends React.Component {
    */
   createObservables (element) {
     this.scrollObservable = Rx.Observable.fromEvent(element, 'scroll');
+    this.touchStartObservable = Rx.Observable.fromEvent(element, 'touchstart');
+    this.touchMoveObservable = Rx.Observable.fromEvent(element, 'touchmove');
+    this.touchEndObservable = Rx.Observable.fromEvent(element, 'touchend');
+    // this.scrollSubscription = this.touchMoveObservable.subscribe((touchEvent) => {
+    //   console.log(touchEvent)
+    //   debugger;
+    // });
+
+    this.touchMove = this.touchStartObservable.flatMap((touchStartEvent) => {
+      return this.touchMoveObservable.map((touchMoveEvent) => {
+        // debugger;
+        return {
+          origin: touchStartEvent.pageY,
+          current: touchMoveEvent.pageY,
+          touchStartEvent,
+          touchMoveEvent
+        };
+      }).takeUntil(this.touchEndObservable);
+    });
+
+
+    this.touchMoveSubscription = this.touchMove.subscribe((touchEvent) => {
+      console.log(touchEvent);
+      debugger;
+    });
+
 
     //Subscribe to the devices scroll event
     this.scrollSubscription = this.scrollObservable.subscribe((scrollEvent) => {
@@ -279,6 +305,17 @@ export class Showcase extends React.Component {
     }
 
     return (
+      <div> <button
+            style={ { zIndex: '50', position: 'fixed', bottom: 100, right: 20, background: 'grey', padding: 10, color: 'white' } }
+            onClick={ () => this.goToScene(this.currentScene + 1) }>
+            Next
+          </button>
+
+          <button
+            style={ { zIndex: '50', position: 'fixed', bottom: 100, right: 100, background: 'grey', padding: 10, color: 'white' } }
+            onClick={ () => this.goToScene(this.currentScene - 1) }>
+            Previous
+          </button>
       <section ref={ (element) => { this.container = element; } } className="showcase" style={ {
         backgroundColor: sceneBgColor || '#fff',
         transition: `background-color ${this.duration}ms ease-out`,
@@ -302,20 +339,8 @@ export class Showcase extends React.Component {
           /* We need to mount the children initially to get their height */
           : this.children
         }
-
-
-          <button
-            style={ { zIndex: '50', position: 'fixed', bottom: 100, right: 20, background: 'grey', padding: 10, color: 'white' } }
-            onClick={ () => this.goToScene(this.currentScene + 1) }>
-            Next
-          </button>
-
-          <button
-            style={ { zIndex: '50', position: 'fixed', bottom: 100, right: 100, background: 'grey', padding: 10, color: 'white' } }
-            onClick={ () => this.goToScene(this.currentScene - 1) }>
-            Previous
-          </button>
       </section>
+      </div>
     );
   }
 }
