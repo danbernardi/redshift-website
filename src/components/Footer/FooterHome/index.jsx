@@ -4,7 +4,6 @@ import Footer from 'components/Footer';
 import { Link } from 'react-router';
 import { scrollDocToZero } from 'utils/scrollTo';
 import { isInRange } from 'utils/animation';
-import { connect } from 'react-redux';
 
 export class FooterHome extends React.Component {
   constructor (props) {
@@ -37,32 +36,33 @@ export class FooterHome extends React.Component {
   }
 
   createTimeline ({ target }) {
-    const wrapper = target;
-    const test = target.find({'classes': 'footer__tall'});
-    const footerMenu = target.find({ 'data-animationName': 'menu-list' });
-    const menuItems = footerMenu.findAllInChildren({'data-animationName': 'menu-item'});
+    const targetElement = target[0];
 
-    const footer = wrapper[0].childNodes[0];
-    // debugger;
-
+    const footer = targetElement.querySelector('footer');
+    const footerMenuItems = footer.querySelectorAll('#footer-menu li');
 
     return new TimelineMax({
       onUpdate: () => {
         //Do stuff here
-        console.log(this.timeline.progress());
+        console.log(this.progress())
       },
       onComplete: () => {
         this.animationComplete = true;
       }
     })
+    .set(footerMenuItems, { y: '100%', opacity: 0 })
     .pause()
-    .addPause(.7)
-    .to(footer, .25, { opacity: .5 });
+    .addPause(0.70)
+    .add('text-entry-point')
+    .staggerTo(footerMenuItems, 0.3, {
+      y: '0%',
+      opacity: 1,
+      ease: Power2.easeOut
+    }, 0.1, 'text-entry-point')
   }
 
   render () {
     const { onDidMount, animationProgress } = this.props;
-    console.log(animationProgress);
     return (
       <section
         ref={ onDidMount }
@@ -74,10 +74,10 @@ export class FooterHome extends React.Component {
         >
           <div className="footer__center">
             <div className="row">
-              <ul data-animationName="menu-list" className="typ--bold">
-                <li data-animationName="menu-item" className="typ--h1" onClick={ () => scrollDocToZero() }><Link className="typ--redshift" to="/about">About.</Link></li>
-                <li data-animationName="menu-item" className="typ--h1" onClick={ () => scrollDocToZero() }><Link className="typ--redshift" to="/careers">Careers.</Link></li>
-                <li data-animationName="menu-item" className="typ--h1"><a className="typ--redshift" href="http://weareredshift.tumblr.com/" target="_blank">Blog.</a></li>
+              <ul id="footer-menu" className="typ--bold">
+                <li className="typ--h1" onClick={ () => scrollDocToZero() }><Link className="typ--redshift" to="/about">About.</Link></li>
+                <li className="typ--h1" onClick={ () => scrollDocToZero() }><Link className="typ--redshift" to="/careers">Careers.</Link></li>
+                <li className="typ--h1"><a className="typ--redshift" href="http://weareredshift.tumblr.com/" target="_blank">Blog.</a></li>
               </ul>
             </div>
           </div>
