@@ -105,7 +105,7 @@ export class Showcase extends React.Component {
    * @param  {Object} element A dom element
    */
   createObservables (element) {
-    this.scrollObservable = Rx.Observable.fromEvent(element, 'scroll').throttle(() => { return Rx.Observable.timer(700); });
+    this.scrollObservable = Rx.Observable.fromEvent(element, 'scroll');
 
     //Subscribe to the devices scroll event
     this.scrollSubscription = this.scrollObservable.subscribe((scrollEvent) => {
