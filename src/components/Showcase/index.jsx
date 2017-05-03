@@ -1,13 +1,11 @@
 import React from 'react';
 import Scene from './Scene';
 import Hero from 'routes/Home/Hero';
-import Footer from 'components/Footer';
-import { Link } from 'react-router';
-import { scrollDocToZero } from 'utils/scrollTo';
+import FooterHome from 'components/Footer/FooterHome';
 import { connect } from 'react-redux';
 import Rx from 'rxjs/Rx';
 import { mapRange, isInRange } from 'utils/animation';
-import gsap, { TweenMax } from 'gsap';
+import { TweenMax } from 'gsap';
 import { setHeaderTheme } from 'store/actions';
 
 export class Showcase extends React.Component {
@@ -63,9 +61,9 @@ export class Showcase extends React.Component {
   header () {
     return (<Hero
       clickCallback={ () => {
-          this.goToScene.call(this, 1);
-        }
+        this.goToScene.call(this, 1);
       }
+    }
     />);
   }
 
@@ -79,20 +77,9 @@ export class Showcase extends React.Component {
     ));
   }
 
-  //TODO: Abstract to own component
   footer () {
     return (
-      <Footer classes="footer__tall">
-        <div className="footer__center">
-          <div className="row">
-            <ul className="typ--bold">
-              <li className="typ--h1" onClick={ () => scrollDocToZero() }><Link className="typ--redshift" to="/about">About.</Link></li>
-              <li className="typ--h1" onClick={ () => scrollDocToZero() }><Link className="typ--redshift" to="/careers">Careers.</Link></li>
-              <li className="typ--h1"><a className="typ--redshift" href="http://weareredshift.tumblr.com/" target="_blank">Blog.</a></li>
-            </ul>
-          </div>
-        </div>
-      </Footer>
+      <FooterHome classes="footer__tall" />
     );
   }
 
@@ -294,19 +281,19 @@ export class Showcase extends React.Component {
           : this.children
         }
 
-      {/*
-        <button
-          style={ { zIndex: '50', position: 'fixed', bottom: 100, right: 20, background: 'grey', padding: 10, color: 'white' } }
-          onClick={ () => this.goToScene(this.currentScene + 1) }>
-          Next
-        </button>
+        {/*
+          <button
+            style={ { zIndex: '50', position: 'fixed', bottom: 100, right: 20, background: 'grey', padding: 10, color: 'white' } }
+            onClick={ () => this.goToScene(this.currentScene + 1) }>
+            Next
+          </button>
 
-        <button
-          style={ { zIndex: '50', position: 'fixed', bottom: 100, right: 100, background: 'grey', padding: 10, color: 'white' } }
-          onClick={ () => this.goToScene(this.currentScene - 1) }>
-          Previous
-        </button>
-      */}
+          <button
+            style={ { zIndex: '50', position: 'fixed', bottom: 100, right: 100, background: 'grey', padding: 10, color: 'white' } }
+            onClick={ () => this.goToScene(this.currentScene - 1) }>
+            Previous
+          </button>
+        */}
       </section>
     );
   }

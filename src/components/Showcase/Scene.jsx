@@ -19,7 +19,7 @@ export class Scene extends React.Component {
   }
 
   componentDidMount () {
-    const direction = this.props.index % 2 === 0 ? 'left' : 'right';
+    const direction = this.props.index % 2 !== 0 ? 'left' : 'right';
     const directionOffset = direction === 'left' ? '-200%' : '200%';
     this.animationInRange = null;
 
