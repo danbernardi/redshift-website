@@ -41,19 +41,23 @@ export class FooterHome extends React.Component {
     const test = target.find({'classes': 'footer__tall'});
     const footerMenu = target.find({ 'data-animationName': 'menu-list' });
     const menuItems = footerMenu.findAllInChildren({'data-animationName': 'menu-item'});
-    debugger;
+
+    const footer = wrapper[0].childNodes[0];
+    // debugger;
 
 
     return new TimelineMax({
       onUpdate: () => {
         //Do stuff here
+        console.log(this.timeline.progress());
       },
       onComplete: () => {
         this.animationComplete = true;
       }
     })
     .pause()
-    .to(footerMenu, 10, { opacity: 0 });
+    .addPause(.7)
+    .to(footer, .25, { opacity: .5 });
   }
 
   render () {
