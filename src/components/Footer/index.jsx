@@ -5,7 +5,7 @@ import './footer.scss';
 export function Footer (props) {
   const { onDidMount, classes, children } = props;
   return (
-    <footer key="footer" ref={ (el) => onDidMount instanceof Function && onDidMount(el) } className={ `footer py6 py3--mlg cf ${classes && classes}` }>
+    <footer ref={ (el) => onDidMount instanceof Function && onDidMount(el) } className={ `footer py6 py3--mlg cf ${classes && classes}` }>
       { children && children }
 
       <div className="row">
