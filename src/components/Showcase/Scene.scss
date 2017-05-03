@@ -29,18 +29,26 @@
   z-index: 2;
   font-size: 2rem;
   top: 0;
-  // media queries
-  // @include breakpoint($tablet-sm) {
-  //   width: 100%;
-  //   text-align: left;
-  //   top: 67.6%;
-  // }
-  // @media (max-width: 767px) and (orientation: landscape) {
-  //   top: 62.3%;
-  // }
+  //media queries
+  @include breakpoint($tablet-sm) {
+    width: 100%;
+    text-align: left;
+    // top: 67.6%;
+  }
+  @media (max-width: 767px) and (orientation: landscape) {
+    // top: 62.3%;
+  }
 
   > div {
     position: absolute;
+    // media queries
+    @include breakpoint($tablet-sm) {
+      bottom: 10rem;
+      top: auto !important;
+    }
+    @include breakpoint($mobile-lg) {
+      bottom: 6rem;
+    }
   }
 }
 
@@ -178,8 +186,8 @@
     top: 52.2%;
     // media queries
     @include breakpoint($tablet-sm) {
-      right: 6.9rem;
-      width: 152%;
+      right: -3.1rem;
+      width: 112%;
       top: 46.5%;
     }
     @media (max-width: 767px) and (orientation: landscape) {
@@ -192,10 +200,15 @@
 .sc__kaiser {
   .scene__device {
     left: -30%;
+    top: 43%;
     // media queries
-    @include breakpoint($tablet-lg) {
+    @include breakpoint($tablet-sm) {
+      top: 50%;
       left: -102%;
       width: 219%;
+    }
+    @include breakpoint($mobile-lg) {
+      width: 200%;
     }
   }
 
@@ -229,8 +242,8 @@
     top: 51.4%;
     // media queries
     @include breakpoint($tablet-sm) {
-      left: -112%;
-      width: 242%;
+      left: -95%;
+      width: 202%;
       top: 46.4%;
     }
     @media (max-width: 767px) and (orientation: landscape) {
@@ -257,7 +270,7 @@
     float: right;
     // media queries
     @include breakpoint($tablet-sm) {
-      top: 43%;
+      top: 37%;
       right: -29%;
       width: 165%;
     }
@@ -270,7 +283,7 @@
 
 .sc__five {
   .scene__cta > div {
-    right: 4vw;
+    right: 0;
     margin-top: calc(25vh - 5.1rem);
     // media queries
     @include breakpoint($tablet-sm) {
