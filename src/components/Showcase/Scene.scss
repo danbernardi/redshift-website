@@ -1,8 +1,13 @@
 @import 'sass-includes';
 
 .showcase {
-  overflow-y: hidden;
   position: relative;
+  width: 100%;
+  position: fixed;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  top: 0;
 }
 
 .hero h1 {

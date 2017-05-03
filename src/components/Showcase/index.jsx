@@ -105,7 +105,7 @@ export class Showcase extends React.Component {
    * @param  {Object} element A dom element
    */
   createObservables (element) {
-    this.scrollObservable = Rx.Observable.fromEvent(element, 'scroll');
+    this.scrollObservable = Rx.Observable.fromEvent(element, 'scroll').throttle(() => { return Rx.Observable.timer(700); });
 
     //Subscribe to the devices scroll event
     this.scrollSubscription = this.scrollObservable.subscribe((scrollEvent) => {
@@ -282,11 +282,7 @@ export class Showcase extends React.Component {
       <section ref={ (element) => { this.container = element; } } className="showcase" style={ {
         backgroundColor: sceneBgColor || '#fff',
         transition: `background-color ${this.duration}ms ease-out`,
-        width: '100%',
-        height: window.innerHeight,
-        position: 'fixed',
-        overflowY: 'scroll',
-        top: 0
+        height: window.innerHeight
       } }>
 
         { /* React.cloneElement(leadingScene, { clickCallback: () => {
