@@ -1,5 +1,6 @@
 import React from 'react';
 import GSAP from 'react-gsap-enhancer';
+import { TimelineMax, Power2 } from 'gsap';
 import Footer from 'components/Footer';
 import { Link } from 'react-router';
 import { scrollDocToZero } from 'utils/scrollTo';
@@ -58,11 +59,11 @@ export class FooterHome extends React.Component {
       y: '0%',
       opacity: 1,
       ease: Power2.easeOut
-    }, 0.1, 'text-entry-point')
+    }, 0.1, 'text-entry-point');
   }
 
   render () {
-    const { onDidMount, animationProgress } = this.props;
+    const { onDidMount } = this.props;
     return (
       <section
         ref={ onDidMount }

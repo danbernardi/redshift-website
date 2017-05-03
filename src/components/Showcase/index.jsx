@@ -5,7 +5,7 @@ import FooterHome from 'components/Footer/FooterHome';
 import { connect } from 'react-redux';
 import Rx from 'rxjs/Rx';
 import { mapRange, isInRange } from 'utils/animation';
-import gsap, { TweenMax } from 'gsap';
+import { TweenMax } from 'gsap';
 import { setHeaderTheme } from 'store/actions';
 
 export class Showcase extends React.Component {
@@ -61,9 +61,9 @@ export class Showcase extends React.Component {
   header () {
     return (<Hero
       clickCallback={ () => {
-          this.goToScene.call(this, 1);
-        }
+        this.goToScene.call(this, 1);
       }
+    }
     />);
   }
 
@@ -281,19 +281,19 @@ export class Showcase extends React.Component {
           : this.children
         }
 
-      {/*
-        <button
-          style={ { zIndex: '50', position: 'fixed', bottom: 100, right: 20, background: 'grey', padding: 10, color: 'white' } }
-          onClick={ () => this.goToScene(this.currentScene + 1) }>
-          Next
-        </button>
+        {/*
+          <button
+            style={ { zIndex: '50', position: 'fixed', bottom: 100, right: 20, background: 'grey', padding: 10, color: 'white' } }
+            onClick={ () => this.goToScene(this.currentScene + 1) }>
+            Next
+          </button>
 
-        <button
-          style={ { zIndex: '50', position: 'fixed', bottom: 100, right: 100, background: 'grey', padding: 10, color: 'white' } }
-          onClick={ () => this.goToScene(this.currentScene - 1) }>
-          Previous
-        </button>
-      */}
+          <button
+            style={ { zIndex: '50', position: 'fixed', bottom: 100, right: 100, background: 'grey', padding: 10, color: 'white' } }
+            onClick={ () => this.goToScene(this.currentScene - 1) }>
+            Previous
+          </button>
+        */}
       </section>
     );
   }
