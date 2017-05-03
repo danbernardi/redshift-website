@@ -303,7 +303,7 @@ export class Showcase extends React.Component {
           : this.children
         }
 
-        {/*
+
           <button
             style={ { zIndex: '50', position: 'fixed', bottom: 100, right: 20, background: 'grey', padding: 10, color: 'white' } }
             onClick={ () => this.goToScene(this.currentScene + 1) }>
@@ -315,7 +315,6 @@ export class Showcase extends React.Component {
             onClick={ () => this.goToScene(this.currentScene - 1) }>
             Previous
           </button>
-        */}
       </section>
     );
   }

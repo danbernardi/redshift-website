@@ -99,6 +99,7 @@
   will-change: transform;
   position: fixed;
   z-index: 1;
+  pointer-events: none;
   top: 50%;
   transform: translateY(-50%);
   // media queries
