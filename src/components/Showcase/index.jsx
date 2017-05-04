@@ -237,6 +237,7 @@ export class Showcase extends React.Component {
     );
   }
 
+
   goToScene (index, animate = true) {
     if (!isInRange(index, 0, this.sceneMeta.length - 1)) {
       console.warn('Scene index out of range', index);
@@ -255,10 +256,16 @@ export class Showcase extends React.Component {
     }
   }
 
+  /**
+   * Animate to next scene
+   */
   goToNextScene () {
     this.goToScene(this.currentScene + 1);
   }
 
+  /**
+   * Animate to previous scene
+   */
   goToPrevScene () {
     this.goToScene(this.currentScene - 1);
   }
@@ -297,6 +304,11 @@ export class Showcase extends React.Component {
     return segments;
   }
 
+  /**
+   * Fires upon a scene change
+   * @param  {Number} currentScene Index of current scene
+   * @param  {Number} nextScene    Index of next scene
+   */
   sceneWillUpdate (currentScene, nextScene) {
     const { dispatch } = this.props;
 
@@ -307,6 +319,11 @@ export class Showcase extends React.Component {
     }
   }
 
+  /**
+   * Finds the current scene index based on scroll position.
+   * Calls sceneWillUpdate upon a change.
+   * @return {Number} The index of the current scene
+   */
   calculateCurrentScene () {
     let i = 0;
     const childCount = this.sceneMeta.length;
@@ -316,8 +333,8 @@ export class Showcase extends React.Component {
       if (isInRange(this.state.animationProgress, range.low, range.high)) {
         if (i !== this.currentScene) {
           this.sceneWillUpdate(this.currentScene, i);
+          return i;
         }
-
         return i;
       }
       i++;
@@ -329,6 +346,14 @@ export class Showcase extends React.Component {
     if (this.sceneMeta.length) {
       this.currentScene = this.calculateCurrentScene();
     }
+
+    let i = 0;
+    const currentProgress = [];
+    while (i < this.children.length) {
+      // mapRange(this.state.animationProgress, this.sceneMeta[index].bounds.low, this.sceneMeta[index].bounds.high, 0, 1)
+      i++;
+    }
+
 
     return (
       <div>
