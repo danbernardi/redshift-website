@@ -111,10 +111,9 @@ export class Showcase extends React.Component {
    * @param  {Object} element A dom element
    */
   createObservables (element) {
-    this.handleScroll.call(this, element);
-
+    this.handleScroll(element);
     if (SUPPORT_TOUCH) {
-      this.handleTouch.call(this, element);
+      this.handleTouch(element);
     }
   }
 
@@ -125,39 +124,7 @@ export class Showcase extends React.Component {
     //Subscribe to the devices scroll event
     this.scrollSubscription = this.scrollObservable.subscribe((scrollEvent) => {
       const now = window.performance.now();
-      const timeDelta = now - this.lastScroll;
       this.lastScroll = now;
-
-      // const scrollPosition = scrollEvent.srcElement.scrollTop;
-      // const scrollDirection = getScrollDirection(this.lastScrollPosition, scrollPosition);
-      // this.lastScrollPosition = scrollPosition;
-
-      // if (!this.isAnimating) {
-      //   this.isAnimating = true;
-      //   const container = this.container;
-      //   let nextSceneIndex = scrollDirection && scrollDirection === 'down' ? this.currentScene + 1 : this.currentScene - 1;
-
-      //   if (!scrollDirection && !isInRange(nextSceneIndex, 0, this.sceneMeta.length - 1)) {
-      //     nextSceneIndex = this.currentScene;
-      //   }
-
-      //   const nextScene = this.sceneMeta[nextSceneIndex].target;
-      //   const nextScenePosition = nextScene.offsetTop + (nextScene.offsetHeight / 2);
-      //   this.animateToScrollPosition(container, nextScenePosition);
-      // }
-
-      if (timeDelta >= 300) {
-        // console.log('scrollStart');
-      }
-
-      if (this.scrollEndTimer) {
-        clearTimeout(this.scrollEndTimer);
-      }
-
-      this.scrollEndTimer = setTimeout(() => {
-        // console.log('scrollEnd');
-        // this.onScrollEnd.bind(this);
-      }, 150);
 
       const target = scrollEvent.target;
       const animationProgress = this.calculateAnimationProgress(target);
