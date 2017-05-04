@@ -8,6 +8,12 @@ import { mapRange, isInRange } from 'utils/animation';
 import { TweenMax } from 'gsap';
 import { setHeaderTheme } from 'store/actions';
 
+const SUPPORT_TOUCH = 'ontouchstart' in window;
+let TOUCH_START = null;
+let LAST_TOUCH = null;
+let TOUCH_END = null;
+const THRESHOLD = 60;
+
 export class Showcase extends React.Component {
   constructor (props) {
     super(props);
@@ -105,33 +111,16 @@ export class Showcase extends React.Component {
    * @param  {Object} element A dom element
    */
   createObservables (element) {
+    this.handleScroll.call(this, element);
+
+    if (SUPPORT_TOUCH) {
+      this.handleTouch.call(this, element);
+    }
+  }
+
+  //Called on desktop
+  handleScroll (element) {
     this.scrollObservable = Rx.Observable.fromEvent(element, 'scroll');
-    this.touchStartObservable = Rx.Observable.fromEvent(element, 'touchstart');
-    this.touchMoveObservable = Rx.Observable.fromEvent(element, 'touchmove');
-    this.touchEndObservable = Rx.Observable.fromEvent(element, 'touchend');
-    // this.scrollSubscription = this.touchMoveObservable.subscribe((touchEvent) => {
-    //   console.log(touchEvent)
-    //   debugger;
-    // });
-
-    this.touchMove = this.touchStartObservable.flatMap((touchStartEvent) => {
-      return this.touchMoveObservable.map((touchMoveEvent) => {
-        // debugger;
-        return {
-          origin: touchStartEvent.pageY,
-          current: touchMoveEvent.pageY,
-          touchStartEvent,
-          touchMoveEvent
-        };
-      }).takeUntil(this.touchEndObservable);
-    });
-
-
-    this.touchMoveSubscription = this.touchMove.subscribe((touchEvent) => {
-      console.log(touchEvent);
-      debugger;
-    });
-
 
     //Subscribe to the devices scroll event
     this.scrollSubscription = this.scrollObservable.subscribe((scrollEvent) => {
@@ -181,6 +170,63 @@ export class Showcase extends React.Component {
 
   calculateAnimationProgress (target) {
     return mapRange(target.scrollTop, 0, target.scrollHeight - window.innerHeight, 0, 1);
+  }
+
+  //For mobile
+  handleTouch (element) {
+    this.touchStartObservable = Rx.Observable.fromEvent(element, 'touchstart');
+    this.touchMoveObservable = Rx.Observable.fromEvent(element, 'touchmove');
+    this.touchEndObservable = Rx.Observable.fromEvent(element, 'touchend');
+
+    this.touchMove = this.touchStartObservable.flatMap((touchStartEvent) => {
+      const startY = touchStartEvent.pageY;
+      const scrollStart = element.scrollTop;
+
+      return this.touchMoveObservable.map((touchMoveEvent) => {
+        const currentY = touchMoveEvent.pageY;
+        const deltaY = currentY - startY;
+        return {
+          origin: touchStartEvent.pageY,
+          currentY: touchMoveEvent.pageY,
+          deltaY,
+          direction: deltaY > 0 ? 'up' : 'down',
+          touchStartEvent,
+          touchMoveEvent,
+          scrollStart
+        };
+      }).takeUntil(this.touchEndObservable);
+    });
+
+    this.touchMoveSubscription = this.touchMove.subscribe(
+      //Observer
+      (touchEvent) => {
+        element.scrollTop = touchEvent.scrollStart + (touchEvent.deltaY * -1);
+        // debugger;
+      }
+    );
+
+    this.touchStartSubscription = this.touchStartObservable.subscribe((touchStartEvent) => {
+      TOUCH_START = touchStartEvent;
+    });
+
+    this.touchMoveSubscription = this.touchMoveObservable.subscribe((touchMoveEvent) => {
+      LAST_TOUCH = touchMoveEvent;
+    });
+
+    this.touchEndSubscription = this.touchEndObservable.subscribe((touchEndEvent) => {
+      TOUCH_END = touchEndEvent;
+      const start = TOUCH_START.touches[0].pageY;
+      const end = LAST_TOUCH.touches[0].pageY;
+      const delta = end - start;
+      let direction = null;
+
+      if (Math.abs(delta) > THRESHOLD) {
+        direction = delta > 0 ? 'down' : 'up';
+      }
+
+      const go = direction === 'up' ? this.goToNextScene : this.goToPrevScene;
+      go.call(this);
+    });
   }
 
   addScrollPoint (element) {
@@ -235,6 +281,14 @@ export class Showcase extends React.Component {
       this.sceneWillUpdate(0, index);
       this.jumpToScrollPosition(this.container, position);
     }
+  }
+
+  goToNextScene () {
+    this.goToScene(this.currentScene + 1);
+  }
+
+  goToPrevScene () {
+    this.goToScene(this.currentScene - 1);
   }
 
   //Creates the initial scenes with some convienient props surfaced
@@ -305,21 +359,26 @@ export class Showcase extends React.Component {
     }
 
     return (
-      <div> <button
-            style={ { zIndex: '50', position: 'fixed', bottom: 100, right: 20, background: 'grey', padding: 10, color: 'white' } }
-            onClick={ () => this.goToScene(this.currentScene + 1) }>
-            Next
-          </button>
+      <div>
 
-          <button
-            style={ { zIndex: '50', position: 'fixed', bottom: 100, right: 100, background: 'grey', padding: 10, color: 'white' } }
-            onClick={ () => this.goToScene(this.currentScene - 1) }>
-            Previous
-          </button>
+        {/*<button
+          style={ { zIndex: '50', position: 'fixed', bottom: 100, right: 20, background: 'grey', padding: 10, color: 'white' } }
+          onClick={ () => this.goToNextScene() }>
+          Next
+        </button>
+
+        <button
+          style={ { zIndex: '50', position: 'fixed', bottom: 100, right: 100, background: 'grey', padding: 10, color: 'white' } }
+          onClick={ () => this.goToPrevScene() }>
+          Previous
+        </button>
+      */}
+
       <section ref={ (element) => { this.container = element; } } className="showcase" style={ {
         backgroundColor: sceneBgColor || '#fff',
         transition: `background-color ${this.duration}ms ease-out`,
-        height: window.innerHeight
+        height: window.innerHeight,
+        overflowY: SUPPORT_TOUCH ? 'hidden' : 'scroll'
       } }>
 
         { /* React.cloneElement(leadingScene, { clickCallback: () => {
