@@ -168,7 +168,6 @@ export class Showcase extends React.Component {
       //Observer
       (touchEvent) => {
         element.scrollTop = touchEvent.scrollStart + (touchEvent.deltaY * -1);
-        // debugger;
       }
     );
 
@@ -208,7 +207,13 @@ export class Showcase extends React.Component {
     container.scrollTop = toPosition;
   }
 
-  animateToScrollPosition (container, toPosition, duration = 1.5) {
+  /**
+   * Scrolls to a specifide position, which triggers the animation
+   * @param  {Object} container  The wrapping container of the component
+   * @param  {Number} toPosition Position to scroll to
+   * @param  {Number} duration   Time to animate to next position
+   */
+  animateToScrollPosition (container, toPosition, duration = 1) {
     this.isAnimating = true;
     if (this.scrollTween) {
       this.scrollTween.kill();
