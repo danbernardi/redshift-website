@@ -245,7 +245,9 @@ export class Showcase extends React.Component {
     }
 
     const scene = this.sceneMeta[index];
-    const position = index === 0 ? scene.top : scene.center;
+    let position = index === 0 ? scene.top : scene.center;
+    position = index === this.sceneMeta.length - 1 ? position + scene.height : position;
+
     this.currentScene = index;
 
     if (animate) {
