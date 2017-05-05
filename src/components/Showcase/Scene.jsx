@@ -159,7 +159,7 @@ export class Scene extends React.Component {
             <picture>
               <source srcSet={ overlay } media="(min-width: 1040px)" />
               { overlaytlg && <source srcSet={ overlaytlg } media="(min-width: 767px)" /> }
-              <img src={ overlaymlg } className="scene__device__overlay" style={ { marginBottom: '1px' } } alt={ id } /> }
+              <img src={ overlaymlg } className="scene__device__overlay" style={ { marginBottom: '1px' } } alt={ id } />
             </picture>
           }
 
