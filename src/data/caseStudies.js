@@ -7,7 +7,9 @@ export const caseStudies = [
     device: {
       shadow: require('assets/img/case-studies/kaiser/kaiser_shadow.svg'),
       body: require('assets/img/case-studies/kaiser/kaiser_body.svg'),
-      overlay: require('assets/img/case-studies/kaiser/kaiser_overlay.png')
+      overlay: require('assets/img/case-studies/kaiser/kaiser_overlay.png'),
+      overlaytlg: require('assets/img/case-studies/kaiser/kaiser_overlay_tlg.png'),
+      overlaymlg: require('assets/img/case-studies/kaiser/kaiser_overlay_mlg.png')
     },
     heading: 'Kaiser Permanente has partnered with Redshift to create an entirely new digital healthcare experience—one that puts the patient in charge.',
     content: [
@@ -112,7 +114,8 @@ export const caseStudies = [
     device: {
       shadow: require('assets/img/case-studies/norton/norton_shadow.svg'),
       body: require('assets/img/case-studies/norton/norton_body.svg'),
-      overlay: require('assets/img/case-studies/norton/norton_overlay.png')
+      overlay: require('assets/img/case-studies/norton/norton_overlay.png'),
+      overlaymlg: require('assets/img/case-studies/norton/norton_overlay_mlg.png')
     },
     caption: ['A single interface', 'for all things Norton'],
     featured: true,
@@ -198,9 +201,10 @@ export const caseStudies = [
       shadow: require('assets/img/case-studies/nexus/nexus_shadow.svg'),
       body: require('assets/img/case-studies/nexus/nexus_body.svg'),
       overlay: require('assets/img/case-studies/nexus/nexus_overlay.png'),
-      shadowmlg: require('assets/img/case-studies/nexus/nexus_shadow-mlg.svg'),
-      bodymlg: require('assets/img/case-studies/nexus/nexus_body-mlg.svg'),
-      overlaymlg: require('assets/img/case-studies/nexus/nexus_overlay-mlg.png')
+      // shadowmlg: require('assets/img/case-studies/nexus/nexus_shadow-mlg.svg'),
+      // bodymlg: require('assets/img/case-studies/nexus/nexus_body-mlg.svg'),
+      overlaytlg: require('assets/img/case-studies/nexus/nexus_overlay_tlg.png'),
+      overlaymlg: require('assets/img/case-studies/nexus/nexus_overlay_mlg.png')
     },
     caption: ['A new home', 'for Google Nexus'],
     featured: true,
@@ -281,7 +285,9 @@ export const caseStudies = [
     device: {
       shadow: require('assets/img/case-studies/yumavore/yumavore_shadow.svg'),
       body: require('assets/img/case-studies/yumavore/yumavore_body.svg'),
-      overlay: require('assets/img/case-studies/yumavore/yumavore_overlay.png')
+      overlay: require('assets/img/case-studies/yumavore/yumavore_overlay.png'),
+      overlaytlg: require('assets/img/case-studies/yumavore/yumavore_overlay_tlg.png'),
+      overlaymlg: require('assets/img/case-studies/yumavore/yumavore_overlay_mlg.png')
     },
     caption: ['A new way to create', 'and share recipes'],
     featured: true,
@@ -377,7 +383,8 @@ export const caseStudies = [
     device: {
       shadow: require('assets/img/case-studies/five/five_shadow.svg'),
       body: require('assets/img/case-studies/five/five_body.svg'),
-      overlay: require('assets/img/case-studies/five/five_overlay.png')
+      overlay: require('assets/img/case-studies/five/five_overlay.png'),
+      overlaymlg: require('assets/img/case-studies/five/five_overlay_mlg.png')
     },
     caption: ['Share and compare', 'your top 5 of anything'],
     featured: true,

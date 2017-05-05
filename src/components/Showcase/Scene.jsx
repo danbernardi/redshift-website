@@ -143,7 +143,7 @@ export class Scene extends React.Component {
 
   render () {
     const { id, caption } = this.props;
-    const { body, overlay, shadow } = this.props.device;
+    const { body, overlay, overlaymlg, overlaytlg, shadow } = this.props.device;
     const { active } = this.state;
 
     return (
@@ -155,7 +155,14 @@ export class Scene extends React.Component {
       >
         <div data-animationName="device" className="scene__device" >
           { body && <img data-animationName="device-body" className="scene__device__body" src={ body } alt={ id } /> }
-          { overlay && <img data-animationName="device-overlay" className="scene__device__overlay" src={ overlay } alt={ id } /> }
+          { overlay &&
+            <picture>
+              <source srcSet={ overlay } media="(min-width: 1040px)" />
+              { overlaytlg && <source srcSet={ overlaytlg } media="(min-width: 767px)" /> }
+              <img src={ overlaymlg } className="scene__device__overlay" style={ { marginBottom: '1px' } } alt={ id } /> }
+            </picture>
+          }
+
           { shadow && <img data-animationName="device-shadow" className="scene__device__shadow" src={ shadow } alt={ id } /> }
         </div>
 
