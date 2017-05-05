@@ -201,10 +201,12 @@
   .scene__device {
     left: -21%;
     width: 100%;
-    top: 90.4%;
+    top: 74%;
     // media queries
     @include breakpoint($tablet-md) {
-      top: 105.4%;
+      // top: 105.4%;
+      width: 112%;
+      top: 64%;
     }
     @include breakpoint($mobile-lg) {
       left: -16%;
