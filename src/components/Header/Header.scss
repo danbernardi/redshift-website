@@ -40,10 +40,10 @@
 }
 
 .pink-theme {
-  .icon-redshift { color: $pink; }
-  .page-title { color: $pink; }
+  .icon-redshift { color: $redshift; }
+  .page-title { color: $redshift; }
   .icon-close { color: $darkpurple; }
-  .icon-hamburger span { background: $pink; }
+  .icon-hamburger span { background: $redshift; }
   .index-title { color: $white; }
 
   &.color-transition {
@@ -95,28 +95,28 @@
   }
 }
 
-.modal--logo-close__swap {
-  &.index {
-    .icon-close {
-      color: $white;
-      // media queries
-      @include breakpoint($mobile-lg) {
-        color: $pink;
-      }
-    }
+// .modal--logo-close__swap {
+//   &.index {
+//     .icon-close {
+//       color: $white;
+//       // media queries
+//       @include breakpoint($mobile-lg) {
+//         color: $redshift;
+//       }
+//     }
 
-    .page-title {
-      display: none;
-    }
-  }
+//     .page-title {
+//       display: none;
+//     }
+//   }
 
-  &.careers {
-    .icon-close {
-      color: $white;
-      // media queries
-      @include breakpoint($mobile-lg) {
-        color: $pink;
-      }
-    }
-  }
-}
+//   &.careers {
+//     .icon-close {
+//       color: $white;
+//       // media queries
+//       @include breakpoint($mobile-lg) {
+//         color: $redshift;
+//       }
+//     }
+//   }
+// }
