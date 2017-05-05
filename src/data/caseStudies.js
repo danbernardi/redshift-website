@@ -51,8 +51,8 @@ export const caseStudies = [
         imgAlt: 'Kaiser Permanente 3',
         copy: [
           {
-            classes: 'casestudy__text'
-            //blank space?
+            classes: 'casestudy__text',
+            text: 'We also explored new ways to help KP doctors and patients communicate and share information—whether in the exam room or at home. '
           }
         ]
       },
@@ -82,7 +82,13 @@ export const caseStudies = [
         copy: [
           {
             classes: 'casestudy__text typ--h4',
-            text: 'Visit Kaiser Permanente’s new home page at KP.org — the first of several steps in an ambitious effort to revamp all the organization’s digital touch points.'
+            linkText:
+            {
+              startText: 'Visit Kaiser Permanente’s new home page at ',
+              linkText: 'KP.org',
+              link: 'http://kp.org',
+              endText: ' — the first of several steps in an ambitious effort to revamp all the organization’s digital touch points.'
+            }
           }
         ]
       }

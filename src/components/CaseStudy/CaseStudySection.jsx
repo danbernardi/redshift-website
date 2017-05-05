@@ -20,7 +20,6 @@ class CaseStudySection extends React.Component {
 
   render () {
     const { video, images, imgAlt, copy, pad, classes, containerClass } = this.props;
-
     return (
       <div className={ classes && classes }>
         { video &&
@@ -60,6 +59,14 @@ class CaseStudySection extends React.Component {
                 { copy.url && copy.text
                   ? <a href={ copy.url } target="_blank" className={ copy.classes && copy.classes }>{ copy.text }</a>
                   : <div className={ copy.classes && copy.classes }>{ copy.text }</div> }
+
+                { copy.linkText &&
+                  <div className={ copy.classes && copy.classes }>
+                    <span>{ copy.linkText.startText }</span>
+                    <span><a href={ copy.linkText.link } target="_blank">{ copy.linkText.linkText }</a></span>
+                    <span>{ copy.linkText.endText }</span>
+                  </div>
+                }
 
               </div>
             )) }

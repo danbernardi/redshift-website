@@ -199,16 +199,20 @@
 
 .sc__kaiser {
   .scene__device {
-    left: -30%;
-    top: 43%;
+    left: -21%;
+    width: 100%;
+    top: 90.4%;
     // media queries
-    @include breakpoint($tablet-sm) {
-      top: 50%;
-      left: -102%;
-      width: 219%;
+    @include breakpoint($tablet-md) {
+      top: 105.4%;
     }
     @include breakpoint($mobile-lg) {
-      width: 200%;
+      left: -16%;
+      top: 50%;
+    }
+    @media (max-width: 767px) and (orientation: landscape) {
+      left: -50%;
+      width: 125%;
     }
   }
 
