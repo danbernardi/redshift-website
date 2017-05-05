@@ -13,9 +13,15 @@ class CaseStudySection extends React.Component {
 
   componentDidMount () {
     const { video } = this.props;
-    this.props.video && setTimeout(() => {
-      document.getElementById(`caseStudyVideo-${video.id}`).play();
-    }, 5000);
+    if (this.props.video) {
+      this.videoTimeout = setTimeout(() => {
+        document.getElementById(`caseStudyVideo-${video.id}`).play();
+      }, 5000);
+    };
+  }
+
+  componentWillUnmount () {
+    clearTimeout(this.videoTimeout);
   }
 
   render () {

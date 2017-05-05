@@ -7,16 +7,10 @@ import Careers from './Careers';
 import FourOhFour from './FourOhFour';
 import Inspiration from './Inspiration';
 
-import { caseStudies } from 'data/caseStudies';
 import { jobDetails } from 'data/jobDetails';
 import { teamInfo } from 'data/teamInfo';
 
 export function createRoutes () {
-  const caseStudyRoutes = caseStudies.map(casestudy => ({
-    path: casestudy.id,
-    component: () => <Home modal={ casestudy.id } />
-  }));
-
   const teamRoutes = teamInfo.map(member => ({
     path: member.id,
     component: () => <About modal={ member.id } />
@@ -35,7 +29,10 @@ export function createRoutes () {
       {
         path: 'work',
         indexRoute: { component: Home },
-        childRoutes: caseStudyRoutes
+        childRoutes: [{
+          path: ':modalID',
+          component: Home
+        }]
       },
       {
         path: 'about',
