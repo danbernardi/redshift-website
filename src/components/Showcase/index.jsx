@@ -397,6 +397,21 @@ export class Showcase extends React.Component {
           /* We need to mount the children initially to get their height */
           : this.children
         }
+
+        {/*
+          <button
+            style={ { zIndex: '50', position: 'fixed', bottom: 100, right: 20, background: 'grey', padding: 10, color: 'white' } }
+            onClick={ () => this.goToScene(this.currentScene + 1) }>
+            Next
+          </button>
+
+          <button
+            style={ { zIndex: '50', position: 'fixed', bottom: 100, right: 100, background: 'grey', padding: 10, color: 'white' } }
+            onClick={ () => this.goToScene(this.currentScene - 1) }>
+            Previous
+          </button>
+         */}
+
       </section>
       </div>
     );
