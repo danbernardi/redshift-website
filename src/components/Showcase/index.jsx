@@ -38,6 +38,23 @@ export class Showcase extends React.Component {
     //Wait to get accurate height
     setTimeout(() => {
       this.sceneMeta = this.setSceneMeta();
+      let sceneIndex = null;
+
+      if (this.props.locationHistory.lastPath) {
+        const pathId = this.props.locationHistory.lastPath.split('/');
+        const id = pathId.pop();
+        sceneIndex = this.children.map((child) => {
+          return child.props.id || null;
+        }).indexOf(id);
+
+        if (sceneIndex && sceneIndex !== -1) {
+          this.goToScene(sceneIndex, false);
+        }
+      }
+
+      if (location.pathname === '/work' && !sceneIndex) {
+        this.goToScene(1);
+      }
     }, 300);
   }
 
@@ -128,12 +145,16 @@ export class Showcase extends React.Component {
       }, 150);
 
       const target = scrollEvent.target;
-      const animationProgress = mapRange(target.scrollTop, 0, target.scrollHeight - window.innerHeight, 0, 1);
+      const animationProgress = this.calculateAnimationProgress(target);
 
       this.setState({
         animationProgress
       });
     });
+  }
+
+  calculateAnimationProgress (target) {
+    return mapRange(target.scrollTop, 0, target.scrollHeight - window.innerHeight, 0, 1);
   }
 
   addScrollPoint (element) {
@@ -144,9 +165,8 @@ export class Showcase extends React.Component {
     };
   }
 
-  onScrollEnd () {
-    // debugger;
-    // this.animateToScrollPosition(this.container, this.scenesMeta[this.currentScene + 1].offsetTop);
+  jumpToScrollPosition (container, toPosition) {
+    container.scrollTop = toPosition;
   }
 
   animateToScrollPosition (container, toPosition, duration = 1.5) {
@@ -173,7 +193,7 @@ export class Showcase extends React.Component {
     );
   }
 
-  goToScene (index) {
+  goToScene (index, animate = true) {
     if (!isInRange(index, 0, this.sceneMeta.length - 1)) {
       console.warn('Scene index out of range', index);
       return null;
@@ -181,8 +201,14 @@ export class Showcase extends React.Component {
 
     const scene = this.sceneMeta[index];
     const position = index === 0 ? scene.top : scene.center;
+    this.currentScene = index;
 
-    this.animateToScrollPosition(this.container, position);
+    if (animate) {
+      this.animateToScrollPosition(this.container, position);
+    } else {
+      this.sceneWillUpdate(0, index);
+      this.jumpToScrollPosition(this.container, position);
+    }
   }
 
   //Creates the initial scenes with some convienient props surfaced
@@ -301,7 +327,8 @@ export class Showcase extends React.Component {
 
 Showcase.propTypes = {
   scenes: React.PropTypes.array,
-  dispatch: React.PropTypes.func
+  dispatch: React.PropTypes.func,
+  locationHistory: React.PropTypes.object
 };
 
 const injectStateProps = state => ({
