@@ -12,9 +12,11 @@ router.get('/:channel_name', (req, res, next) => {
       res.status(500).send('something broke', err);
     }
 
-    const channel = response.channels.filter((channel) => {
-      return channel.name === req.params.channel_name;
-    })[0];
+    const channel = response.channels
+      ? response.channels.find((channel) => {
+        return channel.name === req.params.channel_name;
+      })[0]
+      : null;
 
     if (channel) {
       slack.api('channels.history', { 'channel': channel.id, 'count': process.env.HISTORY_LENGTH }, (err, response) => {

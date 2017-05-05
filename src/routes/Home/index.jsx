@@ -12,6 +12,29 @@ export class Home extends React.Component {
     this.props.dispatch(actions.setHeaderTheme('pink'));
   }
 
+  shouldComponentUpdate (props) {
+    // Don't remount home if the modal is the only change
+    if (props.params.modalID !== this.props.params.modalID) {
+      return false;
+    }
+    return true;
+  }
+
+  // Using modalID URL param, open or close the modal
+  componentWillReceiveProps (props) {
+    if (props.params.modalID !== this.props.params.modalID) {
+      if (props.params.modalID) {
+        this.openModal(props.params.modalID);
+      } else {
+        this.closeModal();
+      }
+    }
+  }
+
+  closeModal () {
+    const { dispatch } = this.props;
+    dispatch(actions.toggleModal(false));
+  }
   // opens a case study modal depending on id
   openModal (id) {
     const { dispatch } = this.props;
@@ -31,7 +54,8 @@ export class Home extends React.Component {
 
 Home.propTypes = {
   modal: React.PropTypes.string,
-  dispatch: React.PropTypes.func
+  dispatch: React.PropTypes.func,
+  params: React.PropTypes.object
 };
 
 export default connect()(Home);
