@@ -1,5 +1,6 @@
 import React from 'react';
 import GSAP from 'react-gsap-enhancer';
+import { TimelineMax } from 'gsap';
 import { isInRange } from 'utils/animation';
 import { connect } from 'react-redux';
 import 'components/ScrollTrigger/ScrollTrigger.scss';
@@ -16,12 +17,6 @@ export class Hero extends React.Component {
   }
 
   componentDidMount () {
-    if (location.pathname === '/work' || this.props.loaded) {
-      //TODO: Rework how this scene transition function is passed down
-      //This moves to the next scene
-      this.props.clickCallback(1);
-    }
-
     this.introTimeline = this.addAnimation(this.createIntroTimeline);
     this.timeline = this.addAnimation(this.createOutroTimeline);
   }

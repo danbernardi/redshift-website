@@ -38,16 +38,22 @@ export class Showcase extends React.Component {
     //Wait to get accurate height
     setTimeout(() => {
       this.sceneMeta = this.setSceneMeta();
+      let sceneIndex = null;
+
       if (this.props.locationHistory.lastPath) {
         const pathId = this.props.locationHistory.lastPath.split('/');
         const id = pathId.pop();
-        const sceneIndex = this.children.map((child) => {
+        sceneIndex = this.children.map((child) => {
           return child.props.id || null;
         }).indexOf(id);
 
         if (sceneIndex && sceneIndex !== -1) {
           this.goToScene(sceneIndex, false);
         }
+      }
+
+      if (location.pathname === '/work' && !sceneIndex) {
+        this.goToScene(1);
       }
     }, 300);
   }
@@ -139,12 +145,16 @@ export class Showcase extends React.Component {
       }, 150);
 
       const target = scrollEvent.target;
-      const animationProgress = mapRange(target.scrollTop, 0, target.scrollHeight - window.innerHeight, 0, 1);
+      const animationProgress = this.calculateAnimationProgress(target);
 
       this.setState({
         animationProgress
       });
     });
+  }
+
+  calculateAnimationProgress (target) {
+    return mapRange(target.scrollTop, 0, target.scrollHeight - window.innerHeight, 0, 1);
   }
 
   addScrollPoint (element) {
