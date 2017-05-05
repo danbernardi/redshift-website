@@ -6,6 +6,8 @@ import './Scene.scss';
 import { TimelineMax, Power3, Power1 } from 'gsap';
 import GSAP from 'react-gsap-enhancer';
 
+const SUPPORT_TOUCH = 'ontouchstart' in window;
+
 export class Scene extends React.Component {
   constructor (props) {
     super(props);
@@ -77,8 +79,17 @@ export class Scene extends React.Component {
     //Timeline progresses from 0 - 1
     //Pieces delays and overlaps should total 1
 
-    const deviceInTiming = 0.25;
-    const deviceOutTiming = 0.25;
+    let deviceInTiming = 0.25;
+    let deviceOutTiming = 0.25;
+    let centerPause = 0.45;
+
+    if (SUPPORT_TOUCH) {
+      //Mobile settings
+      deviceInTiming = 0.5;
+      deviceOutTiming = 0.5;
+      centerPause = 0.0;
+    }
+
 
     return new TimelineMax()
     .pause()
@@ -105,7 +116,7 @@ export class Scene extends React.Component {
 
     //At  deviceInTiming
 
-    .addPause(0.45)
+    .addPause(centerPause)
 
     .to(device, deviceOutTiming, {
       ease: Power3.easeIn,
