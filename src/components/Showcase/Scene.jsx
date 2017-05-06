@@ -70,7 +70,7 @@ export class Scene extends React.Component {
 
     const defaultOptions = {
       directionOffset: '100%',
-      transformOrigin: 'left bottom',
+      transformOrigin: options.direction === 'right' ? 'right bottom' : 'left bottom',
       rotation: 90,
       shadowOpacity: 0.2
     };
@@ -102,6 +102,7 @@ export class Scene extends React.Component {
     }, 'deviceIn')
 
     .from(deviceShadow, deviceInTiming, {
+      x: '15%',
       y: '50%'
     }, 'deviceIn')
 
@@ -126,8 +127,8 @@ export class Scene extends React.Component {
 
     .to(deviceShadow, deviceOutTiming, {
       ease: Power3.easeIn,
-      y: '10%',
-      x: '-10%'
+      x: options.direction === 'left' ? '10%' : '-10%',
+      y: '10%'
     }, 'deviceOut')
 
     .to(sceneText, deviceOutTiming, {
