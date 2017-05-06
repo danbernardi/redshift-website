@@ -214,9 +214,14 @@
       width: 112%;
       top: 64%;
     }
+    @include breakpoint($tablet-sm) {
+      width: 116%;
+      top: 56%;
+    }
     @include breakpoint($mobile-lg) {
+      width: 120%;
       left: -16%;
-      top: 50%;
+      top: 56%;
     }
     @media (max-width: 767px) and (orientation: landscape) {
       left: -50%;
@@ -254,9 +259,13 @@
     top: 51.4%;
     // media queries
     @include breakpoint($tablet-sm) {
-      left: -95%;
-      width: 202%;
-      top: 46.4%;
+      left: -68%;
+      width: 171%;
+      top: 42.4%;
+    }
+    @include breakpoint($mobile-lg) {
+      left: -65%;
+      width: 165%;
     }
     @media (max-width: 767px) and (orientation: landscape) {
       left: -50%;
@@ -282,6 +291,11 @@
     float: right;
     // media queries
     @include breakpoint($tablet-sm) {
+      top: 47%;
+      right: -18%;
+      width: 124%;
+    }
+    @include breakpoint($mobile-lg) {
       top: 37%;
       right: -29%;
       width: 165%;
