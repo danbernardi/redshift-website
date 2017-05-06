@@ -45,7 +45,6 @@ export class FooterHome extends React.Component {
     return new TimelineMax({
       onUpdate: () => {
         //Do stuff here
-        console.log(this.progress())
       },
       onComplete: () => {
         this.animationComplete = true;
