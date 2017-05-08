@@ -33,6 +33,10 @@ export class Showcase extends React.Component {
     this.lastScroll = window.performance.now();
     this.currentScene = 0;
 
+    this.scrollStart = new Rx.Subject();
+    this.scrollEnd = new Rx.Subject();
+
+
     this.state = {
       animationProgress: 0
     };
@@ -64,6 +68,17 @@ export class Showcase extends React.Component {
     }, 300);
   }
 
+  /**
+   * Creates a scroll observable and maps it to a timeline in state
+   * @param  {Object} element A dom element
+   */
+  createObservables (element) {
+    this.handleScroll(element);
+    if (SUPPORT_TOUCH) {
+      this.handleTouch(element);
+    }
+  }
+
   //TODO: move this logic to Home component and pass as children
   buildChildren () {
     const children = React.Children.toArray([
@@ -81,6 +96,7 @@ export class Showcase extends React.Component {
     });
   }
 
+  // Clone header and add props
   header () {
     return (<Hero
       clickCallback={ () => {
@@ -90,6 +106,7 @@ export class Showcase extends React.Component {
     />);
   }
 
+  // Clone scenes and add props
   sections () {
     return this.props.scenes.map((scene, index) => (
       <Scene
@@ -100,21 +117,11 @@ export class Showcase extends React.Component {
     ));
   }
 
+  // Clone footer and add props
   footer () {
     return (
       <FooterHome classes="footer__tall" />
     );
-  }
-
-  /**
-   * Creates a scroll observable and maps it to a timeline in state
-   * @param  {Object} element A dom element
-   */
-  createObservables (element) {
-    this.handleScroll(element);
-    if (SUPPORT_TOUCH) {
-      this.handleTouch(element);
-    }
   }
 
   //Called on desktop
@@ -124,7 +131,24 @@ export class Showcase extends React.Component {
     //Subscribe to the devices scroll event
     this.scrollSubscription = this.scrollObservable.subscribe((scrollEvent) => {
       const now = window.performance.now();
+      const scrollDelta = now - this.lastScroll;
       this.lastScroll = now;
+
+      if (scrollDelta > 50) {
+        this.scrollStart.next({
+          eventType: 'scrollStart',
+          event: scrollEvent
+        });
+      }
+
+      clearTimeout(this.scrollEndTimer);
+      this.scrollEndTimer = setTimeout(() => {
+        this.scrollEnd.next({
+          eventType: 'scrollEnd',
+          event: scrollEvent
+        });
+      }, 300);
+
 
       const target = scrollEvent.target;
       const animationProgress = this.calculateAnimationProgress(target);
@@ -137,6 +161,16 @@ export class Showcase extends React.Component {
 
   calculateAnimationProgress (target) {
     return mapRange(target.scrollTop, 0, target.scrollHeight - window.innerHeight, 0, 1);
+  }
+
+  handleScrollStartStop () {
+    this.scrollStart.subscribe((scrollStart) => {
+      console.log(scrollStart);
+    });
+
+    this.scrollEnd.subscribe((scrollEnd) => {
+      console.log(scrollEnd);
+    });
   }
 
   //For mobile
