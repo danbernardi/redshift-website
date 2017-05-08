@@ -36,7 +36,6 @@ export class Showcase extends React.Component {
     this.scrollStart = new Rx.Subject();
     this.scrollEnd = new Rx.Subject();
 
-
     this.state = {
       animationProgress: 0
     };
@@ -141,14 +140,16 @@ export class Showcase extends React.Component {
         });
       }
 
-      clearTimeout(this.scrollEndTimer);
-      this.scrollEndTimer = setTimeout(() => {
-        this.scrollEnd.next({
-          eventType: 'scrollEnd',
-          event: scrollEvent
-        });
-      }, 300);
-
+      //Skip this on mobile
+      if (!SUPPORT_TOUCH) {
+        clearTimeout(this.scrollEndTimer);
+        //Prevent fire of scrollStop when coming from animation
+        if (!this.isAnimating) {
+          this.scrollEndTimer = setTimeout(() => {
+            this.goToScene(this.currentScene);
+          }, 100);
+        }
+      }
 
       const target = scrollEvent.target;
       const animationProgress = this.calculateAnimationProgress(target);
@@ -163,15 +164,6 @@ export class Showcase extends React.Component {
     return mapRange(target.scrollTop, 0, target.scrollHeight - window.innerHeight, 0, 1);
   }
 
-  handleScrollStartStop () {
-    this.scrollStart.subscribe((scrollStart) => {
-      console.log(scrollStart);
-    });
-
-    this.scrollEnd.subscribe((scrollEnd) => {
-      console.log(scrollEnd);
-    });
-  }
 
   //For mobile
   handleTouch (element) {
@@ -248,7 +240,9 @@ export class Showcase extends React.Component {
    * @param  {Number} duration   Time to animate to next position
    */
   animateToScrollPosition (container, toPosition, duration = 1) {
+
     this.isAnimating = true;
+    container.style.overflow = 'hidden';
     if (this.scrollTween) {
       this.scrollTween.kill();
     }
@@ -266,6 +260,7 @@ export class Showcase extends React.Component {
         },
         onComplete: () => {
           this.isAnimating = false;
+          container.style.overflow = 'auto';
         }
       }
     );

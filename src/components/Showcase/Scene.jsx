@@ -91,6 +91,10 @@ export class Scene extends React.Component {
     }
 
 
+    deviceInTiming = 0.5;
+    deviceOutTiming = 0.5;
+    centerPause = 0.0;
+
     return new TimelineMax()
     .pause()
 
