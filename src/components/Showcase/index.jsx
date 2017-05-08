@@ -164,7 +164,6 @@ export class Showcase extends React.Component {
     return mapRange(target.scrollTop, 0, target.scrollHeight - window.innerHeight, 0, 1);
   }
 
-
   //For mobile
   handleTouch (element) {
     this.touchStartObservable = Rx.Observable.fromEvent(element, 'touchstart');
@@ -266,7 +265,6 @@ export class Showcase extends React.Component {
     );
   }
 
-
   goToScene (index, animate = true) {
     if (!isInRange(index, 0, this.sceneMeta.length - 1)) {
       console.warn('Scene index out of range', index);
@@ -277,6 +275,7 @@ export class Showcase extends React.Component {
     let position = index === 0 ? scene.top : scene.center;
     position = index === this.sceneMeta.length - 1 ? position + scene.height : position;
 
+    // const duration = SUPPORT_TOUCH ? 1 : Math.abs(this.container.scrollTop - position) * 2 / 1000;
     this.currentScene = index;
 
     if (animate) {
@@ -378,14 +377,6 @@ export class Showcase extends React.Component {
       this.currentScene = this.calculateCurrentScene();
     }
 
-    let i = 0;
-    const currentProgress = [];
-    while (i < this.children.length) {
-      // mapRange(this.state.animationProgress, this.sceneMeta[index].bounds.low, this.sceneMeta[index].bounds.high, 0, 1)
-      i++;
-    }
-
-
     return (
       <div>
 
@@ -426,20 +417,6 @@ export class Showcase extends React.Component {
           /* We need to mount the children initially to get their height */
           : this.children
         }
-
-        {/*
-          <button
-            style={ { zIndex: '50', position: 'fixed', bottom: 100, right: 20, background: 'grey', padding: 10, color: 'white' } }
-            onClick={ () => this.goToScene(this.currentScene + 1) }>
-            Next
-          </button>
-
-          <button
-            style={ { zIndex: '50', position: 'fixed', bottom: 100, right: 100, background: 'grey', padding: 10, color: 'white' } }
-            onClick={ () => this.goToScene(this.currentScene - 1) }>
-            Previous
-          </button>
-         */}
 
       </section>
       </div>
