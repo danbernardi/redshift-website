@@ -72,10 +72,22 @@ export class Showcase extends React.Component {
    * @param  {Object} element A dom element
    */
   createObservables (element) {
+    this.onResize();
     this.handleScroll(element);
     if (SUPPORT_TOUCH) {
       this.handleTouch(element);
     }
+  }
+
+  onResize () {
+    this.resizeObservable = Rx.Observable.fromEvent(window, 'resize').throttle(() => {
+      return Rx.Observable.timer(700);
+    });
+
+    this.scrollSubscription = this.resizeObservable.subscribe((resizeEvent) => {
+      this.sceneMeta = this.setSceneMeta();
+      this.goToScene(this.currentScene);
+    });
   }
 
   //TODO: move this logic to Home component and pass as children
