@@ -8,16 +8,16 @@ import { mapRange, isInRange } from 'utils/animation';
 import { TweenMax } from 'gsap';
 import { setHeaderTheme } from 'store/actions';
 
-const normalizeTouchEvent = function(event) {
-    if (!event.touches) {
-        event.touches = event.originalEvent.touches;
-    }
-    if (!event.pageX) {
-        event.pageX = event.originalEvent.pageX;
-    }
-    if (!event.pageY) {
-        event.pageY = event.originalEvent.pageY;
-    }
+const normalizeTouchEvent = (event) => {
+  if (!event.touches) {
+    event.touches = event.originalEvent.touches;
+  }
+  if (!event.pageX) {
+    event.pageX = event.originalEvent.pageX;
+  }
+  if (!event.pageY) {
+    event.pageY = event.originalEvent.pageY;
+  }
 };
 
 const SUPPORT_TOUCH = 'ontouchstart' in window;
@@ -41,12 +41,8 @@ export class Showcase extends React.Component {
     this.children = this.buildChildren();
     this.scrollPoints = [];
     this.sceneMeta = [];
-    this.timelineEnd = 0;
     this.lastScroll = window.performance.now();
     this.currentScene = 0;
-
-    this.scrollStart = new Rx.Subject();
-    this.scrollEnd = new Rx.Subject();
 
     this.state = {
       animationProgress: 0
@@ -69,9 +65,9 @@ export class Showcase extends React.Component {
       if (this.props.locationHistory.lastPath) {
         const pathId = this.props.locationHistory.lastPath.split('/');
         const id = pathId.pop();
-        sceneIndex = this.children.map((child) => {
-          return child.props.id || null;
-        }).indexOf(id);
+        sceneIndex = this.children
+          .map((child) => child.props.id || null)
+          .indexOf(id);
 
         if (sceneIndex && sceneIndex !== -1) {
           this.goToScene(sceneIndex, false);
@@ -101,7 +97,7 @@ export class Showcase extends React.Component {
       return Rx.Observable.timer(700);
     });
 
-    this.scrollSubscription = this.resizeObservable.subscribe((resizeEvent) => {
+    this.scrollSubscription = this.resizeObservable.subscribe(() => {
       this.sceneMeta = this.setSceneMeta();
       this.goToScene(this.currentScene);
     });
@@ -114,15 +110,7 @@ export class Showcase extends React.Component {
     //Subscribe to the devices scroll event
     this.scrollSubscription = this.scrollObservable.subscribe((scrollEvent) => {
       const now = window.performance.now();
-      const scrollDelta = now - this.lastScroll;
       this.lastScroll = now;
-
-      if (scrollDelta > 50) {
-        this.scrollStart.next({
-          eventType: 'scrollStart',
-          event: scrollEvent
-        });
-      }
 
       //Skip this on mobile
       if (!SUPPORT_TOUCH) {
@@ -155,14 +143,14 @@ export class Showcase extends React.Component {
     this.touchEndObservable = Rx.Observable.fromEvent(element, 'touchend');
 
     this.touchMove = this.touchStartObservable.flatMap((touchStartEvent) => {
-
+      //Fixes discrepency between IOS and Android
       normalizeTouchEvent(touchStartEvent);
 
       const startY = touchStartEvent.pageY;
       const scrollStart = element.scrollTop;
 
       return this.touchMoveObservable.map((touchMoveEvent) => {
-
+        //Fixes discrepency between IOS and Android
         normalizeTouchEvent(touchMoveEvent);
 
         const currentY = touchMoveEvent.pageY;
@@ -229,7 +217,6 @@ export class Showcase extends React.Component {
    * @param  {Number} duration   Time to animate to next position
    */
   animateToScrollPosition (container, toPosition, duration = 1) {
-
     this.isAnimating = true;
     container.style.overflow = 'hidden';
     if (this.scrollTween) {
@@ -414,46 +401,28 @@ export class Showcase extends React.Component {
 
     return (
       <div>
+        <section ref={ (element) => { this.container = element; } } className="showcase" style={ {
+          backgroundColor: sceneBgColor || '#fff',
+          transition: `background-color ${this.duration}ms ease-out`,
+          height: window.innerHeight,
+          overflowY: SUPPORT_TOUCH ? 'hidden' : 'scroll'
+        } }>
 
-        {/*<button
-          style={ { zIndex: '50', position: 'fixed', bottom: 100, right: 20, background: 'grey', padding: 10, color: 'white' } }
-          onClick={ () => this.goToNextScene() }>
-          Next
-        </button>
+          {
+            /* If the children have mounted, update the animation progress for each component */
+            this.sceneMeta.length ? this.children.map((child, index) => {
+              return React.cloneElement(child, {
+                animationProgress: mapRange(this.state.animationProgress, this.sceneMeta[index].bounds.low, this.sceneMeta[index].bounds.high, 0, 1),
+                index,
+                onDidMount: (el) => this.addScrollPoint(el, index)
+              });
+            })
 
-        <button
-          style={ { zIndex: '50', position: 'fixed', bottom: 100, right: 100, background: 'grey', padding: 10, color: 'white' } }
-          onClick={ () => this.goToPrevScene() }>
-          Previous
-        </button>
-      */}
+            /* We need to mount the children initially to get their height */
+            : this.children
+          }
 
-      <section ref={ (element) => { this.container = element; } } className="showcase" style={ {
-        backgroundColor: sceneBgColor || '#fff',
-        transition: `background-color ${this.duration}ms ease-out`,
-        height: window.innerHeight,
-        overflowY: SUPPORT_TOUCH ? 'hidden' : 'scroll'
-      } }>
-
-        { /* React.cloneElement(leadingScene, { clickCallback: () => {
-            //do something with arrow click
-          } }) */}
-
-        {
-          /* If the children have mounted, update the animation progress for each component */
-          this.sceneMeta.length ? this.children.map((child, index) => {
-            return React.cloneElement(child, {
-              animationProgress: mapRange(this.state.animationProgress, this.sceneMeta[index].bounds.low, this.sceneMeta[index].bounds.high, 0, 1),
-              index,
-              onDidMount: (el) => this.addScrollPoint(el, index)
-            });
-          })
-
-          /* We need to mount the children initially to get their height */
-          : this.children
-        }
-
-      </section>
+        </section>
       </div>
     );
   }
