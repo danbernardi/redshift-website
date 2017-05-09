@@ -62,19 +62,19 @@ export class Showcase extends React.Component {
       this.sceneMeta = this.setSceneMeta();
       let sceneIndex = null;
 
-      // if (this.props.locationHistory.lastPath) {
-      //   const pathId = this.props.locationHistory.lastPath.split('/');
-      //   const id = pathId.pop();
-      //   sceneIndex = this.children
-      //     .map((child) => child.props.id || null)
-      //     .indexOf(id);
+      if (this.props.locationHistory.lastPath) {
+        const pathId = this.props.locationHistory.lastPath.split('/');
+        const id = pathId.pop();
+        sceneIndex = this.children
+          .map((child) => child.props.id || null)
+          .indexOf(id);
 
-      //   console.log(sceneIndex)
+        console.log(sceneIndex)
 
-      //   if (sceneIndex && sceneIndex !== -1) {
-      //     this.goToScene(sceneIndex, false);
-      //   }
-      // }
+        if (sceneIndex && sceneIndex !== -1) {
+          this.goToScene(sceneIndex, false);
+        }
+      }
 
       // if (location.pathname === '/work' && !sceneIndex) {
       //   this.goToScene(1);
