@@ -24,7 +24,7 @@ const SUPPORT_TOUCH = 'ontouchstart' in window;
 let TOUCH_START = null;
 let LAST_TOUCH = null;
 let TOUCH_END = null;
-const THRESHOLD = 60;
+const THRESHOLD = 100;
 
 export class Showcase extends React.Component {
   constructor (props) {
@@ -62,21 +62,23 @@ export class Showcase extends React.Component {
       this.sceneMeta = this.setSceneMeta();
       let sceneIndex = null;
 
-      if (this.props.locationHistory.lastPath) {
-        const pathId = this.props.locationHistory.lastPath.split('/');
-        const id = pathId.pop();
-        sceneIndex = this.children
-          .map((child) => child.props.id || null)
-          .indexOf(id);
+      // if (this.props.locationHistory.lastPath) {
+      //   const pathId = this.props.locationHistory.lastPath.split('/');
+      //   const id = pathId.pop();
+      //   sceneIndex = this.children
+      //     .map((child) => child.props.id || null)
+      //     .indexOf(id);
 
-        if (sceneIndex && sceneIndex !== -1) {
-          this.goToScene(sceneIndex, false);
-        }
-      }
+      //   console.log(sceneIndex)
 
-      if (location.pathname === '/work' && !sceneIndex) {
-        this.goToScene(1);
-      }
+      //   if (sceneIndex && sceneIndex !== -1) {
+      //     this.goToScene(sceneIndex, false);
+      //   }
+      // }
+
+      // if (location.pathname === '/work' && !sceneIndex) {
+      //   this.goToScene(1);
+      // }
     }, 300);
   }
 
@@ -140,7 +142,6 @@ export class Showcase extends React.Component {
     });
   }
 
-
   /**
    * Given a dom element, this uses the scroll position to calculate a timeline value
    * between 0 and 1
@@ -150,7 +151,6 @@ export class Showcase extends React.Component {
   calculateAnimationProgress (target) {
     return mapRange(target.scrollTop, 0, target.scrollHeight - window.innerHeight, 0, 1);
   }
-
 
   /**
    * Calculates and updates scroll position on mobile devices
@@ -205,6 +205,7 @@ export class Showcase extends React.Component {
       const start = TOUCH_START.touches[0].pageY;
       const end = LAST_TOUCH.touches[0].pageY;
       const delta = end - start;
+
       let direction = null;
 
       if (Math.abs(delta) > THRESHOLD) {
