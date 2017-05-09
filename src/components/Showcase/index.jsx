@@ -8,6 +8,18 @@ import { mapRange, isInRange } from 'utils/animation';
 import { TweenMax } from 'gsap';
 import { setHeaderTheme } from 'store/actions';
 
+const normalizeTouchEvent = (event) => {
+  if (!event.touches) {
+    event.touches = event.originalEvent.touches;
+  }
+  if (!event.pageX) {
+    event.pageX = event.originalEvent.pageX;
+  }
+  if (!event.pageY) {
+    event.pageY = event.originalEvent.pageY;
+  }
+};
+
 const SUPPORT_TOUCH = 'ontouchstart' in window;
 let TOUCH_START = null;
 let LAST_TOUCH = null;
@@ -29,12 +41,8 @@ export class Showcase extends React.Component {
     this.children = this.buildChildren();
     this.scrollPoints = [];
     this.sceneMeta = [];
-    this.timelineEnd = 0;
     this.lastScroll = window.performance.now();
     this.currentScene = 0;
-
-    this.scrollStart = new Rx.Subject();
-    this.scrollEnd = new Rx.Subject();
 
     this.state = {
       animationProgress: 0
@@ -42,6 +50,11 @@ export class Showcase extends React.Component {
   }
 
   componentDidMount () {
+    //Removes jitter on mobile from event bubbling
+    this.container.addEventListener('touchmove', (event) => {
+      event.stopPropagation();
+    });
+
     this.createObservables(this.container);
 
     //Wait to get accurate height
@@ -52,9 +65,9 @@ export class Showcase extends React.Component {
       if (this.props.locationHistory.lastPath) {
         const pathId = this.props.locationHistory.lastPath.split('/');
         const id = pathId.pop();
-        sceneIndex = this.children.map((child) => {
-          return child.props.id || null;
-        }).indexOf(id);
+        sceneIndex = this.children
+          .map((child) => child.props.id || null)
+          .indexOf(id);
 
         if (sceneIndex && sceneIndex !== -1) {
           this.goToScene(sceneIndex, false);
@@ -79,78 +92,33 @@ export class Showcase extends React.Component {
     }
   }
 
+  /**
+   * Fires when window is resized and subsequently updates
+   * the state of our app, with new dom based calculations.
+   */
   onResize () {
     this.resizeObservable = Rx.Observable.fromEvent(window, 'resize').throttle(() => {
       return Rx.Observable.timer(700);
     });
 
-    this.scrollSubscription = this.resizeObservable.subscribe((resizeEvent) => {
+    this.resizeSubscription = this.resizeObservable.subscribe(() => {
       this.sceneMeta = this.setSceneMeta();
       this.goToScene(this.currentScene);
     });
   }
 
-  //TODO: move this logic to Home component and pass as children
-  buildChildren () {
-    const children = React.Children.toArray([
-      this.header(),
-      this.sections(),
-      this.footer()
-    ]);
-
-    return children.map((child, index) => {
-      return React.cloneElement(child, {
-        animationProgress: 0,
-        index,
-        onDidMount: (el) => this.addScrollPoint(el, index)
-      });
-    });
-  }
-
-  // Clone header and add props
-  header () {
-    return (<Hero
-      clickCallback={ () => {
-        this.goToScene.call(this, 1);
-      }
-    }
-    />);
-  }
-
-  // Clone scenes and add props
-  sections () {
-    return this.props.scenes.map((scene, index) => (
-      <Scene
-        key={ index }
-        index={ index + 1 }
-        { ...scene }
-      />
-    ));
-  }
-
-  // Clone footer and add props
-  footer () {
-    return (
-      <FooterHome classes="footer__tall" />
-    );
-  }
-
-  //Called on desktop
+  /**
+   * handleScroll creates observables and the logic to link scrolling to the animation
+   * timeline progression.
+   * @param  {Object} element The wrapping DOM node for the component
+   */
   handleScroll (element) {
     this.scrollObservable = Rx.Observable.fromEvent(element, 'scroll');
 
     //Subscribe to the devices scroll event
     this.scrollSubscription = this.scrollObservable.subscribe((scrollEvent) => {
       const now = window.performance.now();
-      const scrollDelta = now - this.lastScroll;
       this.lastScroll = now;
-
-      if (scrollDelta > 50) {
-        this.scrollStart.next({
-          eventType: 'scrollStart',
-          event: scrollEvent
-        });
-      }
 
       //Skip this on mobile
       if (!SUPPORT_TOUCH) {
@@ -172,21 +140,38 @@ export class Showcase extends React.Component {
     });
   }
 
+
+  /**
+   * Given a dom element, this uses the scroll position to calculate a timeline value
+   * between 0 and 1
+   * @param  {Object} target DOM node
+   * @return {Number}        Returns a value between 0 and 1
+   */
   calculateAnimationProgress (target) {
     return mapRange(target.scrollTop, 0, target.scrollHeight - window.innerHeight, 0, 1);
   }
 
-  //For mobile
+
+  /**
+   * Calculates and updates scroll position on mobile devices
+   * @param  {Object} element Wrapping DOM element
+   */
   handleTouch (element) {
     this.touchStartObservable = Rx.Observable.fromEvent(element, 'touchstart');
     this.touchMoveObservable = Rx.Observable.fromEvent(element, 'touchmove');
     this.touchEndObservable = Rx.Observable.fromEvent(element, 'touchend');
 
     this.touchMove = this.touchStartObservable.flatMap((touchStartEvent) => {
+      //Fixes discrepency between IOS and Android
+      normalizeTouchEvent(touchStartEvent);
+
       const startY = touchStartEvent.pageY;
       const scrollStart = element.scrollTop;
 
       return this.touchMoveObservable.map((touchMoveEvent) => {
+        //Fixes discrepency between IOS and Android
+        normalizeTouchEvent(touchMoveEvent);
+
         const currentY = touchMoveEvent.pageY;
         const deltaY = currentY - startY;
         return {
@@ -202,7 +187,6 @@ export class Showcase extends React.Component {
     });
 
     this.touchMoveSubscription = this.touchMove.subscribe(
-      //Observer
       (touchEvent) => {
         element.scrollTop = touchEvent.scrollStart + (touchEvent.deltaY * -1);
       }
@@ -232,6 +216,10 @@ export class Showcase extends React.Component {
     });
   }
 
+  /**
+   * This takes the "scenes" or page sections and saves them to an array
+   * @param {Object} element DOM node
+   */
   addScrollPoint (element) {
     if (element && this.scrollPoints.indexOf(element) === -1) {
       this.scrollPoints.push({
@@ -240,6 +228,11 @@ export class Showcase extends React.Component {
     };
   }
 
+  /**
+   * As opposed to animateToScrollPosition, this jumps directly to it.
+   * @param  {Object} container  DOM node
+   * @param  {Number} toPosition Position to scroll to
+   */
   jumpToScrollPosition (container, toPosition) {
     container.scrollTop = toPosition;
   }
@@ -251,7 +244,6 @@ export class Showcase extends React.Component {
    * @param  {Number} duration   Time to animate to next position
    */
   animateToScrollPosition (container, toPosition, duration = 1) {
-
     this.isAnimating = true;
     container.style.overflow = 'hidden';
     if (this.scrollTween) {
@@ -277,6 +269,11 @@ export class Showcase extends React.Component {
     );
   }
 
+  /**
+   * Utility funciton to animate or jump to a scene
+   * @param  {Number}  index   The scene to move to
+   * @param  {Boolean} animate Animate or jump to a scene.  Defaults to true (animate)
+   */
   goToScene (index, animate = true) {
     if (!isInRange(index, 0, this.sceneMeta.length - 1)) {
       console.warn('Scene index out of range', index);
@@ -312,7 +309,10 @@ export class Showcase extends React.Component {
     this.goToScene(this.currentScene - 1);
   }
 
-  //Creates the initial scenes with some convienient props surfaced
+  /**
+   * Creates the initial scenes with some convienient props surfaced
+   * @return {Array} An array of segment Objects
+   */
   setSceneMeta () {
     let currentTimePosition = 0;
     const scrollHeight = this.container.scrollHeight;
@@ -383,6 +383,55 @@ export class Showcase extends React.Component {
     }
   }
 
+  //TODO: move this logic to Home component and pass as children
+  /**
+   * Compiles the children into a flat array structure and maps props to them
+   * @return {Array} An array of child components
+   */
+  buildChildren () {
+    const children = React.Children.toArray([
+      this.header(),
+      this.sections(),
+      this.footer()
+    ]);
+
+    return children.map((child, index) => {
+      return React.cloneElement(child, {
+        animationProgress: 0,
+        index,
+        onDidMount: (el) => this.addScrollPoint(el, index)
+      });
+    });
+  }
+
+  // Clone header and add props
+  header () {
+    return (<Hero
+      clickCallback={ () => {
+        this.goToScene.call(this, 1);
+      }
+    }
+    />);
+  }
+
+  // Clone scenes and add props
+  sections () {
+    return this.props.scenes.map((scene, index) => (
+      <Scene
+        key={ index }
+        index={ index + 1 }
+        { ...scene }
+      />
+    ));
+  }
+
+  // Clone footer and add props
+  footer () {
+    return (
+      <FooterHome classes="footer__tall" />
+    );
+  }
+
   render () {
     let sceneBgColor = this.colors[this.currentScene];
     if (this.sceneMeta.length) {
@@ -391,46 +440,28 @@ export class Showcase extends React.Component {
 
     return (
       <div>
+        <section ref={ (element) => { this.container = element; } } className="showcase" style={ {
+          backgroundColor: sceneBgColor || '#fff',
+          transition: `background-color ${this.duration}ms ease-out`,
+          height: window.innerHeight,
+          overflowY: SUPPORT_TOUCH ? 'hidden' : 'scroll'
+        } }>
 
-        {/*<button
-          style={ { zIndex: '50', position: 'fixed', bottom: 100, right: 20, background: 'grey', padding: 10, color: 'white' } }
-          onClick={ () => this.goToNextScene() }>
-          Next
-        </button>
+          {
+            /* If the children have mounted, update the animation progress for each component */
+            this.sceneMeta.length ? this.children.map((child, index) => {
+              return React.cloneElement(child, {
+                animationProgress: mapRange(this.state.animationProgress, this.sceneMeta[index].bounds.low, this.sceneMeta[index].bounds.high, 0, 1),
+                index,
+                onDidMount: (el) => this.addScrollPoint(el, index)
+              });
+            })
 
-        <button
-          style={ { zIndex: '50', position: 'fixed', bottom: 100, right: 100, background: 'grey', padding: 10, color: 'white' } }
-          onClick={ () => this.goToPrevScene() }>
-          Previous
-        </button>
-      */}
+            /* We need to mount the children initially to get their height */
+            : this.children
+          }
 
-      <section ref={ (element) => { this.container = element; } } className="showcase" style={ {
-        backgroundColor: sceneBgColor || '#fff',
-        transition: `background-color ${this.duration}ms ease-out`,
-        height: window.innerHeight,
-        overflowY: SUPPORT_TOUCH ? 'hidden' : 'scroll'
-      } }>
-
-        { /* React.cloneElement(leadingScene, { clickCallback: () => {
-            //do something with arrow click
-          } }) */}
-
-        {
-          /* If the children have mounted, update the animation progress for each component */
-          this.sceneMeta.length ? this.children.map((child, index) => {
-            return React.cloneElement(child, {
-              animationProgress: mapRange(this.state.animationProgress, this.sceneMeta[index].bounds.low, this.sceneMeta[index].bounds.high, 0, 1),
-              index,
-              onDidMount: (el) => this.addScrollPoint(el, index)
-            });
-          })
-
-          /* We need to mount the children initially to get their height */
-          : this.children
-        }
-
-      </section>
+        </section>
       </div>
     );
   }
