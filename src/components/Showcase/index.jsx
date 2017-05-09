@@ -50,7 +50,7 @@ export class Showcase extends React.Component {
   }
 
   componentDidMount () {
-    //Removes jitter on mobile and android issues
+    //Removes jitter on mobile from event bubbling
     this.container.addEventListener('touchmove', (event) => {
       event.stopPropagation();
     });
@@ -92,18 +92,26 @@ export class Showcase extends React.Component {
     }
   }
 
+  /**
+   * Fires when window is resized and subsequently updates
+   * the state of our app, with new dom based calculations.
+   */
   onResize () {
     this.resizeObservable = Rx.Observable.fromEvent(window, 'resize').throttle(() => {
       return Rx.Observable.timer(700);
     });
 
-    this.scrollSubscription = this.resizeObservable.subscribe(() => {
+    this.resizeSubscription = this.resizeObservable.subscribe(() => {
       this.sceneMeta = this.setSceneMeta();
       this.goToScene(this.currentScene);
     });
   }
 
-  //Called on desktop
+  /**
+   * handleScroll creates observables and the logic to link scrolling to the animation
+   * timeline progression.
+   * @param  {Object} element The wrapping DOM node for the component
+   */
   handleScroll (element) {
     this.scrollObservable = Rx.Observable.fromEvent(element, 'scroll');
 
@@ -132,11 +140,22 @@ export class Showcase extends React.Component {
     });
   }
 
+
+  /**
+   * Given a dom element, this uses the scroll position to calculate a timeline value
+   * between 0 and 1
+   * @param  {Object} target DOM node
+   * @return {Number}        Returns a value between 0 and 1
+   */
   calculateAnimationProgress (target) {
     return mapRange(target.scrollTop, 0, target.scrollHeight - window.innerHeight, 0, 1);
   }
 
-  //For mobile
+
+  /**
+   * Calculates and updates scroll position on mobile devices
+   * @param  {Object} element Wrapping DOM element
+   */
   handleTouch (element) {
     this.touchStartObservable = Rx.Observable.fromEvent(element, 'touchstart');
     this.touchMoveObservable = Rx.Observable.fromEvent(element, 'touchmove');
@@ -168,7 +187,6 @@ export class Showcase extends React.Component {
     });
 
     this.touchMoveSubscription = this.touchMove.subscribe(
-      //Observer
       (touchEvent) => {
         element.scrollTop = touchEvent.scrollStart + (touchEvent.deltaY * -1);
       }
@@ -198,6 +216,10 @@ export class Showcase extends React.Component {
     });
   }
 
+  /**
+   * This takes the "scenes" or page sections and saves them to an array
+   * @param {Object} element DOM node
+   */
   addScrollPoint (element) {
     if (element && this.scrollPoints.indexOf(element) === -1) {
       this.scrollPoints.push({
@@ -206,6 +228,11 @@ export class Showcase extends React.Component {
     };
   }
 
+  /**
+   * As opposed to animateToScrollPosition, this jumps directly to it.
+   * @param  {Object} container  DOM node
+   * @param  {Number} toPosition Position to scroll to
+   */
   jumpToScrollPosition (container, toPosition) {
     container.scrollTop = toPosition;
   }
@@ -242,6 +269,11 @@ export class Showcase extends React.Component {
     );
   }
 
+  /**
+   * Utility funciton to animate or jump to a scene
+   * @param  {Number}  index   The scene to move to
+   * @param  {Boolean} animate Animate or jump to a scene.  Defaults to true (animate)
+   */
   goToScene (index, animate = true) {
     if (!isInRange(index, 0, this.sceneMeta.length - 1)) {
       console.warn('Scene index out of range', index);
@@ -277,7 +309,10 @@ export class Showcase extends React.Component {
     this.goToScene(this.currentScene - 1);
   }
 
-  //Creates the initial scenes with some convienient props surfaced
+  /**
+   * Creates the initial scenes with some convienient props surfaced
+   * @return {Array} An array of segment Objects
+   */
   setSceneMeta () {
     let currentTimePosition = 0;
     const scrollHeight = this.container.scrollHeight;
@@ -349,6 +384,10 @@ export class Showcase extends React.Component {
   }
 
   //TODO: move this logic to Home component and pass as children
+  /**
+   * Compiles the children into a flat array structure and maps props to them
+   * @return {Array} An array of child components
+   */
   buildChildren () {
     const children = React.Children.toArray([
       this.header(),
