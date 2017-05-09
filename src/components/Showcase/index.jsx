@@ -54,11 +54,10 @@ export class Showcase extends React.Component {
   }
 
   componentDidMount () {
-
-    this.container.addEventListener('touchmove', function(event){
-        event.stopPropagation();
+    //Removes jitter on mobile and android issues
+    this.container.addEventListener('touchmove', (event) => {
+      event.stopPropagation();
     });
-
 
     this.createObservables(this.container);
 
@@ -84,8 +83,6 @@ export class Showcase extends React.Component {
       }
     }, 300);
   }
-
-
 
   /**
    * Creates a scroll observable and maps it to a timeline in state
