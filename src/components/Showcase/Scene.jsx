@@ -52,21 +52,16 @@ export class Scene extends React.Component {
     return this.animationInRange;
   }
 
-  setActive (state) {
-    this.setState({ active: state });
-  }
-
+  /**
+   * Creates a timeline for animating the scene.  This is likely attached to scroll
+   * @param  {Object} options.target  Attached by GSAP enhancer, this is the wrapping component.
+   * @param  {Object} options.options Timeline options, if applicable
+   * @return {Object}                 TimelineMax timeline
+   */
   animateIn ({ target, options }) {
-    // const sceneWrapper = target;
     const device = target.find({ 'data-animationName': 'device' });
-    // const deviceBody = target.find({ 'data-animationName': 'device-body' });
-    // const deviceOverlay = target.find({ 'data-animationName': 'device-overlay' });
-
     const deviceShadow = target.find({ 'data-animationName': 'device-shadow' });
-
     const sceneText = target.find({ 'data-animationName': 'cta-text' });
-    // const sceneCaption = target.find({ 'data-animationName': 'cta-caption' });
-    // const sceneLink = target.find({ 'data-animationName': 'cta-link' });
 
     const defaultOptions = {
       directionOffset: '100%',
@@ -76,20 +71,11 @@ export class Scene extends React.Component {
     };
 
     const tlOptions = Object.assign({}, defaultOptions, options);
+
     //Timeline progresses from 0 - 1
     //Pieces delays and overlaps should total 1
-
-    let deviceInTiming = 0.25;
-    let deviceOutTiming = 0.25;
-    let centerPause = 0.45;
-
-    if (SUPPORT_TOUCH) {
-      //Mobile settings
-      deviceInTiming = 0.5;
-      deviceOutTiming = 0.5;
-      centerPause = 0.0;
-    }
-
+    const deviceInTiming = 0.5;
+    const deviceOutTiming = 0.5;
 
     return new TimelineMax()
     .pause()
@@ -114,10 +100,6 @@ export class Scene extends React.Component {
       top: '100%',
       ease: Power3.easeOut
     }, `deviceIn+=${deviceInTiming / 2}`)
-
-    //At  deviceInTiming
-
-    .addPause(centerPause)
 
     .to(device, deviceOutTiming, {
       ease: Power3.easeIn,

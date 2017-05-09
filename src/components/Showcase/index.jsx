@@ -33,6 +33,9 @@ export class Showcase extends React.Component {
     this.lastScroll = window.performance.now();
     this.currentScene = 0;
 
+    this.scrollStart = new Rx.Subject();
+    this.scrollEnd = new Rx.Subject();
+
     this.state = {
       animationProgress: 0
     };
@@ -64,6 +67,17 @@ export class Showcase extends React.Component {
     }, 300);
   }
 
+  /**
+   * Creates a scroll observable and maps it to a timeline in state
+   * @param  {Object} element A dom element
+   */
+  createObservables (element) {
+    this.handleScroll(element);
+    if (SUPPORT_TOUCH) {
+      this.handleTouch(element);
+    }
+  }
+
   //TODO: move this logic to Home component and pass as children
   buildChildren () {
     const children = React.Children.toArray([
@@ -81,6 +95,7 @@ export class Showcase extends React.Component {
     });
   }
 
+  // Clone header and add props
   header () {
     return (<Hero
       clickCallback={ () => {
@@ -90,6 +105,7 @@ export class Showcase extends React.Component {
     />);
   }
 
+  // Clone scenes and add props
   sections () {
     return this.props.scenes.map((scene, index) => (
       <Scene
@@ -100,21 +116,11 @@ export class Showcase extends React.Component {
     ));
   }
 
+  // Clone footer and add props
   footer () {
     return (
       <FooterHome classes="footer__tall" />
     );
-  }
-
-  /**
-   * Creates a scroll observable and maps it to a timeline in state
-   * @param  {Object} element A dom element
-   */
-  createObservables (element) {
-    this.handleScroll(element);
-    if (SUPPORT_TOUCH) {
-      this.handleTouch(element);
-    }
   }
 
   //Called on desktop
@@ -124,7 +130,26 @@ export class Showcase extends React.Component {
     //Subscribe to the devices scroll event
     this.scrollSubscription = this.scrollObservable.subscribe((scrollEvent) => {
       const now = window.performance.now();
+      const scrollDelta = now - this.lastScroll;
       this.lastScroll = now;
+
+      if (scrollDelta > 50) {
+        this.scrollStart.next({
+          eventType: 'scrollStart',
+          event: scrollEvent
+        });
+      }
+
+      //Skip this on mobile
+      if (!SUPPORT_TOUCH) {
+        clearTimeout(this.scrollEndTimer);
+        //Prevent fire of scrollStop when coming from animation
+        if (!this.isAnimating) {
+          this.scrollEndTimer = setTimeout(() => {
+            this.goToScene(this.currentScene);
+          }, 100);
+        }
+      }
 
       const target = scrollEvent.target;
       const animationProgress = this.calculateAnimationProgress(target);
@@ -214,7 +239,9 @@ export class Showcase extends React.Component {
    * @param  {Number} duration   Time to animate to next position
    */
   animateToScrollPosition (container, toPosition, duration = 1) {
+
     this.isAnimating = true;
+    container.style.overflow = 'hidden';
     if (this.scrollTween) {
       this.scrollTween.kill();
     }
@@ -232,11 +259,11 @@ export class Showcase extends React.Component {
         },
         onComplete: () => {
           this.isAnimating = false;
+          container.style.overflow = 'auto';
         }
       }
     );
   }
-
 
   goToScene (index, animate = true) {
     if (!isInRange(index, 0, this.sceneMeta.length - 1)) {
@@ -248,6 +275,7 @@ export class Showcase extends React.Component {
     let position = index === 0 ? scene.top : scene.center;
     position = index === this.sceneMeta.length - 1 ? position + scene.height : position;
 
+    // const duration = SUPPORT_TOUCH ? 1 : Math.abs(this.container.scrollTop - position) * 2 / 1000;
     this.currentScene = index;
 
     if (animate) {
@@ -349,14 +377,6 @@ export class Showcase extends React.Component {
       this.currentScene = this.calculateCurrentScene();
     }
 
-    let i = 0;
-    const currentProgress = [];
-    while (i < this.children.length) {
-      // mapRange(this.state.animationProgress, this.sceneMeta[index].bounds.low, this.sceneMeta[index].bounds.high, 0, 1)
-      i++;
-    }
-
-
     return (
       <div>
 
@@ -397,20 +417,6 @@ export class Showcase extends React.Component {
           /* We need to mount the children initially to get their height */
           : this.children
         }
-
-        {/*
-          <button
-            style={ { zIndex: '50', position: 'fixed', bottom: 100, right: 20, background: 'grey', padding: 10, color: 'white' } }
-            onClick={ () => this.goToScene(this.currentScene + 1) }>
-            Next
-          </button>
-
-          <button
-            style={ { zIndex: '50', position: 'fixed', bottom: 100, right: 100, background: 'grey', padding: 10, color: 'white' } }
-            onClick={ () => this.goToScene(this.currentScene - 1) }>
-            Previous
-          </button>
-         */}
 
       </section>
       </div>
