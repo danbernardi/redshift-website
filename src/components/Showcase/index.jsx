@@ -8,6 +8,18 @@ import { mapRange, isInRange } from 'utils/animation';
 import { TweenMax } from 'gsap';
 import { setHeaderTheme } from 'store/actions';
 
+const normalizeTouchEvent = function(event) {
+    if (!event.touches) {
+        event.touches = event.originalEvent.touches;
+    }
+    if (!event.pageX) {
+        event.pageX = event.originalEvent.pageX;
+    }
+    if (!event.pageY) {
+        event.pageY = event.originalEvent.pageY;
+    }
+};
+
 const SUPPORT_TOUCH = 'ontouchstart' in window;
 let TOUCH_START = null;
 let LAST_TOUCH = null;
@@ -42,6 +54,12 @@ export class Showcase extends React.Component {
   }
 
   componentDidMount () {
+
+    this.container.addEventListener('touchmove', function(event){
+        event.stopPropagation();
+    });
+
+
     this.createObservables(this.container);
 
     //Wait to get accurate height
@@ -67,6 +85,8 @@ export class Showcase extends React.Component {
     }, 300);
   }
 
+
+
   /**
    * Creates a scroll observable and maps it to a timeline in state
    * @param  {Object} element A dom element
@@ -88,51 +108,6 @@ export class Showcase extends React.Component {
       this.sceneMeta = this.setSceneMeta();
       this.goToScene(this.currentScene);
     });
-  }
-
-  //TODO: move this logic to Home component and pass as children
-  buildChildren () {
-    const children = React.Children.toArray([
-      this.header(),
-      this.sections(),
-      this.footer()
-    ]);
-
-    return children.map((child, index) => {
-      return React.cloneElement(child, {
-        animationProgress: 0,
-        index,
-        onDidMount: (el) => this.addScrollPoint(el, index)
-      });
-    });
-  }
-
-  // Clone header and add props
-  header () {
-    return (<Hero
-      clickCallback={ () => {
-        this.goToScene.call(this, 1);
-      }
-    }
-    />);
-  }
-
-  // Clone scenes and add props
-  sections () {
-    return this.props.scenes.map((scene, index) => (
-      <Scene
-        key={ index }
-        index={ index + 1 }
-        { ...scene }
-      />
-    ));
-  }
-
-  // Clone footer and add props
-  footer () {
-    return (
-      <FooterHome classes="footer__tall" />
-    );
   }
 
   //Called on desktop
@@ -183,10 +158,16 @@ export class Showcase extends React.Component {
     this.touchEndObservable = Rx.Observable.fromEvent(element, 'touchend');
 
     this.touchMove = this.touchStartObservable.flatMap((touchStartEvent) => {
+
+      normalizeTouchEvent(touchStartEvent);
+
       const startY = touchStartEvent.pageY;
       const scrollStart = element.scrollTop;
 
       return this.touchMoveObservable.map((touchMoveEvent) => {
+
+        normalizeTouchEvent(touchMoveEvent);
+
         const currentY = touchMoveEvent.pageY;
         const deltaY = currentY - startY;
         return {
@@ -381,6 +362,51 @@ export class Showcase extends React.Component {
       }
       i++;
     }
+  }
+
+  //TODO: move this logic to Home component and pass as children
+  buildChildren () {
+    const children = React.Children.toArray([
+      this.header(),
+      this.sections(),
+      this.footer()
+    ]);
+
+    return children.map((child, index) => {
+      return React.cloneElement(child, {
+        animationProgress: 0,
+        index,
+        onDidMount: (el) => this.addScrollPoint(el, index)
+      });
+    });
+  }
+
+  // Clone header and add props
+  header () {
+    return (<Hero
+      clickCallback={ () => {
+        this.goToScene.call(this, 1);
+      }
+    }
+    />);
+  }
+
+  // Clone scenes and add props
+  sections () {
+    return this.props.scenes.map((scene, index) => (
+      <Scene
+        key={ index }
+        index={ index + 1 }
+        { ...scene }
+      />
+    ));
+  }
+
+  // Clone footer and add props
+  footer () {
+    return (
+      <FooterHome classes="footer__tall" />
+    );
   }
 
   render () {
