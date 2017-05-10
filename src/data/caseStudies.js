@@ -53,7 +53,7 @@ export const caseStudies = [
         imgAlt: 'Kaiser Permanente 3',
         copy: [
           {
-            classes: 'casestudy__text',
+            classes: 'casestudy__text typ--h3',
             text: 'We also explored new ways to help KP doctors and patients communicate and share information—whether in the exam room or at home. '
           }
         ]
@@ -68,7 +68,7 @@ export const caseStudies = [
         imgAlt: 'Kaiser Permanente 4',
         copy: [
           {
-            classes: 'casestudy__text typ--h4',
+            classes: 'casestudy__text typ--h3',
             text: 'The future of digital healthcare at KP is patient-driven and mobile-first, allowing users to access their healthcare anytime, anywhere.'
           }
         ]
@@ -83,7 +83,7 @@ export const caseStudies = [
         imgAlt: 'Kaiser Permanente 5',
         copy: [
           {
-            classes: 'casestudy__text typ--h4',
+            classes: 'casestudy__text typ--h3',
             linkText:
             {
               startText: 'Visit Kaiser Permanente’s new home page at ',
