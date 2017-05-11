@@ -12,9 +12,9 @@ router.get('/:channel_name', (req, res, next) => {
     }
 
     const channel = response.channels
-      ? response.channels.filter((channel) => {
+      ? response.channels.find((channel) => {
         return channel.name === req.params.channel_name;
-      })[0]
+      })
       : null;
 
     if (channel) {
