@@ -7,21 +7,22 @@ router.get('/:channel_name', (req, res, next) => {
   const slack = new Slack(apiToken);
 
   slack.api('channels.list', (err, response) => {
-
     if (err) {
       res.status(500).send('something broke', err);
     }
 
     const channel = response.channels
-      ? response.channels.find((channel) => {
+      ? response.channels.filter((channel) => {
         return channel.name === req.params.channel_name;
       })[0]
       : null;
 
+    console.log(channel);
+
     if (channel) {
       slack.api('channels.history', { 'channel': channel.id, 'count': process.env.HISTORY_LENGTH }, (err, response) => {
 
-        console.log(response)
+        console.log(response);
         res.send(response.messages.filter((message, index) => {
           //Only show posts with images
           return message.attachments && message.attachments[0].image_url;
