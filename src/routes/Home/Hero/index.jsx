@@ -2,7 +2,6 @@ import React from 'react';
 import GSAP from 'react-gsap-enhancer';
 import { TimelineMax } from 'gsap';
 import { isInRange } from 'utils/animation';
-import { connect } from 'react-redux';
 import 'components/ScrollTrigger/ScrollTrigger.scss';
 
 export class Hero extends React.Component {
@@ -52,18 +51,13 @@ export class Hero extends React.Component {
     .staggerTo([text1, text2, scroller], 1, { opacity: 1 }, 0.5);
   }
 
-  createOutroTimeline ({ target, options }) {
-    const sceneWrapper = target;
-    const defaultOptions = {};
-
+  createOutroTimeline ({ target }) {
     const text1 = target.find({ 'data-animationName': 'text1' });
     const text2 = target.find({ 'data-animationName': 'text2' });
     const scroller = target.find({ 'data-animationName': 'scroller' });
 
-    const tlOptions = Object.assign({}, defaultOptions, options);
     //Timeline progresses from 0 - 1
     //Pieces, delays and overlaps should total 1
-
     return new TimelineMax({
       onUpdate: () => {
         //Do stuff here
@@ -105,7 +99,7 @@ export class Hero extends React.Component {
         { this.props.animationProgress <= 0.3 ? <div data-animationName="scroller" style={ styles } className="scrolltrigger" onClick={ () => {
           clickCallback(1);
         } }>
-          <img src={ require('assets/img/down-arrow.png') } alt="Scroll to the next section" />
+          <img src={ require('assets/img/down-arrow.svg') } alt="Scroll to the next section" />
         </div>
         : null
         }
@@ -117,12 +111,7 @@ export class Hero extends React.Component {
 Hero.propTypes = {
   onDidMount: React.PropTypes.func,
   clickCallback: React.PropTypes.func,
-  loaded: React.PropTypes.bool,
   animationProgress: React.PropTypes.number
 };
 
-const injectStateProps = state => ({
-  loaded: state.loaded
-});
-
-export default connect(injectStateProps)(GSAP()(Hero));
+export default (GSAP()(Hero));
