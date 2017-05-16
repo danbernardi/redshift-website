@@ -5,6 +5,7 @@ import FooterHome from 'components/Footer/FooterHome';
 import { connect } from 'react-redux';
 import Rx from 'rxjs/Rx';
 import { mapRange, isInRange } from 'utils/animation';
+import { getScrollDirection } from 'utils/scrollJack';
 import { TweenMax } from 'gsap';
 import { setHeaderTheme } from 'store/actions';
 
@@ -117,6 +118,9 @@ export class Showcase extends React.Component {
     this.scrollSubscription = this.scrollObservable.subscribe((scrollEvent) => {
       const now = window.performance.now();
       this.lastScroll = now;
+      const currentScrollPosition = scrollEvent.target.scrollTop;
+      const scrollDirection = getScrollDirection(this.lastScrollPosition, currentScrollPosition);
+      this.lastScrollPosition = currentScrollPosition;
 
       //Skip this on mobile
       if (!SUPPORT_TOUCH) {
@@ -124,7 +128,8 @@ export class Showcase extends React.Component {
         //Prevent fire of scrollStop when coming from animation
         if (!this.isAnimating) {
           this.scrollEndTimer = setTimeout(() => {
-            this.goToScene(this.currentScene);
+            const sceneToResolve = this.currentScene === 0 && scrollDirection === 'down' ? 1 : this.currentScene;
+            this.goToScene(sceneToResolve);
           }, 100);
         }
       }
