@@ -96,7 +96,7 @@ class CaseStudy extends React.Component {
                     { heading }
                   </h1>
                   <div className="casestudy__scrollarrow">
-                    <img src={ require('assets/img/down-arrow.png') } alt="Scroll down" />
+                    <img src={ require('assets/img/down-arrow.svg') } alt="Scroll down" />
                   </div>
                 </div>
               </div>

@@ -83,13 +83,10 @@ class CaseStudySection extends React.Component {
   }
 };
 
-const { object, string, array, bool, number } = React.PropTypes;
+const { object, string, array, bool } = React.PropTypes;
 CaseStudySection.propTypes = {
   containerClass: string,
   video: object,
-  videoImage: string,
-  videoPadding: string,
-  maxWidth: number,
   images: object,
   imgAlt: string,
   copy: array,
