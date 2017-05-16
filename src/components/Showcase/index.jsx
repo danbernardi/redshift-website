@@ -29,7 +29,6 @@ const THRESHOLD = 100;
 export class Showcase extends React.Component {
   constructor (props) {
     super(props);
-
     this.duration = 500;
     this.container = null;
     this.scrollObservable = null;
@@ -69,7 +68,7 @@ export class Showcase extends React.Component {
           .map((child) => child.props.id || null)
           .indexOf(id);
 
-        console.log(sceneIndex)
+        // console.log(sceneIndex)
 
         if (sceneIndex && sceneIndex !== -1) {
           this.goToScene(sceneIndex, false);
@@ -99,10 +98,7 @@ export class Showcase extends React.Component {
    * the state of our app, with new dom based calculations.
    */
   onResize () {
-    this.resizeObservable = Rx.Observable.fromEvent(window, 'resize').throttle(() => {
-      return Rx.Observable.timer(700);
-    });
-
+    this.resizeObservable = Rx.Observable.fromEvent(window, 'resize').throttle(() => Rx.Observable.timer(700));
     this.resizeSubscription = this.resizeObservable.subscribe(() => {
       this.sceneMeta = this.setSceneMeta();
       this.goToScene(this.currentScene);
@@ -396,13 +392,13 @@ export class Showcase extends React.Component {
       this.footer()
     ]);
 
-    return children.map((child, index) => {
-      return React.cloneElement(child, {
+    return children.map((child, index) => React.cloneElement(child,
+      {
         animationProgress: 0,
         index,
         onDidMount: (el) => this.addScrollPoint(el, index)
-      });
-    });
+      }
+    ));
   }
 
   // Clone header and add props
@@ -440,29 +436,27 @@ export class Showcase extends React.Component {
     }
 
     return (
-      <div>
-        <section ref={ (element) => { this.container = element; } } className="showcase" style={ {
-          backgroundColor: sceneBgColor || '#fff',
-          transition: `background-color ${this.duration}ms ease-out`,
-          height: window.innerHeight,
-          overflowY: SUPPORT_TOUCH ? 'hidden' : 'scroll'
-        } }>
+      <div ref={ (element) => { this.container = element; } } className="showcase" style={ {
+        backgroundColor: sceneBgColor || '#fff',
+        transition: `background-color ${this.duration}ms ease-out`,
+        height: window.innerHeight,
+        overflowY: SUPPORT_TOUCH ? 'hidden' : 'scroll'
+      } }>
 
-          {
-            /* If the children have mounted, update the animation progress for each component */
-            this.sceneMeta.length ? this.children.map((child, index) => {
-              return React.cloneElement(child, {
-                animationProgress: mapRange(this.state.animationProgress, this.sceneMeta[index].bounds.low, this.sceneMeta[index].bounds.high, 0, 1),
-                index,
-                onDidMount: (el) => this.addScrollPoint(el, index)
-              });
-            })
+        {
+          /* If the children have mounted, update the animation progress for each component */
+          this.sceneMeta.length ? this.children.map((child, index) => React.cloneElement(child,
+            {
+              animationProgress: mapRange(this.state.animationProgress, this.sceneMeta[index].bounds.low, this.sceneMeta[index].bounds.high, 0, 1),
+              index,
+              onDidMount: (el) => this.addScrollPoint(el, index)
+            }
+          ))
 
-            /* We need to mount the children initially to get their height */
-            : this.children
-          }
+          /* We need to mount the children initially to get their height */
+          : this.children
+        }
 
-        </section>
       </div>
     );
   }

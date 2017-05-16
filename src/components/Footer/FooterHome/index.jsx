@@ -75,9 +75,9 @@ export class FooterHome extends React.Component {
           <div className="footer__center">
             <div className="row">
               <ul id="footer-menu" className="typ--bold">
-                <li className="typ--h1" onClick={ () => scrollDocToZero() }><Link className="typ--redshift" to="/about">About.</Link></li>
-                <li className="typ--h1" onClick={ () => scrollDocToZero() }><Link className="typ--redshift" to="/careers">Careers.</Link></li>
-                <li className="typ--h1"><a className="typ--redshift" href="http://weareredshift.tumblr.com/" target="_blank">Blog.</a></li>
+                <li onClick={ () => scrollDocToZero() }><h3 className="typ--h1"><Link className="typ--redshift" to="/about">About.</Link></h3></li>
+                <li onClick={ () => scrollDocToZero() }><h3 className="typ--h1" ><Link className="typ--redshift" to="/careers">Careers.</Link></h3></li>
+                <li><h3 className="typ--h1"><Link className="typ--redshift" to="http://weareredshift.tumblr.com/" target="_blank">Blog.</Link></h3></li>
               </ul>
             </div>
           </div>
