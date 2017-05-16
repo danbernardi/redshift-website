@@ -142,16 +142,16 @@
     font-size: 6rem;
     //media queries
     @include breakpoint($desktop-sm) {
-      font-size: 4.8rem;
+      font-size: 6rem;
     }
     @include breakpoint($tablet-lg) {
-      font-size: 4.2rem;
+      font-size: 5.2rem;
     }
     @include breakpoint($mobile-lg) {
-      font-size: 3.6rem;
+      font-size: 4.2rem;
     }
     @include breakpoint($mobile-sm) {
-      font-size: 2.2rem;
+      font-size: 3.2rem;
     }
   }
   height: calc(100vh - 5rem);
