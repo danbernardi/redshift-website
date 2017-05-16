@@ -58,7 +58,6 @@ export class Hero extends React.Component {
 
     //Timeline progresses from 0 - 1
     //Pieces, delays and overlaps should total 1
-
     return new TimelineMax({
       onUpdate: () => {
         //Do stuff here
@@ -84,6 +83,7 @@ export class Hero extends React.Component {
         ref={ onDidMount }
         className="hero layout--fullheight"
       >
+
         <div className="row" style={ { top: '50%', transform: 'translateY(-50%)' } }>
           <h1 className="typ--bold typ--redshift" style={ { maxWidth: '110rem' } }>
             <span data-animationName="text1" style={ styles }>
@@ -99,9 +99,7 @@ export class Hero extends React.Component {
         { this.props.animationProgress <= 0.3 ? <div data-animationName="scroller" style={ styles } className="scrolltrigger" onClick={ () => {
           clickCallback(1);
         } }>
-          <div className="casestudy__scrollarrow">
-            <img src={ require('assets/img/down-arrow.svg') } alt="Scroll down" />
-          </div>
+          <img src={ require('assets/img/down-arrow.svg') } alt="Scroll to the next section" />
         </div>
         : null
         }
