@@ -67,8 +67,6 @@ export class Loader extends React.Component {
       <div ref="loader" className="loader">
         <span ref="capsule" className="capsule" />
         <span className="dot" />
-
-        {/* <span className="play" onClick={ () => this.animateIn() }>Play</span> */}
       </div>
     );
   }
