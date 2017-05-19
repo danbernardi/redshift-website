@@ -130,7 +130,7 @@ export class Showcase extends React.Component {
           this.scrollEndTimer = setTimeout(() => {
             const sceneToResolve = this.currentScene === 0 && scrollDirection === 'down' ? 1 : this.currentScene;
             this.goToScene(sceneToResolve);
-          }, 100);
+          }, 200);
         }
       }
 
@@ -245,7 +245,7 @@ export class Showcase extends React.Component {
    * @param  {Number} toPosition Position to scroll to
    * @param  {Number} duration   Time to animate to next position
    */
-  animateToScrollPosition (container, toPosition, duration = 1) {
+  animateToScrollPosition (container, toPosition, duration = 0.5) {
     this.isAnimating = true;
     container.style.overflow = 'hidden';
     if (this.scrollTween) {
@@ -289,11 +289,13 @@ export class Showcase extends React.Component {
     // const duration = SUPPORT_TOUCH ? 1 : Math.abs(this.container.scrollTop - position) * 2 / 1000;
     this.currentScene = index;
 
-    if (animate) {
-      this.animateToScrollPosition(this.container, position);
-    } else {
-      this.sceneWillUpdate(0, index);
-      this.jumpToScrollPosition(this.container, position);
+    if (!this.isAnimating) {
+      if (animate) {
+        this.animateToScrollPosition(this.container, position);
+      } else {
+        this.sceneWillUpdate(0, index);
+        this.jumpToScrollPosition(this.container, position);
+      }
     }
   }
 
@@ -454,7 +456,8 @@ export class Showcase extends React.Component {
             {
               animationProgress: mapRange(this.state.animationProgress, this.sceneMeta[index].bounds.low, this.sceneMeta[index].bounds.high, 0, 1),
               index,
-              onDidMount: (el) => this.addScrollPoint(el, index)
+              onDidMount: (el) => this.addScrollPoint(el, index),
+              currentScene: this.currentScene
             }
           ))
 

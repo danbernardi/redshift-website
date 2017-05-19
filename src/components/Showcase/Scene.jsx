@@ -136,7 +136,7 @@ export class Scene extends React.Component {
   }
 
   render () {
-    const { id, caption } = this.props;
+    const { id, caption, currentScene, index } = this.props;
     const { body, overlay, overlaymlg, overlaytlg, shadow } = this.props.device;
     const { active } = this.state;
 
@@ -186,7 +186,8 @@ Scene.propTypes = {
   onDidMount: React.PropTypes.func,
   device: React.PropTypes.object,
   bannerState: React.PropTypes.object,
-  color: React.PropTypes.string
+  color: React.PropTypes.string,
+  currentScene: React.PropTypes.number
 };
 
 const injectStateProps = state => ({
