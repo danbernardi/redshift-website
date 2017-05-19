@@ -33,6 +33,7 @@
   width: 56.7rem;
   z-index: 2;
   font-size: 2rem;
+  pointer-events: none;
   top: 0;
   //media queries
   @include breakpoint($tablet-sm) {
@@ -43,6 +44,8 @@
   @media (max-width: 767px) and (orientation: landscape) {
     // top: 62.3%;
   }
+
+  a { pointer-events: auto; }
 
   > div {
     position: absolute;
