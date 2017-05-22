@@ -1,27 +1,15 @@
 @import 'sass-includes';
 
 .loader {
-  position: absolute;
+  position: relative;
+  min-height: 100vh;
+  height: 0;
   background: $redshift;
   display: flex;
   align-items: center;
   justify-content: center;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  right: 0;
   z-index: 30;
-
-  // [class^='icon-'] {
-  //   color: $white;
-  //   font-size: 5rem;
-  //   position: absolute;
-  // }
 }
-
-// .loader.in .capsule {
-//   transform: scale(50, 50);
-// }
 
 .capsule {
   width: 2.5rem;
@@ -31,7 +19,6 @@
   display: inline-block;
   z-index: 10;
   position: relative;
-  // transition: transform 5s cubic-bezier(0.28, -0.37, 0, 1.04);
 }
 
 .dot {
