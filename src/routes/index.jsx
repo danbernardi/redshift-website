@@ -1,6 +1,7 @@
 import React from 'react';
 import CoreLayout from 'containers/CoreLayout';
 import Home from './Home';
+import Work from './Work';
 import About from './About';
 import NewAbout from './NewAbout';
 import Careers from './Careers';
@@ -16,10 +17,10 @@ export function createRoutes () {
     childRoutes: [
       {
         path: 'work',
-        indexRoute: { component: Home },
+        indexRoute: { component: Work },
         childRoutes: [{
           path: ':modalID',
-          component: Home
+          component: Work
         }]
       },
       {
