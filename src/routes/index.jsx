@@ -17,10 +17,10 @@ export function createRoutes () {
     childRoutes: [
       {
         path: 'work',
-        indexRoute: { component: Work },
+        indexRoute: { component: Home },
         childRoutes: [{
           path: ':modalID',
-          component: Work
+          component: Home
         }]
       },
       {
