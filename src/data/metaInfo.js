@@ -1,8 +1,7 @@
 export const metaInfo = {
   home: {
     title: 'Redshift Digital - Hello',
-    description: 'Redshift is a digital agency in downtown San Francisco. We design simple solutions for complicated problems.',
-    canonical: 'http://redshiftdigital.com',
+
     meta: {
       charset: 'utf-8',
       name: {
@@ -57,5 +56,110 @@ export const metaInfo = {
         keywords: 'redshift digital, kaiser permanente design, digital healthcare experience, health online design, healthcare rebranding'
       }
     }
+  },
+  norton: {
+    title: 'Redshift Digital - Norton Case Study',
+    description: 'A single interdace for all things Norton',
+    canonical: 'http://redshiftdigital.com/work/norton',
+    meta: {
+      charset: 'utf-8',
+      name: {
+        keywords: 'redshift digital, norton security design, digital security software, security software challenge, simple security interface'
+      }
+    }
+  },
+
+  nexus: {
+    title: 'Redshift Digital - Nexus Case Study',
+    description: 'A new home for Google Nexus',
+    canonical: 'http://redshiftdigital.com/work/nexus',
+    meta: {
+      charset: 'utf-8',
+      name: {
+        keywords: 'redshift digital, google nexus design, digital security software, reinvent online experience, streamline shopping flow'
+      }
+    }
+  },
+
+  yumavore: {
+    title: 'Redshift Digital - Nexus Case Study',
+    description: 'A new home for Google Nexus',
+    canonical: 'http://redshiftdigital.com/work/nexus',
+    meta: {
+      charset: 'utf-8',
+      name: {
+        keywords: 'redshift digital, google nexus design, digital security software, reinvent online experience, streamline shopping flow'
+      }
+    }
+  },
+
+  five: {
+    title: 'Redshift Digital - Five: Share and Compare',
+    description: 'Share and conmpare your top five of anything',
+    canonical: 'http://redshiftdigital.com/work/five',
+    meta: {
+      charset: 'utf-8',
+      name: {
+        keywords: 'redshift digital, social app design, curate favorites, top five list app'
+      }
+    }
+  },
+
+  david: {
+    title: 'Redshift Digital - David Westen'
+  },
+  steffan: {
+    title: 'Redshift Digital - Steffan Schlarb'
+  },
+  stewart: {
+    title: 'Redshift Digital - Stewart Maclennan'
+  },
+  scott: {
+    title: 'Redshift Digital - Scott Lambridis'
+  },
+  lucy: {
+    title: 'Redshift Digital - Lucy Dotson'
+  },
+  kyle: {
+    title: 'Redshift Digital - Kyle Lloyd'
+  },
+  shannon: {
+    title: 'Redshift Digital - Shannon Chin'
+  },
+  ian: {
+    title: 'Redshift Digital - Ian Eck'
+  },
+  andrew: {
+    title: 'Redshift Digital - Andrew Fitzpatrick'
+  },
+  nick: {
+    title: 'Redshift Digital - Nick Capello'
+  },
+  sasha: {
+    title: 'Redshift Digital - Sasha Klein'
+  },
+  emma: {
+    title: 'Redshift Digital - Emma Hazlett'
+  },
+  sandra: {
+    title: 'Redshift Digital - Sandra Wing'
+  },
+  trevor: {
+    title: 'Redshift Digital - Trevor Alexander'
+  },
+  diana: {
+    title: 'Redshift Digital - Diana Cheng'
+  },
+  mattk: {
+    title: 'Redshift Digital - Matt Kissick'
+  },
+  mattr: {
+    title: 'Redshift Digital - Matt Rancatore'
+  },
+  peter: {
+    title: 'Redshift Digital - Peter Odum'
+  },
+  tiffany: {
+    title: 'Redshift Digital - Tiffany La'
   }
 };

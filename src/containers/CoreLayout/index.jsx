@@ -39,10 +39,10 @@ export class CoreLayout extends React.Component {
 
   render () {
     const { children } = this.props;
-    const pathname = location.pathname.split('/')[1] || 'home';
+    const pathname = location.href.substr(location.href.lastIndexOf('/') + 1) || 'home';
 
     return (
-      <DocumentMeta { ...metaInfo[pathname] } >
+      <DocumentMeta { ...metaInfo[pathname] } extend={ true }>
         <div className="page-wrap">
           <Modal />
           <div className="content-wrap">
