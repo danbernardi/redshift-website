@@ -7,19 +7,7 @@ import Careers from './Careers';
 import FourOhFour from './FourOhFour';
 import Inspiration from './Inspiration';
 
-import { jobDetails } from 'data/jobDetails';
-import { teamInfo } from 'data/teamInfo';
-
 export function createRoutes () {
-  const teamRoutes = teamInfo.map(member => ({
-    path: member.id,
-    component: () => <About modal={ member.id } />
-  }));
-
-  const jobRoutes = jobDetails.map(job => ({
-    path: job.id,
-    component: () => <Careers modal={ job.id } />
-  }));
 
   return ({
     path: '/',
@@ -37,7 +25,10 @@ export function createRoutes () {
       {
         path: 'about',
         indexRoute: { component: About },
-        childRoutes: teamRoutes
+        childRoutes: [{
+          path: ':employeeID',
+          component: About
+        }]
       },
       {
         path: 'new-about',
@@ -46,7 +37,10 @@ export function createRoutes () {
       {
         path: 'careers',
         indexRoute: { component: Careers },
-        childRoutes: jobRoutes
+        childRoutes: [{
+          path: ':jobID',
+          component: Careers
+        }]
       },
       {
         path: 'inspiration',

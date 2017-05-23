@@ -12,10 +12,10 @@ class CaseStudySection extends React.Component {
   }
 
   componentDidMount () {
-    const { video } = this.props;
-    if (this.props.video) {
+    const { caseStudyContent } = this.props;
+    if (caseStudyContent.video) {
       this.videoTimeout = setTimeout(() => {
-        document.getElementById(`caseStudyVideo-${video.id}`).play();
+        document.getElementById(`caseStudyVideo-${caseStudyContent.video.id}`).play();
       }, 5000);
     };
   }
@@ -25,41 +25,44 @@ class CaseStudySection extends React.Component {
   }
 
   render () {
-    const { video, images, imgAlt, copy, pad, classes, containerClass } = this.props;
+    const { caseStudyContent } = this.props;
+    // const { caseStudyContent.pad } = true;
+    console.log(caseStudyContent);
+    // video, images, imgAlt, copy, pad, classes, containerClass
     return (
-      <div className={ classes && classes }>
-        { video &&
+      <div className={ caseStudyContent.classes && caseStudyContent.classes }>
+        { caseStudyContent.video &&
           <div className="layout--relative">
             <picture className="video-image">
-              <img src={ video.videoImage } className="full-image" />
+              <img src={ caseStudyContent.video.videoImage } className="full-image" />
             </picture>
-            <div className="video-container" style={ { maxWidth: video.maxWidth, padding: video.videoPadding } } >
-              <video id={ `caseStudyVideo-${video.id}` }
+            <div className="video-container" style={ { maxWidth: caseStudyContent.video.maxWidth, padding: caseStudyContent.video.videoPadding } } >
+              <video id={ `caseStudyVideo-${caseStudyContent.video.id}` }
                 loop
                 muted
                 playsInline
-                poster={ video.videoPoster }
-                style={ { margin: video.videoMargin } }
+                poster={ caseStudyContent.video.videoPoster }
+                style={ { margin: caseStudyContent.video.videoMargin } }
               >
-                <source src={ video.url } media="screen and (max-width:768px)" type="video/mp4" />
-                <source src={ video.url_sm } media="screen and (max-width:767px)" type="video/mp4" />
+                <source src={ caseStudyContent.video.url } media="screen and (max-width:768px)" type="video/mp4" />
+                <source src={ caseStudyContent.video.url_sm } media="screen and (max-width:767px)" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
             </div>
           </div>
         }
 
-        { images &&
+        { caseStudyContent.images &&
           <picture>
-            <source srcSet={ images.imgDef } media="(min-width: 1040px)" />
-            <source srcSet={ images.imgTlg } media="(min-width: 767px)" />
-            <img src={ images.imgMlg } className="full-image" style={ { marginBottom: '1px' } } alt={ imgAlt } />
+            <source srcSet={ caseStudyContent.images.imgDef } media="(min-width: 1040px)" />
+            <source srcSet={ caseStudyContent.images.imgTlg } media="(min-width: 767px)" />
+            <img src={ caseStudyContent.images.imgMlg } className="full-image" style={ { marginBottom: '1px' } } alt={ caseStudyContent.imgAlt } />
           </picture>
         }
 
-        { copy &&
-          <div className={ `row ${pad && 'py10 py5--mlg'} ${containerClass}` }>
-            { copy.map((copy, index) => (
+        { caseStudyContent.copy &&
+          <div className={ `row py10 py5--mlg ${caseStudyContent.containerClass}` }>
+            { caseStudyContent.copy.map((copy, index) => (
               <div key={ index }>
                 { copy.src && <img src={ copy.src } /> }
                 { copy.url && copy.text
@@ -83,19 +86,9 @@ class CaseStudySection extends React.Component {
   }
 };
 
-const { object, string, array, bool } = React.PropTypes;
+const { object } = React.PropTypes;
 CaseStudySection.propTypes = {
-  containerClass: string,
-  video: object,
-  images: object,
-  imgAlt: string,
-  copy: array,
-  pad: bool,
-  classes: string
-};
-
-CaseStudySection.defaultProps = {
-  pad: true
+  caseStudyContent: object
 };
 
 export default CaseStudySection;

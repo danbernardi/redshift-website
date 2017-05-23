@@ -65,46 +65,45 @@ class CaseStudy extends React.Component {
   }
 
   render () {
-    const { id, name, content, heading, featured } = this.props;
-
+    const { caseStudyContent } = this.props;
     const featuredCaseStudies = caseStudies.filter((item) => item.featured);
     const archivedCaseStudies = caseStudies.filter((item) => !item.featured);
 
     let activeCaseStudies;
-    if (featured) activeCaseStudies = featuredCaseStudies;
-    if (!featured) activeCaseStudies = archivedCaseStudies;
+    if (caseStudyContent.featured) activeCaseStudies = featuredCaseStudies;
+    if (!caseStudyContent.featured) activeCaseStudies = archivedCaseStudies;
 
-    const caseStudyIndex = activeCaseStudies.findIndex(item => item.id === id);
+    const caseStudyIndex = activeCaseStudies.findIndex(item => item.id === caseStudyContent.id);
     const nextCaseStudy = caseStudyIndex === activeCaseStudies.length ? null : activeCaseStudies[caseStudyIndex + 1];
 
     return (
       <div className="casestudy__modal">
         <ModalCloseBtn closeCallback={ () => browserHistory.push('/work') } />
-        <section ref="casestudy" className={ `modal__with-sidebar ${id}` }>
-          <div className={ `job__sidebar bg--${id}` } ref={
+        <section ref="casestudy" className={ `modal__with-sidebar ${caseStudyContent.id}` }>
+          <div className={ `job__sidebar bg--${caseStudyContent.id}` } ref={
             (sidebar) => {
               this.sidebar = sidebar;
             }
           } />
           <div className="layout--relative ml8 ml1--mlg bg--white">
-            <div className="row"><h4 className="modal__title" ref="name">{ name }</h4></div>
+            <div className="row"><h4 className="modal__title" ref="name">{ caseStudyContent.name }</h4></div>
 
             <div ref="blur">
               <div className="row">
                 <div className="casestudy__heading layout--fullheight">
-                  <h1 className={ `typ--${id} typ--bold casestudy__title` }>
-                    { heading }
+                  <h1 className={ `typ--${caseStudyContent.id} typ--bold casestudy__title` }>
+                    { caseStudyContent.heading }
                   </h1>
                   <div className="casestudy__scrollarrow">
                     <img src={ require('assets/img/down-arrow.svg') } alt="Scroll down" />
                   </div>
                 </div>
               </div>
-              { content && content.length &&
-                content.map((section, index) => (
+              { caseStudyContent.content && caseStudyContent.content.length &&
+                caseStudyContent.content.map((section, index) => (
                   <CaseStudySection
                     key={ index }
-                    { ...section }
+                    caseStudyContent={ section }
                   />
                 ))
                }
@@ -136,11 +135,7 @@ class CaseStudy extends React.Component {
 }
 
 CaseStudy.propTypes = {
-  id: React.PropTypes.string,
-  name: React.PropTypes.string,
-  heading: React.PropTypes.string,
-  content: React.PropTypes.array,
-  featured: React.PropTypes.bool
+  caseStudyContent: React.PropTypes.object,
 };
 
 export default CaseStudy;

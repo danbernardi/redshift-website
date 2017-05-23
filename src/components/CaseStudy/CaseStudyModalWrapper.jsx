@@ -17,8 +17,7 @@ import TransitionGroup from 'react-addons-transition-group';
 const easing = null; // mojsCurve.getEasing();
 
 const CaseStudyModalWrapper = props => {
-  const { caseStudyState } = props;
-
+  const { caseStudyState, caseContent } = props;
   const caseStudyComponents = caseStudies.map((cs, index) => ({
     id: cs.id,
     component: (
@@ -27,6 +26,7 @@ const CaseStudyModalWrapper = props => {
         key={ index }
         easing={ easing }
         caseStudyState={ caseStudyState }
+        caseStudyContent={ caseContent }
       />
     )
   }));
@@ -41,7 +41,8 @@ const CaseStudyModalWrapper = props => {
 };
 
 CaseStudyModalWrapper.propTypes = {
-  caseStudyState: React.PropTypes.object
+  caseStudyState: React.PropTypes.object,
+  caseContent: React.PropTypes.object
 };
 
 const injectStateProps = state => ({

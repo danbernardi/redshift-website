@@ -35,6 +35,7 @@ export class Home extends React.Component {
     const { dispatch } = this.props;
     dispatch(actions.toggleModal(false));
   }
+
   // opens a case study modal depending on id
   openModal (id) {
     const { dispatch } = this.props;
