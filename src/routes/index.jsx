@@ -1,7 +1,6 @@
 import React from 'react';
 import CoreLayout from 'containers/CoreLayout';
 import Home from './Home';
-import Work from './Work';
 import About from './About';
 import NewAbout from './NewAbout';
 import Careers from './Careers';

@@ -45,5 +45,17 @@ export const metaInfo = {
         keywords: 'redshift digital, san francisco careers, ux design, visual design, software developer, user experience designer'
       }
     }
+  },
+
+  kaiser: {
+    title: 'Redshift Digital - Kaiser Permanente Case Study',
+    description: 'Reimagining the future of Healthcare',
+    canonical: 'http://redshiftdigital.com/work/kaiser',
+    meta: {
+      charset: 'utf-8',
+      name: {
+        keywords: 'redshift digital, kaiser permanente design, digital healthcare experience, health online design, healthcare rebranding'
+      }
+    }
   }
 };
