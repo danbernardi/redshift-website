@@ -34,17 +34,29 @@
   width: 50%;
   transform-origin: bottom right;
 }
+
 .about--curve-container > div:after {
-  position: absolute;
-  content: '';
+  font-size: 3.6rem;
+  @include font(bold);
+  left: -3rem;
+  bottom: 1.8rem;
+}
+
+.about--curve-container > div:before {
   bottom: 0px;
   left: 0px;
+}
+
+.about--curve-container > div:after,
+.about--curve-container > div:before {
+  position: absolute;
+  content: '';
   height: 2rem;
   width: 2rem;
-  background: black;
   border-radius: 50%;
   // transform: translateY(50%);
 }
+
 
 .about--curve-container > div:nth-child(1) {
   transform: rotate(118deg);
@@ -59,17 +71,34 @@
   transform: rotate(155deg);
 }
 
-.about--curve-container > div:nth-child(n+1):after {
+.about--curve-container > div:nth-child(n+1):before {
   background: $redshift;
 }
-.about--curve-container > div:nth-child(n+2):after {
+.about--curve-container > div:nth-child(n+2):before {
   background: #E33170;
 }
-.about--curve-container > div:nth-child(n+3):after {
+.about--curve-container > div:nth-child(n+3):before {
   background: #BE3C97;
 }
-.about--curve-container > div:nth-child(n+4):after {
+.about--curve-container > div:nth-child(n+4):before {
   background: #BE3C97;
+}
+
+.about--curve-container > div:nth-child(n+1):after {
+  content: "Research";
+  transform: rotate(-118deg);
+}
+.about--curve-container > div:nth-child(n+2):after {
+  content: "Engineering";
+  transform: rotate(-131deg);
+}
+.about--curve-container > div:nth-child(n+3):after {
+  content: "Visual";
+  transform: rotate(-143deg);
+}
+.about--curve-container > div:nth-child(n+4):after {
+  content: "UX";
+  transform: rotate(-155deg);
 }
 
 .about-curve {

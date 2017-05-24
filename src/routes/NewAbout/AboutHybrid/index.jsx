@@ -6,10 +6,10 @@ export class AboutHybrid extends React.Component {
     return (
       <section className="row hero layout--relative layout--fullheight" style={ { overflow: 'hidden' } }>
         <div className="about--curve-container">
-          <div><span>Research</span></div>
-          <div><span>Engineering</span></div>
-          <div><span>Visual</span></div>
-          <div><span>UX</span></div>
+          <div />
+          <div />
+          <div />
+          <div />
         </div>
         <div className="layout--absolute layout-abs--bottom pb5">
           <div className="col-8">
