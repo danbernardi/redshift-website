@@ -7,7 +7,7 @@
 }
 
 .layout--top {
-  vertical-align: top;
+  top: 0;
 }
 
 .layout-abs--right {
@@ -34,6 +34,12 @@
 .layout--flex {
   display: flex;
   align-items: center;
+}
+
+.layout--flex-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .list--inline {

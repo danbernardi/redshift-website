@@ -4,11 +4,12 @@ export class AboutVillage extends React.Component {
 
   render () {
     return (
-      <section className="hero layout--relative layout--fullheight">
+      <section className="row hero layout--relative layout--fullheight" style={ { overflow: 'hidden' } }>
+        <div className="layout--absolute layout-abs--bottom about--video-mask about--hybrid-curve" />
         <div className="layout--absolute layout-abs--bottom pb5">
           <div className="col-8">
-            <h1 className="typ--bold typ--redshift pb2">It takes a village.</h1>
-            <h3>We leverage expertise across multiple disciplines—research, user experience, visual design, and engineering—to create experiences that are usable, beautiful, and grounded in real user needs. We believe the best products are created by hybrid teams, with designers, developers, and researchers working shoulder-to-shoulder.</h3>
+            <h1 className="typ--bold typ--redshift pb2">Hybrid teams.</h1>
+            <h3>We believe the best products are created by hybrid teams. Designers, researchers, and developers work shoulder-to-shoulder in our studio to create experiences that are beautiful and grounded in real user needs.</h3>
           </div>
         </div>
       </section>
