@@ -1,11 +1,16 @@
 import React from 'react';
 
-export class AboutVillage extends React.Component {
+export class AboutHybrid extends React.Component {
 
   render () {
     return (
       <section className="row hero layout--relative layout--fullheight" style={ { overflow: 'hidden' } }>
-        <div className="layout--absolute layout-abs--bottom about--video-mask about--hybrid-curve" />
+        <div className="about--curve-container">
+          <div><span>Research</span></div>
+          <div><span>Engineering</span></div>
+          <div><span>Visual</span></div>
+          <div><span>UX</span></div>
+        </div>
         <div className="layout--absolute layout-abs--bottom pb5">
           <div className="col-8">
             <h1 className="typ--bold typ--redshift pb2">Hybrid teams.</h1>
@@ -17,4 +22,4 @@ export class AboutVillage extends React.Component {
   }
 }
 
-export default AboutVillage;
+export default AboutHybrid;

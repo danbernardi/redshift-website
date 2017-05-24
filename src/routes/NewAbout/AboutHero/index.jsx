@@ -19,10 +19,10 @@ export class AboutHero extends React.Component {
       <section className="layout--flex-col layout--fullheight">
         <div className={ `about--transition ${removeMask ? '' : 'video_mask layout--absolute layout--top'} ` } onClick={ () => this._removeMask() }>
           <video
-            autoPlay
-            loop
-            muted
-            playsInline
+            autoPlay={ true }
+            loop={ true }
+            muted={ true }
+            playsInline={ true }
             id="aboutVideo"
             style={ { width: removeMask && '100%' } }
           >
@@ -34,7 +34,9 @@ export class AboutHero extends React.Component {
         <div className="row" style={ { zIndex: 3, display: removeMask && 'none' } }>
           <div className="col-8">
             <h1 className="typ--bold typ--redshift pb2">About Redshift</h1>
-            <h3 className="pb2">We are an award-winning agency dedicated to creating simple, meaningful experiences for users and positive results for our clients.</h3>
+            <h3 className="pb2">
+              We are an award-winning agency dedicated to creating simple, meaningful experiences for users and positive results for our clients.
+            </h3>
           </div>
           <div className="col-4 col-last" />
         </div>

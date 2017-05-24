@@ -1,6 +1,6 @@
 import React from 'react';
 import AboutHero from './AboutHero';
-import AboutVillage from './AboutVillage';
+import AboutHybrid from './AboutHybrid';
 // import AboutExplore from './AboutExplore';
 import './style.scss';
 
@@ -9,7 +9,7 @@ export class NewAbout extends React.Component {
     return (
       <div>
         <AboutHero />
-        <AboutVillage />
+        <AboutHybrid />
         {/* <AboutExplore />
 
          <div className="hero layout--relative">
