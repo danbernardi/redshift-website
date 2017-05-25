@@ -62,7 +62,7 @@ export class AboutExplore extends React.Component {
             <div className="col-8 col-last">
               { aboutExplore.map((content, index) => (
                 <div
-                  className={ `about--transition ${setOpacity ? 'opacity--one' : 'opacity--zero' }` }
+                  className={ `about--transition ${aboutExplore ? 'opacity--one' : 'opacity--zero' }` }
                   key={ index }
                 >
                   { this.state.activeItem === content.id && <h3>{ content.text }</h3> }
