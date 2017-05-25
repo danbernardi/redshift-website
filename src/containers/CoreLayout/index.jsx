@@ -3,6 +3,8 @@ import Modal from 'components/Modal';
 import Header from 'components/Header';
 import 'styles/core.scss';
 import './CoreLayout.scss';
+import { metaInfo } from 'data/metaInfo';
+import DocumentMeta from 'react-document-meta';
 
 export class CoreLayout extends React.Component {
   componentDidMount () {
@@ -37,18 +39,22 @@ export class CoreLayout extends React.Component {
 
   render () {
     const { children } = this.props;
+    const pathname = location.href.substr(location.href.lastIndexOf('/') + 1) || 'home';
+
     return (
-      <div className="page-wrap">
-        <Modal />
-        <div className="content-wrap">
-          <Header />
-          {/* class needed for page somewhere */}
-          <div className="content-main">
-            { children }
+      <DocumentMeta { ...metaInfo[pathname] } extend={ true }>
+        <div className="page-wrap">
+          <Modal />
+          <div className="content-wrap">
+            <Header />
+            {/* class needed for page somewhere */}
+            <div className="content-main">
+              { children }
+            </div>
+            {/* <Footer /> */}
           </div>
-          {/* <Footer /> */}
         </div>
-      </div>
+      </DocumentMeta>
     );
   }
 }
