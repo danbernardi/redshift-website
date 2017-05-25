@@ -16,21 +16,19 @@ export class AboutHero extends React.Component {
   render () {
     const { removeMask } = this.state;
     return (
-      <section className="layout--flex-col layout--fullheight" style={ { overflow: 'hidden', position: 'relative' } }>
+      <section className={ `${ removeMask ? '' : 'layout--flex-col'} layout--fullheight` } style={ { overflow: 'hidden', position: 'relative' } }>
         <div className={ `about--transition ${removeMask ? '' : 'video_mask layout--absolute layout--top'} ` } onClick={ () => this._removeMask() }>
-          <div className="video__container">
-            <video
-              autoPlay={ true }
-              loop={ true }
-              muted={ true }
-              playsInline={ true }
-              id="aboutVideo"
-              style={ { width: removeMask && '100%' } }
-            >
-              <source src="https://s3-us-west-1.amazonaws.com/rs-website-cdn/video/redshift_office_video.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-          </div>
+          <video
+            autoPlay={ true }
+            loop={ true }
+            muted={ true }
+            playsInline={ true }
+            id="aboutVideo"
+            style={ { width: removeMask && '100%', transform: removeMask ? '' : 'translateX(-25%)' } }
+          >
+            <source src="https://s3-us-west-1.amazonaws.com/rs-website-cdn/video/redshift_office_video.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
         </div>
 
         <div className="row" style={ { zIndex: 3, display: removeMask && 'none' } }>
