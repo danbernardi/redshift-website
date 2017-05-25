@@ -3,7 +3,6 @@ import Showcase from 'components/Showcase';
 import { caseStudies } from 'data/caseStudies';
 import { connect } from 'react-redux';
 import * as actions from 'store/actions';
-import Loader from 'components/Loader';
 import CaseStudyModalWrapper from 'components/CaseStudy/CaseStudyModalWrapper';
 
 export class Home extends React.Component {
@@ -36,6 +35,7 @@ export class Home extends React.Component {
     const { dispatch } = this.props;
     dispatch(actions.toggleModal(false));
   }
+
   // opens a case study modal depending on id
   openModal (id) {
     const { dispatch } = this.props;
@@ -47,7 +47,6 @@ export class Home extends React.Component {
   render () {
     return (
       <div className="home">
-        { location.pathname === '/' && <Loader /> }
         <Showcase scenes={ caseStudies.filter(cs => cs.featured) } />
       </div>
     );

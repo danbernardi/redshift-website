@@ -356,8 +356,12 @@ export const caseStudies = [
         ]
       },
       {
-        pad: false,
-        copy: [{ src: require('assets/img/home/Yumavore/yumavore5.jpg') }]
+        images:
+        {
+          imgDef: require('assets/img/home/Yumavore/yumavore5.jpg'),
+          imgTlg: require('assets/img/home/Yumavore/yumavore5.jpg'),
+          imgMlg: require('assets/img/home/Yumavore/yumavore5.jpg')
+        }
       },
       {
         containerClass: 'typ--center',

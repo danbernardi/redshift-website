@@ -13,16 +13,39 @@ import * as actions from 'store/actions';
 
 export class About extends React.Component {
   componentDidMount () {
-    const { dispatch, modal } = this.props;
+    const { dispatch, params } = this.props;
     dispatch(actions.setHeaderTheme('pink'));
-    if (modal) this.openModal(modal);
+    if (params.employeeID) this.openModal(params.employeeID);
+  }
+
+  shouldComponentUpdate (props) {
+    // Don't remount home if the modal is the only change
+    if (props.params.employeeID !== this.props.params.employeeID) {
+      return false;
+    }
+    return true;
+  }
+
+  // Using employeeID URL param, open or close the modal
+  componentWillReceiveProps (props) {
+    if (props.params.employeeID !== this.props.params.employeeID) {
+      if (props.params.employeeID) {
+        this.openModal(props.params.employeeID);
+      } else {
+        this.closeModal();
+      }
+    }
   }
 
   openModal (id) {
     const { dispatch } = this.props;
-
     dispatch(actions.setActiveModal(<BioModal bioContent={ teamInfo.find(t => t.id === id) } />, 'bio'));
     dispatch(actions.toggleModal(true));
+  }
+
+  closeModal () {
+    const { dispatch } = this.props;
+    dispatch(actions.toggleModal(false));
   }
 
   render () {
@@ -42,7 +65,7 @@ export class About extends React.Component {
             <Clients data={ clientData } />
           </div>
         </section>
-        <section className="about--team pt9 pt6--tlg">
+        <section className="about--team pt9 pt6--tlg cf">
           <div className="row hero--scene-text">
             <h1 className="typ--bold py8 py6--tlg">Who we are<span className="typ--redshift">.</span></h1>
           </div>
@@ -58,7 +81,7 @@ export class About extends React.Component {
 
 About.propTypes = {
   dispatch: React.PropTypes.func,
-  modal: React.PropTypes.string
+  params: React.PropTypes.object
 };
 
 export default connect()(About);

@@ -6,7 +6,7 @@ import './Scene.scss';
 import { TimelineMax, Power3, Power1 } from 'gsap';
 import GSAP from 'react-gsap-enhancer';
 
-const SUPPORT_TOUCH = 'ontouchstart' in window;
+// const SUPPORT_TOUCH = 'ontouchstart' in window;
 
 export class Scene extends React.Component {
   constructor (props) {
@@ -21,7 +21,7 @@ export class Scene extends React.Component {
   }
 
   componentDidMount () {
-    const direction = this.props.index % 2 !== 0 ? 'left' : 'right';
+    const direction = this.props.index % 2 === 0 ? 'right' : 'left';
     const directionOffset = direction === 'left' ? '-200%' : '200%';
     this.animationInRange = null;
 
@@ -136,7 +136,7 @@ export class Scene extends React.Component {
   }
 
   render () {
-    const { id, caption, currentScene, index } = this.props;
+    const { id, caption } = this.props;
     const { body, overlay, overlaymlg, overlaytlg, shadow } = this.props.device;
     const { active } = this.state;
 
@@ -181,13 +181,11 @@ export class Scene extends React.Component {
 
 Scene.propTypes = {
   index: React.PropTypes.number,
+  animationProgress: React.PropTypes.number,
   id: React.PropTypes.string,
   caption: React.PropTypes.array,
   onDidMount: React.PropTypes.func,
-  device: React.PropTypes.object,
-  bannerState: React.PropTypes.object,
-  color: React.PropTypes.string,
-  currentScene: React.PropTypes.number
+  device: React.PropTypes.object
 };
 
 const injectStateProps = state => ({
