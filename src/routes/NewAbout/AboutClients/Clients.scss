@@ -1,0 +1,67 @@
+@import 'sass-includes';
+
+.clients {
+  @extend %clearfix;
+  width: calc(100% + 6rem);
+  margin-left: -3rem;
+  // media queries
+  @include breakpoint($mobile-xsm) {
+    width: calc(100% + 3rem);
+    margin-left: -1.5rem;
+  }
+}
+
+// .clients__client:nth-child(n+1) {
+//   border-right: solid 1px $medium-gray;
+// }
+
+.clients__client:nth-child(3n-1) {
+  border-left: solid 1px $medium-gray;
+  border-right: solid 1px $medium-gray;
+  @include breakpoint($tablet-sm) {
+    border: 0;
+  }
+}
+
+// .clients__client:nth-child(n+3) {
+//   border-left: solid 1px $medium-gray;
+// }
+
+
+.clients__client {
+  width: 33.3333%;
+  float: left;
+  height: 14rem;
+  position: relative;
+  // media queries
+  @include breakpoint($desktop-lg) {
+    width: 33.3333333%;
+  }
+  @include breakpoint($tablet-sm) {
+    width: 50%;
+  }
+  @include breakpoint($mobile-lg) {
+    height: 12rem;
+  }
+  @include breakpoint($mobile-xsm) {
+    height: 10rem;
+  }
+
+  img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0 5rem;
+    // media queries
+    @include breakpoint($mobile-lg) {
+      padding: 0 3.5rem;
+    }
+    @include breakpoint($mobile-sm) {
+      padding: 0 5rem;
+    }
+    @include breakpoint($mobile-xsm) {
+      padding: 0 3rem;
+    }
+  }
+}

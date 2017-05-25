@@ -5,10 +5,8 @@ export class AboutExplore extends React.Component {
     super(props);
 
     this.state = {
-      aboutExplore: true,
-      aboutExperiment: false,
-      aboutCollaborate: false,
-      aboutIterate: false
+      activeItem: 'aboutExplore',
+      setOpacity: true
     };
   }
 
@@ -40,47 +38,63 @@ export class AboutExplore extends React.Component {
       }
     ];
 
-    const { activeItem, setOpacity } = this.state;
-    console.log(activeItem);
+    const { setOpacity } = this.state;
 
     return (
-      <section className="hero layout--relative layout--fullheight">
-        { aboutExplore.map((image, ind) => (
-          <div key={ ind } className={ setOpacity ? 'opacity--one' : 'opacity--zero' }>
-            { this.state.activeItem === image.id && <img src={ image.img } /> }
-          </div>
-          ))
-        }
+      <section>
+        <div className="hide--tlg hero layout--relative layout--fullheight layout--flex">
+          { aboutExplore.map((image, ind) => (
+            <div key={ ind } className={ `about--image ${setOpacity ? 'opacity--one' : 'opacity--zero'}` }>
+              { this.state.activeItem === image.id && <img src={ image.img } /> }
+            </div>
+            ))
+          }
 
-        <div className="row layout--absolute layout-abs--bottom pb5">
-          <div>
-            <div className="col-4">
-              { aboutExplore.map((item, i) => (
-                <div key={ i }>
-                  <h1
-                    className={ `typ--bold ${ item.id && 'typ--redshift' }` }
-                    onMouseEnter={ () => { this.setState({ activeItem: item.id, setOpacity: true }); } }
-                    onMouseLeave={ () => { this.setState({ activeItem: '', setOpacity: false }); } }
+          <div className="row layout--absolute layout-abs--bottom pb5">
+            <div>
+              <div className="col-4 col-5--dsm">
+                { aboutExplore.map((item, i) => (
+                  <div key={ i }>
+                    <h1
+                      className={ `typ--bold ${ item.id && 'typ--redshift' }` }
+                      onMouseEnter={ () => { this.setState({ activeItem: item.id, setOpacity: true }); } }
+                      onMouseLeave={ () => { this.setState({ activeItem: '', setOpacity: false }); } }
+                    >
+                      { item.title }
+                    </h1>
+                  </div>
+                  ))
+                }
+              </div>
+
+              <div className="col-8 col-7--dsm col-last">
+                { aboutExplore.map((content, index) => (
+                  <div
+                    className={ `about--transition ${setOpacity ? 'opacity--one' : 'opacity--zero' }` }
+                    key={ index }
                   >
-                    { item.title }
-                  </h1>
-                </div>
-                ))
-              }
+                    { this.state.activeItem === content.id && <h3 className="about--explore-text">{ content.text }</h3> }
+                  </div>
+                )) }
+              </div>
             </div>
 
-            <div className="col-8 col-last">
-              { aboutExplore.map((content, index) => (
-                <div
-                  className={ `about--transition ${setOpacity ? 'opacity--one' : 'opacity--zero' }` }
-                  key={ index }
-                >
-                  { this.state.activeItem === content.id && <h3>{ content.text }</h3> }
-                </div>
-              )) }
-            </div>
           </div>
-
+        </div>
+        <div className="show--tlg row my6">
+          <h1 className="typ--bold typ--redshift">How we work.</h1>
+          { aboutExplore.map((item, ti) => (
+            <div key={ ti } className="mt4">
+              <h2
+                className={ `typ--bold ${ item.id && 'typ--redshift' }` }
+                onMouseEnter={ () => { this.setState({ activeItem: item.id, setOpacity: true }); } }
+                onMouseLeave={ () => { this.setState({ activeItem: '', setOpacity: false }); } }
+              >
+                { item.title }
+              </h2>
+              <h3>{ item.text }</h3>
+            </div>
+          )) }
         </div>
       </section>
 

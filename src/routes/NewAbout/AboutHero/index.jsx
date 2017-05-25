@@ -27,7 +27,7 @@ export class AboutHero extends React.Component {
             `about--transition layout--absolute layout--top
             ${removeMask ? 'video_remove_mask' : 'video_mask '} `
           }
-          style={ { width: removeMask ? '100%' : '60rem' } }
+          // style={ { width: removeMask ? '100%' : '60rem' } }
         >
           <video
             autoPlay={ true }
@@ -35,7 +35,6 @@ export class AboutHero extends React.Component {
             muted={ true }
             playsInline={ true }
             id="aboutVideo"
-            // style={ { } }
             style={ { width: removeMask && '100%', transform: removeMask ? '' : 'translateX(-25%)' } }
           >
             <source src="https://s3-us-west-1.amazonaws.com/rs-website-cdn/video/redshift_office_video.mp4" type="video/mp4" />
@@ -43,14 +42,17 @@ export class AboutHero extends React.Component {
           </video>
         </div>
 
-        <div className="row" style={ { zIndex: 3, display: removeMask && 'none' } }>
-          <div className="col-7">
+        <div className="row about--header" style={ { zIndex: 3, display: removeMask && 'none' } }>
+          <div className="col-7 col-12--mlg">
             <h1 className="typ--bold typ--redshift pb2">About Redshift</h1>
             <h3 className="pb2">
               We are an award-winning agency dedicated to creating simple, meaningful experiences for users and positive results for our clients.
             </h3>
           </div>
           <div className="col-4 col-last" />
+        </div>
+        <div className="casestudy__scrollarrow row">
+          <img src={ require('assets/img/down-arrow.svg') } alt="Scroll down" />
         </div>
       </section>
     );

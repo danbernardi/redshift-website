@@ -99,7 +99,9 @@ export class Hero extends React.Component {
         { this.props.animationProgress <= 0.3 ? <div data-animationName="scroller" style={ styles } className="scrolltrigger" onClick={ () => {
           clickCallback(1);
         } }>
-          <img src={ require('assets/img/down-arrow.svg') } alt="Scroll to the next section" />
+          <div className="casestudy__scrollarrow">
+            <img src={ require('assets/img/down-arrow.svg') } alt="Scroll down" />
+          </div>
         </div>
         : null
         }
