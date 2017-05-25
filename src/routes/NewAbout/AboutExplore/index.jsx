@@ -34,7 +34,10 @@ export class AboutExplore extends React.Component {
         title: 'Iterate.',
         text: 'We work in rapid cycles with frequent input from both clients and users, continually asking ourselves, “How can we make it better? How can we make it simpler?” We set extraordinarily high standards, and achieve them through incremental refinement.'
       }
-    ]
+    ];
+
+    const { setOpacity } = this.state;
+
     return (
       <section className="row hero layout--relative layout--fullheight">
         <div className="layout--absolute layout-abs--bottom pb5">
@@ -44,9 +47,9 @@ export class AboutExplore extends React.Component {
               {aboutExplore.map((item, i) => (
                 <div key={ i }>
                   <h1
-                    className={`typ--bold ${ item.id && 'typ--redshift' }` }
-                    onMouseEnter={() => { this.setState({ activeItem: item.id }) } }
-                    onMouseLeave={() => { this.setState({ activeItem: '' }) } }
+                    className={ `typ--bold ${ item.id && 'typ--redshift' }` }
+                    onMouseEnter={ () => { this.setState({ activeItem: item.id, setOpacity: true }); } }
+                    onMouseLeave={ () => { this.setState({ activeItem: '', setOpacity: false }); } }
                   >
                     { item.title }
                   </h1>
@@ -57,7 +60,14 @@ export class AboutExplore extends React.Component {
             </div>
 
             <div className="col-8 col-last">
-              { aboutExplore.map((content, index) => ( <div key={ index }>{ this.state.activeItem === content.id && <h3>{ content.text }</h3> }</div>)) }
+              { aboutExplore.map((content, index) => (
+                <div
+                  className={ `about--transition ${setOpacity ? 'opacity--one' : 'opacity--zero' }` }
+                  key={ index }
+                >
+                  { this.state.activeItem === content.id && <h3>{ content.text }</h3> }
+                </div>
+              )) }
             </div>
           </div>
 
