@@ -104,7 +104,7 @@ export class Showcase extends React.Component {
    * the state of our app, with new dom based calculations.
    */
   onResize () {
-    this.resizeObservable = Rx.Observable.fromEvent(window, 'resize').throttle(() => Rx.Observable.timer(700));
+    this.resizeObservable = Rx.Observable.fromEvent(window, 'resize').debounce(() => Rx.Observable.timer(700));
     this.resizeSubscription = this.resizeObservable.subscribe(() => {
       this.sceneMeta = this.setSceneMeta();
       this.goToScene(this.currentScene);
