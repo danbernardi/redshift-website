@@ -1,7 +1,6 @@
 import React from 'react';
 import Modal from 'components/Modal';
 import Header from 'components/Header';
-import Loader from 'components/Loader';
 import 'styles/core.scss';
 import './CoreLayout.scss';
 
@@ -40,9 +39,7 @@ export class CoreLayout extends React.Component {
     const { children } = this.props;
     return (
       <div className="page-wrap">
-        { location.pathname === '/' && <Loader /> }
         <Modal />
-
         <div className="content-wrap">
           <Header />
           {/* class needed for page somewhere */}
