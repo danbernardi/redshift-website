@@ -1,13 +1,22 @@
 @import 'sass-includes';
 
 .video_mask {
-  width: 60rem;
+  // width: 60rem;
   height: 60rem;
   border-radius: 50%;
-  -webkit-mask-image: -webkit-radial-gradient(circle,#fff 100%,#000 0);
+  // -webkit-mask-image: -webkit-radial-gradient(circle,#fff 100%,#000 0);
   right: -5%;
   top: 15%;
   overflow: hidden;
+}
+
+.video_remove_mask {
+  // width: 60rem;
+  height: 60rem;
+  border-radius: 0;
+  right: 0;
+  top: 0;
+
 }
 
 .about--transition {
@@ -19,8 +28,8 @@
 // }
 .about--curve-container {
   position: relative;
-  width: 140rem;
-  height: 140rem;
+  width: calc(100vw - 10%);
+  height: calc(100vw - 10%);
   border-radius: 50%;
   border: solid 1px $medium-gray;
   bottom: -20%;
@@ -29,10 +38,10 @@
 
 .about--curve-container > div {
   position: absolute;
-  top: -1rem;
-  left: 0.5rem;
-  height: 50%;
-  width: 50%;
+  top: 0;
+  left: 0;
+  height: calc(50vw - 5%);
+  width: calc(50vw - 5%);
   transform-origin: bottom right;
 }
 
