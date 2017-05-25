@@ -3,10 +3,7 @@ import Showcase from 'components/Showcase';
 import { caseStudies } from 'data/caseStudies';
 import { connect } from 'react-redux';
 import * as actions from 'store/actions';
-<<<<<<< 582e0abe5c752d5486c2b3b50db7351e62d5d2d8
 import Loader from 'components/Loader';
-=======
->>>>>>> new seo update
 import CaseStudyModalWrapper from 'components/CaseStudy/CaseStudyModalWrapper';
 
 export class Home extends React.Component {
@@ -50,10 +47,7 @@ export class Home extends React.Component {
   render () {
     return (
       <div className="home">
-<<<<<<< 582e0abe5c752d5486c2b3b50db7351e62d5d2d8
         { location.pathname === '/' && <Loader /> }
-=======
->>>>>>> new seo update
         <Showcase scenes={ caseStudies.filter(cs => cs.featured) } />
       </div>
     );
