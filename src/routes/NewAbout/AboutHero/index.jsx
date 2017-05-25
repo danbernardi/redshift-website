@@ -32,7 +32,7 @@ export class AboutHero extends React.Component {
         </div>
 
         <div className="row" style={ { zIndex: 3, display: removeMask && 'none' } }>
-          <div className="col-8">
+          <div className="col-7">
             <h1 className="typ--bold typ--redshift pb2">About Redshift</h1>
             <h3 className="pb2">
               We are an award-winning agency dedicated to creating simple, meaningful experiences for users and positive results for our clients.

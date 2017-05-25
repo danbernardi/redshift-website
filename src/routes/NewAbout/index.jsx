@@ -1,7 +1,7 @@
 import React from 'react';
 import AboutHero from './AboutHero';
 import AboutHybrid from './AboutHybrid';
-// import AboutExplore from './AboutExplore';
+import AboutExplore from './AboutExplore';
 import './style.scss';
 
 export class NewAbout extends React.Component {
@@ -10,8 +10,8 @@ export class NewAbout extends React.Component {
       <div>
         <AboutHero />
         <AboutHybrid />
-        {/* <AboutExplore />
-
+        <AboutExplore />
+        {/*
          <div className="hero layout--relative">
           <div className="layout--absolute layout-abs--bottom pb5">
             <div className="col-8 col-last">

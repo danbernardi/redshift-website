@@ -5,8 +5,9 @@
   height: 60rem;
   border-radius: 50%;
   -webkit-mask-image: -webkit-radial-gradient(circle,#fff 100%,#000 0);
-  right: -5%;
+  right: 0;
   top: 15%;
+  overflow: hidden;
 }
 
 .about--transition {
@@ -54,9 +55,7 @@
   height: 2rem;
   width: 2rem;
   border-radius: 50%;
-  // transform: translateY(50%);
 }
-
 
 .about--curve-container > div:nth-child(1) {
   transform: rotate(118deg);

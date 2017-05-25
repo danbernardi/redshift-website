@@ -36,7 +36,7 @@ export class AboutExplore extends React.Component {
       }
     ]
     return (
-      <section className="hero layout--relative layout--fullheight">
+      <section className="row hero layout--relative layout--fullheight">
         <div className="layout--absolute layout-abs--bottom pb5">
 
           <div>
