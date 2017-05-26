@@ -7,7 +7,7 @@ export const teamInfo = [
     modalImage: require('assets/img/about/team/modal/david.jpg'),
     bioStatement: [
       'David is an expert in internet technology, user experience and digital business strategy.',
-      'In 1999 David co-founded Internet Learning Corporation (ILC), a VC-backed startup focusing on creative, customized e-learning solutions, which was acquired in 2002 by A.S.K. Learning. During his seven years as CTO of A.S.K., David lead the development of e-learning initiatives for clients including HP, Cisco Systems, Veritas, EMC, Sony, Commonwealth Bank and PriceWaterHouseCoopers.',
+      'In 1999 David co-founded Internet Learning Corporation (ILC), a VC-backed startup focusing on creative, customized e-learning solutions, which was acquired in 2002 by A.S.K. Learning. During his seven years as CTO of A.S.K., David led the development of e-learning initiatives for clients including HP, Cisco Systems, Veritas, EMC, Sony, Commonwealth Bank and PriceWaterHouseCoopers.',
       'David is a graduate of Stanford University.'
     ]
   },

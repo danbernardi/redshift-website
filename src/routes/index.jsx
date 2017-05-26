@@ -8,7 +8,6 @@ import FourOhFour from './FourOhFour';
 import Inspiration from './Inspiration';
 
 export function createRoutes () {
-
   return ({
     path: '/',
     component: CoreLayout,

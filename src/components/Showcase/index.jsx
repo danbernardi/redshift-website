@@ -82,11 +82,6 @@ export class Showcase extends React.Component {
     }, 300);
   }
 
-  componentWillReceiveProps(props) {
-    debugger;
-    console.log(this.props.location.pathname);
-  }
-
   /**
    * Creates a scroll observable and maps it to a timeline in state
    * @param  {Object} element A dom element
