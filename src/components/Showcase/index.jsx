@@ -57,6 +57,8 @@ export class Showcase extends React.Component {
 
     this.createObservables(this.container);
 
+    // if (params.employeeID) this.openModal(params.employeeID);
+    console.log(params);
     //Wait to get accurate height
     setTimeout(() => {
       this.sceneMeta = this.setSceneMeta();
@@ -80,11 +82,6 @@ export class Showcase extends React.Component {
       //   this.goToScene(1);
       // }
     }, 300);
-  }
-
-  componentWillReceiveProps(props) {
-    debugger;
-    console.log(this.props.location.pathname);
   }
 
   /**
