@@ -63,6 +63,13 @@
   border: solid 1px $medium-gray;
   bottom: -20%;
   left: -5%;
+  @include breakpoint($mobile-lg) {
+    position: relative;
+    width: calc(400vw - 7%);
+    height: calc(400vw - 7%);
+    left: -300%;
+    bottom: 0;
+  }
 }
 
 .about--curve-container > div {
@@ -72,6 +79,10 @@
   height: calc(50vw - 5%);
   width: calc(50vw - 5%);
   transform-origin: bottom right;
+  @include breakpoint($mobile-lg) {
+    height: 200vw;
+    width: 200vw;
+  }
 }
 
 .about--explore-text {
@@ -85,6 +96,11 @@
   @include font(bold);
   left: -3rem;
   bottom: 1.8rem;
+  @include breakpoint($mobile-lg) {
+    font-size: 1.6rem;
+    left: -1.4rem;
+    bottom: 2.3rem;
+  }
 }
 
 .about--curve-container > div:before {
@@ -102,16 +118,16 @@
 }
 
 .about--curve-container > div:nth-child(1) {
-  transform: rotate(118deg);
+  transform: rotate(120deg);
 }
 .about--curve-container > div:nth-child(2) {
-  transform: rotate(131deg);
+  transform: rotate(125deg);
 }
 .about--curve-container > div:nth-child(3) {
-  transform: rotate(143deg);
+  transform: rotate(130deg);
 }
 .about--curve-container > div:nth-child(4) {
-  transform: rotate(155deg);
+  transform: rotate(135deg);
 }
 
 .about--curve-container > div:nth-child(n+1):before {
@@ -129,19 +145,19 @@
 
 .about--curve-container > div:nth-child(n+1):after {
   content: "Research";
-  transform: rotate(-118deg);
+  transform: rotate(-120deg);
 }
 .about--curve-container > div:nth-child(n+2):after {
   content: "Engineering";
-  transform: rotate(-131deg);
+  transform: rotate(-125deg);
 }
 .about--curve-container > div:nth-child(n+3):after {
   content: "Visual";
-  transform: rotate(-143deg);
+  transform: rotate(-130deg);
 }
 .about--curve-container > div:nth-child(n+4):after {
   content: "UX";
-  transform: rotate(-155deg);
+  transform: rotate(-135deg);
 }
 
 .about-curve {
