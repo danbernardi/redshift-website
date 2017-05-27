@@ -8,9 +8,10 @@ import CaseStudyModalWrapper from 'components/CaseStudy/CaseStudyModalWrapper';
 
 export class Home extends React.Component {
   componentDidMount () {
-    const { modal } = this.props;
+    const { modal, params } = this.props;
     if (modal) this.openModal(modal);
     this.props.dispatch(actions.setHeaderTheme('pink'));
+    if (params.modalID) this.openModal(params.modalID);
   }
 
   shouldComponentUpdate (props) {
