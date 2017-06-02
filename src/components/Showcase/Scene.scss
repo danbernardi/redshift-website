@@ -6,7 +6,6 @@
   position: fixed;
   overflow-x: hidden;
   overflow-y: scroll;
-  // -webkit-overflow-scrolling: touch;
   top: 0;
 }
 
@@ -19,43 +18,36 @@
 .scene {
   position: relative;
   overflow: hidden;
-  // z-index: 1;
   color: $white;
   height: 100vh;
-  // border: 1px solid black;
 }
 
 .scene__cta {
   height: 100%;
-  display: flex;
-  align-items: center;
   position: fixed;
-  width: 56.7rem;
+  width: 100%;
   z-index: 2;
   font-size: 2rem;
   pointer-events: none;
   top: 0;
   //media queries
   @include breakpoint($tablet-sm) {
-    width: 100%;
     text-align: left;
-    // top: 67.6%;
-  }
-  @media (max-width: 767px) and (orientation: landscape) {
-    // top: 62.3%;
   }
 
   a { pointer-events: auto; }
 
   > div {
-    position: absolute;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    margin-top: calc(25vh - 5.1rem);
     // media queries
     @include breakpoint($tablet-sm) {
-      bottom: 10rem;
+      bottom: 2rem;
       top: auto !important;
-    }
-    @include breakpoint($mobile-lg) {
-      bottom: 6rem;
+      justify-content: flex-end;
     }
   }
 }
@@ -125,18 +117,17 @@
 .scene__link {
   color: $white;
   position: relative;
-  padding: 6rem 0;
+  padding: 4rem 0 6rem;
 
   &:after {
     content: '';
     position: absolute;
-    left: 50%;
     bottom: 4.3rem;
     height: 0.2rem;
     background: $white;
-    transform: translateX(-50%);
+
     display: block;
-    width: 50%;
+    width: 5rem;
     // media queries
     @include breakpoint($tablet-sm) {
       height: 0.1rem;
@@ -153,9 +144,13 @@
     text-align: left;
   }
 
+  .scene__cta > div {
+    left: 0;
+  }
+
   .scene__link {
     &:after {
-      left: 25%;
+      left: 0%;
     }
   }
 }
@@ -169,26 +164,19 @@
     text-align: right;
   }
 
+  .scene__cta > div {
+    right: 0;
+  }
+
   .scene__link {
     &:after {
-      left: 75%;
+      left: calc(100% - 5rem);
     }
   }
 }
 
 // case study specific styles
 .sc__norton {
-  .scene__cta > div {
-    top: 57.6%;
-    // media queries
-    @include breakpoint($tablet-sm) {
-      top: 67.4%;
-    }
-    @media (max-width: 767px) and (orientation: landscape) {
-      top: 62.3%;
-    }
-  }
-
   .scene__device {
     width: 64%;
     right: -10%;
@@ -213,7 +201,6 @@
     top: 74%;
     // media queries
     @include breakpoint($tablet-md) {
-      // top: 105.4%;
       width: 112%;
       top: 64%;
     }
@@ -231,31 +218,9 @@
       width: 125%;
     }
   }
-
-  .scene__cta > div {
-    right: 0;
-    margin-top: calc(25vh - 5.1rem);
-    // media queries
-    @include breakpoint($tablet-sm) {
-      margin-top: 0;
-    }
-  }
 }
 
 .sc__nexus {
-  .scene__cta > div {
-    right: 0;
-    top: 57%;
-    // media queries
-    @include breakpoint($tablet-sm) {
-      margin-top: 0;
-      top: 66.3%;
-    }
-    @media (max-width: 767px) and (orientation: landscape) {
-      top: 62.3%;
-    }
-  }
-
   .scene__device {
     left: -61%;
     width: 124%;
@@ -278,15 +243,6 @@
 }
 
 .sc__yumavore {
-  .scene__cta > div {
-    left: 0;
-    margin-top: calc(50vh - 22.6rem);
-    // media queries
-    @include breakpoint($tablet-sm) {
-      margin-top: 0;
-    }
-  }
-
   .scene__device {
     right: -23%;
     width: 96%;
@@ -311,15 +267,6 @@
 }
 
 .sc__five {
-  .scene__cta > div {
-    right: 0;
-    margin-top: calc(25vh - 5.1rem);
-    // media queries
-    @include breakpoint($tablet-sm) {
-      margin-top: 0;
-    }
-  }
-
   .scene__device {
     width: 68%;
     left: -2.5%;
