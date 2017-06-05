@@ -215,7 +215,7 @@ export const caseStudies = [
           id: 'nexus',
           url: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/video/nexus_n7_950x624.mp4',
           url_sm: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/video/nexus_n7_950x624.mp4_sm',
-          maxWidth: '71.4%',
+          maxWidth: '71.9%',
           videoImage: require('assets/img/case-studies/laptop.png'),
           videoPadding: '7.6% 0 10.7%',
           videoPoster: require('assets/img/home/Nexus/nexus-video-arrow.jpg')
