@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import './styles.scss';
+import PropTypes from 'prop-types';
 
 const Modal = props => {
   const { modalState } = props;
@@ -27,7 +28,7 @@ const Modal = props => {
 };
 
 Modal.propTypes = {
-  modalState: React.PropTypes.object
+  modalState: PropTypes.object
 };
 
 const injectStateProps = state => ({

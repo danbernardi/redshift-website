@@ -5,6 +5,7 @@ import 'styles/core.scss';
 import './CoreLayout.scss';
 import { metaInfo } from 'data/metaInfo';
 import DocumentMeta from 'react-document-meta';
+import PropTypes from 'prop-types';
 
 export class CoreLayout extends React.Component {
   componentDidMount () {
@@ -59,9 +60,8 @@ export class CoreLayout extends React.Component {
   }
 }
 
-const { element } = React.PropTypes;
 CoreLayout.propTypes = {
-  children: element.isRequired
+  children: PropTypes.element.isRequired
 };
 
 export default CoreLayout;

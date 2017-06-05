@@ -1,6 +1,7 @@
 import React from 'react';
 import { scrollToID } from 'utils/scrollTo';
 import './ScrollTrigger.scss';
+import PropTypes from 'prop-types';
 
 const scrollToAnchor = (target) => {
   scrollToID(target, 500);
@@ -17,8 +18,8 @@ export const ScrollTrigger = props => {
 };
 
 ScrollTrigger.propTypes = {
-  target: React.PropTypes.string,
-  classes: React.PropTypes.string
+  target: PropTypes.string,
+  classes: PropTypes.string
 };
 
 ScrollTrigger.defaultProps = {

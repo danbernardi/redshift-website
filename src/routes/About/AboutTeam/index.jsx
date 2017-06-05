@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import PinkHover from 'components/PinkHover';
+import PropTypes from 'prop-types';
 
 const AboutTeam = props => {
   const { team } = props;
@@ -22,9 +23,8 @@ const AboutTeam = props => {
   );
 };
 
-const { object } = React.PropTypes;
 AboutTeam.propTypes = {
-  team: object
+  team: PropTypes.object
 };
 
 export default AboutTeam;

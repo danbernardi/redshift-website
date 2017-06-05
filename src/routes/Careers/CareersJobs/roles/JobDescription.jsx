@@ -1,5 +1,6 @@
 import RoleTemplate from './RoleTemplate';
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export function JobDescription ({ jobDetail }) {
   return (
@@ -48,9 +49,8 @@ export function JobDescription ({ jobDetail }) {
   );
 };
 
-const { object } = React.PropTypes;
 JobDescription.propTypes = {
-  jobDetail: object
+  jobDetail: PropTypes.object
 };
 
 export default JobDescription;

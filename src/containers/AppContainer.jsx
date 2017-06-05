@@ -1,11 +1,11 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import { browserHistory, Router } from 'react-router';
 import { Provider, connect } from 'react-redux';
 import { enableScroll, disableScroll } from 'utils/scrollJack';
-// import * as actions from 'store/actions';
 import 'modernizr';
 import './styles.scss';
 import ReactGA from 'react-ga';
+import PropTypes from 'prop-types';
 
 ReactGA.initialize('UA-48401766-1');
 
@@ -43,7 +43,10 @@ class AppContainer extends Component {
 
     return (
       <Provider store={ store }>
-        <Router history={ browserHistory } children={ routes } onUpdate={ this.logPageView } />
+        <Router
+          history={ browserHistory }
+          children={ routes }
+          onUpdate={ this.logPageView } />
       </Provider>
     );
   }
@@ -54,8 +57,7 @@ const injectStateProps = state => ({
 });
 
 AppContainer.propTypes = {
-  // dispatch: React.PropTypes.func,
-  modalState: React.PropTypes.object
+  modalState: PropTypes.object
 };
 
 export default connect(injectStateProps)(AppContainer);

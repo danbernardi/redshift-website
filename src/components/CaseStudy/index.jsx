@@ -7,6 +7,8 @@ import ReactDOM from 'react-dom';
 import mojs from 'mo-js';
 import ModalCloseBtn from 'components/Modal/ModalCloseBtn';
 import Measure from 'react-measure';
+import PropTypes from 'prop-types';
+
 import './styles.scss';
 
 class CaseStudy extends React.Component {
@@ -135,7 +137,7 @@ class CaseStudy extends React.Component {
 }
 
 CaseStudy.propTypes = {
-  caseStudyContent: React.PropTypes.object,
+  caseStudyContent: PropTypes.object
 };
 
 export default CaseStudy;

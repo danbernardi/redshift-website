@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+import PropTypes from 'prop-types';
 
 export function CareersJobs (props) {
   const { job } = props;
@@ -26,10 +27,8 @@ export function CareersJobs (props) {
   );
 }
 
-const { object, func } = React.PropTypes;
 CareersJobs.propTypes = {
-  job: object,
-  dispatch: func
+  job: PropTypes.object
 };
 
 export default CareersJobs;

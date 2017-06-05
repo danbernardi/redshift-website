@@ -3,6 +3,7 @@ import * as actions from 'store/actions';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import './404.scss';
+import PropTypes from 'prop-types';
 
 class FourOhFour extends React.Component {
   componentDidMount () {
@@ -32,7 +33,7 @@ class FourOhFour extends React.Component {
 }
 
 FourOhFour.propTypes = {
-  dispatch: React.PropTypes.func
+  dispatch: PropTypes.func
 };
 
 export default connect()(FourOhFour);

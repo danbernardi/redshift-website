@@ -3,6 +3,7 @@ import * as actions from 'store/actions';
 import { connect } from 'react-redux';
 import Hamburger from 'components/Hamburger';
 import { enableScroll } from 'utils/scrollJack';
+import PropTypes from 'prop-types';
 
 const ModalCloseBtn = props => {
   const { animationTiming, dispatch, modalState, closeCallback } = props;
@@ -39,10 +40,10 @@ const ModalCloseBtn = props => {
 };
 
 ModalCloseBtn.propTypes = {
-  modalState: React.PropTypes.object,
-  dispatch: React.PropTypes.func,
-  animationTiming: React.PropTypes.number,
-  closeCallback: React.PropTypes.func
+  modalState: PropTypes.object,
+  dispatch: PropTypes.func,
+  animationTiming: PropTypes.number,
+  closeCallback: PropTypes.func
 };
 
 ModalCloseBtn.defaultProps = {

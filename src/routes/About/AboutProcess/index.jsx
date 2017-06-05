@@ -21,10 +21,10 @@ class AboutProcess extends React.Component {
       <section className="about__process mb10">
         <video
           className="mb6"
-          autoPlay
-          loop
-          muted
-          playsInline
+          autoPlay={ true }
+          loop={ true }
+          muted={ true }
+          playsInline={ true }
           id="aboutVideo"
           poster={ videoImage }
         >

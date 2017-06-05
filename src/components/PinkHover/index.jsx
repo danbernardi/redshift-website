@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import mojs from 'mo-js';
 import './styles.scss';
+import PropTypes from 'prop-types';
 
 class PinkHover extends React.Component {
   constructor (props) {
@@ -61,15 +62,12 @@ class PinkHover extends React.Component {
   }
 }
 
-const { object, string, func, oneOfType, element, array } = React.PropTypes;
 PinkHover.propTypes = {
-  children: oneOfType([element, array]),
-  classes: string,
-  modal: object,
-  dispatch: func,
-  imageSrc: string,
-  clickHandler: func,
-  alt: string
+  children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
+  classes: PropTypes.string,
+  imageSrc: PropTypes.string,
+  clickHandler: PropTypes.func,
+  alt: PropTypes.string
 };
 
 export default PinkHover;

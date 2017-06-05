@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 /* eslint react/jsx-boolean-value: 0 */
 
@@ -86,9 +87,8 @@ class CaseStudySection extends React.Component {
   }
 };
 
-const { object } = React.PropTypes;
 CaseStudySection.propTypes = {
-  caseStudyContent: object
+  caseStudyContent: PropTypes.object
 };
 
 export default CaseStudySection;

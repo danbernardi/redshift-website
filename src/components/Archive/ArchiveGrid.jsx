@@ -4,6 +4,7 @@ import { caseStudies } from 'data/caseStudies';
 import PinkHover from 'components/PinkHover';
 import * as actions from 'store/actions';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import CaseStudyModalWrapper from 'components/CaseStudy/CaseStudyModalWrapper';
 
@@ -51,8 +52,8 @@ const ArchiveGrid = props => {
 };
 
 ArchiveGrid.propTypes = {
-  dispatch: React.PropTypes.func,
-  modalState: React.PropTypes.object
+  dispatch: PropTypes.func,
+  modalState: PropTypes.object
 };
 
 const injectStateProps = state => ({

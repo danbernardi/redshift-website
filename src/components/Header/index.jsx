@@ -9,6 +9,7 @@ import Nav from 'components/Nav/index';
 import { scrollDocToZero } from 'utils/scrollTo';
 import Hamburger from 'components/Hamburger';
 import ReactGA from 'react-ga';
+import PropTypes from 'prop-types';
 
 export class Header extends React.Component {
   getPageTitle (path) {
@@ -103,10 +104,9 @@ export class Header extends React.Component {
 }
 
 Header.propTypes = {
-  modalState: React.PropTypes.object,
-  headerTheme: React.PropTypes.string,
-  dispatch: React.PropTypes.func,
-  pathname: React.PropTypes.string
+  modalState: PropTypes.object,
+  headerTheme: PropTypes.string,
+  dispatch: PropTypes.func,
 };
 
 const injectStateProps = state => ({

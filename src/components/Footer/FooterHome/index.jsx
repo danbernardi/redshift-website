@@ -5,6 +5,7 @@ import Footer from 'components/Footer';
 import { Link } from 'react-router';
 import { scrollDocToZero } from 'utils/scrollTo';
 import { isInRange } from 'utils/animation';
+import PropTypes from 'prop-types';
 
 export class FooterHome extends React.Component {
   constructor (props) {
@@ -88,8 +89,8 @@ export class FooterHome extends React.Component {
 }
 
 FooterHome.propTypes = {
-  onDidMount: React.PropTypes.func,
-  animationProgress: React.PropTypes.number
+  onDidMount: PropTypes.func,
+  animationProgress: PropTypes.number
 };
 
 export default GSAP()(FooterHome);

@@ -1,5 +1,6 @@
 import React from 'react';
 import AttachmentImage from './attachment.png';
+import PropTypes from 'prop-types';
 
 export class JobContactForm extends React.Component {
   constructor (props) {
@@ -46,11 +47,8 @@ export class JobContactForm extends React.Component {
   }
 }
 
-const { object, func, string } = React.PropTypes;
 JobContactForm.propTypes = {
-  form: object,
-  onChange: func,
-  fileName: string
+  form: PropTypes.object
 };
 
 export default JobContactForm;
