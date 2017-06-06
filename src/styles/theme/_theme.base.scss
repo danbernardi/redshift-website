@@ -32,6 +32,18 @@ a {
   color: $redshift;
 }
 
+.typ--ruby {
+  color: $ruby;
+}
+
+.typ--indigo {
+  color: $indigo;
+}
+
+.typ--plum {
+  color: $plum;
+}
+
 .bg--redshift {
   background-color: $redshift;
 }
@@ -78,6 +90,10 @@ a {
 
 .typ--medium-gray {
   color: $medium-gray;
+}
+
+.typ--light-gray {
+  color: $light-gray;
 }
 
 .bg--white {
