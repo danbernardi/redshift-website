@@ -73,6 +73,9 @@
     left: -300%;
     bottom: 0;
   }
+  @include breakpoint($mobile-lg) {
+    left: -330%;
+  }
 }
 
 .about--curve-container > div {
