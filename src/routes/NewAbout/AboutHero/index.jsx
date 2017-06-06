@@ -9,10 +9,10 @@ export class AboutHero extends React.Component {
     };
   }
 
-  _removeMask () {
-    const currentState = this.state.removeMask;
-    this.setState({ removeMask: !currentState });
-  }
+  // _removeMask () {
+  //   const currentState = this.state.removeMask;
+  //   this.setState({ removeMask: !currentState });
+  // }
 
   render () {
     const { removeMask } = this.state;
@@ -20,14 +20,10 @@ export class AboutHero extends React.Component {
       <section
         className={ `${ removeMask ? '' : 'layout--flex-col'} layout--fullheight` }
         style={ { overflow: 'hidden', position: 'relative' } }
-        onClick={ () => this._removeMask() }
+        // onClick={ () => this._removeMask() }
       >
         <div
-          className={
-            `about--transition layout--absolute layout--top
-            ${removeMask ? 'video_remove_mask' : 'video_mask '} `
-          }
-          // style={ { width: removeMask ? '100%' : '60rem' } }
+          className="about--transition layout--absolute layout--top video_mask"
         >
           <video
             autoPlay={ true }
@@ -35,7 +31,6 @@ export class AboutHero extends React.Component {
             muted={ true }
             playsInline={ true }
             id="aboutVideo"
-            style={ { width: removeMask && '100%', transform: removeMask ? '' : 'translateX(-25%)' } }
           >
             <source src="https://s3-us-west-1.amazonaws.com/rs-website-cdn/video/redshift_office_video.mp4" type="video/mp4" />
             Your browser does not support the video tag.

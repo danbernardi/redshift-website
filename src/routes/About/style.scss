@@ -13,6 +13,7 @@
   width: 60rem;
   height: 60rem;
   border-radius: 50%;
+  z-index: 999;
   // -webkit-mask-image: -webkit-radial-gradient(circle,#fff 100%,#000 0);
   right: -5%;
   top: 15%;
@@ -35,17 +36,19 @@
   }
 }
 
-.video_remove_mask {
-  width: 100%;
+.video_mask:hover {
   height: 100%;
+  width: 100vw;
   border-radius: 0;
   right: 0;
   top: 0;
-
+  video {
+    width: 100%;
+  }
 }
 
 .about--transition {
-  transition: all 0.8s ease;
+  transition: all 0.2s;
 }
 
 .about--image {
@@ -57,16 +60,16 @@
 
 .about--curve-container {
   position: relative;
-  width: calc(100vw - 10%);
-  height: calc(100vw - 10%);
+  width: 100vw;
+  height: 100vw;
   border-radius: 50%;
   border: solid 1px $medium-gray;
   bottom: -20%;
-  left: -5%;
-  @include breakpoint($mobile-lg) {
+  left: -15%;
+  @include breakpoint($tablet-lg) {
     position: relative;
-    width: calc(400vw - 7%);
-    height: calc(400vw - 7%);
+    width: 400vw;
+    height: 400vw;
     left: -300%;
     bottom: 0;
   }
@@ -76,12 +79,12 @@
   position: absolute;
   top: 0;
   left: 0;
-  height: calc(50vw - 5%);
-  width: calc(50vw - 5%);
+  height: calc(50vw + 1rem);
+  width: calc(50vw + 1rem);
   transform-origin: bottom right;
-  @include breakpoint($mobile-lg) {
-    height: 200vw;
-    width: 200vw;
+  @include breakpoint($tablet-lg) {
+    height: calc(200vw + 1rem);
+    width: calc(200vw + 1rem);
   }
 }
 
@@ -119,15 +122,81 @@
 
 .about--curve-container > div:nth-child(1) {
   transform: rotate(120deg);
+  @include breakpoint($tablet-lg) {
+    transform: rotate(110deg);
+  }
+  @include breakpoint($mobile-lg) {
+    transform: rotate(120deg);
+  }
 }
 .about--curve-container > div:nth-child(2) {
-  transform: rotate(125deg);
+  transform: rotate(128deg);
+  @include breakpoint($tablet-lg) {
+    transform: rotate(115deg);
+  }
+  @include breakpoint($mobile-lg) {
+    transform: rotate(125deg);
+  }
 }
 .about--curve-container > div:nth-child(3) {
-  transform: rotate(130deg);
+  transform: rotate(136deg);
+  @include breakpoint($tablet-lg) {
+    transform: rotate(120deg);
+  }
+  @include breakpoint($mobile-lg) {
+    transform: rotate(130deg);
+  }
 }
 .about--curve-container > div:nth-child(4) {
-  transform: rotate(135deg);
+  transform: rotate(144deg);
+  @include breakpoint($tablet-lg) {
+    transform: rotate(125deg);
+  }
+  @include breakpoint($mobile-lg) {
+    transform: rotate(135deg);
+  }
+}
+
+.about--curve-container > div:nth-child(n+1):after {
+  content: "Research";
+  transform: rotate(-120deg);
+  @include breakpoint($tablet-lg) {
+    transform: rotate(-110deg);
+  }
+  @include breakpoint($mobile-lg) {
+    transform: rotate(-120deg);
+  }
+
+}
+.about--curve-container > div:nth-child(n+2):after {
+  content: "Engineering";
+  transform: rotate(-128deg);
+  @include breakpoint($tablet-lg) {
+    transform: rotate(-115deg);
+  }
+  @include breakpoint($mobile-lg) {
+    transform: rotate(-125deg);
+  }
+}
+.about--curve-container > div:nth-child(n+3):after {
+  content: "Visual";
+  transform: rotate(-136deg);
+  @include breakpoint($tablet-lg) {
+    transform: rotate(-120deg);
+  }
+  @include breakpoint($mobile-lg) {
+    transform: rotate(-130deg);
+  }
+}
+.about--curve-container > div:nth-child(n+4):after {
+  content: "UX";
+  transform: rotate(-144deg);
+  @include breakpoint($tablet-lg) {
+    transform: rotate(-125deg);
+  }
+  @include breakpoint($mobile-lg) {
+    transform: rotate(-135deg);
+  }
 }
 
 .about--curve-container > div:nth-child(n+1):before {
@@ -143,22 +212,6 @@
   background: #BE3C97;
 }
 
-.about--curve-container > div:nth-child(n+1):after {
-  content: "Research";
-  transform: rotate(-120deg);
-}
-.about--curve-container > div:nth-child(n+2):after {
-  content: "Engineering";
-  transform: rotate(-125deg);
-}
-.about--curve-container > div:nth-child(n+3):after {
-  content: "Visual";
-  transform: rotate(-130deg);
-}
-.about--curve-container > div:nth-child(n+4):after {
-  content: "UX";
-  transform: rotate(-135deg);
-}
 
 .about-curve {
   &:before {
