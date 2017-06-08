@@ -139,7 +139,7 @@
     "rimraf": "^2.5.4",
     "rxjs": "^5.2.0",
     "sass-loader": "^4.0.0",
-    "scrollmonitor-react": "^2.0.3",
+    "scrollmonitor-react": "^2.2.1",
     "slack-node": "^0.1.8",
     "snapsvg": "^0.5.1",
     "style-loader": "^0.13.1",
