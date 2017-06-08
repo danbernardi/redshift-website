@@ -42,7 +42,7 @@ export class AboutExplore extends React.Component {
     ];
 
     return (
-      <section className="mb8 mb0--mlg">
+      <section className="my8 mb0--mlg">
         <div className="hide--tlg hero layout--relative layout--fullheight layout--landscape layout--flex">
           { aboutExplore.map((image, ind) => (
             <div key={ ind } className="about--image">
@@ -57,7 +57,7 @@ export class AboutExplore extends React.Component {
               { aboutExplore.map((item, i) => (
                 <div key={ i }>
                   <h1
-                    className={ `typ--bold ${ this.state.activeItem === item.id ? item.colorClass : 'typ--light-gray' }` }
+                    className={ `typ--bold btn ${ this.state.activeItem === item.id ? item.colorClass : 'typ--light-gray' }` }
                     onMouseEnter={ () => { this.setState({ activeItem: item.id }); } }
                     onMouseLeave={ () => { this.setState({ activeItem: 'aboutExplore' }); } }
                   >

@@ -9,9 +9,26 @@
     bottom: 12%;
   }
   @media screen and (max-device-width: 1040px) and (orientation : landscape) {
-    width: 72%;
+    width: 50%;
     z-index: 10;
     margin-left: 0;
+  }
+}
+
+.about_video {
+  z-index: 8;
+  right: -5%;
+  top: 15%;
+  overflow: hidden;
+  @include breakpoint($tablet-md) {
+    top: 13%;
+    right: -6%;
+  }
+  @include breakpoint($mobile-lg) {
+    right: -15%;
+  }
+  @media screen and (max-device-width: 1040px) and (orientation : landscape) {
+    right: -8%;
   }
 }
 
@@ -19,10 +36,7 @@
   width: 60rem;
   height: 60rem;
   border-radius: 50%;
-  z-index: 8;
-  right: -5%;
-  top: 15%;
-  overflow: hidden;
+
 
   @include breakpoint($desktop-sm) {
     width: calc(100vw - 60rem);
@@ -35,14 +49,11 @@
   }
 
   @include breakpoint($tablet-md) {
-    top: 13%;
-    right: -6%;
     height: calc(100vw - 30rem);
     width: calc(100vw - 30rem);
   }
 
   @include breakpoint($mobile-lg) {
-    right: -15%;
     height: calc(100vw - 25rem);
     width: calc(100vw - 25rem);
   }
@@ -52,14 +63,15 @@
     width: calc(100vw - 9.5rem);
   }
 
-  @media screen and (max-device-width: 1040px) and (orientation : landscape) {
-    right: -8%;
-    height: calc(100vw - 40rem);
-    width: calc(100vw - 40rem);
+  @media screen and (max-device-width: 540px) and (orientation : landscape) {
+    height: calc(100vw - 23rem);
+    width: calc(100vw - 23rem);
   }
+
+
 }
 
-.video_mask:hover {
+.video_remove_mask {
   height: 100vh;
   width: 100vw;
   border-radius: 0;
@@ -78,7 +90,7 @@
   display: flex;
   height: 50vh;
   position: absolute;
-  top: 0;
+  top: 12.5%;
 }
 
 .about--curve-container {
@@ -99,13 +111,14 @@
   }
 
   @include breakpoint($mobile-lg) {
-    left: -310%;
+    left: -305%;
   }
 
   @media screen and (max-device-width: 1040px) and (orientation : landscape) {
-    bottom: 5rem;
-    left: -292%;
+    bottom: 4.4rem;
   }
+
+
 }
 
 .about--curve-container > div {

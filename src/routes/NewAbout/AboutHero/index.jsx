@@ -9,21 +9,22 @@ export class AboutHero extends React.Component {
     };
   }
 
-  // _removeMask () {
-  //   const currentState = this.state.removeMask;
-  //   this.setState({ removeMask: !currentState });
-  // }
+  _removeMask () {
+    const currentState = this.state.removeMask;
+    this.setState({ removeMask: !currentState });
+  }
 
   render () {
     const { removeMask } = this.state;
     return (
       <section
-        className={ `${ removeMask ? '' : 'layout--flex-col'} layout--fullheight layout--landscape` }
+        className="layout--flex-col layout--fullheight layout--landscape"
         style={ { overflow: 'hidden', position: 'relative' } }
-        // onClick={ () => this._removeMask() }
+        onClick={ () => this._removeMask() }
       >
         <div
-          className="about--transition layout--absolute layout--top video_mask"
+          className={ `about--transition layout--absolute layout--top about_video
+          ${ removeMask ? 'video_remove_mask' : 'video_mask' }` }
         >
           <video
             autoPlay={ true }
@@ -37,7 +38,7 @@ export class AboutHero extends React.Component {
           </video>
         </div>
 
-        <div className="row about--header" /* style={ { display: removeMask && 'none' } } */ >
+        <div className="row about--header" style={ { display: removeMask && 'none' } } >
           <div className="col-7 col-12--mlg">
             <h1 className="typ--bold typ--redshift pb2 pb1--mlg">About Redshift.</h1>
             <h3 className="pb2">
