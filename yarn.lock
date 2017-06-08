@@ -4874,7 +4874,7 @@ promise@^7.1.1:
   dependencies:
     asap "~2.0.3"
 
-prop-types@^15.5.8:
+prop-types@^15.5.10, prop-types@^15.5.7, prop-types@^15.5.8:
   version "15.5.10"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.5.10.tgz#2797dfc3126182e3a95e3dfbb2e893ddd7456154"
   dependencies:
@@ -4990,7 +4990,7 @@ react-document-meta@^2.1.2:
     prop-types "^15.5.8"
     react-side-effect "^1.1.0"
 
-react-dom@^15.0.0, react-dom@^15.3.2:
+react-dom@^15.0.0:
   version "15.4.2"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-15.4.2.tgz#015363f05b0a1fd52ae9efdd3a0060d90695208f"
   dependencies:
@@ -5056,13 +5056,14 @@ react-side-effect@^1.1.0:
     exenv "^1.2.1"
     shallowequal "^1.0.1"
 
-react@^15.0.0, react@^15.3.2:
-  version "15.4.2"
-  resolved "https://registry.yarnpkg.com/react/-/react-15.4.2.tgz#41f7991b26185392ba9bae96c8889e7e018397ef"
+react@^15.5.0:
+  version "15.5.4"
+  resolved "https://registry.yarnpkg.com/react/-/react-15.5.4.tgz#fa83eb01506ab237cdc1c8c3b1cea8de012bf047"
   dependencies:
-    fbjs "^0.8.4"
+    fbjs "^0.8.9"
     loose-envify "^1.1.0"
     object-assign "^4.1.0"
+    prop-types "^15.5.7"
 
 read-all-stream@^3.0.0:
   version "3.1.0"
@@ -5481,12 +5482,11 @@ sax@~1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/sax/-/sax-1.2.1.tgz#7b8e656190b228e81a66aea748480d828cd2d37a"
 
-scrollmonitor-react@^2.0.3:
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/scrollmonitor-react/-/scrollmonitor-react-2.0.3.tgz#d25f336410769baa54d0308d44d74752471dd7dd"
+scrollmonitor-react@^2.2.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/scrollmonitor-react/-/scrollmonitor-react-2.2.1.tgz#aa9946dd5986cd1a2a6aac49f682a6befb2a5421"
   dependencies:
-    react "^15.3.2"
-    react-dom "^15.3.2"
+    prop-types "^15.5.10"
     scrollmonitor "^1.1.1"
 
 scrollmonitor@^1.1.1:
