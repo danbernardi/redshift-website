@@ -57,7 +57,7 @@ export class Builder extends React.Component {
     const { children, scrollContainer } = this.props;
 
     return (
-      <div style={ { opacity: 0, transform: 'translateY(20rem)' } }>
+      <div style={ { opacity: 0, transform: 'translateY(5rem)' } }>
         <Watcher
           autoStart={ false }
           stateChange={ this.watcherCallback.bind(this) }
@@ -82,7 +82,7 @@ Builder.propTypes = {
 
 Builder.defaultProps = {
   offset: '10vh',
-  delay: 0
+  delay: 0.3
 };
 
 export default GSAP()(Builder);
