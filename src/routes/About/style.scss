@@ -2,10 +2,10 @@
 
 .about--header {
   @include breakpoint($tablet-lg) {
-    bottom: 20%;
+    bottom: 15%;
   }
    @include breakpoint($mobile-lg) {
-    bottom: 17%;
+    bottom: 12%;
   }
 }
 
@@ -13,7 +13,7 @@
   width: 60rem;
   height: 60rem;
   border-radius: 50%;
-  z-index: 998;
+  z-index: 8;
   // -webkit-mask-image: -webkit-radial-gradient(circle,#fff 100%,#000 0);
   right: -5%;
   top: 15%;
@@ -27,17 +27,19 @@
     width: calc(100vw - 54rem);
   }
   @include breakpoint($tablet-md) {
-    top: 9%;
-    height: calc(100vw - 40rem);
-    width: calc(100vw - 40rem);
+    top: 13%;
+    right: -6%;
+    height: calc(100vw - 30rem);
+    width: calc(100vw - 30rem);
   }
   @include breakpoint($mobile-lg) {
+    right: -15%;
     height: calc(100vw - 25rem);
     width: calc(100vw - 25rem);
   }
   @include breakpoint($mobile-sm) {
-    height: calc(100vw - 15rem);
-    width: calc(100vw - 15rem);
+    height: calc(100vw - 9.5rem);
+    width: calc(100vw - 9.5rem);
   }
 }
 
@@ -80,7 +82,7 @@
     bottom: 0;
   }
   @include breakpoint($mobile-lg) {
-    left: -330%;
+    left: -310%;
   }
 }
 
@@ -103,19 +105,21 @@
   }
 }
 
-.about--curve-container > div:after {
+.about--curve-container > div:before {
   font-size: 3.6rem;
   @include font(bold);
   left: -3rem;
   bottom: 1.8rem;
+  line-height: 3.6rem;
   @include breakpoint($mobile-lg) {
     font-size: 1.6rem;
+    line-height: 1.6rem;
     left: -1.4rem;
     bottom: 2.3rem;
   }
 }
 
-.about--curve-container > div:before {
+.about--curve-container > div:after {
   bottom: 0px;
   left: 0px;
 }
@@ -130,7 +134,7 @@
 }
 
 .about--curve-container > div:nth-child(1) {
-  transform: rotate(120deg);
+  transform: rotate(115deg);
   @include breakpoint($tablet-lg) {
     transform: rotate(110deg);
   }
@@ -139,7 +143,7 @@
   }
 }
 .about--curve-container > div:nth-child(2) {
-  transform: rotate(128deg);
+  transform: rotate(129.4deg);
   @include breakpoint($tablet-lg) {
     transform: rotate(115deg);
   }
@@ -148,7 +152,7 @@
   }
 }
 .about--curve-container > div:nth-child(3) {
-  transform: rotate(136deg);
+  transform: rotate(141.6deg);
   @include breakpoint($tablet-lg) {
     transform: rotate(120deg);
   }
@@ -157,7 +161,7 @@
   }
 }
 .about--curve-container > div:nth-child(4) {
-  transform: rotate(144deg);
+  transform: rotate(154deg);
   @include breakpoint($tablet-lg) {
     transform: rotate(125deg);
   }
@@ -166,9 +170,9 @@
   }
 }
 
-.about--curve-container > div:nth-child(n+1):after {
+.about--curve-container > div:nth-child(n+1):before {
   content: "Research";
-  transform: rotate(-120deg);
+  transform: rotate(-115deg);
   @include breakpoint($tablet-lg) {
     transform: rotate(-110deg);
   }
@@ -177,9 +181,9 @@
   }
 
 }
-.about--curve-container > div:nth-child(n+2):after {
+.about--curve-container > div:nth-child(n+2):before {
   content: "Engineering";
-  transform: rotate(-128deg);
+  transform: rotate(-129.4deg);
   @include breakpoint($tablet-lg) {
     transform: rotate(-115deg);
   }
@@ -187,9 +191,9 @@
     transform: rotate(-125deg);
   }
 }
-.about--curve-container > div:nth-child(n+3):after {
+.about--curve-container > div:nth-child(n+3):before {
   content: "Visual";
-  transform: rotate(-136deg);
+  transform: rotate(-141.6deg);
   @include breakpoint($tablet-lg) {
     transform: rotate(-120deg);
   }
@@ -197,9 +201,9 @@
     transform: rotate(-130deg);
   }
 }
-.about--curve-container > div:nth-child(n+4):after {
+.about--curve-container > div:nth-child(n+4):before {
   content: "UX";
-  transform: rotate(-144deg);
+  transform: rotate(-154deg);
   @include breakpoint($tablet-lg) {
     transform: rotate(-125deg);
   }
@@ -208,17 +212,17 @@
   }
 }
 
-.about--curve-container > div:nth-child(n+1):before {
+.about--curve-container > div:nth-child(n+1):after {
   background: $redshift;
 }
-.about--curve-container > div:nth-child(n+2):before {
+.about--curve-container > div:nth-child(n+2):after {
   background: #E33170;
 }
-.about--curve-container > div:nth-child(n+3):before {
+.about--curve-container > div:nth-child(n+3):after {
   background: #BE3C97;
 }
-.about--curve-container > div:nth-child(n+4):before {
-  background: #BE3C97;
+.about--curve-container > div:nth-child(n+4):after {
+  background: #B141A5;
 }
 
 

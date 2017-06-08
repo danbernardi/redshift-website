@@ -39,7 +39,7 @@ export class AboutHero extends React.Component {
 
         <div className="row about--header" style={ { zIndex: 3, display: removeMask && 'none' } }>
           <div className="col-7 col-12--mlg">
-            <h1 className="typ--bold typ--redshift pb2">About Redshift</h1>
+            <h1 className="typ--bold typ--redshift pb2 pb1--mlg">About Redshift</h1>
             <h3 className="pb2">
               We are an award-winning agency dedicated to creating simple, meaningful experiences for users and positive results for our clients.
             </h3>
