@@ -30,7 +30,7 @@ export class Builder extends React.Component {
 
   watcherCallback (watcher) {
     const { animatedIn } = this.state;
-    console.log(watcher);
+
     if (watcher.isInViewport && !animatedIn) {
       this.timeline = this.addAnimation(this.animateIn.bind(this)).play();
     }
@@ -57,7 +57,7 @@ export class Builder extends React.Component {
     const { children, scrollContainer } = this.props;
 
     return (
-      <div style={ { opacity: 0, transform: 'translateY(5rem)' } }>
+      <div style={ { opacity: 0, transform: 'translateY(20rem)' } }>
         <Watcher
           autoStart={ false }
           stateChange={ this.watcherCallback.bind(this) }

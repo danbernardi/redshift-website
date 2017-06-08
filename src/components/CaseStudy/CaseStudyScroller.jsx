@@ -8,6 +8,7 @@ import Builder from 'components/Builder';
 
 export class CaseStudyScroller extends React.Component {
   componentDidMount () {
+    const { passRefsToParent } = this.props;
     const sidebar = this.sidebar;
 
     const sidebarAnimation = new mojs.Tween({
@@ -20,58 +21,69 @@ export class CaseStudyScroller extends React.Component {
     });
 
     sidebarAnimation.play();
+
+    if (passRefsToParent instanceof Function) {
+      passRefsToParent({
+        name: this.name,
+        next: this.next,
+        nextname: this.nextname,
+        nextlabel: this.nextlabel
+      });
+    }
   }
 
   render () {
     const { caseStudyContent, nextCaseStudy, scrollContainer } = this.props;
 
     return (
-      <section ref="casestudy" className={ `modal__with-sidebar ${caseStudyContent.id}` }>
+      <section ref={ (el) => { this.casestudy = el; } } className={ `modal__with-sidebar ${caseStudyContent.id}` }>
         <div className={ `job__sidebar bg--${caseStudyContent.id}` } ref={
           (sidebar) => { this.sidebar = sidebar; }
         } />
         <div className="layout--relative ml8 ml1--mlg bg--white">
-          <div className="row"><h4 className="modal__title" ref="name">{ caseStudyContent.name }</h4></div>
+          <div className="row"><h4 className="modal__title" ref={ (el) => { this.name = el; } }>{ caseStudyContent.name }</h4></div>
 
-          <div ref="blur">
+          <div ref={ (el) => { this.blur = el; } }>
             <div className="row">
-              <div className="casestudy__heading layout--fullheight">
-                <h1 className={ `typ--${caseStudyContent.id} typ--bold casestudy__title` }>
-                  { caseStudyContent.heading }
-                </h1>
-                <div className="casestudy__scrollarrow">
-                  <img src={ require('assets/img/down-arrow.svg') } alt="Scroll down" />
+              <Builder scrollContainer={ scrollContainer }>
+                <div className="casestudy__heading layout--fullheight">
+                  <h1 className={ `typ--${caseStudyContent.id} typ--bold casestudy__title` }>
+                    { caseStudyContent.heading }
+                  </h1>
+                  <div className="casestudy__scrollarrow">
+                    <img src={ require('assets/img/down-arrow.svg') } alt="Scroll down" />
+                  </div>
                 </div>
-              </div>
+              </Builder>
             </div>
             { caseStudyContent.content && caseStudyContent.content.length &&
               caseStudyContent.content.map((section, index) => (
-                <Builder key={ index } scrollContainer={ scrollContainer }>
-                  <CaseStudySection
-                    key={ index }
-                    caseStudyContent={ section }
-                  />
-                </Builder>
+                <CaseStudySection
+                  key={ index }
+                  caseStudyContent={ section }
+                  scrollContainer={ scrollContainer }
+                />
               ))
              }
           </div>
 
           { nextCaseStudy && typeof nextCaseStudy === 'object' &&
             <Measure onMeasure={ dimensions => { this.setState({ dimensions }); } }>
-              <Link
-                ref="next"
-                to={ `/work/${nextCaseStudy.id}` }
-                style={ { display: 'block', bottom: 0, height: 'auto', opacity: 1 } }
-                className="casestudy__next"
-              >
-                <div className={ `casestudy__next--sidebar bg--${nextCaseStudy.id}` } />
-                <div className="layout--relative ml8 ml1--mlg">
-                  <div className="row">
-                    <span ref="next-label" className="typ--light">View next case study</span>
-                    <h2 ref="next-name" className={ `typ--${nextCaseStudy.id}` }>{ nextCaseStudy.name }</h2>
+              <div ref={ (el) => { this.next = el; } }>
+                <Link
+                  to={ `/work/${nextCaseStudy.id}` }
+                  style={ { display: 'block', bottom: 0, height: 'auto', opacity: 1 } }
+                  className="casestudy__next"
+                >
+                  <div className={ `casestudy__next--sidebar bg--${nextCaseStudy.id}` } />
+                  <div className="layout--relative ml8 ml1--mlg">
+                    <div className="row">
+                      <span ref={ (el) => { this.nextlabel = el; } } className="typ--light">View next case study</span>
+                      <h2 ref={ (el) => { this.nextname = el; } } className={ `typ--${nextCaseStudy.id}` }>{ nextCaseStudy.name }</h2>
+                    </div>
                   </div>
-                </div>
-              </Link>
+                </Link>
+              </div>
             </Measure>
           }
         </div>

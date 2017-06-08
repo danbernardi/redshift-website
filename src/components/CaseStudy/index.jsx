@@ -15,17 +15,20 @@ class CaseStudy extends React.Component {
     super(props);
 
     this.state = {
-      dimensions: { height: -1, width: -1 }
+      dimensions: { height: -1, width: -1 },
+      childRefs: {}
     };
   }
 
   componentWillEnter (callback) { callback(); }
 
   componentWillLeave (unmountComponent) {
-    const name = ReactDOM.findDOMNode(this.refs.name);
-    const next = ReactDOM.findDOMNode(this.refs.next);
-    const nextName = ReactDOM.findDOMNode(this.refs['next-name']);
-    const nextLabel = ReactDOM.findDOMNode(this.refs['next-label']);
+    const { childRefs } = this.state;
+
+    const name = childRefs.name;
+    const next = childRefs.next.querySelector('a');
+    const nextName = childRefs.nextname;
+    const nextLabel = childRefs.nextlabel;
     const { dimensions } = this.state;
     nextName.style.transition = 'color 400ms ease-in-out, background-color 400ms ease-out 100ms';
     nextName.style.color = '#a3a3a3';
@@ -65,7 +68,7 @@ class CaseStudy extends React.Component {
     return (
       <div className="casestudy__modal">
         <ModalCloseBtn closeCallback={ () => browserHistory.push('/work') } />
-        <CaseStudyScroller caseStudyContent={ caseStudyContent } nextCaseStudy={ nextCaseStudy } />
+        <CaseStudyScroller passRefsToParent={ (childRefs) => this.setState({ childRefs }) } caseStudyContent={ caseStudyContent } nextCaseStudy={ nextCaseStudy } />
       </div>
     );
   }

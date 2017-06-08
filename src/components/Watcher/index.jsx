@@ -20,7 +20,7 @@ export class Watcher extends React.Component {
   }
 
   render () {
-    const { classes, offset, children, scrollContainer } = this.props;
+    const { classes, offset, children } = this.props;
 
     return (
       <div className={ `watcher ${classes}` } style={ offset }>{ children }</div>
