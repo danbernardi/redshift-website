@@ -27,7 +27,7 @@ class CaseStudySection extends React.Component {
   render () {
     const { caseStudyContent } = this.props;
     // const { caseStudyContent.pad } = true;
-    console.log(caseStudyContent);
+    // console.log(caseStudyContent);
     // video, images, imgAlt, copy, pad, classes, containerClass
     return (
       <div className={ caseStudyContent.classes && caseStudyContent.classes }>
