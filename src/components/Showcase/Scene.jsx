@@ -5,6 +5,7 @@ import { isInRange } from 'utils/animation';
 import './Scene.scss';
 import { TimelineMax, Power3, Power1 } from 'gsap';
 import GSAP from 'react-gsap-enhancer';
+import PropTypes from 'prop-types';
 
 // const SUPPORT_TOUCH = 'ontouchstart' in window;
 
@@ -180,12 +181,12 @@ export class Scene extends React.Component {
 }
 
 Scene.propTypes = {
-  index: React.PropTypes.number,
-  animationProgress: React.PropTypes.number,
-  id: React.PropTypes.string,
-  caption: React.PropTypes.array,
-  onDidMount: React.PropTypes.func,
-  device: React.PropTypes.object
+  index: PropTypes.number,
+  animationProgress: PropTypes.number,
+  id: PropTypes.string,
+  caption: PropTypes.array,
+  onDidMount: PropTypes.func,
+  device: PropTypes.object
 };
 
 const injectStateProps = state => ({

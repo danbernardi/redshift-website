@@ -1,6 +1,5 @@
 import React from 'react';
 import AboutProcess from './AboutProcess';
-import Clients from 'components/Clients';
 import AboutTeam from './AboutTeam';
 import HowWeWork from './HowWeWork';
 import './style.scss';
@@ -10,6 +9,7 @@ import { connect } from 'react-redux';
 import Footer from 'components/Footer';
 import BioModal from './AboutTeam/BioModal';
 import * as actions from 'store/actions';
+import PropTypes from 'prop-types';
 
 export class About extends React.Component {
   componentDidMount () {
@@ -48,6 +48,18 @@ export class About extends React.Component {
     dispatch(actions.toggleModal(false));
   }
 
+  clients (clientData) {
+    return (
+      <div className="clients">
+        { clientData.map((client, index) => (
+          <div key={ index } className="clients__client">
+            <img src={ client.image } alt={ client.name } />
+          </div>
+        )) }
+      </div>
+    );
+  }
+
   render () {
     return (
       <div>
@@ -62,7 +74,7 @@ export class About extends React.Component {
             >
               We’ve had the privilege of working with some of the world’s top brands and many promising startups.
             </h4>
-            <Clients data={ clientData } />
+            { this.clients(clientData) }
           </div>
         </section>
         <section className="about--team pt9 pt6--tlg cf">
@@ -80,8 +92,8 @@ export class About extends React.Component {
 }
 
 About.propTypes = {
-  dispatch: React.PropTypes.func,
-  params: React.PropTypes.object
+  dispatch: PropTypes.func,
+  params: PropTypes.object
 };
 
 export default connect()(About);

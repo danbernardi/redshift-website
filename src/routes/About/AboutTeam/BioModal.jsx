@@ -2,6 +2,7 @@ import React from 'react';
 import ModalCloseBtn from 'components/Modal/ModalCloseBtn';
 import { browserHistory } from 'react-router';
 import '../style.scss';
+import PropTypes from 'prop-types';
 
 export function BioTemplate (props) {
   const { bioContent } = props;
@@ -27,9 +28,8 @@ export function BioTemplate (props) {
   );
 };
 
-const { object } = React.PropTypes;
 BioTemplate.propTypes = {
-  bioContent: object
+  bioContent: PropTypes.object
 };
 
 export default BioTemplate;

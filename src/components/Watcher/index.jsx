@@ -1,5 +1,6 @@
 import React from 'react';
 import { Watch } from 'scrollmonitor-react';
+import PropTypes from 'prop-types';
 
 const Watcher = props => {
   const { classes, offset } = props;
@@ -14,8 +15,8 @@ Watcher.defaultProps = {
 };
 
 Watcher.propTypes = {
-  classes: React.PropTypes.string,
-  offset: React.PropTypes.object
+  classes: PropTypes.string,
+  offset: PropTypes.object
 };
 
 export default Watch(Watcher);

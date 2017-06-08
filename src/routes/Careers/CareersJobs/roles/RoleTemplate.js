@@ -3,6 +3,7 @@ import JobContact from '../JobContact';
 import ModalCloseBtn from 'components/Modal/ModalCloseBtn';
 import { browserHistory } from 'react-router';
 import '../../style.scss';
+import PropTypes from 'prop-types';
 
 export function RoleTemplate ({ children, name }) {
   return (
@@ -20,10 +21,9 @@ export function RoleTemplate ({ children, name }) {
   );
 }
 
-const { element, string } = React.PropTypes;
 RoleTemplate.propTypes = {
-  children: element,
-  name: string
+  children: PropTypes.element,
+  name: PropTypes.string
 };
 
 export default RoleTemplate;

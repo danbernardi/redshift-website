@@ -8,6 +8,7 @@ import { mapRange, isInRange } from 'utils/animation';
 import { getScrollDirection } from 'utils/scrollJack';
 import { TweenMax } from 'gsap';
 import { setHeaderTheme } from 'store/actions';
+import PropTypes from 'prop-types';
 
 const normalizeTouchEvent = (event) => {
   if (!event.touches) {
@@ -471,9 +472,9 @@ export class Showcase extends React.Component {
 }
 
 Showcase.propTypes = {
-  scenes: React.PropTypes.array,
-  dispatch: React.PropTypes.func,
-  locationHistory: React.PropTypes.object
+  scenes: PropTypes.array,
+  dispatch: PropTypes.func,
+  locationHistory: PropTypes.object
 };
 
 const injectStateProps = state => ({

@@ -2,6 +2,8 @@ import React from 'react';
 import Footer from 'components/Footer';
 import './Inspiration.scss';
 import { ellipsisString } from 'utils/string';
+import PropTypes from 'prop-types';
+
 export class Inspiration extends React.Component {
   constructor (props) {
     super(props);
@@ -12,9 +14,9 @@ export class Inspiration extends React.Component {
   }
 
   componentDidMount () {
-    fetch('/feed/inspiration').then((res) => {
-      return res.json();
-    }).then((json) => {
+    fetch('/feed/inspiration').then(
+      (res) => res.json()
+    ).then((json) => {
       this.setState({
         feed: json
       });
@@ -71,7 +73,7 @@ export class Inspiration extends React.Component {
 }
 
 Inspiration.propTypes = {
-  dispatch: React.PropTypes.func
+  dispatch: PropTypes.func
 };
 
 export default Inspiration;

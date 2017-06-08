@@ -1,6 +1,7 @@
 import React from 'react';
 import FooterSocial from './FooterSocial';
 import './footer.scss';
+import PropTypes from 'prop-types';
 
 export function Footer (props) {
   const { onDidMount, classes, children } = props;
@@ -29,9 +30,9 @@ export function Footer (props) {
 };
 
 Footer.propTypes = {
-  onDidMount: React.PropTypes.func,
-  classes: React.PropTypes.string,
-  children: React.PropTypes.node
+  onDidMount: PropTypes.func,
+  classes: PropTypes.string,
+  children: PropTypes.node
 };
 
 export default Footer;

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { caseStudies } from 'data/caseStudies';
 import CaseStudy from './index';
 import TransitionGroup from 'react-addons-transition-group';
+import PropTypes from 'prop-types';
 
 // import MojsCurveEditor from 'mojs-curve-editor';
 
@@ -41,8 +42,8 @@ const CaseStudyModalWrapper = props => {
 };
 
 CaseStudyModalWrapper.propTypes = {
-  caseStudyState: React.PropTypes.object,
-  caseContent: React.PropTypes.object
+  caseStudyState: PropTypes.object,
+  caseContent: PropTypes.object
 };
 
 const injectStateProps = state => ({

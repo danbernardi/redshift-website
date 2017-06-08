@@ -7,6 +7,7 @@ import './style.scss';
 import { jobDetails } from 'data/jobDetails';
 import Footer from 'components/Footer';
 import JobDescription from './CareersJobs/roles/JobDescription';
+import PropTypes from 'prop-types';
 
 export class Careers extends React.Component {
   componentDidMount () {
@@ -96,8 +97,8 @@ export class Careers extends React.Component {
 }
 
 Careers.propTypes = {
-  dispatch: React.PropTypes.func,
-  params: React.PropTypes.object
+  dispatch: PropTypes.func,
+  params: PropTypes.object
 };
 
 export default connect()(Careers);

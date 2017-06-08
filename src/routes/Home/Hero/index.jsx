@@ -3,6 +3,7 @@ import GSAP from 'react-gsap-enhancer';
 import { TimelineMax } from 'gsap';
 import { isInRange } from 'utils/animation';
 import 'components/ScrollTrigger/ScrollTrigger.scss';
+import PropTypes from 'prop-types';
 
 export class Hero extends React.Component {
   constructor (props) {
@@ -111,9 +112,9 @@ export class Hero extends React.Component {
 }
 
 Hero.propTypes = {
-  onDidMount: React.PropTypes.func,
-  clickCallback: React.PropTypes.func,
-  animationProgress: React.PropTypes.number
+  onDidMount: PropTypes.func,
+  clickCallback: PropTypes.func,
+  animationProgress: PropTypes.number
 };
 
 export default (GSAP()(Hero));

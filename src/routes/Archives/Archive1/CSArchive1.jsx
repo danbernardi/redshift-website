@@ -6,6 +6,7 @@ import img3 from './archive1_3.jpg';
 import img4 from './archive1_4.jpg';
 import img5 from './archive1_5.jpg';
 import CSNorton from 'routes/Home/Norton/CSNorton';
+import PropTypes from 'prop-types';
 
 const CSFive = (props) => {
   const { animateIn } = props;
@@ -32,7 +33,7 @@ const CSFive = (props) => {
 };
 
 CSFive.propTypes = {
-  animateIn: React.PropTypes.bool
+  animateIn: PropTypes.bool
 };
 
 export default CSFive;

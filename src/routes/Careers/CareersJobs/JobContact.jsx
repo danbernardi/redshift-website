@@ -2,6 +2,7 @@ import React from 'react';
 
 import JobContactForm from './JobContactForm';
 import JobThanks from './JobThanks';
+import PropTypes from 'prop-types';
 
 const formItems = [
   {
@@ -97,9 +98,8 @@ export class JobContact extends React.Component {
   }
 };
 
-const { string } = React.PropTypes;
 JobContact.propTypes = {
-  position: string
+  position: PropTypes.string
 };
 
 export default JobContact;

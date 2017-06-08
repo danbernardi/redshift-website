@@ -1,5 +1,6 @@
 import React from 'react';
 import './Clients.scss';
+import PropTypes from 'prop-types';
 
 export function AboutClients (props) {
   const { data } = props;
@@ -15,9 +16,8 @@ export function AboutClients (props) {
   );
 }
 
-const { array } = React.PropTypes;
 AboutClients.propTypes = {
-  data: array
+  data: PropTypes.array
 };
 
 export default AboutClients;
