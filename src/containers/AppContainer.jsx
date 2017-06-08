@@ -54,7 +54,7 @@ const injectStateProps = state => ({
 });
 
 AppContainer.propTypes = {
-  dispatch: React.PropTypes.func,
+  // dispatch: React.PropTypes.func,
   modalState: React.PropTypes.object
 };
 
