@@ -162,7 +162,7 @@ export class Scene extends React.Component {
 
         <div data-animationName="cta-text" className="scene__cta typ--white mx10 mx8--dsm mx3--tlg">
           <div>
-            <h2 data-animationName="cta-caption" className="scene__caption mb4 mb2--mlg typ--bold">
+            <h2 data-animationName="cta-caption" className="scene__caption typ--bold">
               { caption.map((string, index) => (
                 <span key={ index }>{ string }</span>
               )) }
