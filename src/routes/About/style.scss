@@ -1,10 +1,230 @@
 @import 'sass-includes';
 
+.about--header {
+  @include breakpoint($tablet-lg) {
+    bottom: 20%;
+  }
+   @include breakpoint($mobile-lg) {
+    bottom: 17%;
+  }
+}
+
+.video_mask {
+  width: 60rem;
+  height: 60rem;
+  border-radius: 50%;
+  z-index: 998;
+  // -webkit-mask-image: -webkit-radial-gradient(circle,#fff 100%,#000 0);
+  right: -5%;
+  top: 15%;
+  overflow: hidden;
+  @include breakpoint($desktop-sm) {
+    width: calc(100vw - 60rem);
+    height: calc(100vw - 60rem);
+  }
+  @include breakpoint($tablet-lg) {
+    height: calc(100vw - 54rem);
+    width: calc(100vw - 54rem);
+  }
+  @include breakpoint($tablet-md) {
+    top: 9%;
+    height: calc(100vw - 40rem);
+    width: calc(100vw - 40rem);
+  }
+  @include breakpoint($mobile-lg) {
+    height: calc(100vw - 25rem);
+    width: calc(100vw - 25rem);
+  }
+  @include breakpoint($mobile-sm) {
+    height: calc(100vw - 15rem);
+    width: calc(100vw - 15rem);
+  }
+}
+
+.video_mask:hover {
+  height: 100vh;
+  width: 100vw;
+  border-radius: 0;
+  right: 0;
+  top: 0;
+  display: flex;
+  video {
+    width: 100%;
+  }
+}
+
+.about--transition {
+  transition: all 0.4s ease-in;
+}
+
+.about--image {
+  display: flex;
+  height: 50vh;
+  position: absolute;
+  top: 0;
+}
+
+.about--curve-container {
+  position: relative;
+  width: 100vw;
+  height: 100vw;
+  border-radius: 50%;
+  border: solid 1px $medium-gray;
+  bottom: -20%;
+  left: -15%;
+  @include breakpoint($tablet-lg) {
+    position: relative;
+    width: 400vw;
+    height: 400vw;
+    left: -300%;
+    bottom: 0;
+  }
+  @include breakpoint($mobile-lg) {
+    left: -330%;
+  }
+}
+
+.about--curve-container > div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: calc(50vw + 1rem);
+  width: calc(50vw + 1rem);
+  transform-origin: bottom right;
+  @include breakpoint($tablet-lg) {
+    height: calc(200vw + 1rem);
+    width: calc(200vw + 1rem);
+  }
+}
+
+.about--explore-text {
+  @include breakpoint($desktop-sm) {
+    font-size: 2.4rem;
+  }
+}
+
+.about--curve-container > div:after {
+  font-size: 3.6rem;
+  @include font(bold);
+  left: -3rem;
+  bottom: 1.8rem;
+  @include breakpoint($mobile-lg) {
+    font-size: 1.6rem;
+    left: -1.4rem;
+    bottom: 2.3rem;
+  }
+}
+
+.about--curve-container > div:before {
+  bottom: 0px;
+  left: 0px;
+}
+
+.about--curve-container > div:after,
+.about--curve-container > div:before {
+  position: absolute;
+  content: '';
+  height: 2rem;
+  width: 2rem;
+  border-radius: 50%;
+}
+
+.about--curve-container > div:nth-child(1) {
+  transform: rotate(120deg);
+  @include breakpoint($tablet-lg) {
+    transform: rotate(110deg);
+  }
+  @include breakpoint($mobile-lg) {
+    transform: rotate(120deg);
+  }
+}
+.about--curve-container > div:nth-child(2) {
+  transform: rotate(128deg);
+  @include breakpoint($tablet-lg) {
+    transform: rotate(115deg);
+  }
+  @include breakpoint($mobile-lg) {
+    transform: rotate(125deg);
+  }
+}
+.about--curve-container > div:nth-child(3) {
+  transform: rotate(136deg);
+  @include breakpoint($tablet-lg) {
+    transform: rotate(120deg);
+  }
+  @include breakpoint($mobile-lg) {
+    transform: rotate(130deg);
+  }
+}
+.about--curve-container > div:nth-child(4) {
+  transform: rotate(144deg);
+  @include breakpoint($tablet-lg) {
+    transform: rotate(125deg);
+  }
+  @include breakpoint($mobile-lg) {
+    transform: rotate(135deg);
+  }
+}
+
+.about--curve-container > div:nth-child(n+1):after {
+  content: "Research";
+  transform: rotate(-120deg);
+  @include breakpoint($tablet-lg) {
+    transform: rotate(-110deg);
+  }
+  @include breakpoint($mobile-lg) {
+    transform: rotate(-120deg);
+  }
+
+}
+.about--curve-container > div:nth-child(n+2):after {
+  content: "Engineering";
+  transform: rotate(-128deg);
+  @include breakpoint($tablet-lg) {
+    transform: rotate(-115deg);
+  }
+  @include breakpoint($mobile-lg) {
+    transform: rotate(-125deg);
+  }
+}
+.about--curve-container > div:nth-child(n+3):after {
+  content: "Visual";
+  transform: rotate(-136deg);
+  @include breakpoint($tablet-lg) {
+    transform: rotate(-120deg);
+  }
+  @include breakpoint($mobile-lg) {
+    transform: rotate(-130deg);
+  }
+}
+.about--curve-container > div:nth-child(n+4):after {
+  content: "UX";
+  transform: rotate(-144deg);
+  @include breakpoint($tablet-lg) {
+    transform: rotate(-125deg);
+  }
+  @include breakpoint($mobile-lg) {
+    transform: rotate(-135deg);
+  }
+}
+
+.about--curve-container > div:nth-child(n+1):before {
+  background: $redshift;
+}
+.about--curve-container > div:nth-child(n+2):before {
+  background: #E33170;
+}
+.about--curve-container > div:nth-child(n+3):before {
+  background: #BE3C97;
+}
+.about--curve-container > div:nth-child(n+4):before {
+  background: #BE3C97;
+}
+
+
 .about-curve {
   &:before {
     content: '';
-    height: 5rem;
-    width: 5rem;
     background-color: $redshift;
     display: block;
     margin: 1.3rem auto;

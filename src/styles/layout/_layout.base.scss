@@ -7,7 +7,7 @@
 }
 
 .layout--top {
-  vertical-align: top;
+  top: 0;
 }
 
 .layout-abs--right {
@@ -34,6 +34,15 @@
 .layout--flex {
   display: flex;
   align-items: center;
+}
+
+.layout--flex-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  @include breakpoint($tablet-lg) {
+    justify-content: flex-end;
+  }
 }
 
 .list--inline {
@@ -111,4 +120,12 @@ ol {
 .quarter-width {
   width: 25%;
   float: left;
+}
+
+.opacity--zero {
+  opacity: 0;
+}
+
+.opacity--one {
+  opacity: 1;
 }

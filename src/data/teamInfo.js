@@ -113,18 +113,18 @@ export const teamInfo = [
       'Originally from Philadelphia, via Austin and Los Angeles, he currently lives in Alameda with his wife Ellen and his crabby dog, Ajax Pupperknuckles.'
     ]
   },
-  {
-    id: 'jennie',
-    name: 'Jennie Bowers',
-    position: 'Senior Visual Designer',
-    photo: require('assets/img/about/team/jennie.jpg'),
-    modalImage: require('assets/img/about/team/modal/jennie.jpg'),
-    bioStatement: [
-      'Jennie Bowers is an award-winning graphic and interactive designer.',
-      'Jennie began her career at Onvia.com, a provider of government-to-business solutions, before joining GameHouse.com as a member of the design team that pioneered downloadable computer games. Next she led design at FarmsReach, a startup that connects farmers directly to buyers.',
-      'Jennie received her B.A. in English Literature from Bryn Mawr College.'
-    ]
-  },
+  // {
+  //   id: 'jennie',
+  //   name: 'Jennie Bowers',
+  //   position: 'Senior Visual Designer',
+  //   photo: require('assets/img/about/team/jennie.jpg'),
+  //   modalImage: require('assets/img/about/team/modal/jennie.jpg'),
+  //   bioStatement: [
+  //     'Jennie Bowers is an award-winning graphic and interactive designer.',
+  //     'Jennie began her career at Onvia.com, a provider of government-to-business solutions, before joining GameHouse.com as a member of the design team that pioneered downloadable computer games. Next she led design at FarmsReach, a startup that connects farmers directly to buyers.',
+  //     'Jennie received her B.A. in English Literature from Bryn Mawr College.'
+  //   ]
+  // },
   {
     id: 'nick',
     name: 'Nick Capello',
@@ -161,18 +161,18 @@ export const teamInfo = [
       'She has lived and worked in Italy, Ethiopia, New Mexico, Baltimore and Wyoming. She currently resides in San Francisco, CA with her pup, Gracie.'
     ]
   },
-  {
-    id: 'jo',
-    name: 'Johanna Silver',
-    position: 'UX Designer',
-    photo: require('assets/img/about/team/jo.jpg'),
-    modalImage: require('assets/img/about/team/modal/jo.jpg'),
-    bioStatement: [
-      'Johanna Silver is a User Experience Designer at Redshift.',
-      'She grew up by the ocean in Half Moon Bay, CA and went to UC Berkeley for Psychology and Social Welfare. After working as a professional baker and yoga teacher for several years, she went back to school for design at General Assembly. She previously designed products for the agricultural technology industry.',
-      'Her passions include mini-pigs, making soup for her friends, and finding ways to avoid going out on the weekends.'
-    ]
-  },
+  // {
+  //   id: 'jo',
+  //   name: 'Johanna Silver',
+  //   position: 'UX Designer',
+  //   photo: require('assets/img/about/team/jo.jpg'),
+  //   modalImage: require('assets/img/about/team/modal/jo.jpg'),
+  //   bioStatement: [
+  //     'Johanna Silver is a User Experience Designer at Redshift.',
+  //     'She grew up by the ocean in Half Moon Bay, CA and went to UC Berkeley for Psychology and Social Welfare. After working as a professional baker and yoga teacher for several years, she went back to school for design at General Assembly. She previously designed products for the agricultural technology industry.',
+  //     'Her passions include mini-pigs, making soup for her friends, and finding ways to avoid going out on the weekends.'
+  //   ]
+  // },
   {
     id: 'sandra',
     name: 'Sandra Wing',
@@ -190,18 +190,18 @@ export const teamInfo = [
   //   position: 'Finance & Operations',
   //   photo: SuzanneImage,
   // },
-  {
-    id: 'lily',
-    name: 'Lily Hu',
-    position: 'Visual Designer',
-    photo: require('assets/img/about/team/lily.jpg'),
-    modalImage: require('assets/img/about/team/modal/lily.jpg'),
-    bioStatement: [
-      'Lily Hu is a visual designer at Redshift.',
-      'She received an MFA in Graphic Design from Art Center College of Design in Los Angeles. Prior to working at Redshift, Lily designed products for such companies as Polaroid, Octovo and Blackboard',
-      'She now lives in San Francisco, CA.'
-    ]
-  },
+  // {
+  //   id: 'lily',
+  //   name: 'Lily Hu',
+  //   position: 'Visual Designer',
+  //   photo: require('assets/img/about/team/lily.jpg'),
+  //   modalImage: require('assets/img/about/team/modal/lily.jpg'),
+  //   bioStatement: [
+  //     'Lily Hu is a visual designer at Redshift.',
+  //     'She received an MFA in Graphic Design from Art Center College of Design in Los Angeles. Prior to working at Redshift, Lily designed products for such companies as Polaroid, Octovo and Blackboard',
+  //     'She now lives in San Francisco, CA.'
+  //   ]
+  // },
   {
     id: 'trevor',
     name: 'Trevor Alexander',
