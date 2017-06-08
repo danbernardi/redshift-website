@@ -18,7 +18,7 @@ export class AboutHero extends React.Component {
     const { removeMask } = this.state;
     return (
       <section
-        className={ `${ removeMask ? '' : 'layout--flex-col'} layout--fullheight` }
+        className={ `${ removeMask ? '' : 'layout--flex-col'} layout--fullheight layout--landscape` }
         style={ { overflow: 'hidden', position: 'relative' } }
         // onClick={ () => this._removeMask() }
       >
@@ -37,9 +37,9 @@ export class AboutHero extends React.Component {
           </video>
         </div>
 
-        <div className="row about--header" style={ { zIndex: 3, display: removeMask && 'none' } }>
+        <div className="row about--header" /* style={ { display: removeMask && 'none' } } */ >
           <div className="col-7 col-12--mlg">
-            <h1 className="typ--bold typ--redshift pb2 pb1--mlg">About Redshift</h1>
+            <h1 className="typ--bold typ--redshift pb2 pb1--mlg">About Redshift.</h1>
             <h3 className="pb2">
               We are an award-winning agency dedicated to creating simple, meaningful experiences for users and positive results for our clients.
             </h3>

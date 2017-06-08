@@ -4,7 +4,7 @@ export class AboutHybrid extends React.Component {
 
   render () {
     return (
-      <section className="row hero layout--relative layout--fullheight" style={ { overflow: 'hidden' } }>
+      <section className="row hero layout--relative layout--fullheight layout--landscape" style={ { overflow: 'hidden' } }>
         <div className="about--curve-container">
           <div />
           <div />

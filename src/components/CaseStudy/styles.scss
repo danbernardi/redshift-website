@@ -72,6 +72,10 @@
   opacity: 0;
   animation: pulse 3s;
   animation-delay: 1.2s;
+   //media queries
+  @include breakpoint($mobile-lg) {
+    bottom: 1rem;
+  }
 }
 
 @keyframes pulse {

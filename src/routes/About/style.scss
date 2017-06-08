@@ -1,11 +1,17 @@
 @import 'sass-includes';
 
 .about--header {
+  z-index: 3;
   @include breakpoint($tablet-lg) {
     bottom: 15%;
   }
    @include breakpoint($mobile-lg) {
     bottom: 12%;
+  }
+  @media screen and (max-device-width: 1040px) and (orientation : landscape) {
+    width: 72%;
+    z-index: 10;
+    margin-left: 0;
   }
 }
 
@@ -14,32 +20,42 @@
   height: 60rem;
   border-radius: 50%;
   z-index: 8;
-  // -webkit-mask-image: -webkit-radial-gradient(circle,#fff 100%,#000 0);
   right: -5%;
   top: 15%;
   overflow: hidden;
+
   @include breakpoint($desktop-sm) {
     width: calc(100vw - 60rem);
     height: calc(100vw - 60rem);
   }
+
   @include breakpoint($tablet-lg) {
     height: calc(100vw - 54rem);
     width: calc(100vw - 54rem);
   }
+
   @include breakpoint($tablet-md) {
     top: 13%;
     right: -6%;
     height: calc(100vw - 30rem);
     width: calc(100vw - 30rem);
   }
+
   @include breakpoint($mobile-lg) {
     right: -15%;
     height: calc(100vw - 25rem);
     width: calc(100vw - 25rem);
   }
+
   @include breakpoint($mobile-sm) {
     height: calc(100vw - 9.5rem);
     width: calc(100vw - 9.5rem);
+  }
+
+  @media screen and (max-device-width: 1040px) and (orientation : landscape) {
+    right: -8%;
+    height: calc(100vw - 40rem);
+    width: calc(100vw - 40rem);
   }
 }
 
@@ -48,8 +64,7 @@
   width: 100vw;
   border-radius: 0;
   right: 0;
-  top: 0;
-  display: flex;
+
   video {
     width: 100%;
   }
@@ -74,6 +89,7 @@
   border: solid 1px $medium-gray;
   bottom: -20%;
   left: -15%;
+  //media quesries
   @include breakpoint($tablet-lg) {
     position: relative;
     width: 400vw;
@@ -81,8 +97,14 @@
     left: -300%;
     bottom: 0;
   }
+
   @include breakpoint($mobile-lg) {
     left: -310%;
+  }
+
+  @media screen and (max-device-width: 1040px) and (orientation : landscape) {
+    bottom: 5rem;
+    left: -292%;
   }
 }
 
@@ -93,6 +115,7 @@
   height: calc(50vw + 1rem);
   width: calc(50vw + 1rem);
   transform-origin: bottom right;
+  // media queries
   @include breakpoint($tablet-lg) {
     height: calc(200vw + 1rem);
     width: calc(200vw + 1rem);
@@ -100,6 +123,7 @@
 }
 
 .about--explore-text {
+  // media queries
   @include breakpoint($desktop-sm) {
     font-size: 2.4rem;
   }
@@ -111,6 +135,7 @@
   left: -3rem;
   bottom: 1.8rem;
   line-height: 3.6rem;
+  // media queries
   @include breakpoint($mobile-lg) {
     font-size: 1.6rem;
     line-height: 1.6rem;
@@ -135,6 +160,7 @@
 
 .about--curve-container > div:nth-child(1) {
   transform: rotate(115deg);
+  // media queries
   @include breakpoint($tablet-lg) {
     transform: rotate(110deg);
   }
@@ -144,6 +170,7 @@
 }
 .about--curve-container > div:nth-child(2) {
   transform: rotate(129.4deg);
+  // media queries
   @include breakpoint($tablet-lg) {
     transform: rotate(115deg);
   }
@@ -153,6 +180,7 @@
 }
 .about--curve-container > div:nth-child(3) {
   transform: rotate(141.6deg);
+  // media queries
   @include breakpoint($tablet-lg) {
     transform: rotate(120deg);
   }
@@ -162,6 +190,7 @@
 }
 .about--curve-container > div:nth-child(4) {
   transform: rotate(154deg);
+  // media queries
   @include breakpoint($tablet-lg) {
     transform: rotate(125deg);
   }
@@ -173,6 +202,7 @@
 .about--curve-container > div:nth-child(n+1):before {
   content: "Research";
   transform: rotate(-115deg);
+  // media queries
   @include breakpoint($tablet-lg) {
     transform: rotate(-110deg);
   }
@@ -184,6 +214,7 @@
 .about--curve-container > div:nth-child(n+2):before {
   content: "Engineering";
   transform: rotate(-129.4deg);
+  // media queries
   @include breakpoint($tablet-lg) {
     transform: rotate(-115deg);
   }
@@ -194,6 +225,7 @@
 .about--curve-container > div:nth-child(n+3):before {
   content: "Visual";
   transform: rotate(-141.6deg);
+  // media queries
   @include breakpoint($tablet-lg) {
     transform: rotate(-120deg);
   }
@@ -204,6 +236,7 @@
 .about--curve-container > div:nth-child(n+4):before {
   content: "UX";
   transform: rotate(-154deg);
+  // media queries
   @include breakpoint($tablet-lg) {
     transform: rotate(-125deg);
   }
@@ -255,7 +288,6 @@
 }
 
 .about__process video {
-  // margin: 4rem;
   width: 100%;
 }
 
@@ -271,34 +303,6 @@
 .about__clients {
   background: $dark-grey;
 }
-
-// .about--process__flex {
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   padding-top: 14rem;
-//   // media queries
-//   @include breakpoint($tablet-md) {
-//     display: block;
-//   }
-//   @include breakpoint($mobile-lg) {
-//     padding-top: 15rem;
-//   }
-
-//   h4 {
-//     @include breakpoint($mobile-lg) {
-//       line-height: 2;
-//     }
-//   }
-// }
-
-// .about--process__image {
-//   max-height: 66rem;
-//   // media queries
-//   @include breakpoint($tablet-md) {
-//     text-align: center;
-//   }
-// }
 
 .about section {
   position: relative;
@@ -370,9 +374,6 @@
     @include font-size(h4);
     width: 100%;
     display: block;
-    // overflow: hidden;
-    // text-overflow: ellipsis;
-    // white-space: nowrap;
   }
 
   h2 {
@@ -391,6 +392,7 @@
 
   h4 {
     line-height: 1.333;
+    // media queries
     @include breakpoint($mobile-sm) {
       line-height: 1.1;
       padding: 0;
@@ -419,10 +421,8 @@
 .team-member-bio {
   position: relative;
   z-index: 9;
-  // height: 100%;
   width: 50%;
   // media queries
-
   @include breakpoint($tablet-md) {
     width: 100%;
   }
