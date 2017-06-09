@@ -51,11 +51,11 @@
   @include breakpoint($mobile-xsm) {
     top: 30%;
   }
-  @media screen and (max-device-width: 1040px) and (orientation : landscape) {
-    height: calc(100vw - 23rem);
-    width: calc(100vw - 23rem);
-    right: -8%;
-  }
+  // @media screen and (max-device-width: 1040px) and (orientation : landscape) {
+  //   height: calc(100vw - 23rem);
+  //   width: calc(100vw - 23rem);
+  //   right: -8%;
+  // }
 }
 
 .about__video video {
