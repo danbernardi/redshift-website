@@ -39,6 +39,7 @@ class CaseStudy extends React.Component {
       onUpdate: (progress) => {
         const startFontSize = Number(window.getComputedStyle(nextName, null).getPropertyValue('font-size').replace('px', ''));
         const endFontSize = Number(window.getComputedStyle(name, null).getPropertyValue('font-size').replace('px', ''));
+        const mappedLabelHeight = mapRange(progress, 0, 1, nextLabel.offsetHeight, 0);
         const mappedHeight = mapRange(progress, 0, 1, dimensions.height, window.innerHeight);
         const mappedFontSize = mapRange(progress, 0, 1, startFontSize, endFontSize);
         const mappedFontWeight = mapRange(progress, 0, 1, 600, 100);
@@ -46,6 +47,7 @@ class CaseStudy extends React.Component {
         next.style.height = `${mappedHeight}px`;
         nextName.style.fontSize = `${mappedFontSize}px`;
         nextName.style.fontWeight = mappedFontWeight;
+        nextLabel.style.height = `${mappedLabelHeight}px`;
         nextLabel.style.opacity = mappedOpacity;
         next.style.backgroundColor = '#fff';
       },

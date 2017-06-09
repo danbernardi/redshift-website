@@ -78,7 +78,7 @@ export class CaseStudyScroller extends React.Component {
                   <div className={ `casestudy__next--sidebar bg--${nextCaseStudy.id}` } />
                   <div className="layout--relative ml8 ml1--mlg">
                     <div className="row">
-                      <span ref={ (el) => { this.nextlabel = el; } } className="typ--light">View next case study</span>
+                      <span ref={ (el) => { this.nextlabel = el; } } className="typ--light" style={ { overflow: 'hidden', display: 'block' } }>View next case study</span>
                       <h2 ref={ (el) => { this.nextname = el; } } className={ `typ--${nextCaseStudy.id}` }>{ nextCaseStudy.name }</h2>
                     </div>
                   </div>
