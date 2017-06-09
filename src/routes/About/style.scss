@@ -72,10 +72,33 @@
 }
 
 .video_remove_mask {
-  height: 100vh;
-  width: 100vw;
+  // height: auto;
+  width: auto;
   border-radius: 0;
   right: 0;
+  @include breakpoint($desktop-sm) {
+    height: calc(100vw - 60rem);
+  }
+
+  @include breakpoint($tablet-lg) {
+    height: calc(100vw - 54rem);
+  }
+
+  @include breakpoint($tablet-md) {
+    height: calc(100vw - 30rem);
+  }
+
+  @include breakpoint($mobile-lg) {
+    height: calc(100vw - 25rem);
+  }
+
+  @include breakpoint($mobile-sm) {
+    height: calc(100vw - 9.5rem);
+  }
+
+  @media screen and (max-device-width: 540px) and (orientation : landscape) {
+    height: calc(100vw - 23rem);
+  }
 
   video {
     width: 100%;

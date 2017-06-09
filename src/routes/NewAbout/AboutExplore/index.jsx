@@ -42,7 +42,7 @@ export class AboutExplore extends React.Component {
     ];
 
     return (
-      <section className="my8 mb0--mlg">
+      <section className="my8 mt0--mlg mb4--mlg">
         <div className="hide--tlg hero layout--relative layout--fullheight layout--landscape layout--flex">
           { aboutExplore.map((image, ind) => (
             <div key={ ind } className="about--image">
