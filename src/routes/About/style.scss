@@ -34,7 +34,7 @@
     width: calc(100vw - 54rem);
   }
   @include breakpoint($tablet-md) {
-    top: 13%;
+    top: 38%;
     right: -6%;
     height: calc(100vw - 30rem);
     width: calc(100vw - 30rem);
@@ -48,18 +48,38 @@
     height: calc(100vw - 9.5rem);
     width: calc(100vw - 9.5rem);
   }
+  @include breakpoint($mobile-xsm) {
+    top: 30%;
+  }
   @media screen and (max-device-width: 1040px) and (orientation : landscape) {
     height: calc(100vw - 23rem);
     width: calc(100vw - 23rem);
     right: -8%;
   }
 
-  video { min-width: 100%; }
+  video {
+    min-width: 100%;
+  }
+}
+
+.about__video video,
+.about__video--removemask {
+  @include breakpoint($tablet-sm) {
+    height: calc(100vw - 30rem);
+  }
+
+  @include breakpoint($mobile-lg) {
+    width: calc(100vw - 9.5rem);
+  }
+
+  @include breakpoint($mobile-xxsm) {
+    height: 23rem;
+  }
 }
 
 .about__video--removemask {
   width: 100% !important;
-  height: 80rem;
+  // height: 80rem;
   border-radius: 0;
   right: 0;
 }
