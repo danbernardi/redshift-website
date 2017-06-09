@@ -30,33 +30,9 @@
   @media screen and (max-device-width: 1040px) and (orientation : landscape) {
     right: -8%;
   }
-  video{
-    // width: 100%;
-    @include breakpoint($desktop-sm) {
-      height: calc(100vw - 60rem);
-    }
-
-    @include breakpoint($tablet-lg) {
-      height: calc(100vw - 54rem);
-    }
-
-    @include breakpoint($tablet-md) {
-      height: calc(100vw - 30rem);
-    }
-
-    @include breakpoint($mobile-lg) {
-      height: calc(100vw - 25rem);
-    }
-
-    @include breakpoint($mobile-sm) {
-      height: calc(100vw - 9.5rem);
-    }
-
-    @media screen and (max-device-width: 540px) and (orientation : landscape) {
-      height: calc(100vw - 23rem);
-    }
-
-  }
+  // video{
+  //   width: 100%;
+  // }
 }
 
 .video_mask {
@@ -93,6 +69,32 @@
   @media screen and (max-device-width: 540px) and (orientation : landscape) {
     height: calc(100vw - 23rem);
     width: calc(100vw - 23rem);
+  }
+  video{
+    @include breakpoint($desktop-sm) {
+      height: calc(100vw - 60rem);
+    }
+
+    @include breakpoint($tablet-lg) {
+      height: calc(100vw - 54rem);
+    }
+
+    @include breakpoint($tablet-md) {
+      height: calc(100vw - 30rem);
+    }
+
+    @include breakpoint($mobile-lg) {
+      height: calc(100vw - 25rem);
+    }
+
+    @include breakpoint($mobile-sm) {
+      height: calc(100vw - 9.5rem);
+    }
+
+    @media screen and (max-device-width: 540px) and (orientation : landscape) {
+      height: calc(100vw - 23rem);
+    }
+
   }
 
 }
