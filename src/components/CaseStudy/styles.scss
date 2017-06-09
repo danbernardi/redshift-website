@@ -147,7 +147,7 @@
 
 .casestudy__next {
   background-color: $light-gray;
-  min-height: 18.5rem;
+  min-height: 16.5rem;
   cursor: pointer;
   width: calc(100% + 8rem);
   bottom: 0;
@@ -156,7 +156,7 @@
   z-index: 1;
   // media queries
   @include breakpoint($mobile-lg) {
-    min-height: 13.5rem;
+    min-height: 11rem;
     width: calc(100% + 1rem);
     left: -1rem;
   }
@@ -165,7 +165,7 @@
     top: 5.3rem;
     // media queries
     @include breakpoint($mobile-lg) {
-      top: 4rem;
+      top: 3.3rem;
     }
   }
 }

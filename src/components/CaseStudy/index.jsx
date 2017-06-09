@@ -25,6 +25,7 @@ class CaseStudy extends React.Component {
   componentWillLeave (unmountComponent) {
     const { childRefs } = this.state;
 
+    const caseStudy = this.caseStudy;
     const name = childRefs.name;
     const next = childRefs.next.querySelector('a');
     const nextName = childRefs.nextname;
@@ -39,6 +40,7 @@ class CaseStudy extends React.Component {
       onUpdate: (progress) => {
         const startFontSize = Number(window.getComputedStyle(nextName, null).getPropertyValue('font-size').replace('px', ''));
         const endFontSize = Number(window.getComputedStyle(name, null).getPropertyValue('font-size').replace('px', ''));
+        const mappedLabelHeight = mapRange(progress, 0, 1, nextLabel.offsetHeight, 0);
         const mappedHeight = mapRange(progress, 0, 1, dimensions.height, window.innerHeight);
         const mappedFontSize = mapRange(progress, 0, 1, startFontSize, endFontSize);
         const mappedFontWeight = mapRange(progress, 0, 1, 600, 100);
@@ -46,11 +48,24 @@ class CaseStudy extends React.Component {
         next.style.height = `${mappedHeight}px`;
         nextName.style.fontSize = `${mappedFontSize}px`;
         nextName.style.fontWeight = mappedFontWeight;
+        nextLabel.style.height = `${mappedLabelHeight}px`;
         nextLabel.style.opacity = mappedOpacity;
         next.style.backgroundColor = '#fff';
       },
-      onPlaybackComplete: () => unmountComponent()
+      onPlaybackComplete: () => fadeOut()
     }).play();
+
+    function fadeOut () {
+      new mojs.Tween({
+        duration: 300,
+        easing: 'cubit.out',
+        onUpdate: (progress) => {
+          const mappedOpacity = mapRange(progress, 0, 1, 1, 0);
+          caseStudy.style.opacity = mappedOpacity;
+        },
+        onPlaybackComplete: () => unmountComponent()
+      }).play();
+    }
   }
 
   render () {
@@ -66,7 +81,7 @@ class CaseStudy extends React.Component {
     const nextCaseStudy = caseStudyIndex === activeCaseStudies.length ? null : activeCaseStudies[caseStudyIndex + 1];
 
     return (
-      <div className="casestudy__modal">
+      <div ref={ (el) => { this.caseStudy = el; } } className="casestudy__modal">
         <ModalCloseBtn closeCallback={ () => browserHistory.push('/work') } />
         <CaseStudyScroller passRefsToParent={ (childRefs) => this.setState({ childRefs }) } caseStudyContent={ caseStudyContent } nextCaseStudy={ nextCaseStudy } />
       </div>

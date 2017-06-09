@@ -41,7 +41,7 @@ export class Builder extends React.Component {
 
     if (target && target[0]) {
       return new TimelineMax({ onComplete: () => this.clearAnimation() })
-        .to(target[0], 0.6, { opacity: 1, y: 0, delay }, 'slideIn');
+        .to(target[0], 0.8, { opacity: 1, y: 0, delay }, 'slideIn');
     }
   }
 
@@ -57,7 +57,7 @@ export class Builder extends React.Component {
     const { children, scrollContainer } = this.props;
 
     return (
-      <div style={ { opacity: 0, transform: 'translateY(5rem)' } }>
+      <div style={ { opacity: 0, transform: 'translateY(10rem)' } }>
         <Watcher
           autoStart={ false }
           stateChange={ this.watcherCallback.bind(this) }
@@ -72,17 +72,15 @@ export class Builder extends React.Component {
   }
 }
 
-const { node, string, number, object } = PropTypes;
+const { node, number, object } = PropTypes;
 Builder.propTypes = {
   children: node,
-  offset: string,
   delay: number,
   scrollContainer: object
 };
 
 Builder.defaultProps = {
-  offset: '10vh',
-  delay: 0.3
+  delay: 0
 };
 
 export default GSAP()(Builder);
