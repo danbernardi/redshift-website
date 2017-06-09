@@ -25,6 +25,7 @@ class CaseStudy extends React.Component {
   componentWillLeave (unmountComponent) {
     const { childRefs } = this.state;
 
+    const caseStudy = this.caseStudy;
     const name = childRefs.name;
     const next = childRefs.next.querySelector('a');
     const nextName = childRefs.nextname;
@@ -51,8 +52,20 @@ class CaseStudy extends React.Component {
         nextLabel.style.opacity = mappedOpacity;
         next.style.backgroundColor = '#fff';
       },
-      onPlaybackComplete: () => unmountComponent()
+      onPlaybackComplete: () => fadeOut()
     }).play();
+
+    function fadeOut () {
+      new mojs.Tween({
+        duration: 300,
+        easing: 'cubit.out',
+        onUpdate: (progress) => {
+          const mappedOpacity = mapRange(progress, 0, 1, 1, 0);
+          caseStudy.style.opacity = mappedOpacity;
+        },
+        onPlaybackComplete: () => unmountComponent()
+      }).play();
+    }
   }
 
   render () {
@@ -68,7 +81,7 @@ class CaseStudy extends React.Component {
     const nextCaseStudy = caseStudyIndex === activeCaseStudies.length ? null : activeCaseStudies[caseStudyIndex + 1];
 
     return (
-      <div className="casestudy__modal">
+      <div ref={ (el) => { this.caseStudy = el; } } className="casestudy__modal">
         <ModalCloseBtn closeCallback={ () => browserHistory.push('/work') } />
         <CaseStudyScroller passRefsToParent={ (childRefs) => this.setState({ childRefs }) } caseStudyContent={ caseStudyContent } nextCaseStudy={ nextCaseStudy } />
       </div>
