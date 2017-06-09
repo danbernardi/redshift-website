@@ -3,7 +3,7 @@ import React from 'react';
 export class AboutSpace extends React.Component {
   render () {
     return (
-      <section className="hero layout--relative layout--fullheight">
+      <section className="hero layout--relative layout--fullheight layout--landscape">
         <div className="layout--absolute layout-abs--bottom pb5">
           <div className="col-8 col-last">
             <h1 className="typ--bold typ--redshift pb2">Space to think.</h1>

@@ -31,6 +31,12 @@
   // overflow-y: scroll;
 }
 
+.layout--landscape {
+  @media screen and (max-device-width: 1040px) and (orientation : landscape) {
+    min-height: 56.8rem;
+  }
+}
+
 .layout--flex {
   display: flex;
   align-items: center;

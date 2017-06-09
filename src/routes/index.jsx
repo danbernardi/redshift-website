@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 import CoreLayout from 'containers/CoreLayout';
 import Home from './Home';
 import About from './About';
