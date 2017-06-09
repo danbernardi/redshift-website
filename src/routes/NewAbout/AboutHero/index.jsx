@@ -23,8 +23,8 @@ export class AboutHero extends React.Component {
         onClick={ () => this._removeMask() }
       >
         <div
-          className={ `about--transition layout--absolute layout--top about_video
-          ${ removeMask ? 'video_remove_mask' : 'video_mask' }` }
+          className={ `about--transition layout--absolute layout--top about__video
+          ${ removeMask ? 'about__video--removemask' : '' }` }
         >
           <video
             autoPlay={ true }
