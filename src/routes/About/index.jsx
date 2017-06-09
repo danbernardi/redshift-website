@@ -1,20 +1,21 @@
 import React from 'react';
-import AboutProcess from './AboutProcess';
+import AboutHero from './AboutHero';
+import AboutHybrid from './AboutHybrid';
+import AboutExplore from './AboutExplore';
+import AboutClients from './AboutClients';
 import AboutTeam from './AboutTeam';
-import HowWeWork from './HowWeWork';
-import './style.scss';
+import { clientData } from 'data/newClients';
 import { teamInfo } from 'data/teamInfo';
-import { clientData } from 'data/clients';
-import { connect } from 'react-redux';
 import Footer from 'components/Footer';
-import BioModal from './AboutTeam/BioModal';
+import './style.scss';
 import * as actions from 'store/actions';
 import PropTypes from 'prop-types';
+import BioModal from './AboutTeam/BioModal';
+import { connect } from 'react-redux';
 
 export class About extends React.Component {
   componentDidMount () {
-    const { dispatch, params } = this.props;
-    dispatch(actions.setHeaderTheme('pink'));
+    const { params } = this.props;
     if (params.employeeID) this.openModal(params.employeeID);
   }
 
@@ -48,43 +49,14 @@ export class About extends React.Component {
     dispatch(actions.toggleModal(false));
   }
 
-  clients (clientData) {
-    return (
-      <div className="clients">
-        { clientData.map((client, index) => (
-          <div key={ index } className="clients__client">
-            <img src={ client.image } alt={ client.name } />
-          </div>
-        )) }
-      </div>
-    );
-  }
-
   render () {
     return (
       <div>
-        <AboutProcess />
-        <HowWeWork />
-        <section className="col-12 about__clients theme--dark py7">
-          <div className="row">
-            <h1 className="typ--bold">Who we work with.</h1>
-            <h4
-              className="pt6 pb8 pt2--mlg pb4--mlg"
-              style={ { maxWidth: '67rem' } }
-            >
-              We’ve had the privilege of working with some of the world’s top brands and many promising startups.
-            </h4>
-            { this.clients(clientData) }
-          </div>
-        </section>
-        <section className="about--team pt9 pt6--tlg cf">
-          <div className="row hero--scene-text">
-            <h1 className="typ--bold py8 py6--tlg">Who we are<span className="typ--redshift">.</span></h1>
-          </div>
-          { teamInfo.map((team, index) => (
-            <AboutTeam key={ index } team={ team } />
-          )) }
-        </section>
+        <AboutHero />
+        <AboutHybrid />
+        <AboutExplore />
+        <AboutClients data={ clientData } />
+        <AboutTeam team={ teamInfo } />
         <Footer />
       </div>
     );
