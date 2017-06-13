@@ -3,7 +3,8 @@
 .inspiration__grid {
   column-count: 3;
   column-gap: 2rem;
-  min-height: calc(100vh - 45rem);
+  min-height: calc(100vh - 40rem);
+  position: relative;
   // media queries
   @include breakpoint($tablet-lg) {
     column-count: 2;
@@ -11,6 +12,7 @@
 
   @include breakpoint($mobile-lg) {
     column-count: 1;
+    min-height: calc(100vh - 26rem);
   }
 }
 
@@ -59,7 +61,7 @@
 
 
 .spinner {
-  margin: 10rem auto 0;
+  margin: 0 auto;
   text-align: center;
 }
 

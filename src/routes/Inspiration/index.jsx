@@ -25,7 +25,6 @@ export class Inspiration extends React.Component {
   }
 
   animateIn ({ target }) {
-    console.log(target);
     const loader = target[0].querySelector('.inspiration__loader');
     const feed = target[0].querySelector('.inspiration__feed');
 
