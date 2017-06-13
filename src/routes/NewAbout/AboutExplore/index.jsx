@@ -1,7 +1,7 @@
 import React from 'react';
 import GSAP from 'react-gsap-enhancer';
 import { TimelineMax, Linear } from 'gsap';
-import MorphSVGPlugin from 'gsap/MorphSVGPlugin';
+import MorphSVGPlugin from 'vendor/gsap-plugins/MorphSVGPlugin';
 
 export class AboutExplore extends React.Component {
   // constructor (props) {
