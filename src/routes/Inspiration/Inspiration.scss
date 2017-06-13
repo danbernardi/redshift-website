@@ -3,6 +3,8 @@
 .inspiration__grid {
   column-count: 3;
   column-gap: 2rem;
+  min-height: calc(100vh - 40rem);
+  position: relative;
   // media queries
   @include breakpoint($tablet-lg) {
     column-count: 2;
@@ -10,6 +12,7 @@
 
   @include breakpoint($mobile-lg) {
     column-count: 1;
+    min-height: calc(100vh - 26rem);
   }
 }
 
@@ -35,4 +38,60 @@
 
 .inspiration__itemtitle {
   color: $redshift;
+}
+
+.inspiration__loader {
+  position: fixed;
+  z-index: 35;
+  // background: $white;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+
+  [class^='icon-'] {
+    color: $redshift;
+    font-size: 5rem;
+  }
+}
+
+
+.spinner {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.spinner > div {
+  width: 1.2rem;
+  height: 1.2rem;
+  background-color: $redshift;
+  margin: 0 0.3rem;
+
+  border-radius: 100%;
+  display: inline-block;
+  animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+}
+
+.spinner .bounce1 {
+  animation-delay: -0.32s;
+}
+
+.spinner .bounce2 {
+  animation-delay: -0.16s;
+}
+
+@keyframes sk-bouncedelay {
+  0%,
+  80%,
+  100% {
+    transform: scale(0);
+  }
+
+  40% {
+    transform: scale(1);
+  }
 }
