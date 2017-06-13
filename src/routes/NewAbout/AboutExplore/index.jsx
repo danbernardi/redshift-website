@@ -1,39 +1,51 @@
 import React from 'react';
-import { TweenMax, MorphSVGPlugin, Linear } from 'gsap';
+import GSAP from 'react-gsap-enhancer';
+import { TimelineMax, Linear } from 'gsap';
+import MorphSVGPlugin from 'gsap/MorphSVGPlugin';
 
 export class AboutExplore extends React.Component {
   // constructor (props) {
   //   super(props);
   // }
   componentDidMount () {
-    const path1 = MorphSVGPlugin.pathDataToBezier('#motionPath1');
-    const path2 = MorphSVGPlugin.pathDataToBezier('#motionPath2');
-    const path3 = MorphSVGPlugin.pathDataToBezier('#motionPath3');
-    const path4 = MorphSVGPlugin.pathDataToBezier('#motionPath4');
-    const path5 = MorphSVGPlugin.pathDataToBezier('#motionPath5');
-    const path6 = MorphSVGPlugin.pathDataToBezier('#motionPath6');
-    const path7 = MorphSVGPlugin.pathDataToBezier('#motionPath7');
-    const path8 = MorphSVGPlugin.pathDataToBezier('#motionPath8');
-    const path9 = MorphSVGPlugin.pathDataToBezier('#motionPath9');
+    this.timeline = this.addAnimation(this.createTimeline);
+  }
+
+  createTimeline (target) {
+    const wrapper = target.target[0];
+
+    const path1 = MorphSVGPlugin.pathDataToBezier(wrapper.querySelector('#motionPath1'));
+    const path2 = MorphSVGPlugin.pathDataToBezier(wrapper.querySelector('#motionPath2'));
+    const path3 = MorphSVGPlugin.pathDataToBezier(wrapper.querySelector('#motionPath3'));
+    const path4 = MorphSVGPlugin.pathDataToBezier(wrapper.querySelector('#motionPath4'));
+    const path5 = MorphSVGPlugin.pathDataToBezier(wrapper.querySelector('#motionPath5'));
+    const path6 = MorphSVGPlugin.pathDataToBezier(wrapper.querySelector('#motionPath6'));
+    const path7 = MorphSVGPlugin.pathDataToBezier(wrapper.querySelector('#motionPath7'));
+    const path8 = MorphSVGPlugin.pathDataToBezier(wrapper.querySelector('#motionPath8'));
+    const path9 = MorphSVGPlugin.pathDataToBezier(wrapper.querySelector('#motionPath9'));
     // change repeat to zero for one cycle
-    TweenMax.from('#circle1', 3, { bezier: { values: { morphSVG: '#motionPath1' }, type: 'cubic' }, ease: Linear.easeNone, repeat: -1 });
-    TweenMax.to('#circle2', 6, { bezier: { values: path2, type: 'cubic' }, ease: Linear.easeNone, repeat: -1 });
-    TweenMax.to('#circle3', 6.5, { bezier: { values: path3, type: 'cubic' }, ease: Linear.easeNone, repeat: -1 });
-    TweenMax.from('#circle4', 5.25, { bezier: { values: path4, type: 'cubic' }, ease: Linear.easeNone, repeat: -1 });
-    TweenMax.from('#circle5', 4.4, { bezier: { values: path5, type: 'cubic' }, ease: Linear.easeNone, repeat: -1 });
-    TweenMax.to('#circle6', 6, { bezier: { values: path6, type: 'cubic' }, ease: Linear.easeNone, repeat: -1 });
-    TweenMax.from('#circle7', 5.6, { bezier: { values: path7, type: 'cubic' }, ease: Linear.easeNone, repeat: -1 });
-    TweenMax.to('#circle8', 2, { bezier: { values: path8, type: 'cubic' }, ease: Linear.easeNone, repeat: -1 });
-    TweenMax.to('#circle9', 2.2, { bezier: { values: path9, type: 'cubic' }, ease: Linear.easeNone, repeat: -1 });
+
+    const tl = new TimelineMax({ repeat: -1 });
+    tl
+      .from('#circle1', 3, { bezier: { values: path1, type: 'cubic' }, ease: Linear.easeNone }, 'start')
+      .to('#circle2', 6, { bezier: { values: path2, type: 'cubic' }, ease: Linear.easeNone }, 'start')
+      .to('#circle3', 6.5, { bezier: { values: path3, type: 'cubic' }, ease: Linear.easeNone }, 'start')
+      .from('#circle4', 5.25, { bezier: { values: path4, type: 'cubic' }, ease: Linear.easeNone }, 'start')
+      .from('#circle5', 4.4, { bezier: { values: path5, type: 'cubic' }, ease: Linear.easeNone }, 'start')
+      .to('#circle6', 6, { bezier: { values: path6, type: 'cubic' }, ease: Linear.easeNone }, 'start')
+      .from('#circle7', 5.6, { bezier: { values: path7, type: 'cubic' }, ease: Linear.easeNone }, 'start')
+      .to('#circle8', 2, { bezier: { values: path8, type: 'cubic' }, ease: Linear.easeNone }, 'start')
+      .to('#circle9', 2.2, { bezier: { values: path9, type: 'cubic' }, ease: Linear.easeNone }, 'start');
+
+    tl.play();
+
+    return tl;
   }
 
   render () {
     return (
-      <section >
-        <svg
-          width="100%"
-          viewBox="100%"
-        >
+      <section>
+        <svg>
           <g
             id="Line1"
             stroke="none"
@@ -113,4 +125,4 @@ export class AboutExplore extends React.Component {
   }
 }
 
-export default AboutExplore;
+export default GSAP()(AboutExplore);
