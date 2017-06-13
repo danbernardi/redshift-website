@@ -3,6 +3,8 @@ import Footer from 'components/Footer';
 import './Inspiration.scss';
 import { ellipsisString } from 'utils/string';
 import PropTypes from 'prop-types';
+import { TimelineMax, Power2 } from 'gsap';
+import GSAP from 'react-gsap-enhancer';
 
 export class Inspiration extends React.Component {
   constructor (props) {
@@ -17,10 +19,26 @@ export class Inspiration extends React.Component {
     fetch('/feed/inspiration').then(
       (res) => res.json()
     ).then((json) => {
-      this.setState({
-        feed: json
-      });
+      this.setState({ feed: json });
+      this.timeline = this.addAnimation(this.animateIn).play();
     });
+  }
+
+  animateIn ({ target }) {
+    console.log(target);
+    const loader = target[0].querySelector('.inspiration__loader');
+    const feed = target[0].querySelector('.inspiration__feed');
+
+    return new TimelineMax({
+      onUpdate: () => {
+        //Do stuff here
+      },
+      onComplete: () => {
+        this.animationComplete = true;
+      }
+    })
+    .to(loader, 0.3, { opacity: 0, ease: Power2.easeOut }, 'animIn')
+    .fromTo(feed, 0.6, { opacity: 0, y: 50, ease: Power2.easeOut }, { opacity: 1, y: 0, ease: Power2.easeOut }, 'animIn+=.3');
   }
 
   render () {
@@ -58,14 +76,18 @@ export class Inspiration extends React.Component {
     }
 
     return (
-      <div className="pt10">
+      <div className="inspiration pt10">
         <div className="row row--maxwidth mb8 mb3--msm">
           <h1 className="typ--redshift typ--bold mb4 mt8 mt4--mlg mt0--msm mb3--tlg mb0--mlg">Be inspired. <br /> Here's what inspires us.</h1>
           <section className="pt9 pt6--tlg pt3--msm inspiration__grid">
-            {feedItems}
+            <div className="inspiration__feed">{feedItems}</div>
+            <div className="inspiration__loader spinner">
+              <div className="bounce1" />
+              <div className="bounce2" />
+              <div className="bounce3" />
+            </div>
           </section>
         </div>
-
         <Footer />
       </div>
     );
@@ -76,4 +98,4 @@ Inspiration.propTypes = {
   dispatch: PropTypes.func
 };
 
-export default Inspiration;
+export default GSAP()(Inspiration);
