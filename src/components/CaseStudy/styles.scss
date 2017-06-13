@@ -174,11 +174,20 @@
   height: calc(100vh - 5rem);
   max-width: 100rem;
   position: relative;
-  min-height: 50rem;
+  // min-height: 50rem;
+  // media queries
+  @media only screen and (max-height: 430px) {
+    height: auto;
+  }
 
-  h1 {
+  h1.casestudy__title {
     font-size: 6rem;
     //media queries
+    @media only screen and (max-height: 430px) {
+      top: 0;
+      transform: none;
+      padding: 3rem 0 12rem;
+    }
     @include breakpoint($desktop-sm) {
       font-size: 6rem;
     }
