@@ -70,8 +70,6 @@ export class Showcase extends React.Component {
           .map((child) => child.props.id || null)
           .indexOf(id);
 
-        // console.log(sceneIndex)
-
         if (sceneIndex && sceneIndex !== -1) {
           this.goToScene(sceneIndex, false);
         }
@@ -176,6 +174,7 @@ export class Showcase extends React.Component {
 
         const currentY = touchMoveEvent.pageY;
         const deltaY = currentY - startY;
+
         return {
           origin: touchStartEvent.pageY,
           currentY: touchMoveEvent.pageY,
@@ -195,10 +194,11 @@ export class Showcase extends React.Component {
     );
 
     this.touchStartSubscription = this.touchStartObservable.subscribe((touchStartEvent) => {
+      LAST_TOUCH = touchStartEvent;
       TOUCH_START = touchStartEvent;
     });
 
-    this.touchMoveSubscription = this.touchMoveObservable.subscribe((touchMoveEvent) => {
+    this.touchMoveObservableSubscription = this.touchMoveObservable.subscribe((touchMoveEvent) => {
       LAST_TOUCH = touchMoveEvent;
     });
 
@@ -212,10 +212,9 @@ export class Showcase extends React.Component {
 
       if (Math.abs(delta) > THRESHOLD) {
         direction = delta > 0 ? 'down' : 'up';
+        const go = direction === 'up' ? this.goToNextScene : this.goToPrevScene;
+        go.call(this);
       }
-
-      const go = direction === 'up' ? this.goToNextScene : this.goToPrevScene;
-      go.call(this);
     });
   }
 
