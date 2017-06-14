@@ -1,3 +1,11 @@
+import React from 'react';
+
+import FiveShadow from 'components/SVGs/FiveShadow';
+import KaiserShadow from 'components/SVGs/KaiserShadow';
+import NexusShadow from 'components/SVGs/NexusShadow';
+import NortonShadow from 'components/SVGs/NortonShadow';
+import YumavoreShadow from 'components/SVGs/YumavoreShadow';
+
 export const caseStudies = [
   // Kaiser Permanente
   {
@@ -5,7 +13,7 @@ export const caseStudies = [
     name: 'Kaiser Permanente',
     color: '#1FB4E7',
     device: {
-      shadow: require('assets/img/case-studies/kaiser/kaiser_shadow.svg'),
+      shadow: <KaiserShadow />,
       body: require('assets/img/case-studies/kaiser/kaiser_body.svg'),
       overlay: require('assets/img/case-studies/kaiser/kaiser_overlay.png'),
       overlaytlg: require('assets/img/case-studies/kaiser/kaiser_overlay_tlg.png'),
@@ -105,7 +113,7 @@ export const caseStudies = [
     name: 'Norton Online',
     color: '#FFC300',
     device: {
-      shadow: require('assets/img/case-studies/norton/norton_shadow.svg'),
+      shadow: <NortonShadow />,
       body: require('assets/img/case-studies/norton/norton_body.svg'),
       overlay: require('assets/img/case-studies/norton/norton_overlay.png'),
       overlaymlg: require('assets/img/case-studies/norton/norton_overlay_mlg.png')
@@ -188,7 +196,7 @@ export const caseStudies = [
     color: '#3AD283',
     name: 'Google Nexus',
     device: {
-      shadow: require('assets/img/case-studies/nexus/nexus_shadow.svg'),
+      shadow: <NexusShadow />,
       body: require('assets/img/case-studies/nexus/nexus_body.svg'),
       overlay: require('assets/img/case-studies/nexus/nexus_overlay.png'),
       // shadowmlg: require('assets/img/case-studies/nexus/nexus_shadow-mlg.svg'),
@@ -270,7 +278,7 @@ export const caseStudies = [
     name: 'Yumavore',
     color: '#FF765C',
     device: {
-      shadow: require('assets/img/case-studies/yumavore/yumavore_shadow.svg'),
+      shadow: <YumavoreShadow />,
       body: require('assets/img/case-studies/yumavore/yumavore_body.svg'),
       overlay: require('assets/img/case-studies/yumavore/yumavore_overlay.png'),
       overlaytlg: require('assets/img/case-studies/yumavore/yumavore_overlay_tlg.png'),
@@ -369,7 +377,7 @@ export const caseStudies = [
     name: 'Five',
     color: '#936FEE',
     device: {
-      shadow: require('assets/img/case-studies/five/five_shadow.svg'),
+      shadow: <FiveShadow />,
       body: require('assets/img/case-studies/five/five_body.svg'),
       overlay: require('assets/img/case-studies/five/five_overlay.png'),
       overlaymlg: require('assets/img/case-studies/five/five_overlay_mlg.png')

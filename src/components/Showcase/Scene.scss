@@ -99,6 +99,8 @@ html {
   position: absolute;
   left: 0;
   top: 0;
+  width: 100%;
+  height: 100%;
   z-index: 1;
 }
 
@@ -112,12 +114,6 @@ html {
   // media queries
   @include breakpoint($tablet-sm) {
     top: 45.7%;
-  }
-
-
-  path {
-    fill: transparent;
-    stroke: $white;
   }
 
   img {

@@ -158,7 +158,7 @@ export class Scene extends React.Component {
             </picture>
           }
 
-          { shadow && <img data-animationName="device-shadow" className="scene__device__shadow" src={ shadow } alt={ id } /> }
+          { shadow && <div data-animationName="device-shadow" className="scene__device__shadow">{ shadow }</div> }
         </div>
 
         <div data-animationName="cta-text" className="scene__cta typ--white mx10 mx8--dsm mx3--tlg">
