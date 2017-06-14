@@ -39,6 +39,10 @@ export class Showcase extends React.Component {
     this.scrollAutoCompletion = false;
 
     //Adding white for header and footer
+    this.sceneShadowColors = ['rgb(255, 255, 255)'];
+    props.scenes.map((scene) => { this.sceneShadowColors.push(scene.device.shadow.color); });
+    this.sceneShadowColors.push('rgb(255, 255, 255)');
+
     this.colors = ['#FFFFFF'].concat(this.props.scenes.map((scene) => scene.color)).concat(['#FFFFFF']);
     this.children = this.buildChildren();
     this.scrollPoints = [];
@@ -47,9 +51,7 @@ export class Showcase extends React.Component {
     this.currentScene = 0;
     this.previousScene = 0;
 
-    this.state = {
-      animationProgress: 0
-    };
+    this.state = { animationProgress: 0 };
   }
 
   componentDidMount () {
@@ -476,9 +478,13 @@ export class Showcase extends React.Component {
   }
 
   render () {
+    let sceneBgColor = this.colors[this.currentScene];
+
     if (this.sceneMeta.length) {
       this.currentScene = this.calculateCurrentScene();
     }
+
+    console.log(this.sceneShadowColors[this.currentScene]);
 
     return (
       <div ref={ (element) => { this.container = element; } } className="showcase" style={ {
@@ -493,7 +499,8 @@ export class Showcase extends React.Component {
               animationProgress: mapRange(this.state.animationProgress, this.sceneMeta[index].bounds.low, this.sceneMeta[index].bounds.high, 0, 1),
               index,
               onDidMount: (el) => this.addScrollPoint(el, index),
-              currentScene: this.currentScene
+              currentScene: this.currentScene,
+              sceneShadowColors: this.sceneShadowColors
             }
           ))
 
