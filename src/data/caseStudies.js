@@ -13,7 +13,7 @@ export const caseStudies = [
     name: 'Kaiser Permanente',
     color: '#1FB4E7',
     device: {
-      shadow: { component: <KaiserShadow />, color: '#0F8FB9' },
+      shadow: { component: <KaiserShadow />, color: 'rgb(15, 143, 185)' },
       body: require('assets/img/case-studies/kaiser/kaiser_body.svg'),
       overlay: require('assets/img/case-studies/kaiser/kaiser_overlay.png'),
       overlaytlg: require('assets/img/case-studies/kaiser/kaiser_overlay_tlg.png'),
@@ -113,7 +113,7 @@ export const caseStudies = [
     name: 'Norton Online',
     color: '#FFC300',
     device: {
-      shadow: { component: <NortonShadow />, color: '#ECAB07' },
+      shadow: { component: <NortonShadow />, color: 'rgb(236, 171, 7)' },
       body: require('assets/img/case-studies/norton/norton_body.svg'),
       overlay: require('assets/img/case-studies/norton/norton_overlay.png'),
       overlaymlg: require('assets/img/case-studies/norton/norton_overlay_mlg.png')
@@ -196,7 +196,7 @@ export const caseStudies = [
     color: '#3AD283',
     name: 'Google Nexus',
     device: {
-      shadow: { component: <NexusShadow />, color: '#1CB063' },
+      shadow: { component: <NexusShadow />, color: 'rgb(28, 176, 99)' },
       body: require('assets/img/case-studies/nexus/nexus_body.svg'),
       overlay: require('assets/img/case-studies/nexus/nexus_overlay.png'),
       // shadowmlg: require('assets/img/case-studies/nexus/nexus_shadow-mlg.svg'),
@@ -278,7 +278,7 @@ export const caseStudies = [
     name: 'Yumavore',
     color: '#FF765C',
     device: {
-      shadow: { component: <YumavoreShadow />, color: '#D14E35' },
+      shadow: { component: <YumavoreShadow />, color: 'rgb(209, 78, 53)' },
       body: require('assets/img/case-studies/yumavore/yumavore_body.svg'),
       overlay: require('assets/img/case-studies/yumavore/yumavore_overlay.png'),
       overlaytlg: require('assets/img/case-studies/yumavore/yumavore_overlay_tlg.png'),
@@ -377,7 +377,7 @@ export const caseStudies = [
     name: 'Five',
     color: '#936FEE',
     device: {
-      shadow: { component: <FiveShadow />, color: '#6A4DB3' },
+      shadow: { component: <FiveShadow />, color: 'rgb(106, 77, 179)' },
       body: require('assets/img/case-studies/five/five_body.svg'),
       overlay: require('assets/img/case-studies/five/five_overlay.png'),
       overlaymlg: require('assets/img/case-studies/five/five_overlay_mlg.png')
