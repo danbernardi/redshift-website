@@ -13,7 +13,7 @@ export const caseStudies = [
     name: 'Kaiser Permanente',
     color: '#1FB4E7',
     device: {
-      shadow: <KaiserShadow />,
+      shadow: { component: <KaiserShadow />, color: '#0F8FB9' },
       body: require('assets/img/case-studies/kaiser/kaiser_body.svg'),
       overlay: require('assets/img/case-studies/kaiser/kaiser_overlay.png'),
       overlaytlg: require('assets/img/case-studies/kaiser/kaiser_overlay_tlg.png'),
@@ -113,7 +113,7 @@ export const caseStudies = [
     name: 'Norton Online',
     color: '#FFC300',
     device: {
-      shadow: <NortonShadow />,
+      shadow: { component: <NortonShadow />, color: '#ECAB07' },
       body: require('assets/img/case-studies/norton/norton_body.svg'),
       overlay: require('assets/img/case-studies/norton/norton_overlay.png'),
       overlaymlg: require('assets/img/case-studies/norton/norton_overlay_mlg.png')
@@ -196,7 +196,7 @@ export const caseStudies = [
     color: '#3AD283',
     name: 'Google Nexus',
     device: {
-      shadow: <NexusShadow />,
+      shadow: { component: <NexusShadow />, color: '#1CB063' },
       body: require('assets/img/case-studies/nexus/nexus_body.svg'),
       overlay: require('assets/img/case-studies/nexus/nexus_overlay.png'),
       // shadowmlg: require('assets/img/case-studies/nexus/nexus_shadow-mlg.svg'),
@@ -278,7 +278,7 @@ export const caseStudies = [
     name: 'Yumavore',
     color: '#FF765C',
     device: {
-      shadow: <YumavoreShadow />,
+      shadow: { component: <YumavoreShadow />, color: '#D14E35' },
       body: require('assets/img/case-studies/yumavore/yumavore_body.svg'),
       overlay: require('assets/img/case-studies/yumavore/yumavore_overlay.png'),
       overlaytlg: require('assets/img/case-studies/yumavore/yumavore_overlay_tlg.png'),
@@ -377,7 +377,7 @@ export const caseStudies = [
     name: 'Five',
     color: '#936FEE',
     device: {
-      shadow: <FiveShadow />,
+      shadow: { component: <FiveShadow />, color: '#6A4DB3' },
       body: require('assets/img/case-studies/five/five_body.svg'),
       overlay: require('assets/img/case-studies/five/five_overlay.png'),
       overlaymlg: require('assets/img/case-studies/five/five_overlay_mlg.png')
