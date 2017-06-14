@@ -46,8 +46,6 @@ export class AboutExplore extends React.Component {
     const path = [];
     const tl = new TimelineMax();
 
-    // const speed = [ 2.99, 6, 6.48, 5.27, 4.44, 6.05, 5.6, 1.95, 2.2 ];
-
     const wrapper = target.target[0];
     _.times(10, (i) => {
       svg[i + 1] = wrapper.querySelector('#motionPath' + (i + 1));
@@ -84,7 +82,7 @@ export class AboutExplore extends React.Component {
 
   render () {
     return (
-      <section>
+      <section style={ { height: '50vh' } }>
         <svg>
           <g
             id="Line1"
