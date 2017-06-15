@@ -1,9 +1,10 @@
 import React from 'react';
 import GSAP from 'react-gsap-enhancer';
-import { TimelineMax } from 'gsap';
+import { TimelineMax, Power3 } from 'gsap';
 import { isInRange } from 'utils/animation';
 import 'components/ScrollTrigger/ScrollTrigger.scss';
 import PropTypes from 'prop-types';
+import SplitText from 'vendor/gsap-plugins/SplitText';
 
 export class Hero extends React.Component {
   constructor (props) {
@@ -36,20 +37,16 @@ export class Hero extends React.Component {
     }
   }
 
-  createIntroTimeline ({ target }) {
-    const text1 = target.find({ 'data-animationName': 'text1' });
-    const text2 = target.find({ 'data-animationName': 'text2' });
-    const scroller = target.find({ 'data-animationName': 'scroller' });
+  createIntroTimeline () {
+    const textChars = new SplitText('.hero__text', { type: 'chars, words' });
 
-    return new TimelineMax({
-      onUpdate: () => {
-        //Do stuff here
-      },
-      onComplete: () => {
-        this.introComplete = true;
-      }
-    })
-    .staggerTo([text1, text2, scroller], 1, { opacity: 1 }, 0.5);
+    return new TimelineMax({})
+      .set('.hero__text', { perspective: 400 })
+      .staggerFrom(textChars.chars, 0.5, {
+        opacity: 0,
+        y: -25,
+        ease: Power3.easeOut
+      }, 0.02, '+=1.75');
   }
 
   createOutroTimeline ({ target }) {
@@ -69,15 +66,11 @@ export class Hero extends React.Component {
     })
     .pause()
     .addPause(0.15)
-    .staggerTo([text1, text2, scroller], 0.5, { opacity: 0 }, 0.05);
+    .staggerTo([text1, text2, scroller], 0.5, { opacity: 0 }, 0.02);
   }
 
   render () {
     const { onDidMount, clickCallback } = this.props;
-
-    let styles = {
-      opacity: 0
-    };
 
     return (
       <section
@@ -86,18 +79,18 @@ export class Hero extends React.Component {
       >
 
         <div className="row" style={ { top: '50%', transform: 'translateY(-50%)' } }>
-          <h1 className="typ--bold typ--redshift" style={ { maxWidth: '110rem' } }>
-            <span data-animationName="text1" style={ styles }>
+          <h1 className="hero__text typ--bold typ--redshift" style={ { maxWidth: '110rem' } }>
+            <span data-animationName="text1">
               Redshift creates simple,&nbsp;
             </span>
             <br className="hide--tsm" />
-            <span data-animationName="text2" style={ styles }>
+            <span data-animationName="text2">
               meaningful digital products<span className="typ--redshift">.</span>
             </span>
           </h1>
         </div>
 
-        { this.props.animationProgress <= 0.3 ? <div data-animationName="scroller" style={ styles } className="scrolltrigger" onClick={ () => {
+        { this.props.animationProgress <= 0.3 ? <div data-animationName="scroller" className="scrolltrigger" onClick={ () => {
           clickCallback(1);
         } }>
           <div className="casestudy__scrollarrow">
