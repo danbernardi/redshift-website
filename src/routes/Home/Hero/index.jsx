@@ -46,7 +46,7 @@ export class Hero extends React.Component {
         opacity: 0,
         y: -25,
         ease: Power3.easeOut
-      }, 0.02, '+=1.5');
+      }, 0.02, '+=1.75');
   }
 
   createOutroTimeline ({ target }) {
