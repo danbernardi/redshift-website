@@ -95,13 +95,6 @@ export const caseStudies = [
         ]
       }
     ],
-    images: {
-      def: require('assets/img/home/KP/kp-scene-bg.jpg'),
-      tlg: require('assets/img/home/KP/kp-scene-bg.jpg'),
-      mlg: require('assets/img/home/KP/kp-scene-bg.jpg'),
-      msm: require('assets/img/home/KP/kp-scene-bg-mobile.jpg'),
-      alt: 'Norton creative design'
-    },
     caption: ['Reimagining the', 'Future of Healthcare'],
     anchor: true,
     featured: true
