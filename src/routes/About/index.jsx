@@ -15,8 +15,9 @@ import { connect } from 'react-redux';
 
 export class About extends React.Component {
   componentDidMount () {
-    const { params } = this.props;
+    const { params, dispatch } = this.props;
     if (params.employeeID) this.openModal(params.employeeID);
+    dispatch(actions.setHeaderTheme('pink'));
   }
 
   shouldComponentUpdate (props) {
