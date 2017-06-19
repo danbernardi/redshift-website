@@ -53,13 +53,13 @@ export class AboutExplore extends React.Component {
 
           <div className="row layout--absolute layout-abs--bottom pb5">
 
-            <div className="col-4 col-5--dsm">
+            <div className="col-4 col-5--dsm about-explore--titles">
               { aboutExplore.map((item, i) => (
                 <div key={ i }>
                   <h1
                     className={ `typ--bold btn ${ this.state.activeItem === item.id ? item.colorClass : 'typ--light-gray' }` }
-                    onMouseEnter={ () => { this.setState({ activeItem: item.id }); } }
-                    onMouseLeave={ () => { this.setState({ activeItem: 'aboutExplore' }); } }
+                    onClick={ () => { this.setState({ activeItem: item.id }); } }
+                    // onMouseLeave={ () => { this.setState({ activeItem: 'aboutExplore' }); } }
                   >
                     { item.title }
                   </h1>
@@ -86,8 +86,8 @@ export class AboutExplore extends React.Component {
             <div key={ ti } className="mt6">
               <h2
                 className={ `typ--bold pb1 ${ item.colorClass }` }
-                onMouseEnter={ () => { this.setState({ activeItem: item.id }); } }
-                onMouseLeave={ () => { this.setState({ activeItem: 'aboutExplore' }); } }
+                // onMouseEnter={ () => { this.setState({ activeItem: item.id }); } }
+                // onMouseLeave={ () => { this.setState({ activeItem: 'aboutExplore' }); } }
               >
                 { item.title }
               </h2>

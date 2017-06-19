@@ -14,6 +14,35 @@
   }
 }
 
+.about-explore--titles {
+  h1 {
+    cursor: pointer;
+    @include breakpoint($tablet-lg) {
+      cursor: default;
+    }
+  }
+    div:nth-child(1) h1 {
+      &:hover {
+        color: #FF2953;
+      }
+    }
+    div:nth-child(2) h1 {
+      &:hover {
+        color: #E4486F;
+      }
+    }
+    div:nth-child(3) h1{
+      &:hover {
+        color: #BF4498;
+      }
+    }
+    div:nth-child(4) h1 {
+      &:hover {
+        color: #B144A5;
+      }
+    }
+}
+
 .about__video {
   z-index: 8;
   right: -5%;
