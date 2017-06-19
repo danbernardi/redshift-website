@@ -127,10 +127,7 @@ export const caseStudies = [
           id: 'norton',
           url: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/video/norton_950x624.mp4',
           url_sm: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/video/norton_950x624_sm.mp4',
-          maxWidth: '71.4%',
-          videoImage: require('assets/img/case-studies/laptop.png'),
-          videoPadding: '7.6% 0 10.7%',
-          videoPoster: require('assets/img/home/Norton/norton-video-arrow.jpg')
+          type: 'laptop'
         },
         copy: [
           {
@@ -208,10 +205,7 @@ export const caseStudies = [
           id: 'nexus',
           url: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/video/nexus_n7_950x624.mp4',
           url_sm: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/video/nexus_n7_950x624.mp4_sm',
-          maxWidth: '71.9%',
-          videoImage: require('assets/img/case-studies/laptop.png'),
-          videoPadding: '7.6% 0 10.7%',
-          videoPoster: require('assets/img/home/Nexus/nexus-video-arrow.jpg')
+          type: 'laptop'
         },
         copy: [
           {
@@ -291,10 +285,7 @@ export const caseStudies = [
           id: 'yumavore',
           url: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/video/yumavore_768x1024.mp4',
           url_sm: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/video/yumavore_768x1024_sm.mp4',
-          maxWidth: '44%',
-          videoImage: require('assets/img/case-studies/ipad.png'),
-          videoPadding: '11% 0',
-          videoPoster: require('assets/img/home/Yumavore/yumavore-video-arrow.jpg')
+          type: 'ipad'
         },
         copy: [
           {
@@ -392,11 +383,7 @@ export const caseStudies = [
           id: 'five',
           url: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/video/five_374x666.mp4',
           url_sm: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/video/five_374x666_sm.mp4',
-          maxWidth: '28.5%',
-          videoImage: require('assets/img/case-studies/iphone.png'),
-          videoPadding: '17% 0 15.3%',
-          videoMargin: '-10.6%',
-          videoPoster: require('assets/img/home/Five/five-video-arrow.jpg')
+          type: 'iphone'
         },
         copy: [
           {
@@ -425,11 +412,7 @@ export const caseStudies = [
           id: 'five2',
           url: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/video/five_blinds_640x1136.mp4',
           url_sm: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/video/five_blinds_640x1136.mp4',
-          maxWidth: '28.5%',
-          videoImage: require('assets/img/case-studies/iphone.png'),
-          videoPadding: '17% 0 15.3%',
-          videoMargin: '-10.6%',
-          videoPoster: require('assets/img/home/Five/five-video-arrow.jpg')
+          type: 'iphone'
         },
         copy: [
           {
@@ -466,7 +449,7 @@ export const caseStudies = [
         }]
       }
     ]
-  },
+  }
 
   // norton campfire
   // {

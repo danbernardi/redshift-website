@@ -238,3 +238,41 @@
     padding-bottom: 13.5rem;
   }
 }
+
+.video--laptop {
+  .video-container {
+    padding: 6.2% 0 8%;
+    max-width: 60%;
+  }
+}
+
+.video--ipad {
+  .video-container {
+    max-width: 36.5%;
+    padding: 9.1% 0;
+    // media queries
+    @include breakpoint($tablet-lg) {
+      max-width: 42.5%;
+    }
+    @include breakpoint($mobile-lg) {
+      max-width: 57.5%;
+      padding: 14.1% 0;
+    }
+  }
+}
+
+.video--iphone {
+  .video-container {
+    max-width: 23.5%;
+    padding: 11.6% 0;
+    // media queries
+    @include breakpoint($tablet-lg) {
+      max-width: 27%;
+      padding: 13% 0;
+    }
+    @include breakpoint($mobile-lg) {
+      max-width: 36.7%;
+      padding: 17.8% 0;
+    }
+  }
+}
