@@ -58,7 +58,7 @@ class CaseStudy extends React.Component {
     function fadeOut () {
       new mojs.Tween({
         duration: 300,
-        easing: 'cubit.out',
+        easing: 'cubic.out',
         onUpdate: (progress) => {
           const mappedOpacity = mapRange(progress, 0, 1, 1, 0);
           caseStudy.style.opacity = mappedOpacity;

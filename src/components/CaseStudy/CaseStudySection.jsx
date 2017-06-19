@@ -108,7 +108,7 @@ class CaseStudySection extends React.Component {
 
 CaseStudySection.propTypes = {
   caseStudyContent: PropTypes.object,
-  scrollContainer: PropTypes.node
+  scrollContainer: PropTypes.object
 };
 
 export default CaseStudySection;
