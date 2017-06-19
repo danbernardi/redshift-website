@@ -4,7 +4,7 @@ import { TimelineMax, TweenMax, Linear } from 'gsap';
 import MorphSVGPlugin from 'vendor/gsap-plugins/MorphSVGPlugin';
 import _ from 'lodash';
 
-export class AboutExplore extends React.Component {
+export class AboutExploreAnimation extends React.Component {
   componentDidMount () {
     this.timeline = this.addAnimation(this.createTimeline.bind(this));
   }
@@ -38,6 +38,12 @@ export class AboutExplore extends React.Component {
         repeat: 0
       }
     );
+  };
+
+  circleFadeAll (circleArray, svgArray) {
+    return TweenMax
+      .to(circleArray, 1.5, { attr: { r: 0 }, ease: Linear.easeNone }, 0.5, 'aboutTwo')
+      .to(svgArray, 1.5, { attr: { 'strokeWidth': 0 }, ease: Linear.easeNone }, 0.5, 'aboutTwo');
   };
 
   createTimeline (target) {
@@ -87,6 +93,10 @@ export class AboutExplore extends React.Component {
             id="aboutExploreLines"
             stroke="none"
             strokeWidth="0"
+            fill="none"
+            fillRule="evenodd"
+            strokeLinecap="square"
+            strokeDasharray="1,1"
           >
             <path
               id="explorePath1"
@@ -177,4 +187,4 @@ export class AboutExplore extends React.Component {
   }
 }
 
-export default GSAP()(AboutExplore);
+export default GSAP()(AboutExploreAnimation);

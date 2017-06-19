@@ -1,4 +1,5 @@
 import React from 'react';
+import AboutExploreAnimation from './AboutExploreAnimation';
 
 export class AboutExplore extends React.Component {
   constructor (props) {
@@ -16,6 +17,7 @@ export class AboutExplore extends React.Component {
         title: 'Explore.',
         text: 'We find great solutions by starting with the broadest range of possibilities, exploring all options with a blend of research techniques and vigorous ideation. We go through a lot of paper and Post-Its.',
         img: require('assets/img/about/about__explore.svg'),
+        svgAnim: <AboutExploreAnimation />,
         colorClass: 'typ--redshift'
       },
       {
@@ -43,7 +45,9 @@ export class AboutExplore extends React.Component {
 
     return (
       <section className="my8 mt0--mlg mb4--mlg">
+
         <div className="about__animation-wrapper hide--tlg hero layout--relative layout--fullheight layout--landscape layout--flex">
+
           { aboutExplore.map((image, ind) => (
             <div key={ ind } className="about--image">
               { this.state.activeItem === image.id && <img src={ image.img } /> }

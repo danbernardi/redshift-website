@@ -4,6 +4,7 @@ svg {
   overflow: visible;
 }
 
+<<<<<<< Updated upstream
 #motionPath1 {
   transform: translateY(6.9rem);
 }
@@ -21,4 +22,9 @@ svg {
 #motionPath8,
 #motionPath9 {
   transform: translateY(18.7rem);
+=======
+#aboutExploreLines path {
+  stroke: #DCDCDB;
+  stroke-width: 2;
+>>>>>>> Stashed changes
 }
