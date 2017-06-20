@@ -147,7 +147,7 @@
 
 .casestudy__next {
   background-color: $light-gray;
-  min-height: 16.5rem;
+  min-height: 17.2rem;
   cursor: pointer;
   width: calc(100% + 8rem);
   bottom: 0;
@@ -156,7 +156,7 @@
   z-index: 1;
   // media queries
   @include breakpoint($mobile-lg) {
-    min-height: 11rem;
+    min-height: 11.5rem;
     width: calc(100% + 1rem);
     left: -1rem;
   }
@@ -236,5 +236,43 @@
   // media queries
   @include breakpoint($mobile-sm) {
     padding-bottom: 13.5rem;
+  }
+}
+
+.video--laptop {
+  .video-container {
+    padding: 6.2% 0 8%;
+    max-width: 60%;
+  }
+}
+
+.video--ipad {
+  .video-container {
+    max-width: 36.5%;
+    padding: 9.1% 0;
+    // media queries
+    @include breakpoint($tablet-lg) {
+      max-width: 42.5%;
+    }
+    @include breakpoint($mobile-lg) {
+      max-width: 57.5%;
+      padding: 14.1% 0;
+    }
+  }
+}
+
+.video--iphone {
+  .video-container {
+    max-width: 23.5%;
+    padding: 11.6% 0;
+    // media queries
+    @include breakpoint($tablet-lg) {
+      max-width: 27%;
+      padding: 13% 0;
+    }
+    @include breakpoint($mobile-lg) {
+      max-width: 36.7%;
+      padding: 17.8% 0;
+    }
   }
 }

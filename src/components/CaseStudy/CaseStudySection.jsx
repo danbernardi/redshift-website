@@ -27,25 +27,40 @@ class CaseStudySection extends React.Component {
   }
 
   render () {
-    const { caseStudyContent, scrollContainer } = this.props;
+    const { scrollContainer } = this.props;
+    const { video, images, copy, containerClass, classes, imgAlt } = this.props.caseStudyContent;
+    const videoOverlay = {
+      iphone: {
+        def: require('assets/img/case-studies/iphone.png'),
+        tlg: require('assets/img/case-studies/iphone-tlg.png'),
+        mlg: require('assets/img/case-studies/iphone-mlg.png')
+      },
+      ipad: {
+        def: require('assets/img/case-studies/ipad.png'),
+        tlg: require('assets/img/case-studies/ipad-tlg.png'),
+        mlg: require('assets/img/case-studies/ipad-mlg.png')
+      },
+      laptop: {
+        def: require('assets/img/case-studies/laptop.png'),
+        tlg: require('assets/img/case-studies/laptop-tlg.png'),
+        mlg: require('assets/img/case-studies/laptop-mlg.png')
+      }
+    };
+
     return (
-      <div className={ caseStudyContent.classes && caseStudyContent.classes }>
-        { caseStudyContent.video &&
-          <div className="layout--relative">
+      <div className={ classes && classes }>
+        { video &&
+          <div className={ `layout--relative video--${video.type}` }>
             <Builder scrollContainer={ scrollContainer }>
               <picture className="video-image">
-                <img src={ caseStudyContent.video.videoImage } className="full-image" />
+                <source srcSet={ videoOverlay[video.type].def } media="(min-width: 1040px)" />
+                <source srcSet={ videoOverlay[video.type].tlg } media="(min-width: 767px)" />
+                <img src={ videoOverlay[video.type].mlg } className="full-image" alt={ video.type } />
               </picture>
-              <div className="video-container" style={ { maxWidth: caseStudyContent.video.maxWidth, padding: caseStudyContent.video.videoPadding } } >
-                <video id={ `caseStudyVideo-${caseStudyContent.video.id}` }
-                  loop
-                  muted
-                  playsInline
-                  poster={ caseStudyContent.video.videoPoster }
-                  style={ { margin: caseStudyContent.video.videoMargin } }
-                >
-                  <source src={ caseStudyContent.video.url } media="screen and (max-width:768px)" type="video/mp4" />
-                  <source src={ caseStudyContent.video.url_sm } media="screen and (max-width:767px)" type="video/mp4" />
+              <div className="video-container">
+                <video id={ `caseStudyVideo-${video.id}` } loop muted playsInline>
+                  <source src={ video.url } media="screen and (max-width:768px)" type="video/mp4" />
+                  <source src={ video.url_sm } media="screen and (max-width:767px)" type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
               </div>
@@ -53,31 +68,31 @@ class CaseStudySection extends React.Component {
           </div>
         }
 
-        { caseStudyContent.images &&
+        { images &&
           <Builder scrollContainer={ scrollContainer }>
             <picture>
-              <source srcSet={ caseStudyContent.images.imgDef } media="(min-width: 1040px)" />
-              <source srcSet={ caseStudyContent.images.imgTlg } media="(min-width: 767px)" />
-              <img src={ caseStudyContent.images.imgMlg } className="full-image" style={ { marginBottom: '1px' } } alt={ caseStudyContent.imgAlt } />
+              <source srcSet={ images.imgDef } media="(min-width: 1040px)" />
+              <source srcSet={ images.imgTlg } media="(min-width: 767px)" />
+              <img src={ images.imgMlg } className="full-image" style={ { marginBottom: '1px' } } alt={ imgAlt } />
             </picture>
           </Builder>
         }
 
-        { caseStudyContent.copy &&
+        { copy &&
           <Builder scrollContainer={ scrollContainer }>
-            <div className={ `row py10 py5--mlg ${caseStudyContent.containerClass}` }>
-              { caseStudyContent.copy.map((copy, index) => (
+            <div className={ `row py10 py5--mlg ${containerClass}` }>
+              { copy.map((copyItem, index) => (
                 <div key={ index }>
-                  { copy.src && <img src={ copy.src } /> }
-                  { copy.url && copy.text
-                    ? <a href={ copy.url } target="_blank" className={ copy.classes && copy.classes }>{ copy.text }</a>
-                    : <div className={ copy.classes && copy.classes }>{ copy.text }</div> }
+                  { copyItem.src && <img src={ copyItem.src } /> }
+                  { copyItem.url && copyItem.text
+                    ? <a href={ copyItem.url } target="_blank" className={ copyItem.classes && copyItem.classes }>{ copyItem.text }</a>
+                    : <div className={ copyItem.classes && copyItem.classes }>{ copyItem.text }</div> }
 
-                  { copy.linkText &&
-                    <div className={ copy.classes && copy.classes }>
-                      <span>{ copy.linkText.startText }</span>
-                      <span><a href={ copy.linkText.link } target="_blank">{ copy.linkText.linkText }</a></span>
-                      <span>{ copy.linkText.endText }</span>
+                  { copyItem.linkText &&
+                    <div className={ copyItem.classes && copyItem.classes }>
+                      <span>{ copyItem.linkText.startText }</span>
+                      <span><a href={ copyItem.linkText.link } target="_blank">{ copyItem.linkText.linkText }</a></span>
+                      <span>{ copyItem.linkText.endText }</span>
                     </div>
                   }
 
@@ -92,7 +107,8 @@ class CaseStudySection extends React.Component {
 };
 
 CaseStudySection.propTypes = {
-  caseStudyContent: PropTypes.object
+  caseStudyContent: PropTypes.object,
+  scrollContainer: PropTypes.object
 };
 
 export default CaseStudySection;
