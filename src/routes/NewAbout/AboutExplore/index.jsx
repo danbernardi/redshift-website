@@ -87,6 +87,7 @@ export class AboutExplore extends React.Component {
             id="aboutExploreLines"
             stroke="none"
             strokeWidth="0"
+            fill="none"
           >
             <path
               id="explorePath1"

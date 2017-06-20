@@ -13,11 +13,16 @@ export class AboutExploreAnimation extends React.Component {
 
   componentWillUpdate (prevProps) {
     if (prevProps.play === this.props.play) {
-      this.timeline.restart();
+      this.play.call(null, this.timeline);
     }
+
     if (prevProps.play !== this.props.play && this.props.play === true) {
       this.timeline.play();
     }
+  }
+
+  play (tl) {
+    tl.restart();
   }
 
   drawLine (obj, line) {
@@ -61,13 +66,10 @@ export class AboutExploreAnimation extends React.Component {
 
     const wrapper = target.target[0];
     _.times(9, (i) => {
-      const n = [i + 1].toString();
       svg[i + 1] = wrapper.querySelector('#explorePath' + (i + 1));
       circle[i + 1] = wrapper.querySelector('#circle' + (i + 1));
       path[i + 1] = MorphSVGPlugin.pathDataToBezier(wrapper.querySelector('#explorePath' + (i + 1)));
     });
-
-    debugger;
 
     tl
     .add(this.createLineTween(svg[1], baseSpeed * 2.99), 'aboutOne')
