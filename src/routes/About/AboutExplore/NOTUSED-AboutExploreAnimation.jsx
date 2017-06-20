@@ -3,26 +3,10 @@ import GSAP from 'react-gsap-enhancer';
 import { TimelineMax, TweenMax, Linear } from 'gsap';
 import MorphSVGPlugin from 'vendor/gsap-plugins/MorphSVGPlugin';
 import _ from 'lodash';
-import PropTypes from 'prop-types';
 
 export class AboutExploreAnimation extends React.Component {
   componentDidMount () {
     this.timeline = this.addAnimation(this.createTimeline.bind(this));
-    this.timeline.play();
-  }
-
-  componentWillUpdate (prevProps) {
-    if (prevProps.play === this.props.play) {
-      this.play.call(null, this.timeline);
-    }
-
-    if (prevProps.play !== this.props.play && this.props.play === true) {
-      this.timeline.play();
-    }
-  }
-
-  play (tl) {
-    tl.restart();
   }
 
   drawLine (obj, line) {
@@ -196,9 +180,5 @@ export class AboutExploreAnimation extends React.Component {
     );
   }
 }
-
-AboutExploreAnimation.propTypes = {
-  play: PropTypes.bool
-};
 
 export default GSAP()(AboutExploreAnimation);

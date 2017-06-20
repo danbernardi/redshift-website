@@ -3,11 +3,23 @@ import GSAP from 'react-gsap-enhancer';
 import { TimelineMax, TweenMax, Linear } from 'gsap';
 import MorphSVGPlugin from 'vendor/gsap-plugins/MorphSVGPlugin';
 import _ from 'lodash';
+import PropTypes from 'prop-types';
 
 export class AboutExplore extends React.Component {
   componentDidMount () {
     this.timeline = this.addAnimation(this.createTimeline.bind(this));
+    // if (this.props.playExplore) {
+    //   console.log('didMount');
+    //   this.timeline.play();
+    // }
   }
+
+  // componentWillUpdate (nextProps) {
+  //   if (this.props.playExplore !== nextProps.playExplore) {
+  //     console.log('didUpdate');
+  //     this.timeline.play();
+  //   }
+  // }
 
   drawLine (obj, line) {
     line.style.strokeDasharray = [obj.length, obj.pathLength].join(' ');
@@ -44,7 +56,7 @@ export class AboutExplore extends React.Component {
     const exsvg = [];
     const excircle = [];
     const expath = [];
-    const tl = new TimelineMax();
+    const tl = new TimelineMax({ paused: true });
 
     const baseSpeed = 1 * 0.75;
 
@@ -168,5 +180,9 @@ export class AboutExplore extends React.Component {
     );
   }
 }
+
+AboutExplore.propTypes = {
+  playExplore: PropTypes.bool
+};
 
 export default GSAP()(AboutExplore);

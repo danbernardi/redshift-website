@@ -2,6 +2,7 @@ import React from 'react';
 import GSAP from 'react-gsap-enhancer';
 import { TimelineMax, TweenMax, Linear } from 'gsap';
 import MorphSVGPlugin from 'vendor/gsap-plugins/MorphSVGPlugin';
+import PropTypes from 'prop-types';
 
 export class AboutExperiment extends React.Component {
   componentDidMount () {
