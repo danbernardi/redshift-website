@@ -41,39 +41,39 @@ export class AboutExplore extends React.Component {
   };
 
   createTimeline (target) {
-    const svg = [];
-    const circle = [];
-    const path = [];
+    const exsvg = [];
+    const excircle = [];
+    const expath = [];
     const tl = new TimelineMax();
 
     const baseSpeed = 1 * 0.75;
 
     const wrapper = target.target[0];
     _.times(10, (i) => {
-      svg[i + 1] = wrapper.querySelector('#explorePath' + (i + 1));
-      circle[i + 1] = wrapper.querySelector('#circle' + (i + 1));
-      path[i + 1] = MorphSVGPlugin.pathDataToBezier(wrapper.querySelector('#explorePath' + (i + 1)));
+      exsvg[i + 1] = wrapper.querySelector('#explorePath' + (i + 1));
+      excircle[i + 1] = wrapper.querySelector('#circle' + (i + 1));
+      expath[i + 1] = MorphSVGPlugin.pathDataToBezier(wrapper.querySelector('#explorePath' + (i + 1)));
     });
 
     tl
-    .add(this.createLineTween(svg[1], baseSpeed * 2.99), 'aboutOne')
-    .add(this.createLineTween(svg[2], baseSpeed * 6), 'aboutOne')
-    .add(this.createLineTween(svg[3], baseSpeed * 6.48), 'aboutOne')
-    .add(this.createLineTween(svg[4], baseSpeed * 5.27), 'aboutOne')
-    .add(this.createLineTween(svg[5], baseSpeed * 4.44), 'aboutOne')
-    .add(this.createLineTween(svg[6], baseSpeed * 6.05), 'aboutOne')
-    .add(this.createLineTween(svg[7], baseSpeed * 5.62), 'aboutOne')
-    .add(this.createLineTween(svg[8], baseSpeed * 1.95), 'aboutOne')
-    .add(this.createLineTween(svg[9], baseSpeed * 2.2), 'aboutOne')
-    .add(this.circlePathTween(circle[1], path[1], baseSpeed * 2.99), 'aboutOne')
-    .add(this.circlePathTween(circle[2], path[2], baseSpeed * 6), 'aboutOne')
-    .add(this.circlePathTween(circle[3], path[3], baseSpeed * 6.48), 'aboutOne')
-    .add(this.circlePathTween(circle[4], path[4], baseSpeed * 5.27), 'aboutOne')
-    .add(this.circlePathTween(circle[5], path[5], baseSpeed * 4.44), 'aboutOne')
-    .add(this.circlePathTween(circle[6], path[6], baseSpeed * 6.05), 'aboutOne')
-    .add(this.circlePathTween(circle[7], path[7], baseSpeed * 5.62), 'aboutOne')
-    .add(this.circlePathTween(circle[8], path[8], baseSpeed * 1.95), 'aboutOne')
-    .add(this.circlePathTween(circle[9], path[9], baseSpeed * 2.2), 'aboutOne');
+    .add(this.createLineTween(exsvg[1], baseSpeed * 2.99), 'aboutOne')
+    .add(this.createLineTween(exsvg[2], baseSpeed * 6), 'aboutOne')
+    .add(this.createLineTween(exsvg[3], baseSpeed * 6.48), 'aboutOne')
+    .add(this.createLineTween(exsvg[4], baseSpeed * 5.27), 'aboutOne')
+    .add(this.createLineTween(exsvg[5], baseSpeed * 4.44), 'aboutOne')
+    .add(this.createLineTween(exsvg[6], baseSpeed * 6.05), 'aboutOne')
+    .add(this.createLineTween(exsvg[7], baseSpeed * 5.62), 'aboutOne')
+    .add(this.createLineTween(exsvg[8], baseSpeed * 1.95), 'aboutOne')
+    .add(this.createLineTween(exsvg[9], baseSpeed * 2.2), 'aboutOne')
+    .add(this.circlePathTween(excircle[1], expath[1], baseSpeed * 2.99), 'aboutOne')
+    .add(this.circlePathTween(excircle[2], expath[2], baseSpeed * 6), 'aboutOne')
+    .add(this.circlePathTween(excircle[3], expath[3], baseSpeed * 6.48), 'aboutOne')
+    .add(this.circlePathTween(excircle[4], expath[4], baseSpeed * 5.27), 'aboutOne')
+    .add(this.circlePathTween(excircle[5], expath[5], baseSpeed * 4.44), 'aboutOne')
+    .add(this.circlePathTween(excircle[6], expath[6], baseSpeed * 6.05), 'aboutOne')
+    .add(this.circlePathTween(excircle[7], expath[7], baseSpeed * 5.62), 'aboutOne')
+    .add(this.circlePathTween(excircle[8], expath[8], baseSpeed * 1.95), 'aboutOne')
+    .add(this.circlePathTween(excircle[9], expath[9], baseSpeed * 2.2), 'aboutOne');
     tl.play();
 
     return tl;
@@ -91,15 +91,13 @@ export class AboutExplore extends React.Component {
           >
             <path
               id="explorePath1"
-              stroke="#DCDCDB"
-              strokeWidth="2"
+              className="aboutPath"
               d="M-10,218 L235,218 C251.569,218 265,205.552 265,189 C265,172.151 278.432,159
                 295,159 L461,159 C477.569,159 490,146.55 490,130 C490,113.451 504.432,100 521,100 L572,100"
             />
             <path
               id="explorePath2"
-              stroke="#DCDBDA"
-              strokeWidth="2"
+              className="aboutPath"
               d="M-10,218 L235,218 C251.568,218 265,205.462 265,189 C265,172.538 278.431,159
                 295,159 L461,159 C477.568,159 490,173.538 490,190 C490,206.462 496.431,218 513,218 L610,218
                 C626.568,218 645,205.462 645,189 C645,172.538 658.431,159 675,159 L837,159 C853.577,159 867,145.472
@@ -107,8 +105,7 @@ export class AboutExplore extends React.Component {
             />
             <path
               id="explorePath3"
-              stroke="#DCDBDA"
-              strokeWidth="2"
+              className="aboutPath"
               d="M-10,218 L235,218 C251.568,218 265,205.462 265,189 C265,172.538 278.431,159 295,159 L461,159
                 C477.568,159 490,173.538 490,190 C490,206.462 496.431,218 513,218 L610,218 C626.568,218 645,205.462
                 645,189 C645,172.538 658.431,159 675,159 L837,159 C853.577,159 867,145.472 867,129 C867,106.497 885.352,89
@@ -116,24 +113,21 @@ export class AboutExplore extends React.Component {
             />
             <path
               id="explorePath4"
-              stroke="#DCDCDB"
-              strokeWidth="2"
+              className="aboutPath"
               d="M-10,217.979996 L235,218 C251.568,218 265,205.462 265,189 C265,172.538 278.432,159 295,159 L461,159 C477.568,159
                 490,173.538 490,190 C490,206.462 496.431,218 513,218 L610,218 C626.568,218 645,205.462 645,189 C645,172.538 658.432,159
                 675,159 L837,159 C853.567,159 867,172.45 867,189 C867,205.55 880.43,218 897,218 L995,218"
             />
             <path
               id="explorePath5"
-              stroke="#DCDCDB"
-              strokeWidth="2"
+              className="aboutPath"
               d="M-10,218 L235,218 C251.569,218 265,205.55 265,189 C265,172.45 278.432,159 295,159 L461,159 C477.567,159 490,173.451
                 490,190 C490,206.55 496.432,218 513,218 L610,218 C626.568,218 640,231.45 640,248 C640,264.55 653.433,278 670,278 L752,278
                 C768.57,278 782,264.551 782,248 C782,231.45 795.432,218 812,218"
             />
             <path
               id="explorePath6"
-              stroke="#DCDCDB"
-              strokeWidth="2"
+              className="aboutPath"
               d="M-10,218 L235,218 C251.568,218 265,205.549 265,189 C265,172.45 278.431,159 295,159 L461,159 C477.568,159 490,173.45
                 490,190 C490,206.55 496.431,218 513,218 L610,218 C623.416127,218 640,228.894566 640,248 C640,264.549 653.431,278
                 670,278 L752,278 C768.568,278 776,291.451 776,308 C776,324.549 790.432,338 807,338 L970,338 C986.569,338 999,324.551
@@ -141,24 +135,21 @@ export class AboutExplore extends React.Component {
             />
             <path
               id="explorePath7"
-              stroke="#DCDCDB"
-              strokeWidth="2"
+              className="aboutPath"
               d="M-10,218 L235,218 C251.568,218 265,205.55 265,189 C265,172.449 278.431,159 295,159 L461,159 C477.568,159 490,173.45
                 490,190 C490,206.55 496.431,218 513,218 L610,218 C626.568,218 640,231.124808 640,248 C640,264.875192 653.431,278 670,278
                 L752,278 C768.568,278 776,291.451 776,308 C776,324.549 790.432,338 807,338 L970,338 C986.569,338 1000.732,351.46
                 1000.732,368.043 C1000.732,384.594 1014.164,398.01 1030.732,398.01"
             />
             <path
-              stroke="#DCDCDB"
-              strokeWidth="2"
+              className="aboutPath"
               id="explorePath8"
               d="M-10,218 L235,218 C251.568,218 261,231.451 261,248 C261,264.552 274.431,278 291,278 C307.568,278 321.762,264.518
               321.762,247.967 C321.762,231.417 335.194,218 351.762,218"
             />
             <path
               id="explorePath9"
-              stroke="#DCDCDB"
-              strokeWidth="2"
+              className="aboutPath"
               d="M-10,218 L235,218 C251.568,218 261,231.451 261,248 C261,264.551 274.431,278 291,278 C307.568,278 321.756,291.467
                 321.756,308.017 C321.756,324.566 335.187,337.983 351.756,337.983 L406,338"
             />

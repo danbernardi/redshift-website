@@ -56,8 +56,7 @@ export class AboutExperiment extends React.Component {
           <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
             <path
               id="experimentPath1"
-              stroke="#DDDDDC"
-              strokeWidth="2"
+              className="aboutPath"
               d="M92,3.5C313.26,537.71,1137.22,547.76,1351.7.36"
             />
           </g>

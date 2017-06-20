@@ -1,5 +1,8 @@
 import React from 'react';
-import AboutExploreAnimation from './AboutExploreAnimation';
+import AboutExploreAnimation from '../AboutAnimations/AboutExplore';
+import AboutExperimentAnimation from '../AboutAnimations/AboutExperiment';
+import AboutCollaborationAnimation from '../AboutAnimations/AboutCollaboration';
+import AboutIterateAnimation from '../AboutAnimations/AboutIterate';
 
 export class AboutExplore extends React.Component {
   constructor (props) {
@@ -16,7 +19,7 @@ export class AboutExplore extends React.Component {
         id: 'aboutExplore',
         title: 'Explore.',
         text: 'We find great solutions by starting with the broadest range of possibilities, exploring all options with a blend of research techniques and vigorous ideation. We go through a lot of paper and Post-Its.',
-        img: require('assets/img/about/about__explore.svg'),
+        // img: require('assets/img/about/about__explore.svg'),
         svgAnim: <AboutExploreAnimation />,
         colorClass: 'typ--redshift'
       },
@@ -24,21 +27,24 @@ export class AboutExplore extends React.Component {
         id: 'aboutExperiment',
         title: 'Experiment.',
         text: 'We prototype everything, and these prototypes are the focal points of our process. We think “try it and see” is better than “let’s talk about it.”',
-        img: require('assets/img/about/about__experiment.svg'),
+        // img: require('assets/img/about/about__experiment.svg'),
+        svgAnim: <AboutExperimentAnimation />,
         colorClass: 'typ--ruby'
       },
       {
         id: 'aboutCollaborate',
         title: 'Collaborate.',
         text: 'Tough problems need multiple points of view and a diverse group of minds—all of them challenging, questioning, and collaborating with one another to reach a common goal.',
-        img: require('assets/img/about/about__collaborate.svg'),
+        // img: require('assets/img/about/about__collaborate.svg'),
+        svgAnim: <AboutCollaborationAnimation />,
         colorClass: 'typ--indigo'
       },
       {
         id: 'aboutIterate',
         title: 'Iterate.',
         text: 'We work in rapid cycles with frequent input from clients and users.  How can we make it better? Smarter? Simpler? We set extremely high standards, and we never settle.',
-        img: require('assets/img/about/about__iterate.svg'),
+        // img: require('assets/img/about/about__iterate.svg'),
+        svgAnim: <AboutIterateAnimation />,
         colorClass: 'typ--plum'
       }
     ];
@@ -46,15 +52,23 @@ export class AboutExplore extends React.Component {
     return (
       <section className="my8 mt0--mlg mb4--mlg">
 
+
         <div className="about__animation-wrapper hide--tlg hero layout--relative layout--fullheight layout--landscape layout--flex">
           <AboutExploreAnimation play={ this.state.activeItem === 'aboutExplore' } />
           {/* aboutExplore.map((image, ind) => (
 >>>>>>> about page
+=======
+        <div className="hide--tlg hero layout--relative layout--fullheight layout--landscape layout--flex">
+          { aboutExplore.map((image, ind) => (
+>>>>>>> animations in about page
             <div key={ ind } className="about--image">
-              { this.state.activeItem === image.id && <img src={ image.img } /> }
+
+              {/* <AboutExploreAnimation play={ this.state.activeItem === 'aboutExplore' } /> */}
+              { this.state.activeItem === image.id && image.svgAnim }
             </div>
             ))
-          */}
+          }
+
 
           <div className="row layout--absolute layout-abs--bottom pb5">
 

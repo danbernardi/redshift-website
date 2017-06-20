@@ -34,7 +34,6 @@ export class AboutIterate extends React.Component {
     const iPath = MorphSVGPlugin.pathDataToBezier(wrapper.querySelector('#iteratePath1'));
     const spiralPath = wrapper.querySelector('#iteratePath1');
     const tl = new TimelineMax();
-
     tl
       .add(this.createLineTween(spiralPath, 10), 'iterate')
       .to('#iCircle1', 10, { bezier: { values: iPath, type: 'cubic' }, ease: Linear.easeNone, repeat: -1 }, 'iterate')
@@ -58,8 +57,7 @@ export class AboutIterate extends React.Component {
           <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
             <path
               id="iteratePath1"
-              stroke="#DDDDDC"
-              strokeWidth="2"
+              className="aboutPath"
               d="M0,223.056 C0,100.97 116.396055,1.999 259.978,1.999 C410.487912,1.999 519.955,88.8224572 519.955,223.056
                 C520.941958,281.033402 471.13824,359.672605 399.984,362.157 C316.511285,361.473542 262.016933,297.303317 260.766,221.665
                 C260.766,124.025 353.882,44.872 468.747,44.872 C583.612,44.872 676.778077,144.423502 676.729,221.665 C676.729,281.281896

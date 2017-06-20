@@ -81,36 +81,31 @@ export class AboutCollaboration extends React.Component {
           <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
             <path
               id="collPath1"
-              stroke="#DDDDDC"
-              strokeWidth="2"
+              className="aboutPath"
               d="M-10,244 L1450,244"
             />
             <path
               id="collPath2"
-              strokeWidth="2"
-              stroke="#DDDDDC"
+              className="aboutPath"
               d="M-10,276 L1450,276"
             />
             <path
               id="collPath3"
-              strokeWidth="2"
-              stroke="#DDDDDC"
+              className="aboutPath"
               d="M-10,308 L1450,308"
             />
             <path
               id="collPath4"
-              strokeWidth="2"
-              stroke="#DDDDDC"
+              className="aboutPath"
               d="M-10,340 L1450,340"
             />
             <path
               id="collPath5"
-              strokeWidth="2"
-              stroke="#DDDDDC"
+              className="aboutPath"
               d="M-10,372 L1450,372"
             />
           </g>
-          <circle id="collCircle1" r="6" cx="0" cy="0" fill="#FF2953" />
+          <circle id="collCircle1" className="aboutCircle redCircle" r="6" cx="0" cy="0" fill="#FF2953" />
           <circle id="collCircle2" r="6" cx="0" cy="0" fill="#CF3785" />
           <circle id="collCircle3" r="6" cx="0" cy="0" fill="#CF3785" />
 
