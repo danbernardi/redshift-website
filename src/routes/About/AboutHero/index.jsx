@@ -18,7 +18,7 @@ export class AboutHero extends React.Component {
     const { removeMask } = this.state;
     return (
       <section
-        className="layout--flex-col layout--fullheight layout--landscape mb8 mb0--mlg"
+        className="layout--flex-col layout--fullheight layout--landscape"
         style={ { overflow: 'hidden', position: 'relative' } }
         onClick={ () => this._removeMask() }
       >
