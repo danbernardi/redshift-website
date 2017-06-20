@@ -3,10 +3,21 @@ import GSAP from 'react-gsap-enhancer';
 import { TimelineMax, TweenMax, Linear } from 'gsap';
 import MorphSVGPlugin from 'vendor/gsap-plugins/MorphSVGPlugin';
 import _ from 'lodash';
+import PropTypes from 'prop-types';
 
 export class AboutExploreAnimation extends React.Component {
   componentDidMount () {
     this.timeline = this.addAnimation(this.createTimeline.bind(this));
+    this.timeline.play();
+  }
+
+  componentWillUpdate (prevProps) {
+    if (prevProps.play === this.props.play) {
+      this.timeline.restart();
+    }
+    if (prevProps.play !== this.props.play && this.props.play === true) {
+      this.timeline.play();
+    }
   }
 
   drawLine (obj, line) {
@@ -40,26 +51,23 @@ export class AboutExploreAnimation extends React.Component {
     );
   };
 
-  circleFadeAll (circleArray, svgArray) {
-    return TweenMax
-      .to(circleArray, 1.5, { attr: { r: 0 }, ease: Linear.easeNone }, 0.5, 'aboutTwo')
-      .to(svgArray, 1.5, { attr: { 'strokeWidth': 0 }, ease: Linear.easeNone }, 0.5, 'aboutTwo');
-  };
-
   createTimeline (target) {
     const svg = [];
     const circle = [];
     const path = [];
-    const tl = new TimelineMax();
+    const tl = new TimelineMax({ paused: true });
 
     const baseSpeed = 1 * 0.75;
 
     const wrapper = target.target[0];
-    _.times(10, (i) => {
+    _.times(9, (i) => {
+      const n = [i + 1].toString();
       svg[i + 1] = wrapper.querySelector('#explorePath' + (i + 1));
       circle[i + 1] = wrapper.querySelector('#circle' + (i + 1));
       path[i + 1] = MorphSVGPlugin.pathDataToBezier(wrapper.querySelector('#explorePath' + (i + 1)));
     });
+
+    debugger;
 
     tl
     .add(this.createLineTween(svg[1], baseSpeed * 2.99), 'aboutOne')
@@ -80,7 +88,7 @@ export class AboutExploreAnimation extends React.Component {
     .add(this.circlePathTween(circle[7], path[7], baseSpeed * 5.62), 'aboutOne')
     .add(this.circlePathTween(circle[8], path[8], baseSpeed * 1.95), 'aboutOne')
     .add(this.circlePathTween(circle[9], path[9], baseSpeed * 2.2), 'aboutOne');
-    tl.play();
+    // tl.play();
 
     return tl;
   }
@@ -158,9 +166,9 @@ export class AboutExploreAnimation extends React.Component {
                 1000.732,368.043 C1000.732,384.594 1014.164,398.01 1030.732,398.01"
             />
             <path
+              id="explorePath8"
               stroke="#DCDCDB"
               strokeWidth="2"
-              id="explorePath8"
               d="M-10,218 L235,218 C251.568,218 261,231.451 261,248 C261,264.552 274.431,278 291,278 C307.568,278 321.762,264.518
               321.762,247.967 C321.762,231.417 335.194,218 351.762,218"
             />
@@ -186,5 +194,9 @@ export class AboutExploreAnimation extends React.Component {
     );
   }
 }
+
+AboutExploreAnimation.propTypes = {
+  play: PropTypes.bool
+};
 
 export default GSAP()(AboutExploreAnimation);

@@ -47,13 +47,14 @@ export class AboutExplore extends React.Component {
       <section className="my8 mt0--mlg mb4--mlg">
 
         <div className="about__animation-wrapper hide--tlg hero layout--relative layout--fullheight layout--landscape layout--flex">
-
-          { aboutExplore.map((image, ind) => (
+          <AboutExploreAnimation play={ this.state.activeItem === 'aboutExplore' } />
+          {/* aboutExplore.map((image, ind) => (
+>>>>>>> about page
             <div key={ ind } className="about--image">
               { this.state.activeItem === image.id && <img src={ image.img } /> }
             </div>
             ))
-          }
+          */}
 
           <div className="row layout--absolute layout-abs--bottom pb5">
 
@@ -63,7 +64,6 @@ export class AboutExplore extends React.Component {
                   <h1
                     className={ `typ--bold btn ${ this.state.activeItem === item.id ? item.colorClass : 'typ--light-gray' }` }
                     onClick={ () => { this.setState({ activeItem: item.id }); } }
-                    // onMouseLeave={ () => { this.setState({ activeItem: 'aboutExplore' }); } }
                   >
                     { item.title }
                   </h1>
@@ -90,8 +90,6 @@ export class AboutExplore extends React.Component {
             <div key={ ti } className="mt6">
               <h2
                 className={ `typ--bold pb1 ${ item.colorClass }` }
-                // onMouseEnter={ () => { this.setState({ activeItem: item.id }); } }
-                // onMouseLeave={ () => { this.setState({ activeItem: 'aboutExplore' }); } }
               >
                 { item.title }
               </h2>
