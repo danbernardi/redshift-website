@@ -16,7 +16,7 @@ export class Watcher extends React.Component {
     // clears race condition for initiating watcher
     setTimeout(() => {
       this.props.startWatcher();
-    }, 1000);
+    }, 200);
   }
 
   render () {
