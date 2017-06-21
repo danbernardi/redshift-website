@@ -3,26 +3,12 @@ import AboutExploreAnimation from '../AboutAnimations/AboutExplore';
 import AboutExperimentAnimation from '../AboutAnimations/AboutExperiment';
 import AboutCollaborationAnimation from '../AboutAnimations/AboutCollaboration';
 import AboutIterateAnimation from '../AboutAnimations/AboutIterate';
-// import Watcher from 'components/Watcher';
 
 export class AboutExplore extends React.Component {
   constructor (props) {
     super(props);
 
-    this.state = {
-      activeItem: 'aboutExplore',
-      exploreAnimationStart: false
-    };
-  }
-
-  // watcherCallback (watcher) {
-  //   if (watcher.isInViewport) {
-  //     this.setState({ exploreAnimationStart: true });
-  //   }
-  // };
-
-  render () {
-    const aboutExplore = [
+    this.animationItems = [
       {
         id: 'aboutExplore',
         title: 'Explore.',
@@ -53,34 +39,29 @@ export class AboutExplore extends React.Component {
       }
     ];
 
+    this.state = {
+      activeItem: 'aboutExplore'
+    };
+  }
+
+  render () {
     return (
       <section className="my8 mt0--mlg mb4--mlg">
         <div className="about__animation-wrapper hide--tlg hero layout--relative layout--fullheight layout--landscape layout--flex">
-          {/* <Watcher
-            autoStart={ false }
-            stateChange={ this.watcherCallback.bind(this) }
-            enterViewport={ this.watcherCallback.bind(this) }
-          > */}
-          { aboutExplore.map((image, ind) => (
+          { this.animationItems.map((image, ind) => (
             this.state.activeItem === image.id &&
               <div
                 key={ ind }
                 className="about--image"
               >
-                {
-                  React.cloneElement(
-                    image.svgAnim,
-                    { playExplore: this.state.exploreAnimationStart }
-                  )
-                }
+                { image.svgAnim }
               </div>
-          ))}
-          {/* </Watcher> */}
+            ))}
 
           <div className="row layout--absolute layout-abs--bottom pb5">
 
             <div className="col-4 col-5--dsm about-explore--titles">
-              { aboutExplore.map((item, i) => (
+              { this.animationItems.map((item, i) => (
                 <div key={ i }>
                   <h1
                     className={ `typ--bold btn ${ this.state.activeItem === item.id ? item.colorClass : 'typ--light-gray' }` }
@@ -94,7 +75,7 @@ export class AboutExplore extends React.Component {
             </div>
 
             <div className="col-8 col-7--dsm col-last">
-              { aboutExplore.map((content, index) => (
+              { this.animationItems.map((content, index) => (
                 <div
                   className="about--transition"
                   key={ index }
@@ -107,7 +88,7 @@ export class AboutExplore extends React.Component {
         </div>
         <div className="show--tlg row">
           <h1 className="typ--bold typ--redshift">How we work.</h1>
-          { aboutExplore.map((item, ti) => (
+          { this.animationItems.map((item, ti) => (
             <div key={ ti } className="mt6">
               <h2
                 className={ `typ--bold pb1 ${ item.colorClass }` }
