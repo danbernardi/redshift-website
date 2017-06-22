@@ -10,8 +10,25 @@ import { scrollDocToZero } from 'utils/scrollTo';
 import Hamburger from 'components/Hamburger';
 import ReactGA from 'react-ga';
 import PropTypes from 'prop-types';
+import GSAP from 'react-gsap-enhancer';
+import { TimelineMax, Power3 } from 'gsap';
 
 export class Header extends React.Component {
+  componentDidMount () {
+    if (location.pathname === '/') {
+      this.timeline = this.addAnimation(this.animateIn);
+    }
+  }
+
+  animateIn ({ target }) {
+    const logo = target[0].querySelector('.header__logo');
+    const menu = target[0].querySelector('.menu__trigger');
+
+    return new TimelineMax({})
+      .staggerFrom([logo, menu], 0.55, { delay: 1.5, opacity: 0, y: -50 }, 0.15)
+      .play();
+  }
+
   getPageTitle (path) {
     return {
       work: { label: 'work', color: 'white' },
@@ -114,4 +131,4 @@ const injectStateProps = state => ({
   headerTheme: state.headerTheme
 });
 
-export default connect(injectStateProps)(Header);
+export default connect(injectStateProps)(GSAP()(Header));
