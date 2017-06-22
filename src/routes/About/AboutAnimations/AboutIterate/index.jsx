@@ -34,16 +34,17 @@ export class AboutIterate extends React.Component {
     const iPath = MorphSVGPlugin.pathDataToBezier(wrapper.querySelector('#iteratePath1'));
     const spiralPath = wrapper.querySelector('#iteratePath1');
     const tl = new TimelineMax();
+    const baseSpeed = 9.5;
     tl
-      .add(this.createLineTween(spiralPath, 10), 'iterate')
-      .to('#iCircle1', 10, { bezier: { values: iPath, type: 'cubic' }, ease: Linear.easeNone, repeat: -1 }, 'iterate')
-      .to('#iCircle2', 10, { bezier: { values: iPath, type: 'cubic' }, ease: Linear.easeNone, repeat: -1, delay: 0.5 }, 'iterate')
-      .to('#iCircle3', 10, { bezier: { values: iPath, type: 'cubic' }, ease: Linear.easeNone, repeat: -1, delay: 1 }, 'iterate')
-      .to('#iCircle4', 10, { bezier: { values: iPath, type: 'cubic' }, ease: Linear.easeNone, repeat: -1, delay: 1.5 }, 'iterate')
-      .to('#iCircle5', 10, { bezier: { values: iPath, type: 'cubic' }, ease: Linear.easeNone, repeat: -1, delay: 2 }, 'iterate')
-      .to('#iCircle6', 10, { bezier: { values: iPath, type: 'cubic' }, ease: Linear.easeNone, repeat: -1, delay: 2.5 }, 'iterate')
-      .to('#iCircle7', 10, { bezier: { values: iPath, type: 'cubic' }, ease: Linear.easeNone, repeat: -1, delay: 3 }, 'iterate')
-      .to('#iCircle8', 10, { bezier: { values: iPath, type: 'cubic' }, ease: Linear.easeNone, repeat: -1, delay: 3.5 }, 'iterate');
+      .add(this.createLineTween(spiralPath, baseSpeed * 1), 'iterate')
+      .to('#iCircle1', baseSpeed * 1, { bezier: { values: iPath, type: 'cubic' }, ease: Linear.easeNone, repeat: 0 }, 'iterate')
+      .to('#iCircle2', baseSpeed * 1, { bezier: { values: iPath, type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: 0.5 }, 'iterate')
+      .to('#iCircle3', baseSpeed * 1, { bezier: { values: iPath, type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: 1 }, 'iterate')
+      .to('#iCircle4', baseSpeed * 1, { bezier: { values: iPath, type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: 1.5 }, 'iterate')
+      .to('#iCircle5', baseSpeed * 1, { bezier: { values: iPath, type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: 2 }, 'iterate')
+      .to('#iCircle6', baseSpeed * 1, { bezier: { values: iPath, type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: 2.5 }, 'iterate')
+      .to('#iCircle7', baseSpeed * 1, { bezier: { values: iPath, type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: 3 }, 'iterate')
+      .to('#iCircle8', baseSpeed * 1, { bezier: { values: iPath, type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: 3.5 }, 'iterate');
 
     tl.play();
 

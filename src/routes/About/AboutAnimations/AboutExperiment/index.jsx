@@ -2,7 +2,6 @@ import React from 'react';
 import GSAP from 'react-gsap-enhancer';
 import { TimelineMax, TweenMax, Linear } from 'gsap';
 import MorphSVGPlugin from 'vendor/gsap-plugins/MorphSVGPlugin';
-import PropTypes from 'prop-types';
 
 export class AboutExperiment extends React.Component {
   componentDidMount () {
@@ -35,15 +34,15 @@ export class AboutExperiment extends React.Component {
     const exPath = MorphSVGPlugin.pathDataToBezier(wrapper.querySelector('#experimentPath1'));
     const experimentPath = wrapper.querySelector('#experimentPath1');
     const tl = new TimelineMax();
-    var baseSpeed = 6;
+    var baseSpeed = 5;
 
     tl
       .add(this.createLineTween(experimentPath, baseSpeed * 1), 'experiment')
-      .to('#exCircle1', baseSpeed * 1, { bezier: { values: exPath, type: 'cubic' }, ease: Linear.easeNone, repeat: -1 }, 'experiment')
-      .to('#exCircle2', baseSpeed * 1, { bezier: { values: exPath, type: 'cubic' }, ease: Linear.easeNone, repeat: -1, delay: 0.5 }, 'experiment')
-      .to('#exCircle3', baseSpeed * 1, { bezier: { values: exPath, type: 'cubic' }, ease: Linear.easeNone, repeat: -1, delay: 1 }, 'experiment')
-      .to('#exCircle4', baseSpeed * 1, { bezier: { values: exPath, type: 'cubic' }, ease: Linear.easeNone, repeat: -1, delay: 1.5 }, 'experiment')
-      .to('#exCircle5', baseSpeed * 1, { bezier: { values: exPath, type: 'cubic' }, ease: Linear.easeNone, repeat: -1, delay: 2 }, 'experiment');
+      .to('#exCircle1', baseSpeed * 1, { bezier: { values: exPath, type: 'cubic' }, ease: Linear.easeNone, repeat: 0 }, 'experiment')
+      .to('#exCircle2', baseSpeed * 1.25, { bezier: { values: exPath, type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: 0.75 }, 'experiment')
+      .to('#exCircle3', baseSpeed * 0.9, { bezier: { values: exPath, type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: 1 }, 'experiment')
+      .to('#exCircle4', baseSpeed * 1.2, { bezier: { values: exPath, type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: 1.5 }, 'experiment')
+      .to('#exCircle5', baseSpeed * 0.8, { bezier: { values: exPath, type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: 2 }, 'experiment');
 
     tl.play();
 
