@@ -20,7 +20,7 @@ export class CaseStudyHeader extends React.Component {
         opacity: 1,
         y: 0,
         ease: Power3.easeOut
-      }, 0.02);
+      }, 0.01);
   }
 
   render () {
