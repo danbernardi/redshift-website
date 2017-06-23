@@ -56,7 +56,7 @@ export class AboutExplore extends React.Component {
     const expath = [];
     const tl = new TimelineMax({ paused: true });
 
-    const baseSpeed = 1 * 0.75;
+    const baseDuration = 1 * 0.6;
 
     const wrapper = target.target[0];
     _.times(9, (i) => {
@@ -66,25 +66,25 @@ export class AboutExplore extends React.Component {
     });
 
     tl
-      .add(this.createLineTween(exsvg[1], baseSpeed * 2.99), 'aboutOne')
-      .add(this.createLineTween(exsvg[2], baseSpeed * 6), 'aboutOne')
-      .add(this.createLineTween(exsvg[3], baseSpeed * 6.48), 'aboutOne')
-      .add(this.createLineTween(exsvg[4], baseSpeed * 5.27), 'aboutOne')
-      .add(this.createLineTween(exsvg[5], baseSpeed * 4.44), 'aboutOne')
-      .add(this.createLineTween(exsvg[6], baseSpeed * 6.05), 'aboutOne')
-      .add(this.createLineTween(exsvg[7], baseSpeed * 5.62), 'aboutOne')
-      .add(this.createLineTween(exsvg[8], baseSpeed * 1.95), 'aboutOne')
-      .add(this.createLineTween(exsvg[9], baseSpeed * 2.2), 'aboutOne')
-      .add(this.circlePathTween(excircle[1], expath[1], baseSpeed * 2.99), 'aboutOne')
-      .add(this.circlePathTween(excircle[2], expath[2], baseSpeed * 6), 'aboutOne')
-      .add(this.circlePathTween(excircle[3], expath[3], baseSpeed * 6.48), 'aboutOne')
-      .add(this.circlePathTween(excircle[4], expath[4], baseSpeed * 5.27), 'aboutOne')
-      .add(this.circlePathTween(excircle[5], expath[5], baseSpeed * 4.44), 'aboutOne')
-      .add(this.circlePathTween(excircle[6], expath[6], baseSpeed * 6.05), 'aboutOne')
-      .add(this.circlePathTween(excircle[7], expath[7], baseSpeed * 5.62), 'aboutOne')
-      .add(this.circlePathTween(excircle[8], expath[8], baseSpeed * 1.95), 'aboutOne')
-      .add(this.circlePathTween(excircle[9], expath[9], baseSpeed * 2.2), 'aboutOne');
-    tl.pause();
+    .add(this.createLineTween(exsvg[1], baseDuration * 2.99), 'aboutOne')
+    .add(this.createLineTween(exsvg[2], baseDuration * 6), 'aboutOne')
+    .add(this.createLineTween(exsvg[3], baseDuration * 6.48), 'aboutOne')
+    .add(this.createLineTween(exsvg[4], baseDuration * 5.27), 'aboutOne')
+    .add(this.createLineTween(exsvg[5], baseDuration * 4.44), 'aboutOne')
+    .add(this.createLineTween(exsvg[6], baseDuration * 6.05), 'aboutOne')
+    .add(this.createLineTween(exsvg[7], baseDuration * 5.62), 'aboutOne')
+    .add(this.createLineTween(exsvg[8], baseDuration * 1.95), 'aboutOne')
+    .add(this.createLineTween(exsvg[9], baseDuration * 2.2), 'aboutOne')
+    .add(this.circlePathTween(excircle[1], expath[1], baseDuration * 2.99), 'aboutOne')
+    .add(this.circlePathTween(excircle[2], expath[2], baseDuration * 6), 'aboutOne')
+    .add(this.circlePathTween(excircle[3], expath[3], baseDuration * 6.48), 'aboutOne')
+    .add(this.circlePathTween(excircle[4], expath[4], baseDuration * 5.27), 'aboutOne')
+    .add(this.circlePathTween(excircle[5], expath[5], baseDuration * 4.44), 'aboutOne')
+    .add(this.circlePathTween(excircle[6], expath[6], baseDuration * 6.05), 'aboutOne')
+    .add(this.circlePathTween(excircle[7], expath[7], baseDuration * 5.62), 'aboutOne')
+    .add(this.circlePathTween(excircle[8], expath[8], baseDuration * 1.95), 'aboutOne')
+    .add(this.circlePathTween(excircle[9], expath[9], baseDuration * 2.2), 'aboutOne');
+    tl.play();
 
     return tl;
   }

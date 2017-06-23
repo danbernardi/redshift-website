@@ -34,16 +34,17 @@ export class AboutExperiment extends React.Component {
     const exPath = MorphSVGPlugin.pathDataToBezier(wrapper.querySelector('#experimentPath1'));
     const experimentPath = wrapper.querySelector('#experimentPath1');
     const tl = new TimelineMax();
-    var baseSpeed = 5;
+    var baseDuration = 4;
 
     tl
-      .add(this.createLineTween(experimentPath, baseSpeed * 1), 'experiment')
-      .to('#exCircle1', baseSpeed * 1, { bezier: { values: exPath, type: 'cubic' }, ease: Linear.easeNone, repeat: 0 }, 'experiment')
-      .to('#exCircle2', baseSpeed * 1.25, { bezier: { values: exPath, type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: 0.75 }, 'experiment')
-      .to('#exCircle3', baseSpeed * 0.9, { bezier: { values: exPath, type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: 1 }, 'experiment')
-      .to('#exCircle4', baseSpeed * 1.2, { bezier: { values: exPath, type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: 1.5 }, 'experiment')
-      .to('#exCircle5', baseSpeed * 0.8, { bezier: { values: exPath, type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: 2 }, 'experiment');
-
+      .add(this.createLineTween(experimentPath, baseDuration * 1), 'experiment')
+      // .staggerTo(['#exCircle1', '#exCircle2', '#exCircle3', '#exCircle4', '#exCircle5'], 5, { bezier: { values: exPath, type: 'cubic' }, ease: Linear.easeNone, repeat: 0 }, '+=0.25', 'experiment')
+      .to('#exCircle1', baseDuration, { bezier: { values: exPath, type: 'cubic' }, ease: Linear.easeNone, repeat: 0 }, 'experiment')
+      .to('#exCircle2', baseDuration * 1.03125, { bezier: { values: exPath, type: 'cubic' }, ease: Linear.easeNone, repeat: 0 }, 'experiment+=0.1')
+      .to('#exCircle3', baseDuration * 1.09375, { bezier: { values: exPath, type: 'cubic' }, ease: Linear.easeNone, repeat: 0 }, 'experiment+=0.2')
+      .to('#exCircle4', baseDuration * 1.185, { bezier: { values: exPath, type: 'cubic' }, ease: Linear.easeNone, repeat: 0 }, 'experiment+=0.3')
+      .to('#exCircle5', baseDuration * 1.3375, { bezier: { values: exPath, type: 'cubic' }, ease: Linear.easeNone, repeat: 0 }, 'experiment+=0.4')
+      .addPause(baseDuration);
     tl.play();
 
     return tl;

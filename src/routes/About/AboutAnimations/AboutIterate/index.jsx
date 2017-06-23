@@ -34,18 +34,19 @@ export class AboutIterate extends React.Component {
     const iPath = MorphSVGPlugin.pathDataToBezier(wrapper.querySelector('#iteratePath1'));
     const spiralPath = wrapper.querySelector('#iteratePath1');
     const tl = new TimelineMax();
-    const baseSpeed = 9.5;
-    tl
-      .add(this.createLineTween(spiralPath, baseSpeed * 1), 'iterate')
-      .to('#iCircle1', baseSpeed * 1, { bezier: { values: iPath, type: 'cubic' }, ease: Linear.easeNone, repeat: 0 }, 'iterate')
-      .to('#iCircle2', baseSpeed * 1, { bezier: { values: iPath, type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: 0.5 }, 'iterate')
-      .to('#iCircle3', baseSpeed * 1, { bezier: { values: iPath, type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: 1 }, 'iterate')
-      .to('#iCircle4', baseSpeed * 1, { bezier: { values: iPath, type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: 1.5 }, 'iterate')
-      .to('#iCircle5', baseSpeed * 1, { bezier: { values: iPath, type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: 2 }, 'iterate')
-      .to('#iCircle6', baseSpeed * 1, { bezier: { values: iPath, type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: 2.5 }, 'iterate')
-      .to('#iCircle7', baseSpeed * 1, { bezier: { values: iPath, type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: 3 }, 'iterate')
-      .to('#iCircle8', baseSpeed * 1, { bezier: { values: iPath, type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: 3.5 }, 'iterate');
+    const baseDuration = 8;
 
+    tl
+      .add(this.createLineTween(spiralPath, baseDuration * 1), 'iterate')
+      .to('#iCircle1', baseDuration * 1, { bezier: { values: iPath, type: 'cubic' }, ease: Linear.easeNone, repeat: 0 }, 'iterate')
+      .to('#iCircle2', baseDuration * 1, { bezier: { values: iPath, type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: baseDuration * 0.07 }, 'iterate')
+      .to('#iCircle3', baseDuration * 1, { bezier: { values: iPath, type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: baseDuration * 0.115789 }, 'iterate')
+      .to('#iCircle4', baseDuration * 1, { bezier: { values: iPath, type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: baseDuration * 0.48 }, 'iterate')
+      .to('#iCircle5', baseDuration * 1, { bezier: { values: iPath, type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: baseDuration * 0.6 }, 'iterate')
+      .to('#iCircle6', baseDuration * 1, { bezier: { values: iPath, type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: baseDuration * 0.789 }, 'iterate')
+      .to('#iCircle7', baseDuration * 1, { bezier: { values: iPath, type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: baseDuration * 0.86315789 }, 'iterate')
+      .to('#iCircle8', baseDuration * 1, { bezier: { values: iPath, type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: baseDuration * 0.94736842 }, 'iterate')
+      .addPause(baseDuration);
     tl.play();
 
     return tl;

@@ -37,7 +37,7 @@ export class AboutCollaboration extends React.Component {
     const cp = [];
     const collCircle = [];
     const tl = new TimelineMax();
-    const baseSpeed = 5.3;
+    const baseDuration = 4;
 
     _.times(5, (i) => {
       collPath[i + 1] = wrapper.querySelector('#collPath' + (i + 1));
@@ -49,30 +49,30 @@ export class AboutCollaboration extends React.Component {
     });
 
     tl
-      .add(this.createLineTween(collPath[1], baseSpeed * 1), 'coll')
-      .to(collCircle[1], baseSpeed * 1, { bezier: { values: cp[1], type: 'cubic' }, ease: Linear.easeNone, repeat: 0 }, 'coll')
-      .to(collCircle[2], baseSpeed * 1.1, { bezier: { values: cp[1], type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: 0.5 }, 'coll')
-      .to(collCircle[3], baseSpeed * 0.9, { bezier: { values: cp[1], type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: 1 }, 'coll')
+      .add(this.createLineTween(collPath[1], baseDuration * 1), 'coll')
+      .to(collCircle[1], baseDuration * 1.03125, { bezier: { values: cp[1], type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: baseDuration * 0.85 }, 'coll')
+      .to(collCircle[2], baseDuration * 1.09375, { bezier: { values: cp[1], type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: baseDuration * 1.05 }, 'coll')
+      .to(collCircle[3], baseDuration * 1.185, { bezier: { values: cp[1], type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: baseDuration * 1.375 }, 'coll')
 
-      .add(this.createLineTween(collPath[2], baseSpeed * 1), 'coll+=1.5')
-      .to(collCircle[4], baseSpeed * 1, { bezier: { values: cp[2], type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: 1.5 }, 'coll')
-      .to(collCircle[5], baseSpeed * 0.92, { bezier: { values: cp[2], type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: 2 }, 'coll')
+      .add(this.createLineTween(collPath[2], baseDuration * 1), 'coll+=1.5')
+      .to(collCircle[4], baseDuration * 1.09375, { bezier: { values: cp[2], type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: baseDuration * 0.75 }, 'coll')
+      .to(collCircle[5], baseDuration * 1.03125, { bezier: { values: cp[2], type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: baseDuration * 1.225 }, 'coll')
 
-      .add(this.createLineTween(collPath[3], baseSpeed * 1), 'coll+=1')
-      .to(collCircle[6], baseSpeed * 1, { bezier: { values: cp[3], type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: 1 }, 'coll')
-      .to(collCircle[7], baseSpeed * 1.1, { bezier: { values: cp[3], type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: 3 }, 'coll')
-      .to(collCircle[8], baseSpeed * 1, { bezier: { values: cp[3], type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: 3.3 }, 'coll')
+      .add(this.createLineTween(collPath[3], baseDuration * 1), 'coll+=1')
+      .to(collCircle[6], baseDuration * 1, { bezier: { values: cp[3], type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: baseDuration * 1.18 }, 'coll')
+      .to(collCircle[7], baseDuration * 1.03125, { bezier: { values: cp[3], type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: baseDuration * 0.85 }, 'coll')
+      .to(collCircle[8], baseDuration * 1.09325, { bezier: { values: cp[3], type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: baseDuration }, 'coll')
 
-      .add(this.createLineTween(collPath[4], baseSpeed * 1), 'coll+=2')
-      .to(collCircle[9], baseSpeed * 1, { bezier: { values: cp[4], type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: 2 }, 'coll')
-      .to(collCircle[10], baseSpeed * 1, { bezier: { values: cp[4], type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: 2.5 }, 'coll')
-      .to(collCircle[11], baseSpeed * 0.92, { bezier: { values: cp[4], type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: 2.7 }, 'coll')
+      .add(this.createLineTween(collPath[4], baseDuration * 1), 'coll+=2')
+      .to(collCircle[9], baseDuration * 0.9, { bezier: { values: cp[4], type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: baseDuration * 0.85 }, 'coll')
+      .to(collCircle[10], baseDuration * 1.03125, { bezier: { values: cp[4], type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: baseDuration  * 0.95 }, 'coll')
+      .to(collCircle[11], baseDuration * 0.9325, { bezier: { values: cp[4], type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: baseDuration * 1.15 }, 'coll')
 
-      .add(this.createLineTween(collPath[5], baseSpeed * 1), 'coll+=0.5')
-      .to(collCircle[12], baseSpeed * 1, { bezier: { values: cp[5], type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: 0.5 }, 'coll')
-      .to(collCircle[13], baseSpeed * 0.75, { bezier: { values: cp[5], type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: 6 }, 'coll')
-      .to(collCircle[14], baseSpeed * 0.6, { bezier: { values: cp[5], type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: 7 }, 'coll');
-
+      .add(this.createLineTween(collPath[5], baseDuration * 1), 'coll+=0.5')
+      .to(collCircle[12], baseDuration * 1, { bezier: { values: cp[5], type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: baseDuration * 0.92 }, 'coll')
+      .to(collCircle[13], baseDuration * 1.03125, { bezier: { values: cp[5], type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: baseDuration * 1.05 }, 'coll')
+      .to(collCircle[14], baseDuration * 1.09125, { bezier: { values: cp[5], type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: baseDuration * 1.275 }, 'coll')
+      .addPause(baseDuration + 2);
     tl.play();
 
     return tl;
