@@ -3,6 +3,7 @@ import GSAP from 'react-gsap-enhancer';
 import { TimelineMax, TweenMax, Linear } from 'gsap';
 import MorphSVGPlugin from 'vendor/gsap-plugins/MorphSVGPlugin';
 
+
 export class AboutExperiment extends React.Component {
   componentDidMount () {
     this.timeline = this.addAnimation(this.createTimeline.bind(this));
@@ -33,21 +34,43 @@ export class AboutExperiment extends React.Component {
     const wrapper = target.target[0];
     const exPath = MorphSVGPlugin.pathDataToBezier(wrapper.querySelector('#experimentPath1'));
     const experimentPath = wrapper.querySelector('#experimentPath1');
-    const tl = new TimelineMax();
+    const tl = new TimelineMax({  });
     var baseDuration = 4;
 
+    const newPath = [...exPath];
+    const path2 = [ newPath.slice().reverse()[0], { x: 220, y: 200 }];
+    // path2[3] = { x: 220, y: 200 };
+
+
+    console.log(newPath, path2)
+
     tl
-      .add(this.createLineTween(experimentPath, baseDuration * 1), 'experiment')
-      // .staggerTo(['#exCircle1', '#exCircle2', '#exCircle3', '#exCircle4', '#exCircle5'], 5, { bezier: { values: exPath, type: 'cubic' }, ease: Linear.easeNone, repeat: 0 }, '+=0.25', 'experiment')
-      .to('#exCircle1', baseDuration, { bezier: { values: exPath, type: 'cubic' }, ease: Linear.easeNone, repeat: 0 }, 'experiment')
-      .to('#exCircle2', baseDuration * 1.03125, { bezier: { values: exPath, type: 'cubic' }, ease: Linear.easeNone, repeat: 0 }, 'experiment+=0.1')
-      .to('#exCircle3', baseDuration * 1.09375, { bezier: { values: exPath, type: 'cubic' }, ease: Linear.easeNone, repeat: 0 }, 'experiment+=0.2')
-      .to('#exCircle4', baseDuration * 1.185, { bezier: { values: exPath, type: 'cubic' }, ease: Linear.easeNone, repeat: 0 }, 'experiment+=0.3')
-      .to('#exCircle5', baseDuration * 1.3375, { bezier: { values: exPath, type: 'cubic' }, ease: Linear.easeNone, repeat: 0 }, 'experiment+=0.4')
-      .addPause(baseDuration);
+      .add(this.createLineTween(experimentPath, 1), 'experiment')
+      .to('#exCircle1', baseDuration, { bezier: { values: newPath, type: 'cubic' }, ease: Power3.easeInOut,   repeat: -1, yoyo: true   }, 'experiment')
+      .to('#exCircle2', baseDuration, { bezier: { values: newPath, type: 'cubic' }, ease: Power3.easeInOut,   repeat: -1, yoyo: true   }, 'experiment+=0.1')
+      .to('#exCircle3', baseDuration, { bezier: { values: newPath, type: 'cubic' }, ease: Power3.easeInOut,   repeat: -1, yoyo: true   }, 'experiment+=0.2')
+      .to('#exCircle4', baseDuration, { bezier: { values: newPath, type: 'cubic' }, ease: Power3.easeInOut,   repeat: -1, yoyo: true   }, 'experiment+=0.3')
+      .to('#exCircle5', baseDuration, { bezier: { values: newPath, type: 'cubic' }, ease: Power3.easeInOut,   repeat: -1, yoyo: true   }, 'experiment+=0.4')
+
+      // .to('#exCircle1', baseDuration, { bezier: { values: path2, type: 'thru', curviness: 2 }, ease: Power3.easeInOut, /* repeat: -1, yoyo: true */ }, 'experiment2')
+      // .to('#exCircle2', baseDuration, { bezier: { values: path2, type: 'thru', curviness: 2 }, ease: Power3.easeInOut, /* repeat: -1, yoyo: true */ }, 'experiment2+=0.1')
+      // .to('#exCircle3', baseDuration, { bezier: { values: path2, type: 'thru', curviness: 2 }, ease: Power3.easeInOut, /* repeat: -1, yoyo: true */ }, 'experiment2+=0.2')
+      // .to('#exCircle4', baseDuration, { bezier: { values: path2, type: 'thru', curviness: 2 }, ease: Power3.easeInOut, /* repeat: -1, yoyo: true */ }, 'experiment2+=0.3')
+      // .to('#exCircle5', baseDuration, { bezier: { values: path2, type: 'thru', curviness: 2 }, ease: Power3.easeInOut, /* repeat: -1, yoyo: true */ }, 'experiment2+=0.4')
+
+
+
+
     tl.play();
 
-    return tl;
+    // debugger;
+    // tl
+    //   .to('#exCircle1', 2, {physicsProps: {
+    //     bezier: { values: exPath, type: 'cubic', velocity: 100, accelleration: 200 }
+    //   }})
+    //   // .to('#exCircle1', baseDuration, { bezier: { values: exPath, type: 'cubic' }, ease: Linear.easeNone, repeat: 0 }, 'experiment')
+
+    // return tl;
   }
 
   render () {

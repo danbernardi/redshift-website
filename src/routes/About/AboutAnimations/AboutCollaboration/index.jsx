@@ -1,8 +1,15 @@
 import React from 'react';
 import GSAP from 'react-gsap-enhancer';
-import { TimelineMax, TweenMax, Linear } from 'gsap';
+import { TimelineMax, TweenMax, Linear, Power3 } from 'gsap';
 import MorphSVGPlugin from 'vendor/gsap-plugins/MorphSVGPlugin';
-import _ from 'lodash';
+
+
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive
+}
+
 
 export class AboutCollaboration extends React.Component {
   componentDidMount () {
@@ -25,7 +32,7 @@ export class AboutCollaboration extends React.Component {
         onUpdate: this.drawLine,
         onUpdateParams: [pathObject, line],
         immediateRender: true,
-        ease: Linear.easeNone
+        ease: Power3.easeOut
       }
     );
   };
@@ -33,46 +40,94 @@ export class AboutCollaboration extends React.Component {
   createTimeline (target) {
     const wrapper = target.target[0];
 
-    const collPath = [];
-    const cp = [];
-    const collCircle = [];
     const tl = new TimelineMax();
-    const baseDuration = 4;
+    const baseDuration = 1 * 3;
+    const buildDuration = baseDuration / 2; // Chord build
 
-    _.times(5, (i) => {
-      collPath[i + 1] = wrapper.querySelector('#collPath' + (i + 1));
-      cp[i + 1] = MorphSVGPlugin.pathDataToBezier(wrapper.querySelector('#collPath' + (i + 1)));
+
+    // Convert grab DOM elements and convert nodelist to array
+    const chords = [].slice.call(wrapper.querySelectorAll('.chord'));
+    const collCircle = [].slice.call(wrapper.querySelectorAll('.collCircle'));
+
+    // Create array of bezier paths
+    const chordPaths = chords.map((node) => {
+      return MorphSVGPlugin.pathDataToBezier(node);
     });
 
-    _.times(14, (i) => {
-      collCircle[i + 1] = wrapper.querySelector('#collCircle' + (i + 1));
+    // Add chord animation
+    const chordDelay = 0.15;
+    chords.forEach((chord, index) => {
+      const tween = this.createLineTween(chord, buildDuration);
+      tl.add(tween, `coll+=${buildDuration * (chordDelay + (index * 0.05))}`);
     });
+
+    collCircle.forEach((circle, index) => {
+      let pathIndex = 0;
+      switch (true) {
+        case index <= 2:
+          pathIndex = 0;
+          break;
+        case index <= 4 && index > 2:
+          pathIndex = 1;
+          break;
+        case index <= 7 && index > 4:
+          pathIndex = 2;
+          break;
+        case index <= 10 && index > 7:
+          pathIndex = 3;
+          break;
+        case index <= 13 && index > 10:
+          pathIndex = 4;
+          break;
+      }
+
+
+      // Clone array and contents
+      const localPath = chordPaths[pathIndex].slice().map((val) => Object.assign({}, val));
+      const randomNum = getRandomInt(0, localPath[3]['x'] * 0.75);
+
+      localPath[3]['x'] = randomNum;
+
+      // Set bezier to 0 so as not to overshoot
+      localPath[1] = { x: 0, y: localPath[0].y };
+      localPath[2] = { x: 0, y: localPath[0].y };
+
+      tl.to(circle, baseDuration, { bezier: { values: localPath, type: 'thru', curviness: 0 }, ease: Power3.easeOut }, `coll+= ${pathIndex * 0.25}`);
+    })
+
+
+
+
+    // chordPaths[0][3]['x'] -= 400;
+    // console.log(chordPaths.map((val) => val[3]['x']))
 
     tl
-      .add(this.createLineTween(collPath[1], baseDuration * 1), 'coll')
-      .to(collCircle[1], baseDuration * 1.03125, { bezier: { values: cp[1], type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: baseDuration * 0.85 }, 'coll')
-      .to(collCircle[2], baseDuration * 1.09375, { bezier: { values: cp[1], type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: baseDuration * 1.05 }, 'coll')
-      .to(collCircle[3], baseDuration * 1.185, { bezier: { values: cp[1], type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: baseDuration * 1.375 }, 'coll')
+      // .add('dots')
+      // // chord 1
+      // .to(collCircle[0], baseDuration, { bezier: { values: chordPaths[0], type: 'thru', curviness: 0 }, ease: Power3.easeOut }, `dots-= ${0.85}`)
+      // .to(collCircle[1], baseDuration, { bezier: { values: chordPaths[0], type: 'thru', curviness: 0 }, ease: Power3.easeOut }, `dots-= ${1.05}`)
+      // .to(collCircle[2], baseDuration, { bezier: { values: chordPaths[0], type: 'thru', curviness: 0 }, ease: Power3.easeOut }, `dots-= ${1.375}`)
 
-      .add(this.createLineTween(collPath[2], baseDuration * 1), 'coll+=1.5')
-      .to(collCircle[4], baseDuration * 1.09375, { bezier: { values: cp[2], type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: baseDuration * 0.75 }, 'coll')
-      .to(collCircle[5], baseDuration * 1.03125, { bezier: { values: cp[2], type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: baseDuration * 1.225 }, 'coll')
+      // // chord 2
+      // .to(collCircle[3], baseDuration, { bezier: { values: chordPaths[1], type: 'thru', curviness: 0 }, ease: Power3.easeOut }, `dots-= ${0.75}`)
+      // .to(collCircle[4], baseDuration, { bezier: { values: chordPaths[1], type: 'thru', curviness: 0 }, ease: Power3.easeOut }, `dots-= ${1.225}`)
 
-      .add(this.createLineTween(collPath[3], baseDuration * 1), 'coll+=1')
-      .to(collCircle[6], baseDuration * 1, { bezier: { values: cp[3], type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: baseDuration * 1.18 }, 'coll')
-      .to(collCircle[7], baseDuration * 1.03125, { bezier: { values: cp[3], type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: baseDuration * 0.85 }, 'coll')
-      .to(collCircle[8], baseDuration * 1.09325, { bezier: { values: cp[3], type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: baseDuration }, 'coll')
+      // // chord 3
+      // .to(collCircle[5], baseDuration, { bezier: { values: chordPaths[2], type: 'thru', curviness: 0 }, ease: Power3.easeOut }, `dots-= ${1.18}`)
+      // .to(collCircle[6], baseDuration, { bezier: { values: chordPaths[2], type: 'thru', curviness: 0 }, ease: Power3.easeOut }, `dots-= ${0.85}`)
+      // .to(collCircle[7], baseDuration, { bezier: { values: chordPaths[2], type: 'thru', curviness: 0 }, ease: Power3.easeOut }, `dots-= ${ baseDuration }`)
 
-      .add(this.createLineTween(collPath[4], baseDuration * 1), 'coll+=2')
-      .to(collCircle[9], baseDuration * 0.9, { bezier: { values: cp[4], type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: baseDuration * 0.85 }, 'coll')
-      .to(collCircle[10], baseDuration * 1.03125, { bezier: { values: cp[4], type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: baseDuration  * 0.95 }, 'coll')
-      .to(collCircle[11], baseDuration * 0.9325, { bezier: { values: cp[4], type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: baseDuration * 1.15 }, 'coll')
+      // // chord 4
+      // .to(collCircle[8], baseDuration, { bezier: { values: chordPaths[3], type: 'thru', curviness: 0 }, ease: Power3.easeOut }, `dots-= ${0.85}`)
+      // .to(collCircle[9], baseDuration, { bezier: { values: chordPaths[3], type: 'thru', curviness: 0 }, ease: Power3.easeOut }, `dots-= ${0.95}`)
+      // .to(collCircle[10], baseDuration, { bezier: { values: chordPaths[3], type: 'thru', curviness: 0 }, ease: Power3.easeOut }, `dots-= ${1.15}`)
 
-      .add(this.createLineTween(collPath[5], baseDuration * 1), 'coll+=0.5')
-      .to(collCircle[12], baseDuration * 1, { bezier: { values: cp[5], type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: baseDuration * 0.92 }, 'coll')
-      .to(collCircle[13], baseDuration * 1.03125, { bezier: { values: cp[5], type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: baseDuration * 1.05 }, 'coll')
-      .to(collCircle[14], baseDuration * 1.09125, { bezier: { values: cp[5], type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: baseDuration * 1.275 }, 'coll')
-      .addPause(baseDuration + 2);
+      // // chord 5
+      // .to(collCircle[11], baseDuration, { bezier: { values: chordPaths[4], type: 'thru', curviness: 0 }, ease: Power3.easeOut }, `dots-= ${0.92}`)
+      // .to(collCircle[12], baseDuration, { bezier: { values: chordPaths[4], type: 'thru', curviness: 0 }, ease: Power3.easeOut }, `dots-= ${1.05}`)
+      // .to(collCircle[13], baseDuration, { bezier: { values: chordPaths[4], type: 'thru', curviness: 0 }, ease: Power3.easeOut }, `dots-= ${1.275}`)
+
+
     tl.play();
 
     return tl;
@@ -85,48 +140,48 @@ export class AboutCollaboration extends React.Component {
           <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
             <path
               id="collPath1"
-              className="aboutPath"
+              className="aboutPath chord"
               d="M-20,244 L1450,244"
             />
             <path
               id="collPath2"
-              className="aboutPath"
+              className="aboutPath chord"
               d="M-20,276 L1450,276"
             />
             <path
               id="collPath3"
-              className="aboutPath"
+              className="aboutPath chord"
               d="M-20,308 L1450,308"
             />
             <path
               id="collPath4"
-              className="aboutPath"
+              className="aboutPath chord"
               d="M-20,340 L1450,340"
             />
             <path
               id="collPath5"
-              className="aboutPath"
+              className="aboutPath chord"
               d="M-20,372 L1450,372"
             />
           </g>
-          <circle id="collCircle1" className="aboutCircle redCircle" r="6" cx="0" cy="0" fill="#FF2953" />
-          <circle id="collCircle2" r="6" cx="0" cy="0" fill="#CF3785" />
-          <circle id="collCircle3" r="6" cx="0" cy="0" fill="#CF3785" />
+          <circle id="collCircle1" className="collCircle aboutCircle redCircle" r="6" cx="0" cy="0" fill="#FF2953" />
+          <circle id="collCircle2" className="collCircle" r="6" cx="0" cy="0" fill="#CF3785" />
+          <circle id="collCircle3" className="collCircle" r="6" cx="0" cy="0" fill="#CF3785" />
 
-          <circle id="collCircle4" r="6" cx="0" cy="0" fill="#FF2953" />
-          <circle id="collCircle5" r="6" cx="0" cy="0" fill="#CF3785" />
+          <circle id="collCircle4" className="collCircle" r="6" cx="0" cy="0" fill="#FF2953" />
+          <circle id="collCircle5" className="collCircle" r="6" cx="0" cy="0" fill="#CF3785" />
 
-          <circle id="collCircle6" r="6" cx="0" cy="0" fill="#FF2953" />
-          <circle id="collCircle7" r="6" cx="0" cy="0" fill="#CF3785" />
-          <circle id="collCircle8" r="6" cx="0" cy="0" fill="#FF2953" />
+          <circle id="collCircle6" className="collCircle" r="6" cx="0" cy="0" fill="#FF2953" />
+          <circle id="collCircle7" className="collCircle" r="6" cx="0" cy="0" fill="#CF3785" />
+          <circle id="collCircle8" className="collCircle" r="6" cx="0" cy="0" fill="#FF2953" />
 
-          <circle id="collCircle9" r="6" cx="0" cy="0" fill="#FF2953" />
-          <circle id="collCircle10" r="6" cx="0" cy="0" fill="#FF2953" />
-          <circle id="collCircle11" r="6" cx="0" cy="0" fill="#FF2953" />
+          <circle id="collCircle9" className="collCircle" r="6" cx="0" cy="0" fill="#FF2953" />
+          <circle id="collCircle10"className="collCircle" r="6" cx="0" cy="0" fill="#FF2953" />
+          <circle id="collCircle11"className="collCircle" r="6" cx="0" cy="0" fill="#FF2953" />
 
-          <circle id="collCircle12" r="6" cx="0" cy="0" fill="#FF2953" />
-          <circle id="collCircle13" r="6" cx="0" cy="0" fill="#CF3785" />
-          <circle id="collCircle14" r="6" cx="0" cy="0" fill="#CF3785" />
+          <circle id="collCircle12"className="collCircle" r="6" cx="0" cy="0" fill="#FF2953" />
+          <circle id="collCircle13"className="collCircle" r="6" cx="0" cy="0" fill="#CF3785" />
+          <circle id="collCircle14"className="collCircle" r="6" cx="0" cy="0" fill="#CF3785" />
         </svg>
       </section>
     );
