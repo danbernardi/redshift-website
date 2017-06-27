@@ -5,20 +5,20 @@ svg {
 }
 
 .aboutPath {
-	stroke-width: 1;
-	stroke: #DCDCDB;
+  stroke-width: 1;
+  stroke: #DCDCDB;
 }
 
 .about__hybrid--circle {
-	position: absolute;
-    bottom: 0;
-    height: 92%;
-    left: 0;
-    width: calc(100% - 10rem);
-    max-width: 134rem;
+  position: absolute;
+  height: 92%;
+  right: 0;
+  width: calc(100% - 10rem);
+  min-width: 134rem;
+  height: 8rem;
 }
 
 .hyText {
-	font-family: Avenir-Black,sans-serif;
-	font-size: 3.6rem;
+  font-family: Avenir-Black,sans-serif;
+  font-size: 3.6rem;
 }
