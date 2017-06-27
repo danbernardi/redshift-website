@@ -1,17 +1,11 @@
 @import 'sass-includes';
 
 .about--header {
-  z-index: 7;
-  @include breakpoint($tablet-lg) {
-    bottom: 15%;
-  }
-  @include breakpoint($mobile-lg) {
-    bottom: 12%;
-  }
-  @media screen and (max-device-width: 1040px) and (orientation : landscape) {
-    width: 50%;
-    margin-left: 0;
-  }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transform: translateY(10%);
+  height: 100%;
 }
 
 .about-explore--titles {
