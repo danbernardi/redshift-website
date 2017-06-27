@@ -1,15 +1,8 @@
 import React from 'react';
 import GSAP from 'react-gsap-enhancer';
-import { TimelineMax, TweenMax, Linear, Power3 } from 'gsap';
+import { TimelineMax, TweenMax, Power3 } from 'gsap';
 import MorphSVGPlugin from 'vendor/gsap-plugins/MorphSVGPlugin';
-
-
-function getRandomInt(min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive
-}
-
+import { getRandomInt } from 'utils/animation';
 
 export class AboutCollaboration extends React.Component {
   componentDidMount () {
@@ -44,7 +37,6 @@ export class AboutCollaboration extends React.Component {
     const baseDuration = 1 * 3;
     const buildDuration = baseDuration / 2; // Chord build
 
-
     // Convert grab DOM elements and convert nodelist to array
     const chords = [].slice.call(wrapper.querySelectorAll('.chord'));
     const collCircle = [].slice.call(wrapper.querySelectorAll('.collCircle'));
@@ -61,6 +53,7 @@ export class AboutCollaboration extends React.Component {
       tl.add(tween, `coll+=${buildDuration * (chordDelay + (index * 0.05))}`);
     });
 
+    // Add dot animation
     collCircle.forEach((circle, index) => {
       let pathIndex = 0;
       switch (true) {
@@ -81,11 +74,11 @@ export class AboutCollaboration extends React.Component {
           break;
       }
 
-
       // Clone array and contents
       const localPath = chordPaths[pathIndex].slice().map((val) => Object.assign({}, val));
       const randomNum = getRandomInt(0, localPath[3]['x'] * 0.75);
 
+      // Randomly update the end point of the line to produce a more staggered animation
       localPath[3]['x'] = randomNum;
 
       // Set bezier to 0 so as not to overshoot
@@ -93,40 +86,7 @@ export class AboutCollaboration extends React.Component {
       localPath[2] = { x: 0, y: localPath[0].y };
 
       tl.to(circle, baseDuration, { bezier: { values: localPath, type: 'thru', curviness: 0 }, ease: Power3.easeOut }, `coll+= ${pathIndex * 0.25}`);
-    })
-
-
-
-
-    // chordPaths[0][3]['x'] -= 400;
-    // console.log(chordPaths.map((val) => val[3]['x']))
-
-    tl
-      // .add('dots')
-      // // chord 1
-      // .to(collCircle[0], baseDuration, { bezier: { values: chordPaths[0], type: 'thru', curviness: 0 }, ease: Power3.easeOut }, `dots-= ${0.85}`)
-      // .to(collCircle[1], baseDuration, { bezier: { values: chordPaths[0], type: 'thru', curviness: 0 }, ease: Power3.easeOut }, `dots-= ${1.05}`)
-      // .to(collCircle[2], baseDuration, { bezier: { values: chordPaths[0], type: 'thru', curviness: 0 }, ease: Power3.easeOut }, `dots-= ${1.375}`)
-
-      // // chord 2
-      // .to(collCircle[3], baseDuration, { bezier: { values: chordPaths[1], type: 'thru', curviness: 0 }, ease: Power3.easeOut }, `dots-= ${0.75}`)
-      // .to(collCircle[4], baseDuration, { bezier: { values: chordPaths[1], type: 'thru', curviness: 0 }, ease: Power3.easeOut }, `dots-= ${1.225}`)
-
-      // // chord 3
-      // .to(collCircle[5], baseDuration, { bezier: { values: chordPaths[2], type: 'thru', curviness: 0 }, ease: Power3.easeOut }, `dots-= ${1.18}`)
-      // .to(collCircle[6], baseDuration, { bezier: { values: chordPaths[2], type: 'thru', curviness: 0 }, ease: Power3.easeOut }, `dots-= ${0.85}`)
-      // .to(collCircle[7], baseDuration, { bezier: { values: chordPaths[2], type: 'thru', curviness: 0 }, ease: Power3.easeOut }, `dots-= ${ baseDuration }`)
-
-      // // chord 4
-      // .to(collCircle[8], baseDuration, { bezier: { values: chordPaths[3], type: 'thru', curviness: 0 }, ease: Power3.easeOut }, `dots-= ${0.85}`)
-      // .to(collCircle[9], baseDuration, { bezier: { values: chordPaths[3], type: 'thru', curviness: 0 }, ease: Power3.easeOut }, `dots-= ${0.95}`)
-      // .to(collCircle[10], baseDuration, { bezier: { values: chordPaths[3], type: 'thru', curviness: 0 }, ease: Power3.easeOut }, `dots-= ${1.15}`)
-
-      // // chord 5
-      // .to(collCircle[11], baseDuration, { bezier: { values: chordPaths[4], type: 'thru', curviness: 0 }, ease: Power3.easeOut }, `dots-= ${0.92}`)
-      // .to(collCircle[12], baseDuration, { bezier: { values: chordPaths[4], type: 'thru', curviness: 0 }, ease: Power3.easeOut }, `dots-= ${1.05}`)
-      // .to(collCircle[13], baseDuration, { bezier: { values: chordPaths[4], type: 'thru', curviness: 0 }, ease: Power3.easeOut }, `dots-= ${1.275}`)
-
+    });
 
     tl.play();
 
