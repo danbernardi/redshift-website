@@ -19,6 +19,14 @@ svg {
   @media screen and (min-width: 1440px) {
     left: 0;
   }
+  @media screen and (min-width: 401px) and (max-width: 540px) {
+    right: 2rem;
+    min-width: 88rem;
+  }
+  @media screen and (max-width: 400px) {
+    min-width: 88rem;
+    top: -9rem;
+  }
 }
 
 .solidText { opacity: 1; }
