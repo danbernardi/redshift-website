@@ -16,9 +16,15 @@ svg {
   width: calc(100% - 10rem);
   min-width: 134rem;
   height: 8rem;
+  @media screen and (min-width: 1440px) {
+    left: 0;
+  }
 }
 
+.solidText { opacity: 1; }
 .hyText {
   font-family: Avenir-Black,sans-serif;
   font-size: 3.6rem;
+  opacity: 0;
+  // text-shadow: 0 0 15px #000000;
 }

@@ -34,23 +34,20 @@ export class AboutHybrid extends React.Component {
     const hybridPath = wrapper.querySelector('#hybridPath1');
     const hyPath = MorphSVGPlugin.pathDataToBezier(wrapper.querySelector('#hybridPath1'));
     const hyPath2 = MorphSVGPlugin.pathDataToBezier(wrapper.querySelector('#hybridPath2'));
-    const hyText = MorphSVGPlugin.pathDataToBezier(wrapper.querySelector('#hyText1'));
     const tl = new TimelineMax();
     var baseDuration = 4;
 
     tl
-      .set(hyText, { autoAlpha: 0 })
       .add(this.createLineTween(hybridPath, baseDuration * 1), 'experiment')
-
       .to('#hyCircle1', baseDuration, { bezier: { values: hyPath, type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: 3.4 / baseDuration }, 'experiment')
       .to('#hyCircle2', baseDuration, { bezier: { values: hyPath, type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: 4.6 / baseDuration }, 'experiment')
       .to('#hyCircle3', baseDuration, { bezier: { values: hyPath, type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: 5.8 / baseDuration }, 'experiment')
       .to('#hyCircle4', baseDuration, { bezier: { values: hyPath, type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: 7 / baseDuration }, 'experiment')
-      .to('#hyText1', baseDuration, { bezier: { values: hyPath2, type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: 3.2 / baseDuration }, 'experiment')
-      .to('#hyText2', baseDuration, { bezier: { values: hyPath2, type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: 4.3 / baseDuration }, 'experiment')
-      .to('#hyText3', baseDuration, { bezier: { values: hyPath2, type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: 5.4 / baseDuration }, 'experiment')
-      .to('#hyText4', baseDuration, { bezier: { values: hyPath2, type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: 6.5 / baseDuration }, 'experiment')
-      // .to('.hyText', 3, { autoAlpha: 1 }, 'experiment+=1')
+      .to('#hyText1', baseDuration, { attr: { 'stdDeviation': 3 }, opacity: 1, bezier: { values: hyPath2, type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: 3.2 / baseDuration }, 'experiment')
+      .to('#hyText2', baseDuration, { attr: { 'stdDeviation': 3 }, opacity: 1, bezier: { values: hyPath2, type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: 4.3 / baseDuration }, 'experiment')
+      .to('#hyText3', baseDuration, { attr: { 'stdDeviation': 3 }, opacity: 1, bezier: { values: hyPath2, type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: 5.4 / baseDuration }, 'experiment')
+      .to('#hyText4', baseDuration, { attr: { 'stdDeviation': 3 }, opacity: 1, bezier: { values: hyPath2, type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: 6.5 / baseDuration }, 'experiment')
+      // .set('.hyText', { opacity: 1 })
       .addPause(baseDuration);
     tl.play();
     return tl;
@@ -61,6 +58,9 @@ export class AboutHybrid extends React.Component {
       <section className="hero layout--relative layout--fullheight layout--landscape" style={ { overflow: 'hidden' } }>
         <div className="about__hybrid--circle">
           <svg viewBox="0 0 1370 818" preserveAspectRatio="xMaxYMax meet">
+            <filter id="f1" x="0" y="0">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="0" id="textBlur" />
+            </filter>
             <g id="Hybrid" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
               <path
                 id="hybridPath1"
@@ -77,18 +77,14 @@ export class AboutHybrid extends React.Component {
             <circle id="hyCircle2" r="10" cx="0" cy="0" fill="#BE3C97" />
             <circle id="hyCircle3" r="10" cx="0" cy="0" fill="#E33170" />
             <circle id="hyCircle4" r="10" cx="0" cy="0" fill="#FF2953" />
-            <text className="hyText" id="hyText1">UX</text>
-            <text className="hyText" id="hyText2">Visual</text>
-            <text className="hyText" id="hyText3">Engineering</text>
-            <text className="hyText" id="hyText4">Research</text>
+
+            <text className="hyText" id="hyText1" filter="url(#f1)">UX</text>
+            <text className="hyText" id="hyText2" filter="url(#f1)">Visual</text>
+            <text className="hyText" id="hyText3" filter="url(#f1)">Engineering</text>
+            <text className="hyText" id="hyText4" filter="url(#f1)">Research</text>
+
           </svg>
         </div>
-        {/* <div className="about--curve-container">
-          <div />
-          <div />
-          <div />
-          <div />
-        </div> */}
         <div className=" row pb5 about--header">
           <div className="col-8 col-12--mlg">
             <h1 className="typ--bold typ--redshift pb2">Hybrid teams.</h1>
