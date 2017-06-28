@@ -38,15 +38,18 @@ export class AboutHybrid extends React.Component {
     var baseDuration = 4;
 
     tl
-      .add(this.createLineTween(hybridPath, baseDuration * 1), 'experiment')
-      .to('#hyCircle1', baseDuration, { bezier: { values: hyPath, type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: 3.4 / baseDuration }, 'experiment')
-      .to('#hyCircle2', baseDuration, { bezier: { values: hyPath, type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: 4.6 / baseDuration }, 'experiment')
-      .to('#hyCircle3', baseDuration, { bezier: { values: hyPath, type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: 5.8 / baseDuration }, 'experiment')
-      .to('#hyCircle4', baseDuration, { bezier: { values: hyPath, type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: 7 / baseDuration }, 'experiment')
-      .to('#hyText1', baseDuration, { attr: { 'stdDeviation': 3 }, opacity: 1, bezier: { values: hyPath2, type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: 3.2 / baseDuration }, 'experiment')
-      .to('#hyText2', baseDuration, { attr: { 'stdDeviation': 3 }, opacity: 1, bezier: { values: hyPath2, type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: 4.3 / baseDuration }, 'experiment')
-      .to('#hyText3', baseDuration, { attr: { 'stdDeviation': 3 }, opacity: 1, bezier: { values: hyPath2, type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: 5.4 / baseDuration }, 'experiment')
-      .to('#hyText4', baseDuration, { attr: { 'stdDeviation': 3 }, opacity: 1, bezier: { values: hyPath2, type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: 6.5 / baseDuration }, 'experiment')
+      .add(this.createLineTween(hybridPath, baseDuration * 1),
+        // Y THIS NO WOK
+        // { onComplete: () => { tl.set('.hyText', { opacity: 1 }); } },
+      'experiment')
+      .to('#hyCircle1', baseDuration, { bezier: { values: hyPath, type: 'cubic' }, ease: Linear.easeNone, delay: 3.4 / baseDuration }, 'experiment')
+      .to('#hyCircle2', baseDuration, { bezier: { values: hyPath, type: 'cubic' }, ease: Linear.easeNone, delay: 4.6 / baseDuration }, 'experiment')
+      .to('#hyCircle3', baseDuration, { bezier: { values: hyPath, type: 'cubic' }, ease: Linear.easeNone, delay: 5.8 / baseDuration }, 'experiment')
+      .to('#hyCircle4', baseDuration, { bezier: { values: hyPath, type: 'cubic' }, ease: Linear.easeNone, delay: 7 / baseDuration }, 'experiment')
+      .to('#hyText1', baseDuration, { attr: { 'stdDeviation': 3 }, opacity: 1.5, bezier: { values: hyPath2, type: 'cubic' }, ease: Linear.easeNone, delay: 3.2 / baseDuration }, 'experiment')
+      .to('#hyText2', baseDuration, { attr: { 'stdDeviation': 3 }, opacity: 1.5, bezier: { values: hyPath2, type: 'cubic' }, ease: Linear.easeNone, delay: 4.3 / baseDuration }, 'experiment')
+      .to('#hyText3', baseDuration, { attr: { 'stdDeviation': 3 }, opacity: 1.5, bezier: { values: hyPath2, type: 'cubic' }, ease: Linear.easeNone, delay: 5.4 / baseDuration }, 'experiment')
+      .to('#hyText4', baseDuration, { attr: { 'stdDeviation': 3 }, opacity: 1.5, bezier: { values: hyPath2, type: 'cubic' }, ease: Linear.easeNone, delay: 6.5 / baseDuration }, 'experiment')
       // .set('.hyText', { opacity: 1 })
       .addPause(baseDuration);
     tl.play();
