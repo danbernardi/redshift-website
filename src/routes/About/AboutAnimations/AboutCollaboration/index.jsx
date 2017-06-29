@@ -1,8 +1,8 @@
 import React from 'react';
 import GSAP from 'react-gsap-enhancer';
-import { TimelineMax, TweenMax, Linear } from 'gsap';
+import { TimelineMax, TweenMax, Power3 } from 'gsap';
 import MorphSVGPlugin from 'vendor/gsap-plugins/MorphSVGPlugin';
-import _ from 'lodash';
+import { getRandomInt } from 'utils/animation';
 
 export class AboutCollaboration extends React.Component {
   componentDidMount () {
@@ -25,7 +25,7 @@ export class AboutCollaboration extends React.Component {
         onUpdate: this.drawLine,
         onUpdateParams: [pathObject, line],
         immediateRender: true,
-        ease: Linear.easeNone
+        ease: Power3.easeOut
       }
     );
   };
@@ -33,41 +33,61 @@ export class AboutCollaboration extends React.Component {
   createTimeline (target) {
     const wrapper = target.target[0];
 
-    const collPath = [];
-    const cp = [];
-    const collCircle = [];
     const tl = new TimelineMax();
-    const baseSpeed = 6;
+    const baseDuration = 1 * 3;
+    const buildDuration = baseDuration / 2; // Chord build
 
-    _.times(5, (i) => {
-      collPath[i + 1] = wrapper.querySelector('#collPath' + (i + 1));
-      cp[i + 1] = MorphSVGPlugin.pathDataToBezier(wrapper.querySelector('#collPath' + (i + 1)));
+    // Convert grab DOM elements and convert nodelist to array
+    const chords = [].slice.call(wrapper.querySelectorAll('.chord'));
+    const collCircle = [].slice.call(wrapper.querySelectorAll('.collCircle'));
+
+    // Create array of bezier paths
+    const chordPaths = chords.map((node) => {
+      return MorphSVGPlugin.pathDataToBezier(node);
     });
 
-    _.times(14, (i) => {
-      collCircle[i + 1] = wrapper.querySelector('#collCircle' + (i + 1));
+    // Add chord animation
+    const chordDelay = 0.15;
+    chords.forEach((chord, index) => {
+      const tween = this.createLineTween(chord, buildDuration);
+      tl.add(tween, `coll+=${buildDuration * (chordDelay + (index * 0.05))}`);
     });
 
-    tl
-      .add(this.createLineTween(collPath[1], 4), 'coll')
-      .add(this.createLineTween(collPath[2], 4), 'coll')
-      .add(this.createLineTween(collPath[3], 4), 'coll')
-      .add(this.createLineTween(collPath[4], 4), 'coll')
-      .add(this.createLineTween(collPath[5], 4), 'coll')
-      .to(collCircle[1], baseSpeed * 1, { bezier: { values: cp[1], type: 'cubic' }, ease: Linear.easeNone, repeat: 0 }, 'coll')
-      .to(collCircle[2], baseSpeed * 1, { bezier: { values: cp[1], type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: 0.5 }, 'coll')
-      .to(collCircle[3], baseSpeed * 1, { bezier: { values: cp[1], type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: 1 }, 'coll')
-      .to(collCircle[4], baseSpeed * 1, { bezier: { values: cp[2], type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: 1.5 }, 'coll')
-      .to(collCircle[5], baseSpeed * 1, { bezier: { values: cp[2], type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: 2 }, 'coll')
-      .to(collCircle[6], baseSpeed * 1, { bezier: { values: cp[3], type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: 2.5 }, 'coll')
-      .to(collCircle[7], baseSpeed * 1, { bezier: { values: cp[3], type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: 3 }, 'coll')
-      .to(collCircle[8], baseSpeed * 1, { bezier: { values: cp[3], type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: 3.5 }, 'coll')
-      .to(collCircle[9], baseSpeed * 1, { bezier: { values: cp[4], type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: 4 }, 'coll')
-      .to(collCircle[10], baseSpeed * 1, { bezier: { values: cp[4], type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: 4.5 }, 'coll')
-      .to(collCircle[11], baseSpeed * 1, { bezier: { values: cp[4], type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: 5 }, 'coll')
-      .to(collCircle[12], baseSpeed * 1, { bezier: { values: cp[5], type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: 5.5 }, 'coll')
-      .to(collCircle[13], baseSpeed * 1, { bezier: { values: cp[5], type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: 6 }, 'coll')
-      .to(collCircle[14], baseSpeed * 1, { bezier: { values: cp[5], type: 'cubic' }, ease: Linear.easeNone, repeat: 0, delay: 6.5 }, 'coll');
+    // Add dot animation
+    collCircle.forEach((circle, index) => {
+      let pathIndex = 0;
+      switch (true) {
+        case index <= 2:
+          pathIndex = 0;
+          break;
+        case index <= 4 && index > 2:
+          pathIndex = 1;
+          break;
+        case index <= 7 && index > 4:
+          pathIndex = 2;
+          break;
+        case index <= 10 && index > 7:
+          pathIndex = 3;
+          break;
+        case index <= 13 && index > 10:
+          pathIndex = 4;
+          break;
+      }
+
+      // Clone array and contents
+      const localPath = chordPaths[pathIndex].slice().map((val) => Object.assign({}, val));
+      const pathLength = localPath[3]['x'];
+      const randomNum = getRandomInt(pathLength * 0.2, pathLength * 0.95);
+
+      // Randomly update the end point of the line to produce a more staggered animation
+      localPath[3]['x'] = randomNum;
+
+      // Set bezier to 0 so as not to overshoot
+      localPath[1] = { x: 0, y: localPath[0].y };
+      localPath[2] = { x: 0, y: localPath[0].y };
+
+      tl.to(circle, baseDuration, { bezier: { values: localPath, type: 'thru', curviness: 0 }, ease: Power3.easeOut }, `coll+= ${pathIndex * 0.25}`);
+    });
 
     tl.play();
 
@@ -81,48 +101,48 @@ export class AboutCollaboration extends React.Component {
           <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
             <path
               id="collPath1"
-              className="aboutPath"
-              d="M-10,244 L1450,244"
+              className="aboutPath chord"
+              d="M-20,244 L1450,244"
             />
             <path
               id="collPath2"
-              className="aboutPath"
-              d="M-10,276 L1450,276"
+              className="aboutPath chord"
+              d="M-20,276 L1450,276"
             />
             <path
               id="collPath3"
-              className="aboutPath"
-              d="M-10,308 L1450,308"
+              className="aboutPath chord"
+              d="M-20,308 L1450,308"
             />
             <path
               id="collPath4"
-              className="aboutPath"
-              d="M-10,340 L1450,340"
+              className="aboutPath chord"
+              d="M-20,340 L1450,340"
             />
             <path
               id="collPath5"
-              className="aboutPath"
-              d="M-10,372 L1450,372"
+              className="aboutPath chord"
+              d="M-20,372 L1450,372"
             />
           </g>
-          <circle id="collCircle1" className="aboutCircle redCircle" r="6" cx="0" cy="0" fill="#FF2953" />
-          <circle id="collCircle2" r="6" cx="0" cy="0" fill="#CF3785" />
-          <circle id="collCircle3" r="6" cx="0" cy="0" fill="#CF3785" />
+          <circle id="collCircle1" className="collCircle aboutCircle redCircle" r="6" cx="0" cy="0" fill="#FF2953" />
+          <circle id="collCircle2" className="collCircle" r="6" cx="0" cy="0" fill="#CF3785" />
+          <circle id="collCircle3" className="collCircle" r="6" cx="0" cy="0" fill="#CF3785" />
 
-          <circle id="collCircle4" r="6" cx="0" cy="0" fill="#FF2953" />
-          <circle id="collCircle5" r="6" cx="0" cy="0" fill="#CF3785" />
+          <circle id="collCircle4" className="collCircle" r="6" cx="0" cy="0" fill="#FF2953" />
+          <circle id="collCircle5" className="collCircle" r="6" cx="0" cy="0" fill="#CF3785" />
 
-          <circle id="collCircle6" r="6" cx="0" cy="0" fill="#FF2953" />
-          <circle id="collCircle7" r="6" cx="0" cy="0" fill="#CF3785" />
-          <circle id="collCircle8" r="6" cx="0" cy="0" fill="#FF2953" />
+          <circle id="collCircle6" className="collCircle" r="6" cx="0" cy="0" fill="#FF2953" />
+          <circle id="collCircle7" className="collCircle" r="6" cx="0" cy="0" fill="#CF3785" />
+          <circle id="collCircle8" className="collCircle" r="6" cx="0" cy="0" fill="#FF2953" />
 
-          <circle id="collCircle9" r="6" cx="0" cy="0" fill="#FF2953" />
-          <circle id="collCircle10" r="6" cx="0" cy="0" fill="#FF2953" />
-          <circle id="collCircle11" r="6" cx="0" cy="0" fill="#FF2953" />
+          <circle id="collCircle9" className="collCircle" r="6" cx="0" cy="0" fill="#FF2953" />
+          <circle id="collCircle10"className="collCircle" r="6" cx="0" cy="0" fill="#FF2953" />
+          <circle id="collCircle11"className="collCircle" r="6" cx="0" cy="0" fill="#FF2953" />
 
-          <circle id="collCircle12" r="6" cx="0" cy="0" fill="#FF2953" />
-          <circle id="collCircle13" r="6" cx="0" cy="0" fill="#CF3785" />
-          <circle id="collCircle14" r="6" cx="0" cy="0" fill="#CF3785" />
+          <circle id="collCircle12"className="collCircle" r="6" cx="0" cy="0" fill="#FF2953" />
+          <circle id="collCircle13"className="collCircle" r="6" cx="0" cy="0" fill="#CF3785" />
+          <circle id="collCircle14"className="collCircle" r="6" cx="0" cy="0" fill="#CF3785" />
         </svg>
       </section>
     );

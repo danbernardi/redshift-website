@@ -1,8 +1,7 @@
 import React from 'react';
 import GSAP from 'react-gsap-enhancer';
-import { TimelineMax, TweenMax, Linear } from 'gsap';
+import { TimelineMax, TweenMax, Power2 } from 'gsap';
 import MorphSVGPlugin from 'vendor/gsap-plugins/MorphSVGPlugin';
-import _ from 'lodash';
 import PropTypes from 'prop-types';
 import Watcher from 'components/Watcher';
 
@@ -35,7 +34,7 @@ export class AboutExplore extends React.Component {
         onUpdate: this.drawLine,
         onUpdateParams: [pathObject, line],
         immediateRender: true,
-        ease: Linear.easeNone
+        ease: Power2.easeInOut
       }
     );
   };
@@ -44,47 +43,41 @@ export class AboutExplore extends React.Component {
     return TweenMax
       .to(circle, speed, {
         bezier: { values: path, type: 'cubic' },
-        ease: Linear.easeNone,
-        repeat: 0
+        ease: Power2.easeInOut
       }
     );
   };
 
   createTimeline (target) {
-    const exsvg = [];
-    const excircle = [];
-    const expath = [];
-    const tl = new TimelineMax({ paused: true });
-
-    const baseSpeed = 1 * 0.75;
-
     const wrapper = target.target[0];
-    _.times(9, (i) => {
-      exsvg[i + 1] = wrapper.querySelector('#explorePath' + (i + 1));
-      excircle[i + 1] = wrapper.querySelector('#circle' + (i + 1));
-      expath[i + 1] = MorphSVGPlugin.pathDataToBezier(wrapper.querySelector('#explorePath' + (i + 1)));
+    const baseDuration = 1 * 0.5;
+    const tl = new TimelineMax({ paused: true });
+    const exSvg = [].slice.call(wrapper.querySelectorAll('.aboutPath'));
+    const exCircle = [].slice.call(wrapper.querySelectorAll('.exCircle'));
+    const exPath = exSvg.map((path) => {
+      return MorphSVGPlugin.pathDataToBezier(path);
     });
 
     tl
-      .add(this.createLineTween(exsvg[1], baseSpeed * 2.99), 'aboutOne')
-      .add(this.createLineTween(exsvg[2], baseSpeed * 6), 'aboutOne')
-      .add(this.createLineTween(exsvg[3], baseSpeed * 6.48), 'aboutOne')
-      .add(this.createLineTween(exsvg[4], baseSpeed * 5.27), 'aboutOne')
-      .add(this.createLineTween(exsvg[5], baseSpeed * 4.44), 'aboutOne')
-      .add(this.createLineTween(exsvg[6], baseSpeed * 6.05), 'aboutOne')
-      .add(this.createLineTween(exsvg[7], baseSpeed * 5.62), 'aboutOne')
-      .add(this.createLineTween(exsvg[8], baseSpeed * 1.95), 'aboutOne')
-      .add(this.createLineTween(exsvg[9], baseSpeed * 2.2), 'aboutOne')
-      .add(this.circlePathTween(excircle[1], expath[1], baseSpeed * 2.99), 'aboutOne')
-      .add(this.circlePathTween(excircle[2], expath[2], baseSpeed * 6), 'aboutOne')
-      .add(this.circlePathTween(excircle[3], expath[3], baseSpeed * 6.48), 'aboutOne')
-      .add(this.circlePathTween(excircle[4], expath[4], baseSpeed * 5.27), 'aboutOne')
-      .add(this.circlePathTween(excircle[5], expath[5], baseSpeed * 4.44), 'aboutOne')
-      .add(this.circlePathTween(excircle[6], expath[6], baseSpeed * 6.05), 'aboutOne')
-      .add(this.circlePathTween(excircle[7], expath[7], baseSpeed * 5.62), 'aboutOne')
-      .add(this.circlePathTween(excircle[8], expath[8], baseSpeed * 1.95), 'aboutOne')
-      .add(this.circlePathTween(excircle[9], expath[9], baseSpeed * 2.2), 'aboutOne');
-    tl.pause();
+    .add(this.createLineTween(exSvg[0], baseDuration * 2.99), 'aboutOne')
+    .add(this.createLineTween(exSvg[1], baseDuration * 6), 'aboutOne')
+    .add(this.createLineTween(exSvg[2], baseDuration * 6.48), 'aboutOne')
+    .add(this.createLineTween(exSvg[3], baseDuration * 5.27), 'aboutOne')
+    .add(this.createLineTween(exSvg[4], baseDuration * 4.44), 'aboutOne')
+    .add(this.createLineTween(exSvg[5], baseDuration * 6.05), 'aboutOne')
+    .add(this.createLineTween(exSvg[6], baseDuration * 5.62), 'aboutOne')
+    .add(this.createLineTween(exSvg[7], baseDuration * 1.95), 'aboutOne')
+    .add(this.createLineTween(exSvg[8], baseDuration * 2.2), 'aboutOne')
+
+    .add(this.circlePathTween(exCircle[0], exPath[0], baseDuration * 2.99), 'aboutOne+=0.5')
+    .add(this.circlePathTween(exCircle[1], exPath[1], baseDuration * 6), 'aboutOne+=0.5')
+    .add(this.circlePathTween(exCircle[2], exPath[2], baseDuration * 6.48), 'aboutOne+=0.5')
+    .add(this.circlePathTween(exCircle[3], exPath[3], baseDuration * 5.27), 'aboutOne+=0.5')
+    .add(this.circlePathTween(exCircle[4], exPath[4], baseDuration * 4.44), 'aboutOne+=0.5')
+    .add(this.circlePathTween(exCircle[5], exPath[5], baseDuration * 6.05), 'aboutOne+=0.5')
+    .add(this.circlePathTween(exCircle[6], exPath[6], baseDuration * 5.62), 'aboutOne+=0.5')
+    .add(this.circlePathTween(exCircle[7], exPath[7], baseDuration * 1.95), 'aboutOne+=0.5')
+    .add(this.circlePathTween(exCircle[8], exPath[8], baseDuration * 2.2), 'aboutOne+=0.5');
 
     return tl;
   }
@@ -174,15 +167,15 @@ export class AboutExplore extends React.Component {
                 321.756,308.017 C321.756,324.566 335.187,337.983 351.756,337.983 L406,338"
             />
           </g>
-          <circle id="circle1" r="6" cx="0" cy="0" fill="#BF3C95" />
-          <circle id="circle2" r="6" cx="0" cy="0" fill="#FF2953" />
-          <circle id="circle3" r="6" cx="0" cy="0" fill="#FF2953" />
-          <circle id="circle4" r="6" cx="0" cy="0" fill="#BF3C95" />
-          <circle id="circle5" r="6" cx="0" cy="0" fill="#DC3377" />
-          <circle id="circle6" r="6" cx="0" cy="0" fill="#CF3785" />
-          <circle id="circle7" r="7" cx="0" cy="0" fill="#FF2953" />
-          <circle id="circle8" r="6" cx="0" cy="0" fill="#FF2953" />
-          <circle id="circle9" r="6" cx="0" cy="0" fill="#DC3377" />
+          <circle id="circle1" className="exCircle" r="6" cx="0" cy="0" fill="#BF3C95" />
+          <circle id="circle2" className="exCircle" r="6" cx="0" cy="0" fill="#FF2953" />
+          <circle id="circle3" className="exCircle" r="6" cx="0" cy="0" fill="#FF2953" />
+          <circle id="circle4" className="exCircle" r="6" cx="0" cy="0" fill="#BF3C95" />
+          <circle id="circle5" className="exCircle" r="6" cx="0" cy="0" fill="#DC3377" />
+          <circle id="circle6" className="exCircle" r="6" cx="0" cy="0" fill="#CF3785" />
+          <circle id="circle7" className="exCircle" r="7" cx="0" cy="0" fill="#FF2953" />
+          <circle id="circle8" className="exCircle" r="6" cx="0" cy="0" fill="#FF2953" />
+          <circle id="circle9" className="exCircle" r="6" cx="0" cy="0" fill="#DC3377" />
         </svg>
       </section>
     );
