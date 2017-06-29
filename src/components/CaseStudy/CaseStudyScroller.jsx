@@ -5,6 +5,7 @@ import CaseStudySection from './CaseStudySection';
 import { ScrollContainer } from 'scrollmonitor-react';
 import mojs from 'mo-js';
 import Builder from 'components/Builder';
+import CaseStudyHeader from './CaseStudyHeader';
 
 export class CaseStudyScroller extends React.Component {
   componentDidMount () {
@@ -45,16 +46,15 @@ export class CaseStudyScroller extends React.Component {
 
           <div ref={ (el) => { this.blur = el; } }>
             <div className="row">
-              <Builder scrollContainer={ scrollContainer }>
-                <div className="casestudy__heading layout--fullheight">
-                  <h1 className={ `typ--${caseStudyContent.id} typ--bold casestudy__title` }>
-                    { caseStudyContent.heading }
-                  </h1>
-                  <div className="casestudy__scrollarrow">
-                    <img src={ require('assets/img/down-arrow.svg') } alt="Scroll down" />
-                  </div>
+              <div className="casestudy__heading layout--fullheight">
+                <CaseStudyHeader
+                  classes={ `typ--${caseStudyContent.id}` }
+                  content={ caseStudyContent.heading }
+                />
+                <div className="casestudy__scrollarrow">
+                  <img src={ require('assets/img/down-arrow.svg') } alt="Scroll down" />
                 </div>
-              </Builder>
+              </div>
             </div>
             { caseStudyContent.content && caseStudyContent.content.length &&
               caseStudyContent.content.map((section, index) => (

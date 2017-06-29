@@ -24,6 +24,10 @@
   top: 45%;
   transform: translateY(-50%);
   position: relative;
+
+  > div > div {
+    opacity: 0;
+  }
 }
 
 .modal__close.row {
