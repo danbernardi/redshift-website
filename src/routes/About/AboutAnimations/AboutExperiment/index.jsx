@@ -1,13 +1,11 @@
 import React from 'react';
 import GSAP from 'react-gsap-enhancer';
-import { TimelineMax, TweenMax, Linear, Power3 } from 'gsap';
+import { TimelineMax, TweenMax, Power2 } from 'gsap';
 import MorphSVGPlugin from 'vendor/gsap-plugins/MorphSVGPlugin';
 import CustomEase from 'vendor/gsap-plugins/CustomEase';
 
-const customBounce =  "M0,0 C0.01,0.514 0.078,1.262 0.368,1.272 0.542,1.272 0.668,0.864 0.68,0.586 0.776,1 1,1 1,1";
-const superBounce = "M0,0 C0.08,0.502 0.096,0.964 0.208,0.964 0.362,0.964 0.336,0.224 0.43,0.224 0.516,0.224 0.532,0.752 0.638,0.752 0.724,0.752 0.736,0.38 0.798,0.38 0.848,0.38 0.856,0.554 0.9,0.554 0.938,0.554 0.952,0.5 1,0.5";
-
-
+//Custom easing curve
+const superBounce = 'M0,0 C0.08,0.502 0.096,0.964 0.208,0.964 0.362,0.964 0.336,0.224 0.43,0.224 0.516,0.224 0.532,0.752 0.638,0.752 0.724,0.752 0.736,0.38 0.798,0.38 0.848,0.38 0.856,0.554 0.9,0.554 0.938,0.554 0.952,0.5 1,0.5';
 
 export class AboutExperiment extends React.Component {
   componentDidMount () {
@@ -42,27 +40,13 @@ export class AboutExperiment extends React.Component {
     const pathExtensions = [].slice.call(wrapper.querySelectorAll('.path-extension')).map((path) => {
       return MorphSVGPlugin.pathDataToBezier(path);
     });
-    const exPath = MorphSVGPlugin.pathDataToBezier(wrapper.querySelector('#experimentPath1'));
-    const tl = new TimelineMax({  });
+
+    const tl = new TimelineMax();
     var baseDuration = 1;
 
     tl
       .add(this.createLineTween(experimentPath, baseDuration * 2), 'experiment')
-      .staggerTo(exCircles, baseDuration * 6, { bezier: { values: pathExtensions[0], type: 'cubic' }, ease: CustomEase.create('custom', superBounce) }, 0.2, 'experiment+=1')
-
-
-      // .staggerTo(exCircles, baseDuration * 3, { bezier: { values: pathExtensions[0], type: 'cubic' }, ease: Power3.easeInOut }, 0.1, 'experiment')
-      // .staggerTo(exCircles, baseDuration * 2.5, { bezier: { values: pathExtensions[1], type: 'cubic' }, ease: Power3.easeInOut }, 0.1)
-      // .staggerTo(exCircles, baseDuration * 2, { bezier: { values: pathExtensions[2], type: 'cubic' }, ease: Power3.easeInOut }, 0.1)
-      // .staggerTo(exCircles, baseDuration * 1.5, { bezier: { values: pathExtensions[3], type: 'cubic' }, ease: Power3.easeInOut }, 0.1)
-
-      .add('final')
-
-    exCircles.forEach((circle, index) => {
-      // tl.to(circle, baseDuration * 5, { bezier: { values: pathExtensions[index + 4], type: 'cubic' }, ease: CustomEase.create("custom", customBounce) }, `final+=${index * .2}`)
-    });
-
-    tl.play();
+      .staggerTo(exCircles, baseDuration * 6, { bezier: { values: pathExtensions[0], type: 'cubic' }, ease: CustomEase.create('custom', superBounce) }, 0.2, 'experiment+=1');
   }
 
   render () {

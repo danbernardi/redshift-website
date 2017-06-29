@@ -1,8 +1,7 @@
 import React from 'react';
 import GSAP from 'react-gsap-enhancer';
-import { TimelineMax, TweenMax, Linear } from 'gsap';
+import { TimelineMax, TweenMax, Power2 } from 'gsap';
 import MorphSVGPlugin from 'vendor/gsap-plugins/MorphSVGPlugin';
-import _ from 'lodash';
 import PropTypes from 'prop-types';
 import Watcher from 'components/Watcher';
 
@@ -35,7 +34,7 @@ export class AboutExplore extends React.Component {
         onUpdate: this.drawLine,
         onUpdateParams: [pathObject, line],
         immediateRender: true,
-        ease: Linear.easeNone
+        ease: Power2.easeInOut
       }
     );
   };
@@ -44,14 +43,14 @@ export class AboutExplore extends React.Component {
     return TweenMax
       .to(circle, speed, {
         bezier: { values: path, type: 'cubic' },
-        ease: Linear.easeNone
+        ease: Power2.easeInOut
       }
     );
   };
 
   createTimeline (target) {
     const wrapper = target.target[0];
-    const baseDuration = 1 * 0.4;
+    const baseDuration = 1 * 0.5;
     const tl = new TimelineMax({ paused: true });
     const exSvg = [].slice.call(wrapper.querySelectorAll('.aboutPath'));
     const exCircle = [].slice.call(wrapper.querySelectorAll('.exCircle'));
@@ -70,16 +69,15 @@ export class AboutExplore extends React.Component {
     .add(this.createLineTween(exSvg[7], baseDuration * 1.95), 'aboutOne')
     .add(this.createLineTween(exSvg[8], baseDuration * 2.2), 'aboutOne')
 
-    .add(this.circlePathTween(exCircle[0], exPath[0], baseDuration * 2.99), 'aboutOne')
-    .add(this.circlePathTween(exCircle[1], exPath[1], baseDuration * 6), 'aboutOne')
-    .add(this.circlePathTween(exCircle[2], exPath[2], baseDuration * 6.48), 'aboutOne')
-    .add(this.circlePathTween(exCircle[3], exPath[3], baseDuration * 5.27), 'aboutOne')
-    .add(this.circlePathTween(exCircle[4], exPath[4], baseDuration * 4.44), 'aboutOne')
-    .add(this.circlePathTween(exCircle[5], exPath[5], baseDuration * 6.05), 'aboutOne')
-    .add(this.circlePathTween(exCircle[6], exPath[6], baseDuration * 5.62), 'aboutOne')
-    .add(this.circlePathTween(exCircle[7], exPath[7], baseDuration * 1.95), 'aboutOne')
-    .add(this.circlePathTween(exCircle[8], exPath[8], baseDuration * 2.2), 'aboutOne');
-    tl.play();
+    .add(this.circlePathTween(exCircle[0], exPath[0], baseDuration * 2.99), 'aboutOne+=0.5')
+    .add(this.circlePathTween(exCircle[1], exPath[1], baseDuration * 6), 'aboutOne+=0.5')
+    .add(this.circlePathTween(exCircle[2], exPath[2], baseDuration * 6.48), 'aboutOne+=0.5')
+    .add(this.circlePathTween(exCircle[3], exPath[3], baseDuration * 5.27), 'aboutOne+=0.5')
+    .add(this.circlePathTween(exCircle[4], exPath[4], baseDuration * 4.44), 'aboutOne+=0.5')
+    .add(this.circlePathTween(exCircle[5], exPath[5], baseDuration * 6.05), 'aboutOne+=0.5')
+    .add(this.circlePathTween(exCircle[6], exPath[6], baseDuration * 5.62), 'aboutOne+=0.5')
+    .add(this.circlePathTween(exCircle[7], exPath[7], baseDuration * 1.95), 'aboutOne+=0.5')
+    .add(this.circlePathTween(exCircle[8], exPath[8], baseDuration * 2.2), 'aboutOne+=0.5');
 
     return tl;
   }
