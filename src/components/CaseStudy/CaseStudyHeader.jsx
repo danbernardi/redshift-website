@@ -18,7 +18,6 @@ export class CaseStudyHeader extends React.Component {
       .set('.casestudy__title', { perspective: 400 })
       .staggerTo(options.text.chars, 0.2, {
         opacity: 1,
-        y: 0,
         ease: Power3.easeOut
       }, 0.008);
   }

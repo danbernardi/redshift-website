@@ -44,7 +44,6 @@ export class Hero extends React.Component {
       .set('.hero__text', { perspective: 400 })
       .staggerFrom(textChars.chars, 0.5, {
         opacity: 0,
-        y: -25,
         ease: Power3.easeOut
       }, 0.02, '+=1.75');
   }
