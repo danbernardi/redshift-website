@@ -1,6 +1,6 @@
 import React from 'react';
 import GSAP from 'react-gsap-enhancer';
-import { TimelineMax, TweenMax, Linear } from 'gsap';
+import { TimelineMax, TweenMax, Power1 } from 'gsap';
 import MorphSVGPlugin from 'vendor/gsap-plugins/MorphSVGPlugin';
 
 export class AboutIterate extends React.Component {
@@ -24,7 +24,7 @@ export class AboutIterate extends React.Component {
         onUpdate: this.drawLine,
         onUpdateParams: [pathObject, line],
         immediateRender: true,
-        ease: Power3.easeOut
+        ease: Power1.easeOut
       }
     );
   };
@@ -32,23 +32,20 @@ export class AboutIterate extends React.Component {
   createTimeline (target) {
     const wrapper = target.target[0];
     const iPath = MorphSVGPlugin.pathDataToBezier(wrapper.querySelector('#iteratePath1'));
+    const iCircles = [].slice.call(wrapper.querySelectorAll('.iCircle'));
     const spiralPath = wrapper.querySelector('#iteratePath1');
+    const baseDuration = 5;
+    const delay = 0.5;
     const tl = new TimelineMax();
-    const baseDuration = 8;
 
-    tl
-      .add(this.createLineTween(spiralPath, baseDuration * 1), 'iterate')
-      .to('#iCircle1', baseDuration * 1, { bezier: { values: iPath, type: 'cubic' }, ease:Elastic.easeOut }, 'iterate')
-      .to('#iCircle2', baseDuration * 1, { bezier: { values: iPath, type: 'cubic' }, ease:Elastic.easeOut,  delay: baseDuration * 0.07 }, 'iterate')
-      .to('#iCircle3', baseDuration * 1, { bezier: { values: iPath, type: 'cubic' }, ease:Elastic.easeOut,  delay: baseDuration * 0.115789 }, 'iterate')
-      .to('#iCircle4', baseDuration * 1, { bezier: { values: iPath, type: 'cubic' }, ease:Elastic.easeOut,  delay: baseDuration * 0.48 }, 'iterate')
-      .to('#iCircle5', baseDuration * 1, { bezier: { values: iPath, type: 'cubic' }, ease:Elastic.easeOut,  delay: baseDuration * 0.6 }, 'iterate')
-      .to('#iCircle6', baseDuration * 1, { bezier: { values: iPath, type: 'cubic' }, ease:Elastic.easeOut,  delay: baseDuration * 0.789 }, 'iterate')
-      .to('#iCircle7', baseDuration * 1, { bezier: { values: iPath, type: 'cubic' }, ease:Elastic.easeOut,  delay: baseDuration * 0.86315789 }, 'iterate')
-      .to('#iCircle8', baseDuration * 1, { bezier: { values: iPath, type: 'cubic' }, ease:Elastic.easeOut,  delay: baseDuration * 0.94736842 }, 'iterate')
-      // .addPause(baseDuration);
+    tl.add('iterate')
+    .add(this.createLineTween(spiralPath, baseDuration * 1), `iterate+=${delay}`)
+    .staggerTo(iCircles, baseDuration, {
+      bezier: { values: iPath, type: 'cubic' },
+      ease: Power1.easeOut
+    }, 0.5, `iterate+=${delay}`);
+
     tl.play();
-
     return tl;
   }
 
@@ -70,14 +67,14 @@ export class AboutIterate extends React.Component {
                 C770.240684,168.765078 818.094,129.275 876.833,129.275 C932.685244,130.698079 968.136578,160.849079 983.187,219.728"
               />
           </g>
-          <circle id="iCircle1" r="6" cx="0" cy="0" fill="#BF3C95" />
-          <circle id="iCircle2" r="6" cx="0" cy="0" fill="#FF2953" />
-          <circle id="iCircle3" r="6" cx="0" cy="0" fill="#FF2953" />
-          <circle id="iCircle4" r="6" cx="0" cy="0" fill="#BF3C95" />
-          <circle id="iCircle5" r="6" cx="0" cy="0" fill="#DC3377" />
-          <circle id="iCircle6" r="6" cx="0" cy="0" fill="#CF3785" />
-          <circle id="iCircle7" r="6" cx="0" cy="0" fill="#FF2953" />
-          <circle id="iCircle8" r="6" cx="0" cy="0" fill="#FF2953" />
+          <circle id="iCircle1" className="iCircle" r="6" cx="0" cy="0" fill="#BF3C95" />
+          <circle id="iCircle2" className="iCircle" r="6" cx="0" cy="0" fill="#FF2953" />
+          <circle id="iCircle3" className="iCircle" r="6" cx="0" cy="0" fill="#FF2953" />
+          <circle id="iCircle4" className="iCircle" r="6" cx="0" cy="0" fill="#BF3C95" />
+          <circle id="iCircle5" className="iCircle" r="6" cx="0" cy="0" fill="#DC3377" />
+          <circle id="iCircle6" className="iCircle" r="6" cx="0" cy="0" fill="#CF3785" />
+          <circle id="iCircle7" className="iCircle" r="6" cx="0" cy="0" fill="#FF2953" />
+          <circle id="iCircle8" className="iCircle" r="6" cx="0" cy="0" fill="#FF2953" />
         </svg>
       </section>
     );

@@ -76,7 +76,8 @@ export class AboutCollaboration extends React.Component {
 
       // Clone array and contents
       const localPath = chordPaths[pathIndex].slice().map((val) => Object.assign({}, val));
-      const randomNum = getRandomInt(0, localPath[3]['x'] * 0.75);
+      const pathLength = localPath[3]['x'];
+      const randomNum = getRandomInt(pathLength * 0.2,  pathLength * 0.95);
 
       // Randomly update the end point of the line to produce a more staggered animation
       localPath[3]['x'] = randomNum;
