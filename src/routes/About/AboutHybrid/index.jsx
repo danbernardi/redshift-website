@@ -3,6 +3,8 @@ import GSAP from 'react-gsap-enhancer';
 import { TimelineMax, TweenMax, Power2, Power3 } from 'gsap';
 import MorphSVGPlugin from 'vendor/gsap-plugins/MorphSVGPlugin';
 import CustomEase from 'vendor/gsap-plugins/CustomEase';
+import Watcher from 'components/Watcher';
+
 
 export class AboutHybrid extends React.Component {
   componentDidMount () {
@@ -75,12 +77,25 @@ export class AboutHybrid extends React.Component {
       `experiment+=${baseDuration / 2}`);
     });
 
+    tl.pause();
+
     return tl;
   }
+
+  watcherCallback (watcher) {
+    if (watcher.isInViewport) { this.timeline.play(); }
+  };
 
   render () {
     return (
       <section className="hero layout--relative layout--fullheight layout--landscape" style={ { overflow: 'hidden' } }>
+        <Watcher
+          offset={ { top: '50rem', position: 'relative' } }
+          autoStart={ false }
+          stateChange={ this.watcherCallback.bind(this) }
+          enterViewport={ this.watcherCallback.bind(this) }
+        />
+
         <div className="about__hybrid--circle pr2">
           <svg viewBox="0 0 1370 818" preserveAspectRatio="xMaxYMax meet">
             <g id="Hybrid" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
