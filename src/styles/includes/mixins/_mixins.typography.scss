@@ -53,6 +53,7 @@
 
   @if $type == 'h3' {
     font-size: 3.6rem;
+    line-height: 1.4;
     // media queries
 
     @include breakpoint($tablet-lg) {
