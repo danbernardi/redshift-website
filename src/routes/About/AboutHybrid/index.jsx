@@ -1,7 +1,8 @@
 import React from 'react';
 import GSAP from 'react-gsap-enhancer';
-import { TimelineMax, TweenMax, Linear } from 'gsap';
+import { TimelineMax, TweenMax, Power2, Power3 } from 'gsap';
 import MorphSVGPlugin from 'vendor/gsap-plugins/MorphSVGPlugin';
+import CustomEase from 'vendor/gsap-plugins/CustomEase';
 
 export class AboutHybrid extends React.Component {
   componentDidMount () {
@@ -24,7 +25,7 @@ export class AboutHybrid extends React.Component {
         onUpdate: this.drawLine,
         onUpdateParams: [pathObject, line],
         immediateRender: true,
-        ease: Linear.easeNone
+        ease: Power2.easeOut
       }
     );
   };
@@ -35,35 +36,53 @@ export class AboutHybrid extends React.Component {
     const hyPath = MorphSVGPlugin.pathDataToBezier(wrapper.querySelector('#hybridPath1'));
     const hyPath2 = MorphSVGPlugin.pathDataToBezier(wrapper.querySelector('#hybridPath2'));
     const tl = new TimelineMax();
-    var baseDuration = 4;
+    const baseDuration = 1;
+
+    const hyText = [].slice.call(wrapper.querySelectorAll('.hyText'));
+    const hyCircle = [].slice.call(wrapper.querySelectorAll('.hyCircle'));
+
+    const customEase = [
+      'M0,0 C0.083,0.294 0.272,0.80 1,0.80',
+      'M0,0 C0.083,0.294 0.272,0.75 1,0.75',
+      'M0,0 C0.083,0.294 0.272,0.70 1,0.70',
+      'M0,0 C0.083,0.294 0.272,0.65 1,0.65'
+    ];
+
+    const customEase2 = [
+      'M0,0 C0.083,0.294 0.272,0.81 1,0.81',
+      'M0,0 C0.083,0.294 0.272,0.76 1,0.76',
+      'M0,0 C0.083,0.294 0.272,0.715 1,0.715',
+      'M0,0 C0.083,0.294 0.272,0.67 1,0.67'
+    ];
 
     tl
-      .add(this.createLineTween(hybridPath, baseDuration * 1),
-        // Y THIS NO WOK
-        // { onComplete: () => { tl.set('.hyText', { opacity: 1 }); } },
-      'experiment')
-      .to('#hyCircle1', baseDuration, { bezier: { values: hyPath, type: 'cubic' }, ease: Linear.easeNone, delay: 3.4 / baseDuration }, 'experiment')
-      .to('#hyCircle2', baseDuration, { bezier: { values: hyPath, type: 'cubic' }, ease: Linear.easeNone, delay: 4.6 / baseDuration }, 'experiment')
-      .to('#hyCircle3', baseDuration, { bezier: { values: hyPath, type: 'cubic' }, ease: Linear.easeNone, delay: 5.8 / baseDuration }, 'experiment')
-      .to('#hyCircle4', baseDuration, { bezier: { values: hyPath, type: 'cubic' }, ease: Linear.easeNone, delay: 7 / baseDuration }, 'experiment')
-      .to('#hyText1', baseDuration, { attr: { 'stdDeviation': 3 }, opacity: 1.5, bezier: { values: hyPath2, type: 'cubic' }, ease: Linear.easeNone, delay: 3.2 / baseDuration }, 'experiment')
-      .to('#hyText2', baseDuration, { attr: { 'stdDeviation': 3 }, opacity: 1.5, bezier: { values: hyPath2, type: 'cubic' }, ease: Linear.easeNone, delay: 4.3 / baseDuration }, 'experiment')
-      .to('#hyText3', baseDuration, { attr: { 'stdDeviation': 3 }, opacity: 1.5, bezier: { values: hyPath2, type: 'cubic' }, ease: Linear.easeNone, delay: 5.4 / baseDuration }, 'experiment')
-      .to('#hyText4', baseDuration, { attr: { 'stdDeviation': 3 }, opacity: 1.5, bezier: { values: hyPath2, type: 'cubic' }, ease: Linear.easeNone, delay: 6.5 / baseDuration }, 'experiment')
-      // .set('.hyText', { opacity: 1 })
-      .addPause(baseDuration);
-    tl.play();
+      .add(this.createLineTween(hybridPath, baseDuration * 2), 'experiment')
+      .staggerTo(hyText, 1, { opacity: 1, ease: Power3.easeIn }, 0.1, `experiment+=${baseDuration / 2}`);
+
+    hyCircle.forEach((circle, index) => {
+      tl.to(circle, baseDuration, {
+        bezier: { values: hyPath, type: 'cubic' },
+        ease: CustomEase.create('custom', customEase[index])
+      },
+      `experiment+=${baseDuration / 2}`);
+    });
+
+    hyText.forEach((text, index) => {
+      tl.to(text, baseDuration, {
+        bezier: { values: hyPath2, type: 'cubic' },
+        ease: CustomEase.create('custom', customEase2[index])
+      },
+      `experiment+=${baseDuration / 2}`);
+    });
+
     return tl;
   }
 
   render () {
     return (
       <section className="hero layout--relative layout--fullheight layout--landscape" style={ { overflow: 'hidden' } }>
-        <div className="about__hybrid--circle">
+        <div className="about__hybrid--circle pr2">
           <svg viewBox="0 0 1370 818" preserveAspectRatio="xMaxYMax meet">
-            <filter id="f1" x="0" y="0">
-              <feGaussianBlur in="SourceGraphic" stdDeviation="0" id="textBlur" />
-            </filter>
             <g id="Hybrid" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
               <path
                 id="hybridPath1"
@@ -76,22 +95,25 @@ export class AboutHybrid extends React.Component {
               />
             </g>
 
-            <circle id="hyCircle1" r="10" cx="0" cy="0" fill="#B141A5" />
-            <circle id="hyCircle2" r="10" cx="0" cy="0" fill="#BE3C97" />
-            <circle id="hyCircle3" r="10" cx="0" cy="0" fill="#E33170" />
-            <circle id="hyCircle4" r="10" cx="0" cy="0" fill="#FF2953" />
+            <circle id="hyCircle1" className="hyCircle" r="10" cx="0" cy="0" fill="#B141A5" />
+            <circle id="hyCircle2" className="hyCircle" r="10" cx="0" cy="0" fill="#BE3C97" />
+            <circle id="hyCircle3" className="hyCircle" r="10" cx="0" cy="0" fill="#E33170" />
+            <circle id="hyCircle4" className="hyCircle" r="10" cx="0" cy="0" fill="#FF2953" />
 
-            <text className="hyText" id="hyText1" filter="url(#f1)">UX</text>
-            <text className="hyText" id="hyText2" filter="url(#f1)">Visual</text>
-            <text className="hyText" id="hyText3" filter="url(#f1)">Engineering</text>
-            <text className="hyText" id="hyText4" filter="url(#f1)">Research</text>
+            <text className="hyText" id="hyText1" fill="#B141A5">UX</text>
+            <text className="hyText" id="hyText2" fill="#BE3C97">Visual</text>
+            <text className="hyText" id="hyText3" fill="#E33170">Engineering</text>
+            <text className="hyText" id="hyText4" fill="#FF2953">Research</text>
 
           </svg>
         </div>
         <div className=" row pb5 about__hybrid--header">
           <div className="col-8 col-12--mlg">
             <h1 className="typ--bold typ--redshift pb2">Hybrid teams.</h1>
-            <h3>We believe the best products are created by hybrid teams. Designers, researchers, and developers work shoulder-to-shoulder in our studio to create experiences that are beautiful and grounded in real user needs.</h3>
+            <h3>
+              We believe the best products are created by hybrid teams. Designers, researchers,
+              and developers work shoulder-to-shoulder in our studio to create experiences that are beautiful and grounded in real user needs.
+            </h3>
           </div>
         </div>
       </section>
