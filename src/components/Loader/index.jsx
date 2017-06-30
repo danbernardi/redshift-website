@@ -4,7 +4,7 @@ import mojs from 'mo-js';
 import { mapRange } from 'utils/animation';
 import * as actions from 'store/actions';
 import { connect } from 'react-redux';
-import { disableScroll } from 'utils/scrollJack';
+// import { disableScroll } from 'utils/scrollJack';
 import PropTypes from 'prop-types';
 
 // import MojsCurveEditor from 'mojs-curve-editor';
