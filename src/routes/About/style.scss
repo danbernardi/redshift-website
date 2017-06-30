@@ -6,7 +6,11 @@
     bottom: 15%;
   }
   @include breakpoint($mobile-lg) {
-    bottom: 12%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    bottom: 0;
   }
   @media screen and (max-device-width: 1040px) and (orientation : landscape) {
     width: 50%;
@@ -76,17 +80,18 @@
     width: calc(100vw - 30rem);
   }
   @include breakpoint($mobile-lg) {
-    right: -15%;
-    height: calc(100vw - 25rem);
-    width: calc(100vw - 25rem);
+    display: none;
+    // right: -15%;
+    // height: calc(100vw - 25rem);
+    // width: calc(100vw - 25rem);
   }
-  @include breakpoint($mobile-sm) {
-    height: calc(100vw - 9.5rem);
-    width: calc(100vw - 9.5rem);
-  }
-  @include breakpoint($mobile-xsm) {
-    top: 30%;
-  }
+  // @include breakpoint($mobile-sm) {
+  //   height: calc(100vw - 9.5rem);
+  //   width: calc(100vw - 9.5rem);
+  // }
+  // @include breakpoint($mobile-xsm) {
+  //   top: 30%;
+  // }
 }
 
 .about__video video {
