@@ -42,9 +42,7 @@ export class AboutCollaboration extends React.Component {
     const collCircle = [].slice.call(wrapper.querySelectorAll('.collCircle'));
 
     // Create array of bezier paths
-    const chordPaths = chords.map((node) => {
-      return MorphSVGPlugin.pathDataToBezier(node);
-    });
+    const chordPaths = chords.map((node) => MorphSVGPlugin.pathDataToBezier(node));
 
     // Add chord animation
     const chordDelay = 0.15;

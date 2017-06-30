@@ -29,26 +29,26 @@
       cursor: default;
     }
   }
-    div:nth-child(1) h1 {
-      &:hover {
-        color: #FF2953;
-      }
+  div:nth-child(1) h1 {
+    &:hover {
+      color: #FF2953;
     }
-    div:nth-child(2) h1 {
-      &:hover {
-        color: #E4486F;
-      }
+  }
+  div:nth-child(2) h1 {
+    &:hover {
+      color: #E4486F;
     }
-    div:nth-child(3) h1{
-      &:hover {
-        color: #BF4498;
-      }
+  }
+  div:nth-child(3) h1{
+    &:hover {
+      color: #BF4498;
     }
-    div:nth-child(4) h1 {
-      &:hover {
-        color: #B144A5;
-      }
+  }
+  div:nth-child(4) h1 {
+    &:hover {
+      color: #B144A5;
     }
+  }
 }
 
 .about__video {
@@ -91,11 +91,6 @@
 
 .about__video video {
   min-height: 100%;
-  // width: 100%;
-  @include breakpoint($tablet-sm) {
-    // height: 100%;
-    // max-width: 100%;
-  }
 }
 
 .about__video--removemask {
@@ -119,232 +114,12 @@
   top: 12.5%;
   left: -10px;
   &.aboutExplore {
-    @media (max-width: 1400px) {
+    @media (max-width: 1220px) {
       left: auto;
       right: 10rem;
     }
   }
 }
-
-// .about--curve-container {
-//   position: relative;
-//   width: 100vw;
-//   height: 100vw;
-//   border-radius: 50%;
-//   border: solid 1px $medium-gray;
-//   bottom: -20%;
-//   left: -15%;
-//   //media quesries
-//   @include breakpoint($tablet-lg) {
-//     position: relative;
-//     width: 400vw;
-//     height: 400vw;
-//     left: -300%;
-//     bottom: 0;
-//   }
-
-//   @include breakpoint($mobile-lg) {
-//     left: -305%;
-//   }
-
-//   @media screen and (max-device-width: 1040px) and (orientation : landscape) {
-//     bottom: 4.4rem;
-//   }
-
-
-// }
-
-// .about--curve-container > div {
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-//   height: calc(50vw + 1rem);
-//   width: calc(50vw + 1rem);
-//   transform-origin: bottom right;
-//   // media queries
-//   @include breakpoint($tablet-lg) {
-//     height: calc(200vw + 1rem);
-//     width: calc(200vw + 1rem);
-//   }
-// }
-
-// .about--explore-text {
-//   // media queries
-//   @include breakpoint($desktop-sm) {
-//     font-size: 2.4rem;
-//   }
-// }
-
-// .about--curve-container > div:before {
-//   font-size: 3.6rem;
-//   @include font(bold);
-//   left: -3rem;
-//   bottom: 1.8rem;
-//   line-height: 3.6rem;
-//   // media queries
-//   @include breakpoint($mobile-lg) {
-//     font-size: 1.6rem;
-//     line-height: 1.6rem;
-//     left: -1.4rem;
-//     bottom: 2.3rem;
-//   }
-// }
-
-// .about--curve-container > div:after {
-//   bottom: 0px;
-//   left: 0px;
-// }
-
-// .about--curve-container > div:after,
-// .about--curve-container > div:before {
-//   position: absolute;
-//   content: '';
-//   height: 2rem;
-//   width: 2rem;
-//   border-radius: 50%;
-// }
-
-// .about--curve-container > div:nth-child(1) {
-//   transform: rotate(115deg);
-//   // media queries
-//   @include breakpoint($tablet-lg) {
-//     transform: rotate(110deg);
-//   }
-//   @include breakpoint($mobile-lg) {
-//     transform: rotate(120deg);
-//   }
-// }
-// .about--curve-container > div:nth-child(2) {
-//   transform: rotate(129.4deg);
-//   // media queries
-//   @include breakpoint($tablet-lg) {
-//     transform: rotate(115deg);
-//   }
-//   @include breakpoint($mobile-lg) {
-//     transform: rotate(125deg);
-//   }
-// }
-// .about--curve-container > div:nth-child(3) {
-//   transform: rotate(141.6deg);
-//   // media queries
-//   @include breakpoint($tablet-lg) {
-//     transform: rotate(120deg);
-//   }
-//   @include breakpoint($mobile-lg) {
-//     transform: rotate(130deg);
-//   }
-// }
-// .about--curve-container > div:nth-child(4) {
-//   transform: rotate(154deg);
-//   // media queries
-//   @include breakpoint($tablet-lg) {
-//     transform: rotate(125deg);
-//   }
-//   @include breakpoint($mobile-lg) {
-//     transform: rotate(135deg);
-//   }
-// }
-
-// .about--curve-container > div:nth-child(n+1):before {
-//   content: "Research";
-//   transform: rotate(-115deg);
-//   // media queries
-//   @include breakpoint($tablet-lg) {
-//     transform: rotate(-110deg);
-//   }
-//   @include breakpoint($mobile-lg) {
-//     transform: rotate(-120deg);
-//   }
-
-// }
-// .about--curve-container > div:nth-child(n+2):before {
-//   content: "Engineering";
-//   transform: rotate(-129.4deg);
-//   // media queries
-//   @include breakpoint($tablet-lg) {
-//     transform: rotate(-115deg);
-//   }
-//   @include breakpoint($mobile-lg) {
-//     transform: rotate(-125deg);
-//   }
-// }
-// .about--curve-container > div:nth-child(n+3):before {
-//   content: "Visual";
-//   transform: rotate(-141.6deg);
-//   // media queries
-//   @include breakpoint($tablet-lg) {
-//     transform: rotate(-120deg);
-//   }
-//   @include breakpoint($mobile-lg) {
-//     transform: rotate(-130deg);
-//   }
-// }
-// .about--curve-container > div:nth-child(n+4):before {
-//   content: "UX";
-//   transform: rotate(-154deg);
-//   // media queries
-//   @include breakpoint($tablet-lg) {
-//     transform: rotate(-125deg);
-//   }
-//   @include breakpoint($mobile-lg) {
-//     transform: rotate(-135deg);
-//   }
-// }
-
-// .about--curve-container > div:nth-child(n+1):after {
-//   background: $redshift;
-// }
-// .about--curve-container > div:nth-child(n+2):after {
-//   background: #E33170;
-// }
-// .about--curve-container > div:nth-child(n+3):after {
-//   background: #BE3C97;
-// }
-// .about--curve-container > div:nth-child(n+4):after {
-//   background: #B141A5;
-// }
-
-
-// .about-curve {
-//   &:before {
-//     content: '';
-//     background-color: $redshift;
-//     display: block;
-//     margin: 1.3rem auto;
-//     position: relative;
-//     border-radius: 50%;
-//   }
-// }
-
-// .about-curve img {
-//   top: 30rem;
-//   position: relative;
-// }
-
-// .about-gradient {
-//   background: rgb(236, 0, 94); /* Old browsers */
-//   background: -moz-linear-gradient(top,  rgba(236, 0, 94, 1) 0%, rgba(255, 0, 172, 1) 100%); /* FF3.6-15 */
-//   background: -webkit-linear-gradient(top,  rgba(236, 0, 94, 1) 0%, rgba(255, 0, 172, 1) 100%); Chrome10-25,Safari5.1-6
-//   background: linear-gradient(to bottom,  rgba(236, 0,94, 1) 0%, rgba(255, 0, 172, 1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-//   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ec005e', endColorstr='#ff00ac',GradientType=0 ); /* IE6-9 */
-// }
-
-// .about__office-image img {
-//   width: 100%;
-// }
-
-// .about__process video {
-//   width: 100%;
-// }
-
-// .about__process__img {
-//   width: 100%;
-//   padding: 3rem;
-//   // media queries
-//   @include breakpoint($mobile-lg) {
-//     padding: 1rem;
-//   }
-// }
 
 .about__clients {
   background: $dark-grey;
@@ -402,7 +177,6 @@
     position: relative;
     overflow: hidden;
     height: auto;
-    // text-transform: lowercase;
     cursor: pointer;
   }
 
