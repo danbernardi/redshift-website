@@ -52,7 +52,7 @@ export class AboutExplore extends React.Component {
             this.state.activeItem === image.id &&
               <div
                 key={ ind }
-                className="about--image"
+                className={ ` ${ this.state.activeItem === image.id && image.id } about--image` }
               >
                 { image.svgAnim }
               </div>

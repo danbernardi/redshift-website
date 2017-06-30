@@ -118,6 +118,12 @@
   position: absolute;
   top: 12.5%;
   left: -10px;
+  &.aboutExplore {
+    @media (max-width: 1400px) {
+      left: auto;
+      right: 10rem;
+    }
+  }
 }
 
 // .about--curve-container {
