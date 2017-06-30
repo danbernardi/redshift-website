@@ -53,7 +53,7 @@ export class AboutIterate extends React.Component {
     return (
       <section style={ { height: '50vh' } }>
         <svg>
-          <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
+          <g fill="none">
             <path
               id="iteratePath1"
               className="aboutPath"

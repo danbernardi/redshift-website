@@ -96,7 +96,7 @@ export class AboutCollaboration extends React.Component {
     return (
       <section style={ { height: '50vh' } }>
         <svg width="1440" height="400px" viewBox="0 0 1440 400" preserveAspectRatio="xMaxYMax meet">
-          <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
+          <g id="Page-1" fill="none" fillRule="evenodd">
             <path
               id="collPath1"
               className="aboutPath chord"
