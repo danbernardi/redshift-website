@@ -61,7 +61,9 @@ export class AboutHybrid extends React.Component {
       .staggerTo(hyText, 1, { opacity: 1, ease: Power3.easeIn }, 0.1, `experiment+=${baseDuration / 2}`);
 
     hyCircle.forEach((circle, index) => {
-      tl.to(circle, baseDuration, {
+      tl
+      .set(circle, { opacity: 1 }, `experiment+=${baseDuration / 2}`)
+      .to(circle, baseDuration, {
         bezier: { values: hyPath, type: 'cubic' },
         ease: CustomEase.create('custom', customEase[index])
       },
