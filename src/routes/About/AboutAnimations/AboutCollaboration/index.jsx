@@ -42,9 +42,7 @@ export class AboutCollaboration extends React.Component {
     const collCircle = [].slice.call(wrapper.querySelectorAll('.collCircle'));
 
     // Create array of bezier paths
-    const chordPaths = chords.map((node) => {
-      return MorphSVGPlugin.pathDataToBezier(node);
-    });
+    const chordPaths = chords.map((node) => MorphSVGPlugin.pathDataToBezier(node));
 
     // Add chord animation
     const chordDelay = 0.15;
@@ -97,7 +95,7 @@ export class AboutCollaboration extends React.Component {
   render () {
     return (
       <section style={ { height: '50vh' } }>
-        <svg>
+        <svg width="1440" height="400px" viewBox="0 0 1440 400" preserveAspectRatio="xMaxYMax meet">
           <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
             <path
               id="collPath1"
@@ -125,7 +123,7 @@ export class AboutCollaboration extends React.Component {
               d="M-20,372 L1450,372"
             />
           </g>
-          <circle id="collCircle1" className="collCircle aboutCircle redCircle" r="6" cx="0" cy="0" fill="#FF2953" />
+          <circle id="collCircle1" className="collCircle" r="6" cx="0" cy="0" fill="#FF2953" />
           <circle id="collCircle2" className="collCircle" r="6" cx="0" cy="0" fill="#CF3785" />
           <circle id="collCircle3" className="collCircle" r="6" cx="0" cy="0" fill="#CF3785" />
 
@@ -143,6 +141,35 @@ export class AboutCollaboration extends React.Component {
           <circle id="collCircle12"className="collCircle" r="6" cx="0" cy="0" fill="#FF2953" />
           <circle id="collCircle13"className="collCircle" r="6" cx="0" cy="0" fill="#CF3785" />
           <circle id="collCircle14"className="collCircle" r="6" cx="0" cy="0" fill="#CF3785" />
+        </svg>
+        <svg width="100vw" height="400px" viewBox="0 0 1440 400" preserveAspectRatio="none" style={ { position: 'absolute', top: 0 } }>
+          <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
+            <path
+              id="collPathEnd1"
+              className="aboutPath chord"
+              d="M0,244 L1450,244"
+            />
+            <path
+              id="collPathEnd2"
+              className="aboutPath chord"
+              d="M0,276 L1450,276"
+            />
+            <path
+              id="collPathEnd3"
+              className="aboutPath chord"
+              d="M0,308 L1450,308"
+            />
+            <path
+              id="collPathEnd4"
+              className="aboutPath chord"
+              d="M0,340 L1450,340"
+            />
+            <path
+              id="collPathEnd5"
+              className="aboutPath chord"
+              d="M0,372 L1450,372"
+            />
+          </g>
         </svg>
       </section>
     );

@@ -5,7 +5,6 @@ import MorphSVGPlugin from 'vendor/gsap-plugins/MorphSVGPlugin';
 import CustomEase from 'vendor/gsap-plugins/CustomEase';
 import Watcher from 'components/Watcher';
 
-
 export class AboutHybrid extends React.Component {
   componentDidMount () {
     this.timeline = this.addAnimation(this.createTimeline.bind(this));
@@ -97,7 +96,7 @@ export class AboutHybrid extends React.Component {
         />
 
         <div className="about__hybrid--circle pr2">
-          <svg viewBox="0 0 1370 818" preserveAspectRatio="xMaxYMax meet">
+          <svg viewBox="0 0 1390 818" preserveAspectRatio="xMaxYMax meet">
             <g id="Hybrid" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
               <path
                 id="hybridPath1"

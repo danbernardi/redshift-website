@@ -88,14 +88,14 @@ export class AboutExplore extends React.Component {
 
   render () {
     return (
-      <section style={ { height: '50vh' } }>
+      <section className="about--explore-svg" style={ { height: '50vh' } }>
         <Watcher
           offset={ { top: '50rem', position: 'relative' } }
           autoStart={ false }
           stateChange={ this.watcherCallback.bind(this) }
           enterViewport={ this.watcherCallback.bind(this) }
         />
-        <svg>
+        <svg width="1220" height="380" viewBox="0 0 1220 380" preserveAspectRatio="xMinYMin meet">
           <g
             id="aboutExploreLines"
             stroke="none"
