@@ -98,8 +98,6 @@ export class AboutExplore extends React.Component {
         <svg width="1220" height="380" viewBox="0 0 1220 380" preserveAspectRatio="xMinYMin meet">
           <g
             id="aboutExploreLines"
-            stroke="none"
-            strokeWidth="0"
             fill="none"
           >
             <path

@@ -53,7 +53,7 @@ export class AboutExperiment extends React.Component {
     return (
       <section style={ { height: '50vh' } }>
         <svg width="1146" height="400" viewBox="0 0 1146 400" preserveAspectRatio="xMinYMax meet">
-          <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
+          <g fill="none">
             <path id="experimentPath1" className="path-extension cls-1 aboutPath" d="M72.92,-34.7 C339,529 1076,528 1350,0" />
             <path className="path-extension cls-2" d="M1350,0 C1140.47,415.71 564.29,551.4 199.21,157.33" />
             <path className="path-extension cls-3" d="M199.21,157.33 C443.82,420.8 836.49,475.4 1132.96,255.47" />

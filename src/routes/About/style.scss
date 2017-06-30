@@ -81,17 +81,7 @@
   }
   @include breakpoint($mobile-lg) {
     display: none;
-    // right: -15%;
-    // height: calc(100vw - 25rem);
-    // width: calc(100vw - 25rem);
   }
-  // @include breakpoint($mobile-sm) {
-  //   height: calc(100vw - 9.5rem);
-  //   width: calc(100vw - 9.5rem);
-  // }
-  // @include breakpoint($mobile-xsm) {
-  //   top: 30%;
-  // }
 }
 
 .about__video video {
