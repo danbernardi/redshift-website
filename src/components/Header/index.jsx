@@ -60,7 +60,6 @@ export class Header extends React.Component {
 
   toggleHeaderModal () {
     const { modalState, dispatch } = this.props;
-    console.log(modalState.open);
     if (modalState.open) {
       dispatch(actions.toggleModal(false));
       this.timer = setTimeout(() => { dispatch(actions.setActiveModal(null, null)); }, 200);
