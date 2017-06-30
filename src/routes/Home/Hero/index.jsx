@@ -45,7 +45,7 @@ export class Hero extends React.Component {
       .staggerFrom(textChars.chars, 0.5, {
         opacity: 0,
         ease: Power3.easeOut
-      }, 0.02, '+=1.75');
+      }, 0.02, location.pathname === '/work' ? '0' : '+=1.75');
   }
 
   createOutroTimeline ({ target }) {
