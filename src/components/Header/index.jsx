@@ -11,7 +11,7 @@ import Hamburger from 'components/Hamburger';
 import ReactGA from 'react-ga';
 import PropTypes from 'prop-types';
 import GSAP from 'react-gsap-enhancer';
-import { TimelineMax, Power3 } from 'gsap';
+import { TimelineMax } from 'gsap';
 
 export class Header extends React.Component {
   componentDidMount () {
@@ -60,7 +60,6 @@ export class Header extends React.Component {
 
   toggleHeaderModal () {
     const { modalState, dispatch } = this.props;
-
     if (modalState.open) {
       dispatch(actions.toggleModal(false));
       this.timer = setTimeout(() => { dispatch(actions.setActiveModal(null, null)); }, 200);
@@ -123,7 +122,7 @@ export class Header extends React.Component {
 Header.propTypes = {
   modalState: PropTypes.object,
   headerTheme: PropTypes.string,
-  dispatch: PropTypes.func,
+  dispatch: PropTypes.func
 };
 
 const injectStateProps = state => ({
