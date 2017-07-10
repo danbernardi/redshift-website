@@ -30,6 +30,12 @@
   min-height: 100vh;
 }
 
+.layout--flex__center-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .layout--landscape {
   @media screen and (max-device-width: 1040px) and (orientation : landscape) {
     min-height: 56.8rem;
