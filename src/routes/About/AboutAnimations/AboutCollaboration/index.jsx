@@ -147,27 +147,27 @@ export class AboutCollaboration extends React.Component {
             <path
               id="collPathEnd1"
               className="aboutPath chord"
-              d="M0,244 L1450,244"
+              d="M5,244 L1450,244"
             />
             <path
               id="collPathEnd2"
               className="aboutPath chord"
-              d="M0,276 L1450,276"
+              d="M5,276 L1450,276"
             />
             <path
               id="collPathEnd3"
               className="aboutPath chord"
-              d="M0,308 L1450,308"
+              d="M5,308 L1450,308"
             />
             <path
               id="collPathEnd4"
               className="aboutPath chord"
-              d="M0,340 L1450,340"
+              d="M5,340 L1450,340"
             />
             <path
               id="collPathEnd5"
               className="aboutPath chord"
-              d="M0,372 L1450,372"
+              d="M5,372 L1450,372"
             />
           </g>
         </svg>
