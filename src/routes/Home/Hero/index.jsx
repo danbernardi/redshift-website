@@ -74,10 +74,10 @@ export class Hero extends React.Component {
     return (
       <section
         ref={ onDidMount }
-        className="hero layout--fullheight"
+        className="hero layout--fullheight layout--flex__center-col"
       >
 
-        <div className="row" style={ { top: '50%', transform: 'translateY(-50%)' } }>
+        <div className="row">
           <h1 className="hero__text typ--bold typ--redshift" style={ { maxWidth: '110rem' } }>
             <span data-animationName="text1">
               Redshift creates simple,&nbsp;
