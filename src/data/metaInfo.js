@@ -1,11 +1,11 @@
 export const metaInfo = {
   home: {
     title: 'Redshift Digital - Hello',
-
+    description: 'Redshift creates simple, meaningful digital products.',
     meta: {
       charset: 'utf-8',
       name: {
-        keywords: 'redshift digital, graphic design, web design, creative design agency, san francisco, user experience design, user experience research, software development services, web development services, visual design studio'
+        keywords: 'redshift digital, graphic design, web design, creative design agency, digital marketing, san francisco, user experience design, user experience research, software development services, web development services, visual design studio'
       }
     }
   },
