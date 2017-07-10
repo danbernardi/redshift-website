@@ -175,7 +175,7 @@
 }
 
 .casestudy__heading {
-  height: calc(100vh - 5rem);
+  min-height: calc(100vh - 5rem);
   max-width: 100rem;
   position: relative;
   // min-height: 50rem;
