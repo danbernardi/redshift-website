@@ -35,6 +35,10 @@ export class Hero extends React.Component {
         this.timeline.progress(animationProgress);
       });
     }
+
+    if (this.props.animationProgress === 0 && nextProps.animationProgress > 0) {
+      this.introTimeline.progress(1);
+    }
   }
 
   createIntroTimeline () {
