@@ -249,7 +249,7 @@ export class Showcase extends React.Component {
   }
 
   /**
-   * Scrolls to a specific position, which triggers the animation
+   * Scrolls to a specified position, which triggers the animation
    * @param  {Object} container  The wrapping container of the component
    * @param  {Number} toPosition Position to scroll to
    * @param  {Number} duration   Time to animate to next position
