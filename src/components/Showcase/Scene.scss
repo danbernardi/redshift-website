@@ -29,7 +29,7 @@ html {
   position: relative;
   overflow: hidden;
   color: $white;
-  min-height: 100vh;
+  height: 100vh;
 }
 
 .scene__cta {
@@ -50,7 +50,7 @@ html {
   > div {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    height: 100vh;
     justify-content: center;
     margin-top: calc(25vh - 5.1rem);
     // media queries
