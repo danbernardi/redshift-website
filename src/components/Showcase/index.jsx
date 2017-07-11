@@ -44,6 +44,7 @@ export class Showcase extends React.Component {
     this.sceneMeta = [];
     this.lastScroll = window.performance.now();
     this.currentScene = 0;
+    this.previousScene = 0;
 
     this.state = {
       animationProgress: 0
@@ -124,11 +125,19 @@ export class Showcase extends React.Component {
       //Skip this on mobile
       if (!SUPPORT_TOUCH) {
         clearTimeout(this.scrollEndTimer);
-        //Prevent fire of scrollStop when coming from animation
-        if (!this.isAnimating) {
+        // Prevent fire of scrollStop when coming from animation
+        if (this.isAnimating) {
+          this.previousScene = this.currentScene;
+        } else {
           this.scrollEndTimer = setTimeout(() => {
-            const sceneToResolve = this.currentScene === 0 && scrollDirection === 'down' ? 1 : this.currentScene;
-            this.goToScene(sceneToResolve);
+            // If scroll is strong enough to move to specific scene, do so.
+            // Otherwise, scroll to immediate next or immediate previous scene based on scrollDirection
+            if (this.previousScene === this.currentScene) {
+              const triggerNextScene = scrollDirection === 'down' ? this.goToNextScene.bind(this) : this.goToPrevScene.bind(this);
+              triggerNextScene();
+            } else {
+              this.goToScene(this.currentScene);
+            }
           }, 200);
         }
       }
@@ -240,7 +249,7 @@ export class Showcase extends React.Component {
   }
 
   /**
-   * Scrolls to a specifide position, which triggers the animation
+   * Scrolls to a specified position, which triggers the animation
    * @param  {Object} container  The wrapping container of the component
    * @param  {Number} toPosition Position to scroll to
    * @param  {Number} duration   Time to animate to next position
@@ -264,8 +273,10 @@ export class Showcase extends React.Component {
           this.container.scrollTop = scrollPosition.x;
         },
         onComplete: () => {
-          this.isAnimating = false;
-          container.style.overflow = 'auto';
+          setTimeout(() => {
+            this.isAnimating = false;
+            container.style.overflow = 'auto';
+          }, 100);
         }
       }
     );
