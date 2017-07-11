@@ -133,7 +133,7 @@ export class Showcase extends React.Component {
             // If scroll is strong enough to move to specific scene, do so.
             // Otherwise, scroll to immediate next or immediate previous scene based on scrollDirection
             if (this.previousScene === this.currentScene) {
-              const triggerNextScene = scrollDirection === 'down' ? this.goToNextScene.bind(this) : this.goToPreviousScene.bind(this);
+              const triggerNextScene = scrollDirection === 'down' ? this.goToNextScene.bind(this) : this.goToPrevScene.bind(this);
               triggerNextScene();
             } else {
               this.goToScene(this.currentScene);
@@ -276,7 +276,7 @@ export class Showcase extends React.Component {
           setTimeout(() => {
             this.isAnimating = false;
             container.style.overflow = 'auto';
-          }, 200);
+          }, 100);
         }
       }
     );
