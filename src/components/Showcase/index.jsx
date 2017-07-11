@@ -320,7 +320,7 @@ export class Showcase extends React.Component {
   /**
    * Animate to previous scene
    */
-  goToPreviousScene () {
+  goToPrevScene () {
     this.goToScene(this.currentScene - 1);
   }
 
@@ -381,7 +381,7 @@ export class Showcase extends React.Component {
    * Calls sceneWillUpdate upon a change.
    * @return {Number} The index of the current scene
    */
-  calculatecurrentScene () {
+  calculateCurrentScene () {
     let i = 0;
     const childCount = this.sceneMeta.length;
 
@@ -450,7 +450,7 @@ export class Showcase extends React.Component {
   render () {
     let sceneBgColor = this.colors[this.currentScene];
     if (this.sceneMeta.length) {
-      this.currentScene = this.calculatecurrentScene();
+      this.currentScene = this.calculateCurrentScene();
     }
 
     return (
