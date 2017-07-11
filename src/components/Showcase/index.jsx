@@ -43,8 +43,8 @@ export class Showcase extends React.Component {
     this.scrollPoints = [];
     this.sceneMeta = [];
     this.lastScroll = window.performance.now();
-    this.currentSceneIndex = 0;
-    this.previousSceneIndex = 0;
+    this.currentScene = 0;
+    this.previousScene = 0;
 
     this.state = {
       animationProgress: 0
@@ -102,7 +102,7 @@ export class Showcase extends React.Component {
     this.resizeObservable = Rx.Observable.fromEvent(window, 'resize').debounce(() => Rx.Observable.timer(700));
     this.resizeSubscription = this.resizeObservable.subscribe(() => {
       this.sceneMeta = this.setSceneMeta();
-      this.goToScene(this.currentSceneIndex);
+      this.goToScene(this.currentScene);
     });
   }
 
@@ -127,16 +127,16 @@ export class Showcase extends React.Component {
         clearTimeout(this.scrollEndTimer);
         // Prevent fire of scrollStop when coming from animation
         if (this.isAnimating) {
-          this.previousSceneIndex = this.currentSceneIndex;
+          this.previousScene = this.currentScene;
         } else {
           this.scrollEndTimer = setTimeout(() => {
             // If scroll is strong enough to move to specific scene, do so.
             // Otherwise, scroll to immediate next or immediate previous scene based on scrollDirection
-            if (this.previousSceneIndex === this.currentSceneIndex) {
+            if (this.previousScene === this.currentScene) {
               const triggerNextScene = scrollDirection === 'down' ? this.goToNextScene.bind(this) : this.goToPreviousScene.bind(this);
               triggerNextScene();
             } else {
-              this.goToScene(this.currentSceneIndex);
+              this.goToScene(this.currentScene);
             }
           }, 200);
         }
@@ -298,7 +298,7 @@ export class Showcase extends React.Component {
     position = index === this.sceneMeta.length - 1 ? position + scene.height : position;
 
     // const duration = SUPPORT_TOUCH ? 1 : Math.abs(this.container.scrollTop - position) * 2 / 1000;
-    this.currentSceneIndex = index;
+    this.currentScene = index;
 
     if (!this.isAnimating) {
       if (animate) {
@@ -314,14 +314,14 @@ export class Showcase extends React.Component {
    * Animate to next scene
    */
   goToNextScene () {
-    this.goToScene(this.currentSceneIndex + 1);
+    this.goToScene(this.currentScene + 1);
   }
 
   /**
    * Animate to previous scene
    */
   goToPreviousScene () {
-    this.goToScene(this.currentSceneIndex - 1);
+    this.goToScene(this.currentScene - 1);
   }
 
   /**
@@ -363,10 +363,10 @@ export class Showcase extends React.Component {
 
   /**
    * Fires upon a scene change
-   * @param  {Number} currentSceneIndex Index of current scene
+   * @param  {Number} currentScene Index of current scene
    * @param  {Number} nextScene    Index of next scene
    */
-  sceneWillUpdate (currentSceneIndex, nextScene) {
+  sceneWillUpdate (currentScene, nextScene) {
     const { dispatch } = this.props;
 
     if (nextScene === 0 || nextScene === this.sceneMeta.length - 1) {
@@ -381,15 +381,15 @@ export class Showcase extends React.Component {
    * Calls sceneWillUpdate upon a change.
    * @return {Number} The index of the current scene
    */
-  calculatecurrentSceneIndex () {
+  calculatecurrentScene () {
     let i = 0;
     const childCount = this.sceneMeta.length;
 
     while (i < childCount) {
       const range = this.sceneMeta[i].bounds;
       if (isInRange(this.state.animationProgress, range.low, range.high)) {
-        if (i !== this.currentSceneIndex) {
-          this.sceneWillUpdate(this.currentSceneIndex, i);
+        if (i !== this.currentScene) {
+          this.sceneWillUpdate(this.currentScene, i);
           return i;
         }
         return i;
@@ -448,9 +448,9 @@ export class Showcase extends React.Component {
   }
 
   render () {
-    let sceneBgColor = this.colors[this.currentSceneIndex];
+    let sceneBgColor = this.colors[this.currentScene];
     if (this.sceneMeta.length) {
-      this.currentSceneIndex = this.calculatecurrentSceneIndex();
+      this.currentScene = this.calculatecurrentScene();
     }
 
     return (
@@ -468,7 +468,7 @@ export class Showcase extends React.Component {
               animationProgress: mapRange(this.state.animationProgress, this.sceneMeta[index].bounds.low, this.sceneMeta[index].bounds.high, 0, 1),
               index,
               onDidMount: (el) => this.addScrollPoint(el, index),
-              currentSceneIndex: this.currentSceneIndex
+              currentScene: this.currentScene
             }
           ))
 
