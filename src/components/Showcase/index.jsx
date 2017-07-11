@@ -221,7 +221,7 @@ export class Showcase extends React.Component {
 
       if (Math.abs(delta) > THRESHOLD) {
         direction = delta > 0 ? 'down' : 'up';
-        const go = direction === 'up' ? this.goToNextScene : this.goToPreviousScene;
+        const go = direction === 'up' ? this.goToNextScene : this.goToPrevScene;
         go.call(this);
       }
     });
