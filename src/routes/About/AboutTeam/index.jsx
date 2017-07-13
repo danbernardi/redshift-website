@@ -10,7 +10,7 @@ const AboutTeam = props => {
 
     <section className="about--team pt9 pt6--tlg mt5 mt0--mlg">
       <div className="row hero--scene-text">
-        <h1 className="typ--bold py8 py6--tlg pt0--mlg pb5--mlg">Who we are<span className="typ--redshift">.</span></h1>
+        <h1 className="typ--bold py8 py6--tlg pt0--mlg pb5--mlg typ--redshift">Who we are.</h1>
       </div>
       { team.map((team, index) => (
         <Link to={ `/about/${team.id}` } key={ index }>
