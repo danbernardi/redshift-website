@@ -470,7 +470,7 @@ export class Showcase extends React.Component {
         tl.to(target, colorDuration, { noOp: 'doesNothing' }); // This adds a delay to position the color correctly
       }
     });
-
+    tl.progress(1);
     tl.pause();
 
     return tl;
