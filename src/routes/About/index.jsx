@@ -1,4 +1,5 @@
 import React from 'react';
+import AboutSlides from './AboutSlides';
 import AboutHero from './AboutHero';
 import AboutHybrid from './AboutHybrid';
 import AboutExplore from './AboutExplore';
@@ -53,6 +54,7 @@ export class About extends React.Component {
   render () {
     return (
       <div>
+        <AboutSlides />
         <AboutHero />
         <AboutHybrid />
         <AboutExplore />
