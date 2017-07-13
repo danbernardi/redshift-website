@@ -40,11 +40,29 @@
 }
 
 .pink-theme {
-  .icon-redshift { color: $redshift; }
   .page-title { color: $redshift; }
   .icon-close { color: $darkpurple; }
-  .icon-hamburger span { background: $redshift; }
   .index-title { color: $white; }
+
+  .icon-redshift {
+    color: $light-gray;
+
+    &:hover {
+      color: $redshift;
+    }
+  }
+
+  .icon-hamburger {
+    span {
+      background: $light-gray;
+    }
+
+    &:hover {
+      span {
+        background: $redshift;
+      }
+    }
+  }
 
   &.color-transition {
     .icon-hamburger span { background: $white; }
