@@ -129,7 +129,6 @@ export class Showcase extends React.Component {
       const scrollDirection = getScrollDirection(this.lastScrollPosition, currentScrollPosition);
       this.lastScrollPosition = currentScrollPosition;
 
-
       //Turn scroll jacking on / off
       if (this.scrollAutoCompletion) {
         //Skip this on mobile
@@ -478,13 +477,13 @@ export class Showcase extends React.Component {
   }
 
   render () {
-    let sceneBgColor = this.colors[this.currentScene];
+    // let sceneBgColor = this.colors[this.currentScene];
 
     if (this.sceneMeta.length) {
       this.currentScene = this.calculateCurrentScene();
     }
 
-    console.log(this.sceneShadowColors[this.currentScene]);
+    // console.log(this.sceneShadowColors[this.currentScene]);
 
     return (
       <div ref={ (element) => { this.container = element; } } className="showcase" style={ {
