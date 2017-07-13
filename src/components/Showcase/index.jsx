@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import Rx from 'rxjs/Rx';
 import { mapRange, isInRange } from 'utils/animation';
 import { getScrollDirection } from 'utils/scrollJack';
-import { TweenMax } from 'gsap';
+import { TimelineMax, TweenMax } from 'gsap';
 import { setHeaderTheme } from 'store/actions';
 import PropTypes from 'prop-types';
 
@@ -36,6 +36,7 @@ export class Showcase extends React.Component {
     this.scrollObservable = null;
     this.isAnimating = false;
     this.lastScrollPosition = 0;
+    this.scrollAutoCompletion = false;
 
     //Adding white for header and footer
     this.colors = ['#FFFFFF'].concat(this.props.scenes.map((scene) => scene.color)).concat(['#FFFFFF']);
@@ -52,6 +53,11 @@ export class Showcase extends React.Component {
   }
 
   componentDidMount () {
+    //Setup color transition
+    this.timeline = this.createColorTransitionTimeline(this.container);
+    this.timeline.play();
+    console.log(this.colors);
+
     //Removes jitter on mobile from event bubbling
     this.container.addEventListener('touchmove', (event) => {
       event.stopPropagation();
@@ -122,28 +128,33 @@ export class Showcase extends React.Component {
       const scrollDirection = getScrollDirection(this.lastScrollPosition, currentScrollPosition);
       this.lastScrollPosition = currentScrollPosition;
 
-      //Skip this on mobile
-      if (!SUPPORT_TOUCH) {
-        clearTimeout(this.scrollEndTimer);
-        // Prevent fire of scrollStop when coming from animation
-        if (this.isAnimating) {
-          this.previousScene = this.currentScene;
-        } else {
-          this.scrollEndTimer = setTimeout(() => {
-            // If scroll is strong enough to move to specific scene, do so.
-            // Otherwise, scroll to immediate next or immediate previous scene based on scrollDirection
-            if (this.previousScene === this.currentScene) {
-              const triggerNextScene = scrollDirection === 'down' ? this.goToNextScene.bind(this) : this.goToPrevScene.bind(this);
-              triggerNextScene();
-            } else {
-              this.goToScene(this.currentScene);
-            }
-          }, 200);
+
+      //Turn scroll jacking on / off
+      if (this.scrollAutoCompletion) {
+        //Skip this on mobile
+        if (!SUPPORT_TOUCH) {
+          clearTimeout(this.scrollEndTimer);
+          // Prevent fire of scrollStop when coming from animation
+          if (this.isAnimating) {
+            this.previousScene = this.currentScene;
+          } else {
+            this.scrollEndTimer = setTimeout(() => {
+              // If scroll is strong enough to move to specific scene, do so.
+              // Otherwise, scroll to immediate next or immediate previous scene based on scrollDirection
+              if (this.previousScene === this.currentScene) {
+                const triggerNextScene = scrollDirection === 'down' ? this.goToNextScene.bind(this) : this.goToPrevScene.bind(this);
+                triggerNextScene();
+              } else {
+                this.goToScene(this.currentScene);
+              }
+            }, 200);
+          }
         }
       }
 
       const target = scrollEvent.target;
       const animationProgress = this.calculateAnimationProgress(target);
+      this.timeline.progress(animationProgress).pause();
 
       this.setState({
         animationProgress
@@ -447,16 +458,31 @@ export class Showcase extends React.Component {
     );
   }
 
+  createColorTransitionTimeline (target) {
+    const tl = new TimelineMax();
+    const colorDuration = 1 / this.colors.length;
+
+    this.colors.forEach((color, index) => {
+      if (index === 0) {
+        tl.to(target, colorDuration * 2, { noOp: 'doesNothing' }); // This adds a delay to position the color correctly
+      } else {
+        tl.to(target, colorDuration, { backgroundColor: color });
+        tl.to(target, colorDuration, { noOp: 'doesNothing' }); // This adds a delay to position the color correctly
+      }
+    });
+
+    tl.pause();
+
+    return tl;
+  }
+
   render () {
-    let sceneBgColor = this.colors[this.currentScene];
     if (this.sceneMeta.length) {
       this.currentScene = this.calculateCurrentScene();
     }
 
     return (
       <div ref={ (element) => { this.container = element; } } className="showcase" style={ {
-        backgroundColor: sceneBgColor || '#fff',
-        transition: `background-color ${this.duration}ms ease-out`,
         height: window.innerHeight,
         overflowY: SUPPORT_TOUCH ? 'hidden' : 'scroll'
       } }>
