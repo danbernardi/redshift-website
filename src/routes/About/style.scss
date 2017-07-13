@@ -66,6 +66,15 @@
   }
 }
 
+.about--slideshow {
+   @include breakpoint($desktop-lg) {
+    padding-bottom: 10rem;
+  }
+  @include breakpoint($tablet-lg) {
+    padding-bottom: 5rem;
+  }
+}
+
 .about__hybrid--header {
   display: flex;
   flex-direction: column;

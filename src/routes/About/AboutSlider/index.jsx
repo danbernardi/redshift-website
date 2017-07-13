@@ -30,7 +30,7 @@ class AboutSlides extends React.Component {
     };
 
     return (
-      <div>
+      <div className="about--slideshow">
         <Slider { ...settings }>
           {
             slideShow.map((s, i) => (

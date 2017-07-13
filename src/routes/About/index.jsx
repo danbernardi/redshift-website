@@ -55,8 +55,8 @@ export class About extends React.Component {
   render () {
     return (
       <div>
-        <AboutTitle />
         <AboutSlider />
+        <AboutTitle />
         <AboutHybrid />
         <AboutExplore />
         <AboutClients data={ clientData } />
