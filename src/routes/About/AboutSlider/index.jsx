@@ -36,9 +36,9 @@ class AboutSlides extends React.Component {
             slideShow.map((s, i) => (
               <div key={ i }>
                 <picture>
-                  <source srcSet={ require(`assets/img/about/slides/${s.imagePath}-tlg.jpg`) } media="(min-width: 1040px)" />
-                  <source srcSet={ require(`assets/img/about/slides/${s.imagePath}-mlg.jpg`) } media="(min-width: 767px)" />
-                  <img src={ require(`assets/img/about/slides/${s.imagePath}.jpg`) } alt="Redshift About" />
+                  <source srcSet={ require(`assets/img/about/slides/tablet/${s.imagePath}.jpg`) } media="(max-width: 1040px)" />
+                  <source srcSet={ require(`assets/img/about/slides/mobile/${s.imagePath}.jpg`) } media="(max-width: 767px)" />
+                  <img src={ require(`assets/img/about/slides/default/${s.imagePath}.jpg`) } alt="Redshift About" />
                 </picture>
               </div>
             ))

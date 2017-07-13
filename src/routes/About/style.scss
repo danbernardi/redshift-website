@@ -26,9 +26,18 @@
 
 .about--title {
   background-color: white;
-  padding: 5rem 10rem 5rem 5rem;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  // padding: 5rem 10rem 5rem 5rem;
   // border-top-right-radius: 10%;
   // border-bottom-right-radius: 10%;
+  @include breakpoint($tablet-lg) {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+  @include breakpoint($mobile-lg) {
+    padding-top: 1rem;
+  }
 }
 
 .about--header_move {
