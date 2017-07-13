@@ -8,9 +8,11 @@ class AboutSlides extends React.Component {
     super(props);
 
     this.state = {
-      hover: false
+      hover: false,
+      moveTitle: false
     };
   }
+
   // App state
   render () {
     const settings = {

@@ -1,6 +1,7 @@
 import React from 'react';
-import AboutSlides from './AboutSlides';
-import AboutHero from './AboutHero';
+import AboutTitle from './AboutTitle';
+import AboutSlider from './AboutSlider';
+
 import AboutHybrid from './AboutHybrid';
 import AboutExplore from './AboutExplore';
 import AboutClients from './AboutClients';
@@ -54,8 +55,8 @@ export class About extends React.Component {
   render () {
     return (
       <div>
-        <AboutSlides />
-        <AboutHero />
+        <AboutTitle />
+        <AboutSlider />
         <AboutHybrid />
         <AboutExplore />
         <AboutClients data={ clientData } />

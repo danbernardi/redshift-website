@@ -2,6 +2,12 @@
 
 .about--header {
   z-index: 7;
+  position: absolute;
+  bottom: 5rem;
+  padding: 0;
+  animation-duration: 1s;
+  animation-name: slidein;
+  left: 0;
   @include breakpoint($tablet-lg) {
     bottom: 15%;
   }
@@ -15,6 +21,39 @@
   @media screen and (max-device-width: 1040px) and (orientation : landscape) {
     width: 50%;
     margin-left: 0;
+  }
+}
+
+.about--title {
+  background-color: white;
+  padding: 5rem 10rem 5rem 5rem;
+  // border-top-right-radius: 10%;
+  // border-bottom-right-radius: 10%;
+}
+
+.about--header_move {
+  animation-duration: 1s;
+  animation-name: slideout;
+  left: -100%;
+}
+
+@keyframes slideout {
+  from {
+    left: 0
+  }
+
+  to {
+    left: -100%
+  }
+}
+
+@keyframes slidein {
+  from {
+    left: -100%
+  }
+
+  to {
+    left: 0
   }
 }
 
