@@ -54,11 +54,10 @@ export class AboutExplore extends React.Component {
     const tl = new TimelineMax({ paused: true });
     const exSvg = [].slice.call(wrapper.querySelectorAll('.aboutPath'));
     const exCircle = [].slice.call(wrapper.querySelectorAll('.exCircle'));
-    const exPath = exSvg.map((path) => {
-      return MorphSVGPlugin.pathDataToBezier(path);
-    });
+    const exPath = exSvg.map((path) => MorphSVGPlugin.pathDataToBezier(path));
 
     tl
+    .set(exCircle, { opacity: 1 })
     .add(this.createLineTween(exSvg[0], baseDuration * 2.99), 'aboutOne')
     .add(this.createLineTween(exSvg[1], baseDuration * 6), 'aboutOne')
     .add(this.createLineTween(exSvg[2], baseDuration * 6.48), 'aboutOne')

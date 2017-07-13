@@ -3,6 +3,7 @@ import GSAP from 'react-gsap-enhancer';
 import { TimelineMax, TweenMax, Power2 } from 'gsap';
 import MorphSVGPlugin from 'vendor/gsap-plugins/MorphSVGPlugin';
 import CustomEase from 'vendor/gsap-plugins/CustomEase';
+import Watcher from 'components/Watcher';
 
 //Custom easing curve
 const superBounce = 'M0,0 C0.08,0.502 0.096,0.964 0.208,0.964 0.362,0.964 0.336,0.224 0.43,0.224 0.516,0.224 0.532,0.752 0.638,0.752 0.724,0.752 0.736,0.38 0.798,0.38 0.848,0.38 0.856,0.554 0.9,0.554 0.938,0.554 0.952,0.5 1,0.5';
@@ -41,17 +42,30 @@ export class AboutExperiment extends React.Component {
       return MorphSVGPlugin.pathDataToBezier(path);
     });
 
-    const tl = new TimelineMax();
+    const tl = new TimelineMax({ paused: true });
     var baseDuration = 1;
 
     tl
+      .set(exCircles, { opacity: 1 })
       .add(this.createLineTween(experimentPath, baseDuration * 2), 'experiment')
       .staggerTo(exCircles, baseDuration * 6, { bezier: { values: pathExtensions[0], type: 'cubic' }, ease: CustomEase.create('custom', superBounce) }, 0.2, 'experiment+=1');
+
+    return tl;
   }
+
+  watcherCallback (watcher) {
+    if (watcher.isInViewport) { this.timeline.play(); }
+  };
 
   render () {
     return (
       <section style={ { height: '50vh' } }>
+        <Watcher
+          offset={ { top: '50rem', position: 'relative' } }
+          autoStart={ false }
+          stateChange={ this.watcherCallback.bind(this) }
+          enterViewport={ this.watcherCallback.bind(this) }
+        />
         <svg width="1146" height="400" viewBox="0 0 1146 400" preserveAspectRatio="xMinYMax meet">
           <g fill="none">
             <path id="experimentPath1" className="path-extension cls-1 aboutPath" d="M72.92,-34.7 C339,529 1076,528 1350,0" />

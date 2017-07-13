@@ -47,7 +47,43 @@ export class AboutExplore extends React.Component {
   render () {
     return (
       <section className="my8 mt0--mlg mb4--mlg">
-        <div className="about__animation-wrapper hide--tlg hero layout--relative layout--fullheight layout--landscape layout--flex">
+        <div className="about__animation-wrapper hide--tlg hero layout--fullheight layout--landscape">
+          <h1 className="typ--bold typ--redshift row">How we work.</h1>
+          { this.animationItems.map((i, ind) => (
+            <div>
+              <div
+                key={ ind }
+                className="about--image"
+              >
+                { i.svgAnim }
+              </div>
+              <div className="row pb5">
+
+              <div className="col-4 col-5--dsm about-explore--titles">
+                <h1 className={ `${i.colorClass} typ--bold` }>
+                  { i.title }
+                </h1>
+              </div>
+
+              <div className="col-8 col-7--dsm col-last">
+                <div className="about--transition">
+                  <h3 className="about--explore-text">{ i.text }</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          ))}
+
+          {/* this.animationItems.map((image, ind) => (
+            this.state.activeItem === image.id &&
+              <div
+                key={ ind }
+                className={ ` ${ this.state.activeItem === image.id && image.id } about--image` }
+              >
+                { image.svgAnim }
+              </div>
+            ))}
           { this.animationItems.map((image, ind) => (
             this.state.activeItem === image.id &&
               <div
@@ -84,7 +120,7 @@ export class AboutExplore extends React.Component {
                 </div>
               )) }
             </div>
-          </div>
+          </div> */}
         </div>
         <div className="show--tlg row">
           <h1 className="typ--bold typ--redshift">How we work.</h1>

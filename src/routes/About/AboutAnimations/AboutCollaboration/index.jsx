@@ -3,6 +3,7 @@ import GSAP from 'react-gsap-enhancer';
 import { TimelineMax, TweenMax, Power3 } from 'gsap';
 import MorphSVGPlugin from 'vendor/gsap-plugins/MorphSVGPlugin';
 import { getRandomInt } from 'utils/animation';
+import Watcher from 'components/Watcher';
 
 export class AboutCollaboration extends React.Component {
   componentDidMount () {
@@ -33,7 +34,7 @@ export class AboutCollaboration extends React.Component {
   createTimeline (target) {
     const wrapper = target.target[0];
 
-    const tl = new TimelineMax();
+    const tl = new TimelineMax({ paused: true });
     const baseDuration = 1 * 3;
     const buildDuration = baseDuration / 2; // Chord build
 
@@ -87,14 +88,24 @@ export class AboutCollaboration extends React.Component {
       tl.to(circle, baseDuration, { bezier: { values: localPath, type: 'thru', curviness: 0 }, ease: Power3.easeOut }, `coll+= ${pathIndex * 0.25}`);
     });
 
-    tl.play();
+    // tl.play();
 
     return tl;
   }
 
+  watcherCallback (watcher) {
+    if (watcher.isInViewport) { this.timeline.play(); }
+  };
+
   render () {
     return (
       <section style={ { height: '50vh' } }>
+        <Watcher
+          offset={ { top: '50rem', position: 'relative' } }
+          autoStart={ false }
+          stateChange={ this.watcherCallback.bind(this) }
+          enterViewport={ this.watcherCallback.bind(this) }
+        />
         <svg width="1440" height="400px" viewBox="0 0 1440 400" preserveAspectRatio="xMaxYMax meet">
           <g id="Page-1" fill="none" fillRule="evenodd">
             <path

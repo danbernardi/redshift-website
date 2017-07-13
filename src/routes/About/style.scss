@@ -160,9 +160,11 @@
 .about--image {
   display: flex;
   height: 50%;
-  position: absolute;
+  position: relative;
   top: 12.5%;
   left: -10px;
+  // overflow: hidden;
+  // width: 100vw;
   &.aboutExplore {
     @media (max-width: 1220px) {
       left: auto;
