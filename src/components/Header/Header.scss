@@ -26,11 +26,7 @@
 .nav .icon-redshift,
 .nav .icon-close {
   font-size: 3.2rem;
-  transition: background-color 0.2s linear, font 0.2s linear, transform 0.2s linear;
-
-  &:hover {
-    font-size: 3.8rem;
-  }
+  transition: background-color 0.2s linear, font 0.2s linear, transform 0.2s ease-in-out;
   // media queries
   @include breakpoint($tablet-lg) {
     font-size: 3rem;
@@ -38,6 +34,16 @@
 
   @include breakpoint($mobile-lg) {
     font-size: 2.6rem;
+  }
+}
+
+.logo,
+.icon-hamburger {
+  display: inline-block;
+  transition: transform 0.2s ease-in-out;
+
+  &:hover {
+    transform: scale(1.1);
   }
 }
 
@@ -53,10 +59,6 @@
   .icon-hamburger {
     span {
       background: $dark-grey;
-    }
-
-    &:hover {
-      transform: scale(1.1875);
     }
   }
 
