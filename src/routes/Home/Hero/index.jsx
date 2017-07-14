@@ -83,12 +83,8 @@ export class Hero extends React.Component {
 
         <div className="row">
           <h1 className="hero__text typ--bold typ--redshift" style={ { maxWidth: '110rem' } }>
-            <span data-animationName="text1">
-              We are Redshift.&nbsp;
-            </span>
-            <br className="hide--tsm" />
             <span data-animationName="text2">
-              We design digital products and experiences.
+              We are Redshift. We design digital products and experiences.
             </span>
           </h1>
         </div>
