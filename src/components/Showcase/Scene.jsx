@@ -137,7 +137,7 @@ export class Scene extends React.Component {
   }
 
   render () {
-    const { id, caption } = this.props;
+    const { id, caption, color } = this.props;
     const { body, overlay, overlaymlg, overlaytlg, shadow } = this.props.device;
     const { active } = this.state;
 
@@ -145,7 +145,10 @@ export class Scene extends React.Component {
       <div
         className={ `scene sc__${id}` }
         data-id={ id }
-        style={ { pointerEvents: active ? 'auto' : 'none' } }
+        style={ {
+          pointerEvents: active ? 'auto' : 'none',
+          backgroundColor: color
+        } }
         ref={ this.props.onDidMount }
       >
         <div data-animationName="device" className="scene__device" >
@@ -188,7 +191,8 @@ Scene.propTypes = {
   id: PropTypes.string,
   caption: PropTypes.array,
   onDidMount: PropTypes.func,
-  device: PropTypes.object
+  device: PropTypes.object,
+  color: PropTypes.string
 };
 
 const injectStateProps = state => ({

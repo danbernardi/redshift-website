@@ -11,13 +11,12 @@ html {
 }
 
 .showcase {
-  position: relative;
   width: 100%;
   position: fixed;
   overflow-x: hidden;
   overflow-y: scroll;
   top: 0;
-  background: #fff;
+  background: $white;
 }
 
 .hero h1 {
