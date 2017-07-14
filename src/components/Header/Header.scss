@@ -26,17 +26,25 @@
 .nav .icon-redshift,
 .nav .icon-close {
   font-size: 3.2rem;
-  transition: color 0.2s linear, background-color 0.2s linear;
+  transition: background-color 0.2s linear, font 0.2s linear, transform 0.2s ease-in-out;
   // media queries
   @include breakpoint($tablet-lg) {
     font-size: 3rem;
   }
+
   @include breakpoint($mobile-lg) {
     font-size: 2.6rem;
   }
-  // @include breakpoint($mobile-sm) {
-  //   font-size: 2.2rem;
-  // }
+}
+
+.logo,
+.icon-hamburger {
+  display: inline-block;
+  transition: transform 0.2s ease-in-out;
+
+  &:hover {
+    transform: scale(1.1);
+  }
 }
 
 .pink-theme {
@@ -45,22 +53,12 @@
   .index-title { color: $white; }
 
   .icon-redshift {
-    color: $light-gray;
-
-    &:hover {
-      color: $redshift;
-    }
+    color: $dark-grey;
   }
 
   .icon-hamburger {
     span {
-      background: $light-gray;
-    }
-
-    &:hover {
-      span {
-        background: $redshift;
-      }
+      background: $dark-grey;
     }
   }
 
@@ -108,7 +106,7 @@
   top: -2rem;
 
   &.hovered {
-    .icon-redshift { color: $redshift !important; }
+    // .icon-redshift { color: $redshift !important; }
     .page-title { color: $redshift !important; }
   }
 }
