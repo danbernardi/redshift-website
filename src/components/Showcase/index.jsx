@@ -348,8 +348,9 @@ export class Showcase extends React.Component {
       const height = scene.element.offsetHeight;
       const center = top + (height / 2);
       const timelinePercentage = height / (scrollHeight - window.innerHeight);
-      const low = currentTimePosition;
-      const high = currentTimePosition + timelinePercentage;
+      const outsetTime = timelinePercentage * 0.3;
+      const low = currentTimePosition - outsetTime;
+      const high = currentTimePosition + timelinePercentage + outsetTime;
 
       const segmentMeta = {
         target: scene.element,
@@ -365,7 +366,7 @@ export class Showcase extends React.Component {
       };
 
       // increment position
-      currentTimePosition = high;
+      currentTimePosition = currentTimePosition + timelinePercentage;
       return segmentMeta;
     });
 
