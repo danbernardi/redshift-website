@@ -80,7 +80,7 @@ export class Header extends React.Component {
   render () {
     const { modalState, headerTheme } = this.props;
 
-    const initialStyles = { transition: `all 200ms ease-in-out` };
+    const initialStyles = { transition: `opacity 200ms ease-in-out` };
     let logoTransformStyles = {};
 
     if (modalState.open && modalState.modalID !== 'nav') {
