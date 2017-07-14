@@ -4,7 +4,7 @@
   "description": "RS Starter app",
   "main": "index.js",
   "engines": {
-    "node": ">=6.2.0",
+    "node": "6.11.1",
     "npm": "^3.0.0"
   },
   "scripts": {
