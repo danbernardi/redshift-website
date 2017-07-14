@@ -147,7 +147,6 @@ export class Scene extends React.Component {
         data-id={ id }
         style={ {
           pointerEvents: active ? 'auto' : 'none',
-          backgroundColor: color
         } }
         ref={ this.props.onDidMount }
       >
