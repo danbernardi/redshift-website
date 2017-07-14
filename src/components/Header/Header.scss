@@ -45,7 +45,7 @@
   .index-title { color: $white; }
 
   .icon-redshift {
-    color: $light-gray;
+    color: $dark-grey;
 
     &:hover {
       color: $redshift;
@@ -54,7 +54,7 @@
 
   .icon-hamburger {
     span {
-      background: $light-gray;
+      background: $dark-grey;
     }
 
     &:hover {
