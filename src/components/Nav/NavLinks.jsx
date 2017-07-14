@@ -41,7 +41,7 @@ class NavLinks extends React.Component {
     const { staggerIn } = this.state;
 
     return (
-      <ul className={ `nav__menu list--block full-height ${staggerIn ? 'stagger-in' : ''}` }>
+      <ul className={ `nav__menu full-height ${staggerIn ? 'stagger-in' : ''}` }>
         {
           links.map((navLink, i) => (
             <li key={ i }>
