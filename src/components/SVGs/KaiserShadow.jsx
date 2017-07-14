@@ -1,11 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-export function KaiserShadow ({ shadowColor }) {
+export function KaiserShadow () {
   return (
     <svg width="100%" height="100%" viewBox="0 0 1544 1684">
       <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
-        <g id="KP" transform="translate(-458.000000, -312.000000)" fill={ shadowColor }>
+        <g id="KP" transform="translate(-458.000000, -312.000000)" className="device-shadow-g">
           <g id="Group" transform="translate(1183.447554, 1174.780021) rotate(-18.000000) translate(-1183.447554, -1174.780021) translate(240.947554, 245.780021)">
             <g id="Device">
               <path d="M659.496728,622.530587 C644.307316,616.734101 625.733333,619.651826 613.741173,630.84222 C613.741173,630.84222 142.845683,1070.25335 142.212603,1070.87173 C141.579524,1071.4901 138.268394,1075.32872 138.268394,1075.32872 C121.513916,1094.43894 123.407082,1123.54747 142.46757,1140.3441 L839.463851,1754.55639 C858.522953,1771.35179 887.59874,1769.52885 904.403342,1750.48199 L1370.70198,1221.96476 C1381.34183,1209.90523 1382.04446,1193.19481 1373.63324,1180.76756 L1378.86562,1184.79928 C1388.05608,1191.88083 1402.64088,1191.50146 1411.4531,1183.96073 L1823.19455,831.628455 C1853.40977,805.772918 1853.48707,763.764434 1823.37005,737.797455 L1055.23233,75.5069659 C1040.16972,62.5199398 1019.09787,65.4560676 1008.16506,82.0632924 L662.828149,606.639384 C659.692676,611.402252 658.651058,617.113945 659.496728,622.530587 Z" id="shadow" />
@@ -16,9 +15,5 @@ export function KaiserShadow ({ shadowColor }) {
     </svg>
   );
 }
-
-KaiserShadow.propTypes = {
-  shadowColor: PropTypes.string
-};
 
 export default KaiserShadow;
