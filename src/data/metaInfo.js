@@ -1,7 +1,7 @@
 export const metaInfo = {
   home: {
     title: 'Redshift Digital - Hello',
-    description: 'Redshift creates simple, meaningful digital products.',
+    description: 'We are Redshift. We design digital products and experiences.',
     meta: {
       charset: 'utf-8',
       name: {
