@@ -1,5 +1,4 @@
 import React from 'react';
-import './Slides.scss';
 import Watcher from 'components/Watcher';
 
 class AboutTitle extends React.Component {
@@ -13,12 +12,10 @@ class AboutTitle extends React.Component {
   }
 
   watcherCallback (watcher) {
-    // console.log('watcher', watcher);
     if (watcher.isFullyInViewport) { this.setState({ moveTitle: false }); };
     if (watcher.isAboveViewport) { this.setState({ moveTitle: true }); }
   };
 
-  // App state
   render () {
     return (
       <div>
