@@ -153,7 +153,7 @@ export class AboutCollaboration extends React.Component {
           <circle id="collCircle13"className="collCircle" r="6" cx="0" cy="0" fill="#CF3785" />
           <circle id="collCircle14"className="collCircle" r="6" cx="0" cy="0" fill="#CF3785" />
         </svg>
-        <svg width="100vw" height="400px" viewBox="0 0 1440 400" preserveAspectRatio="none" style={ { position: 'absolute', top: 0 } }>
+        <svg width="100vw" height="400px" viewBox="0 0 1440 400" preserveAspectRatio="none" style={ { position: 'absolute' } }>
           <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
             <path
               id="collPathEnd1"

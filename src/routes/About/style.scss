@@ -163,8 +163,9 @@
   position: relative;
   top: 12.5%;
   left: -10px;
-  // overflow: hidden;
-  // width: 100vw;
+  overflow: hidden;
+  width: 100vw;
+  padding-top: 10rem;
   &.aboutExplore {
     @media (max-width: 1220px) {
       left: auto;
