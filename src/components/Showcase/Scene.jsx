@@ -137,7 +137,7 @@ export class Scene extends React.Component {
   }
 
   render () {
-    const { id, caption, color } = this.props;
+    const { id, caption } = this.props;
     const { body, overlay, overlaymlg, overlaytlg, shadow } = this.props.device;
     const { active } = this.state;
 
@@ -146,7 +146,7 @@ export class Scene extends React.Component {
         className={ `scene sc__${id}` }
         data-id={ id }
         style={ {
-          pointerEvents: active ? 'auto' : 'none',
+          pointerEvents: active ? 'auto' : 'none'
         } }
         ref={ this.props.onDidMount }
       >
@@ -160,9 +160,9 @@ export class Scene extends React.Component {
             </picture>
           }
 
-          { shadow && <div data-animationName="device-shadow" className="scene__device__shadow">
-            { React.cloneElement(shadow.component, { shadowColor: shadow.color }) }
-          </div> }
+          { shadow &&
+            <div data-animationName="device-shadow" className="scene__device__shadow">{ shadow.component }</div>
+          }
         </div>
 
         <div data-animationName="cta-text" className="scene__cta typ--white mx10 mx8--dsm mx3--tlg">

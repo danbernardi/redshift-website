@@ -38,11 +38,6 @@ export class Showcase extends React.Component {
     this.lastScrollPosition = 0;
     this.scrollAutoCompletion = false;
 
-    //Adding white for header and footer
-    this.sceneShadowColors = ['rgb(255, 255, 255)'];
-    props.scenes.map((scene) => { this.sceneShadowColors.push(scene.device.shadow.color); });
-    this.sceneShadowColors.push('rgb(255, 255, 255)');
-
     this.colors = ['#FFFFFF'].concat(this.props.scenes.map((scene) => scene.color)).concat(['#FFFFFF']);
     this.children = this.buildChildren();
     this.scrollPoints = [];
@@ -484,8 +479,6 @@ export class Showcase extends React.Component {
       this.currentScene = this.calculateCurrentScene();
     }
 
-    // console.log(this.sceneShadowColors[this.currentScene]);
-
     return (
       <div ref={ (element) => { this.container = element; } } className="showcase" style={ {
         height: window.innerHeight,
@@ -499,8 +492,7 @@ export class Showcase extends React.Component {
               animationProgress: mapRange(this.state.animationProgress, this.sceneMeta[index].bounds.low, this.sceneMeta[index].bounds.high, 0, 1),
               index,
               onDidMount: (el) => this.addScrollPoint(el, index),
-              currentScene: this.currentScene,
-              sceneShadowColors: this.sceneShadowColors
+              currentScene: this.currentScene
             }
           ))
 
