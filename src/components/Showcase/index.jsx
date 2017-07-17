@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import Rx from 'rxjs/Rx';
 import { mapRange, isInRange } from 'utils/animation';
 import { getScrollDirection } from 'utils/scrollJack';
-import { TimelineMax, TweenMax } from 'gsap';
+import { TimelineMax, TweenMax, Power3 } from 'gsap';
 import { setHeaderTheme } from 'store/actions';
 import PropTypes from 'prop-types';
 
@@ -343,7 +343,7 @@ export class Showcase extends React.Component {
       const height = scene.element.offsetHeight;
       const center = top + (height / 2);
       const timelinePercentage = height / (scrollHeight - window.innerHeight);
-      const outsetTime = timelinePercentage * 0.3;
+      const outsetTime = timelinePercentage * 0.2;
       const low = currentTimePosition - outsetTime;
       const high = currentTimePosition + timelinePercentage + outsetTime;
 
@@ -456,20 +456,40 @@ export class Showcase extends React.Component {
 
   createColorTransitionTimeline (target) {
     const tl = new TimelineMax();
-    const colorDuration = 1 / this.colors.length;
+    const colorDuration = 1 / (this.colors.length * 2);
+
+    const colorGrad = {
+      top: this.colors[0],
+      bottom: this.colors[0]
+    };
 
     this.colors.forEach((color, index) => {
-      if (index === 0) {
-        tl.to(target, colorDuration * 2, { noOp: 'doesNothing' }); // This adds a delay to position the color correctly
-      } else {
-        tl.to(target, colorDuration, { backgroundColor: color });
-        tl.to(target, colorDuration, { noOp: 'doesNothing' }); // This adds a delay to position the color correctly
-      }
+      tl.to(colorGrad, colorDuration, {
+        top: color,
+        bottom: color,
+        onUpdate: this.setGradient,
+        onUpdateParams: [target, colorGrad],
+        ease: Power3.easeOut
+      });
+
+      tl.to(colorGrad, colorDuration, {
+        top: color,
+        bottom: this.colors[index + 1],
+        onUpdate: this.setGradient,
+        onUpdateParams: [target, colorGrad],
+        ease: Power3.easeIn
+      });
     });
     tl.progress(1);
     tl.pause();
 
     return tl;
+  }
+
+  setGradient (element, colors) {
+    TweenMax.set(element, {
+      background: `linear-gradient(to bottom, ${colors.top}, ${colors.bottom})`
+    });
   }
 
   render () {
