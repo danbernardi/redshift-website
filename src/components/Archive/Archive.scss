@@ -1,35 +1,18 @@
 @import 'sass-includes';
 
-.archive__grid {
-  position: relative;
-  .archive__item:last-of-type {
-    @include breakpoint($mobile-lg) {
-      display: none;
-    }
-    @include breakpoint($mobile-xsm) {
-      display: inline-block;
-    }
-  }
+.archive {
+  padding-top: 14rem;
+  padding-bottom: 14rem;
 }
 
 .archive__item {
-  cursor: pointer;
-  width: 25%;
-  float: left;
-  background-size: cover;
-  padding-bottom: 25%;
-  height: 0;
+  background: #fafafa;
+  min-height: 40rem;
   position: relative;
-  overflow: hidden;
-  // media queries
-  @include breakpoint($mobile-lg) {
-    width: 33.33333%;
-    padding-bottom: 33.33333%;
-  }
+}
 
-  @include breakpoint($mobile-xsm) {
-    width: 50%;
-    padding-bottom: 50%;
-  }
-  img { width: 100% }
+.archive__name {
+  position: absolute;
+  bottom: 3rem;
+  left: 3rem;
 }

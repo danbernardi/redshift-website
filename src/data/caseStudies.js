@@ -12,6 +12,8 @@ export const caseStudies = [
     id: 'kaiser',
     name: 'Kaiser Permanente',
     color: '#1FB4E7',
+    shortDescription: 'Sed posuere consectetur est at lobortis',
+    gridThumbnail: require('assets/img/case-studies/kaiser/grid-thumbnail.jpg'),
     device: {
       shadow: { component: <KaiserShadow /> },
       body: require('assets/img/case-studies/kaiser/kaiser_body.svg'),
@@ -112,6 +114,8 @@ export const caseStudies = [
     id: 'norton',
     name: 'Norton Online',
     color: '#FFC300',
+    shortDescription: 'Sed posuere consectetur est at lobortis',
+    // gridThumbnail: require('assets/img/case-studies/norton/grid-thumbnail.jpg'),
     device: {
       shadow: { component: <NortonShadow /> },
       body: require('assets/img/case-studies/norton/norton_body.svg'),
@@ -195,6 +199,8 @@ export const caseStudies = [
     id: 'nexus',
     color: '#3AD283',
     name: 'Google Nexus',
+    shortDescription: 'Sed posuere consectetur est at lobortis',
+    // gridThumbnail: require('assets/img/case-studies/nexus/grid-thumbnail.jpg'),
     device: {
       shadow: { component: <NexusShadow /> },
       body: require('assets/img/case-studies/nexus/nexus_body.svg'),
@@ -277,6 +283,8 @@ export const caseStudies = [
     id: 'yumavore',
     name: 'Yumavore',
     color: '#FF765C',
+    shortDescription: 'Sed posuere consectetur est at lobortis',
+    // gridThumbnail: require('assets/img/case-studies/yumavore/grid-thumbnail.jpg'),
     device: {
       shadow: { component: <YumavoreShadow /> },
       body: require('assets/img/case-studies/yumavore/yumavore_body.svg'),
@@ -376,6 +384,8 @@ export const caseStudies = [
     id: 'five',
     name: 'Five',
     color: '#936FEE',
+    shortDescription: 'Sed posuere consectetur est at lobortis',
+    gridThumbnail: require('assets/img/case-studies/five/grid-thumbnail.jpg'),
     device: {
       shadow: { component: <FiveShadow /> },
       body: require('assets/img/case-studies/five/five_body.svg'),
@@ -457,188 +467,62 @@ export const caseStudies = [
         }]
       }
     ]
+  },
+
+  {
+    id: 'younicos',
+    name: 'Younicos Tomorrow\'s Grid',
+    color: '#1FB4E7',
+    shortDescription: 'Sed posuere consectetur est at lobortis',
+    gridThumbnail: require('assets/img/case-studies/younicos/grid-thumbnail.jpg')
+  },
+  {
+    id: 'norton-campfire',
+    name: 'Norton Campfire',
+    color: '#1FB4E7',
+    shortDescription: 'Sed posuere consectetur est at lobortis',
+    gridThumbnail: require('assets/img/case-studies/norton-campfire/grid-thumbnail.jpg')
+  },
+  {
+    id: 'google-fiber',
+    name: 'Google Fiber',
+    color: '#1FB4E7',
+    shortDescription: 'Sed posuere consectetur est at lobortis',
+    // gridThumbnail: require('assets/img/case-studies/google-fiber/grid-thumbnail.jpg')
+  },
+  {
+    id: 'stemcentrix',
+    name: 'StemCentrix',
+    color: '#1FB4E7',
+    shortDescription: 'Sed posuere consectetur est at lobortis',
+    gridThumbnail: require('assets/img/case-studies/stemcentrix/grid-thumbnail.jpg')
+  },
+  {
+    id: 'livspace-website',
+    name: 'LivSpace Website',
+    color: '#1FB4E7',
+    shortDescription: 'Sed posuere consectetur est at lobortis',
+    gridThumbnail: require('assets/img/case-studies/livspace/grid-thumbnail.jpg')
+  },
+  {
+    id: 'reviver-slate',
+    name: 'Reviver Slate',
+    color: '#1FB4E7',
+    shortDescription: 'Sed posuere consectetur est at lobortis',
+    gridThumbnail: require('assets/img/case-studies/reviver-slate/grid-thumbnail.jpg')
+  },
+  {
+    id: 'norton-online',
+    name: 'Norton Online',
+    color: '#1FB4E7',
+    shortDescription: 'Sed posuere consectetur est at lobortis',
+    gridThumbnail: require('assets/img/case-studies/norton-online/grid-thumbnail.jpg')
+  },
+  {
+    id: 'ams-armada',
+    name: 'AMS Armada',
+    color: '#1FB4E7',
+    shortDescription: 'Sed posuere consectetur est at lobortis',
+    gridThumbnail: require('assets/img/case-studies/ams-armada/grid-thumbnail.jpg')
   }
-
-  // norton campfire
-  // {
-  //   id: 'nortonCampfire',
-  //   name: 'Norton Campfire',
-  //   thumb: require('assets/img/home/archive/norton/campfire_thumb.jpg'),
-  //   heading: 'Redshift created Campfire, a touchscreen kiosk providing a rich, interactive visualization of live data from Norton\'s online store. Winner of the 2012 Communicator Award.',
-  //   sidebar: true,
-  //   content: [
-  //     {
-  //       images:
-  //       {
-  //         imgDef: require('assets/img/home/archive/norton/campfire_1.jpg'),
-  //         imgTlg: require('assets/img/home/archive/norton/campfire_1_tlg.jpg'),
-  //         imgMlg: require('assets/img/home/archive/norton/campfire_1_mlg.jpg')
-  //       },
-  //       imgAlt: 'Norton Campfire 1'
-  //     },
-  //     {
-  //       images:
-  //       {
-  //         imgDef: require('assets/img/home/archive/norton/campfire_2.jpg'),
-  //         imgTlg: require('assets/img/home/archive/norton/campfire_2_tlg.jpg'),
-  //         imgMlg: require('assets/img/home/archive/norton/campfire_2_mlg.jpg')
-  //       },
-  //       imgAlt: 'Norton Campfire 2'
-  //     },
-  //     {
-  //       images:
-  //       {
-  //         imgDef: require('assets/img/home/archive/norton/campfire_3.jpg'),
-  //         imgTlg: require('assets/img/home/archive/norton/campfire_3_tlg.jpg'),
-  //         imgMlg: require('assets/img/home/archive/norton/campfire_3_mlg.jpg')
-  //       },
-  //       imgAlt: 'Norton Campfire 3'
-  //     },
-  //     {
-  //       images:
-  //       {
-  //         imgDef: require('assets/img/home/archive/norton/campfire_4.jpg'),
-  //         imgTlg: require('assets/img/home/archive/norton/campfire_4_tlg.jpg'),
-  //         imgMlg: require('assets/img/home/archive/norton/campfire_4_mlg.jpg')
-  //       },
-  //       imgAlt: 'Norton Campfire 4'
-  //     },
-  //     {
-  //       images:
-  //       {
-  //         imgDef: require('assets/img/home/archive/norton/campfire_5.jpg'),
-  //         imgTlg: require('assets/img/home/archive/norton/campfire_5_tlg.jpg'),
-  //         imgMlg: require('assets/img/home/archive/norton/campfire_5_mlg.jpg')
-  //       },
-  //       imgAlt: 'Norton Campfire 5'
-  //     },
-  //     {
-  //       images:
-  //       {
-  //         imgDef: require('assets/img/home/archive/norton/campfire_6.jpg'),
-  //         imgTlg: require('assets/img/home/archive/norton/campfire_6_tlg.jpg'),
-  //         imgMlg: require('assets/img/home/archive/norton/campfire_6_mlg.jpg')
-  //       },
-  //       imgAlt: 'Norton Campfire 6'
-  //     }
-  //   ]
-  // },
-  // {
-  //   id: 'googleFiber',
-  //   name: 'Google Fiber',
-  //   thumb: require('assets/img/home/archive/google/fiber_thumb.jpg'),
-  //   heading: 'Redshift was tasked with creating a personal mobile experience to support the Google Fiber retail spaces. It helped visitors get the most out of the Google Fiber space while also allowing them to experience the delight that only Google can provide.',
-  //   sidebar: true,
-  //   content: [
-  //     {
-  //       images:
-  //       {
-  //         imgDef: require('assets/img/home/archive/google/fiber_1.jpg'),
-  //         imgTlg: require('assets/img/home/archive/google/fiber_1_tlg.jpg'),
-  //         imgMlg: require('assets/img/home/archive/google/fiber_1_mlg.jpg')
-  //       },
-  //       imgAlt: 'Google Fiber 1'
-  //     },
-  //     {
-  //       images:
-  //       {
-  //         imgDef: require('assets/img/home/archive/google/fiber_2.jpg'),
-  //         imgTlg: require('assets/img/home/archive/google/fiber_2_tlg.jpg'),
-  //         imgMlg: require('assets/img/home/archive/google/fiber_2_mlg.jpg')
-  //       },
-  //       imgAlt: 'Google Fiber 2'
-  //     },
-  //     {
-  //       images:
-  //       {
-  //         imgDef: require('assets/img/home/archive/google/fiber_3.jpg'),
-  //         imgTlg: require('assets/img/home/archive/google/fiber_3_tlg.jpg'),
-  //         imgMlg: require('assets/img/home/archive/google/fiber_3_mlg.jpg')
-  //       },
-  //       imgAlt: 'Google Fiber 3'
-  //     }
-  //   ]
-  // },
-  // {
-  //   id: 'openTable',
-  //   name: 'Opentable',
-  //   thumb: require('assets/img/home/archive/opentable/open_thumb.jpg'),
-  //   heading: 'Redshift designed the “Places I’ve Eaten” Facebook app that allows diners to share their restaurant experiences with friends. It marked the first collaboration between Facebook and OpenTable.',
-  //   sidebar: true,
-  //   content: [
-  //     {
-  //       images:
-  //       {
-  //         imgDef: require('assets/img/home/archive/opentable/open_1.jpg'),
-  //         imgTlg: require('assets/img/home/archive/opentable/open_1_tlg.jpg'),
-  //         imgMlg: require('assets/img/home/archive/opentable/open_1_mlg.jpg')
-  //       },
-  //       imgAlt: 'Opentable 1'
-  //     },
-  //     {
-  //       images:
-  //       {
-  //         imgDef: require('assets/img/home/archive/opentable/open_2.jpg'),
-  //         imgTlg: require('assets/img/home/archive/opentable/open_2_tlg.jpg'),
-  //         imgMlg: require('assets/img/home/archive/opentable/open_2_mlg.jpg')
-  //       },
-  //       imgAlt: 'Opentable 2'
-  //     },
-  //     {
-  //       images:
-  //       {
-  //         imgDef: require('assets/img/home/archive/opentable/open_3.jpg'),
-  //         imgTlg: require('assets/img/home/archive/opentable/open_3_tlg.jpg'),
-  //         imgMlg: require('assets/img/home/archive/opentable/open_3_mlg.jpg')
-  //       },
-  //       imgAlt: 'Opentable 3'
-  //     }
-  //   ]
-  // },
-  // {
-  //   id: 'reviver',
-  //   name: 'Reviver',
-  //   thumb: require('assets/img/home/archive/slate/slate_thumb.jpg'),
-  //   heading: 'Reviver came to Redshift to design the interface for Slate, the world’s first digital license plate. The web app helps small businesses manage fleets as well as communicate with customers through an on-board messaging platform.',
-  //   sidebar: true,
-  //   content: [
-  //     {
-  //       images:
-  //       {
-  //         imgDef: require('assets/img/home/archive/slate/slate_1.jpg'),
-  //         imgTlg: require('assets/img/home/archive/slate/slate_1_tlg.jpg'),
-  //         imgMlg: require('assets/img/home/archive/slate/slate_1_mlg.jpg')
-  //       },
-  //       imgAlt: 'Reviver 1'
-  //     },
-  //     {
-  //       images:
-  //       {
-  //         imgDef: require('assets/img/home/archive/slate/slate_2.jpg'),
-  //         imgTlg: require('assets/img/home/archive/slate/slate_2_tlg.jpg'),
-  //         imgMlg: require('assets/img/home/archive/slate/slate_2_mlg.jpg')
-  //       },
-  //       imgAlt: 'Reviver 2'
-  //     },
-  //     {
-  //       images:
-  //       {
-  //         imgDef: require('assets/img/home/archive/slate/slate_3.jpg'),
-  //         imgTlg: require('assets/img/home/archive/slate/slate_3_tlg.jpg'),
-  //         imgMlg: require('assets/img/home/archive/slate/slate_3_mlg.jpg')
-  //       },
-  //       imgAlt: 'Reviver 3'
-  //     },
-  //     {
-  //       images:
-  //       {
-  //         imgDef: require('assets/img/home/archive/slate/slate_4.jpg'),
-  //         imgTlg: require('assets/img/home/archive/slate/slate_4_tlg.jpg'),
-  //         imgMlg: require('assets/img/home/archive/slate/slate_4_mlg.jpg')
-  //       },
-  //       imgAlt: 'Reviver 4'
-  //     }
-  //   ]
-  // },
-
 ];
