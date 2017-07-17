@@ -124,15 +124,18 @@ html {
 .scene__link {
   color: $white;
   position: relative;
-  margin: 2rem 0 6rem;
-  padding-bottom: 2rem;
+  margin: 4rem 0 6rem;
+  padding-bottom: 1.5rem;
+  width: 12.1rem;
+  display: inline-block;
+  white-space: nowrap;
   // media queries
   @include breakpoint($tablet-sm) {
     margin-bottom: 9rem;
   }
   @include breakpoint($mobile-lg) {
     margin-top: 1rem;
-    padding-bottom: 1.5rem;
+    padding-bottom: 1rem;
   }
 
   &:after {
@@ -143,11 +146,16 @@ html {
     background: $white;
     display: block;
     width: 5rem;
+    transition: width 0.2s ease-in-out;
     // media queries
     @include breakpoint($tablet-sm) {
       height: 0.1rem;
       left: 2.5rem;
     }
+  }
+
+  &:hover:after {
+    width: 100%;
   }
 }
 
