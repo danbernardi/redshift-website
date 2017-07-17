@@ -12,6 +12,7 @@ import PropTypes from 'prop-types';
 export class Careers extends React.Component {
   componentDidMount () {
     const { params } = this.props;
+    console.log(params);
     if (params.jobID) this.openModal(params.jobID);
   }
 
