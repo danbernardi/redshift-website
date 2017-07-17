@@ -48,17 +48,18 @@ html {
   a { pointer-events: auto; }
 
   > div {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    justify-content: center;
-    margin-top: calc(25vh - 5.1rem);
+    height: auto;
+    position: absolute;
+    bottom: 30vh;
     // media queries
     @include breakpoint($tablet-sm) {
-      bottom: 2rem;
-      top: auto !important;
-      justify-content: flex-end;
-      margin-top: 0;
+      bottom: 15rem;
+    }
+    @include breakpoint($mobile-sm) {
+      bottom: 12rem;
+    }
+    @media only screen and (max-height: 400px) {
+      bottom: 11rem;
     }
   }
 }
@@ -79,6 +80,7 @@ html {
 
 .scene__caption {
   width: 100%;
+
   span { display: block; }
 }
 
@@ -123,18 +125,16 @@ html {
 
 .scene__link {
   color: $white;
-  position: relative;
   margin: 4rem 0 6rem;
   padding-bottom: 1.5rem;
   width: 12.1rem;
   display: inline-block;
   white-space: nowrap;
+  position: absolute;
+  left: 0;
   // media queries
-  @include breakpoint($tablet-sm) {
-    margin-bottom: 9rem;
-  }
   @include breakpoint($mobile-lg) {
-    margin-top: 1rem;
+    margin-top: 2rem;
     padding-bottom: 1rem;
   }
 
@@ -147,11 +147,6 @@ html {
     display: block;
     width: 5rem;
     transition: width 0.2s ease-in-out;
-    // media queries
-    @include breakpoint($tablet-sm) {
-      height: 0.1rem;
-      left: 2.5rem;
-    }
   }
 
   &:hover:after {
@@ -186,14 +181,17 @@ html {
     text-align: right;
   }
 
-  .scene__cta > div {
+  .scene__link {
     right: 0;
+    left: auto;
+
+    &:after {
+      right: 0;
+    }
   }
 
-  .scene__link {
-    &:after {
-      left: calc(100% - 5rem);
-    }
+  .scene__cta > div {
+    right: 0;
   }
 }
 
