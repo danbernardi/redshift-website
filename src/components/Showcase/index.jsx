@@ -38,7 +38,9 @@ export class Showcase extends React.Component {
     this.lastScrollPosition = 0;
     this.scrollAutoCompletion = false;
 
-    this.colors = ['#FFFFFF'].concat(this.props.scenes.map((scene) => scene.color)).concat(['#FFFFFF']);
+    //Adding white for header and footer
+    this.colors = ['#FFFFFF'].concat(this.props.scenes.map((scene) => scene.color)).concat(['#FF2953']);
+
     this.children = this.buildChildren();
     this.scrollPoints = [];
     this.sceneMeta = [];
@@ -380,7 +382,7 @@ export class Showcase extends React.Component {
   sceneWillUpdate (currentScene, nextScene) {
     const { dispatch } = this.props;
 
-    if (nextScene === 0 || nextScene === this.sceneMeta.length - 1) {
+    if (nextScene === 0) {
       dispatch(setHeaderTheme('pink'));
     } else {
       dispatch(setHeaderTheme('white'));
