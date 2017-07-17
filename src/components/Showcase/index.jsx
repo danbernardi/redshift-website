@@ -38,7 +38,6 @@ export class Showcase extends React.Component {
     this.lastScrollPosition = 0;
     this.scrollAutoCompletion = false;
 
-    //Adding white for header and footer
     this.colors = ['#FFFFFF'].concat(this.props.scenes.map((scene) => scene.color)).concat(['#FFFFFF']);
     this.children = this.buildChildren();
     this.scrollPoints = [];
@@ -47,9 +46,7 @@ export class Showcase extends React.Component {
     this.currentScene = 0;
     this.previousScene = 0;
 
-    this.state = {
-      animationProgress: 0
-    };
+    this.state = { animationProgress: 0 };
   }
 
   componentDidMount () {
@@ -126,7 +123,6 @@ export class Showcase extends React.Component {
       const currentScrollPosition = scrollEvent.target.scrollTop;
       const scrollDirection = getScrollDirection(this.lastScrollPosition, currentScrollPosition);
       this.lastScrollPosition = currentScrollPosition;
-
 
       //Turn scroll jacking on / off
       if (this.scrollAutoCompletion) {
@@ -347,8 +343,9 @@ export class Showcase extends React.Component {
       const height = scene.element.offsetHeight;
       const center = top + (height / 2);
       const timelinePercentage = height / (scrollHeight - window.innerHeight);
-      const low = currentTimePosition;
-      const high = currentTimePosition + timelinePercentage;
+      const outsetTime = timelinePercentage * 0.3;
+      const low = currentTimePosition - outsetTime;
+      const high = currentTimePosition + timelinePercentage + outsetTime;
 
       const segmentMeta = {
         target: scene.element,
@@ -364,7 +361,7 @@ export class Showcase extends React.Component {
       };
 
       // increment position
-      currentTimePosition = high;
+      currentTimePosition = currentTimePosition + timelinePercentage;
       return segmentMeta;
     });
 
@@ -476,6 +473,8 @@ export class Showcase extends React.Component {
   }
 
   render () {
+    // let sceneBgColor = this.colors[this.currentScene];
+
     if (this.sceneMeta.length) {
       this.currentScene = this.calculateCurrentScene();
     }

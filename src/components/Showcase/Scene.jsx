@@ -145,7 +145,9 @@ export class Scene extends React.Component {
       <div
         className={ `scene sc__${id}` }
         data-id={ id }
-        style={ { pointerEvents: active ? 'auto' : 'none' } }
+        style={ {
+          pointerEvents: active ? 'auto' : 'none'
+        } }
         ref={ this.props.onDidMount }
       >
         <div data-animationName="device" className="scene__device" >
@@ -158,7 +160,9 @@ export class Scene extends React.Component {
             </picture>
           }
 
-          { shadow && <img data-animationName="device-shadow" className="scene__device__shadow" src={ shadow } alt={ id } /> }
+          { shadow &&
+            <div data-animationName="device-shadow" className="scene__device__shadow">{ shadow.component }</div>
+          }
         </div>
 
         <div data-animationName="cta-text" className="scene__cta typ--white mx10 mx8--dsm mx3--tlg">
@@ -186,7 +190,8 @@ Scene.propTypes = {
   id: PropTypes.string,
   caption: PropTypes.array,
   onDidMount: PropTypes.func,
-  device: PropTypes.object
+  device: PropTypes.object,
+  color: PropTypes.string
 };
 
 const injectStateProps = state => ({
