@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { scrollDocToZero } from 'utils/scrollTo';
 import { Link } from 'react-router';
 import * as actions from 'store/actions';
-import PropTypes from 'prop-types';
 
 class NavLinks extends React.Component {
   constructor (props) {
@@ -22,10 +21,13 @@ class NavLinks extends React.Component {
 
   routingHandler (to) {
     const { dispatch } = this.props;
-    dispatch(actions.toggleModal(false));
+
     this.timer = setTimeout(() => {
       scrollDocToZero();
+
       if (to === '/work') { dispatch(actions.goToNextCaseStudy(0, false, [-1])); }
+
+      dispatch(actions.toggleModal(false));
       setTimeout(() => {
         dispatch(actions.setActiveModal(null, null));
       }, 200);
@@ -62,8 +64,8 @@ class NavLinks extends React.Component {
   }
 }
 NavLinks.propTypes = {
-  dispatch: PropTypes.func,
-  links: PropTypes.array
+  dispatch: React.PropTypes.func,
+  links: React.PropTypes.array
 };
 
 export default connect()(NavLinks);
