@@ -31,7 +31,7 @@ class NavLinks extends React.Component {
   }
 
   render () {
-    const { links } = this.props;
+    const { links, activeURL } = this.props;
     const { staggerIn } = this.state;
 
     return (
@@ -40,9 +40,14 @@ class NavLinks extends React.Component {
           links.map((navLink, i) => (
             <li key={ i }>
               { navLink.to &&
-                <Link to={ navLink.to } className="typ--h1 typ--bold" onClick={ () => this.routingHandler() }>
-                  { navLink.name }
-                </Link>
+                <div>
+                  { links.to === activeURL
+                    ? <div className="typ--h1 typ--bold typ--black typ--not__link">{ navLink.name }</div>
+                    : <Link to={ navLink.to } className="typ--h1 typ--bold" onClick={ () => this.routingHandler() }>
+                      { navLink.name }
+                    </Link>
+                  }
+                </div>
               }
 
               { navLink.outgoing &&
@@ -56,6 +61,7 @@ class NavLinks extends React.Component {
   }
 }
 NavLinks.propTypes = {
+  activeURL: PropTypes.string,
   dispatch: PropTypes.func,
   links: PropTypes.array
 };
