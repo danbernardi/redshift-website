@@ -13,21 +13,12 @@ class NavLinks extends React.Component {
     };
   }
 
-  // componentDidMount () {
-  //   setTimeout(() => {
-  //     this.setState({ staggerIn: true });
-  //   }, 100);
-  // }
-
   routingHandler (to) {
     const { dispatch } = this.props;
-
+    dispatch(actions.toggleModal(false));
     this.timer = setTimeout(() => {
       scrollDocToZero();
-
       if (to === '/work') { dispatch(actions.goToNextCaseStudy(0, false, [-1])); }
-
-      dispatch(actions.toggleModal(false));
       setTimeout(() => {
         dispatch(actions.setActiveModal(null, null));
       }, 200);
