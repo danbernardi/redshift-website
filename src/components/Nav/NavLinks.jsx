@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { scrollDocToZero } from 'utils/scrollTo';
 import { Link } from 'react-router';
 import * as actions from 'store/actions';
+import PropTypes from 'prop-types';
 
 class NavLinks extends React.Component {
   constructor (props) {
@@ -55,8 +56,8 @@ class NavLinks extends React.Component {
   }
 }
 NavLinks.propTypes = {
-  dispatch: React.PropTypes.func,
-  links: React.PropTypes.array
+  dispatch: PropTypes.func,
+  links: PropTypes.array
 };
 
 export default connect()(NavLinks);
