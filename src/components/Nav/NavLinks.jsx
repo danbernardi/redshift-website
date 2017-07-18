@@ -41,7 +41,7 @@ class NavLinks extends React.Component {
             <li key={ i }>
               { navLink.to &&
                 <div>
-                  { links.to === activeURL
+                  { navLink.to === activeURL
                     ? <div className="typ--h1 typ--bold typ--black typ--not__link">{ navLink.name }</div>
                     : <Link to={ navLink.to } className="typ--h1 typ--bold" onClick={ () => this.routingHandler() }>
                       { navLink.name }
