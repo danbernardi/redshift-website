@@ -338,14 +338,18 @@ export class Showcase extends React.Component {
     let currentTimePosition = 0;
     const scrollHeight = this.container.scrollHeight;
 
-    const segments = this.scrollPoints.map((scene) => {
+    const segments = this.scrollPoints.map((scene, index) => {
       const top = scene.element.offsetTop;
       const height = scene.element.offsetHeight;
       const center = top + (height / 2);
       const timelinePercentage = height / (scrollHeight - window.innerHeight);
       const outsetTime = timelinePercentage * 0.2;
       const low = currentTimePosition - outsetTime;
-      const high = currentTimePosition + timelinePercentage + outsetTime;
+      let high = currentTimePosition + timelinePercentage + outsetTime;
+
+      if (index === this.scrollPoints.length - 1) {
+        high = currentTimePosition + timelinePercentage;
+      }
 
       const segmentMeta = {
         target: scene.element,
@@ -493,11 +497,13 @@ export class Showcase extends React.Component {
   }
 
   render () {
-    // let sceneBgColor = this.colors[this.currentScene];
-
     if (this.sceneMeta.length) {
       this.currentScene = this.calculateCurrentScene();
+      console.log('progress: ', this.state.animationProgress, 'scroll: ', this.container.scrollHeight, 'scrollPosition: ', this.container.scrollTop);
+      // console.dir(this.container);
     }
+
+
 
     return (
       <div ref={ (element) => { this.container = element; } } className="showcase" style={ {
