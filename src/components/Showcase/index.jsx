@@ -499,11 +499,7 @@ export class Showcase extends React.Component {
   render () {
     if (this.sceneMeta.length) {
       this.currentScene = this.calculateCurrentScene();
-      console.log('progress: ', this.state.animationProgress, 'scroll: ', this.container.scrollHeight, 'scrollPosition: ', this.container.scrollTop);
-      // console.dir(this.container);
     }
-
-
 
     return (
       <div ref={ (element) => { this.container = element; } } className="showcase" style={ {
