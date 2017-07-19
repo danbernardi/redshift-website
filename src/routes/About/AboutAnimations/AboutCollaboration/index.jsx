@@ -99,39 +99,39 @@ export class AboutCollaboration extends React.Component {
 
   render () {
     return (
-      <section style={ { height: '50vh' } }>
+      <section>
         <Watcher
           offset={ { top: '50rem', position: 'relative' } }
           autoStart={ false }
           stateChange={ this.watcherCallback.bind(this) }
           enterViewport={ this.watcherCallback.bind(this) }
         />
-        <svg width="1440" height="400px" viewBox="0 0 1440 400" preserveAspectRatio="xMaxYMax meet">
+        <svg viewBox="10 0 1440 210" preserveAspectRatio="xMinYMax meet" style={ { maxWidth: '144rem', display: 'block', margin: '0 0 0 auto' } }>
           <g id="Page-1" fill="none" fillRule="evenodd">
             <path
               id="collPath1"
               className="aboutPath chord"
-              d="M-20,244 L1450,244"
+              d="M-20,0 L1450,0"
             />
             <path
               id="collPath2"
               className="aboutPath chord"
-              d="M-20,276 L1450,276"
+              d="M-20,32 L1450,32"
             />
             <path
               id="collPath3"
               className="aboutPath chord"
-              d="M-20,308 L1450,308"
+              d="M-20,64 L1450,64"
             />
             <path
               id="collPath4"
               className="aboutPath chord"
-              d="M-20,340 L1450,340"
+              d="M-20,96 L1450,96"
             />
             <path
               id="collPath5"
               className="aboutPath chord"
-              d="M-20,372 L1450,372"
+              d="M-20,128 L1450,128"
             />
           </g>
           <circle id="collCircle1" className="collCircle" r="6" cx="0" cy="0" fill="#FF2953" />
@@ -153,35 +153,7 @@ export class AboutCollaboration extends React.Component {
           <circle id="collCircle13"className="collCircle" r="6" cx="0" cy="0" fill="#CF3785" />
           <circle id="collCircle14"className="collCircle" r="6" cx="0" cy="0" fill="#CF3785" />
         </svg>
-        <svg width="100vw" height="400px" viewBox="0 0 1440 400" preserveAspectRatio="none" style={ { position: 'absolute' } }>
-          <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
-            <path
-              id="collPathEnd1"
-              className="aboutPath chord"
-              d="M5,244 L1450,244"
-            />
-            <path
-              id="collPathEnd2"
-              className="aboutPath chord"
-              d="M5,276 L1450,276"
-            />
-            <path
-              id="collPathEnd3"
-              className="aboutPath chord"
-              d="M5,308 L1450,308"
-            />
-            <path
-              id="collPathEnd4"
-              className="aboutPath chord"
-              d="M5,340 L1450,340"
-            />
-            <path
-              id="collPathEnd5"
-              className="aboutPath chord"
-              d="M5,372 L1450,372"
-            />
-          </g>
-        </svg>
+
       </section>
     );
   }

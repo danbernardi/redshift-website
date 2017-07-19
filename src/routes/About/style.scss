@@ -3,7 +3,7 @@
 .about--header {
   z-index: 7;
   position: absolute;
-  bottom: 5rem;
+  // bottom: 5rem;
   padding: 0;
   animation-duration: 1s;
   animation-name: slidein;
@@ -28,6 +28,8 @@
   background-color: white;
   padding-top: 5rem;
   padding-bottom: 5rem;
+  position: absolute;
+  bottom: 8rem;
   @include breakpoint($tablet-lg) {
     padding-top: 2rem;
     padding-bottom: 2rem;
@@ -64,6 +66,7 @@
 }
 
 .about--slideshow {
+  position: relative;
    @include breakpoint($desktop-lg) {
     padding-bottom: 10rem;
   }
@@ -73,12 +76,8 @@
 }
 
 .about__hybrid--header {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  transform: translateY(10%);
-  height: 100%;
-  height: 100vh;
+  position: absolute;
+  bottom: 0;
 }
 
 .about-explore--titles {
@@ -108,6 +107,32 @@
       color: #B144A5;
     }
   }
+}
+
+.aboutExplore--text {
+  position: relative;
+  top: -1.5rem;
+  @include breakpoint($desktop-sm) {
+    top: -5.5rem;
+  }
+}
+
+.aboutIterate--text {
+  // position: relative;
+  // top: -5.5rem;
+  text-align: right;
+}
+
+
+.aboutExperiment--text {
+  position: relative;
+  top: -5.5rem;
+  text-align: right;
+}
+
+.aboutCollaborate--text {
+  position: relative;
+  top: -5.5rem;
 }
 
 .about__video {

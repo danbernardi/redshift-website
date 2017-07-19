@@ -89,7 +89,7 @@ export class AboutHybrid extends React.Component {
 
   render () {
     return (
-      <section className="hero layout--relative layout--fullheight layout--landscape" style={ { overflow: 'hidden' } }>
+      <section className="hero layout--relative layout--landscape" style={ { overflow: 'hidden' } }>
         <Watcher
           offset={ { top: '50rem', position: 'relative' } }
           autoStart={ false }
@@ -98,7 +98,7 @@ export class AboutHybrid extends React.Component {
         />
 
         <div className="about__hybrid--circle pr2">
-          <svg viewBox="0 0 1390 818" preserveAspectRatio="xMaxYMax meet">
+          <svg viewBox="0 0 1390 818" preserveAspectRatio="xMaxYMax meet" style={ { maxWidth: '144rem' } }>
             <g id="Hybrid" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
               <path
                 id="hybridPath1"
@@ -122,14 +122,14 @@ export class AboutHybrid extends React.Component {
             <text className="hyText" id="hyText4" fill="#FF2953">Research</text>
 
           </svg>
-        </div>
-        <div className=" row pb5 about__hybrid--header">
-          <div className="col-8 col-12--mlg">
-            <h1 className="typ--bold typ--redshift pb2">Hybrid teams.</h1>
-            <h3>
-              We believe the best products are created by hybrid teams. Designers, researchers,
-              and developers work shoulder-to-shoulder in our studio to create experiences that are beautiful and grounded in real user needs.
-            </h3>
+          <div className=" row pb5 about__hybrid--header">
+            <div className="col-9 col-12--mlg">
+              <h1 className="typ--bold typ--redshift pb2">Hybrid teams.</h1>
+              <h3>
+                We believe the best products are created by hybrid teams. Designers, researchers,
+                and developers work shoulder-to-shoulder in our studio to create experiences that are beautiful and grounded in real user needs.
+              </h3>
+            </div>
           </div>
         </div>
       </section>

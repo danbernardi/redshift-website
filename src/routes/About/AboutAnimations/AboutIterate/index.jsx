@@ -58,14 +58,14 @@ export class AboutIterate extends React.Component {
 
   render () {
     return (
-      <section style={ { height: '50vh' } }>
+      <section >
         <Watcher
           offset={ { top: '50rem', position: 'relative' } }
           autoStart={ false }
           stateChange={ this.watcherCallback.bind(this) }
           enterViewport={ this.watcherCallback.bind(this) }
         />
-        <svg>
+        <svg viewBox="10 0 773 281" style={ { maxWidth: '78rem' } }>
           <g fill="none">
             <path
               id="iteratePath1"
