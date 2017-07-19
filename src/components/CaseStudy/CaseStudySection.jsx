@@ -59,7 +59,8 @@ class CaseStudySection extends React.Component {
               </picture>
               <div className="video-container">
                 <video id={ `caseStudyVideo-${video.id}` } loop muted playsInline>
-                  <source src={ video.url } media="screen and (max-width:768px)" type="video/mp4" />
+
+                  <source src={ video.url } media="screen and (min-width:768px)" type="video/mp4" />
                   <source src={ video.url_sm } media="screen and (max-width:767px)" type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
