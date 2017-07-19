@@ -23,7 +23,9 @@ const webpackConfig = {
     root: project.paths.client(),
     extensions: ['', '.js', '.jsx', '.json'],
     alias: {
-      modernizr$: path.resolve(__dirname, '../.modernizrrc')
+      modernizr$: path.resolve(__dirname, '../.modernizrrc'),
+      'masonry': 'masonry-layout',
+      'isotope': 'isotope-layout'
     }
   },
   module: {}
