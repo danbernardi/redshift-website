@@ -18,6 +18,13 @@ svg {
     float: right;
     min-width: 88rem;
   }
+  svg {
+    display: block;
+    margin: 0 auto;
+    @include breakpoint($desktop-lg) {
+      display: inline-block;
+    }
+  }
 }
 
 .exCircle,
