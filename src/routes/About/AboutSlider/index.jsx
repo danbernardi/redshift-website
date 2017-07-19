@@ -13,6 +13,15 @@ class AboutSlides extends React.Component {
     };
   }
 
+  startTimeout () {
+    // If autoplay is working we reset timeout and it will never end up inside.
+    clearTimeout(this.timer);
+    this.timer = setTimeout(() => {
+      // This will start play again, important here is to have a timeout that exceeds your "autoplaySpeed".
+      this.slider.innerSlider.play();
+    }, 3200);
+  }
+
   // App state
   render () {
     const settings = {
@@ -31,7 +40,11 @@ class AboutSlides extends React.Component {
 
     return (
       <div className="about--slideshow">
-        <Slider { ...settings }>
+        <Slider
+          { ...settings }
+          ref={ c => { this.slider = c; } }
+          afterChange={ this.startTimeout.bind(this) }
+          beforeChange={ this.startTimeout.bind(this) }>
           {
             slideShow.map((s, i) => (
               <div key={ i }>
