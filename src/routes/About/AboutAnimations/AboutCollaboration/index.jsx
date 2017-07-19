@@ -106,7 +106,7 @@ export class AboutCollaboration extends React.Component {
           stateChange={ this.watcherCallback.bind(this) }
           enterViewport={ this.watcherCallback.bind(this) }
         />
-        <svg viewBox="10 0 1440 210" preserveAspectRatio="xMinYMax meet" style={ { maxWidth: '144rem', display: 'block', margin: '0 0 0 auto' } }>
+        <svg viewBox="10 0 1440 210" preserveAspectRatio="xMinYMax meet" style={ { maxWidth: '144rem', display: 'block', margin: '0 0 0 auto', transform: 'scale(-1, 1)' } }>
           <g id="Page-1" fill="none" fillRule="evenodd">
             <path
               id="collPath1"

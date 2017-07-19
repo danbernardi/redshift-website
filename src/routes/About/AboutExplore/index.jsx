@@ -11,6 +11,7 @@ export class AboutExplore extends React.Component {
     this.animationItems = [
       {
         id: 'aboutExplore',
+        class: 'about__explore',
         title: 'Explore.',
         text: 'We find great solutions by starting with the broadest range of possibilities, exploring all options with a blend of research techniques and vigorous ideation. We go through a lot of paper and Post-Its.',
         svgAnim: <AboutExploreAnimation />,
@@ -18,6 +19,7 @@ export class AboutExplore extends React.Component {
       },
       {
         id: 'aboutExperiment',
+        class: 'about__experiment',
         title: 'Experiment.',
         text: 'We prototype everything, and these prototypes are the focal points of our process. We think “try it and see” is better than “let’s talk about it.”',
         svgAnim: <AboutExperimentAnimation />,
@@ -26,6 +28,7 @@ export class AboutExplore extends React.Component {
       },
       {
         id: 'aboutCollaborate',
+        class: 'about__collaborate',
         title: 'Collaborate.',
         text: 'Tough problems need multiple points of view and a diverse group of minds—all of them challenging, questioning, and collaborating with one another to reach a common goal.',
         svgAnim: <AboutCollaborationAnimation />,
@@ -33,6 +36,7 @@ export class AboutExplore extends React.Component {
       },
       {
         id: 'aboutIterate',
+        class: 'about__iterate',
         title: 'Iterate.',
         text: 'We work in rapid cycles with frequent input from clients and users.  How can we make it better? Smarter? Simpler? We set extremely high standards, and we never settle.',
         svgAnim: <AboutIterateAnimation />,
@@ -52,13 +56,13 @@ export class AboutExplore extends React.Component {
         <div className="about__animation-wrapper hide--tlg hero layout--fullheight layout--landscape">
           <h1 className="typ--bold typ--redshift row">How we work.</h1>
           { this.animationItems.map((i, ind) => (
-            <div className="about--animation__container">
+            <div className={ `${i.class} about--animation__container` }>
               <div
                 key={ ind }
               >
                 { i.svgAnim }
               </div>
-              <div className={ `${i.id}--text row col-12` }>
+              <div className={ `${i.class}--text row col-12` }>
                 <h1 className={ `${i.colorClass} typ--bold mb2` }>
                   { i.title }
                 </h1>

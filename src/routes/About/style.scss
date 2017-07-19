@@ -109,7 +109,7 @@
   }
 }
 
-.aboutExplore--text {
+.about__explore--text {
   position: relative;
   top: -1.5rem;
   @include breakpoint($desktop-sm) {
@@ -117,20 +117,17 @@
   }
 }
 
-.aboutIterate--text {
-  // position: relative;
-  // top: -5.5rem;
+.about__iterate--text {
   text-align: right;
 }
 
-
-.aboutExperiment--text {
+.about__experiment--text {
   position: relative;
   top: -5.5rem;
   text-align: right;
 }
 
-.aboutCollaborate--text {
+.about__collaborate--text {
   position: relative;
   top: -5.5rem;
 }
