@@ -474,55 +474,63 @@ export const caseStudies = [
     name: 'Younicos Tomorrow\'s Grid',
     color: '#1FB4E7',
     shortDescription: 'Sed posuere consectetur est at lobortis',
-    gridThumbnail: require('assets/img/case-studies/younicos/grid-thumbnail.jpg')
+    gridThumbnail: require('assets/img/case-studies/younicos/grid-thumbnail.jpg'),
+    heading: 'Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id dolor id nibh ultricies.'
   },
   {
     id: 'norton-campfire',
     name: 'Norton Campfire',
     color: '#1FB4E7',
     shortDescription: 'Sed posuere consectetur est at lobortis',
-    gridThumbnail: require('assets/img/case-studies/norton-campfire/grid-thumbnail.jpg')
+    gridThumbnail: require('assets/img/case-studies/norton-campfire/grid-thumbnail.jpg'),
+    heading: 'Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id dolor id nibh ultricies.'
   },
   {
     id: 'google-fiber',
     name: 'Google Fiber',
     color: '#1FB4E7',
     shortDescription: 'Sed posuere consectetur est at lobortis',
-    // gridThumbnail: require('assets/img/case-studies/google-fiber/grid-thumbnail.jpg')
+    // gridThumbnail: require('assets/img/case-studies/google-fiber/grid-thumbnail.jpg'),
+    heading: 'Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id dolor id nibh ultricies.'
   },
   {
     id: 'stemcentrix',
     name: 'StemCentrix',
     color: '#1FB4E7',
     shortDescription: 'Sed posuere consectetur est at lobortis',
-    gridThumbnail: require('assets/img/case-studies/stemcentrix/grid-thumbnail.jpg')
+    gridThumbnail: require('assets/img/case-studies/stemcentrix/grid-thumbnail.jpg'),
+    heading: 'Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id dolor id nibh ultricies.'
   },
   {
     id: 'livspace-website',
     name: 'LivSpace Website',
     color: '#1FB4E7',
     shortDescription: 'Sed posuere consectetur est at lobortis',
-    gridThumbnail: require('assets/img/case-studies/livspace/grid-thumbnail.jpg')
+    gridThumbnail: require('assets/img/case-studies/livspace/grid-thumbnail.jpg'),
+    heading: 'Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id dolor id nibh ultricies.'
   },
   {
     id: 'reviver-slate',
     name: 'Reviver Slate',
     color: '#1FB4E7',
     shortDescription: 'Sed posuere consectetur est at lobortis',
-    gridThumbnail: require('assets/img/case-studies/reviver-slate/grid-thumbnail.jpg')
+    gridThumbnail: require('assets/img/case-studies/reviver-slate/grid-thumbnail.jpg'),
+    heading: 'Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id dolor id nibh ultricies.'
   },
   {
     id: 'norton-online',
     name: 'Norton Online',
     color: '#1FB4E7',
     shortDescription: 'Sed posuere consectetur est at lobortis',
-    gridThumbnail: require('assets/img/case-studies/norton-online/grid-thumbnail.jpg')
+    gridThumbnail: require('assets/img/case-studies/norton-online/grid-thumbnail.jpg'),
+    heading: 'Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id dolor id nibh ultricies.'
   },
   {
     id: 'ams-armada',
     name: 'AMS Armada',
     color: '#1FB4E7',
     shortDescription: 'Sed posuere consectetur est at lobortis',
-    gridThumbnail: require('assets/img/case-studies/ams-armada/grid-thumbnail.jpg')
+    gridThumbnail: require('assets/img/case-studies/ams-armada/grid-thumbnail.jpg'),
+    heading: 'Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id dolor id nibh ultricies.'
   }
 ];

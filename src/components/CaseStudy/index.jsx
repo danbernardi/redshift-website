@@ -70,15 +70,15 @@ class CaseStudy extends React.Component {
 
   render () {
     const { caseStudyContent } = this.props;
-    const featuredCaseStudies = caseStudies.filter((item) => item.featured);
-    const archivedCaseStudies = caseStudies.filter((item) => !item.featured);
+    // const featuredCaseStudies = caseStudies.filter((item) => item.featured);
+    // const archivedCaseStudies = caseStudies.filter((item) => !item.featured);
 
-    let activeCaseStudies;
-    if (caseStudyContent.featured) activeCaseStudies = featuredCaseStudies;
-    if (!caseStudyContent.featured) activeCaseStudies = archivedCaseStudies;
+    // let activeCaseStudies;
+    // if (caseStudyContent.featured) activeCaseStudies = featuredCaseStudies;
+    // if (!caseStudyContent.featured) activeCaseStudies = archivedCaseStudies;
 
-    const caseStudyIndex = activeCaseStudies.findIndex(item => item.id === caseStudyContent.id);
-    const nextCaseStudy = caseStudyIndex === activeCaseStudies.length ? null : activeCaseStudies[caseStudyIndex + 1];
+    const caseStudyIndex = caseStudies.findIndex(item => item.id === caseStudyContent.id);
+    const nextCaseStudy = caseStudyIndex === caseStudies.length ? null : caseStudies[caseStudyIndex + 1];
 
     return (
       <div ref={ (el) => { this.caseStudy = el; } } className="casestudy__modal">
