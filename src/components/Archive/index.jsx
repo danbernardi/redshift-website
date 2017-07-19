@@ -8,6 +8,7 @@ import 'masonry-layout';
 import './Archive.scss';
 
 export class Archive extends React.Component {
+
   constructor (props) {
     super(props);
 
@@ -86,7 +87,7 @@ export class Archive extends React.Component {
             </div>
           </div>
         </div>
-        <div data-animationName="footer"><FooterHome /></div>
+        <div data-animationName="footer"><FooterHome /></div>\
       </section>
     );
   }
