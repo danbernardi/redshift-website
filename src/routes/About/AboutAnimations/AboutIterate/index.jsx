@@ -2,6 +2,7 @@ import React from 'react';
 import GSAP from 'react-gsap-enhancer';
 import { TimelineMax, TweenMax, Power1 } from 'gsap';
 import MorphSVGPlugin from 'vendor/gsap-plugins/MorphSVGPlugin';
+import Watcher from 'components/Watcher';
 
 export class AboutIterate extends React.Component {
   componentDidMount () {
@@ -36,28 +37,40 @@ export class AboutIterate extends React.Component {
     const spiralPath = wrapper.querySelector('#iteratePath1');
     const baseDuration = 5;
     const delay = 0.5;
-    const tl = new TimelineMax();
+    const tl = new TimelineMax({ paused: true });
 
-    tl.add('iterate')
+    tl
+    .set(iCircles, { opacity: 1 })
+    .add('iterate')
     .add(this.createLineTween(spiralPath, baseDuration * 1), `iterate+=${delay}`)
     .staggerTo(iCircles, baseDuration, {
       bezier: { values: iPath, type: 'cubic' },
       ease: Power1.easeOut
     }, 0.5, `iterate+=${delay}`);
 
-    tl.play();
+    // tl.play();
     return tl;
   }
 
+  watcherCallback (watcher) {
+    if (watcher.isInViewport) { this.timeline.play(); }
+  };
+
   render () {
     return (
-      <section style={ { height: '50vh' } }>
-        <svg>
+      <section >
+        <Watcher
+          offset={ { top: '50rem', position: 'relative' } }
+          autoStart={ false }
+          stateChange={ this.watcherCallback.bind(this) }
+          enterViewport={ this.watcherCallback.bind(this) }
+        />
+        <svg viewBox="10 0 773 281" style={ { maxWidth: '78rem' } }>
           <g fill="none">
             <path
               id="iteratePath1"
               className="aboutPath"
-              d="M0,223.056 C0,100.97 116.396055,1.999 259.978,1.999 C410.487912,1.999 519.955,88.8224572 519.955,223.056
+              d="M-30,223 L0,223.056 C0,100.97 116.396055,1.999 259.978,1.999 C410.487912,1.999 519.955,88.8224572 519.955,223.056
                 C520.941958,281.033402 471.13824,359.672605 399.984,362.157 C316.511285,361.473542 262.016933,297.303317 260.766,221.665
                 C260.766,124.025 353.882,44.872 468.747,44.872 C583.612,44.872 676.778077,144.423502 676.729,221.665 C676.729,281.281896
                 636.551,332.915 580.752,332.915 C519.827581,334.205872 469.535,275.648524 469.535,219.8 C469.535,141.688 543.958,78.365

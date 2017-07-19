@@ -21,7 +21,8 @@ export class AboutExplore extends React.Component {
         title: 'Experiment.',
         text: 'We prototype everything, and these prototypes are the focal points of our process. We think “try it and see” is better than “let’s talk about it.”',
         svgAnim: <AboutExperimentAnimation />,
-        colorClass: 'typ--ruby'
+        colorClass: 'typ--ruby',
+        position: 'right'
       },
       {
         id: 'aboutCollaborate',
@@ -35,7 +36,8 @@ export class AboutExplore extends React.Component {
         title: 'Iterate.',
         text: 'We work in rapid cycles with frequent input from clients and users.  How can we make it better? Smarter? Simpler? We set extremely high standards, and we never settle.',
         svgAnim: <AboutIterateAnimation />,
-        colorClass: 'typ--plum'
+        colorClass: 'typ--plum',
+        position: 'right'
       }
     ];
 
@@ -47,44 +49,23 @@ export class AboutExplore extends React.Component {
   render () {
     return (
       <section className="my8 mt0--mlg mb4--mlg">
-        <div className="about__animation-wrapper hide--tlg hero layout--relative layout--fullheight layout--landscape layout--flex">
-          { this.animationItems.map((image, ind) => (
-            this.state.activeItem === image.id &&
+        <div className="about__animation-wrapper hide--tlg hero layout--fullheight layout--landscape">
+          <h1 className="typ--bold typ--redshift row">How we work.</h1>
+          { this.animationItems.map((i, ind) => (
+            <div className="about--animation__container">
               <div
                 key={ ind }
-                className={ ` ${ this.state.activeItem === image.id && image.id } about--image` }
               >
-                { image.svgAnim }
+                { i.svgAnim }
               </div>
-            ))}
-
-          <div className="row layout--absolute layout-abs--bottom pb5">
-
-            <div className="col-4 col-5--dsm about-explore--titles">
-              { this.animationItems.map((item, i) => (
-                <div key={ i }>
-                  <h1
-                    className={ `typ--bold btn ${ this.state.activeItem === item.id ? item.colorClass : 'typ--light-gray' }` }
-                    onClick={ () => { this.setState({ activeItem: item.id }); } }
-                  >
-                    { item.title }
-                  </h1>
-                </div>
-                ))
-              }
+              <div className={ `${i.id}--text row col-12` }>
+                <h1 className={ `${i.colorClass} typ--bold mb2` }>
+                  { i.title }
+                </h1>
+                <h3 className={ `about--explore-text col-9 col-12--dsm ${i.position === 'right' && 'col-last'}` } >{ i.text }</h3>
+              </div>
             </div>
-
-            <div className="col-8 col-7--dsm col-last">
-              { this.animationItems.map((content, index) => (
-                <div
-                  className="about--transition"
-                  key={ index }
-                >
-                  { this.state.activeItem === content.id && <h3 className="about--explore-text">{ content.text }</h3> }
-                </div>
-              )) }
-            </div>
-          </div>
+          ))}
         </div>
         <div className="show--tlg row">
           <h1 className="typ--bold typ--redshift">How we work.</h1>

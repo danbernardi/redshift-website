@@ -5,17 +5,11 @@ svg {
 }
 
 .aboutPath {
-  stroke-width: 1;
+  stroke-width: 2;
   stroke: #DCDCDB;
 }
 
 .about__hybrid--circle {
-  position: absolute;
-  height: 92%;
-  right: 0;
-  width: calc(100% - 10rem);
-  min-width: 134rem;
-  height: 8rem;
   @media screen and (min-width: 1440px) {
     left: 0;
   }
@@ -27,12 +21,21 @@ svg {
     min-width: 88rem;
     top: -9rem;
   }
-  circle { opacity: 0; }
 }
 
+.exCircle,
+.hyCircle,
+.iCircle
+{ opacity: 0; }
+
 .solidText { opacity: 1; }
+
 .hyText {
   font-family: Avenir-Black,sans-serif;
   font-size: 3.6rem;
   opacity: 0;
+}
+
+.about--animation__container {
+  min-height: 60rem;
 }
