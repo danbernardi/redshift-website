@@ -7,22 +7,48 @@
 
 .archive__grid {
   @extend %clearfix;
+  max-width: 128rem;
+  margin: 0 auto;
 }
 
 .archive__item {
   background: $light-gray;
-  min-height: 40rem;
   position: relative;
-  width: 33.33%;
+  width: calc(33.33% - 4rem);
+  margin: 2rem;
   float: left;
+  // media queries
+  @include breakpoint($tablet-md) {
+    width: calc(50% - 2rem);
+    margin: 1rem;
+  }
+  @include breakpoint($mobile-sm) {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+  }
 }
 
 .archive__name {
   position: absolute;
-  bottom: 3rem;
-  left: 3rem;
+  bottom: 0;
+  left: 0;
+  padding: 3rem;
+}
+
+.archive__imgspacer {
+  height: 40rem;
 }
 
 .archive__overlay {
   position: absolute;
+  top: 0;
+  left: 0;
+  height: 0;
+  overflow: hidden;
 }
