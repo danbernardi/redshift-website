@@ -40,6 +40,17 @@ class AboutSlides extends React.Component {
                   <source srcSet={ require(`assets/img/about/slides/mobile/${s.imagePath}.jpg`) } media="(max-width: 767px)" />
                   <img src={ require(`assets/img/about/slides/default/${s.imagePath}.jpg`) } alt="Redshift About" />
                 </picture>
+                <div className="row about--header" >
+                  <div className="row about--title">
+                    <h1 className="typ--bold typ--redshift pb2 pb1--mlg">About Redshift.</h1>
+                    <h3 className="pb2">
+                      We are an award-winning agency dedicated to creating simple, meaningful experiences for users and positive results for our clients.
+                    </h3>
+                  </div>
+
+                </div>
+
+
               </div>
             ))
           }
