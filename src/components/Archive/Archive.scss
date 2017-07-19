@@ -17,6 +17,9 @@
   width: calc(33.33% - 4rem);
   margin: 2rem;
   float: left;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+  z-index: 5;
   // media queries
   @include breakpoint($tablet-md) {
     width: calc(50% - 2rem);
@@ -26,6 +29,21 @@
     width: 100%;
     margin-left: 0;
     margin-right: 0;
+  }
+
+  &:hover {
+    transform: scale(1.15);
+    z-index: 6;
+
+    .archive__overlay {
+      height: 100%;
+
+      > div {
+        transform: none;
+        opacity: 1;
+        transition-delay: 0.2s;
+      }
+    }
   }
 
   img {
@@ -39,6 +57,7 @@
   bottom: 0;
   left: 0;
   padding: 3rem;
+  z-index: 12;
 }
 
 .archive__imgspacer {
@@ -47,8 +66,17 @@
 
 .archive__overlay {
   position: absolute;
-  top: 0;
+  bottom: 0;
   left: 0;
   height: 0;
+  width: 100%;
+  transition: height 0.3s ease-in-out;
   overflow: hidden;
+  z-index: 10;
+
+  > div {
+    opacity: 0;
+    transform: translateY(2rem);
+    transition: opacity 0.3s ease-out 0s, transform 0s ease-in-out 2s;
+  }
 }

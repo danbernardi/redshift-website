@@ -24,8 +24,10 @@ export class Archive extends React.Component {
             <div className="archive__item theme--dark" key={ index }>
               { study.gridThumbnail ? <img src={ study.gridThumbnail } alt={ study.name } /> : <div className="archive__imgspacer" /> }
               <h4 className="archive__name typ--bold">{ `${ study.name }.` }</h4>
-              <div className="archive__overlay">
-                <h2 className="typ--bold">{ study.shortDescription }</h2>
+              <div className="archive__overlay" style={ { backgroundColor: study.color } }>
+                <div className="p4">
+                  <h2 className="typ--bold">{ study.shortDescription }</h2>
+                </div>
               </div>
             </div>
           )) }
