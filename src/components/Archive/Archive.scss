@@ -5,14 +5,24 @@
   padding-bottom: 14rem;
 }
 
+.archive__grid {
+  @extend %clearfix;
+}
+
 .archive__item {
-  background: #fafafa;
+  background: $light-gray;
   min-height: 40rem;
   position: relative;
+  width: 33.33%;
+  float: left;
 }
 
 .archive__name {
   position: absolute;
   bottom: 3rem;
   left: 3rem;
+}
+
+.archive__overlay {
+  position: absolute;
 }
