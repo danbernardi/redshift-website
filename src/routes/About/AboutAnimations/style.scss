@@ -13,22 +13,11 @@ svg {
 
 .about__hybrid--circle {
   max-width: 144rem;
-  // @media screen and (min-width: 1440px) {
-  //   left: 0;
-  // }
+  // media queries
   @include breakpoint($mobile-lg) {
     float: right;
     min-width: 88rem;
   }
-  // }
-  // @media screen and (min-width: 401px) and (max-width: 540px) {
-  //   right: 2rem;
-  //   min-width: 88rem;
-  // }
-  // @media screen and (max-width: 400px) {
-  //   min-width: 88rem;
-  //   top: -9rem;
-  // }
 }
 
 .exCircle,
@@ -52,11 +41,8 @@ svg {
 .about__hybrid--container {
   padding-right: 2rem;
   position: relative;
-  // @include breakpoint($mobile-lg) {
-
-  //   min-height: 50rem;
-  // }
 }
+
 .about__animation-wrapper {
   margin-top: 16rem;
   @media only screen and (max-height: 965px) {
