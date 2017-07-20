@@ -50,6 +50,7 @@
 }
 
 .about--slideshow {
+  overflow: hidden;
   position: relative;
   padding-bottom: 10rem;
   @include breakpoint($tablet-lg) {
