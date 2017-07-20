@@ -1,7 +1,7 @@
 import React from 'react';
 import Scene from './Scene';
 import Hero from 'routes/Home/Hero';
-import Archive from 'components/Archive';
+import FooterHome from 'components/Footer/FooterHome';
 import { connect } from 'react-redux';
 import Rx from 'rxjs/Rx';
 import { mapRange, isInRange } from 'utils/animation';
@@ -39,7 +39,7 @@ export class Showcase extends React.Component {
     this.scrollAutoCompletion = false;
 
     //Adding white for header and footer
-    this.colors = ['#FFFFFF'].concat(this.props.scenes.map((scene) => scene.color)).concat('#FFFFFF');
+    this.colors = ['#FFFFFF'].concat(this.props.scenes.map((scene) => scene.color));
 
     this.children = this.buildChildren();
     this.scrollPoints = [];
@@ -125,6 +125,11 @@ export class Showcase extends React.Component {
       const currentScrollPosition = scrollEvent.target.scrollTop;
       const scrollDirection = getScrollDirection(this.lastScrollPosition, currentScrollPosition);
       this.lastScrollPosition = currentScrollPosition;
+
+      if (document.scrollingElement.scrollTop > 0) {
+        this.container.style.overflow = 'hidden';
+        return false;
+      }
 
       //Turn scroll jacking on / off
       if (this.scrollAutoCompletion) {
@@ -344,13 +349,17 @@ export class Showcase extends React.Component {
       const top = scene.element.offsetTop;
       const height = scene.element.offsetHeight;
       const center = top + (height / 2);
-      const timelinePercentage = height / (scrollHeight - window.innerHeight);
+      const timelinePercentage = height / scrollHeight; // divide by (scrollHeight - window.innerHeight) if there is no element after showcase
       const outsetTime = timelinePercentage * 0.2;
-      const low = currentTimePosition - outsetTime;
+      let low = currentTimePosition - outsetTime;
       let high = currentTimePosition + timelinePercentage + outsetTime;
 
       if (index === this.scrollPoints.length - 1) {
         high = currentTimePosition + timelinePercentage;
+      }
+
+      if (index === 0) {
+        low = currentTimePosition;
       }
 
       const segmentMeta = {
@@ -380,15 +389,7 @@ export class Showcase extends React.Component {
    * @param  {Number} nextScene    Index of next scene
    */
   sceneWillUpdate (currentScene, nextScene) {
-    const { dispatch, triggerFooter } = this.props;
-
-    console.log(currentScene, nextScene);
-
-    if (nextScene === this.children.length - 1) {
-      triggerFooter instanceof Function && triggerFooter(true);
-    } else if (nextScene === this.children.length - 2 && currentScene === this.children.length - 1) {
-      triggerFooter instanceof Function && triggerFooter(false);
-    }
+    const { dispatch } = this.props;
 
     if (nextScene === 0) {
       dispatch(setHeaderTheme('pink'));
@@ -427,8 +428,7 @@ export class Showcase extends React.Component {
   buildChildren () {
     const children = React.Children.toArray([
       this.header(),
-      this.sections(),
-      <Archive />
+      this.sections()
     ]);
 
     return children.map((child, index) => React.cloneElement(child,
@@ -463,6 +463,7 @@ export class Showcase extends React.Component {
 
   createColorTransitionTimeline (target) {
     const tl = new TimelineMax();
+
     const colorDuration = 1 / (this.colors.length * 2);
 
     const colorGrad = {
@@ -481,13 +482,14 @@ export class Showcase extends React.Component {
 
       tl.to(colorGrad, colorDuration, {
         top: color,
-        bottom: this.colors[index + 1],
+        bottom: this.colors[index + 1] || '#FFFFFF',
         onUpdate: this.setGradient,
         onUpdateParams: [target, colorGrad],
         ease: Power3.easeIn
       });
     });
-    tl.progress(1);
+
+    tl.progress(0);
     tl.pause();
 
     return tl;

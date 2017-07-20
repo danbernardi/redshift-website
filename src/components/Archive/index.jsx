@@ -3,73 +3,36 @@ import { Link } from 'react-router';
 import { caseStudies } from 'data/caseStudies';
 import Isotope from 'isotope-layout';
 import FooterHome from 'components/Footer/FooterHome';
-import GSAP from 'react-gsap-enhancer';
-import { isInRange } from 'utils/animation';
-import { TimelineMax, Power2 } from 'gsap';
 import 'masonry-layout';
 import './Archive.scss';
 
 export class Archive extends React.Component {
-  constructor (props) {
-    super(props);
-
-    this.timeline = null;
-    this.animationComplete = false;
-    this.state = {
-      animationProgress: 0
-    };
-  }
-
   componentDidMount () {
-    this.timeline = this.addAnimation(this.createTimeline);
-
     setTimeout(() => {
       this.isotope = new Isotope(this.grid, {
         itemSelector: '.archive__item',
         layoutMode: 'masonry'
       });
     }, 200);
+
+    window.addEventListener('scroll', this.handleScroll.bind(this));
   }
 
-  shouldComponentUpdate (nextProps) {
-    return isInRange(nextProps.animationProgress, 0, 1);
+  componentWillUnmount () {
+    window.removeEventListener('scroll', this.handleScroll.bind(this));
   }
 
-  componentWillReceiveProps (nextProps) {
-    const { animationProgress } = nextProps;
-    if (isInRange(animationProgress, 0, 1)) {
-      this.setState({
-        animationProgress
-      }, () => {
-        this.timeline.progress(animationProgress);
-      });
+  handleScroll () {
+    if (this.container) {
+      if (document.scrollingElement.scrollTop < this.container.getBoundingClientRect().top) {
+        document.querySelector('.showcase').style.overflow = 'auto';
+      }
     }
   }
 
-  createTimeline ({ target }) {
-    const grid = target.find({ 'data-animationName': 'grid' });
-    const footer = target.find({ 'data-animationName': 'footer' });
-
-    return new TimelineMax({
-      onComplete: () => {
-        this.animationComplete = true;
-      }
-    }).set([grid, footer], { y: '100%', opacity: 0 })
-      .pause()
-      .addPause(0.70)
-      .add('text-entry-point')
-      .staggerTo([grid, footer], 0.3, {
-        y: '0%',
-        opacity: 1,
-        ease: Power2.easeOut
-      }, 0.1, 'text-entry-point');
-  }
-
   render () {
-    const { onDidMount } = this.props;
-
     return (
-      <section className="archive__wrapper" ref={ onDidMount }>
+      <section className="archive__wrapper" ref={ el => { this.container = el; } }>
         <div className="archive row" data-animationName="grid">
           <h1 className="typ--bold typ--center mb10">Selected work.</h1>
 
@@ -95,4 +58,4 @@ export class Archive extends React.Component {
   }
 }
 
-export default (GSAP()(Archive));
+export default Archive;
