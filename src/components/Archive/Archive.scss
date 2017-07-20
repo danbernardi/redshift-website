@@ -1,5 +1,18 @@
 @import 'sass-includes';
 
+.archive__wrapper {
+  // background-color: $white;
+  z-index: 10;
+  // height: 100vh;
+  width: 100%;
+  position: relative;
+  // overflow: hidden;
+  // height: 100vh;
+  // top: 0;
+  // left: 0;
+  // transform: translateY(100vh);
+}
+
 .archive {
   padding-top: 14rem;
   padding-bottom: 14rem;
@@ -30,6 +43,8 @@
     margin-left: 0;
     margin-right: 0;
   }
+
+  a { display: block; }
 
   &:hover {
     transform: scale(1.15);

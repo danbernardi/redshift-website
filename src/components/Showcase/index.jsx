@@ -1,7 +1,7 @@
 import React from 'react';
 import Scene from './Scene';
 import Hero from 'routes/Home/Hero';
-import FooterHome from 'components/Footer/FooterHome';
+import Archive from 'components/Archive';
 import { connect } from 'react-redux';
 import Rx from 'rxjs/Rx';
 import { mapRange, isInRange } from 'utils/animation';
@@ -39,7 +39,7 @@ export class Showcase extends React.Component {
     this.scrollAutoCompletion = false;
 
     //Adding white for header and footer
-    this.colors = ['#FFFFFF'].concat(this.props.scenes.map((scene) => scene.color)).concat(['#FF2953']);
+    this.colors = ['#FFFFFF'].concat(this.props.scenes.map((scene) => scene.color)).concat('#FFFFFF');
 
     this.children = this.buildChildren();
     this.scrollPoints = [];
@@ -380,7 +380,15 @@ export class Showcase extends React.Component {
    * @param  {Number} nextScene    Index of next scene
    */
   sceneWillUpdate (currentScene, nextScene) {
-    const { dispatch } = this.props;
+    const { dispatch, triggerFooter } = this.props;
+
+    console.log(currentScene, nextScene);
+
+    if (nextScene === this.children.length - 1) {
+      triggerFooter instanceof Function && triggerFooter(true);
+    } else if (nextScene === this.children.length - 2 && currentScene === this.children.length - 1) {
+      triggerFooter instanceof Function && triggerFooter(false);
+    }
 
     if (nextScene === 0) {
       dispatch(setHeaderTheme('pink'));
@@ -420,7 +428,7 @@ export class Showcase extends React.Component {
     const children = React.Children.toArray([
       this.header(),
       this.sections(),
-      this.footer()
+      <Archive />
     ]);
 
     return children.map((child, index) => React.cloneElement(child,
@@ -451,13 +459,6 @@ export class Showcase extends React.Component {
         { ...scene }
       />
     ));
-  }
-
-  // Clone footer and add props
-  footer () {
-    return (
-      <FooterHome classes="footer__tall" />
-    );
   }
 
   createColorTransitionTimeline (target) {

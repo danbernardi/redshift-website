@@ -6,7 +6,6 @@ import * as actions from 'store/actions';
 import Loader from 'components/Loader';
 import CaseStudyModalWrapper from 'components/CaseStudy/CaseStudyModalWrapper';
 import PropTypes from 'prop-types';
-import Archive from 'components/Archive';
 
 export class Home extends React.Component {
   componentDidMount () {
@@ -52,7 +51,6 @@ export class Home extends React.Component {
       <div className="home">
         { location.pathname === '/' && <Loader /> }
         <Showcase scenes={ caseStudies.filter(cs => cs.featured) } />
-        <div className="bg--white layout--relative"><Archive /></div>
       </div>
     );
   }
