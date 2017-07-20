@@ -26,7 +26,8 @@ export class AboutHybrid extends React.Component {
         onUpdate: this.drawLine,
         onUpdateParams: [pathObject, line],
         immediateRender: true,
-        ease: Power2.easeOut
+        ease: Power2.easeOut,
+        autoKill: false
       }
     );
   };
@@ -65,7 +66,8 @@ export class AboutHybrid extends React.Component {
       .set(circle, { opacity: 1 }, `experiment+=${baseDuration / 2}`)
       .to(circle, baseDuration, {
         bezier: { values: hyPath, type: 'cubic' },
-        ease: CustomEase.create('custom', customEase[index])
+        ease: CustomEase.create('custom', customEase[index]),
+        autoKill: false
       },
       `experiment+=${baseDuration / 2}`);
     });
@@ -73,7 +75,8 @@ export class AboutHybrid extends React.Component {
     hyText.forEach((text, index) => {
       tl.to(text, baseDuration, {
         bezier: { values: hyPath2, type: 'cubic' },
-        ease: CustomEase.create('custom', customEase2[index])
+        ease: CustomEase.create('custom', customEase2[index]),
+        autoKill: false
       },
       `experiment+=${baseDuration / 2}`);
     });
@@ -97,8 +100,8 @@ export class AboutHybrid extends React.Component {
           enterViewport={ this.watcherCallback.bind(this) }
         />
 
-        <div className="about__hybrid--circle pr2">
-          <svg viewBox="0 0 1390 818" preserveAspectRatio="xMaxYMax meet" style={ { maxWidth: '144rem' } }>
+        <div className="about__hybrid--container">
+          <svg viewBox="0 0 1390 818" preserveAspectRatio="xMaxYMax meet" className="about__hybrid--circle hide--mlg">
             <g id="Hybrid" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
               <path
                 id="hybridPath1"
@@ -122,7 +125,7 @@ export class AboutHybrid extends React.Component {
             <text className="hyText" id="hyText4" fill="#FF2953">Research</text>
 
           </svg>
-          <div className=" row pb5 about__hybrid--header">
+          <div className=" row pb5--mlg about__hybrid--header">
             <div className="col-9 col-12--mlg">
               <h1 className="typ--bold typ--redshift pb2">Hybrid teams.</h1>
               <h3>

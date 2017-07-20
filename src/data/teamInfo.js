@@ -248,18 +248,18 @@ export const teamInfo = [
       'He grew up in the Bay Area and received a BS in Graphic Design from The Art Institute of California – San Francisco. Prior to working at Redshift, Matt designed magazines, brands, and websites at companies including Wired Magazine, Sidecar Agency, and IDEO. When Matt isn\'t hunched over his computer pushing pixels, he can be found biking up San Francisco\'s notorious hills, in a park napping, or at a baseball game.'
     ]
   },
-  {
-    id: 'peter',
-    name: 'Peter Odum',
-    position: 'Lead User Experience Designer',
-    photo: require('assets/img/about/team/peter.jpg'),
-    modalImage: require('assets/img/about/team/modal/peter.jpg'),
-    bioStatement: [
-      'Peter Odum is a Lead User Experience Designer at Redshift.',
-      'An accomplished digital artist and data architect, Peter brings nearly two decades of design expertise to his work. His intense creative focus and deep understanding of user engagement have led to work for Bank of America, Sutter Health, Ghirardelli Chocolate, The New York Times, Virgin Atlantic and many others. Peter has also designed digital experiences for Electronic Arts and Disney, most recently directing user experience for Disney\'s mobile title Star Wars Commander.',
-      'Peter is a classically trained painter and printmaker who enjoys travel, photography, and roughhousing with his kids, Sam and Irene.'
-    ]
-  },
+  // {
+  //   id: 'peter',
+  //   name: 'Peter Odum',
+  //   position: 'Lead User Experience Designer',
+  //   photo: require('assets/img/about/team/peter.jpg'),
+  //   modalImage: require('assets/img/about/team/modal/peter.jpg'),
+  //   bioStatement: [
+  //     'Peter Odum is a Lead User Experience Designer at Redshift.',
+  //     'An accomplished digital artist and data architect, Peter brings nearly two decades of design expertise to his work. His intense creative focus and deep understanding of user engagement have led to work for Bank of America, Sutter Health, Ghirardelli Chocolate, The New York Times, Virgin Atlantic and many others. Peter has also designed digital experiences for Electronic Arts and Disney, most recently directing user experience for Disney\'s mobile title Star Wars Commander.',
+  //     'Peter is a classically trained painter and printmaker who enjoys travel, photography, and roughhousing with his kids, Sam and Irene.'
+  //   ]
+  // },
   {
     id: 'tiffany',
     name: 'Tiffany La',

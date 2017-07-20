@@ -2,6 +2,8 @@
 
 svg {
   overflow: visible;
+  -webkit-transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
 }
 
 .aboutPath {
@@ -10,17 +12,23 @@ svg {
 }
 
 .about__hybrid--circle {
-  @media screen and (min-width: 1440px) {
-    left: 0;
-  }
-  @media screen and (min-width: 401px) and (max-width: 540px) {
-    right: 2rem;
+  max-width: 144rem;
+  // @media screen and (min-width: 1440px) {
+  //   left: 0;
+  // }
+  @include breakpoint($mobile-lg) {
+    float: right;
     min-width: 88rem;
   }
-  @media screen and (max-width: 400px) {
-    min-width: 88rem;
-    top: -9rem;
-  }
+  // }
+  // @media screen and (min-width: 401px) and (max-width: 540px) {
+  //   right: 2rem;
+  //   min-width: 88rem;
+  // }
+  // @media screen and (max-width: 400px) {
+  //   min-width: 88rem;
+  //   top: -9rem;
+  // }
 }
 
 .exCircle,
@@ -39,3 +47,104 @@ svg {
 .about--animation__container {
   min-height: 60rem;
 }
+
+// text and spacing
+.about__hybrid--container {
+  padding-right: 2rem;
+  position: relative;
+  // @include breakpoint($mobile-lg) {
+
+  //   min-height: 50rem;
+  // }
+}
+.about__animation-wrapper {
+  margin-top: 16rem;
+  @media only screen and (max-height: 965px) {
+    height: auto;
+    min-height: 100rem;
+  }
+}
+
+.about__wrapper {
+  padding-top: 16rem;
+  @include breakpoint($mobile-lg) {
+    padding-top: 3.5rem;
+  }
+}
+
+// explore animation
+.about-explore--titles {
+  h1 {
+    cursor: pointer;
+    @include breakpoint($tablet-lg) {
+      cursor: default;
+    }
+  }
+  div:nth-child(1) h1 {
+    &:hover {
+      color: #FF2953;
+    }
+  }
+  div:nth-child(2) h1 {
+    &:hover {
+      color: #E4486F;
+    }
+  }
+  div:nth-child(3) h1{
+    &:hover {
+      color: #BF4498;
+    }
+  }
+  div:nth-child(4) h1 {
+    &:hover {
+      color: #B144A5;
+    }
+  }
+}
+
+//explore
+.about__explore {
+  padding-top: 2.4rem;
+}
+
+.about__explore--text {
+  position: relative;
+  top: -1.5rem;
+  @include breakpoint($desktop-sm) {
+    top: -5.5rem;
+  }
+}
+
+//experiment
+.about__experiment {
+  margin-top: 4rem;
+}
+
+.about__experiment--text {
+  position: relative;
+  top: -5.5rem;
+  text-align: right;
+}
+
+//collaborate
+.about__collaborate {
+  padding-top: 3rem;
+}
+
+.about__collaborate--text {
+  position: relative;
+  top: -0.7rem;
+}
+
+//iterate
+.about__iterate {
+  padding-top: 6.3rem;
+}
+
+.about__iterate--text {
+  text-align: right;
+}
+
+
+
+
