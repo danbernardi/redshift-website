@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import { caseStudies } from 'data/caseStudies';
 import Isotope from 'isotope-layout';
 import FooterHome from 'components/Footer/FooterHome';
+import Watcher from 'components/Watcher';
 import 'masonry-layout';
 import './Archive.scss';
 
@@ -30,9 +31,20 @@ export class Archive extends React.Component {
     }
   }
 
+  watcherCallback (watcher) {
+    if (watcher.isFullyInViewport) {
+      const showcase = document.querySelector('.showcase');
+      showcase.scrollTop = showcase.scrollHeight;
+    }
+  };
+
   render () {
     return (
       <section className="archive__wrapper" ref={ el => { this.container = el; } }>
+        <Watcher
+          autoStart={ false }
+          exitViewport={ this.watcherCallback.bind(this) }
+        />
         <div className="archive row" data-animationName="grid">
           <h1 className="typ--bold typ--center mb10">Selected work.</h1>
 
