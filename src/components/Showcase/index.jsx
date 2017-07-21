@@ -54,7 +54,7 @@ export class Showcase extends React.Component {
   componentDidMount () {
     //Setup color transition
     this.timeline = this.createColorTransitionTimeline(this.container);
-    this.timeline.play();
+    // this.timeline.play();
 
     //Removes jitter on mobile from event bubbling
     this.container.addEventListener('touchmove', (event) => {
