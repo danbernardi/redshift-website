@@ -56,6 +56,7 @@ export class AboutExplore extends React.Component {
         <div className="about__animation-wrapper hide--tlg hero layout--landscape">
           <h1 className="typ--bold typ--redshift row">How we work.</h1>
           { this.animationItems.map((i, ind) => (
+
             <div className={ `${i.class} about--animation__container` } key={ ind }>
               { i.svgAnim }
               <div className={ `${i.class}--text row col-12` }>
