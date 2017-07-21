@@ -17,6 +17,20 @@
   margin: 0 auto;
 }
 
+.archive__gridwrapper {
+  width: calc(100% + 4rem);
+  margin-left: -2rem;
+  // media queries
+  @include breakpoint($tablet-md) {
+    width: calc(100% + 2rem);
+    margin-left: -1rem;
+  }
+  @include breakpoint($mobile-sm) {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
 .archive__item {
   background: $light-gray;
   position: relative;

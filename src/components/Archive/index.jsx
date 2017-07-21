@@ -48,20 +48,22 @@ export class Archive extends React.Component {
         <div className="archive row" data-animationName="grid">
           <h1 className="typ--bold typ--center mb10">Selected work.</h1>
 
-          <div className="archive__grid" ref={ el => { this.grid = el; } }>
-            { caseStudies.map((study, index) => (
-              <div className="archive__item theme--dark" key={ index }>
-                <Link className="archive__link" to={ `/work/${study.id}` }>
-                  { study.gridThumbnail ? <img src={ study.gridThumbnail } alt={ study.name } /> : <div className="archive__imgspacer" /> }
-                  <h4 className="archive__name typ--bold">{ `${ study.name }.` }</h4>
-                  <div className="archive__overlay" style={ { backgroundColor: study.color } }>
-                    <div className="p4">
-                      <h2 className="typ--bold">{ study.shortDescription }</h2>
+          <div className="archive__gridwrapper">
+            <div className="archive__grid" ref={ el => { this.grid = el; } }>
+              { caseStudies.map((study, index) => (
+                <div className="archive__item theme--dark" key={ index }>
+                  <Link className="archive__link" to={ `/work/${study.id}` }>
+                    { study.gridThumbnail ? <img src={ study.gridThumbnail } alt={ study.name } /> : <div className="archive__imgspacer" /> }
+                    <h4 className="archive__name typ--bold">{ `${ study.name }.` }</h4>
+                    <div className="archive__overlay" style={ { backgroundColor: study.color } }>
+                      <div className="p4">
+                        <h2 className="typ--bold">{ study.shortDescription }</h2>
+                      </div>
                     </div>
-                  </div>
-                </Link>
-              </div>
-            )) }
+                  </Link>
+                </div>
+              )) }
+            </div>
           </div>
         </div>
         <div data-animationName="footer"><FooterHome /></div>
