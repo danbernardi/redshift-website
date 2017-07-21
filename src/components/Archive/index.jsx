@@ -67,7 +67,7 @@ export class Archive extends React.Component {
 
           <div className="archive__gridwrapper">
             <div className="archive__grid" ref={ el => { this.grid = el; } }>
-              { caseStudies.map((study, index) => (
+              { caseStudies.filter(study => !study.featured).map((study, index) => (
                 <div className="archive__item theme--dark" key={ index }>
                   <Link className="archive__link" to={ `/work/${study.id}` }>
                     { study.gridThumbnail
@@ -76,8 +76,8 @@ export class Archive extends React.Component {
                     }
                     <h4 className="archive__name typ--bold">{ `${ study.name }.` }</h4>
                     <div className="archive__overlay" style={ { backgroundColor: study.color } }>
-                      <div className="p4">
-                        <h2 className="typ--bold">{ study.shortDescription }</h2>
+                      <div className="p2">
+                        <h3 className="typ--bold">{ study.shortDescription }</h3>
                       </div>
                     </div>
                   </Link>
