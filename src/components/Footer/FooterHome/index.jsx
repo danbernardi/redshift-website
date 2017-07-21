@@ -67,18 +67,12 @@ export class FooterHome extends React.Component {
     return (
       <section
         ref={ onDidMount }
-        className="footer__home theme--dark"
+        className="footer__home"
       >
         <Footer
           key="footer"
           classes="footer__tall"
-        >
-          <div className="footer__center">
-            <div className="row">
-              <h1 className="typ--bold typ--center"><a href="mailto:hello@redshiftdigital.com">Say hi.</a></h1>
-            </div>
-          </div>
-        </Footer>
+        />
       </section>
     );
   }
