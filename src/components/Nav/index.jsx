@@ -4,6 +4,7 @@ import NavLinks from './NavLinks';
 import './Nav.scss';
 
 const Nav = () => {
+  const activeURL = window.location.pathname;
   const navLinks = [
     {
       name: 'Work.',
@@ -26,7 +27,7 @@ const Nav = () => {
   return (
     <div className="nav full-height theme--dark">
       <div className="row">
-        <NavLinks links={ navLinks } />
+        <NavLinks links={ navLinks } activeURL={ activeURL } />
       </div>
       <Footer />
     </div>

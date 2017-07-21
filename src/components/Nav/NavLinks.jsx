@@ -14,12 +14,6 @@ class NavLinks extends React.Component {
     };
   }
 
-  // componentDidMount () {
-  //   setTimeout(() => {
-  //     this.setState({ staggerIn: true });
-  //   }, 100);
-  // }
-
   routingHandler (to) {
     const { dispatch } = this.props;
     dispatch(actions.toggleModal(false));
@@ -37,18 +31,23 @@ class NavLinks extends React.Component {
   }
 
   render () {
-    const { links } = this.props;
+    const { links, activeURL } = this.props;
     const { staggerIn } = this.state;
 
     return (
-      <ul className={ `nav__menu list--block full-height ${staggerIn ? 'stagger-in' : ''}` }>
+      <ul className={ `nav__menu full-height ${staggerIn ? 'stagger-in' : ''}` }>
         {
           links.map((navLink, i) => (
             <li key={ i }>
               { navLink.to &&
-                <Link to={ navLink.to } className="typ--h1 typ--bold" onClick={ () => this.routingHandler() }>
-                  { navLink.name }
-                </Link>
+                <div>
+                  { navLink.to === activeURL
+                    ? <div className="typ--h1 typ--bold typ--black typ--not__link">{ navLink.name }</div>
+                    : <Link to={ navLink.to } className="typ--h1 typ--bold" onClick={ () => this.routingHandler() }>
+                      { navLink.name }
+                    </Link>
+                  }
+                </div>
               }
 
               { navLink.outgoing &&
@@ -62,6 +61,7 @@ class NavLinks extends React.Component {
   }
 }
 NavLinks.propTypes = {
+  activeURL: PropTypes.string,
   dispatch: PropTypes.func,
   links: PropTypes.array
 };
