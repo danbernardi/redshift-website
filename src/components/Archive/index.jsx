@@ -8,15 +8,30 @@ import 'masonry-layout';
 import './Archive.scss';
 
 export class Archive extends React.Component {
+  constructor (props) {
+    super(props);
+
+    this.isotope;
+    this.state = {
+      imagesLoaded: 0
+    };
+  }
+
   componentDidMount () {
-    setTimeout(() => {
-      this.isotope = new Isotope(this.grid, {
-        itemSelector: '.archive__item',
-        layoutMode: 'masonry'
-      });
-    }, 200);
+    this.isotope = new Isotope(this.grid, {
+      itemSelector: '.archive__item',
+      layoutMode: 'masonry'
+    });
 
     window.addEventListener('scroll', this.handleScroll.bind(this));
+  }
+
+  componentDidUpdate () {
+    const { imagesLoaded } = this.state;
+
+    if (imagesLoaded === caseStudies.filter(cs => cs.gridThumbnail).length) {
+      this.isotope.layout();
+    }
   }
 
   componentWillUnmount () {
@@ -39,6 +54,8 @@ export class Archive extends React.Component {
   };
 
   render () {
+    const { imagesLoaded } = this.state;
+
     return (
       <section className="archive__wrapper" ref={ el => { this.container = el; } }>
         <Watcher
@@ -53,7 +70,10 @@ export class Archive extends React.Component {
               { caseStudies.map((study, index) => (
                 <div className="archive__item theme--dark" key={ index }>
                   <Link className="archive__link" to={ `/work/${study.id}` }>
-                    { study.gridThumbnail ? <img src={ study.gridThumbnail } alt={ study.name } /> : <div className="archive__imgspacer" /> }
+                    { study.gridThumbnail
+                      ? <img src={ study.gridThumbnail } alt={ study.name } onLoad={ () => this.setState({ imagesLoaded: imagesLoaded + 1 }) } />
+                      : <div className="archive__imgspacer" />
+                    }
                     <h4 className="archive__name typ--bold">{ `${ study.name }.` }</h4>
                     <div className="archive__overlay" style={ { backgroundColor: study.color } }>
                       <div className="p4">
