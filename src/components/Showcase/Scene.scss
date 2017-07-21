@@ -10,8 +10,12 @@ html {
   }
 }
 
+.content-main { overflow: hidden; }
+
 .showcase {
-  width: 100%;
+  width: calc(100% + 3rem);
+  margin-left: -1.5rem;
+  padding: 0 3rem;
   position: relative;
   overflow-x: hidden;
   overflow-y: scroll;
