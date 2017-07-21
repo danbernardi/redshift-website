@@ -94,7 +94,7 @@ export class AboutExplore extends React.Component {
           stateChange={ this.watcherCallback.bind(this) }
           enterViewport={ this.watcherCallback.bind(this) }
         />
-        <svg width="144rem" viewBox="10 0 1219 239" preserveAspectRatio="xMaxYMax meet" style={ { maxWidth: '134rem' } }>
+        <svg width="1440px" viewBox="10 0 1219 239" preserveAspectRatio="xMaxYMax meet" style={ { maxWidth: '134rem' } }>
           <g
             id="aboutExploreLines"
             fill="none"
