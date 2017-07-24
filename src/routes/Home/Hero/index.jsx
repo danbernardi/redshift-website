@@ -53,7 +53,6 @@ export class Hero extends React.Component {
   }
 
   createOutroTimeline ({ target }) {
-    const text1 = target.find({ 'data-animationName': 'text1' });
     const text2 = target.find({ 'data-animationName': 'text2' });
     const scroller = target.find({ 'data-animationName': 'scroller' });
 
@@ -69,7 +68,7 @@ export class Hero extends React.Component {
     })
     .pause()
     .addPause(0.15)
-    .staggerTo([text1, text2, scroller], 0.5, { opacity: 0 }, 0.02);
+    .staggerTo([text2, scroller], 0.5, { opacity: 0 }, 0.02);
   }
 
   render () {
@@ -82,7 +81,7 @@ export class Hero extends React.Component {
       >
 
         <div className="row">
-          <h1 className="hero__text typ--bold typ--redshift" style={ { maxWidth: '110rem' } }>
+          <h1 className="hero__text typ--bold typ--redshift" style={ { maxWidth: '110rem', pointerEvents: 'none' } }>
             <span data-animationName="text2">
               We are Redshift. We design digital products and experiences.
             </span>
