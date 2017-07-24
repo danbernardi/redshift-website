@@ -54,9 +54,6 @@ export class Showcase extends React.Component {
   componentDidMount () {
     //Setup color transition
     this.timeline = this.createColorTransitionTimeline(this.wrapper);
-    document.scrollingElement.style.overflow = 'hidden';
-    // document.scrollingElement.style.position = 'fixed';
-
     this.createObservables(this.container);
 
     //Wait to get accurate height
