@@ -509,25 +509,40 @@ export class Showcase extends React.Component {
     }
 
     return (
-      <div ref={ (element) => { this.container = element; } } className="showcase" style={ {
-        height: window.innerHeight,
-        overflowY: SUPPORT_TOUCH ? 'hidden' : 'scroll'
-      } }>
 
-        {
-          /* If the children have mounted, update the animation progress for each component */
-          this.sceneMeta.length ? this.children.map((child, index) => React.cloneElement(child,
-            {
-              animationProgress: mapRange(this.state.animationProgress, this.sceneMeta[index].bounds.low, this.sceneMeta[index].bounds.high, 0, 1),
-              index,
-              onDidMount: (el) => this.addScrollPoint(el, index),
-              currentScene: this.currentScene
-            }
-          ))
+      <div className="showcase__wrapper">
+        <div ref={ (element) => { this.container = element; } } className="showcase" style={ {
+          height: window.innerHeight,
+          overflowY: SUPPORT_TOUCH ? 'hidden' : 'scroll'
+        } }>
 
-          /* We need to mount the children initially to get their height */
-          : this.children
-        }
+          {
+            /* If the children have mounted, update the animation progress for each component */
+            this.children.map((child, index) => {
+              return (
+                <div key={ index } style={ { position: 'relative', width: '100%', height: window.innerHeight } } />
+              );
+            })
+          }
+
+        </div>
+        <div className="showcase__content" style={ { position: 'fixed', top: 0, left: 0, pointerEvents: 'none' } }>
+          {
+            /* If the children have mounted, update the animation progress for each component */
+            this.sceneMeta.length ? this.children.map((child, index) => React.cloneElement(child,
+              {
+                animationProgress: mapRange(this.state.animationProgress, this.sceneMeta[index].bounds.low, this.sceneMeta[index].bounds.high, 0, 1),
+                index,
+                onDidMount: (el) => this.addScrollPoint(el, index),
+                currentScene: this.currentScene
+              }
+            ))
+
+            /* We need to mount the children initially to get their height */
+            : this.children
+          }
+
+        </div>
 
       </div>
     );

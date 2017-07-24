@@ -30,7 +30,10 @@ html {
 }
 
 .scene {
-  position: relative;
+  // position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
   overflow: hidden;
   color: $white;
   height: 100vh;
