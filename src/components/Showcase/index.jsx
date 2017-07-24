@@ -225,20 +225,23 @@ export class Showcase extends React.Component {
       LAST_TOUCH = touchMoveEvent;
     });
 
-    this.touchEndSubscription = this.touchEndObservable.subscribe((touchEndEvent) => {
-      TOUCH_END = touchEndEvent;
-      const start = TOUCH_START.touches[0].pageY;
-      const end = LAST_TOUCH.touches[0].pageY;
-      const delta = end - start;
+    //Turn scroll jacking on / off
+    if (this.scrollAutoCompletion) {
+      this.touchEndSubscription = this.touchEndObservable.subscribe((touchEndEvent) => {
+        TOUCH_END = touchEndEvent;
+        const start = TOUCH_START.touches[0].pageY;
+        const end = LAST_TOUCH.touches[0].pageY;
+        const delta = end - start;
 
-      let direction = null;
+        let direction = null;
 
-      if (Math.abs(delta) > THRESHOLD) {
-        direction = delta > 0 ? 'down' : 'up';
-        const go = direction === 'up' ? this.goToNextScene : this.goToPrevScene;
-        go.call(this);
-      }
-    });
+        if (Math.abs(delta) > THRESHOLD) {
+          direction = delta > 0 ? 'down' : 'up';
+          const go = direction === 'up' ? this.goToNextScene : this.goToPrevScene;
+          go.call(this);
+        }
+      });
+    }
   }
 
   /**
@@ -524,7 +527,7 @@ export class Showcase extends React.Component {
             /* If the children have mounted, update the animation progress for each component */
             this.children.map((child, index) => {
               return (
-                <div key={ index } style={ { position: 'relative', width: '100%', height: window.innerHeight } } />
+                <div key={ index } style={ { position: 'relative', width: '100%', height: '100vh' } } />
               );
             })
           }
