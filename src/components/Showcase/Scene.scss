@@ -13,14 +13,19 @@ html {
 .content-main { overflow: hidden; }
 
 .showcase {
-  width: calc(100% + 3rem);
-  margin-left: -1.5rem;
-  padding: 0 3rem;
+  // width: calc(100% + 3rem);
+  // margin-left: -1.5rem;
+  // padding: 0 1.5rem;
   position: relative;
   overflow-x: hidden;
   overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
   top: 0;
-  background: $white;
+  background: transparent;
+}
+
+.hero {
+  pointer-events: none;
 }
 
 .hero h1 {
@@ -34,7 +39,7 @@ html {
   position: fixed;
   top: 0;
   left: 0;
-  overflow: hidden;
+  // overflow: hidden;
   color: $white;
   height: 100vh;
 }

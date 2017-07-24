@@ -52,8 +52,9 @@ export class Showcase extends React.Component {
   }
 
   componentDidMount () {
+    // document.querySelector('body').classList.add('noscroll--mobile');
     //Setup color transition
-    this.timeline = this.createColorTransitionTimeline(this.container);
+    this.timeline = this.createColorTransitionTimeline(this.wrapper);
     // this.timeline.play();
 
     //Removes jitter on mobile from event bubbling
@@ -508,12 +509,15 @@ export class Showcase extends React.Component {
       this.currentScene = this.calculateCurrentScene();
     }
 
+    console.log(this.children);
+
     return (
 
-      <div className="showcase__wrapper">
+      <div ref={ el => { this.wrapper = el; } } className="showcase__wrapper">
         <div ref={ (element) => { this.container = element; } } className="showcase" style={ {
           height: window.innerHeight,
-          overflowY: SUPPORT_TOUCH ? 'hidden' : 'scroll'
+          overflowY: SUPPORT_TOUCH ? 'hidden' : 'scroll',
+          zIndex: 12
         } }>
 
           {
@@ -526,7 +530,7 @@ export class Showcase extends React.Component {
           }
 
         </div>
-        <div className="showcase__content" style={ { position: 'fixed', top: 0, left: 0, pointerEvents: 'none' } }>
+        <div className="showcase__content" style={ { zIndex: 1, position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none' } }>
           {
             /* If the children have mounted, update the animation progress for each component */
             this.sceneMeta.length ? this.children.map((child, index) => React.cloneElement(child,
