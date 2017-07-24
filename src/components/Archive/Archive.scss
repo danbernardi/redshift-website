@@ -9,10 +9,6 @@
   z-index: 10;
   width: 100%;
   position: relative;
-  // media queries
-  @include breakpoint($mobile-lg) {
-    position: fixed;
-  }
 }
 
 .archive {
