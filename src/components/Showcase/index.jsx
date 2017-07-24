@@ -93,7 +93,7 @@ export class Showcase extends React.Component {
     this.onResize();
     this.handleScroll(element);
     if (SUPPORT_TOUCH) {
-      this.handleTouch(element);
+      // this.handleTouch(element);
     }
   }
 
@@ -185,6 +185,7 @@ export class Showcase extends React.Component {
     this.touchMove = this.touchStartObservable.flatMap((touchStartEvent) => {
       //Fixes discrepency between IOS and Android
       normalizeTouchEvent(touchStartEvent);
+      console.log(touchStartEvent);
 
       const startY = touchStartEvent.pageY;
       const scrollStart = element.scrollTop;
@@ -510,7 +511,7 @@ export class Showcase extends React.Component {
       this.currentScene = this.calculateCurrentScene();
     }
 
-    console.log(this.children);
+    console.log(this.state.animationProgress);
 
     return (
 
