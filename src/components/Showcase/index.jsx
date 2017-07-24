@@ -475,7 +475,7 @@ export class Showcase extends React.Component {
       tl.to(colorGrad, colorDuration, {
         top: color,
         bottom: color,
-        onUpdate: this.setGradient,
+        onUpdate: this.setGradient.bind(this),
         onUpdateParams: [target, colorGrad],
         ease: Power3.easeOut
       });
@@ -483,7 +483,7 @@ export class Showcase extends React.Component {
       tl.to(colorGrad, colorDuration, {
         top: color,
         bottom: this.colors[index + 1] || '#FFFFFF',
-        onUpdate: this.setGradient,
+        onUpdate: this.setGradient.bind(this),
         onUpdateParams: [target, colorGrad],
         ease: Power3.easeIn
       });
@@ -496,9 +496,11 @@ export class Showcase extends React.Component {
   }
 
   setGradient (element, colors) {
-    TweenMax.set(element, {
-      background: `linear-gradient(to bottom, ${colors.top}, ${colors.bottom})`
-    });
+    if (this.lastScrollPosition >= 0) {
+      TweenMax.set(element, {
+        background: `linear-gradient(to bottom, ${colors.top}, ${colors.bottom})`
+      });
+    }
   }
 
   render () {
