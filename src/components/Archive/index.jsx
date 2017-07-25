@@ -18,17 +18,12 @@ export class Archive extends React.Component {
     this.animationInRange = null;
     this.isotope;
     this.state = {
-      imagesLoaded: 0,
+      imagesLoaded: [],
       animationProgress: 0
     };
   }
 
   componentDidMount () {
-    this.isotope = new Isotope(this.grid, {
-      itemSelector: '.archive__item',
-      layoutMode: 'masonry'
-    });
-
     this.timeline = this.addAnimation(this.animateIn);
   }
 
@@ -70,15 +65,26 @@ export class Archive extends React.Component {
   componentDidUpdate () {
     const { imagesLoaded } = this.state;
 
-    if (imagesLoaded === caseStudies.filter(cs => cs.gridThumbnail).length) {
+    if (imagesLoaded.length === caseStudies.filter(cs => cs.gridThumbnail).length) {
+      this.isotope = new Isotope(this.grid, {
+        itemSelector: '.archive__item',
+        layoutMode: 'masonry'
+      });
+
       this.props.onReady();
-      this.isotope.layout();
     }
+  }
+
+  loadImage (index) {
+    const { imagesLoaded } = this.state;
+    const newImagesLoaded = imagesLoaded;
+    newImagesLoaded.push(index);
+
+    this.setState({ imagesLoaded: newImagesLoaded });
   }
 
   render () {
     const { imagesLoaded } = this.state;
-    console.log('archive: ', this.state.animationProgress)
 
     return (
       <section className="archive__wrapper" ref={ el => { this.container = el; this.props.onDidMount(el); } }>
@@ -91,7 +97,11 @@ export class Archive extends React.Component {
                 <div className="archive__item theme--dark" key={ index }>
                   <Link className="archive__link" to={ `/work/${study.id}` }>
                     { study.gridThumbnail
-                      ? <img src={ study.gridThumbnail } alt={ study.name } onLoad={ () => this.setState({ imagesLoaded: imagesLoaded + 1 }) } />
+                      ? <img
+                        src={ study.gridThumbnail }
+                        alt={ study.name }
+                        onLoad={ () => imagesLoaded.indexOf(index) === -1 && this.loadImage(index) }
+                      />
                       : <div className="archive__imgspacer" />
                     }
                     <h4 className="archive__name typ--bold">{ `${ study.name }.` }</h4>
