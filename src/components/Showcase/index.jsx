@@ -99,7 +99,7 @@ export class Showcase extends React.Component {
     this.resizeObservable = Rx.Observable.fromEvent(window, 'resize').debounce(() => Rx.Observable.timer(700));
     this.resizeSubscription = this.resizeObservable.subscribe(() => {
       this.sceneMeta = this.setSceneMeta();
-      this.goToScene(this.currentScene);
+      // this.goToScene(this.currentScene);
     });
   }
 
@@ -342,6 +342,8 @@ export class Showcase extends React.Component {
     let currentTimePosition = 0;
     const scrollHeight = this.container.scrollHeight;
 
+    console.log(this.container.scrollHeight)
+
     const segments = this.scrollPoints.map((scene, index) => {
       const top = scene.element.offsetTop;
       const height = scene.element.offsetHeight;
@@ -352,7 +354,7 @@ export class Showcase extends React.Component {
       let high = currentTimePosition + timelinePercentage + outsetTime;
 
       if (index === this.scrollPoints.length - 1) {
-        high = currentTimePosition + timelinePercentage;
+        high = 1;
       }
 
       if (index === 0) {
@@ -519,7 +521,7 @@ export class Showcase extends React.Component {
             /* If the children have mounted, update the animation progress for each component */
             this.children.map((child, index) => {
               return (
-                <div key={ index } style={ { position: 'relative', width: '100%', height: '100vh' } } />
+                <div key={ index } style={ { position: 'relative', width: '100%', height: this.sceneMeta.length ? this.sceneMeta[index].height : '100vh' } } />
               );
             })
           }

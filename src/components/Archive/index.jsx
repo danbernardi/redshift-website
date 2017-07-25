@@ -48,7 +48,8 @@ export class Archive extends React.Component {
   }
 
   shouldComponentUpdate () {
-    return this.animationInRange;
+    return true;
+    // return this.animationInRange;
   }
 
   animateIn ({ target }) {
