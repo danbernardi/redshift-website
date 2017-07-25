@@ -72,10 +72,6 @@ export class Showcase extends React.Component {
           this.goToScene(sceneIndex, false);
         }
       }
-
-      // if (location.pathname === '/work' && !sceneIndex) {
-      //   this.goToScene(1);
-      // }
     }, 300);
   }
 
@@ -113,39 +109,34 @@ export class Showcase extends React.Component {
 
     //Subscribe to the devices scroll event
     this.scrollSubscription = this.scrollObservable.subscribe((scrollEvent) => {
-      const now = window.performance.now();
-      this.lastScroll = now;
-      const currentScrollPosition = scrollEvent.target.scrollTop;
-      const scrollDirection = getScrollDirection(this.lastScrollPosition, currentScrollPosition);
-      this.lastScrollPosition = currentScrollPosition;
+      // const now = window.performance.now();
+      // this.lastScroll = now;
+      // const currentScrollPosition = scrollEvent.target.scrollTop;
+      // const scrollDirection = getScrollDirection(this.lastScrollPosition, currentScrollPosition);
+      // this.lastScrollPosition = currentScrollPosition;
 
-      if (document.scrollingElement.scrollTop > 0) {
-        this.container.style.overflow = 'hidden';
-        return false;
-      }
-
-      //Turn scroll jacking on / off
-      if (this.scrollAutoCompletion) {
-        //Skip this on mobile
-        if (!SUPPORT_TOUCH) {
-          clearTimeout(this.scrollEndTimer);
-          // Prevent fire of scrollStop when coming from animation
-          if (this.isAnimating) {
-            this.previousScene = this.currentScene;
-          } else {
-            this.scrollEndTimer = setTimeout(() => {
-              // If scroll is strong enough to move to specific scene, do so.
-              // Otherwise, scroll to immediate next or immediate previous scene based on scrollDirection
-              if (this.previousScene === this.currentScene) {
-                const triggerNextScene = scrollDirection === 'down' ? this.goToNextScene.bind(this) : this.goToPrevScene.bind(this);
-                triggerNextScene();
-              } else {
-                this.goToScene(this.currentScene);
-              }
-            }, 200);
-          }
-        }
-      }
+      // //Turn scroll jacking on / off
+      // if (this.scrollAutoCompletion) {
+      //   //Skip this on mobile
+      //   if (!SUPPORT_TOUCH) {
+      //     clearTimeout(this.scrollEndTimer);
+      //     // Prevent fire of scrollStop when coming from animation
+      //     if (this.isAnimating) {
+      //       this.previousScene = this.currentScene;
+      //     } else {
+      //       this.scrollEndTimer = setTimeout(() => {
+      //         // If scroll is strong enough to move to specific scene, do so.
+      //         // Otherwise, scroll to immediate next or immediate previous scene based on scrollDirection
+      //         if (this.previousScene === this.currentScene) {
+      //           const triggerNextScene = scrollDirection === 'down' ? this.goToNextScene.bind(this) : this.goToPrevScene.bind(this);
+      //           triggerNextScene();
+      //         } else {
+      //           this.goToScene(this.currentScene);
+      //         }
+      //       }, 200);
+      //     }
+      //   }
+      // }
 
       const target = scrollEvent.target;
       const animationProgress = this.calculateAnimationProgress(target);
@@ -342,8 +333,6 @@ export class Showcase extends React.Component {
     let currentTimePosition = 0;
     const scrollHeight = this.container.scrollHeight;
 
-    console.log(this.container.scrollHeight)
-
     const segments = this.scrollPoints.map((scene, index) => {
       const top = scene.element.offsetTop;
       const height = scene.element.offsetHeight;
@@ -355,6 +344,7 @@ export class Showcase extends React.Component {
 
       if (index === this.scrollPoints.length - 1) {
         high = 1;
+        low = currentTimePosition;
       }
 
       if (index === 0) {
@@ -378,6 +368,13 @@ export class Showcase extends React.Component {
       currentTimePosition = currentTimePosition + timelinePercentage;
       return segmentMeta;
     });
+
+
+    const sceneSumHeight = segments.reduce((sum, val) => { return sum + parseInt(val.height); }, 0);
+    const diff = sceneSumHeight - scrollHeight;
+    console.log('Scenes total height: ', sceneSumHeight);
+    console.log('scrollheight: ', scrollHeight);
+    console.log('diff: ', diff);
 
     return segments;
   }
@@ -512,8 +509,9 @@ export class Showcase extends React.Component {
       this.currentScene = this.calculateCurrentScene();
     }
 
-    return (
+    console.log(this.state.animationProgress)
 
+    return (
       <div ref={ el => { this.wrapper = el; } } className="showcase__wrapper">
         <div ref={ (element) => { this.container = element; } } className="showcase">
 

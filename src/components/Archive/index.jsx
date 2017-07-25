@@ -48,13 +48,20 @@ export class Archive extends React.Component {
   }
 
   shouldComponentUpdate () {
-    return true;
-    // return this.animationInRange;
+    return this.animationInRange;
   }
 
   animateIn ({ target }) {
+
+    const element = target[0];
+    const height = element.offsetHeight;
+    const offset = window.outerHeight > height ? 0 : window.outerHeight - height;
+
+
+
+
     const tl = new TimelineMax();
-    tl.to(target[0], 1, { top: 0 });
+    tl.to(element, 1, { top: offset });
     tl.pause();
 
     return tl;
@@ -69,22 +76,12 @@ export class Archive extends React.Component {
     }
   }
 
-  watcherCallback (watcher) {
-    if (watcher.isFullyInViewport) {
-      const showcase = document.querySelector('.showcase');
-      showcase.scrollTop = showcase.scrollHeight;
-    }
-  };
-
   render () {
     const { imagesLoaded } = this.state;
+    console.log('archive: ', this.state.animationProgress)
 
     return (
       <section className="archive__wrapper" ref={ el => { this.container = el; this.props.onDidMount(el); } }>
-        <Watcher
-          autoStart={ false }
-          exitViewport={ this.watcherCallback.bind(this) }
-        />
         <div className="archive row" data-animationName="grid">
           <h1 className="typ--bold typ--center mb10">Selected work.</h1>
 

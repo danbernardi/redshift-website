@@ -26,6 +26,10 @@ html {
   z-index: 10;
 }
 
+.showcase > div {
+  border: 1px solid black;
+}
+
 .showcase__content {
   z-index: 5;
   position: fixed;
