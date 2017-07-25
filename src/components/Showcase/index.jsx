@@ -462,7 +462,7 @@ export class Showcase extends React.Component {
   }
 
   archive () {
-    return (<Archive />);
+    return (<Archive onReady={ this.setSceneMeta.bind(this) }/>);
   }
 
   createColorTransitionTimeline (target) {

@@ -64,6 +64,7 @@ export class Archive extends React.Component {
     const { imagesLoaded } = this.state;
 
     if (imagesLoaded === caseStudies.filter(cs => cs.gridThumbnail).length) {
+      this.props.onReady();
       this.isotope.layout();
     }
   }
