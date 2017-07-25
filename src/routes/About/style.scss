@@ -2,22 +2,12 @@
 
 .about--header {
   z-index: 7;
-  position: absolute;
   // bottom: 5rem;
   padding: 0;
   animation-duration: 1s;
   animation-name: slidein;
   left: 0;
-  // @include breakpoint($tablet-lg) {
-  //   bottom: 15%;
-  // }
-  // @include breakpoint($mobile-lg) {
-  //   display: flex;
-  //   flex-direction: column;
-  //   justify-content: center;
-  //   height: 100vh;
-  //   bottom: 0;
-  // }
+  // padding-bottom: 10rem;
   @media screen and (max-device-width: 1040px) and (orientation : landscape) {
     width: 50%;
     margin-left: 0;
@@ -30,7 +20,7 @@
   padding-bottom: 5rem;
   width: 50%;
   position: absolute;
-  bottom: -22rem;
+  bottom: -9rem;
   // media queries
   @include breakpoint($desktop-lg) {
     width: 65%
@@ -52,10 +42,6 @@
 .about--slideshow {
   overflow: hidden;
   position: relative;
-  padding-bottom: 10rem;
-  @include breakpoint($tablet-lg) {
-    padding-bottom: 18rem;
-  }
 }
 
 .about__hybrid--header {

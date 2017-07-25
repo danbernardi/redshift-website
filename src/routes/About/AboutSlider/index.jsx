@@ -39,24 +39,22 @@ class AboutSlides extends React.Component {
     };
 
     return (
-      <div className="about--slideshow">
-        <Slider
-          { ...settings }
-          ref={ c => { this.slider = c; } }
-          afterChange={ this.startTimeout.bind(this) }
-          beforeChange={ this.startTimeout.bind(this) }>
-          {
-            slideShow.map((s, i) => (
-              <div key={ i }>
-                <picture>
-                  <source srcSet={ require(`assets/img/about/slides/tablet/${s.imagePath}.jpg`) } media="(max-width: 1040px)" />
-                  <source srcSet={ require(`assets/img/about/slides/mobile/${s.imagePath}.jpg`) } media="(max-width: 767px)" />
-                  <img src={ require(`assets/img/about/slides/default/${s.imagePath}.jpg`) } alt="Redshift About" />
-                </picture>
-              </div>
-            ))
-          }
-        </Slider>
+      <div>
+        <div className="about--slideshow">
+          <Slider { ...settings }>
+            {
+              slideShow.map((s, i) => (
+                <div key={ i }>
+                  <picture>
+                    <source srcSet={ require(`assets/img/about/slides/tablet/${s.imagePath}.jpg`) } media="(max-width: 1040px)" />
+                    <source srcSet={ require(`assets/img/about/slides/mobile/${s.imagePath}.jpg`) } media="(max-width: 767px)" />
+                    <img src={ require(`assets/img/about/slides/default/${s.imagePath}.jpg`) } alt="Redshift About" />
+                  </picture>
+                </div>
+              ))
+            }
+          </Slider>
+        </div>
         <div className="row about--header" >
           <div className="row about--title">
             <h1 className="typ--bold typ--redshift pb2 pb1--mlg">About Redshift.</h1>
