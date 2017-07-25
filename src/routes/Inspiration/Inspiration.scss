@@ -1,28 +1,20 @@
 @import 'sass-includes';
 
-.inspiration__grid {
-  // column-count: 3;
-  // column-gap: 2rem;
-  width: calc(100% + 4rem);
-  margin-left: -2rem;
-  // min-height: calc(100vh - 40rem);
-  // position: relative;
-  // // media queries
-  // @include breakpoint($tablet-lg) {
-  //   column-count: 2;
-  // }
-
-  // @include breakpoint($mobile-lg) {
-  //   column-count: 1;
-  //   min-height: calc(100vh - 26rem);
-  // }
-}
 
 .inspiration__item {
-  // break-inside: avoid;
-  width: calc((100% / 3) - 2rem);
-  margin-bottom: 2rem;
+  width: calc((100% / 3) - 4rem);
+  margin-bottom: 4rem;
   float: left;
+  cursor: pointer;
+  transition: transform .2s ease-in-out;
+  z-index: 5;
+
+  @include breakpoint($tablet-lg) {
+    width: calc(50% - 4rem);
+  }
+  @include breakpoint($mobile-lg) {
+    width: 100%;
+  }
 
   .inspiration__link {
     border: 0.2rem solid transparent;
