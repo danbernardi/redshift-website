@@ -4,6 +4,9 @@ import { caseStudies } from 'data/caseStudies';
 import Isotope from 'isotope-layout';
 import FooterHome from 'components/Footer/FooterHome';
 import Watcher from 'components/Watcher';
+import { TimelineMax } from 'gsap';
+import GSAP from 'react-gsap-enhancer';
+import { isInRange } from 'utils/animation';
 import 'masonry-layout';
 import './Archive.scss';
 
@@ -11,9 +14,12 @@ export class Archive extends React.Component {
   constructor (props) {
     super(props);
 
+    this.timeline = null;
+    this.animationInRange = null;
     this.isotope;
     this.state = {
-      imagesLoaded: 0
+      imagesLoaded: 0,
+      animationProgress: 0
     };
   }
 
@@ -23,7 +29,34 @@ export class Archive extends React.Component {
       layoutMode: 'masonry'
     });
 
-    window.addEventListener('scroll', this.handleScroll.bind(this));
+    this.timeline = this.addAnimation(this.animateIn);
+  }
+
+  componentWillReceiveProps (nextProps) {
+    const { animationProgress } = nextProps;
+    this.animationInRange = isInRange(animationProgress, 0, 1);
+
+    if (isInRange(animationProgress, 0, 1)) {
+      this.setState({
+        animationProgress
+      }, () => {
+        this.timeline.progress(animationProgress);
+      });
+    } else {
+      this.timeline.progress(0);
+    }
+  }
+
+  shouldComponentUpdate () {
+    return this.animationInRange;
+  }
+
+  animateIn ({ target }) {
+    const tl = new TimelineMax();
+    tl.to(target[0], 1, { top: 0 });
+    tl.pause();
+
+    return tl;
   }
 
   componentDidUpdate () {
@@ -31,18 +64,6 @@ export class Archive extends React.Component {
 
     if (imagesLoaded === caseStudies.filter(cs => cs.gridThumbnail).length) {
       this.isotope.layout();
-    }
-  }
-
-  componentWillUnmount () {
-    window.removeEventListener('scroll', this.handleScroll.bind(this));
-  }
-
-  handleScroll () {
-    if (this.container) {
-      if (document.scrollingElement.scrollTop < this.container.getBoundingClientRect().top) {
-        document.querySelector('.showcase').style.overflow = 'auto';
-      }
     }
   }
 
@@ -57,7 +78,7 @@ export class Archive extends React.Component {
     const { imagesLoaded } = this.state;
 
     return (
-      <section className="archive__wrapper" ref={ el => { this.container = el; } }>
+      <section className="archive__wrapper" ref={ el => { this.container = el; this.props.onDidMount(el); } }>
         <Watcher
           autoStart={ false }
           exitViewport={ this.watcherCallback.bind(this) }
@@ -86,10 +107,10 @@ export class Archive extends React.Component {
             </div>
           </div>
         </div>
-        <div data-animationName="footer"><FooterHome /></div>
+        <FooterHome />
       </section>
     );
   }
 }
 
-export default Archive;
+export default GSAP()(Archive);

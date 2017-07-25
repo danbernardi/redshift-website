@@ -1,7 +1,7 @@
 import React from 'react';
 import Scene from './Scene';
 import Hero from 'routes/Home/Hero';
-import FooterHome from 'components/Footer/FooterHome';
+import Archive from 'components/Archive';
 import { connect } from 'react-redux';
 import Rx from 'rxjs/Rx';
 import { mapRange, isInRange } from 'utils/animation';
@@ -39,7 +39,7 @@ export class Showcase extends React.Component {
     this.scrollAutoCompletion = false;
 
     //Adding white for header and footer
-    this.colors = ['#FFFFFF'].concat(this.props.scenes.map((scene) => scene.color));
+    this.colors = ['#FFFFFF'].concat(this.props.scenes.map((scene) => scene.color)).concat('#FFFFFF');
 
     this.children = this.buildChildren();
     this.scrollPoints = [];
@@ -425,7 +425,8 @@ export class Showcase extends React.Component {
   buildChildren () {
     const children = React.Children.toArray([
       this.header(),
-      this.sections()
+      this.sections(),
+      this.archive()
     ]);
 
     return children.map((child, index) => React.cloneElement(child,
@@ -456,6 +457,10 @@ export class Showcase extends React.Component {
         { ...scene }
       />
     ));
+  }
+
+  archive () {
+    return (<Archive />);
   }
 
   createColorTransitionTimeline (target) {

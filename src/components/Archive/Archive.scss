@@ -8,7 +8,9 @@
 .archive__wrapper {
   z-index: 10;
   width: 100%;
-  position: relative;
+  top: 100%;
+  // position: relative;
+  position: fixed;
 }
 
 .archive {
