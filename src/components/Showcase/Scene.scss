@@ -25,11 +25,17 @@ html {
   background: transparent;
 }
 
-.hero {
+.showcase__wrapper .hero {
   position: fixed;
   top: 0;
   left: 0;
   pointer-events: none;
+
+  h1 {
+    @media (max-width: 767px) and (orientation: landscape) {
+      font-size: 3rem;
+    }
+  }
 }
 
 .showcase__content {
@@ -41,11 +47,6 @@ html {
   height: 100%;
 }
 
-.hero h1 {
-  @media (max-width: 767px) and (orientation: landscape) {
-    font-size: 3rem;
-  }
-}
 
 .scene {
   position: fixed;
