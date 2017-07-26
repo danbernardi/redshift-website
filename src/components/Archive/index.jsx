@@ -3,7 +3,6 @@ import { Link } from 'react-router';
 import { caseStudies } from 'data/caseStudies';
 import Isotope from 'isotope-layout';
 import FooterHome from 'components/Footer/FooterHome';
-import Watcher from 'components/Watcher';
 import { TimelineMax } from 'gsap';
 import GSAP from 'react-gsap-enhancer';
 import { isInRange } from 'utils/animation';
@@ -29,9 +28,7 @@ export class Archive extends React.Component {
       layoutMode: 'masonry'
     });
 
-    
     this.timeline = this.addAnimation(this.animateIn);
-    
   }
 
   componentWillReceiveProps (nextProps) {
@@ -54,12 +51,11 @@ export class Archive extends React.Component {
   }
 
   animateIn ({ target }) {
-
     const element = target[0];
     const height = element.offsetHeight;
-    // const offset = window.innerHeight > height ? 0 : window.innerHeight - height;
+    const offset = window.innerHeight > height ? 0 : window.innerHeight - height;
 
-    const offset = height * -1;
+    // const offset = height * -1;
 
     const tl = new TimelineMax();
     tl.to(element, 1, { top: offset });

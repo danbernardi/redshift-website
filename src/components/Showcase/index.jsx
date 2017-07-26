@@ -337,7 +337,7 @@ export class Showcase extends React.Component {
       const top = scene.element.offsetTop;
       const height = scene.element.offsetHeight;
       const center = top + (height / 2);
-      const timelinePercentage = height / scrollHeight; // divide by (scrollHeight - window.innerHeight) if there is no element after showcase
+      const timelinePercentage = height / (scrollHeight - window.innerHeight); // divide by (scrollHeight - window.innerHeight) if there is no element after showcase
       const outsetTime = timelinePercentage * 0.2;
       let low = currentTimePosition - outsetTime;
       let high = currentTimePosition + timelinePercentage + outsetTime;
@@ -424,8 +424,8 @@ export class Showcase extends React.Component {
   buildChildren () {
     const children = React.Children.toArray([
       this.header(),
-      this.sections(),
-      this.archive()
+      this.sections()
+      // this.archive()
     ]);
 
     return children.map((child, index) => React.cloneElement(child,
@@ -522,6 +522,7 @@ export class Showcase extends React.Component {
             })
           }
 
+          <Archive onDidMount={ (el) => { this.footer = el } } />
         </div>
         <div className="showcase__content">
           {
