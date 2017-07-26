@@ -41,7 +41,9 @@ svg {
 }
 
 .about--animation__container {
-  min-height: 60rem;
+  padding-top: 15rem;
+  float: left;
+  display: block;
 }
 
 // text and spacing
@@ -96,10 +98,6 @@ svg {
 }
 
 //explore
-.about__explore {
-  padding-top: 2.4rem;
-}
-
 .about__explore--text {
   position: relative;
   top: -1.5rem;
@@ -109,10 +107,6 @@ svg {
 }
 
 //experiment
-.about__experiment {
-  margin-top: 4rem;
-}
-
 .about__experiment--text {
   position: relative;
   top: -5.5rem;
@@ -120,20 +114,12 @@ svg {
 }
 
 //collaborate
-.about__collaborate {
-  padding-top: 3rem;
-}
-
 .about__collaborate--text {
   position: relative;
   top: -0.7rem;
 }
 
 //iterate
-.about__iterate {
-  padding-top: 6.3rem;
-}
-
 .about__iterate--text {
   text-align: right;
 }
