@@ -26,10 +26,6 @@ html {
   z-index: 10;
 }
 
-.showcase > div {
-  border: 1px solid black;
-}
-
 .showcase__content {
   z-index: 5;
   position: fixed;
@@ -55,6 +51,7 @@ html {
   &.scene__dummy {
     position: relative;
     width: 100%;
+    border-bottom: 1px solid black;
   }
 }
 

@@ -23,11 +23,6 @@ export class Archive extends React.Component {
   }
 
   componentDidMount () {
-    this.isotope = new Isotope(this.grid, {
-      itemSelector: '.archive__item',
-      layoutMode: 'masonry'
-    });
-
     this.timeline = this.addAnimation(this.animateIn);
   }
 
