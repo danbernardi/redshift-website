@@ -37,6 +37,18 @@
   }
 }
 
+.header__text {
+  transition: all 2s linear;
+  position: realtive;
+  top: -0.2rem;
+}
+
+// .header__logo:hover {
+//   .header__text {
+//     opacity: 1 !important;
+//   }
+// }
+
 .logo,
 .icon-hamburger {
   display: inline-block;
@@ -100,39 +112,12 @@
 
 .header__logo {
   cursor: pointer;
-  padding: 2rem;
+  padding: 2rem 0rem 2rem 2rem;
   position: relative;
   left: -2rem;
   top: -2rem;
 
   &.hovered {
-    // .icon-redshift { color: $redshift !important; }
     .page-title { color: $redshift !important; }
   }
 }
-
-// .modal--logo-close__swap {
-//   &.index {
-//     .icon-close {
-//       color: $white;
-//       // media queries
-//       @include breakpoint($mobile-lg) {
-//         color: $redshift;
-//       }
-//     }
-
-//     .page-title {
-//       display: none;
-//     }
-//   }
-
-//   &.careers {
-//     .icon-close {
-//       color: $white;
-//       // media queries
-//       @include breakpoint($mobile-lg) {
-//         color: $redshift;
-//       }
-//     }
-//   }
-// }

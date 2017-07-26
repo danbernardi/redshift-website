@@ -14,6 +14,11 @@ import GSAP from 'react-gsap-enhancer';
 import { TimelineMax } from 'gsap';
 
 export class Header extends React.Component {
+  constructor (props) {
+    super(props);
+    this.state = { redshift: false };
+  }
+
   componentDidMount () {
     if (location.pathname === '/') {
       this.timeline = this.addAnimation(this.animateIn);
@@ -77,6 +82,14 @@ export class Header extends React.Component {
     window.clearInterval(this.timer);
   }
 
+  addRedshift () {
+    this.setState({ redshift: true });
+  }
+
+  hideRedshift () {
+    this.setState({ redshift: false });
+  }
+
   render () {
     const { modalState, headerTheme } = this.props;
 
@@ -98,14 +111,18 @@ export class Header extends React.Component {
             onClick={ () => this.triggerRouteChange() }
             style={ Object.assign(initialStyles, logoTransformStyles) }
             className="header__logo layout--left"
-            >
+            onMouseEnter={ () => this.addRedshift() }
+            onMouseLeave={ () => this.hideRedshift() }
+          >
             <span className="logo">
               <span
-                className="icon-redshift pr2"
+                className="icon-redshift"
                 style={ { color: modalState.open && modalState.modalID === 'nav' && '#FFFFFF' } }
               />
             </span>
           </div>
+          <span className="header__text" style={ { opacity: this.state.redshift ? 1 : 0, transition: 'opacity 0.2s ease' } }><img src={ require('assets/img/redshift.svg') } alt="redshift" /></span>
+
           <div
             style={ Object.assign(initialStyles, logoTransformStyles) }
             onClick={ () => this.toggleHeaderModal() }
