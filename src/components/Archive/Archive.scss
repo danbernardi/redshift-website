@@ -11,17 +11,12 @@
 }
 
 .archive {
-  padding-top: 25rem;
   padding-bottom: 10rem;
   // media queries
   @include breakpoint($tablet-md) {
     padding-bottom: 4rem;
   }
-  @include breakpoint($mobile-lg) {
-    padding-top: 15rem;
-  }
   @include breakpoint($mobile-sm) {
-    padding-top: 5rem;
     padding-bottom: 0;
   }
 }
