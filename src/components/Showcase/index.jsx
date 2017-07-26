@@ -509,8 +509,6 @@ export class Showcase extends React.Component {
       this.currentScene = this.calculateCurrentScene();
     }
 
-    console.log(this.state.animationProgress)
-
     return (
       <div ref={ el => { this.wrapper = el; } } className="showcase__wrapper">
         <div ref={ (element) => { this.container = element; } } className="showcase">

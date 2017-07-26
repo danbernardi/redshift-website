@@ -24,7 +24,14 @@ export class Archive extends React.Component {
   }
 
   componentDidMount () {
+    this.isotope = new Isotope(this.grid, {
+      itemSelector: '.archive__item',
+      layoutMode: 'masonry'
+    });
+
+    
     this.timeline = this.addAnimation(this.animateIn);
+    
   }
 
   componentWillReceiveProps (nextProps) {
@@ -50,10 +57,9 @@ export class Archive extends React.Component {
 
     const element = target[0];
     const height = element.offsetHeight;
-    const offset = window.outerHeight > height ? 0 : window.outerHeight - height;
+    // const offset = window.innerHeight > height ? 0 : window.innerHeight - height;
 
-
-
+    const offset = height * -1;
 
     const tl = new TimelineMax();
     tl.to(element, 1, { top: offset });
