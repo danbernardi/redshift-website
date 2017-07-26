@@ -26,8 +26,7 @@ export class AboutHybrid extends React.Component {
         onUpdate: this.drawLine,
         onUpdateParams: [pathObject, line],
         immediateRender: true,
-        ease: Power2.easeOut,
-        autoKill: false
+        ease: Power2.easeOut
       }
     );
   };
@@ -66,8 +65,7 @@ export class AboutHybrid extends React.Component {
       .set(circle, { opacity: 1 }, `experiment+=${baseDuration / 2}`)
       .to(circle, baseDuration, {
         bezier: { values: hyPath, type: 'cubic' },
-        ease: CustomEase.create('custom', customEase[index]),
-        autoKill: false
+        ease: CustomEase.create('custom', customEase[index])
       },
       `experiment+=${baseDuration / 2}`);
     });
@@ -75,8 +73,7 @@ export class AboutHybrid extends React.Component {
     hyText.forEach((text, index) => {
       tl.to(text, baseDuration, {
         bezier: { values: hyPath2, type: 'cubic' },
-        ease: CustomEase.create('custom', customEase2[index]),
-        autoKill: false
+        ease: CustomEase.create('custom', customEase2[index])
       },
       `experiment+=${baseDuration / 2}`);
     });

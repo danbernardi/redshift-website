@@ -34,8 +34,7 @@ export class AboutExplore extends React.Component {
         onUpdate: this.drawLine,
         onUpdateParams: [pathObject, line],
         immediateRender: true,
-        ease: Power2.easeInOut,
-        autoKill: false
+        ease: Power2.easeInOut
       }
     );
   };
@@ -44,8 +43,7 @@ export class AboutExplore extends React.Component {
     return TweenMax
       .to(circle, speed, {
         bezier: { values: path, type: 'cubic' },
-        ease: Power2.easeInOut,
-        autoKill: false
+        ease: Power2.easeInOut
       }
     );
   };

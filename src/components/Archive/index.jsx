@@ -65,7 +65,10 @@ export class Archive extends React.Component {
     if (imagesLoaded.length === caseStudies.filter(cs => cs.gridThumbnail).length) {
       this.isotope = new Isotope(this.grid, {
         itemSelector: '.archive__item',
-        layoutMode: 'masonry'
+        layoutMode: 'masonry',
+        masonry: {
+          gutter: 20
+        }
       });
 
       this.props.onReady();

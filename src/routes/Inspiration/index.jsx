@@ -40,10 +40,7 @@ export class Inspiration extends React.Component {
       this.timeline.play();
       this.isotope = new Isotope(this.grid, {
         itemSelector: '.inspiration__item',
-        layoutMode: 'masonry',
-        masonry: {
-          gutter: 30
-        }
+        layoutMode: 'masonry'
       });
     }
   }
