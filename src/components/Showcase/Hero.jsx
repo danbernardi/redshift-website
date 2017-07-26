@@ -65,7 +65,7 @@ export class Hero extends React.Component {
     })
     .pause()
     .addPause(0)
-    .staggerTo([text, scroller], 0.5, { y: '-100vh', opacity: 0 }, 0.02);
+    .staggerTo([text, scroller], 0.2, { y: '-300vh', opacity: 0 }, 0.02);
   }
 
   render () {
