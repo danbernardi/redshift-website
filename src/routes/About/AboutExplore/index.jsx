@@ -52,16 +52,12 @@ export class AboutExplore extends React.Component {
 
   render () {
     return (
-      <section className="my8 mt0--mlg mb4--mlg">
-        <div className="about__animation-wrapper hide--tlg hero layout--fullheight layout--landscape">
+      <section>
+        <div className="about__animation-wrapper hide--tlg hero layout--landscape">
           <h1 className="typ--bold typ--redshift row">How we work.</h1>
           { this.animationItems.map((i, ind) => (
-            <div className={ `${i.class} about--animation__container` }>
-              <div
-                key={ ind }
-              >
-                { i.svgAnim }
-              </div>
+            <div className={ `${i.class} about--animation__container` } key={ ind }>
+              { i.svgAnim }
               <div className={ `${i.class}--text row col-12` }>
                 <h1 className={ `${i.colorClass} typ--bold mb2` }>
                   { i.title }
@@ -71,7 +67,7 @@ export class AboutExplore extends React.Component {
             </div>
           ))}
         </div>
-        <div className="show--tlg row">
+        <div className="about__wrapper show--tlg row">
           <h1 className="typ--bold typ--redshift">How we work.</h1>
           { this.animationItems.map((item, ti) => (
             <div key={ ti } className="mt6">

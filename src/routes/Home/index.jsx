@@ -51,6 +51,7 @@ export class Home extends React.Component {
       <div className="home">
         { location.pathname === '/' && <Loader /> }
         <Showcase scenes={ caseStudies.filter(cs => cs.featured) } />
+        {/* <div className="bg--white layout--relative"><Archive /></div> */}
       </div>
     );
   }

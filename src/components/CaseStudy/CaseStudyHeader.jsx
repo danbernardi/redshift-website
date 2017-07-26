@@ -23,10 +23,10 @@ export class CaseStudyHeader extends React.Component {
   }
 
   render () {
-    const { classes, content } = this.props;
+    const { content, color } = this.props;
 
     return (
-      <h1 className={ `${classes} typ--bold casestudy__title` }>
+      <h1 className="typ--bold casestudy__title" style={ { color } }>
         { content }
       </h1>
     );

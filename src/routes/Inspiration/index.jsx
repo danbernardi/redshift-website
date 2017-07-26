@@ -4,6 +4,8 @@ import './Inspiration.scss';
 import { ellipsisString } from 'utils/string';
 import PropTypes from 'prop-types';
 import { TimelineMax, Power2 } from 'gsap';
+import Isotope from 'isotope-layout';
+import 'masonry-layout';
 import GSAP from 'react-gsap-enhancer';
 
 export class Inspiration extends React.Component {
@@ -36,6 +38,10 @@ export class Inspiration extends React.Component {
   componentDidUpdate (prevProps, prevState) {
     if (prevState.loaded !== this.state.loaded) {
       this.timeline.play();
+      this.isotope = new Isotope(this.grid, {
+        itemSelector: '.inspiration__item',
+        layoutMode: 'masonry'
+      });
     }
   }
 
@@ -114,7 +120,7 @@ export class Inspiration extends React.Component {
         <div className="row row--maxwidth mb8 mb3--msm">
           <h1 className="typ--redshift typ--bold mb4 mt8 mt4--mlg mt0--msm mb3--tlg mb0--mlg">Be inspired. <br /> Here's what inspires us.</h1>
           <section className="pt9 pt6--tlg pt3--msm inspiration__grid">
-            <div className="inspiration__feed">{feedItems}</div>
+            <div className="inspiration__feed" ref={ el => { this.grid = el; } }>{feedItems}</div>
             <div className="inspiration__loader spinner">
               <div className="bounce1" />
               <div className="bounce2" />

@@ -52,11 +52,13 @@ class CaseStudySection extends React.Component {
         { video &&
           <div className={ `layout--relative video--${video.type}` }>
             <Builder scrollContainer={ scrollContainer }>
-              <picture className="video-image">
-                <source srcSet={ videoOverlay[video.type].def } media="(min-width: 1040px)" />
-                <source srcSet={ videoOverlay[video.type].tlg } media="(min-width: 767px)" />
-                <img src={ videoOverlay[video.type].mlg } className="full-image" alt={ video.type } />
-              </picture>
+              { video.type !== 'no-device' &&
+                <picture className="video-image">
+                  <source srcSet={ videoOverlay[video.type].def } media="(min-width: 1040px)" />
+                  <source srcSet={ videoOverlay[video.type].tlg } media="(min-width: 767px)" />
+                  <img src={ videoOverlay[video.type].mlg } className="full-image" alt={ video.type } />
+                </picture>
+              }
               <div className="video-container">
                 <video id={ `caseStudyVideo-${video.id}` } loop muted playsInline>
 

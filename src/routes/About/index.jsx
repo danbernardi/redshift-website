@@ -1,5 +1,4 @@
 import React from 'react';
-import AboutTitle from './AboutTitle';
 import AboutSlider from './AboutSlider';
 
 import AboutHybrid from './AboutHybrid';
@@ -56,7 +55,6 @@ export class About extends React.Component {
     return (
       <div>
         <AboutSlider />
-        <AboutTitle />
         <AboutHybrid />
         <AboutExplore />
         <AboutClients data={ clientData } />

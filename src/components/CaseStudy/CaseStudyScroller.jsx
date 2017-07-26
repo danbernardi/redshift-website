@@ -38,7 +38,7 @@ export class CaseStudyScroller extends React.Component {
 
     return (
       <section ref={ (el) => { this.casestudy = el; } } className={ `modal__with-sidebar ${caseStudyContent.id}` }>
-        <div className={ `job__sidebar bg--${caseStudyContent.id}` } ref={
+        <div className="job__sidebar" style={ { backgroundColor: caseStudyContent.color } } ref={
           (sidebar) => { this.sidebar = sidebar; }
         } />
         <div className="layout--relative ml8 ml1--mlg bg--white">
@@ -48,8 +48,8 @@ export class CaseStudyScroller extends React.Component {
             <div className="row">
               <div className="casestudy__heading layout--fullheight">
                 <CaseStudyHeader
-                  classes={ `typ--${caseStudyContent.id}` }
                   content={ caseStudyContent.heading }
+                  color={ caseStudyContent.color }
                 />
                 <div className="casestudy__scrollarrow">
                   <img src={ require('assets/img/down-arrow.svg') } alt="Scroll down" />
@@ -75,11 +75,11 @@ export class CaseStudyScroller extends React.Component {
                   style={ { display: 'block', bottom: 0, height: 'auto', opacity: 1 } }
                   className="casestudy__next"
                 >
-                  <div className={ `casestudy__next--sidebar bg--${nextCaseStudy.id}` } />
+                  <div className="casestudy__next--sidebar" style={ { backgroundColor: nextCaseStudy.color } } />
                   <div className="layout--relative ml8 ml1--mlg">
                     <div className="row">
                       <span ref={ (el) => { this.nextlabel = el; } } className="typ--light" style={ { overflow: 'hidden', display: 'block' } }>View next case study</span>
-                      <h2 ref={ (el) => { this.nextname = el; } } className={ `typ--${nextCaseStudy.id}` }>{ nextCaseStudy.name }</h2>
+                      <h2 ref={ (el) => { this.nextname = el; } } style={ { color: nextCaseStudy.color } }>{ nextCaseStudy.name }</h2>
                     </div>
                   </div>
                 </Link>

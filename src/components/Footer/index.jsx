@@ -14,6 +14,7 @@ export function Footer (props) {
           <FooterSocial />
         </div>
         <div className="contact-info layout--align-right">
+          <span><strong>Redshift</strong> is a design UX agency</span><br />
           <a
             href="https://www.google.com/maps/place/8+California+St,+San+Francisco,+CA+94111/@37.793838,-122.3989129,17z/data=!3m1!4b1!4m5!3m4!1s0x808580615b0ca361:0xc58b8a2deddd07ae!8m2!3d37.793838!4d-122.3967242"
             target="_blank"

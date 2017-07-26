@@ -2,22 +2,12 @@
 
 .about--header {
   z-index: 7;
-  position: absolute;
   // bottom: 5rem;
   padding: 0;
   animation-duration: 1s;
   animation-name: slidein;
   left: 0;
-  @include breakpoint($tablet-lg) {
-    bottom: 15%;
-  }
-  @include breakpoint($mobile-lg) {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 100vh;
-    bottom: 0;
-  }
+  // padding-bottom: 10rem;
   @media screen and (max-device-width: 1040px) and (orientation : landscape) {
     width: 50%;
     margin-left: 0;
@@ -28,189 +18,78 @@
   background-color: white;
   padding-top: 5rem;
   padding-bottom: 5rem;
+  width: 50%;
   position: absolute;
-  bottom: 8rem;
+  bottom: -9rem;
+  // media queries
+  @include breakpoint($desktop-lg) {
+    width: 65%
+  }
+
   @include breakpoint($tablet-lg) {
+    position: relative;
+    bottom: 0;
     padding-top: 2rem;
     padding-bottom: 2rem;
+    width: 100%;
   }
+
   @include breakpoint($mobile-lg) {
     padding-top: 1rem;
   }
 }
 
-.about--header_move {
-  animation-duration: 1s;
-  animation-name: slideout;
-  left: -100%;
-}
-
-@keyframes slideout {
-  from {
-    left: 0
-  }
-
-  to {
-    left: -100%
-  }
-}
-
-@keyframes slidein {
-  from {
-    left: -100%
-  }
-
-  to {
-    left: 0
-  }
-}
-
 .about--slideshow {
+  overflow: hidden;
   position: relative;
-   @include breakpoint($desktop-lg) {
-    padding-bottom: 10rem;
-  }
-  @include breakpoint($tablet-lg) {
-    padding-bottom: 5rem;
-  }
 }
 
 .about__hybrid--header {
   position: absolute;
   bottom: 0;
-}
-
-.about-explore--titles {
-  h1 {
-    cursor: pointer;
-    @include breakpoint($tablet-lg) {
-      cursor: default;
-    }
-  }
-  div:nth-child(1) h1 {
-    &:hover {
-      color: #FF2953;
-    }
-  }
-  div:nth-child(2) h1 {
-    &:hover {
-      color: #E4486F;
-    }
-  }
-  div:nth-child(3) h1{
-    &:hover {
-      color: #BF4498;
-    }
-  }
-  div:nth-child(4) h1 {
-    &:hover {
-      color: #B144A5;
-    }
-  }
-}
-
-.about__explore--text {
-  position: relative;
-  top: -1.5rem;
-  @include breakpoint($desktop-sm) {
-    top: -5.5rem;
-  }
-}
-
-.about__iterate--text {
-  text-align: right;
-}
-
-.about__experiment--text {
-  position: relative;
-  top: -5.5rem;
-  text-align: right;
-}
-
-.about__collaborate--text {
-  position: relative;
-  top: -5.5rem;
-}
-
-.about__video {
-  z-index: 8;
-  right: -5%;
-  top: 50%;
-  transform: translateY(-50%);
-  overflow: hidden;
-  width: 60rem;
-  height: 60rem;
-  border-radius: 50%;
-  // media queries
-  @include breakpoint($desktop-sm) {
-    width: calc(100vw - 60rem);
-    height: calc(100vw - 60rem);
-  }
-  @include breakpoint($tablet-lg) {
-    height: calc(100vw - 54rem);
-    width: calc(100vw - 54rem);
-  }
-  @include breakpoint($tablet-md) {
-    top: 38%;
-    right: -6%;
-    height: calc(100vw - 30rem);
-    width: calc(100vw - 30rem);
-  }
   @include breakpoint($mobile-lg) {
-    display: none;
+    position: relative;
+    padding-top: 6rem;
   }
-}
-
-.about__video video {
-  min-height: 100%;
-}
-
-.about__video--removemask {
-  width: 100% !important;
-  border-radius: 0;
-  right: 0;
-
-  video {
-    width: 100%;
-  }
+  // position: absolute;
+  // bottom: 0;
+  // @include breakpoint($mobile-lg) {
+  //   width: 90%;
+  // }
 }
 
 .about--transition {
   transition: all 0.4s ease-in;
 }
 
-.about--image {
-  display: flex;
-  height: 50%;
-  position: relative;
-  top: 12.5%;
-  left: -10px;
-  overflow: hidden;
-  width: 100vw;
-  padding-top: 10rem;
-  &.aboutExplore {
-    @media (max-width: 1220px) {
-      left: auto;
-      right: 10rem;
-    }
-  }
-}
-
-.about__clients {
-  background: $dark-grey;
-}
+// .about__clients {
+//   background: $dark-grey;
+// }
 
 .about section {
   position: relative;
 }
 
-.about--clients h2 {
-  width: 69%;
-  // media queries
+.about__clients {
+  padding-top: 20.6rem;
+  h1 {
+    text-align: center;
+    @include breakpoint($mobile-lg) {
+      text-align: left;
+    }
+  }
   @include breakpoint($mobile-lg) {
-    width: 100%;
+    padding-top: 8.6rem;
   }
 }
+
+// .about--clients h2 {
+//   width: 69%;
+//   // media queries
+//   @include breakpoint($mobile-lg) {
+//     width: 100%;
+//   }
+// }
 
 // Team
 .about {
@@ -386,12 +265,5 @@
     background-color: #ffffff;
     border-radius: 50%;
     padding: 1rem;
-  }
-}
-
-.about__animation-wrapper {
-  @media only screen and (max-height: 965px) {
-    height: auto;
-    min-height: 100rem;
   }
 }

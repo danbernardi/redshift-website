@@ -13,7 +13,6 @@ export class JobContactForm extends React.Component {
     const stateFileName = e.target.files[0].name;
     moreFiles.push(stateFileName + ' ');
     this.setState({ fileName: moreFiles });
-    console.log(moreFiles);
   }
 
   render () {

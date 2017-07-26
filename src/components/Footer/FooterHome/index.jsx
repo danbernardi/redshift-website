@@ -67,23 +67,12 @@ export class FooterHome extends React.Component {
     return (
       <section
         ref={ onDidMount }
-        className="FooterHome layout--fullheight"
+        className="footer__home"
       >
         <Footer
           key="footer"
           classes="footer__tall"
-        >
-          <div className="footer__center">
-            <div className="row">
-              <ul id="footer-menu" className="typ--bold">
-                <li onClick={ () => scrollDocToZero() }><h3 className="typ--h1"><Link className="typ--redshift" to="/about">About.</Link></h3></li>
-                <li onClick={ () => scrollDocToZero() }><h3 className="typ--h1" ><Link className="typ--redshift" to="/careers">Careers.</Link></h3></li>
-                <li onClick={ () => scrollDocToZero() }><h3 className="typ--h1"><Link className="typ--redshift" to="/inspiration">Inspiration.</Link></h3></li>
-                <li><h3 className="typ--h1"><Link className="typ--redshift" to="http://weareredshift.tumblr.com/" target="_blank">Blog.</Link></h3></li>
-              </ul>
-            </div>
-          </div>
-        </Footer>
+        />
       </section>
     );
   }
