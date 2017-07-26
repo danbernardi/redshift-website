@@ -155,7 +155,7 @@ export class Showcase extends React.Component {
    * @return {Number}        Returns a value between 0 and 1
    */
   calculateAnimationProgress (target) {
-    return mapRange(target.scrollTop, 0, target.scrollHeight - window.innerHeight, 0, 1);
+    return mapRange(target.scrollTop, 0, target.scrollHeight - this.footer.offsetHeight - window.innerHeight, 0, 1);
   }
 
   /**
@@ -337,14 +337,13 @@ export class Showcase extends React.Component {
       const top = scene.element.offsetTop;
       const height = scene.element.offsetHeight;
       const center = top + (height / 2);
-      const timelinePercentage = height / (scrollHeight - window.innerHeight); // divide by (scrollHeight - window.innerHeight) if there is no element after showcase
+      const timelinePercentage = height / (scrollHeight); // divide by (scrollHeight - window.innerHeight) if there is no element after showcase
       const outsetTime = timelinePercentage * 0.2;
       let low = currentTimePosition - outsetTime;
       let high = currentTimePosition + timelinePercentage + outsetTime;
 
       if (index === this.scrollPoints.length - 1) {
         high = 1;
-        low = currentTimePosition;
       }
 
       if (index === 0) {
@@ -517,12 +516,12 @@ export class Showcase extends React.Component {
             /* If the children have mounted, update the animation progress for each component */
             this.children.map((child, index) => {
               return (
-                <div key={ index } style={ { position: 'relative', width: '100%', height: this.sceneMeta.length ? this.sceneMeta[index].height : '100vh' } } />
+                <div className="scene scene__dummy" key={ index } />
               );
             })
           }
 
-          <Archive onDidMount={ (el) => { this.footer = el } } />
+          <Archive onDidMount={ (el) => { this.footer = el; } } />
         </div>
         <div className="showcase__content">
           {

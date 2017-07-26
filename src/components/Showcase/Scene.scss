@@ -46,13 +46,16 @@ html {
 }
 
 .scene {
-  // position: relative;
   position: fixed;
   top: 0;
   left: 0;
-  // overflow: hidden;
   color: $white;
   height: 100vh;
+
+  &.scene__dummy {
+    position: relative;
+    width: 100%;
+  }
 }
 
 .scene__cta {
