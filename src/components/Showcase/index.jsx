@@ -1,6 +1,6 @@
 import React from 'react';
 import Scene from './Scene';
-import Hero from 'routes/Home/Hero';
+import Hero from './Hero';
 import Archive from 'components/Archive';
 import { connect } from 'react-redux';
 import Rx from 'rxjs/Rx';

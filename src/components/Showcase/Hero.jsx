@@ -53,22 +53,19 @@ export class Hero extends React.Component {
   }
 
   createOutroTimeline ({ target }) {
-    const text2 = target.find({ 'data-animationName': 'text2' });
-    const scroller = target.find({ 'data-animationName': 'scroller' });
+    const text = target[0].querySelector('.hero__text');
+    const scroller = target[0].querySelector('.scrolltrigger');
 
     //Timeline progresses from 0 - 1
     //Pieces, delays and overlaps should total 1
     return new TimelineMax({
-      onUpdate: () => {
-        //Do stuff here
-      },
       onComplete: () => {
         this.complete = true;
       }
     })
     .pause()
-    .addPause(0.15)
-    .staggerTo([text2, scroller], 0.5, { opacity: 0 }, 0.02);
+    .addPause(0)
+    .staggerTo([text, scroller], 0.5, { y: '-100vh', opacity: 0 }, 0.02);
   }
 
   render () {
