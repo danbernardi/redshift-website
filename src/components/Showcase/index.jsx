@@ -73,7 +73,8 @@ export class Showcase extends React.Component {
     this.resizeObservable = Rx.Observable.fromEvent(window, 'resize').debounce(() => Rx.Observable.timer(700));
     this.resizeSubscription = this.resizeObservable.subscribe(() => {
       this.sceneMeta = this.setSceneMeta();
-      // this.goToScene(this.currentScene);
+      this.timeline = this.createColorTransitionTimeline(this.wrapper);
+      // this.goToScene(this.currentScene, false);
     });
   }
 
