@@ -34,12 +34,12 @@ export class Showcase extends React.Component {
 
   componentDidMount () {
     //Setup color transition
-    this.timeline = this.createColorTransitionTimeline(this.wrapper);
     this.createObservables(this.container);
 
     //Wait to get accurate height
     setTimeout(() => {
       this.sceneMeta = this.setSceneMeta();
+      this.timeline = this.createColorTransitionTimeline(this.wrapper);
       let sceneIndex = null;
 
       if (this.props.locationHistory.lastPath) {
@@ -90,10 +90,7 @@ export class Showcase extends React.Component {
       const target = scrollEvent.target;
       const animationProgress = this.calculateAnimationProgress(target);
       this.timeline.progress(animationProgress).pause();
-
-      this.setState({
-        animationProgress
-      });
+      this.setState({ animationProgress });
     });
   }
 
@@ -104,7 +101,7 @@ export class Showcase extends React.Component {
    * @return {Number}        Returns a value between 0 and 1
    */
   calculateAnimationProgress (target) {
-    return mapRange(target.scrollTop, 0, target.scrollHeight - this.footer.offsetHeight, 0, 1);
+    return mapRange(target.scrollTop, 0, target.scrollHeight - window.innerHeight, 0, 1);
   }
 
   /**
@@ -173,24 +170,24 @@ export class Showcase extends React.Component {
   createColorTransitionTimeline (target) {
     const tl = new TimelineMax();
 
-    const colorDuration = 1 / (this.colors.length / 2);
-
     const colorGrad = {
       top: this.colors[0],
       bottom: this.colors[0]
     };
 
-    this.colors.forEach((color, index) => {
-      tl.to(colorGrad, colorDuration, {
-        top: color,
-        bottom: color,
+    this.sceneMeta.forEach((meta, index) => {
+      const duration = (meta.bounds.high - meta.bounds.low) / 2;
+
+      tl.to(colorGrad, duration, {
+        top: this.colors[index],
+        bottom: this.colors[index],
         onUpdate: this.setGradient.bind(this),
         onUpdateParams: [target, colorGrad],
         ease: Power3.easeOut
       });
 
-      tl.to(colorGrad, colorDuration, {
-        top: color,
+      tl.to(colorGrad, duration, {
+        top: this.colors[index],
         bottom: this.colors[index + 1] || '#FFFFFF',
         onUpdate: this.setGradient.bind(this),
         onUpdateParams: [target, colorGrad],
@@ -386,19 +383,6 @@ export class Showcase extends React.Component {
 
     return (
       <div ref={ el => { this.wrapper = el; } } className="showcase__wrapper">
-        <div ref={ (element) => { this.container = element; } } className="showcase">
-
-          {
-            /* If the children have mounted, update the animation progress for each component */
-            this.children.map((child, index) => {
-              return (
-                <div className="scene scene__dummy" key={ index } />
-              );
-            })
-          }
-
-          <Archive onDidMount={ (el) => { this.footer = el; } } />
-        </div>
         <div className="showcase__content">
           {
             /* If the children have mounted, update the animation progress for each component */
@@ -415,6 +399,19 @@ export class Showcase extends React.Component {
             : this.children
           }
 
+        </div>
+        <div ref={ (element) => { this.container = element; } } className="showcase">
+
+          {
+            /* If the children have mounted, update the animation progress for each component */
+            this.children.map((child, index) => {
+              return (
+                <div className="scene scene__dummy" key={ index } />
+              );
+            })
+          }
+
+          <Archive onDidMount={ (el) => this.addScrollPoint(el, this.children.length) } />
         </div>
 
       </div>
