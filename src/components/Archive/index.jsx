@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import { caseStudies } from 'data/caseStudies';
 import Isotope from 'isotope-layout';
 import FooterHome from 'components/Footer/FooterHome';
+import GSAP from 'react-gsap-enhancer';
 import 'masonry-layout';
 import './Archive.scss';
 import PropTypes from 'prop-types';
@@ -19,18 +20,14 @@ export class Archive extends React.Component {
     };
   }
 
-  componentDidUpdate (prevProps, prevState) {
+  componentDidUpdate () {
     const { imagesLoaded } = this.state;
-    const { onReady } = this.props;
 
-    if ((prevState.imagesLoaded.length < imagesLoaded.length) &&
-         imagesLoaded.length === caseStudies.filter(cs => cs.gridThumbnail).length) {
+    if (imagesLoaded.length === caseStudies.filter(cs => cs.gridThumbnail).length) {
       this.isotope = new Isotope(this.grid, {
         itemSelector: '.archive__item',
         layoutMode: 'masonry'
       });
-
-      if (onReady instanceof Function) onReady();
     }
   }
 
@@ -91,4 +88,4 @@ Archive.propTypes = {
   onDidMount: PropTypes.func
 };
 
-export default Archive;
+export default GSAP()(Archive);
