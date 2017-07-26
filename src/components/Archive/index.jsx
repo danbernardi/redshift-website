@@ -3,11 +3,9 @@ import { Link } from 'react-router';
 import { caseStudies } from 'data/caseStudies';
 import Isotope from 'isotope-layout';
 import FooterHome from 'components/Footer/FooterHome';
-import { TimelineMax } from 'gsap';
-import GSAP from 'react-gsap-enhancer';
-import { isInRange } from 'utils/animation';
 import 'masonry-layout';
 import './Archive.scss';
+import PropTypes from 'prop-types';
 
 export class Archive extends React.Component {
   constructor (props) {
@@ -17,70 +15,36 @@ export class Archive extends React.Component {
     this.animationInRange = null;
     this.isotope;
     this.state = {
-      imagesLoaded: [],
-      animationProgress: 0
+      imagesLoaded: []
     };
   }
 
-  componentDidMount () {
-    this.timeline = this.addAnimation(this.animateIn);
-  }
+  componentDidUpdate (prevProps, prevState) {
+    const { imagesLoaded } = this.state;
+    const { onReady } = this.props;
 
-  componentWillReceiveProps (nextProps) {
-    const { animationProgress } = nextProps;
-    this.animationInRange = isInRange(animationProgress, 0, 1);
-
-    if (isInRange(animationProgress, 0, 1)) {
-      this.setState({
-        animationProgress
-      }, () => {
-        this.timeline.progress(animationProgress);
+    if ((prevState.imagesLoaded.length < imagesLoaded.length) &&
+         imagesLoaded.length === caseStudies.filter(cs => cs.gridThumbnail).length) {
+      this.isotope = new Isotope(this.grid, {
+        itemSelector: '.archive__item',
+        layoutMode: 'masonry'
       });
-    } else {
-      this.timeline.progress(0);
+
+      if (onReady instanceof Function) onReady();
     }
   }
 
   shouldComponentUpdate () {
-    return this.animationInRange;
-  }
-
-  animateIn ({ target }) {
-    const element = target[0];
-    const height = element.offsetHeight;
-    const offset = window.innerHeight > height ? 0 : window.innerHeight - height;
-
-    // const offset = height * -1;
-
-    const tl = new TimelineMax();
-    tl.to(element, 1, { top: offset });
-    tl.pause();
-
-    return tl;
-  }
-
-  componentDidUpdate () {
-    const { imagesLoaded } = this.state;
-
-    if (imagesLoaded.length === caseStudies.filter(cs => cs.gridThumbnail).length) {
-      this.isotope = new Isotope(this.grid, {
-        itemSelector: '.archive__item',
-        layoutMode: 'masonry',
-        masonry: {
-          gutter: 20
-        }
-      });
-
-      this.props.onReady();
-    }
+    return false;
   }
 
   loadImage (index) {
     const { imagesLoaded } = this.state;
-    const newImagesLoaded = imagesLoaded;
+    const newImagesLoaded = imagesLoaded.slice();
     newImagesLoaded.push(index);
 
     this.setState({ imagesLoaded: newImagesLoaded });
+    this.forceUpdate();
   }
 
   render () {
@@ -122,4 +86,9 @@ export class Archive extends React.Component {
   }
 }
 
-export default GSAP()(Archive);
+Archive.propTypes = {
+  onReady: PropTypes.func,
+  onDidMount: PropTypes.func
+};
+
+export default Archive;
