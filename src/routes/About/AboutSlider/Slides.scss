@@ -139,8 +139,11 @@
     right: 0;
   }
 
-  &:hover {
-    left: -1rem;
+  // disable hover below mobile
+  @include breakpoint($tablet-lg, min-width) {
+    &:hover {
+      left: -1rem;
+    }
   }
 }
 
@@ -153,8 +156,10 @@
     left: 0;
     right: auto;
   }
-
-  &:hover {
-    right: -1rem;
+  // disable hover below mobile
+  @include breakpoint($tablet-lg, min-width) {
+    &:hover {
+      right: -1rem;
+    }
   }
 }

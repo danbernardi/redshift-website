@@ -64,20 +64,24 @@
 
   a { display: block; }
 
-  &:hover {
-    transform: scale(1.15);
-    z-index: 6;
+  // disable hover below mobile
+  @include breakpoint($tablet-lg, min-width) {
+    &:hover {
+      transform: scale(1.15);
+      z-index: 6;
 
-    .archive__overlay {
-      height: 100%;
+      .archive__overlay {
+        height: 100%;
 
-      > div {
-        transform: none;
-        opacity: 1;
-        transition-delay: 0.1s;
+        > div {
+          transform: none;
+          opacity: 1;
+          transition-delay: 0.1s;
+        }
       }
     }
   }
+  
 
   img {
     display: block;
