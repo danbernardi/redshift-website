@@ -3,13 +3,12 @@
 
 .inspiration__item {
   width: calc((100% / 3) - 4rem);
-  margin-bottom: 4rem;
   float: left;
   cursor: pointer;
   transition: transform .2s ease-in-out;
   z-index: 5;
 
-  @include breakpoint($tablet-lg) {
+  @include breakpoint($desktop-sm) {
     width: calc(50% - 4rem);
   }
   @include breakpoint($mobile-lg) {
@@ -17,6 +16,7 @@
   }
 
   .inspiration__link {
+    margin: 2rem;
     border: 0.2rem solid transparent;
     padding: 3rem;
     background: $light-gray;
