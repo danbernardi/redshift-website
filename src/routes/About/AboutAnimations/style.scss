@@ -40,8 +40,8 @@ svg {
   opacity: 0;
 }
 
-.about--animation__container {
-  padding-top: 15rem;
+.about--work__container {
+  padding-top: 10rem;
   float: left;
   display: block;
 }
@@ -96,34 +96,3 @@ svg {
     }
   }
 }
-
-//explore
-.about__explore--text {
-  position: relative;
-  top: -1.5rem;
-  @include breakpoint($desktop-sm) {
-    top: -5.5rem;
-  }
-}
-
-//experiment
-.about__experiment--text {
-  position: relative;
-  top: -5.5rem;
-  text-align: right;
-}
-
-//collaborate
-.about__collaborate--text {
-  position: relative;
-  top: -0.7rem;
-}
-
-//iterate
-.about__iterate--text {
-  text-align: right;
-}
-
-
-
-
