@@ -109,11 +109,9 @@ export class Showcase extends React.Component {
    * This takes the "scenes" or page sections and saves them to an array
    * @param {Object} element DOM node
    */
-  addScrollPoint (element) {
+  addScrollPoint (element, index) {
     if (element && this.scrollPoints.indexOf(element) === -1) {
-      this.scrollPoints.push({
-        element
-      });
+      this.scrollPoints[index] = { element };
     };
   }
 
@@ -384,6 +382,19 @@ export class Showcase extends React.Component {
 
     return (
       <div ref={ el => { this.wrapper = el; } } className="showcase__wrapper">
+        <div ref={ (element) => { this.container = element; } } className="showcase">
+
+          {
+            /* If the children have mounted, update the animation progress for each component */
+            this.children.map((child, index) => {
+              return (
+                <div className="scene scene__dummy" key={ index } />
+              );
+            })
+          }
+
+          <Archive onDidMount={ (el) => this.addScrollPoint(el, this.children.length) } />
+        </div>
         <div className="showcase__content">
           {
             /* If the children have mounted, update the animation progress for each component */
@@ -401,19 +412,7 @@ export class Showcase extends React.Component {
           }
 
         </div>
-        <div ref={ (element) => { this.container = element; } } className="showcase">
-
-          {
-            /* If the children have mounted, update the animation progress for each component */
-            this.children.map((child, index) => {
-              return (
-                <div className="scene scene__dummy" key={ index } />
-              );
-            })
-          }
-
-          <Archive onDidMount={ (el) => this.addScrollPoint(el, this.children.length) } />
-        </div>
+        
 
       </div>
     );
