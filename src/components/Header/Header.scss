@@ -38,22 +38,26 @@
 }
 
 .header__text {
-  transition: all 2s linear;
+  transition: all 0.2s ease-in-out;
   position: realtive;
   top: -0.2rem;
 }
 
-// .header__logo:hover {
-//   .header__text {
-//     opacity: 1 !important;
-//   }
-// }
-
 .logo,
 .icon-hamburger {
   display: inline-block;
-  transition: transform 0.2s ease-in-out;
+  transition: transform 0.2s linear;
+}
 
+.header__logo {
+  &:hover {
+    .logo {
+      transform: scale(1.1);
+    }
+  }
+}
+
+.icon-hamburger {
   &:hover {
     transform: scale(1.1);
   }
