@@ -1,5 +1,6 @@
 import React from 'react';
 import GSAP from 'react-gsap-enhancer';
+import CustomEase from 'vendor/gsap-plugins/CustomEase';
 import { TimelineMax, Power3 } from 'gsap';
 import { isInRange } from 'utils/animation';
 import 'components/ScrollTrigger/ScrollTrigger.scss';
@@ -23,12 +24,12 @@ export class Hero extends React.Component {
   }
 
   shouldComponentUpdate (nextProps) {
-    return isInRange(nextProps.animationProgress, 0, 1);
+    return isInRange(nextProps.animationProgress, 0, 1.2);
   }
 
   componentWillReceiveProps (nextProps) {
     const { animationProgress } = nextProps;
-    if (isInRange(animationProgress, 0, 1)) {
+    if (isInRange(animationProgress, 0, 1.2)) {
       this.setState({
         animationProgress
       }, () => {
@@ -54,7 +55,6 @@ export class Hero extends React.Component {
 
   createOutroTimeline ({ target }) {
     const text = target[0].querySelector('.hero__text');
-    const scroller = target[0].querySelector('.scrolltrigger');
 
     //Timeline progresses from 0 - 1
     //Pieces, delays and overlaps should total 1
@@ -64,8 +64,7 @@ export class Hero extends React.Component {
       }
     })
     .pause()
-    .addPause(0)
-    .staggerTo([text, scroller], 0.2, { y: '-300vh', opacity: 0 }, 0.02);
+    .to(text, 1, { y: '-500vh', opacity: 0, ease: CustomEase.create('custom', 'M0,0 C0.282,0 0.79,0.698 1,1') });
   }
 
   render () {
