@@ -236,10 +236,10 @@
 }
 
 .casestudy__modal .modal__with-sidebar > div {
-  padding-bottom: 18.5rem;
+  padding-bottom: 17rem;
   // media queries
-  @include breakpoint($mobile-sm) {
-    padding-bottom: 13.5rem;
+  @include breakpoint($mobile-lg) {
+    padding-bottom: 11.4rem;
   }
 }
 
