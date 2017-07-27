@@ -30,7 +30,7 @@ export class Header extends React.Component {
     const menu = target[0].querySelector('.menu__trigger');
 
     return new TimelineMax({})
-      .staggerFrom([logo, menu], 0.55, { delay: 1.5, opacity: 0, y: -50 }, 0.15)
+      .staggerFrom([logo, menu], 0.55, { delay: 0.5, opacity: 0, y: -50 }, 0.15)
       .play();
   }
 
