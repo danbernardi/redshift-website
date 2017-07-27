@@ -14,7 +14,7 @@
       background: $white;
       // media queries
       @include breakpoint($mobile-lg) {
-        background: #000000;
+        background: $black;
       }
     }
   }
