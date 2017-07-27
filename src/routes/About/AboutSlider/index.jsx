@@ -13,6 +13,10 @@ class AboutSlides extends React.Component {
     };
   }
 
+  componentWillUnmount () {
+    clearTimeout(this.timer);
+  }
+
   startTimeout () {
     // If autoplay is working we reset timeout and it will never end up inside.
     clearTimeout(this.timer);
@@ -41,7 +45,12 @@ class AboutSlides extends React.Component {
     return (
       <div>
         <div className="about--slideshow">
-          <Slider { ...settings }>
+          <Slider
+            ref={ c => { this.slider = c; } }
+            afterChange={ this.startTimeout.bind(this) }
+            beforeChange={ this.startTimeout.bind(this) }
+            { ...settings }
+          >
             {
               slideShow.map((s, i) => (
                 <div key={ i }>
