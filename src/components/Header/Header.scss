@@ -50,16 +50,31 @@
 }
 
 .header__logo {
-  &:hover {
-    .logo {
-      transform: scale(1.1);
+  cursor: pointer;
+  padding: 2rem 0 2rem 2rem;
+  position: relative;
+  left: -2rem;
+  top: -2rem;
+
+  &.hovered {
+    .page-title { color: $redshift !important; }
+  }
+
+  @include breakpoint($tablet-lg, min-width) {
+    &:hover {
+      .logo {
+        transform: scale(1.1);
+      }
     }
   }
 }
 
 .icon-hamburger {
-  &:hover {
-    transform: scale(1.1);
+  // disable hover below mobile
+  @include breakpoint($tablet-lg, min-width) {
+    &:hover {
+      transform: scale(1.1);
+    }
   }
 }
 
@@ -113,16 +128,4 @@
   position: relative;
   right: -2rem;
   top: -2rem;
-}
-
-.header__logo {
-  cursor: pointer;
-  padding: 2rem 0rem 2rem 2rem;
-  position: relative;
-  left: -2rem;
-  top: -2rem;
-
-  &.hovered {
-    .page-title { color: $redshift !important; }
-  }
 }

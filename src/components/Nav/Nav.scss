@@ -51,7 +51,10 @@ _::-webkit-full-page-media, _:future, :root .nav__menu h1 {
     transform: translateY(4rem);
     transition: transform 0.18s ease-in-out, opacity 0.22s ease-in-out;
 
-    a:hover { color: $black; }
+    // disable hover below mobile
+    @include breakpoint($tablet-lg, min-width) {
+      a:hover { color: $black; }
+    }
 
     h1 {
       line-height: 1.2;

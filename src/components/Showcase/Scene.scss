@@ -175,8 +175,11 @@ html {
     transition: width 0.2s ease-in-out;
   }
 
-  &:hover:after {
-    width: 100%;
+  // disable hover below mobile
+  @include breakpoint($tablet-lg, min-width) {
+    &:hover:after {
+      width: 100%;
+    }
   }
 }
 
