@@ -22,6 +22,10 @@ class AboutSlides extends React.Component {
     }, 3200);
   }
 
+  endSlideTimeout () {
+    clearTimeout(this.timer);
+  }
+
   // App state
   render () {
     const settings = {
@@ -41,7 +45,12 @@ class AboutSlides extends React.Component {
     return (
       <div>
         <div className="about--slideshow">
-          <Slider { ...settings }>
+          <Slider
+            ref={ c => { this.slider = c; } }
+            afterChange={ this.startTimeout.bind(this) }
+            beforeChange={ this.startTimeout.bind(this) }
+            { ...settings }
+          >
             {
               slideShow.map((s, i) => (
                 <div key={ i }>
