@@ -221,7 +221,7 @@ export class Showcase extends React.Component {
   sceneWillUpdate (currentScene, nextScene) {
     const { dispatch } = this.props;
 
-    if (nextScene === 0) {
+    if (nextScene === 0 || nextScene === this.scrollPoints.length - 1) {
       dispatch(setHeaderTheme('pink'));
     } else {
       dispatch(setHeaderTheme('white'));
@@ -410,10 +410,7 @@ export class Showcase extends React.Component {
             /* We need to mount the children initially to get their height */
             : this.children
           }
-
         </div>
-        
-
       </div>
     );
   }
