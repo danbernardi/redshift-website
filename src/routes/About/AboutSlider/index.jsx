@@ -13,6 +13,10 @@ class AboutSlides extends React.Component {
     };
   }
 
+  componentWillUnmount () {
+    clearTimeout(this.timer);
+  }
+
   startTimeout () {
     // If autoplay is working we reset timeout and it will never end up inside.
     clearTimeout(this.timer);
@@ -20,10 +24,6 @@ class AboutSlides extends React.Component {
       // This will start play again, important here is to have a timeout that exceeds your "autoplaySpeed".
       this.slider.innerSlider.play();
     }, 3200);
-  }
-
-  endSlideTimeout () {
-    clearTimeout(this.timer);
   }
 
   // App state
