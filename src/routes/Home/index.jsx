@@ -3,7 +3,7 @@ import Showcase from 'components/Showcase';
 import { caseStudies } from 'data/caseStudies';
 import { connect } from 'react-redux';
 import * as actions from 'store/actions';
-import Loader from 'components/Loader';
+// import Loader from 'components/Loader';
 import CaseStudyModalWrapper from 'components/CaseStudy/CaseStudyModalWrapper';
 import PropTypes from 'prop-types';
 
@@ -49,7 +49,7 @@ export class Home extends React.Component {
   render () {
     return (
       <div className="home">
-        { location.pathname === '/' && <Loader /> }
+        {/* location.pathname === '/' && <Loader /> */}
         <Showcase scenes={ caseStudies.filter(cs => cs.featured) } />
         {/* <div className="bg--white layout--relative"><Archive /></div> */}
       </div>
