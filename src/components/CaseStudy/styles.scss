@@ -88,56 +88,54 @@
     bottom: 5rem;
   }
   2.5% { opacity: 1; }
+
   10% {
     opacity: 1;
     bottom: 2rem;
   }
+
   // 15% { opacity: 1; bottom: 8rem; }
   25% {
     opacity: 1;
     bottom: 4rem;
   }
+
   35% {
     opacity: 1;
     bottom: 2rem;
   }
+
   // 40% { opacity: 1; bottom: 8rem; }
   47.5% {
     opacity: 1;
     bottom: 3rem;
   }
+
   // 52.5% { opacity: 1; bottom: 9rem;}
   60% {
     opacity: 1;
     bottom: 2rem;
   }
+
   // 65% { opacity: 1; bottom: 8rem; }
   75% {
     opacity: 1;
     bottom: 4rem;
   }
+
   // 85% { opacity: 1; bottom: 8rem; }
   90% {
     opacity: 1;
     bottom: 2rem;
   }
+
   99.5% {
     opacity: 0;
   }
+
   90% {
     bottom: 0;
     opacity: 0;
-  }
-}
-
-.casestudy__next--sidebar {
-  width: 8rem;
-  height: 100%;
-  float: left;
-  position: absolute;
-  // media queries
-  @include breakpoint($mobile-lg) {
-    width: 1rem;
   }
 }
 
@@ -150,8 +148,9 @@
 }
 
 .casestudy__next {
+  border-left: 8rem solid;
   background-color: $light-gray;
-  min-height: 17.2rem;
+  // min-height: 17.2rem;
   cursor: pointer;
   width: calc(100% + 8rem);
   bottom: 0;
@@ -160,16 +159,20 @@
   z-index: 1;
   // media queries
   @include breakpoint($mobile-lg) {
-    min-height: 11.5rem;
+    border-left: 1rem solid;
+    // min-height: 11.5rem;
+    // position: fixed;
     width: calc(100% + 1rem);
     left: -1rem;
   }
 
   .row {
-    top: 5.3rem;
+    padding-top: 5.3rem;
+    padding-bottom: 5.3rem;
     // media queries
     @include breakpoint($mobile-lg) {
-      top: 3.3rem;
+      padding-top: 3.3rem;
+      padding-bottom: 3.3rem;
     }
   }
 }

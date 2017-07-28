@@ -6,10 +6,10 @@ import { ScrollContainer } from 'scrollmonitor-react';
 import mojs from 'mo-js';
 import Builder from 'components/Builder';
 import CaseStudyHeader from './CaseStudyHeader';
+import PropTypes from 'prop-types';
 
 export class CaseStudyScroller extends React.Component {
   componentDidMount () {
-    const { passRefsToParent } = this.props;
     const sidebar = this.sidebar;
 
     const sidebarAnimation = new mojs.Tween({
@@ -22,15 +22,6 @@ export class CaseStudyScroller extends React.Component {
     });
 
     sidebarAnimation.play();
-
-    if (passRefsToParent instanceof Function) {
-      passRefsToParent({
-        name: this.name,
-        next: this.next,
-        nextname: this.nextname,
-        nextlabel: this.nextlabel
-      });
-    }
   }
 
   render () {
@@ -68,28 +59,43 @@ export class CaseStudyScroller extends React.Component {
           </div>
 
           { nextCaseStudy && typeof nextCaseStudy === 'object' &&
-            <Measure onMeasure={ dimensions => { this.setState({ dimensions }); } }>
-              <div ref={ (el) => { this.next = el; } }>
-                <Link
-                  to={ `/work/${nextCaseStudy.id}` }
-                  style={ { display: 'block', bottom: 0, height: 'auto', opacity: 1 } }
-                  className="casestudy__next"
-                >
-                  <div className="casestudy__next--sidebar" style={ { backgroundColor: nextCaseStudy.color } } />
-                  <div className="layout--relative ml8 ml1--mlg">
-                    <div className="row">
-                      <span ref={ (el) => { this.nextlabel = el; } } className="typ--light" style={ { overflow: 'hidden', display: 'block' } }>View next case study</span>
-                      <h2 ref={ (el) => { this.nextname = el; } } style={ { color: nextCaseStudy.color } }>{ nextCaseStudy.name }</h2>
-                    </div>
+            <div>
+              <Link
+                to={ `/work/${nextCaseStudy.id}` }
+                style={ {
+                  display: 'block',
+                  bottom: 0,
+                  height: 'auto',
+                  opacity: 1,
+                  borderColor: nextCaseStudy.color
+                } }
+                className="casestudy__next"
+              >
+                <div className="layout--relative">
+                  <div className="row">
+                    <span
+                      className="casestudy__next__label typ--light"
+                      style={ { overflow: 'hidden', display: 'block' } }
+                    >View next case study</span>
+                    <h2
+                      className="casestudy__next__name"
+                      style={ { color: nextCaseStudy.color } }
+                    >{ nextCaseStudy.name }</h2>
                   </div>
-                </Link>
-              </div>
-            </Measure>
+                </div>
+              </Link>
+            </div>
           }
         </div>
       </section>
     );
   }
 }
+
+CaseStudyScroller.propTypes = {
+  caseStudyContent: PropTypes.object,
+  nextCaseStudy: PropTypes.object,
+  scrollContainer: PropTypes.object
+};
 
 export default ScrollContainer(CaseStudyScroller);
