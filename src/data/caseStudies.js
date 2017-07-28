@@ -13,22 +13,22 @@ export const caseStudies = [
     name: 'Kaiser Permanente',
     color: '#1FB4E7',
     // shortDescription: 'Sed posuere consectetur est at lobortis',
-    // gridThumbnail: require('assets/img/case-studies/kaiser/grid-thumbnail.jpg'),
+    // gridThumbnail: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/kaiser/grid-thumbnail.jpg',
     device: {
       shadow: { component: <KaiserShadow /> },
-      body: require('assets/img/case-studies/kaiser/kaiser_body.svg'),
-      overlay: require('assets/img/case-studies/kaiser/kaiser_overlay.png'),
-      overlaytlg: require('assets/img/case-studies/kaiser/kaiser_overlay_tlg.png'),
-      overlaymlg: require('assets/img/case-studies/kaiser/kaiser_overlay_mlg.png')
+      body: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/kaiser/kaiser_body.svg',
+      overlay: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/kaiser/kaiser_overlay.png',
+      overlaytlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/kaiser/kaiser_overlay_tlg.png',
+      overlaymlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/kaiser/kaiser_overlay_mlg.png'
     },
     heading: 'Kaiser Permanente has partnered with Redshift to create an entirely new digital healthcare experience—one that puts the patient in charge.',
     content: [
       {
         images:
         {
-          imgDef: require('assets/img/home/KP/kp4.jpg'),
-          imgTlg: require('assets/img/home/KP/kp4_tlg.jpg'),
-          imgMlg: require('assets/img/home/KP/kp4_mlg.jpg')
+          imgDef: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/KP/kp4.jpg',
+          imgTlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/KP/kp4_tlg.jpg',
+          imgMlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/KP/kp4_mlg.jpg'
         },
         imgAlt: 'Kaiser Permanente 1',
         copy: [
@@ -41,9 +41,9 @@ export const caseStudies = [
       {
         images:
         {
-          imgDef: require('assets/img/home/KP/kp5.jpg'),
-          imgTlg: require('assets/img/home/KP/kp5_tlg.jpg'),
-          imgMlg: require('assets/img/home/KP/kp5_mlg.jpg')
+          imgDef: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/KP/kp5.jpg',
+          imgTlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/KP/kp5_tlg.jpg',
+          imgMlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/KP/kp5_mlg.jpg'
         },
         imgAlt: 'Kaiser Permanente 2',
         copy: [
@@ -56,9 +56,9 @@ export const caseStudies = [
       {
         images:
         {
-          imgDef: require('assets/img/home/KP/kp6.jpg'),
-          imgTlg: require('assets/img/home/KP/kp6_tlg.jpg'),
-          imgMlg: require('assets/img/home/KP/kp6_mlg.jpg')
+          imgDef: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/KP/kp6.jpg',
+          imgTlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/KP/kp6_tlg.jpg',
+          imgMlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/KP/kp6_mlg.jpg'
         },
         imgAlt: 'Kaiser Permanente 3',
         copy: [
@@ -71,9 +71,9 @@ export const caseStudies = [
       {
         images:
         {
-          imgDef: require('assets/img/home/KP/kp3.jpg'),
-          imgTlg: require('assets/img/home/KP/kp3_tlg.jpg'),
-          imgMlg: require('assets/img/home/KP/kp3_mlg.jpg')
+          imgDef: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/KP/kp3.jpg',
+          imgTlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/KP/kp3_tlg.jpg',
+          imgMlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/KP/kp3_mlg.jpg'
         },
         imgAlt: 'Kaiser Permanente 4',
         copy: [
@@ -86,9 +86,9 @@ export const caseStudies = [
       {
         images:
         {
-          imgDef: require('assets/img/home/KP/kp7.jpg'),
-          imgTlg: require('assets/img/home/KP/kp7_tlg.jpg'),
-          imgMlg: require('assets/img/home/KP/kp7_mlg.jpg')
+          imgDef: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/KP/kp7.jpg',
+          imgTlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/KP/kp7_tlg.jpg',
+          imgMlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/KP/kp7_mlg.jpg'
         },
         imgAlt: 'Kaiser Permanente 5',
         copy: [
@@ -115,12 +115,12 @@ export const caseStudies = [
     name: 'Norton Online',
     color: '#FFC300',
     // shortDescription: 'Sed posuere consectetur est at lobortis',
-    // gridThumbnail: require('assets/img/case-studies/norton/grid-thumbnail.jpg'),
+    // gridThumbnail: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/norton/grid-thumbnail.jpg',
     device: {
       shadow: { component: <NortonShadow /> },
-      body: require('assets/img/case-studies/norton/norton_body.svg'),
-      overlay: require('assets/img/case-studies/norton/norton_overlay.png'),
-      overlaymlg: require('assets/img/case-studies/norton/norton_overlay_mlg.png')
+      body: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/norton/norton_body.svg',
+      overlay: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/norton/norton_overlay.png',
+      overlaymlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/norton/norton_overlay_mlg.png'
     },
     caption: ['A single interface', 'for all things Norton'],
     featured: true,
@@ -151,9 +151,9 @@ export const caseStudies = [
       {
         images:
         {
-          imgDef: require('assets/img/home/Norton/norton6.jpg'),
-          imgTlg: require('assets/img/home/Norton/norton6_tlg.jpg'),
-          imgMlg: require('assets/img/home/Norton/norton6_mlg.jpg')
+          imgDef: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/Norton/norton6.jpg',
+          imgTlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/Norton/norton6_tlg.jpg',
+          imgMlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/Norton/norton6_mlg.jpg'
         },
         imgAlt: 'Norton Online 7',
         copy: [
@@ -166,9 +166,9 @@ export const caseStudies = [
       {
         images:
         {
-          imgDef: require('assets/img/home/Norton/norton1.jpg'),
-          imgTlg: require('assets/img/home/Norton/norton1_tlg.jpg'),
-          imgMlg: require('assets/img/home/Norton/norton1_mlg.jpg')
+          imgDef: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/Norton/norton1.jpg',
+          imgTlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/Norton/norton1_tlg.jpg',
+          imgMlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/Norton/norton1_mlg.jpg'
         },
         copy: [
           {
@@ -180,9 +180,9 @@ export const caseStudies = [
       {
         images:
         {
-          imgDef: require('assets/img/home/Norton/norton8.jpg'),
-          imgTlg: require('assets/img/home/Norton/norton8_tlg.jpg'),
-          imgMlg: require('assets/img/home/Norton/norton8_mlg.jpg')
+          imgDef: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/Norton/norton8.jpg',
+          imgTlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/Norton/norton8_tlg.jpg',
+          imgMlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/Norton/norton8_mlg.jpg'
         },
         copy: [
           {
@@ -200,15 +200,15 @@ export const caseStudies = [
     color: '#3AD283',
     name: 'Google Nexus',
     // shortDescription: 'Sed posuere consectetur est at lobortis',
-    // gridThumbnail: require('assets/img/case-studies/nexus/grid-thumbnail.jpg'),
+    // gridThumbnail: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/nexus/grid-thumbnail.jpg',
     device: {
       shadow: { component: <NexusShadow /> },
-      body: require('assets/img/case-studies/nexus/nexus_body.svg'),
-      overlay: require('assets/img/case-studies/nexus/nexus_overlay.png'),
-      // shadowmlg: require('assets/img/case-studies/nexus/nexus_shadow-mlg.svg'),
-      // bodymlg: require('assets/img/case-studies/nexus/nexus_body-mlg.svg'),
-      overlaytlg: require('assets/img/case-studies/nexus/nexus_overlay_tlg.png'),
-      overlaymlg: require('assets/img/case-studies/nexus/nexus_overlay_mlg.png')
+      body: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/nexus/nexus_body.svg',
+      overlay: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/nexus/nexus_overlay.png',
+      // shadowmlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/nexus/nexus_shadow-mlg.svg',
+      // bodymlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/nexus/nexus_body-mlg.svg',
+      overlaytlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/nexus/nexus_overlay_tlg.png',
+      overlaymlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/nexus/nexus_overlay_mlg.png'
     },
     caption: ['A new home', 'for Google Nexus'],
     featured: true,
@@ -231,9 +231,9 @@ export const caseStudies = [
       {
         images:
         {
-          imgDef: require('assets/img/home/Nexus/nexus6.jpg'),
-          imgTlg: require('assets/img/home/Nexus/nexus6_tlg.jpg'),
-          imgMlg: require('assets/img/home/Nexus/nexus6_mlg.jpg')
+          imgDef: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/Nexus/nexus6.jpg',
+          imgTlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/Nexus/nexus6_tlg.jpg',
+          imgMlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/Nexus/nexus6_mlg.jpg'
         },
         imgAlt: 'Google Nexus 2',
         copy: [
@@ -246,9 +246,9 @@ export const caseStudies = [
       {
         images:
         {
-          imgDef: require('assets/img/home/Nexus/nexus7.jpg'),
-          imgTlg: require('assets/img/home/Nexus/nexus7_tlg.jpg'),
-          imgMlg: require('assets/img/home/Nexus/nexus7_mlg.jpg')
+          imgDef: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/Nexus/nexus7.jpg',
+          imgTlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/Nexus/nexus7_tlg.jpg',
+          imgMlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/Nexus/nexus7_mlg.jpg'
         },
         imgAlt: 'Google Nexus 3',
         classes: 'mb10',
@@ -262,9 +262,9 @@ export const caseStudies = [
       {
         images:
         {
-          imgDef: require('assets/img/home/Nexus/nexus8.jpg'),
-          imgTlg: require('assets/img/home/Nexus/nexus8_tlg.jpg'),
-          imgMlg: require('assets/img/home/Nexus/nexus8_mlg.jpg')
+          imgDef: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/Nexus/nexus8.jpg',
+          imgTlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/Nexus/nexus8_tlg.jpg',
+          imgMlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/Nexus/nexus8_mlg.jpg'
         },
         imgAlt: 'Google Nexus 4',
         classes: 'mt5',
@@ -284,13 +284,13 @@ export const caseStudies = [
     name: 'Yumavore',
     color: '#FF765C',
     // shortDescription: 'Sed posuere consectetur est at lobortis',
-    // gridThumbnail: require('assets/img/case-studies/yumavore/grid-thumbnail.jpg'),
+    // gridThumbnail: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/yumavore/grid-thumbnail.jpg',
     device: {
       shadow: { component: <YumavoreShadow /> },
-      body: require('assets/img/case-studies/yumavore/yumavore_body.svg'),
-      overlay: require('assets/img/case-studies/yumavore/yumavore_overlay.png'),
-      overlaytlg: require('assets/img/case-studies/yumavore/yumavore_overlay_tlg.png'),
-      overlaymlg: require('assets/img/case-studies/yumavore/yumavore_overlay_mlg.png')
+      body: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/yumavore/yumavore_body.svg',
+      overlay: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/yumavore/yumavore_overlay.png',
+      overlaytlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/yumavore/yumavore_overlay_tlg.png',
+      overlaymlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/yumavore/yumavore_overlay_mlg.png'
     },
     caption: ['A new way to create', 'and share recipes'],
     featured: true,
@@ -313,9 +313,9 @@ export const caseStudies = [
       {
         images:
         {
-          imgDef: require('assets/img/home/Yumavore/yumavore7.jpg'),
-          imgTlg: require('assets/img/home/Yumavore/yumavore7_tlg.jpg'),
-          imgMlg: require('assets/img/home/Yumavore/yumavore7_mlg.jpg')
+          imgDef: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/Yumavore/yumavore7.jpg',
+          imgTlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/Yumavore/yumavore7_tlg.jpg',
+          imgMlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/Yumavore/yumavore7_mlg.jpg'
         },
         imgAlt: 'Yumavore 2',
         copy: [
@@ -328,9 +328,9 @@ export const caseStudies = [
       {
         images:
         {
-          imgDef: require('assets/img/home/Yumavore/yumavore8.jpg'),
-          imgTlg: require('assets/img/home/Yumavore/yumavore8_tlg.jpg'),
-          imgMlg: require('assets/img/home/Yumavore/yumavore8_mlg.jpg')
+          imgDef: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/Yumavore/yumavore8.jpg',
+          imgTlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/Yumavore/yumavore8_tlg.jpg',
+          imgMlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/Yumavore/yumavore8_mlg.jpg'
         },
         imgAlt: 'Yumavore 8',
         copy: [
@@ -343,9 +343,9 @@ export const caseStudies = [
       {
         images:
         {
-          imgDef: require('assets/img/home/Yumavore/yumavore4.jpg'),
-          imgTlg: require('assets/img/home/Yumavore/yumavore4_tlg.jpg'),
-          imgMlg: require('assets/img/home/Yumavore/yumavore4_mlg.jpg')
+          imgDef: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/Yumavore/yumavore4.jpg',
+          imgTlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/Yumavore/yumavore4_tlg.jpg',
+          imgMlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/Yumavore/yumavore4_mlg.jpg'
         },
         imgAlt: 'Yumavore 4',
         copy: [
@@ -358,15 +358,15 @@ export const caseStudies = [
       {
         images:
         {
-          imgDef: require('assets/img/home/Yumavore/yumavore5.jpg'),
-          imgTlg: require('assets/img/home/Yumavore/yumavore5.jpg'),
-          imgMlg: require('assets/img/home/Yumavore/yumavore5.jpg')
+          imgDef: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/Yumavore/yumavore5.jpg',
+          imgTlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/Yumavore/yumavore5.jpg',
+          imgMlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/Yumavore/yumavore5.jpg'
         }
       },
       {
         containerClass: 'typ--center',
         copy: [{
-          src: require('assets/img/home/Yumavore/yumavore6.jpg'),
+          src: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/Yumavore/yumavore6.jpg',
           classes: 'casestudy__text typ--h3',
           text: 'Yumavore is available in the app store, featuring user-created content from thousands of professional and home chefs.'
         },
@@ -385,12 +385,12 @@ export const caseStudies = [
     name: 'Five',
     color: '#936FEE',
     // shortDescription: 'Sed posuere consectetur est at lobortis',
-    // gridThumbnail: require('assets/img/case-studies/five/grid-thumbnail.jpg'),
+    // gridThumbnail: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/five/grid-thumbnail.jpg',
     device: {
       shadow: { component: <FiveShadow /> },
-      body: require('assets/img/case-studies/five/five_body.svg'),
-      overlay: require('assets/img/case-studies/five/five_overlay.png'),
-      overlaymlg: require('assets/img/case-studies/five/five_overlay_mlg.png')
+      body: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/five/five_body.svg',
+      overlay: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/five/five_overlay.png',
+      overlaymlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/five/five_overlay_mlg.png'
     },
     caption: ['Share and compare', 'your top 5 of anything'],
     featured: true,
@@ -413,9 +413,9 @@ export const caseStudies = [
       {
         images:
         {
-          imgDef: require('assets/img/home/Five/five1.jpg'),
-          imgTlg: require('assets/img/home/Five/five1_tlg.jpg'),
-          imgMlg: require('assets/img/home/Five/five1_mlg.jpg')
+          imgDef: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/Five/five1.jpg',
+          imgTlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/Five/five1_tlg.jpg',
+          imgMlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/Five/five1_mlg.jpg'
         },
         imgAlt: 'Five 2',
         copy: [
@@ -442,9 +442,9 @@ export const caseStudies = [
       {
         images:
         {
-          imgDef: require('assets/img/home/Five/five4.jpg'),
-          imgTlg: require('assets/img/home/Five/five4_tlg.jpg'),
-          imgMlg: require('assets/img/home/Five/five4_mlg.jpg')
+          imgDef: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/Five/five4.jpg',
+          imgTlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/Five/five4_tlg.jpg',
+          imgMlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/Five/five4_mlg.jpg'
         },
         imgAlt: 'Five 4',
         copy: [
@@ -456,7 +456,7 @@ export const caseStudies = [
       {
         containerClass: 'typ--center',
         copy: [{
-          src: require('assets/img/home/Five/five5.jpg'),
+          src: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/Five/five5.jpg',
           classes: 'casestudy__text typ--h3',
           text: 'Be one of the first to try out the new app. It just might become one of your top five favorites!'
         },
@@ -475,51 +475,51 @@ export const caseStudies = [
     name: 'Google Fiber',
     color: '#89CA78',
     shortDescription: 'A companion app for an experimental retail space.',
-    gridThumbnail: require('assets/img/case-studies/google-fiber/grid-thumbnail.jpg'),
+    gridThumbnail: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/google-fiber/grid-thumbnail.jpg',
     heading: 'Redshift was tasked with creating personal mobile experience to support the Google Fiber retail spaces. It helped visitors get the most out of the Google Fiber space while also allowing them to experience the delight that only Google can provide.',
     content: [
       {
         images:
         {
-          imgDef: require('assets/img/home/archive/Google/GF1.jpg'),
-          imgTlg: require('assets/img/home/archive/Google/GF1_tlg.jpg'),
-          imgMlg: require('assets/img/home/archive/Google/GF1_mlg.jpg')
+          imgDef: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/Google/GF1.jpg',
+          imgTlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/Google/GF1_tlg.jpg',
+          imgMlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/Google/GF1_mlg.jpg'
         },
         imgAlt: 'Google Fiber 1'
       },
       {
         images:
         {
-          imgDef: require('assets/img/home/archive/Google/GF2.jpg'),
-          imgTlg: require('assets/img/home/archive/Google/GF2_tlg.jpg'),
-          imgMlg: require('assets/img/home/archive/Google/GF2_mlg.jpg')
+          imgDef: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/Google/GF2.jpg',
+          imgTlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/Google/GF2_tlg.jpg',
+          imgMlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/Google/GF2_mlg.jpg'
         },
         imgAlt: 'Google Fiber 2'
       },
       {
         images:
         {
-          imgDef: require('assets/img/home/archive/Google/GF3.jpg'),
-          imgTlg: require('assets/img/home/archive/Google/GF3_tlg.jpg'),
-          imgMlg: require('assets/img/home/archive/Google/GF3_mlg.jpg')
+          imgDef: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/Google/GF3.jpg',
+          imgTlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/Google/GF3_tlg.jpg',
+          imgMlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/Google/GF3_mlg.jpg'
         },
         imgAlt: 'Google Fiber 3'
       },
       {
         images:
         {
-          imgDef: require('assets/img/home/archive/Google/GF4.jpg'),
-          imgTlg: require('assets/img/home/archive/Google/GF4_tlg.jpg'),
-          imgMlg: require('assets/img/home/archive/Google/GF4_mlg.jpg')
+          imgDef: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/Google/GF4.jpg',
+          imgTlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/Google/GF4_tlg.jpg',
+          imgMlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/Google/GF4_mlg.jpg'
         },
         imgAlt: 'Google Fiber 4'
       },
       {
         images:
         {
-          imgDef: require('assets/img/home/archive/Google/GF5.jpg'),
-          imgTlg: require('assets/img/home/archive/Google/GF5_tlg.jpg'),
-          imgMlg: require('assets/img/home/archive/Google/GF5_mlg.jpg')
+          imgDef: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/Google/GF5.jpg',
+          imgTlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/Google/GF5_tlg.jpg',
+          imgMlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/Google/GF5_mlg.jpg'
         },
         imgAlt: 'Google Fiber 5'
       }
@@ -531,42 +531,42 @@ export const caseStudies = [
     name: 'Chatwork',
     color: '#CB2780',
     shortDescription: 'Business chat for an international audience.',
-    gridThumbnail: require('assets/img/case-studies/chatworks/grid-thumbnail.jpg'),
+    gridThumbnail: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/chatworks/grid-thumbnail.jpg',
     heading: 'Chatwork is a highly successful business communication platform. As part of their plan to expand to a global market, Chatwork asked Redshift to refresh their current product’s interface to a more universal design.',
     content: [
       {
         images:
         {
-          imgDef: require('assets/img/home/archive/Chatwork/CW1.jpg'),
-          imgTlg: require('assets/img/home/archive/Chatwork/CW1_tlg.jpg'),
-          imgMlg: require('assets/img/home/archive/Chatwork/CW1_mlg.jpg')
+          imgDef: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/Chatwork/CW1.jpg',
+          imgTlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/Chatwork/CW1_tlg.jpg',
+          imgMlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/Chatwork/CW1_mlg.jpg'
         },
         imgAlt: 'ChatWork 1'
       },
       {
         images:
         {
-          imgDef: require('assets/img/home/archive/Chatwork/CW2.jpg'),
-          imgTlg: require('assets/img/home/archive/Chatwork/CW2_tlg.jpg'),
-          imgMlg: require('assets/img/home/archive/Chatwork/CW2_mlg.jpg')
+          imgDef: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/Chatwork/CW2.jpg',
+          imgTlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/Chatwork/CW2_tlg.jpg',
+          imgMlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/Chatwork/CW2_mlg.jpg'
         },
         imgAlt: 'ChatWork 2'
       },
       {
         images:
         {
-          imgDef: require('assets/img/home/archive/Chatwork/CW3.jpg'),
-          imgTlg: require('assets/img/home/archive/Chatwork/CW3_tlg.jpg'),
-          imgMlg: require('assets/img/home/archive/Chatwork/CW3_mlg.jpg')
+          imgDef: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/Chatwork/CW3.jpg',
+          imgTlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/Chatwork/CW3_tlg.jpg',
+          imgMlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/Chatwork/CW3_mlg.jpg'
         },
         imgAlt: 'ChatWork 3'
       },
       {
         images:
         {
-          imgDef: require('assets/img/home/archive/Chatwork/CW4.jpg'),
-          imgTlg: require('assets/img/home/archive/Chatwork/CW4_tlg.jpg'),
-          imgMlg: require('assets/img/home/archive/Chatwork/CW4_mlg.jpg')
+          imgDef: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/Chatwork/CW4.jpg',
+          imgTlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/Chatwork/CW4_tlg.jpg',
+          imgMlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/Chatwork/CW4_mlg.jpg'
         },
         imgAlt: 'ChatWork 4'
       }
@@ -578,15 +578,15 @@ export const caseStudies = [
     name: 'AMS Armada',
     color: '#1FB4E7',
     shortDescription: 'Dashboards to manage hybrid-electric buildings.',
-    gridThumbnail: require('assets/img/case-studies/ams-armada/grid-thumbnail.jpg'),
+    gridThumbnail: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/ams-armada/grid-thumbnail.jpg',
     heading: 'Advanced Microgrid Solutions’ energy storage systems lower costs for consumers and provide clean, instant load reduction to electric utilities. Redshift designed and built the software that powers these systems.',
     content: [
       {
         images:
         {
-          imgDef: require('assets/img/home/archive/AMS/AMS1.jpg'),
-          imgTlg: require('assets/img/home/archive/AMS/AMS1_tlg.jpg'),
-          imgMlg: require('assets/img/home/archive/AMS/AMS1_mlg.jpg')
+          imgDef: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/AMS/AMS1.jpg',
+          imgTlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/AMS/AMS1_tlg.jpg',
+          imgMlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/AMS/AMS1_mlg.jpg'
         },
         imgAlt: 'AMS 1',
         copy: [
@@ -598,9 +598,9 @@ export const caseStudies = [
       {
         images:
         {
-          imgDef: require('assets/img/home/archive/AMS/AMS2.jpg'),
-          imgTlg: require('assets/img/home/archive/AMS/AMS2_tlg.jpg'),
-          imgMlg: require('assets/img/home/archive/AMS/AMS2_mlg.jpg')
+          imgDef: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/AMS/AMS2.jpg',
+          imgTlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/AMS/AMS2_tlg.jpg',
+          imgMlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/AMS/AMS2_mlg.jpg'
         },
         imgAlt: 'AMS 2',
         copy: [
@@ -612,9 +612,9 @@ export const caseStudies = [
       {
         images:
         {
-          imgDef: require('assets/img/home/archive/AMS/AMS3.jpg'),
-          imgTlg: require('assets/img/home/archive/AMS/AMS3_tlg.jpg'),
-          imgMlg: require('assets/img/home/archive/AMS/AMS3_mlg.jpg')
+          imgDef: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/AMS/AMS3.jpg',
+          imgTlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/AMS/AMS3_tlg.jpg',
+          imgMlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/AMS/AMS3_mlg.jpg'
         },
         imgAlt: 'AMS 3',
         copy: [
@@ -631,7 +631,7 @@ export const caseStudies = [
     name: 'Norton Campfire',
     color: '#FDAF01',
     shortDescription: 'Visualizing sales data for a software giant.',
-    gridThumbnail: require('assets/img/case-studies/norton-campfire/grid-thumbnail.jpg'),
+    gridThumbnail: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/norton-campfire/grid-thumbnail.jpg',
     heading: 'Redshift created Campfire – a touchscreen kiosk that provides rich, interactive visualization of live data from Norton’s online store. Winner of 2012 Communicator Award.',
     content: [
       {
@@ -645,36 +645,36 @@ export const caseStudies = [
       {
         images:
         {
-          imgDef: require('assets/img/home/archive/NortonCampfire/NC1.jpg'),
-          imgTlg: require('assets/img/home/archive/NortonCampfire/NC1_tlg.jpg'),
-          imgMlg: require('assets/img/home/archive/NortonCampfire/NC1_mlg.jpg')
+          imgDef: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/NortonCampfire/NC1.jpg',
+          imgTlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/NortonCampfire/NC1_tlg.jpg',
+          imgMlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/NortonCampfire/NC1_mlg.jpg'
         },
         imgAlt: 'Norton Campfire 1'
       },
       {
         images:
         {
-          imgDef: require('assets/img/home/archive/NortonCampfire/NC2.jpg'),
-          imgTlg: require('assets/img/home/archive/NortonCampfire/NC2_tlg.jpg'),
-          imgMlg: require('assets/img/home/archive/NortonCampfire/NC2_mlg.jpg')
+          imgDef: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/NortonCampfire/NC2.jpg',
+          imgTlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/NortonCampfire/NC2_tlg.jpg',
+          imgMlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/NortonCampfire/NC2_mlg.jpg'
         },
         imgAlt: 'Norton Campfire 2'
       },
       {
         images:
         {
-          imgDef: require('assets/img/home/archive/NortonCampfire/NC3.jpg'),
-          imgTlg: require('assets/img/home/archive/NortonCampfire/NC3_tlg.jpg'),
-          imgMlg: require('assets/img/home/archive/NortonCampfire/NC3_mlg.jpg')
+          imgDef: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/NortonCampfire/NC3.jpg',
+          imgTlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/NortonCampfire/NC3_tlg.jpg',
+          imgMlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/NortonCampfire/NC3_mlg.jpg'
         },
         imgAlt: 'Norton Campfire 3'
       },
       {
         images:
         {
-          imgDef: require('assets/img/home/archive/NortonCampfire/NC4.jpg'),
-          imgTlg: require('assets/img/home/archive/NortonCampfire/NC4_tlg.jpg'),
-          imgMlg: require('assets/img/home/archive/NortonCampfire/NC4_mlg.jpg')
+          imgDef: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/NortonCampfire/NC4.jpg',
+          imgTlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/NortonCampfire/NC4_tlg.jpg',
+          imgMlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/NortonCampfire/NC4_mlg.jpg'
         },
         imgAlt: 'Norton Campfire 4'
       }
@@ -686,7 +686,7 @@ export const caseStudies = [
     name: 'Vlocity',
     color: '#1FB4E7',
     shortDescription: 'Designing a suite of cloud based enterprise apps.',
-    gridThumbnail: require('assets/img/case-studies/vlocity/grid-thumbnail.jpg'),
+    gridThumbnail: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/vlocity/grid-thumbnail.jpg',
     heading: 'Vlocity engaged Redshift to create a flexible design system to support a range of powerful sales products.  ',
     content: [
       {
@@ -706,9 +706,9 @@ export const caseStudies = [
       {
         images:
         {
-          imgDef: require('assets/img/home/archive/vlocity/V1.jpg'),
-          imgTlg: require('assets/img/home/archive/vlocity/V1_tlg.jpg'),
-          imgMlg: require('assets/img/home/archive/vlocity/V1_mlg.jpg')
+          imgDef: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/vlocity/V1.jpg',
+          imgTlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/vlocity/V1_tlg.jpg',
+          imgMlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/vlocity/V1_mlg.jpg'
         },
         imgAlt: 'Vlocity 1',
         copy: [
@@ -721,9 +721,9 @@ export const caseStudies = [
       {
         images:
         {
-          imgDef: require('assets/img/home/archive/vlocity/V2.jpg'),
-          imgTlg: require('assets/img/home/archive/vlocity/V2_tlg.jpg'),
-          imgMlg: require('assets/img/home/archive/vlocity/V2_mlg.jpg')
+          imgDef: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/vlocity/V2.jpg',
+          imgTlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/vlocity/V2_tlg.jpg',
+          imgMlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/vlocity/V2_mlg.jpg'
         },
         imgAlt: 'Vlocity 2',
         copy: [
@@ -736,9 +736,9 @@ export const caseStudies = [
       {
         images:
         {
-          imgDef: require('assets/img/home/archive/vlocity/V3.jpg'),
-          imgTlg: require('assets/img/home/archive/vlocity/V3_tlg.jpg'),
-          imgMlg: require('assets/img/home/archive/vlocity/V3_mlg.jpg')
+          imgDef: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/vlocity/V3.jpg',
+          imgTlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/vlocity/V3_tlg.jpg',
+          imgMlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/vlocity/V3_mlg.jpg'
         },
         imgAlt: 'Vlocity 3',
         copy: [
@@ -756,33 +756,33 @@ export const caseStudies = [
     name: 'Fanmouth',
     color: '#FF3100',
     shortDescription: 'Fantasy sports made easy.',
-    gridThumbnail: require('assets/img/case-studies/fanmouth/grid-thumbnail.jpg'),
+    gridThumbnail: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/fanmouth/grid-thumbnail.jpg',
     heading: 'Fantasy is more than just football. Redshift was challenged with designing a white labeled sports platform to maximize fan engagement for all types and levels of sports activities.',
     content: [
       {
         images:
         {
-          imgDef: require('assets/img/home/archive/Fanmouth/FM1.jpg'),
-          imgTlg: require('assets/img/home/archive/Fanmouth/FM1_tlg.jpg'),
-          imgMlg: require('assets/img/home/archive/Fanmouth/FM1_mlg.jpg')
+          imgDef: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/Fanmouth/FM1.jpg',
+          imgTlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/Fanmouth/FM1_tlg.jpg',
+          imgMlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/Fanmouth/FM1_mlg.jpg'
         },
         imgAlt: 'Fanmouth 1'
       },
       {
         images:
         {
-          imgDef: require('assets/img/home/archive/Fanmouth/FM2.jpg'),
-          imgTlg: require('assets/img/home/archive/Fanmouth/FM2_tlg.jpg'),
-          imgMlg: require('assets/img/home/archive/Fanmouth/FM2_mlg.jpg')
+          imgDef: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/Fanmouth/FM2.jpg',
+          imgTlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/Fanmouth/FM2_tlg.jpg',
+          imgMlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/Fanmouth/FM2_mlg.jpg'
         },
         imgAlt: 'Fanmouth 2'
       },
       {
         images:
         {
-          imgDef: require('assets/img/home/archive/Fanmouth/FM3.jpg'),
-          imgTlg: require('assets/img/home/archive/Fanmouth/FM3_tlg.jpg'),
-          imgMlg: require('assets/img/home/archive/Fanmouth/FM3_mlg.jpg')
+          imgDef: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/Fanmouth/FM3.jpg',
+          imgTlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/Fanmouth/FM3_tlg.jpg',
+          imgMlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/Fanmouth/FM3_mlg.jpg'
         },
         imgAlt: 'Fanmouth 3'
       }
@@ -794,51 +794,51 @@ export const caseStudies = [
   //   name: 'Glow Headphones',
   //   color: '#5F2CA1',
   //   shortDescription: 'Introducing the world\'s first laser headphones.',
-  //   gridThumbnail: require('assets/img/case-studies/glow/grid-thumbnail.jpg'),
+  //   gridThumbnail: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/glow/grid-thumbnail.jpg',
   //   // heading: 'Fantasy is more than just football. Redshift was challenged with designing a white labeled sports platform to maximize fan engagement for all types and levels of sports activities.',
   //   content: [
   //     {
   //       images:
   //       {
-  //         imgDef: require('assets/img/home/archive/Glow/glow1.jpg'),
-  //         imgTlg: require('assets/img/home/archive/Glow/glow1_tlg.jpg'),
-  //         imgMlg: require('assets/img/home/archive/Glow/glow1_mlg.jpg')
+  //         imgDef: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/Glow/glow1.jpg',
+  //         imgTlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/Glow/glow1_tlg.jpg',
+  //         imgMlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/Glow/glow1_mlg.jpg'
   //       },
   //       imgAlt: 'Glow 1'
   //     },
   //     {
   //       images:
   //       {
-  //         imgDef: require('assets/img/home/archive/Glow/glow2.jpg'),
-  //         imgTlg: require('assets/img/home/archive/Glow/glow2_tlg.jpg'),
-  //         imgMlg: require('assets/img/home/archive/Glow/glow2_mlg.jpg')
+  //         imgDef: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/Glow/glow2.jpg',
+  //         imgTlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/Glow/glow2_tlg.jpg',
+  //         imgMlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/Glow/glow2_mlg.jpg'
   //       },
   //       imgAlt: 'Glow 2'
   //     },
   //     {
   //       images:
   //       {
-  //         imgDef: require('assets/img/home/archive/Glow/glow3.jpg'),
-  //         imgTlg: require('assets/img/home/archive/Glow/glow3_tlg.jpg'),
-  //         imgMlg: require('assets/img/home/archive/Glow/glow3_mlg.jpg')
+  //         imgDef: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/Glow/glow3.jpg',
+  //         imgTlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/Glow/glow3_tlg.jpg',
+  //         imgMlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/Glow/glow3_mlg.jpg'
   //       },
   //       imgAlt: 'Glow 3'
   //     },
   //     {
   //       images:
   //       {
-  //         imgDef: require('assets/img/home/archive/Glow/glow4.jpg'),
-  //         imgTlg: require('assets/img/home/archive/Glow/glow4_tlg.jpg'),
-  //         imgMlg: require('assets/img/home/archive/Glow/glow4_mlg.jpg')
+  //         imgDef: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/Glow/glow4.jpg',
+  //         imgTlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/Glow/glow4_tlg.jpg',
+  //         imgMlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/Glow/glow4_mlg.jpg'
   //       },
   //       imgAlt: 'Glow 4'
   //     },
   //     {
   //       images:
   //       {
-  //         imgDef: require('assets/img/home/archive/Glow/glow5.jpg'),
-  //         imgTlg: require('assets/img/home/archive/Glow/glow5_tlg.jpg'),
-  //         imgMlg: require('assets/img/home/archive/Glow/glow5_mlg.jpg')
+  //         imgDef: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/Glow/glow5.jpg',
+  //         imgTlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/Glow/glow5_tlg.jpg',
+  //         imgMlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/Glow/glow5_mlg.jpg'
   //       },
   //       imgAlt: 'Glow 5'
   //     }
@@ -851,7 +851,7 @@ export const caseStudies = [
   //   name: 'StemCentrix',
   //   color: '#440F67',
   //   shortDescription: 'Sed posuere consectetur est at lobortis',
-  //   gridThumbnail: require('assets/img/case-studies/stemcentrix/grid-thumbnail.jpg'),
+  //   gridThumbnail: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/stemcentrix/grid-thumbnail.jpg',
   //   heading: 'Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
   // },
   // {
@@ -859,7 +859,7 @@ export const caseStudies = [
   //   name: 'LivSpace Website',
   //   color: '#C0C2C4',
   //   shortDescription: 'Sed posuere consectetur est at lobortis',
-  //   gridThumbnail: require('assets/img/case-studies/livspace/grid-thumbnail.jpg'),
+  //   gridThumbnail: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/livspace/grid-thumbnail.jpg',
   //   heading: 'Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
   // },
   // {
@@ -867,7 +867,7 @@ export const caseStudies = [
   //   name: 'Reviver Slate',
   //   color: '#56C3CC',
   //   shortDescription: 'Sed posuere consectetur est at lobortis',
-  //   gridThumbnail: require('assets/img/case-studies/reviver-slate/grid-thumbnail.jpg'),
+  //   gridThumbnail: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/reviver-slate/grid-thumbnail.jpg',
   //   heading: 'Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
   // }
   // {
@@ -875,15 +875,15 @@ export const caseStudies = [
   //   name: 'myPoints',
   //   color: '#1FB4E7',
   //   shortDescription: 'New experience for online shopping',
-  //   gridThumbnail: require('assets/img/case-studies/ams-armada/grid-thumbnail.jpg'),
+  //   gridThumbnail: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/ams-armada/grid-thumbnail.jpg',
   //   heading: 'Redshift was tasked by MyPoints – a popular online rewards program – to create a beautiful, immersive shopping experience to appeal to a new younger demographic. Our solution incorporates bold imagery and fun, game-like elements to encourage users to build progress and earn points.'
   //   content: [
   //     {
   //      images:
   //       {
-  //         imgDef: require('assets/img/home/archive/mypoints/MP1.jpg'),
-  //         imgTlg: require('assets/img/home/archive/mypoints/MP1_tlg.jpg'),
-  //         imgMlg: require('assets/img/home/archive/mypoints/MP1_mlg.jpg')
+  //         imgDef: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/mypoints/MP1.jpg',
+  //         imgTlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/mypoints/MP1_tlg.jpg',
+  //         imgMlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/mypoints/MP1_mlg.jpg'
   //       },
   //       imgAlt: 'MyPoints',
   //     }
