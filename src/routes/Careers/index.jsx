@@ -73,15 +73,15 @@ export class Careers extends React.Component {
           <source srcSet={ careerHero.imgMlg } media="(min-width: 767px)" />
           <img src={ careerHero.imgDef } className="hero-image" alt="Redshift Careers" />
         </picture>
+        <Watcher
+          offset={ { position: 'relative', bottom: '9.7rem' } }
+          enterViewport={ (watcher) => this.watcherCallback(watcher) }
+          stateChange={ (watcher) => this.watcherCallback(watcher) }
+        />
         <section className="row pt9 pt6--mlg">
           <h1 className="typ--bold typ--redshift">Join the team.</h1>
         </section>
         <section>
-          <Watcher
-            offset={ { bottom: '8.5rem' } }
-            enterViewport={ (watcher) => this.watcherCallback(watcher) }
-            stateChange={ (watcher) => this.watcherCallback(watcher) }
-          />
           <div className="row row--maxwidth">
             {
               jobDetails.map((job, index) => (
