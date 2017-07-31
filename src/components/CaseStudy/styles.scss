@@ -176,10 +176,13 @@
 
 .casestudy__heading {
   height: calc(100vh - 5rem);
-  max-width: 100rem;
+  width: 80%;
   position: relative;
   // min-height: 50rem;
   // media queries
+  @include breakpoint($desktop-lg) {
+    max-width: 100rem;
+  }
   @media only screen and (max-height: 430px) {
     height: auto;
   }
