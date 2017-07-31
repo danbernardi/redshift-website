@@ -4,10 +4,10 @@ import { browserHistory } from 'react-router';
 import ModalCloseBtn from 'components/Modal/ModalCloseBtn';
 import PropTypes from 'prop-types';
 import CaseStudyScroller from './CaseStudyScroller';
-import { TimelineMax, Power3 } from 'gsap';
+import { TimelineMax, Power1 } from 'gsap';
 import GSAP from 'react-gsap-enhancer';
 
-import './styles.scss';
+import './CaseStudy.scss';
 
 class CaseStudy extends React.Component {
   constructor (props) {
@@ -22,7 +22,7 @@ class CaseStudy extends React.Component {
   componentWillEnter (callback) { callback(); }
 
   animateOut ({ target, options }) {
-    const duration = 0.8;
+    const duration = 0.6;
     const fadeDuration = 0.4;
     const next = target[0].querySelector('.casestudy__next');
     const name = target[0].querySelector('.casestudy__next__name');
@@ -31,10 +31,10 @@ class CaseStudy extends React.Component {
     const endFontSize = window.getComputedStyle(title, null).getPropertyValue('font-size');
     const tl = new TimelineMax();
 
-    tl.to(next, duration, { height: '100vh', backgroundColor: '#FFF', ease: Power3.easeInOut }, 'anim');
-    tl.to(name, duration, { fontSize: endFontSize, color: '#a3a3a3', ease: Power3.easeInOut }, 'anim');
-    tl.to(label, duration, { opacity: 0, height: 0, ease: Power3.easeInOut }, 'anim');
-    tl.to(target[0], fadeDuration, { opacity: 0, ease: Power3.easeInOut, onComplete: () => options.unmountComponent() }, `anim+=${duration}`);
+    tl.to(next, duration, { height: '100vh', backgroundColor: '#FFF', ease: Power1.easeInOut }, 'anim');
+    tl.to(name, duration, { fontSize: endFontSize, color: '#a3a3a3', ease: Power1.easeInOut }, 'anim');
+    tl.to(label, duration, { opacity: 0, height: 0, ease: Power1.easeInOut }, 'anim');
+    tl.to(target[0], fadeDuration, { opacity: 0, ease: Power1.easeInOut, onComplete: () => options.unmountComponent() }, `anim+=${duration}`);
 
     return tl;
   }
