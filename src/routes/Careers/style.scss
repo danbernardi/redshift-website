@@ -21,6 +21,48 @@
   border-bottom: solid 0.1rem $medium-gray;
 }
 
+.job__link {
+  // media queries
+  @include breakpoint($mobile-lg) {
+    font-size: 1.4rem;
+  }
+}
+
+.job__link {
+  color: $black;
+  // margin: 4rem 0 6rem;
+  margin-bottom: 1.5rem;
+  width: 12.1rem;
+  // display: inline-block;
+  // white-space: nowrap;
+  // position: absolute;
+  // left: 0;
+  // media queries
+  @include breakpoint($mobile-lg) {
+    margin-top: 2rem;
+    padding-bottom: 1rem;
+  }
+
+  &:after {
+    content: '';
+    // position: absolute;
+    // bottom: 0;
+    margin-top: 1.5rem;
+    height: 0.2rem;
+    background: $redshift;
+    display: block;
+    width: 5rem;
+    transition: width 0.2s ease-in-out;
+  }
+
+  // disable hover below mobile
+  @include breakpoint($tablet-lg, min-width) {
+    &:hover:after {
+      width: 12.5rem;
+    }
+  }
+}
+
 .job__view {
   &:after {
     content: '';
