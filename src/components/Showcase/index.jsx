@@ -32,13 +32,9 @@ export class Showcase extends React.Component {
     this.state = { animationProgress: 0 };
   }
 
-  componentDidMount () {
-    //Setup color transition
-    this.createObservables(this.container);
-  }
-
   componentDidUpdate (prevProps, prevState) {
     if (!prevState.loaded && this.state.loaded) {
+      this.createObservables(this.container);
       this.sceneMeta = this.setSceneMeta();
       this.timeline = this.createColorTransitionTimeline(this.wrapper);
       let sceneIndex = null;
