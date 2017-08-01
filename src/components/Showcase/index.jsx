@@ -35,17 +35,11 @@ export class Showcase extends React.Component {
   componentDidMount () {
     //Setup color transition
     this.createObservables(this.container);
-
-    //Wait to get accurate height
-    // setTimeout(() => {
-      
-    // }, 300);
   }
 
   componentDidUpdate (prevProps, prevState) {
     if (!prevState.loaded && this.state.loaded) {
       this.sceneMeta = this.setSceneMeta();
-      console.log(this.sceneMeta, window.performance.now());
       this.timeline = this.createColorTransitionTimeline(this.wrapper);
       let sceneIndex = null;
 
