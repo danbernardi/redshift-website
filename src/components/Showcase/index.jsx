@@ -37,8 +37,15 @@ export class Showcase extends React.Component {
     this.createObservables(this.container);
 
     //Wait to get accurate height
-    setTimeout(() => {
+    // setTimeout(() => {
+      
+    // }, 300);
+  }
+
+  componentDidUpdate (prevProps, prevState) {
+    if (!prevState.loaded && this.state.loaded) {
       this.sceneMeta = this.setSceneMeta();
+      console.log(this.sceneMeta, window.performance.now());
       this.timeline = this.createColorTransitionTimeline(this.wrapper);
       let sceneIndex = null;
 
@@ -53,7 +60,7 @@ export class Showcase extends React.Component {
           this.goToScene(sceneIndex, false);
         }
       }
-    }, 300);
+    }
   }
 
   /**
@@ -393,7 +400,7 @@ export class Showcase extends React.Component {
             })
           }
 
-          <Archive onDidMount={ (el) => this.addScrollPoint(el, this.children.length) } />
+          <Archive reportAsLoaded={ () => this.setState({ loaded: true }) } onDidMount={ (el) => this.addScrollPoint(el, this.children.length) } />
         </div>
         <div className="showcase__content">
           {
