@@ -2,12 +2,10 @@
 
 .about--header {
   z-index: 7;
-  // bottom: 5rem;
   padding: 0;
   animation-duration: 1s;
   animation-name: slidein;
   left: 0;
-  // padding-bottom: 10rem;
   @media screen and (max-device-width: 1040px) and (orientation : landscape) {
     width: 50%;
     margin-left: 0;
@@ -51,27 +49,18 @@
     position: relative;
     padding-top: 6rem;
   }
-  // position: absolute;
-  // bottom: 0;
-  // @include breakpoint($mobile-lg) {
-  //   width: 90%;
-  // }
 }
 
 .about--transition {
   transition: all 0.4s ease-in;
 }
 
-// .about__clients {
-//   background: $dark-grey;
-// }
-
 .about section {
   position: relative;
 }
 
 .about__clients {
-  padding-top: 20.6rem;
+  padding-top: 20rem;
   h1 {
     text-align: center;
     @include breakpoint($mobile-lg) {
@@ -79,17 +68,9 @@
     }
   }
   @include breakpoint($mobile-lg) {
-    padding-top: 8.6rem;
+    padding-top: 10.3rem;
   }
 }
-
-// .about--clients h2 {
-//   width: 69%;
-//   // media queries
-//   @include breakpoint($mobile-lg) {
-//     width: 100%;
-//   }
-// }
 
 // Team
 .about {

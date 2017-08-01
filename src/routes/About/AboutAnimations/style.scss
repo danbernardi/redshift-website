@@ -55,7 +55,7 @@
 }
 
 .about__animation-wrapper {
-  margin-top: 16rem;
+  margin-top: 20rem;
   @media only screen and (max-height: 965px) {
     height: auto;
     min-height: 100rem;
@@ -65,7 +65,7 @@
 .about__wrapper {
   padding-top: 16rem;
   @include breakpoint($mobile-lg) {
-    padding-top: 3.5rem;
+    padding-top: 5rem;
   }
 }
 

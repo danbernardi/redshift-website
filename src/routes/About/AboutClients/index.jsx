@@ -7,7 +7,7 @@ export function AboutClients (props) {
   return (
     <section className="row">
       <div className="about__clients">
-        <h1 className="typ--bold typ--redshift mb6 mb1--mlg">Who we work with.</h1>
+        <h1 className="typ--bold typ--redshift mb6 mb3--mlg">Who we work with.</h1>
         <div className="clients">
           { data.map((client, index) => (
             <div key={ index } className="clients__client">
