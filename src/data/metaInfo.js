@@ -82,8 +82,8 @@ export const metaInfo = {
   },
 
   yumavore: {
-    title: 'Redshift Digital - Nexus Case Study',
-    description: 'A new home for Google Nexus',
+    title: 'Redshift Digital - Yumavore Case Study',
+    description: 'An ingredient to plate social networking app',
     canonical: 'http://redshiftdigital.com/work/nexus',
     meta: {
       charset: 'utf-8',
