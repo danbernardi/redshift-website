@@ -1,52 +1,23 @@
 @import 'sass-includes';
 
-.careers.modal--open {
-  .content-main.careers {
-    .page-title {
-      position: relative;
-      z-index: 1;
-    }
-  }
-}
-
-.careers-hero {
-  height: 0;
-  padding-top: 24%;
-  position: relative;
-  max-height: 45rem;
-  min-height: 33rem;
-}
-
 .career-section {
   border-bottom: solid 0.1rem $medium-gray;
 }
 
 .job__link {
+  color: $black;
+  margin-bottom: 1.5rem;
+  width: 12.1rem;
+  padding-bottom: 3rem;
   // media queries
   @include breakpoint($mobile-lg) {
     font-size: 1.4rem;
-  }
-}
-
-.job__link {
-  color: $black;
-  // margin: 4rem 0 6rem;
-  margin-bottom: 1.5rem;
-  width: 12.1rem;
-  // display: inline-block;
-  // white-space: nowrap;
-  // position: absolute;
-  // left: 0;
-  // media queries
-  @include breakpoint($mobile-lg) {
     margin-top: 2rem;
     padding-bottom: 1rem;
   }
 
   &:after {
     content: '';
-    // position: absolute;
-    // bottom: 0;
     margin-top: 1.5rem;
     height: 0.2rem;
     background: $redshift;
@@ -63,59 +34,6 @@
   }
 }
 
-.job__view {
-  &:after {
-    content: '';
-    height: 0.2rem;
-    width: 6.5rem;
-    display: block;
-    background-color: $redshift;
-    margin-top: 2rem;
-  }
-}
-
-.job__modal {
-  width: 100vw;
-  z-index: 4;
-  // media queries
-  @include breakpoint($tablet-md) {
-    width: 100vw;
-  }
-
-  .modal__inner {
-    padding-top: 7rem;
-    width: calc(100vw - 12rem);
-    background: $white;
-    z-index: 19;
-    // media queries
-    @include breakpoint($tablet-lg) {
-      padding-top: 5.3rem;
-    }
-    @include breakpoint($mobile-lg) {
-      width: 100%;
-      padding-top: 4.2rem;
-    }
-    @include breakpoint($mobile-sm) {
-      padding-left: 3.8;
-    }
-  }
-
-  .case-study-project-name,
-  .careers__type {
-    // media queries
-    text-transform: lowercase;
-    @include breakpoint($mobile-lg) {
-      position: relative;
-      top: 0.4rem;
-      margin-left: 4.4rem;
-    }
-    @include breakpoint($mobile-sm) {
-      top: -0.5rem;
-      margin-left: 4rem;
-    }
-  }
-}
-
 .careers-title {
   font-weight: bold;
   position: relative;
@@ -125,6 +43,7 @@
   @include breakpoint($tablet-lg) {
     padding-top: 10rem;
   }
+
   @include breakpoint($mobile-sm) {
     padding-top: 6rem;
   }
@@ -134,11 +53,6 @@
   position: relative;
   padding-top: 3.4rem;
   padding-bottom: 1rem;
-}
-
-.job-description li {
-  list-style-type: none;
-  margin-bottom: 1.5rem;
 }
 
 .contact__form {
@@ -196,27 +110,14 @@ input:-webkit-autofill {
 }
 
 .job__sidebar {
-  // background-color: #EE05BA;
   width: 8rem;
   position: fixed;
   left: 0;
   top: 0;
   bottom: 0;
   opacity: 0;
-  // transition: opacity 0.5s;
-  // transition-delay: 0.5s;
   // media queries
   @include breakpoint($mobile-lg) {
     width: 1rem;
   }
-}
-
-.job--modal__right {
-  padding-top: 6.7rem;
-  width: calc(100vw - 17rem);
-  background: #FFF;
-  z-index: 19;
-  float: right;
-  overflow: auto;
-  height: 100%;
 }
