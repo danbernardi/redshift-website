@@ -13,6 +13,8 @@
 
 .about__hybrid--circle {
   max-width: 144rem;
+  width: calc(100% - 4rem);
+  overflow: visible;
   // media queries
   @include breakpoint($mobile-lg) {
     float: right;
