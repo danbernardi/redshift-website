@@ -183,6 +183,11 @@
   @include breakpoint($desktop-lg) {
     max-width: 100rem;
   }
+
+  @include breakpoint($mobile-lg) {
+    width: 100%;
+  }
+
   @media only screen and (max-height: 430px) {
     height: auto;
   }
