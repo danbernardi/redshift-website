@@ -1,5 +1,4 @@
 import React from 'react';
-import './Clients.scss';
 import PropTypes from 'prop-types';
 
 export function AboutClients (props) {
