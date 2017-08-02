@@ -176,9 +176,8 @@
 
 .casestudy__heading {
   height: calc(100vh - 5rem);
-  max-width: 100rem;
+  max-width: 132rem;
   position: relative;
-  // min-height: 50rem;
   // media queries
   @media only screen and (max-height: 430px) {
     height: auto;
