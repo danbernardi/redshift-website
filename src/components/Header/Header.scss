@@ -37,15 +37,6 @@
   }
 }
 
-.icon-redshift {
-  color: $white;
-  &:before {
-    padding: 0.9rem 0.9rem 1rem 1rem;
-    background-color: $redshift;
-    border-radius: 50%;
-  }
-}
-
 .header__text {
   transition: all 0.2s ease-in-out;
   position: realtive;
@@ -60,7 +51,7 @@
 
 .header__logo {
   cursor: pointer;
-  padding: 1rem;
+  padding: 2rem 0 2rem 2rem;
   position: relative;
   left: -2rem;
   top: -2rem;
@@ -87,34 +78,34 @@
   }
 }
 
-// .pink-theme {
-//   .page-title { color: $redshift; }
-//   .icon-close { color: $darkpurple; }
-//   .index-title { color: $white; }
+.pink-theme {
+  .page-title { color: $redshift; }
+  .icon-close { color: $darkpurple; }
+  .index-title { color: $white; }
 
-//   .icon-redshift {
-//     color: $dark-grey;
-//   }
+  .icon-redshift {
+    color: $dark-grey;
+  }
 
-//   .icon-hamburger {
-//     span {
-//       background: $dark-grey;
-//     }
-//   }
+  .icon-hamburger {
+    span {
+      background: $dark-grey;
+    }
+  }
 
-//   &.color-transition {
-//     .icon-hamburger span { background: $white; }
-//     .index-title { color: $white; }
-//   }
-// }
+  &.color-transition {
+    .icon-hamburger span { background: $white; }
+    .index-title { color: $white; }
+  }
+}
 
-// .white-theme {
-//   .icon-redshift { color: $white; }
-//   .page-title { color: $white; }
-//   .icon-close { color: $white; }
-//   .icon-hamburger span { background: $white; }
-//   #header__text { fill: $white !important; }
-// }
+.white-theme {
+  .icon-redshift { color: $white; }
+  .page-title { color: $white; }
+  .icon-close { color: $white; }
+  .icon-hamburger span { background: $white; }
+  #header__text { fill: $white !important; }
+}
 
 .page-title {
   position: relative;
