@@ -16,7 +16,7 @@ const AboutTeam = props => {
         <Link to={ `/about/${team.id}` } key={ index }>
           <PinkHover
             classes="quarter-width team-member"
-            imageSrc={ team.photo }
+            imageSrc={ team.id }
             alt={ team.name }
           >
             <span className="member__name typ--bold">{ team.name }</span>

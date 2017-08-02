@@ -3,7 +3,7 @@ export const teamInfo = [
     id: 'david',
     name: 'David Westen',
     position: 'Principal & Founder',
-    photo: require('assets/img/about/team/david.jpg'),
+    // photo: require('assets/img/about/team/david.jpg'),
     modalImage: require('assets/img/about/team/modal/david.jpg'),
     bioStatement: [
       'David is an expert in internet technology, user experience and digital business strategy.',
@@ -15,7 +15,7 @@ export const teamInfo = [
     id: 'steffan',
     name: 'Steffan Schlarb',
     position: 'Creative Director',
-    photo: require('assets/img/about/team/steffan.jpg'),
+    // photo: require('assets/img/about/team/steffan.jpg'),
     modalImage: require('assets/img/about/team/modal/steffan.jpg'),
     bioStatement: [
       'Steffan is an award-winning creative director with extensive innovation, creative strategy and product design experience.',
@@ -28,7 +28,7 @@ export const teamInfo = [
     id: 'stewart',
     name: 'Stewart Maclennan',
     position: 'Director of Digital Media',
-    photo: require('assets/img/about/team/stewart.jpg'),
+    // photo: require('assets/img/about/team/stewart.jpg'),
     modalImage: require('assets/img/about/team/modal/stewart.jpg'),
     bioStatement: [
       'Stewart Maclennan is a new media guru who combines 12 years of web consulting experience with 9 years as a film writer, director and producer.',
@@ -40,7 +40,7 @@ export const teamInfo = [
     id: 'scott',
     name: 'Scott Lambridis',
     position: 'Lead UX Director',
-    photo: require('assets/img/about/team/scott.jpg'),
+    // photo: require('assets/img/about/team/scott.jpg'),
     modalImage: require('assets/img/about/team/modal/scott.jpg'),
     bioStatement: [
       'Scott Lambridis is the director of UX at Redshift.',
@@ -58,7 +58,7 @@ export const teamInfo = [
     id: 'lucy',
     name: 'Lucy Dotson',
     position: 'Senior UX Designer',
-    photo: require('assets/img/about/team/lucy.jpg'),
+    // photo: require('assets/img/about/team/lucy.jpg'),
     modalImage: require('assets/img/about/team/modal/lucy.jpg'),
     bioStatement: [
       'Lucy Dotson is a senior user experience designer at Redshift.',
@@ -70,7 +70,7 @@ export const teamInfo = [
     id: 'kyle',
     name: 'Kyle Lloyd',
     position: 'Director of Business Development',
-    photo: require('assets/img/about/team/kyle.jpg'),
+    // photo: require('assets/img/about/team/kyle.jpg'),
     modalImage: require('assets/img/about/team/modal/kyle.jpg'),
     bioStatement: [
       'Kyle grew up in Austin, TX and went to school at Texas State University in San Marcos where he earned a BBA in Marketing. He prides himself in building successful sales organizations from the ground up, and prior to Redshift, Kyle worked for pharmaceutical companies, technology accelerators, and other world-renowned digital design firms.',
@@ -81,7 +81,7 @@ export const teamInfo = [
     id: 'shannon',
     name: 'Shannon Chin',
     position: 'Senior Interactive Producer',
-    photo: require('assets/img/about/team/shannon.jpg'),
+    // photo: require('assets/img/about/team/shannon.jpg'),
     modalImage: require('assets/img/about/team/modal/shannon.jpg'),
     bioStatement: [
       'Shannon Chin is an interactive producer at Redshift.',
@@ -93,7 +93,7 @@ export const teamInfo = [
     id: 'ian',
     name: 'Ian Eck',
     position: 'UX Designer',
-    photo: require('assets/img/about/team/ian.jpg'),
+    // photo: require('assets/img/about/team/ian.jpg'),
     modalImage: require('assets/img/about/team/modal/ian.jpg'),
     bioStatement: [
       'Ian is a user experience designer at Redshift.',
@@ -105,7 +105,7 @@ export const teamInfo = [
     id: 'andrew',
     name: 'Andrew Fitzpatrick',
     position: 'Software Engineer',
-    photo: require('assets/img/about/team/andrew.jpg'),
+    // photo: require('assets/img/about/team/andrew.jpg'),
     modalImage: require('assets/img/about/team/modal/andrew.jpg'),
     bioStatement: [
       'Andrew is a self-taught developer with a background in fine arts.',
@@ -125,23 +125,23 @@ export const teamInfo = [
   //     'Jennie received her B.A. in English Literature from Bryn Mawr College.'
   //   ]
   // },
-  {
-    id: 'nick',
-    name: 'Nick Capello',
-    position: 'Studio Manager',
-    photo: require('assets/img/about/team/nick.jpg'),
-    modalImage: require('assets/img/about/team/modal/nick.jpg'),
-    bioStatement: [
-      'Nick Capello is the studio manager at Redshift.',
-      'Born in Kalamazoo, Michigan (a place he left after 4 months) he has moved 13 different times and lived in more than 5 countries with his roots in Buenos Aires, Argentina. He studied Web/UX Design at the Academy of Art, and has worked on a number of freelance jobs ranging from print design to branding. He thrives on keeping Redshift a place that is not only fun and exciting, but also a creative petri dish.',
-      'His interests include getting up at 4 am on weekends to watch English soccer, making music for aliens, and climbing Redwood trails with his puggle, Duckie (aka the Duckman).'
-    ]
-  },
+  // {
+  //   id: 'nick',
+  //   name: 'Nick Capello',
+  //   position: 'Studio Manager',
+  //   // photo: require('assets/img/about/team/nick.jpg'),
+  //   modalImage: require('assets/img/about/team/modal/nick.jpg'),
+  //   bioStatement: [
+  //     'Nick Capello is the studio manager at Redshift.',
+  //     'Born in Kalamazoo, Michigan (a place he left after 4 months) he has moved 13 different times and lived in more than 5 countries with his roots in Buenos Aires, Argentina. He studied Web/UX Design at the Academy of Art, and has worked on a number of freelance jobs ranging from print design to branding. He thrives on keeping Redshift a place that is not only fun and exciting, but also a creative petri dish.',
+  //     'His interests include getting up at 4 am on weekends to watch English soccer, making music for aliens, and climbing Redwood trails with his puggle, Duckie (aka the Duckman).'
+  //   ]
+  // },
   {
     id: 'sasha',
     name: 'Sasha Klein',
     position: 'Senior Software Engineer',
-    photo: require('assets/img/about/team/sasha.jpg'),
+    // photo: require('assets/img/about/team/sasha.jpg'),
     modalImage: require('assets/img/about/team/modal/sasha.jpg'),
     bioStatement: [
       'Sasha Klein is a senior web developer at Redshift.',
@@ -153,7 +153,7 @@ export const teamInfo = [
     id: 'emma',
     name: 'Emma Hazlett',
     position: 'Visual Designer',
-    photo: require('assets/img/about/team/emma.jpg'),
+    // photo: require('assets/img/about/team/emma.jpg'),
     modalImage: require('assets/img/about/team/modal/emma.jpg'),
     bioStatement: [
       'Emma Hazlett is a visual designer at Redshift.',
@@ -177,7 +177,7 @@ export const teamInfo = [
     id: 'sandra',
     name: 'Sandra Wing',
     position: 'UX Researcher',
-    photo: require('assets/img/about/team/sandra.jpg'),
+    // photo: require('assets/img/about/team/sandra.jpg'),
     modalImage: require('assets/img/about/team/modal/sandra.jpg'),
     bioStatement: [
       'Sandra Wing is a User Experience Researcher at Redshift.',
@@ -206,7 +206,7 @@ export const teamInfo = [
     id: 'trevor',
     name: 'Trevor Alexander',
     position: 'Software Engineer',
-    photo: require('assets/img/about/team/trevor.jpg'),
+    // photo: require('assets/img/about/team/trevor.jpg'),
     modalImage: require('assets/img/about/team/modal/trevor.jpg'),
     bioStatement: [
       'Trevor Alexander is a software engineer and data analyst at Redshift. Raised in Arizona, he received his B.S. in Electrical Engineering from the University of Hawai`i at Manoa, with a focus in systems engineering and a minor in Japanese. Following that, he received an M.S. in Electrical Engineering from the same, with a thesis in the area of brain-computer interfaces. Prior to working at Redshift, he worked for a number of technical startups, developing a passion for application development and high-performance web engineering.',
@@ -217,7 +217,7 @@ export const teamInfo = [
     id: 'diana',
     name: 'Diana Cheng',
     position: 'Director of User Research',
-    photo: require('assets/img/about/team/diana.jpg'),
+    // photo: require('assets/img/about/team/diana.jpg'),
     modalImage: require('assets/img/about/team/modal/diana.jpg'),
     bioStatement: [
       'Diana Cheng is the Director of User Research at Redshift.',
@@ -229,7 +229,7 @@ export const teamInfo = [
     id: 'mattk',
     name: 'Matt Kissick',
     position: 'UX Designer',
-    photo: require('assets/img/about/team/mattk.jpg'),
+    // photo: require('assets/img/about/team/mattk.jpg'),
     modalImage: require('assets/img/about/team/modal/mattk.jpg'),
     bioStatement: [
       'Matt Kissick is a user experience designer at Redshift.',
@@ -241,13 +241,13 @@ export const teamInfo = [
     id: 'mattr',
     name: 'Matt Rancatore',
     position: 'Visual Designer',
-    photo: require('assets/img/about/team/mattr.jpg'),
+    // photo: require('assets/img/about/team/mattr.jpg'),
     modalImage: require('assets/img/about/team/modal/mattr.jpg'),
     bioStatement: [
       'Matt Rancatore is a visual designer at Redshift.',
       'He grew up in the Bay Area and received a BS in Graphic Design from The Art Institute of California – San Francisco. Prior to working at Redshift, Matt designed magazines, brands, and websites at companies including Wired Magazine, Sidecar Agency, and IDEO. When Matt isn\'t hunched over his computer pushing pixels, he can be found biking up San Francisco\'s notorious hills, in a park napping, or at a baseball game.'
     ]
-  },
+  }
   // {
   //   id: 'peter',
   //   name: 'Peter Odum',
@@ -260,16 +260,16 @@ export const teamInfo = [
   //     'Peter is a classically trained painter and printmaker who enjoys travel, photography, and roughhousing with his kids, Sam and Irene.'
   //   ]
   // },
-  {
-    id: 'tiffany',
-    name: 'Tiffany La',
-    position: 'User Research',
-    photo: require('assets/img/about/team/tiffany.jpg'),
-    modalImage: require('assets/img/about/team/modal/tiffany.jpg'),
-    bioStatement: [
-      'Tiffany La is a User Researcher at Redshift.',
-      'She is a San Francisco native who has a Bachelor of Arts from UC Davis for Communication and Economics. She has worked in Finance and IT and in between discovered Design Thinking at Carnegie Mellon, which catalyzed her interest in UX. Several conversations later, she obtained her UX Design Immersive certification at General Assembly.',
-      'She loves to work on big projects that really touch the lives of those that need it the most.'
-    ]
-  }
+  // {
+  //   id: 'tiffany',
+  //   name: 'Tiffany La',
+  //   position: 'User Research',
+  //   photo: require('assets/img/about/team/tiffany.jpg'),
+  //   modalImage: require('assets/img/about/team/modal/tiffany.jpg'),
+  //   bioStatement: [
+  //     'Tiffany La is a User Researcher at Redshift.',
+  //     'She is a San Francisco native who has a Bachelor of Arts from UC Davis for Communication and Economics. She has worked in Finance and IT and in between discovered Design Thinking at Carnegie Mellon, which catalyzed her interest in UX. Several conversations later, she obtained her UX Design Immersive certification at General Assembly.',
+  //     'She loves to work on big projects that really touch the lives of those that need it the most.'
+  //   ]
+  // }
 ];
