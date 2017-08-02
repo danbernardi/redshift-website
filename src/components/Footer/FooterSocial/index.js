@@ -11,7 +11,7 @@ const footerIcons = [
   },
   {
     class: 'instagram',
-    url: 'https://www.instagram.com/weareredshift/'
+    url: 'https://www.instagram.com/redshiftdigital/'
   }
 ];
 
