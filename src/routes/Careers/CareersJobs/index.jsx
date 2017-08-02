@@ -11,16 +11,11 @@ export function CareersJobs (props) {
 
   return (
     <section className={ `${job.id} py9 py6--mlg career-section` }>
-      <h2>{ job.position }</h2>
+      <h2 className="typ--bold">{ job.position }</h2>
       { frontPage }
       <div className="pt3">
-        <Link
-          className="typ--h5 btn btn--arrow js-modal-trigger"
-          to={ `/careers/${job.id}` }
-        >
-          <span className="job__view typ--bold">
-            View position
-          </span>
+        <Link data-animationName="cta-link" className="job__link typ--bold typ--h6" to={ `/careers/${job.id}` } >
+          View position
         </Link>
       </div>
     </section>
