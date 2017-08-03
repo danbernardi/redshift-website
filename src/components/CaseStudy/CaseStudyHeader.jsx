@@ -1,5 +1,5 @@
 import React from 'react';
-import { TimelineMax, Power3 } from 'gsap';
+import { TimelineLite, Power3 } from 'gsap';
 import SplitText from 'vendor/gsap-plugins/SplitText';
 import GSAP from 'react-gsap-enhancer';
 
@@ -14,7 +14,7 @@ export class CaseStudyHeader extends React.Component {
 
   animateInHeader ({ target, options }) {
 
-    return new TimelineMax({ target, options })
+    return new TimelineLite({ target, options })
       .set('.casestudy__title', { perspective: 400 })
       .staggerTo(options.text.chars, 0.2, {
         opacity: 1,

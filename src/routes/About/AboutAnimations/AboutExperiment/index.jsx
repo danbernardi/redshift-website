@@ -1,6 +1,6 @@
 import React from 'react';
 import GSAP from 'react-gsap-enhancer';
-import { TimelineMax, TweenMax, Power2 } from 'gsap';
+import { TimelineLite, TweenLite, Power2 } from 'gsap';
 import MorphSVGPlugin from 'vendor/gsap-plugins/MorphSVGPlugin';
 import CustomEase from 'vendor/gsap-plugins/CustomEase';
 import Watcher from 'components/Watcher';
@@ -23,7 +23,7 @@ export class AboutExperiment extends React.Component {
       pathLength: line.getTotalLength()
     };
 
-    return TweenMax
+    return TweenLite
       .to(pathObject, speed, {
         length: pathObject.pathLength,
         onUpdate: this.drawLine,
@@ -42,7 +42,7 @@ export class AboutExperiment extends React.Component {
       return MorphSVGPlugin.pathDataToBezier(path);
     });
 
-    const tl = new TimelineMax({ paused: true });
+    const tl = new TimelineLite({ paused: true });
     var baseDuration = 1;
 
     tl

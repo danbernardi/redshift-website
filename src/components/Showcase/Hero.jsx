@@ -3,7 +3,6 @@ import GSAP from 'react-gsap-enhancer';
 import CustomEase from 'vendor/gsap-plugins/CustomEase';
 import { TimelineLite, Power3 } from 'gsap';
 import { isInRange } from 'utils/animation';
-import 'components/ScrollTrigger/ScrollTrigger.scss';
 import PropTypes from 'prop-types';
 import SplitText from 'vendor/gsap-plugins/SplitText';
 

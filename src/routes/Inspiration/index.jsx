@@ -3,7 +3,7 @@ import Footer from 'components/Footer';
 import './Inspiration.scss';
 import { ellipsisString } from 'utils/string';
 import PropTypes from 'prop-types';
-import { TimelineMax, Power2 } from 'gsap';
+import { TimelineLite, Power2 } from 'gsap';
 import Isotope from 'isotope-layout';
 import 'masonry-layout';
 import GSAP from 'react-gsap-enhancer';
@@ -49,7 +49,7 @@ export class Inspiration extends React.Component {
     const loader = target[0].querySelector('.inspiration__loader');
     const feed = target[0].querySelector('.inspiration__feed');
 
-    return new TimelineMax({
+    return new TimelineLite({
       paused: true,
       onUpdate: () => {
         //Do stuff here

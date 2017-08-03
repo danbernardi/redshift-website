@@ -1,6 +1,6 @@
 import React from 'react';
 import GSAP from 'react-gsap-enhancer';
-import { TimelineMax, TweenMax, Linear } from 'gsap';
+import { TimelineLite, TweenLite, Linear } from 'gsap';
 import MorphSVGPlugin from 'vendor/gsap-plugins/MorphSVGPlugin';
 import _ from 'lodash';
 
@@ -19,7 +19,7 @@ export class AboutExploreAnimation extends React.Component {
       pathLength: line.getTotalLength()
     };
 
-    return TweenMax
+    return TweenLite
       .to(pathObject, speed, {
         length: pathObject.pathLength,
         onUpdate: this.drawLine,
@@ -31,7 +31,7 @@ export class AboutExploreAnimation extends React.Component {
   };
 
   circlePathTween (circle, path, speed) {
-    return TweenMax
+    return TweenLite
       .to(circle, speed, {
         bezier: { values: path, type: 'cubic' },
         ease: Linear.easeNone,
@@ -44,7 +44,7 @@ export class AboutExploreAnimation extends React.Component {
     const svg = [];
     const circle = [];
     const path = [];
-    const tl = new TimelineMax({ paused: true });
+    const tl = new TimelineLite({ paused: true });
 
     const baseSpeed = 1 * 0.75;
 

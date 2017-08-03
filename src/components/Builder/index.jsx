@@ -1,6 +1,6 @@
 import React from 'react';
 import Watcher from 'components/Watcher';
-import { TimelineMax } from 'gsap';
+import { TimelineLite } from 'gsap';
 import GSAP from 'react-gsap-enhancer';
 import PropTypes from 'prop-types';
 
@@ -40,7 +40,7 @@ export class Builder extends React.Component {
     const { delay } = this.props;
 
     if (target && target[0]) {
-      return new TimelineMax({ onComplete: () => this.clearAnimation() })
+      return new TimelineLite({ onComplete: () => this.clearAnimation() })
         .to(target[0], 0.8, { opacity: 1, y: 0, delay }, 'slideIn');
     }
   }
