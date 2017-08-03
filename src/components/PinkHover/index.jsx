@@ -51,12 +51,15 @@ class PinkHover extends React.Component {
         <div ref="hover" className="pink-hover">
           <div className="pink-info">{ children }</div>
         </div>
-        <img
+        <picture
           className="pinkhover__img"
           ref="img"
-          src={ imageSrc }
           alt={ alt }
-        />
+        >
+          <source srcSet={ `https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/about/team/desktop/${imageSrc}.jpg` } media="(max-width: 1400px)" />
+          <source srcSet={ `https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/about/team/tablet/${imageSrc}.jpg` } media="(max-width: 1040px)" />
+          <img src={ `https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/about/team/default/${imageSrc}.jpg` } alt="Redshift About" />
+        </picture>
       </div>
     );
   }

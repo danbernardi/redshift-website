@@ -39,7 +39,8 @@ class AboutSlides extends React.Component {
       fade: true,
       pauseOnHover: false,
       arrows: false,
-      draggable: false
+      draggable: false,
+      lazyLoad: true
     };
 
     return (
@@ -55,9 +56,10 @@ class AboutSlides extends React.Component {
               slideShow.map((s, i) => (
                 <div key={ i }>
                   <picture>
-                    <source srcSet={ require(`assets/img/about/slides/tablet/${s.imagePath}.jpg`) } media="(max-width: 1040px)" />
-                    <source srcSet={ require(`assets/img/about/slides/mobile/${s.imagePath}.jpg`) } media="(max-width: 767px)" />
-                    <img src={ require(`assets/img/about/slides/default/${s.imagePath}.jpg`) } alt="Redshift About" />
+                    <source srcSet={ `https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/about/slides/desktop/${s.imagePath}.jpg` } media="(max-width: 1400px)" />
+                    <source srcSet={ `https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/about/slides/tablet/${s.imagePath}.jpg` } media="(max-width: 1040px)" />
+                    <source srcSet={ `https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/about/slides/mobile/${s.imagePath}.jpg` } media="(max-width: 767px)" />
+                    <img src={ `https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/about/slides/default/${s.imagePath}.jpg` } alt="Redshift About" />
                   </picture>
                 </div>
               ))
