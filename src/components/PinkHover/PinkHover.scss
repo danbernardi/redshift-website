@@ -1,5 +1,11 @@
 @import 'sass-includes';
 
+.pink-hover__item {
+  &:hover .pink-hover {
+    transform: translateX(0%);
+  }
+}
+
 .pink-hover {
   position: absolute;
   bottom: 0;
@@ -9,9 +15,9 @@
   background: $redshift;
   display: flex;
   align-items: center;
+  transition: transform 0.3s ease-in-out;
   transform: translateX(calc(100% + 1px));
   z-index: 2;
-  // opacity: 0;
 }
 
 .pinkhover__img {

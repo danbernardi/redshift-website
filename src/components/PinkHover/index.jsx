@@ -1,68 +1,28 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import mojs from 'mo-js';
-import './styles.scss';
+import './PinkHover.scss';
 import PropTypes from 'prop-types';
 
-class PinkHover extends React.Component {
-  constructor (props) {
-    super(props);
+export function PinkHover (props) {
+  const { children, classes, imageSrc, clickHandler, alt } = props;
 
-    this.state = {
-      hover: false
-    };
-  }
-
-  componentDidMount () {
-    this.setupAnimation();
-  }
-
-  setupAnimation () {
-    const hoverElem = ReactDOM.findDOMNode(this.refs.hover);
-    this.animate = new mojs.Tween({
-      easing: 'cubic.inout',
-      backwardEasing: 'cubic.inout',
-      duration: 250,
-      delay: 100,
-      onUpdate: progress => {
-        hoverElem.style.transform = `translateX(calc(${100 - (progress * 100)}% + 1px))`;
-      }
-    });
-  }
-
-  animateIn () {
-    this.animate.pause().play().resume();
-  }
-
-  animateOut () {
-    this.animate.pause().playBackward().resume();
-  }
-
-  render () {
-    const { children, classes, imageSrc, clickHandler, alt } = this.props;
-
-    return (
-      <div
-        className={ classes }
-        onMouseEnter={ () => this.animateIn() }
-        onMouseLeave={ () => this.animateOut() }
-        onClick={ () => clickHandler && clickHandler() }
-      >
-        <div ref="hover" className="pink-hover">
-          <div className="pink-info">{ children }</div>
-        </div>
-        <picture
-          className="pinkhover__img"
-          ref="img"
-          alt={ alt }
-        >
-          <source srcSet={ `https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/about/team/desktop/${imageSrc}.jpg` } media="(max-width: 1400px)" />
-          <source srcSet={ `https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/about/team/tablet/${imageSrc}.jpg` } media="(max-width: 1040px)" />
-          <img src={ `https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/about/team/default/${imageSrc}.jpg` } alt="Redshift About" />
-        </picture>
+  return (
+    <div
+      className={ `pink-hover__item ${classes}` }
+      onClick={ () => clickHandler && clickHandler() }
+    >
+      <div className="pink-hover">
+        <div className="pink-info">{ children }</div>
       </div>
-    );
-  }
+      <picture
+        className="pinkhover__img"
+        alt={ alt }
+      >
+        <source srcSet={ `https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/about/team/desktop/${imageSrc}.jpg` } media="(max-width: 1400px)" />
+        <source srcSet={ `https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/about/team/tablet/${imageSrc}.jpg` } media="(max-width: 1040px)" />
+        <img src={ `https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/about/team/default/${imageSrc}.jpg` } alt="Redshift About" />
+      </picture>
+    </div>
+  );
 }
 
 PinkHover.propTypes = {
