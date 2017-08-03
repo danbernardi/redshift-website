@@ -96,7 +96,7 @@ export const teamInfo = [
       'Andrew is a self-taught developer with a background in fine arts.',
       'He has built websites for the largest online retailers over the last decade. When he is not writing the code that makes your page load as a Full Stack Engineer at Redshift, you can find him lurking in thrift shops and garage sales.'
     ],
-    inspiration: true
+    inspiration: 'https://www.youtube.com/embed/D9_XdDvgkGg?rel=0'
   },
   {
     id: 'sasha',

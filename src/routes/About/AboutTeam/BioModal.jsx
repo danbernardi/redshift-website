@@ -20,8 +20,8 @@ export function BioTemplate (props) {
           { bio }
           { bioContent.inspiration &&
             <div>
-              <h3>Current favorite</h3>
-              <iframe width="560" height="315" src="https://www.youtube.com/embed/D9_XdDvgkGg?rel=0"
+              <h3>Current inspiration</h3>
+              <iframe width="560" height="315" src={ bioContent.inspiration }
                 frameborder="0"
               />
             </div>}
