@@ -10,6 +10,9 @@ const debug = require('debug')('app:config:webpack');
 const lostGrid = require('lost');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
+//Optimization tools
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+
 const __DEV__ = project.globals.__DEV__;
 const __PROD__ = project.globals.__PROD__;
 const __TEST__ = project.globals.__TEST__;
@@ -65,6 +68,7 @@ webpackConfig.externals['react/addons'] = true;
 // ------------------------------------
 webpackConfig.plugins = [
   new webpack.DefinePlugin(project.globals),
+  new BundleAnalyzerPlugin(),
   new HtmlWebpackPlugin({
     template: project.paths.client('index.html'),
     hash: false,

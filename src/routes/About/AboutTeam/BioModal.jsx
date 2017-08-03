@@ -18,13 +18,13 @@ export function BioTemplate (props) {
           <h2 className="typ--bold">{ bioContent.name }</h2>
           <h2 className="pb6 pb2--dsm">{ bioContent.position }</h2>
           { bio }
-          { bioContent.inspiration &&
+          { /** bioContent.inspiration &&
             <div>
               <h3>Current inspiration</h3>
               <iframe width="560" height="315" src={ bioContent.inspiration }
                 frameborder="0"
               />
-            </div>}
+            </div> **/}
         </div>
         <div className="bio--wrap__img hide--tmd">
           <img src={ bioContent.modal } alt={ bioContent.name } />
