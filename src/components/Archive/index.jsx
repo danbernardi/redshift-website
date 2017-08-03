@@ -22,12 +22,15 @@ export class Archive extends React.Component {
 
   componentDidUpdate () {
     const { imagesLoaded } = this.state;
+    const { reportAsLoaded } = this.props;
 
     if (imagesLoaded.length === caseStudies.filter(cs => cs.gridThumbnail).length) {
       this.isotope = new Isotope(this.grid, {
         itemSelector: '.archive__item',
         layoutMode: 'masonry'
       });
+
+      if (reportAsLoaded instanceof Function) reportAsLoaded();
     }
   }
 
@@ -85,7 +88,8 @@ export class Archive extends React.Component {
 
 Archive.propTypes = {
   onReady: PropTypes.func,
-  onDidMount: PropTypes.func
+  onDidMount: PropTypes.func,
+  reportAsLoaded: PropTypes.func
 };
 
 export default GSAP()(Archive);
