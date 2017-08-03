@@ -1,13 +1,21 @@
 import React from 'react';
+import { setClass } from 'utils/responsiveHelpers';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import './Clients.scss';
 
 export function AboutClients (props) {
-  const { data } = props;
+  const { data, breakpoint } = props;
 
   return (
     <section className="row">
       <div className="about__clients">
-        <h1 className="typ--bold typ--redshift mb6 mb3--mlg">Who we work with.</h1>
+        <h1 className={
+          `typ--bold typ--redshift
+          ${ setClass({ default: 'mb6', mobileLg: 'mb3' }, breakpoint)}`
+        }>
+          Who we work with.
+        </h1>
         <div className="clients">
           { data.map((client, index) => (
             <div key={ index } className="clients__client">
@@ -20,9 +28,13 @@ export function AboutClients (props) {
   );
 }
 
-const { array } = React.PropTypes;
 AboutClients.propTypes = {
-  data: array
+  data: PropTypes.array,
+  breakpoint: PropTypes.object
 };
 
-export default AboutClients;
+const mapStateToProps = state => ({
+  breakpoint: state.breakpoint
+});
+
+export default connect(mapStateToProps)(AboutClients);
