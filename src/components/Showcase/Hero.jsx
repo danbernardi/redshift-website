@@ -1,7 +1,7 @@
 import React from 'react';
 import GSAP from 'react-gsap-enhancer';
 import CustomEase from 'vendor/gsap-plugins/CustomEase';
-import { TimelineMax, Power3 } from 'gsap';
+import { TimelineLite, Power3 } from 'gsap';
 import { isInRange } from 'utils/animation';
 import 'components/ScrollTrigger/ScrollTrigger.scss';
 import PropTypes from 'prop-types';
@@ -45,7 +45,7 @@ export class Hero extends React.Component {
   createIntroTimeline () {
     const textChars = new SplitText('.hero__text', { type: 'chars, words' });
 
-    return new TimelineMax({})
+    return new TimelineLite({})
       .set('.hero__text', { perspective: 400 })
       .staggerFrom(textChars.chars, 0.5, {
         opacity: 0,
@@ -58,7 +58,7 @@ export class Hero extends React.Component {
 
     //Timeline progresses from 0 - 1
     //Pieces, delays and overlaps should total 1
-    return new TimelineMax({
+    return new TimelineLite({
       onComplete: () => {
         this.complete = true;
       }
@@ -68,7 +68,7 @@ export class Hero extends React.Component {
   }
 
   render () {
-    const { onDidMount, clickCallback } = this.props;
+    const { onDidMount } = this.props;
 
     return (
       <section
@@ -84,9 +84,7 @@ export class Hero extends React.Component {
           </h1>
         </div>
 
-        { this.props.animationProgress <= 0.3 ? <div data-animationName="scroller" className="scrolltrigger" onClick={ () => {
-          clickCallback(1);
-        } }>
+        { this.props.animationProgress <= 0.3 ? <div data-animationName="scroller" className="scrolltrigger">
           <div className="casestudy__scrollarrow">
             <img src={ require('assets/img/down-arrow.svg') } alt="Scroll down" />
           </div>

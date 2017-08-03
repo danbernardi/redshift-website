@@ -269,12 +269,7 @@ export class Showcase extends React.Component {
 
   // Clone header and add props
   header () {
-    return (<Hero
-      clickCallback={ () => {
-        this.goToScene(1);
-      }
-    }
-    />);
+    return (<Hero />);
   }
 
   // Clone scenes and add props
