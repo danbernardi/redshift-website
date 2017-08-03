@@ -1,8 +1,7 @@
 import React from 'react';
-import AboutExploreAnimation from '../AboutAnimations/AboutExplore';
-import AboutExperimentAnimation from '../AboutAnimations/AboutExperiment';
-import AboutCollaborationAnimation from '../AboutAnimations/AboutCollaboration';
-import AboutIterateAnimation from '../AboutAnimations/AboutIterate';
+import { setClass, breakpointIsGreaterThan } from 'utils/responsiveHelpers';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 export class AboutExplore extends React.Component {
   constructor (props) {
@@ -41,36 +40,38 @@ export class AboutExplore extends React.Component {
   }
 
   render () {
+    const { breakpoint } = this.props;
     return (
       <section>
-        <div className="about__animation-wrapper hide--tlg hero layout--landscape">
-          <h1 className="typ--bold typ--redshift row">How we work.</h1>
-          { this.animationItems.map((i, ind) => (
-            <div className="about--work__container" key={ ind }>
-              <div className="row col-12">
-                <h1 className={ `${i.colorClass} typ--bold mb2` }>
-                  { i.title }
-                </h1>
-                <h3 className="about--explore-text col-9 col-12--dsm" >{ i.text }</h3>
+        { breakpointIsGreaterThan('tabletLg', breakpoint.size)
+          ? <div className="about__animation-wrapper hero layout--landscape">
+            <h1 className="typ--bold typ--redshift row">How we work.</h1>
+            { this.animationItems.map((i, ind) => (
+              <div className="about--work__container" key={ ind }>
+                <div className="row col-12">
+                  <h1 className={ `${i.colorClass} typ--bold mb2` }>
+                    { i.title }
+                  </h1>
+                  <h3 className={ `about--explore-text ${ setClass({ default: 'col-9', desktopSm: 'col-12' }, breakpoint)}` }>{ i.text }</h3>
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
-        <div className="about__wrapper show--tlg row">
-          <h1 className="typ--bold typ--redshift">How we work.</h1>
-          { this.animationItems.map((item, ti) => (
-            <div key={ ti } className="mt6 mt4--mlg">
-              <h2
-                className={ `typ--bold pb1 ${ item.colorClass }` }
-              >
-                { item.title }
-              </h2>
-              <h3>{ item.text }</h3>
-            </div>
-          )) }
-        </div>
+            ))}
+          </div>
+          : <div className="about__wrapper row">
+            <h1 className="typ--bold typ--redshift">How we work.</h1>
+            { this.animationItems.map((item, ti) => (
+              <div key={ ti } className="mt6 mt4--mlg">
+                <h2
+                  className={ `typ--bold pb1 ${ item.colorClass }` }
+                >
+                  { item.title }
+                </h2>
+                <h3>{ item.text }</h3>
+              </div>
+            )) }
+          </div>
+        }
       </section>
-
     );
   }
 }
@@ -79,4 +80,13 @@ AboutExplore.defaultProps = {
   activeItem: 'aboutExplore'
 };
 
-export default AboutExplore;
+AboutExplore.propTypes = {
+  data: PropTypes.array,
+  breakpoint: PropTypes.object
+};
+
+const mapStateToProps = state => ({
+  breakpoint: state.breakpoint
+});
+
+export default connect(mapStateToProps)(AboutExplore);
