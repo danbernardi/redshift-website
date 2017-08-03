@@ -1,4 +1,7 @@
 import React from 'react';
+import { setClass } from 'utils/responsiveHelpers';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 export class AboutHero extends React.Component {
   constructor (props) {
@@ -16,6 +19,7 @@ export class AboutHero extends React.Component {
 
   render () {
     const { removeMask } = this.state;
+    const { breakpoint } = this.props;
     return (
       <section
         className="layout--flex-col layout--fullheight layout--landscape"
@@ -39,8 +43,8 @@ export class AboutHero extends React.Component {
         </div>
 
         <div className="row about--header" >
-          <div className="col-7 col-12--tlg">
-            <h1 className="typ--bold typ--redshift pb2 pb1--mlg">About Redshift.</h1>
+          <div className={ setClass({ default: 'col-7', tabletLg: 'col-12' }, breakpoint) }>
+            <h1 className={ `typ--bold typ--redshift ${ setClass({ default: 'pb2', mobileLg: 'pb1' }, breakpoint) }` }>About Redshift.</h1>
             <h3 className="pb2">
               We are an award-winning agency dedicated to creating simple, meaningful experiences for users and positive results for our clients.
             </h3>
@@ -55,4 +59,13 @@ export class AboutHero extends React.Component {
   }
 }
 
-export default AboutHero;
+AboutHero.propTypes = {
+  breakpoint: PropTypes.object
+};
+
+const mapStateToProps = state => ({
+  breakpoint: state.breakpoint
+});
+
+export default connect(mapStateToProps)(AboutHero);
+

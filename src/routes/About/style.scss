@@ -59,19 +59,6 @@
   position: relative;
 }
 
-.about__clients {
-  padding-top: 20rem;
-  h1 {
-    text-align: center;
-    @include breakpoint($mobile-lg) {
-      text-align: left;
-    }
-  }
-  @include breakpoint($mobile-lg) {
-    padding-top: 10.3rem;
-  }
-}
-
 // Team
 .about {
   .modal__close {

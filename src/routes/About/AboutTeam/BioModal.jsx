@@ -1,10 +1,13 @@
 import React from 'react';
 import ModalCloseBtn from 'components/Modal/ModalCloseBtn';
 import { browserHistory } from 'react-router';
+import { setClass, breakpointIsGreaterThan } from 'utils/responsiveHelpers';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import '../style.scss';
 
 export function BioTemplate (props) {
-  const { bioContent } = props;
+  const { bioContent, breakpoint } = props;
 
   const bio = bioContent.bioStatement.map((paragraph, index) =>
     <h5 key={ index } className="pb2">{ paragraph }</h5>
@@ -16,7 +19,7 @@ export function BioTemplate (props) {
       <div className="col-12 bio--wrap row">
         <div className="team-member-bio py5">
           <h2 className="typ--bold">{ bioContent.name }</h2>
-          <h2 className="pb6 pb2--dsm">{ bioContent.position }</h2>
+          <h2 className={ setClass({ default: 'pb6', desktopSm: 'pb2' }, breakpoint) }>{ bioContent.position }</h2>
           { bio }
           { /** bioContent.inspiration &&
             <div>
@@ -26,17 +29,22 @@ export function BioTemplate (props) {
               />
             </div> **/}
         </div>
-        <div className="bio--wrap__img hide--tmd">
-          <img src={ bioContent.modal } alt={ bioContent.name } />
-        </div>
+        { breakpointIsGreaterThan('tabletMd', breakpoint.size) &&
+          <div className="bio--wrap__img hide--tmd">
+            <img src={ `https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/about/team/modal/${bioContent.id}.jpg` } alt={ bioContent.name } />
+          </div>
+        }
       </div>
     </div>
   );
 };
 
-const { object } = React.PropTypes;
 BioTemplate.propTypes = {
-  bioContent: object
+  bioContent: PropTypes.object
 };
 
-export default BioTemplate;
+BioTemplate.propTypes = {
+  breakpoint: PropTypes.object
+};
+
+export default connect()(BioTemplate);
