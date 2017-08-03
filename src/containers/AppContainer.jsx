@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { browserHistory, Router } from 'react-router';
 import { Provider, connect } from 'react-redux';
 import { enableScroll, disableScroll } from 'utils/scrollJack';
-import 'modernizr';
 import './styles.scss';
 import ReactGA from 'react-ga';
 import PropTypes from 'prop-types';

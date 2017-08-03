@@ -9,6 +9,7 @@ const project = require('./project.config');
 const debug = require('debug')('app:config:webpack');
 const lostGrid = require('lost');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const __DEV__ = project.globals.__DEV__;
 const __PROD__ = project.globals.__PROD__;
@@ -23,7 +24,6 @@ const webpackConfig = {
     root: project.paths.client(),
     extensions: ['', '.js', '.jsx', '.json'],
     alias: {
-      modernizr$: path.resolve(__dirname, '../.modernizrrc'),
       'masonry': 'masonry-layout',
       'isotope': 'isotope-layout'
     }
@@ -64,6 +64,7 @@ webpackConfig.externals['react/addons'] = true;
 // Plugins
 // ------------------------------------
 webpackConfig.plugins = [
+  new BundleAnalyzerPlugin(),
   new webpack.DefinePlugin(project.globals),
   new HtmlWebpackPlugin({
     template: project.paths.client('index.html'),
@@ -200,9 +201,7 @@ webpackConfig.module.loaders.push(
   { test: /\.ttf(\?.*)?$/,   loader: 'url?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=application/octet-stream' },
   { test: /\.eot(\?.*)?$/,   loader: 'file?prefix=fonts/&name=[path][name].[ext]' },
   { test: /\.svg(\?.*)?$/,   loader: 'url?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=image/svg+xml' },
-  { test: /\.(png|jpg)$/,    loader: 'url?limit=8192' },
-  { test: /\.modernizrrc\.js$/, loader: 'modernizr' },
-  { test: /\.modernizrrc(\.json)?$/, loader: 'modernizr!json' }
+  { test: /\.(png|jpg)$/,    loader: 'url?limit=8192' }
 )
 /* eslint-enable */
 
