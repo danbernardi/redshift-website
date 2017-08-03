@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import { isInRange } from 'utils/animation';
 import './Scene.scss';
-import { TimelineMax, Power3, Power1 } from 'gsap';
+import { TimelineLite, Power3, Power1 } from 'gsap';
 import GSAP from 'react-gsap-enhancer';
 import PropTypes from 'prop-types';
 
@@ -57,7 +57,7 @@ export class Scene extends React.Component {
    * Creates a timeline for animating the scene.  This is likely attached to scroll
    * @param  {Object} options.target  Attached by GSAP enhancer, this is the wrapping component.
    * @param  {Object} options.options Timeline options, if applicable
-   * @return {Object}                 TimelineMax timeline
+   * @return {Object}                 TimelineLite timeline
    */
   animateIn ({ target, options }) {
     const device = target.find({ 'data-animationName': 'device' });
@@ -78,7 +78,7 @@ export class Scene extends React.Component {
     const deviceInTiming = 0.5;
     const deviceOutTiming = 0.5;
 
-    return new TimelineMax()
+    return new TimelineLite()
     .pause()
 
     .from(device, deviceInTiming, {

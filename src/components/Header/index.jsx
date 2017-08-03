@@ -11,7 +11,7 @@ import Hamburger from 'components/Hamburger';
 import ReactGA from 'react-ga';
 import PropTypes from 'prop-types';
 import GSAP from 'react-gsap-enhancer';
-import { TimelineMax } from 'gsap';
+import { TimelineLite } from 'gsap';
 
 export class Header extends React.Component {
   constructor (props) {
@@ -29,7 +29,7 @@ export class Header extends React.Component {
     const logo = target[0].querySelector('.header__logo');
     const menu = target[0].querySelector('.menu__trigger');
 
-    return new TimelineMax({})
+    return new TimelineLite({})
       .staggerFrom([logo, menu], 0.55, { delay: 0.5, opacity: 0, y: -50 }, 0.15)
       .play();
   }

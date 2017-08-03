@@ -4,7 +4,7 @@ import { browserHistory } from 'react-router';
 import ModalCloseBtn from 'components/Modal/ModalCloseBtn';
 import PropTypes from 'prop-types';
 import CaseStudyScroller from './CaseStudyScroller';
-import { TimelineMax, Power1 } from 'gsap';
+import { TimelineLite, Power1 } from 'gsap';
 import GSAP from 'react-gsap-enhancer';
 
 import './CaseStudy.scss';
@@ -29,7 +29,7 @@ class CaseStudy extends React.Component {
     const label = target[0].querySelector('.casestudy__next__label');
     const title = document.querySelector('.casestudy__modal .modal__title');
     const endFontSize = window.getComputedStyle(title, null).getPropertyValue('font-size');
-    const tl = new TimelineMax();
+    const tl = new TimelineLite();
 
     tl.to(next, duration, { height: '100vh', backgroundColor: '#FFF', ease: Power1.easeInOut }, 'anim');
     tl.to(name, duration, { fontSize: endFontSize, color: '#a3a3a3', ease: Power1.easeInOut }, 'anim');

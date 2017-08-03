@@ -9,6 +9,19 @@
   }
 }
 
+.modal__sidebar {
+  width: 8rem;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  opacity: 0;
+  // media queries
+  @include breakpoint($mobile-lg) {
+    width: 1rem;
+  }
+}
+
 .modal__close {
   cursor: pointer;
   position: absolute !important;

@@ -1,10 +1,6 @@
 import React from 'react';
 import GSAP from 'react-gsap-enhancer';
-import { TimelineMax, Power2 } from 'gsap';
 import Footer from 'components/Footer';
-import { Link } from 'react-router';
-import { scrollDocToZero } from 'utils/scrollTo';
-import { isInRange } from 'utils/animation';
 import PropTypes from 'prop-types';
 
 export class FooterHome extends React.Component {
@@ -18,48 +14,8 @@ export class FooterHome extends React.Component {
     };
   }
 
-  componentDidMount () {
-    this.timeline = this.addAnimation(this.createTimeline);
-  }
-
-  shouldComponentUpdate (nextProps) {
-    return isInRange(nextProps.animationProgress, 0, 1);
-  }
-
-  componentWillReceiveProps (nextProps) {
-    const { animationProgress } = nextProps;
-    if (isInRange(animationProgress, 0, 1)) {
-      this.setState({
-        animationProgress
-      }, () => {
-        this.timeline.progress(animationProgress);
-      });
-    }
-  }
-
-  createTimeline ({ target }) {
-    const targetElement = target[0];
-
-    const footer = targetElement.querySelector('footer');
-    const footerMenuItems = footer.querySelectorAll('#footer-menu li');
-
-    return new TimelineMax({
-      onUpdate: () => {
-        //Do stuff here
-      },
-      onComplete: () => {
-        this.animationComplete = true;
-      }
-    })
-    .set(footerMenuItems, { y: '100%', opacity: 0 })
-    .pause()
-    .addPause(0.70)
-    .add('text-entry-point')
-    .staggerTo(footerMenuItems, 0.3, {
-      y: '0%',
-      opacity: 1,
-      ease: Power2.easeOut
-    }, 0.1, 'text-entry-point');
+  shouldComponentUpdate () {
+    return false;
   }
 
   render () {

@@ -1,6 +1,6 @@
 import React from 'react';
 import GSAP from 'react-gsap-enhancer';
-import { TimelineMax, TweenMax, Power3 } from 'gsap';
+import { TimelineLite, TweenMax, Power3 } from 'gsap';
 import MorphSVGPlugin from 'vendor/gsap-plugins/MorphSVGPlugin';
 import { getRandomInt } from 'utils/animation';
 import Watcher from 'components/Watcher';
@@ -34,7 +34,7 @@ export class AboutCollaboration extends React.Component {
   createTimeline (target) {
     const wrapper = target.target[0];
 
-    const tl = new TimelineMax({ paused: true });
+    const tl = new TimelineLite({ paused: true });
     const baseDuration = 1 * 3;
     const buildDuration = baseDuration / 2; // Chord build
 

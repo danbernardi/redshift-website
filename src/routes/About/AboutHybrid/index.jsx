@@ -1,6 +1,6 @@
 import React from 'react';
 import GSAP from 'react-gsap-enhancer';
-import { TimelineMax, TweenMax, Power2, Power3 } from 'gsap';
+import { TimelineLite, TweenMax, Power2, Power3 } from 'gsap';
 import MorphSVGPlugin from 'vendor/gsap-plugins/MorphSVGPlugin';
 import CustomEase from 'vendor/gsap-plugins/CustomEase';
 import Watcher from 'components/Watcher';
@@ -36,7 +36,7 @@ export class AboutHybrid extends React.Component {
     const hybridPath = wrapper.querySelector('#hybridPath1');
     const hyPath = MorphSVGPlugin.pathDataToBezier(wrapper.querySelector('#hybridPath1'));
     const hyPath2 = MorphSVGPlugin.pathDataToBezier(wrapper.querySelector('#hybridPath2'));
-    const tl = new TimelineMax();
+    const tl = new TimelineLite();
     const baseDuration = 1;
 
     const hyText = [].slice.call(wrapper.querySelectorAll('.hyText'));

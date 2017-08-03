@@ -1,27 +1,23 @@
 import React from 'react';
-import Measure from 'react-measure';
 import { Link } from 'react-router';
 import CaseStudySection from './CaseStudySection';
 import { ScrollContainer } from 'scrollmonitor-react';
-import mojs from 'mo-js';
-import Builder from 'components/Builder';
 import CaseStudyHeader from './CaseStudyHeader';
 import PropTypes from 'prop-types';
+import GSAP from 'react-gsap-enhancer';
+import { TimelineLite, Power3 } from 'gsap';
 
 export class CaseStudyScroller extends React.Component {
   componentDidMount () {
-    const sidebar = this.sidebar;
+    this.timeline = this.addAnimation(this.animateIn).play();
+  }
 
-    const sidebarAnimation = new mojs.Tween({
-      duration: 600,
-      delay: 200,
-      easing: 'cubic.out',
-      onUpdate: (progress) => {
-        sidebar.style.opacity = progress;
-      }
-    });
+  animateIn ({ target }) {
+    const sidebar = target[0].querySelector('.modal__sidebar');
 
-    sidebarAnimation.play();
+    const tl = new TimelineLite();
+    tl.to(sidebar, 0.6, { opacity: 1, ease: Power3.easeOut }, 'anim+=0.2');
+    return tl;
   }
 
   render () {
@@ -29,7 +25,7 @@ export class CaseStudyScroller extends React.Component {
 
     return (
       <section ref={ (el) => { this.casestudy = el; } } className={ `modal__with-sidebar ${caseStudyContent.id}` }>
-        <div className="job__sidebar" style={ { backgroundColor: caseStudyContent.color } } ref={
+        <div className="modal__sidebar" style={ { backgroundColor: caseStudyContent.color } } ref={
           (sidebar) => { this.sidebar = sidebar; }
         } />
         <div className="layout--relative ml8 ml1--mlg bg--white">
@@ -98,4 +94,4 @@ CaseStudyScroller.propTypes = {
   scrollContainer: PropTypes.object
 };
 
-export default ScrollContainer(CaseStudyScroller);
+export default ScrollContainer(GSAP()(CaseStudyScroller));

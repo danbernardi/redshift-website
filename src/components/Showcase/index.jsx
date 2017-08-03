@@ -5,7 +5,7 @@ import Archive from 'components/Archive';
 import { connect } from 'react-redux';
 import Rx from 'rxjs/Rx';
 import { mapRange, isInRange } from 'utils/animation';
-import { TimelineMax, TweenMax, Power3 } from 'gsap';
+import { TimelineLite, TweenMax, Power3 } from 'gsap';
 import { setHeaderTheme } from 'store/actions';
 import PropTypes from 'prop-types';
 
@@ -161,10 +161,10 @@ export class Showcase extends React.Component {
   /**
    * Creates the gsap timeline that animates the background gradients
    * @param  {Object} target DOM element on which to change the background
-   * @return {Object}        GSAP TimelineMax Object
+   * @return {Object}        GSAP TimelineLite Object
    */
   createColorTransitionTimeline (target) {
-    const tl = new TimelineMax();
+    const tl = new TimelineLite();
 
     const colorGrad = {
       top: this.colors[0],
@@ -269,12 +269,7 @@ export class Showcase extends React.Component {
 
   // Clone header and add props
   header () {
-    return (<Hero
-      clickCallback={ () => {
-        this.goToScene(1);
-      }
-    }
-    />);
+    return (<Hero />);
   }
 
   // Clone scenes and add props

@@ -1,6 +1,6 @@
 import React from 'react';
 import GSAP from 'react-gsap-enhancer';
-import { TimelineMax, TweenMax, Power1 } from 'gsap';
+import { TimelineLite, TweenMax, Power1 } from 'gsap';
 import MorphSVGPlugin from 'vendor/gsap-plugins/MorphSVGPlugin';
 import Watcher from 'components/Watcher';
 
@@ -37,7 +37,7 @@ export class AboutIterate extends React.Component {
     const spiralPath = wrapper.querySelector('#iteratePath1');
     const baseDuration = 5;
     const delay = 0.5;
-    const tl = new TimelineMax({ paused: true });
+    const tl = new TimelineLite({ paused: true });
 
     tl
     .set(iCircles, { opacity: 1 })
