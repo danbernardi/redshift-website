@@ -8,6 +8,8 @@ import { setClass, breakpointIsGreaterThan } from 'utils/responsiveHelpers';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
+import './About_Hybrid.scss';
+
 export class AboutHybrid extends React.Component {
   componentDidMount () {
     this.timeline = this.addAnimation(this.createTimeline.bind(this));

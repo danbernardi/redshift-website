@@ -47,4 +47,8 @@ BioTemplate.propTypes = {
   breakpoint: PropTypes.object
 };
 
-export default connect()(BioTemplate);
+const mapStateToProps = state => ({
+  breakpoint: state.breakpoint
+});
+
+export default connect(mapStateToProps)(BioTemplate);

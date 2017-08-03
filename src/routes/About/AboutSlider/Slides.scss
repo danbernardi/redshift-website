@@ -1,5 +1,10 @@
 @import 'sass-includes';
 
+.about--slideshow {
+  overflow: hidden;
+  position: relative;
+}
+
 .slick-slider {
   position: relative;
   display: block;

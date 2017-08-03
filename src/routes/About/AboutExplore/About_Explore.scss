@@ -1,0 +1,16 @@
+@import 'sass-includes';
+
+.about__wrapper {
+  margin-top: 20rem;
+  @media only screen and (max-height: 965px) {
+    height: auto;
+    min-height: 100rem;
+  }
+}
+
+.about__section {
+  padding-top: 16rem;
+  @include breakpoint($mobile-lg) {
+    padding-top: 5rem;
+  }
+}

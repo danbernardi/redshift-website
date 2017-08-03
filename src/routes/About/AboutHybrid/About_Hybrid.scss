@@ -1,0 +1,54 @@
+@import 'sass-includes';
+
+.about__hybrid--header {
+  position: absolute;
+  bottom: 0;
+  @include breakpoint($mobile-lg) {
+    position: relative;
+    padding-top: 6rem;
+  }
+}
+
+.aboutPath {
+  stroke-width: 2;
+  stroke: #DCDCDB;
+}
+
+.about__hybrid--circle {
+  max-width: 144rem;
+  width: calc(100% - 4rem);
+  overflow: visible;
+  // media queries
+  @include breakpoint($mobile-lg) {
+    float: right;
+    min-width: 88rem;
+  }
+  svg {
+    display: block;
+    margin: 0 auto;
+    @include breakpoint($desktop-lg) {
+      display: inline-block;
+    }
+  }
+}
+
+.hyCircle { opacity: 0; }
+.solidText { opacity: 1; }
+
+.hyText {
+  font-family: Avenir-Black,sans-serif;
+  font-size: 3.6rem;
+  opacity: 0;
+}
+
+.about--work__container {
+  padding-top: 10rem;
+  float: left;
+  display: block;
+}
+
+// text and spacing
+.about__hybrid--container {
+  padding-right: 2rem;
+  position: relative;
+}

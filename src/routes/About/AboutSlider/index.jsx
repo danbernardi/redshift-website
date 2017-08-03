@@ -1,10 +1,11 @@
 import React from 'react';
 import { slideShow } from 'data/slideshow';
 import Slider from 'react-slick';
-import './Slides.scss';
 import { setClass } from 'utils/responsiveHelpers';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+
+import './Slides.scss';
 
 class AboutSlides extends React.Component {
   constructor (props) {

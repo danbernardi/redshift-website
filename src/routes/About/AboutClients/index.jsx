@@ -2,6 +2,7 @@ import React from 'react';
 import { setClass } from 'utils/responsiveHelpers';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+
 import './Clients.scss';
 
 export function AboutClients (props) {
@@ -12,7 +13,7 @@ export function AboutClients (props) {
       <div className="about__clients">
         <h1 className={
           `typ--bold typ--redshift
-          ${ setClass({ default: 'mb6', mobileLg: 'mb3' }, breakpoint)}`
+          ${ setClass({ default: 'mb6', mobileLg: 'mb3' }, breakpoint) }`
         }>
           Who we work with.
         </h1>

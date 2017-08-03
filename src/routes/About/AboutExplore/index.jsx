@@ -3,6 +3,8 @@ import { setClass, breakpointIsGreaterThan } from 'utils/responsiveHelpers';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
+import './About_Explore.scss';
+
 export class AboutExplore extends React.Component {
   constructor (props) {
     super(props);
@@ -44,7 +46,7 @@ export class AboutExplore extends React.Component {
     return (
       <section>
         { breakpointIsGreaterThan('tabletLg', breakpoint.size)
-          ? <div className="about__animation-wrapper hero layout--landscape">
+          ? <div className="about__wrapper hero layout--landscape">
             <h1 className="typ--bold typ--redshift row">How we work.</h1>
             { this.animationItems.map((i, ind) => (
               <div className="about--work__container" key={ ind }>
@@ -81,7 +83,6 @@ AboutExplore.defaultProps = {
 };
 
 AboutExplore.propTypes = {
-  data: PropTypes.array,
   breakpoint: PropTypes.object
 };
 
