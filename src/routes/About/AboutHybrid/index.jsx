@@ -1,6 +1,6 @@
 import React from 'react';
 import GSAP from 'react-gsap-enhancer';
-import { TimelineLite, TweenLite, Power2, Power3 } from 'gsap';
+import { TimelineLite, TweenMax, Power2, Power3 } from 'gsap';
 import MorphSVGPlugin from 'vendor/gsap-plugins/MorphSVGPlugin';
 import CustomEase from 'vendor/gsap-plugins/CustomEase';
 import Watcher from 'components/Watcher';
@@ -20,7 +20,7 @@ export class AboutHybrid extends React.Component {
       pathLength: line.getTotalLength()
     };
 
-    return TweenLite
+    return TweenMax
       .to(pathObject, speed, {
         length: pathObject.pathLength,
         onUpdate: this.drawLine,

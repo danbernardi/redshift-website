@@ -5,7 +5,7 @@ import Archive from 'components/Archive';
 import { connect } from 'react-redux';
 import Rx from 'rxjs/Rx';
 import { mapRange, isInRange } from 'utils/animation';
-import { TimelineLite, TweenLite, Power3 } from 'gsap';
+import { TimelineLite, TweenMax, Power3 } from 'gsap';
 import { setHeaderTheme } from 'store/actions';
 import PropTypes from 'prop-types';
 
@@ -204,7 +204,7 @@ export class Showcase extends React.Component {
    */
   setGradient (element, colors) {
     if (this.lastScrollPosition >= 0) {
-      TweenLite.set(element, {
+      TweenMax.set(element, {
         background: `linear-gradient(to bottom, ${colors.top}, ${colors.bottom})`
       });
     }
@@ -309,7 +309,7 @@ export class Showcase extends React.Component {
       x: container.scrollTop
     };
 
-    this.scrollTween = TweenLite.to(
+    this.scrollTween = TweenMax.to(
       scrollPosition,
       duration, {
         x: toPosition,

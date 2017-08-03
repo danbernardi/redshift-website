@@ -1,6 +1,6 @@
 import React from 'react';
 import GSAP from 'react-gsap-enhancer';
-import { TimelineLite, TweenLite, Power1 } from 'gsap';
+import { TimelineLite, TweenMax, Power1 } from 'gsap';
 import MorphSVGPlugin from 'vendor/gsap-plugins/MorphSVGPlugin';
 import Watcher from 'components/Watcher';
 
@@ -19,7 +19,7 @@ export class AboutIterate extends React.Component {
       pathLength: line.getTotalLength()
     };
 
-    return TweenLite
+    return TweenMax
       .to(pathObject, speed, {
         length: pathObject.pathLength,
         onUpdate: this.drawLine,
