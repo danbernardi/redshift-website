@@ -93,3 +93,10 @@ export const bannerState = {
     return Object.assign({}, state, { complete: newComplete });
   }
 };
+
+export const breakpoint = {
+  _init: { name: 'default', size: null },
+  SET_ACTIVE_BREAKPOINT: (state, action) => (
+    { name: action.breakpointName, size: action.breakpointSize }
+  )
+};
