@@ -1,14 +1,13 @@
 import React from 'react';
 import { caseStudies } from 'data/caseStudies';
-import { mapRange } from 'utils/animation';
 import { browserHistory } from 'react-router';
-import ReactDOM from 'react-dom';
-import mojs from 'mo-js';
 import ModalCloseBtn from 'components/Modal/ModalCloseBtn';
 import PropTypes from 'prop-types';
 import CaseStudyScroller from './CaseStudyScroller';
+import { TimelineMax, Power1 } from 'gsap';
+import GSAP from 'react-gsap-enhancer';
 
-import './styles.scss';
+import './CaseStudy.scss';
 
 class CaseStudy extends React.Component {
   constructor (props) {
@@ -22,50 +21,26 @@ class CaseStudy extends React.Component {
 
   componentWillEnter (callback) { callback(); }
 
+  animateOut ({ target, options }) {
+    const duration = 0.6;
+    const fadeDuration = 0.4;
+    const next = target[0].querySelector('.casestudy__next');
+    const name = target[0].querySelector('.casestudy__next__name');
+    const label = target[0].querySelector('.casestudy__next__label');
+    const title = document.querySelector('.casestudy__modal .modal__title');
+    const endFontSize = window.getComputedStyle(title, null).getPropertyValue('font-size');
+    const tl = new TimelineMax();
+
+    tl.to(next, duration, { height: '100vh', backgroundColor: '#FFF', ease: Power1.easeInOut }, 'anim');
+    tl.to(name, duration, { fontSize: endFontSize, color: '#a3a3a3', ease: Power1.easeInOut }, 'anim');
+    tl.to(label, duration, { opacity: 0, height: 0, ease: Power1.easeInOut }, 'anim');
+    tl.to(target[0], fadeDuration, { opacity: 0, ease: Power1.easeInOut, onComplete: () => options.unmountComponent() }, `anim+=${duration}`);
+
+    return tl;
+  }
+
   componentWillLeave (unmountComponent) {
-    const { childRefs } = this.state;
-
-    const caseStudy = this.caseStudy;
-    const name = childRefs.name;
-    const next = childRefs.next.querySelector('a');
-    const nextName = childRefs.nextname;
-    const nextLabel = childRefs.nextlabel;
-    const { dimensions } = this.state;
-    nextName.style.transition = 'color 400ms ease-in-out, background-color 400ms ease-out 100ms';
-    nextName.style.color = '#a3a3a3';
-
-    new mojs.Tween({
-      duration: 600,
-      easing: 'cubic.out',
-      onUpdate: (progress) => {
-        const startFontSize = Number(window.getComputedStyle(nextName, null).getPropertyValue('font-size').replace('px', ''));
-        const endFontSize = Number(window.getComputedStyle(name, null).getPropertyValue('font-size').replace('px', ''));
-        const mappedLabelHeight = mapRange(progress, 0, 1, nextLabel.offsetHeight, 0);
-        const mappedHeight = mapRange(progress, 0, 1, dimensions.height, window.innerHeight);
-        const mappedFontSize = mapRange(progress, 0, 1, startFontSize, endFontSize);
-        const mappedFontWeight = mapRange(progress, 0, 1, 600, 100);
-        const mappedOpacity = mapRange(progress, 0, 1, 1, 0);
-        next.style.height = `${mappedHeight}px`;
-        nextName.style.fontSize = `${mappedFontSize}px`;
-        nextName.style.fontWeight = mappedFontWeight;
-        nextLabel.style.height = `${mappedLabelHeight}px`;
-        nextLabel.style.opacity = mappedOpacity;
-        next.style.backgroundColor = '#fff';
-      },
-      onPlaybackComplete: () => fadeOut()
-    }).play();
-
-    function fadeOut () {
-      new mojs.Tween({
-        duration: 300,
-        easing: 'cubic.out',
-        onUpdate: (progress) => {
-          const mappedOpacity = mapRange(progress, 0, 1, 1, 0);
-          caseStudy.style.opacity = mappedOpacity;
-        },
-        onPlaybackComplete: () => unmountComponent()
-      }).play();
-    }
+    this.animation = this.addAnimation(this.animateOut.bind(this), { unmountComponent }).play();
   }
 
   render () {
@@ -93,4 +68,4 @@ CaseStudy.propTypes = {
   caseStudyContent: PropTypes.object
 };
 
-export default CaseStudy;
+export default GSAP()(CaseStudy);
