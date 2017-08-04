@@ -6,6 +6,8 @@ import { TimelineLite, Power3, Power1 } from 'gsap';
 import GSAP from 'react-gsap-enhancer';
 import PropTypes from 'prop-types';
 
+// const SUPPORT_TOUCH = 'ontouchstart' in window;
+
 export class Scene extends React.Component {
   constructor (props) {
     super(props);
@@ -161,7 +163,7 @@ export class Scene extends React.Component {
           }
         </div>
 
-        <div data-animationName="cta-text" className="scene__cta typ--white">
+        <div data-animationName="cta-text" className="scene__cta typ--white mx10 mx8--dsm mx3--tlg">
           <div>
             <h2 data-animationName="cta-caption" className="scene__caption typ--bold">
               { caption.map((string, index) => (
