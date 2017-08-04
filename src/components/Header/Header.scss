@@ -56,11 +56,11 @@
   left: -2rem;
   top: -2rem;
 
-  &.hovered {
-    .page-title { color: $redshift !important; }
-  }
-
   @include breakpoint($tablet-lg, min-width) {
+    &.hovered {
+      .page-title { color: $redshift !important; }
+    }
+
     &:hover {
       .logo {
         transform: scale(1.1);
