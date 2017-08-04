@@ -7,6 +7,7 @@ import { TimelineLite, Power2 } from 'gsap';
 import Isotope from 'isotope-layout';
 import 'masonry-layout';
 import GSAP from 'react-gsap-enhancer';
+import Loader from 'components/Loader';
 
 export class Inspiration extends React.Component {
   constructor (props) {
@@ -121,11 +122,7 @@ export class Inspiration extends React.Component {
           <h1 className="typ--redshift typ--bold">Be inspired. <br /> Here's what inspires us.</h1>
           <section className="inspiration__grid">
             <div className="inspiration__feed" ref={ el => { this.grid = el; } }>{feedItems}</div>
-            <div className="inspiration__loader spinner">
-              <div className="bounce1" />
-              <div className="bounce2" />
-              <div className="bounce3" />
-            </div>
+            <Loader />
           </section>
         </div>
         <Footer />

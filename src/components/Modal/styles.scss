@@ -50,7 +50,7 @@
   right: 0;
   height: 100%;
   width: 100%;
-  z-index: 13;
+  z-index: 36;
   // media queries
   @include breakpoint($tablet-lg) {
     transition: transform 0.25s ease-out;
