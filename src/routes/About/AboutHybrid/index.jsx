@@ -4,9 +4,6 @@ import { TimelineLite, TweenMax, Power2, Power3 } from 'gsap';
 import MorphSVGPlugin from 'vendor/gsap-plugins/MorphSVGPlugin';
 import CustomEase from 'vendor/gsap-plugins/CustomEase';
 import Watcher from 'components/Watcher';
-import { setClass } from 'utils/responsiveHelpers';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 
 import './About_Hybrid.scss';
 
@@ -93,7 +90,6 @@ export class AboutHybrid extends React.Component {
   };
 
   render () {
-    const { breakpoint } = this.props;
     return (
       <section className="hero layout--relative layout--landscape" style={ { overflow: 'hidden' } }>
         <Watcher
@@ -128,12 +124,12 @@ export class AboutHybrid extends React.Component {
             <text className="hyText" id="hyText4" fill="#FF2953">Research</text>
 
           </svg>
-          <div className={ `row about__hybrid--header ${ setClass({ mobileLg: 'pb5' }, breakpoint)}` }>
-            <div className={ setClass({ default: 'col-9', mobileLg: 'col-12' }, breakpoint) }>
+          <div className="row about__hybrid--header">
+            <div className="about__hybrid--header__text">
               <h1 className="typ--bold typ--redshift pb2">Hybrid teams.</h1>
               <h3>
                 We believe the best products are created by hybrid teams. Designers, researchers,
-                and developers work shoulder-to-shoulder in our studio to create experiences that are beautiful and grounded in real user needs.
+                and developers working shoulder-to-shoulder in our studio to create experiences that are beautiful and grounded in real user needs.
               </h3>
             </div>
           </div>
@@ -143,12 +139,4 @@ export class AboutHybrid extends React.Component {
   }
 }
 
-AboutHybrid.propTypes = {
-  breakpoint: PropTypes.object
-};
-
-const mapStateToProps = state => ({
-  breakpoint: state.breakpoint
-});
-
-export default connect(mapStateToProps)(GSAP()(AboutHybrid));
+export default GSAP()(AboutHybrid);

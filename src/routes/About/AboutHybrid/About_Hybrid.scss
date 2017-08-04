@@ -6,6 +6,16 @@
   @include breakpoint($mobile-lg) {
     position: relative;
     padding-top: 6rem;
+    padding-bottom: 5rem;
+  }
+}
+
+.about__hybrid--header__text {
+  width: 75%;
+  max-width: 120rem;
+  // media queries
+  @include breakpoint($mobile-lg) {
+    width: 100%;
   }
 }
 
