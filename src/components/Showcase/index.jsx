@@ -3,11 +3,12 @@ import Scene from './Scene';
 import Hero from './Hero';
 import Archive from 'components/Archive';
 import { connect } from 'react-redux';
-import Rx from 'rxjs/Rx';
+// import { RxObservable } from 'rxjs/Rx';
 import { mapRange, isInRange } from 'utils/animation';
 import { TimelineLite, TweenMax, Power3 } from 'gsap';
 import { setHeaderTheme } from 'store/actions';
 import PropTypes from 'prop-types';
+import debounce from 'lodash.debounce';
 
 export class Showcase extends React.Component {
   constructor (props) {
@@ -54,7 +55,7 @@ export class Showcase extends React.Component {
   }
 
   /**
-   * Creates a scroll observable and maps it to a timeline in state
+   * Creates the event handlers and maps them to a timeline in state
    * @param  {Object} element A dom element
    */
   createObservables (element) {
@@ -63,33 +64,20 @@ export class Showcase extends React.Component {
   }
 
   /**
-   * Fires when window is resized and subsequently updates
-   * the state of our app, with new dom based calculations.
+   * Creates event handlers for a resize event.
    */
   onResize () {
-    this.resizeObservable = Rx.Observable.fromEvent(window, 'resize').debounce(() => Rx.Observable.timer(700));
-    this.resizeSubscription = this.resizeObservable.subscribe(() => {
-      this.sceneMeta = this.setSceneMeta();
-      this.timeline = this.createColorTransitionTimeline(this.wrapper);
-      // this.goToScene(this.currentScene, false);
-    });
+    this.resizeFunc = debounce(this.resizeSubscription.bind(this), 700);
+    window.addEventListener('resize', this.resizeFunc);
   }
 
   /**
-   * handleScroll creates observables and the logic to link scrolling to the animation
-   * timeline progression.
+   * handleScroll creates the scroll event handlers.
    * @param  {Object} element The wrapping DOM node for the component
    */
   handleScroll (element) {
-    this.scrollObservable = Rx.Observable.fromEvent(element, 'scroll');
-
     //Subscribe to the devices scroll event
-    this.scrollSubscription = this.scrollObservable.subscribe((scrollEvent) => {
-      const target = scrollEvent.target;
-      const animationProgress = this.calculateAnimationProgress(target);
-      this.timeline.progress(animationProgress).pause();
-      this.setState({ animationProgress });
-    });
+    element.addEventListener('scroll', this.scrollSubscription.bind(this));
   }
 
   /**
@@ -100,6 +88,33 @@ export class Showcase extends React.Component {
    */
   calculateAnimationProgress (target) {
     return mapRange(target.scrollTop, 0, target.scrollHeight - window.innerHeight, 0, 1);
+  }
+
+  /**
+   * Updates the state of our app after a resize event, with new dom based calculations.
+   */
+  resizeSubscription () {
+    this.sceneMeta = this.setSceneMeta();
+    this.timeline = this.createColorTransitionTimeline(this.wrapper);
+  }
+
+  /**
+   * srollSubscription creates the logic to link scrolling to the animation timeline progression.
+   * @param {object} scrollEvent      The event returned when the showcase element is scrolled
+   */
+  scrollSubscription (scrollEvent) {
+    const target = scrollEvent.target;
+    const animationProgress = this.calculateAnimationProgress(target);
+    this.timeline.progress(animationProgress).pause();
+    this.setState({ animationProgress });
+  };
+
+  /**
+   * Clears eventListeners when the component is destroyed
+   */
+  componentWillUnmount () {
+    window.removeEventListener('resize', this.resizeFunc);
+    this.container.removeEventListener('scroll', this.scrollSubscription);
   }
 
   /**

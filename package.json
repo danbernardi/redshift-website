@@ -115,6 +115,7 @@
     "isotope-layout": "^3.0.4",
     "json-loader": "^0.5.4",
     "lodash": "^4.17.4",
+    "lodash.debounce": "^4.0.8",
     "lost": "^8.0.0",
     "masonry-layout": "^4.2.0",
     "mojs-curve-editor": "^1.5.0",
