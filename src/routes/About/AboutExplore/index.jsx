@@ -62,7 +62,7 @@ export class AboutExplore extends React.Component {
           : <div className="about__wrapper row">
             <h1 className="typ--bold typ--redshift">How we work.</h1>
             { this.animationItems.map((item, ti) => (
-              <div key={ ti } className="mt6 mt4--mlg">
+              <div key={ ti } className={ setClass({ default: 'mt6', mobileLg: 'mt4' }, breakpoint) }>
                 <h2
                   className={ `typ--bold pb1 ${ item.colorClass }` }
                 >
