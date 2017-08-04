@@ -122,7 +122,7 @@ export class Inspiration extends React.Component {
           <h1 className="typ--redshift typ--bold">Be inspired. <br /> Here's what inspires us.</h1>
           <section className="inspiration__grid">
             <div className="inspiration__feed" ref={ el => { this.grid = el; } }>{feedItems}</div>
-            <Loader />
+            <div className="inspiration__loader"><Loader /></div>
           </section>
         </div>
         <Footer />
