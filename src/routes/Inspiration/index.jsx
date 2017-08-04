@@ -8,6 +8,7 @@ import Isotope from 'isotope-layout';
 import 'masonry-layout';
 import GSAP from 'react-gsap-enhancer';
 import Loader from 'components/Loader';
+import { enableScroll, disableScroll } from 'utils/scrollJack';
 
 export class Inspiration extends React.Component {
   constructor (props) {
@@ -21,6 +22,8 @@ export class Inspiration extends React.Component {
   }
 
   componentDidMount () {
+    disableScroll();
+
     fetch('/feed/inspiration').then(
       (res) => res.json()
     ).then((json) => {
@@ -46,6 +49,10 @@ export class Inspiration extends React.Component {
     }
   }
 
+  componentWillUnmount () {
+    enableScroll();
+  }
+
   animateIn ({ target }) {
     const loader = target[0].querySelector('.inspiration__loader');
     const feed = target[0].querySelector('.inspiration__feed');
@@ -57,6 +64,7 @@ export class Inspiration extends React.Component {
       },
       onComplete: () => {
         this.animationComplete = true;
+        enableScroll();
       }
     })
     .to(loader, 0.3, { opacity: 0, ease: Power2.easeOut }, 'animIn')
