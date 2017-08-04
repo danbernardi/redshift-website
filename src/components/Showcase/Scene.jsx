@@ -1,5 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import { isInRange } from 'utils/animation';
 import './Scene.scss';
@@ -7,15 +6,12 @@ import { TimelineLite, Power3, Power1 } from 'gsap';
 import GSAP from 'react-gsap-enhancer';
 import PropTypes from 'prop-types';
 
-// const SUPPORT_TOUCH = 'ontouchstart' in window;
-
 export class Scene extends React.Component {
   constructor (props) {
     super(props);
 
     this.timeline = null;
     this.state = {
-      animationInProgress: false,
       animationProgress: 0,
       active: true
     };
@@ -165,7 +161,7 @@ export class Scene extends React.Component {
           }
         </div>
 
-        <div data-animationName="cta-text" className="scene__cta typ--white mx10 mx8--dsm mx3--tlg">
+        <div data-animationName="cta-text" className="scene__cta typ--white">
           <div>
             <h2 data-animationName="cta-caption" className="scene__caption typ--bold">
               { caption.map((string, index) => (
@@ -190,12 +186,7 @@ Scene.propTypes = {
   id: PropTypes.string,
   caption: PropTypes.array,
   onDidMount: PropTypes.func,
-  device: PropTypes.object,
-  color: PropTypes.string
+  device: PropTypes.object
 };
 
-const injectStateProps = state => ({
-  bannerState: state.bannerState
-});
-
-export default connect(injectStateProps)(GSAP()(Scene));
+export default GSAP()(Scene);

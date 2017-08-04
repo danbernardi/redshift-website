@@ -6,13 +6,6 @@ import * as actions from 'store/actions';
 import PropTypes from 'prop-types';
 
 class NavLinks extends React.Component {
-  constructor (props) {
-    super(props);
-
-    this.state = {
-      staggerIn: true
-    };
-  }
 
   routingHandler (to) {
     const { dispatch } = this.props;
@@ -32,10 +25,8 @@ class NavLinks extends React.Component {
 
   render () {
     const { links, activeURL } = this.props;
-    const { staggerIn } = this.state;
-
     return (
-      <ul className={ `nav__menu full-height ${staggerIn ? 'stagger-in' : ''}` }>
+      <ul className="nav__menu full-height">
         {
           links.map((navLink, i) => (
             <li key={ i }>
