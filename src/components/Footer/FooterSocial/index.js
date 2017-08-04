@@ -17,7 +17,7 @@ const footerIcons = [
 
 export function FooterSocial () {
   return (
-    <ul className="list--inline social-icons pt2">
+    <ul className="list--inline social-icons">
       {
         footerIcons.map((footerIcon, i) => (
           <li key={ i }>
