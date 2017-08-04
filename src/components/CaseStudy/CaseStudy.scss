@@ -20,6 +20,15 @@
   }
 }
 
+.modal__content {
+  margin-left: 8rem;
+  background-color: $white;
+  // media queries
+  @include breakpoint($mobile-lg) {
+    margin-left: 1rem;
+  }
+}
+
 .casestudy__title {
   top: 45%;
   transform: translateY(-50%);
@@ -40,6 +49,15 @@
   }
 }
 
+.copy--container {
+  padding-top: 10rem;
+  padding-bottom: 10rem;
+  // media queries
+  @include breakpoint($mobile-lg) {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+}
 .video-container {
   background-color: #FFFFFF;
   text-align: center;
@@ -94,7 +112,6 @@
     bottom: 2rem;
   }
 
-  // 15% { opacity: 1; bottom: 8rem; }
   25% {
     opacity: 1;
     bottom: 4rem;
@@ -105,25 +122,21 @@
     bottom: 2rem;
   }
 
-  // 40% { opacity: 1; bottom: 8rem; }
   47.5% {
     opacity: 1;
     bottom: 3rem;
   }
 
-  // 52.5% { opacity: 1; bottom: 9rem;}
   60% {
     opacity: 1;
     bottom: 2rem;
   }
 
-  // 65% { opacity: 1; bottom: 8rem; }
   75% {
     opacity: 1;
     bottom: 4rem;
   }
 
-  // 85% { opacity: 1; bottom: 8rem; }
   90% {
     opacity: 1;
     bottom: 2rem;
@@ -150,7 +163,6 @@
 .casestudy__next {
   border-left: 8rem solid;
   background-color: $light-gray;
-  // min-height: 17.2rem;
   cursor: pointer;
   width: calc(100% + 8rem);
   bottom: 0;
@@ -160,8 +172,6 @@
   // media queries
   @include breakpoint($mobile-lg) {
     border-left: 1rem solid;
-    // min-height: 11.5rem;
-    // position: fixed;
     width: calc(100% + 1rem);
     left: -1rem;
   }
@@ -209,76 +219,10 @@
   }
 }
 
-.casestudy__text {
-  max-width: 125rem;
-  color: $lighttext;
-  margin: 0 auto;
-  // media queries
-  @include breakpoint($mobile-lg) {
-    width: 100%;
-  }
-}
-
-.casestudy__scroll {
-  position: fixed;
-  z-index: 10;
-  bottom: 2.8rem;
-  font-size: 5.8rem;
-  transition: opacity 1s ease-in-out;
-  opacity: 1;
-  left: 7.5rem;
-  // media queries
-  @include breakpoint($mobile-lg) {
-    left: 2rem;
-  }
-}
-
-.casestudy__arrows {
-  font-size: 12rem;
-}
-
 .casestudy__modal .modal__with-sidebar > div {
   padding-bottom: 17rem;
   // media queries
   @include breakpoint($mobile-lg) {
     padding-bottom: 11.4rem;
-  }
-}
-
-.video--laptop {
-  .video-container {
-    padding: 6.2% 0 8%;
-    max-width: 60%;
-  }
-}
-
-.video--ipad {
-  .video-container {
-    max-width: 36.5%;
-    padding: 9.1% 0;
-    // media queries
-    @include breakpoint($tablet-lg) {
-      max-width: 42.5%;
-    }
-    @include breakpoint($mobile-lg) {
-      max-width: 57.5%;
-      padding: 14.1% 0;
-    }
-  }
-}
-
-.video--iphone {
-  .video-container {
-    max-width: 23.5%;
-    padding: 11.6% 0;
-    // media queries
-    @include breakpoint($tablet-lg) {
-      max-width: 27%;
-      padding: 13% 0;
-    }
-    @include breakpoint($mobile-lg) {
-      max-width: 36.7%;
-      padding: 17.8% 0;
-    }
   }
 }

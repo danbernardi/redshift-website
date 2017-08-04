@@ -45,12 +45,6 @@ class CaseStudy extends React.Component {
 
   render () {
     const { caseStudyContent } = this.props;
-    // const featuredCaseStudies = caseStudies.filter((item) => item.featured);
-    // const archivedCaseStudies = caseStudies.filter((item) => !item.featured);
-
-    // let activeCaseStudies;
-    // if (caseStudyContent.featured) activeCaseStudies = featuredCaseStudies;
-    // if (!caseStudyContent.featured) activeCaseStudies = archivedCaseStudies;
 
     const caseStudyIndex = caseStudies.findIndex(item => item.id === caseStudyContent.id);
     const nextCaseStudy = caseStudyIndex === caseStudies.length ? null : caseStudies[caseStudyIndex + 1];

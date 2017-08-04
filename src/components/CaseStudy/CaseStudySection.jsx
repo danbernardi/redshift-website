@@ -83,7 +83,7 @@ class CaseStudySection extends React.Component {
 
         { copy &&
           <Builder scrollContainer={ scrollContainer }>
-            <div className={ `row py10 py5--mlg ${containerClass}` }>
+            <div className={ `row copy--container ${containerClass}` }>
               { copy.map((copyItem, index) => (
                 <div key={ index }>
                   { copyItem.src && <img src={ copyItem.src } /> }
