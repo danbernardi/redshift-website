@@ -36,8 +36,7 @@ Watcher.propTypes = {
   classes: PropTypes.string,
   offset: PropTypes.object,
   children: PropTypes.node,
-  startWatcher: PropTypes.func.isRequired,
-  scrollContainer: PropTypes.object
+  startWatcher: PropTypes.func.isRequired
 };
 
 export default Watch(Watcher);
