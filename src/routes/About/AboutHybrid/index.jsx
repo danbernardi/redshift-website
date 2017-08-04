@@ -4,7 +4,7 @@ import { TimelineLite, TweenMax, Power2, Power3 } from 'gsap';
 import MorphSVGPlugin from 'vendor/gsap-plugins/MorphSVGPlugin';
 import CustomEase from 'vendor/gsap-plugins/CustomEase';
 import Watcher from 'components/Watcher';
-import { setClass, breakpointIsGreaterThan } from 'utils/responsiveHelpers';
+import { setClass } from 'utils/responsiveHelpers';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
@@ -104,32 +104,30 @@ export class AboutHybrid extends React.Component {
         />
 
         <div className="about__hybrid--container">
-          { breakpointIsGreaterThan('tabletLg', breakpoint.size) &&
-            <svg viewBox="0 0 1390 818" preserveAspectRatio="xMaxYMax meet" className="about__hybrid--circle">
-              <g id="Hybrid" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
-                <path
-                  id="hybridPath1"
-                  className="aboutPath"
-                  d="M0,646 C250,-230.75 1452.15,58.74 1338,912"
-                />
-                <path
-                  id="hybridPath2"
-                  d="M-24,639.26 C234.55,-259.1 1477.46,37.58 1359,912"
-                />
-              </g>
+          <svg viewBox="0 0 1390 818" preserveAspectRatio="xMaxYMax meet" className="about__hybrid--circle">
+            <g id="Hybrid" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
+              <path
+                id="hybridPath1"
+                className="aboutPath"
+                d="M0,646 C250,-230.75 1452.15,58.74 1338,912"
+              />
+              <path
+                id="hybridPath2"
+                d="M-24,639.26 C234.55,-259.1 1477.46,37.58 1359,912"
+              />
+            </g>
 
-              <circle id="hyCircle1" className="hyCircle" r="10" cx="0" cy="0" fill="#B141A5" />
-              <circle id="hyCircle2" className="hyCircle" r="10" cx="0" cy="0" fill="#BE3C97" />
-              <circle id="hyCircle3" className="hyCircle" r="10" cx="0" cy="0" fill="#E33170" />
-              <circle id="hyCircle4" className="hyCircle" r="10" cx="0" cy="0" fill="#FF2953" />
+            <circle id="hyCircle1" className="hyCircle" r="10" cx="0" cy="0" fill="#B141A5" />
+            <circle id="hyCircle2" className="hyCircle" r="10" cx="0" cy="0" fill="#BE3C97" />
+            <circle id="hyCircle3" className="hyCircle" r="10" cx="0" cy="0" fill="#E33170" />
+            <circle id="hyCircle4" className="hyCircle" r="10" cx="0" cy="0" fill="#FF2953" />
 
-              <text className="hyText" id="hyText1" fill="#B141A5">UX</text>
-              <text className="hyText" id="hyText2" fill="#BE3C97">Visual</text>
-              <text className="hyText" id="hyText3" fill="#E33170">Engineering</text>
-              <text className="hyText" id="hyText4" fill="#FF2953">Research</text>
+            <text className="hyText" id="hyText1" fill="#B141A5">UX</text>
+            <text className="hyText" id="hyText2" fill="#BE3C97">Visual</text>
+            <text className="hyText" id="hyText3" fill="#E33170">Engineering</text>
+            <text className="hyText" id="hyText4" fill="#FF2953">Research</text>
 
-            </svg>
-          }
+          </svg>
           <div className={ `row about__hybrid--header ${ setClass({ mobileLg: 'pb5' }, breakpoint)}` }>
             <div className={ setClass({ default: 'col-9', mobileLg: 'col-12' }, breakpoint) }>
               <h1 className="typ--bold typ--redshift pb2">Hybrid teams.</h1>

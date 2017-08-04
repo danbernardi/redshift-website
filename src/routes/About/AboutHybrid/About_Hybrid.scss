@@ -19,16 +19,8 @@
   width: calc(100% - 4rem);
   overflow: visible;
   // media queries
-  @include breakpoint($mobile-lg) {
-    float: right;
-    min-width: 88rem;
-  }
-  svg {
-    display: block;
-    margin: 0 auto;
-    @include breakpoint($desktop-lg) {
-      display: inline-block;
-    }
+  @include breakpoint($tablet-lg) {
+    display: none;
   }
 }
 
