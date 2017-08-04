@@ -378,9 +378,11 @@ export class Showcase extends React.Component {
 
           {
             /* If the children have mounted, update the animation progress for each component */
-            this.children.map((child, index) => (
-              <div className="scene scene__dummy" key={ index } />
-            ))
+            this.children.map((child, index) => {
+              return (
+                <div className="scene scene__dummy" key={ index } />
+              );
+            })
           }
 
           <Archive reportAsLoaded={ () => this.setState({ loaded: true }) } onDidMount={ (el) => this.addScrollPoint(el, this.children.length) } />

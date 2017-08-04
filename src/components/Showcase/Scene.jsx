@@ -163,7 +163,7 @@ export class Scene extends React.Component {
           }
         </div>
 
-        <div data-animationName="cta-text" className="scene__cta typ--white mx10 mx8--dsm mx3--tlg">
+        <div data-animationName="cta-text" className="scene__cta typ--white">
           <div>
             <h2 data-animationName="cta-caption" className="scene__caption typ--bold">
               { caption.map((string, index) => (
