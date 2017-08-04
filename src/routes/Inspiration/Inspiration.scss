@@ -1,5 +1,39 @@
 @import 'sass-includes';
 
+.inspiration h1 {
+  margin-top: 8rem;
+  margin-bottom: 4rem;
+  // media queries
+  @include breakpoint($tablet-lg) {
+    margin-top: 3rem;
+  }
+  @include breakpoint($mobile-lg) {
+    margin-top: 4rem;
+    margin-bottom: 0;
+  }
+  @include breakpoint($mobile-sm) {
+    margin-top: 0;
+  }
+}
+
+.inspiration--container {
+  margin-bottom: 8rem;
+  // media queries
+  @include breakpoint($mobile-sm) {
+    margin-bottom: 3rem;
+  }
+}
+
+.inspiration__grid {
+  padding-top: 9rem;
+  // media queries
+  @include breakpoint($mobile-lg) {
+    padding-top: 6rem;
+  }
+  @include breakpoint($mobile-sm) {
+    padding-top: 3rem;
+  }
+}
 
 .inspiration__item {
   width: calc((100% / 3) - 4rem);
@@ -7,7 +41,7 @@
   cursor: pointer;
   transition: transform 0.2s ease-in-out;
   z-index: 5;
-
+  // media queries
   @include breakpoint($desktop-sm) {
     width: calc(50% - 4rem);
   }
@@ -23,7 +57,7 @@
     display: block;
     transition: border-color 0.15s ease-in-out, transform 0.15s ease-in-out;
     -webkit-backface-visibility: hidden;
-  
+    // media queries
     // disable hover below mobile
     @include breakpoint($tablet-lg, min-width) {
       &:hover {
@@ -47,7 +81,6 @@
 .inspiration__loader {
   position: fixed;
   z-index: 35;
-  // background: $white;
   left: 0;
   top: 0;
   width: 100%;

@@ -117,9 +117,9 @@ export class Inspiration extends React.Component {
 
     return (
       <div className="inspiration pt10">
-        <div className="row row--maxwidth mb8 mb3--msm">
-          <h1 className="typ--redshift typ--bold mb4 mt8 mt4--mlg mt0--msm mb3--tlg mb0--mlg">Be inspired. <br /> Here's what inspires us.</h1>
-          <section className="pt9 pt6--tlg pt3--msm inspiration__grid">
+        <div className="row inspiration--container">
+          <h1 className="typ--redshift typ--bold">Be inspired. <br /> Here's what inspires us.</h1>
+          <section className="inspiration__grid">
             <div className="inspiration__feed" ref={ el => { this.grid = el; } }>{feedItems}</div>
             <div className="inspiration__loader spinner">
               <div className="bounce1" />
