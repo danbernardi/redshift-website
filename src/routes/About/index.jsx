@@ -8,11 +8,12 @@ import AboutTeam from './AboutTeam';
 import { clientData } from 'data/newClients';
 import { teamInfo } from 'data/teamInfo';
 import Footer from 'components/Footer';
-import './style.scss';
 import * as actions from 'store/actions';
 import PropTypes from 'prop-types';
 import BioModal from './AboutTeam/BioModal';
 import { connect } from 'react-redux';
+
+import './style.scss';
 
 export class About extends React.Component {
   componentDidMount () {

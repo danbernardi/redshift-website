@@ -1,16 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router';
 import PinkHover from 'components/PinkHover';
+import { setClass } from 'utils/responsiveHelpers';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-const AboutTeam = props => {
-  const { team } = props;
+import './About_Team.scss';
 
+export function AboutTeam (props) {
+  const { team, breakpoint } = props;
   return (
-
-    <section className="about--team pt9 pt7--tlg mt5 mt0--mlg">
+    <section className="about--team">
       <div className="row hero--scene-text">
-        <h1 className="typ--bold py8 py6--tlg pt0--mlg pb5--mlg typ--redshift">Who we are.</h1>
+        <h1 className={ `typ--bold typ--redshift ${ setClass({ default: 'py8', tabletLg: 'py6', mobileLg: 'pt0 pb5' }, breakpoint) }` }>Who we are.</h1>
       </div>
       { team.map((team, index) => (
         <Link to={ `/about/${team.id}` } key={ index }>
@@ -32,7 +34,12 @@ const AboutTeam = props => {
 };
 
 AboutTeam.propTypes = {
-  team: PropTypes.array
+  team: PropTypes.array,
+  breakpoint: PropTypes.object
 };
 
-export default AboutTeam;
+const mapStateToProps = state => ({
+  breakpoint: state.breakpoint
+});
+
+export default connect(mapStateToProps)(AboutTeam);

@@ -5,6 +5,8 @@ import MorphSVGPlugin from 'vendor/gsap-plugins/MorphSVGPlugin';
 import CustomEase from 'vendor/gsap-plugins/CustomEase';
 import Watcher from 'components/Watcher';
 
+import './About_Hybrid.scss';
+
 export class AboutHybrid extends React.Component {
   componentDidMount () {
     this.timeline = this.addAnimation(this.createTimeline.bind(this));
@@ -98,7 +100,7 @@ export class AboutHybrid extends React.Component {
         />
 
         <div className="about__hybrid--container">
-          <svg viewBox="0 0 1390 818" preserveAspectRatio="xMaxYMax meet" className="about__hybrid--circle hide--mlg">
+          <svg viewBox="0 0 1390 818" preserveAspectRatio="xMaxYMax meet" className="about__hybrid--circle">
             <g id="Hybrid" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
               <path
                 id="hybridPath1"
@@ -122,12 +124,12 @@ export class AboutHybrid extends React.Component {
             <text className="hyText" id="hyText4" fill="#FF2953">Research</text>
 
           </svg>
-          <div className=" row pb5--mlg about__hybrid--header">
-            <div className="col-9 col-12--mlg">
+          <div className="row about__hybrid--header">
+            <div className="about__hybrid--header__text">
               <h1 className="typ--bold typ--redshift pb2">Hybrid teams.</h1>
               <h3>
                 We believe the best products are created by hybrid teams. Designers, researchers,
-                and developers work shoulder-to-shoulder in our studio to create experiences that are beautiful and grounded in real user needs.
+                and developers working shoulder-to-shoulder in our studio to create experiences that are beautiful and grounded in real user needs.
               </h3>
             </div>
           </div>

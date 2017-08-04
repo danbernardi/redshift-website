@@ -2,7 +2,6 @@
 import CoreLayout from 'containers/CoreLayout';
 import Home from './Home';
 import About from './About';
-import NewAbout from './About/AboutAnimations';
 import Careers from './Careers';
 import FourOhFour from './FourOhFour';
 import Inspiration from './Inspiration';
@@ -28,14 +27,6 @@ export function createRoutes () {
           path: ':employeeID',
           component: About
         }]
-      },
-      {
-        path: 'new-about',
-        indexRoute: { component: NewAbout }
-        // childRoutes: [{
-        //   path: ':employeeID',
-        //   component: About
-        // }]
       },
       {
         path: 'careers',
