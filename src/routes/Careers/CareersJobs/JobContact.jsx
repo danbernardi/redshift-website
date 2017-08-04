@@ -82,7 +82,7 @@ export class JobContact extends React.Component {
                 <JobContactForm key={ index } form={ form } />
               ))
             }
-            <div className="col-12 pt8 pt4--msm">
+            <div className="col-12 job-contact--button">
               <button
                 ref={ el => { this.button = el; } }
                 className="btn btn--ghost typ--jobs"

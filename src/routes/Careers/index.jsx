@@ -61,6 +61,9 @@ export class Careers extends React.Component {
 
   render () {
     const careerHero = {
+      // imgDef: require('https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/careers/rs_team.jpg'),
+      // imgTlg: require('https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/careers/rs_team-tlg.jpg'),
+      // imgMlg: require('https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/careers/rs_team-mlg.jpg')
       imgDef: require('assets/img/careers/rs_team.jpg'),
       imgTlg: require('assets/img/careers/rs_team-tlg.jpg'),
       imgMlg: require('assets/img/careers/rs_team-mlg.jpg')
@@ -78,7 +81,7 @@ export class Careers extends React.Component {
           enterViewport={ (watcher) => this.watcherCallback(watcher) }
           stateChange={ (watcher) => this.watcherCallback(watcher) }
         />
-        <section className="row pt9 pt6--mlg">
+        <section className="row careers--title">
           <h1 className="typ--bold typ--redshift">Join the team.</h1>
         </section>
         <section>

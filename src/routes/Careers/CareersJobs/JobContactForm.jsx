@@ -1,5 +1,7 @@
 import React from 'react';
 import AttachmentImage from './attachment.png';
+import { setClass } from 'utils/responsiveHelpers';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 export class JobContactForm extends React.Component {
@@ -16,15 +18,15 @@ export class JobContactForm extends React.Component {
   }
 
   render () {
-    const { form } = this.props;
+    const { form, breakpoint } = this.props;
     const { fileName } = this.state;
     const additionalProps = form.type === 'file'
       ? { multiple: true, id: 'file-input' }
       : {};
 
     return (
-      <div className={ `${form.classes} col-6 col-12--tmd` }>
-        <div className={ `form__group mb6 mb4--msm ${form.formClass}` }>
+      <div className={ `${form.classes} ${setClass({ default: 'col-6', tabletMd: 'col-12' }, breakpoint)}` }>
+        <div className={ `form__group ${form.formClass}` }>
           {
             form.type === 'file'
               ? <label htmlFor="file-input" name="attachment" >Attachments <img src={ AttachmentImage } alt="Add a file attachment" /></label>
@@ -50,4 +52,12 @@ JobContactForm.propTypes = {
   form: PropTypes.object
 };
 
-export default JobContactForm;
+JobContactForm.propTypes = {
+  breakpoint: PropTypes.object
+};
+
+const mapStateToProps = state => ({
+  breakpoint: state.breakpoint
+});
+
+export default connect(mapStateToProps)(JobContactForm);
