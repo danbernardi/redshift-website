@@ -10,7 +10,7 @@ export function CareersJobs (props) {
   );
 
   return (
-    <section className={ `${job.id} py9 py6--mlg career-section` }>
+    <section className={ `${job.id} career-section` }>
       <h2 className="typ--bold">{ job.position }</h2>
       { frontPage }
       <div className="pt3">

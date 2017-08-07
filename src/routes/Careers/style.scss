@@ -1,7 +1,34 @@
 @import 'sass-includes';
 
+.careers.modal--open {
+  .content-main.careers {
+    .page-title {
+      position: relative;
+      z-index: 1;
+    }
+  }
+}
+
 .career-section {
   border-bottom: solid 0.1rem $medium-gray;
+  padding-top: 9rem;
+  padding-bottom: 9rem;
+  @include breakpoint($mobile-lg) {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+}
+
+.job-description__subtitle {
+  padding-bottom: 3rem;
+}
+
+.careers--title {
+  padding-top: 9rem;
+  // media queries
+  @include breakpoint($mobile-lg) {
+    padding-top: 6rem;
+  }
 }
 
 .job__link {
@@ -34,6 +61,26 @@
   }
 }
 
+.job__view {
+  &:after {
+    content: '';
+    height: 0.2rem;
+    width: 6.5rem;
+    display: block;
+    background-color: $redshift;
+    margin-top: 2rem;
+  }
+}
+
+.job__modal {
+  width: 100vw;
+  z-index: 4;
+  // media queries
+  @include breakpoint($tablet-md) {
+    width: 100vw;
+  }
+}
+
 .careers-title {
   font-weight: bold;
   position: relative;
@@ -43,16 +90,31 @@
   @include breakpoint($tablet-lg) {
     padding-top: 10rem;
   }
-
   @include breakpoint($mobile-sm) {
     padding-top: 6rem;
   }
 }
 
-.careers-section {
-  position: relative;
-  padding-top: 3.4rem;
-  padding-bottom: 1rem;
+.job-description--container {
+  padding-bottom: 10rem;
+  // media queries
+  @include breakpoint($mobile-lg) {
+    padding-bottom: 5rem;
+  }
+
+  li {
+    list-style-type: none;
+    margin-bottom: 1.5rem;
+  }
+
+}
+
+.job-description {
+  padding-bottom: 10rem;
+  // media queries
+  @include breakpoint($mobile-lg) {
+    padding-bottom: 2rem;
+  }
 }
 
 .contact__form {
@@ -62,9 +124,11 @@
   .form__group {
     border-bottom: solid 1px #CDCDCD;
     padding-bottom: 2.7rem;
+    margin-bottom: 6rem;
     // media queries
     @include breakpoint($mobile-sm) {
       padding-bottom: 1.4rem;
+      margin-bottom: 4rem;
     }
   }
 
@@ -109,12 +173,15 @@ input:-webkit-autofill {
   background-color: #F7F7F7;
 }
 
-.job--modal__right {
-  padding-top: 6.7rem;
-  width: calc(100vw - 17rem);
-  background: #FFF;
-  z-index: 19;
-  float: right;
-  overflow: auto;
-  height: 100%;
+.job__sidebar {
+  width: 8rem;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  opacity: 0;
+  // media queries
+  @include breakpoint($mobile-lg) {
+    width: 1rem;
+  }
 }
