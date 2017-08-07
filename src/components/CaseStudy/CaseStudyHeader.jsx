@@ -34,7 +34,7 @@ export class CaseStudyHeader extends React.Component {
 }
 
 CaseStudyHeader.propTypes = {
-  content: PropTypes.object,
+  content: PropTypes.string,
   color: PropTypes.string
 };
 
