@@ -55,11 +55,7 @@
   position: relative;
   left: -2rem;
   top: -2rem;
-
-  &.hovered {
-    .page-title { color: $redshift !important; }
-  }
-
+  // media queries
   @include breakpoint($tablet-lg, min-width) {
     &:hover {
       .logo {

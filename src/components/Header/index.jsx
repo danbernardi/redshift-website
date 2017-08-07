@@ -12,6 +12,7 @@ import ReactGA from 'react-ga';
 import PropTypes from 'prop-types';
 import GSAP from 'react-gsap-enhancer';
 import { TimelineLite } from 'gsap';
+import { breakpointIsGreaterThan } from 'utils/responsiveHelpers';
 
 export class Header extends React.Component {
   constructor (props) {
@@ -83,7 +84,11 @@ export class Header extends React.Component {
   }
 
   addRedshift () {
-    this.setState({ redshift: true });
+    const { breakpoint } = this.props;
+
+    if (breakpointIsGreaterThan('tabletLg', breakpoint.size)) {
+      this.setState({ redshift: true });
+    }
   }
 
   hideRedshift () {
@@ -156,12 +161,14 @@ export class Header extends React.Component {
 Header.propTypes = {
   modalState: PropTypes.object,
   headerTheme: PropTypes.string,
-  dispatch: PropTypes.func
+  dispatch: PropTypes.func,
+  breakpoint: PropTypes.func
 };
 
 const injectStateProps = state => ({
   modalState: state.modalState,
-  headerTheme: state.headerTheme
+  headerTheme: state.headerTheme,
+  breakpoint: state.breakpoint
 });
 
 export default connect(injectStateProps)(GSAP()(Header));
