@@ -73,6 +73,9 @@ export class Archive extends React.Component {
                       <div className="p2">
                         <h3 className="typ--bold">{ study.shortDescription }</h3>
                       </div>
+                      <div className="archive__arrow">
+                        <img src={ require('assets/img/right-arrow.svg') } alt="Click" />
+                      </div>
                     </div>
                   </Link>
                 </div>
@@ -87,7 +90,6 @@ export class Archive extends React.Component {
 }
 
 Archive.propTypes = {
-  onReady: PropTypes.func,
   onDidMount: PropTypes.func,
   reportAsLoaded: PropTypes.func
 };

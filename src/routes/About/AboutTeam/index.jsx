@@ -17,14 +17,14 @@ export function AboutTeam (props) {
       { team.map((team, index) => (
         <Link to={ `/about/${team.id}` } key={ index }>
           <PinkHover
-            classes="quarter-width team-member"
+            classes="about--team__layout team-member"
             imageSrc={ team.id }
             alt={ team.name }
           >
             <span className="member__name typ--bold">{ team.name }</span>
             <span className="member__position">{ team.position }</span>
             <div className="right-arrow">
-              <img src={ require('assets/img/arrow-right-short.png') } alt={ `${team.name}, ${team.position}` } />
+              <img src={ require('assets/img/right-arrow.svg') } alt={ `${team.name}, ${team.position}` } />
             </div>
           </PinkHover>
         </Link>

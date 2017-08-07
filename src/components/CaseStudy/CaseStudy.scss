@@ -92,7 +92,7 @@
   position: absolute;
   bottom: 8rem;
   opacity: 0;
-  animation: pulse 3s;
+  animation: pulse 6s;
   animation-delay: 1.2s;
    //media queries
   @include breakpoint($mobile-lg) {
@@ -105,50 +105,46 @@
     opacity: 0;
     bottom: 5rem;
   }
-  2.5% { opacity: 1; }
+  1.25% { opacity: 1; }
 
-  10% {
+  5% {
     opacity: 1;
     bottom: 2rem;
   }
 
-  25% {
+  12.5% {
     opacity: 1;
     bottom: 4rem;
   }
 
-  35% {
+  17.25% {
     opacity: 1;
     bottom: 2rem;
   }
 
-  47.5% {
+  23.75% {
     opacity: 1;
     bottom: 3rem;
   }
 
-  60% {
+  30% {
     opacity: 1;
     bottom: 2rem;
   }
 
-  75% {
+  37.5% {
     opacity: 1;
     bottom: 4rem;
   }
 
-  90% {
+  45% {
     opacity: 1;
     bottom: 2rem;
   }
 
   99.5% {
     opacity: 0;
-  }
-
-  90% {
-    bottom: 0;
-    opacity: 0;
+    bottom: 2rem;
   }
 }
 
