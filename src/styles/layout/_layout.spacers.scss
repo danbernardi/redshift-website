@@ -13,9 +13,6 @@ $space10: 10;
 // spacer array
 $spacer-array: $space1 $space2 $space3 $space4 $space5 $space6 $space7 $space8 $space9 $space10;
 
-@mixin generate-breakpoint($i, $label, $breakpoint, $space) {
-}
-
 // creates an assortment of classes for each
 // item passed into $spacer-array
 .m0 { margin: 0; }
