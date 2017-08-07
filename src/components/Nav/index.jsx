@@ -3,7 +3,7 @@ import Footer from '../Footer';
 import NavLinks from './NavLinks';
 import './Nav.scss';
 
-const Nav = () => {
+export function Nav () {
   const activeURL = window.location.pathname;
   const navLinks = [
     {

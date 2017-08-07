@@ -3,24 +3,21 @@
 .footer {
   clear: both;
   width: 100%;
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+  @include breakpoint($mobile-lg) {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
 }
 
 .footer__tall {
-  // height: 72rem;
   display: flex;
   align-items: flex-end;
 }
 
-.footer__center {
-  position: absolute;
-  top: 50%;
-  width: 100%;
-  transform: translateY(-50%);
-}
-
 .content-main .footer {
   z-index: 1;
-  // background: $white;
   position: relative;
 }
 
@@ -38,7 +35,6 @@
   text-align: right;
   // media queries
   @include breakpoint($mobile-sm) {
-    // font-size: 1.6rem;
     float: left;
     text-align: left;
     line-height: 2;
@@ -48,6 +44,7 @@
 
 .footer .social-icons {
   font-size: 2.2rem;
+  padding-top: 2rem;
 
   [class^='icon-'] {
     color: $black;

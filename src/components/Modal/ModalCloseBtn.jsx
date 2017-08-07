@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 const ModalCloseBtn = props => {
   const { animationTiming, dispatch, modalState, closeCallback } = props;
 
-  const closeModal = () => {
+  function closeModal () {
     dispatch(actions.toggleModal(false));
     enableScroll();
     const timing = setTimeout(() => {

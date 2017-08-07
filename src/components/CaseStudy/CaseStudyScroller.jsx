@@ -28,7 +28,7 @@ export class CaseStudyScroller extends React.Component {
         <div className="modal__sidebar" style={ { backgroundColor: caseStudyContent.color } } ref={
           (sidebar) => { this.sidebar = sidebar; }
         } />
-        <div className="layout--relative ml8 ml1--mlg bg--white">
+        <div className="modal__content layout--relative">
           <div className="row"><h4 className="modal__title" ref={ (el) => { this.name = el; } }>{ caseStudyContent.name }</h4></div>
 
           <div ref={ (el) => { this.blur = el; } }>

@@ -12,7 +12,6 @@ import { setActiveBreakpoint } from 'store/actions';
 import PropTypes from 'prop-types';
 
 import 'styles/core.scss';
-import './CoreLayout.scss';
 
 export class CoreLayout extends React.Component {
   constructor (props) {

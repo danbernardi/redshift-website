@@ -398,7 +398,6 @@ export class Showcase extends React.Component {
                 currentScene: this.currentScene
               }
             ))
-
             /* We need to mount the children initially to get their height */
             : this.children
           }

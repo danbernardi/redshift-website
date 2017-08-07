@@ -53,7 +53,7 @@ export class Archive extends React.Component {
     return (
       <section className="archive__wrapper" ref={ el => { this.container = el; this.props.onDidMount(el); } }>
         <div className="archive row" data-animationName="grid">
-          <h1 className="typ--bold typ--center mb10 mb6--mlg">More work.</h1>
+          <h1 className="typ--bold typ--center archive--title">More work.</h1>
 
           <div className="archive__gridwrapper">
             <div className="archive__grid" ref={ el => { this.grid = el; } }>

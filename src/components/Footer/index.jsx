@@ -1,30 +1,33 @@
 import React from 'react';
 import FooterSocial from './FooterSocial';
-import './footer.scss';
+import { breakpointIsGreaterThan, breakpointIsLessThan } from 'utils/responsiveHelpers';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router';
+
+import './footer.scss';
 
 export function Footer (props) {
-  const { onDidMount, classes, children } = props;
+  const { onDidMount, classes, children, breakpoint } = props;
   return (
-    <footer ref={ (el) => onDidMount instanceof Function && onDidMount(el) } className={ `footer py6 py3--mlg cf ${classes && classes}` }>
+    <footer ref={ (el) => onDidMount instanceof Function && onDidMount(el) } className={ `footer cf ${classes && classes}` }>
       { children && children }
 
       <div className="row">
-        <div className="hide--msm">
-          <FooterSocial />
-        </div>
+
+        { breakpointIsGreaterThan('tabletLg', breakpoint.size) && <FooterSocial /> }
+
         <div className="contact-info layout--align-right">
           <span><strong>Redshift</strong> is a design UX agency</span><br />
-          <a
-            href="https://www.google.com/maps/place/8+California+St,+San+Francisco,+CA+94111/@37.793838,-122.3989129,17z/data=!3m1!4b1!4m5!3m4!1s0x808580615b0ca361:0xc58b8a2deddd07ae!8m2!3d37.793838!4d-122.3967242"
+          <Link
+            to="https://www.google.com/maps/place/8+California+St,+San+Francisco,+CA+94111/@37.793838,-122.3989129,17z/data=!3m1!4b1!4m5!3m4!1s0x808580615b0ca361:0xc58b8a2deddd07ae!8m2!3d37.793838!4d-122.3967242"
             target="_blank"
-          >8 California St, San Francisco, CA 94111<br /></a>
-          <a href="mailto:hello@redshiftdigital.com">hello@redshiftdigital.com<br /></a>
-          <a href="tel:4153711500">415 371 1500</a>
+          >8 California St, San Francisco, CA 94111<br /></Link>
+          <Link to="mailto:hello@redshiftdigital.com">hello@redshiftdigital.com<br /></Link>
+          <Link to="tel:4153711500">415 371 1500</Link>
         </div>
-        <div className="show--msm">
-          <FooterSocial />
-        </div>
+
+        { breakpointIsLessThan('tabletLg', breakpoint.size) && <FooterSocial /> }
       </div>
     </footer>
   );
@@ -33,7 +36,12 @@ export function Footer (props) {
 Footer.propTypes = {
   onDidMount: PropTypes.func,
   classes: PropTypes.string,
-  children: PropTypes.node
+  children: PropTypes.node,
+  breakpoint: PropTypes.object
 };
 
-export default Footer;
+const mapStateToProps = state => ({
+  breakpoint: state.breakpoint
+});
+
+export default connect(mapStateToProps)(Footer);

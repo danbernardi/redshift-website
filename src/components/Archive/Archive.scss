@@ -5,6 +5,13 @@
   position: fixed;
 }
 
+.archive--title {
+  margin-bottom: 10rem;
+  @include breakpoint($mobile-lg) {
+    margin-bottom: 6rem;
+  }
+}
+
 .archive__wrapper {
   z-index: 11;
   width: 100%;
@@ -81,7 +88,7 @@
       }
     }
   }
-  
+
 
   img {
     display: block;
