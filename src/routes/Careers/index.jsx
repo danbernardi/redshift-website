@@ -61,12 +61,9 @@ export class Careers extends React.Component {
 
   render () {
     const careerHero = {
-      // imgDef: require('https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/careers/rs_team.jpg'),
-      // imgTlg: require('https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/careers/rs_team-tlg.jpg'),
-      // imgMlg: require('https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/careers/rs_team-mlg.jpg')
-      imgDef: require('assets/img/careers/rs_team.jpg'),
-      imgTlg: require('assets/img/careers/rs_team-tlg.jpg'),
-      imgMlg: require('assets/img/careers/rs_team-mlg.jpg')
+      imgDef: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/careers/rs_team.jpg',
+      imgTlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/careers/rs_team-tlg.jpg',
+      imgMlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/careers/rs_team-mlg.jpg'
     };
 
     return (
