@@ -39,7 +39,7 @@ export class CaseStudyScroller extends React.Component {
                   color={ caseStudyContent.color }
                 />
                 <div className="casestudy__scrollarrow">
-                  <img src={ require('assets/img/down-arrow.svg') } alt="Scroll down" />
+                  <img src={ require('assets/img/scroll-arrow.svg') } alt="Scroll down" />
                 </div>
               </div>
             </div>

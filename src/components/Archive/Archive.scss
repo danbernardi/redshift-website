@@ -124,3 +124,11 @@
     transition: opacity 0.2s ease-out 0s, transform 0s ease-in-out 2s;
   }
 }
+
+.archive__arrow {
+  width: 4.4rem;
+  height: 3.2rem;
+  right: 2rem;
+  position: absolute;
+  bottom: 2rem;
+}

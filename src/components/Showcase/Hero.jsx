@@ -85,7 +85,7 @@ export class Hero extends React.Component {
 
         { this.props.animationProgress <= 0.3 ? <div data-animationName="scroller" className="scrolltrigger">
           <div className="casestudy__scrollarrow">
-            <img src={ require('assets/img/down-arrow.svg') } alt="Scroll down" />
+            <img src={ require('assets/img/scroll-arrow.svg') } alt="Scroll down" />
           </div>
         </div>
         : null
@@ -97,7 +97,6 @@ export class Hero extends React.Component {
 
 Hero.propTypes = {
   onDidMount: PropTypes.func,
-  clickCallback: PropTypes.func,
   animationProgress: PropTypes.number
 };
 

@@ -1,8 +1,10 @@
 @import 'sass-includes';
 
 .pink-hover__item {
-  &:hover .pink-hover {
-    transform: translateX(0%);
+  @include breakpoint($tablet-lg, min-width) {
+    &:hover .pink-hover {
+      transform: translateX(0%);
+    }
   }
 }
 
@@ -46,6 +48,6 @@
 .right-arrow {
   position: absolute;
   right: 2rem;
-  bottom: 4.8rem;
-  width: 5rem;
+  bottom: 2.8rem;
+  width: 4.4rem;
 }
