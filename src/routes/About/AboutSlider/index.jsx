@@ -44,7 +44,9 @@ class AboutSlides extends React.Component {
       pauseOnHover: false,
       arrows: false,
       draggable: false,
-      lazyLoad: true
+      lazyLoad: true,
+      touchMove: false,
+      swipe: false
     };
     const { breakpoint } = this.props;
 
