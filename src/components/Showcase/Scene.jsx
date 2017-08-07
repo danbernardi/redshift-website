@@ -12,10 +12,12 @@ export class Scene extends React.Component {
   constructor (props) {
     super(props);
 
+    this.loadedImages = [];
     this.timeline = null;
     this.state = {
       animationProgress: 0,
-      active: true
+      active: true,
+      loaded: false
     };
   }
 
@@ -134,10 +136,20 @@ export class Scene extends React.Component {
     this.timeline.pause();
   }
 
+  loadImage (id) {
+    const { reportAsLoaded } = this.props;
+
+    if (this.loadedImages.indexOf(id) === -1) this.loadedImages.push(id);
+    if (this.loadedImages.length === 2 && reportAsLoaded instanceof Function) {
+      reportAsLoaded(this.props.id);
+      this.setState({ loaded: true });
+    }
+  }
+
   render () {
     const { id, caption } = this.props;
     const { body, overlay, overlaymlg, overlaytlg, shadow } = this.props.device;
-    const { active } = this.state;
+    const { active, loaded } = this.state;
 
     return (
       <div
@@ -149,12 +161,25 @@ export class Scene extends React.Component {
         ref={ this.props.onDidMount }
       >
         <div data-animationName="device" className="scene__device" >
-          { body && <img data-animationName="device-body" className="scene__device__body" src={ body } alt={ id } /> }
+          { body &&
+            <img
+              data-animationName="device-body"
+              className="scene__device__body"
+              onLoad={ () => !loaded && this.loadImage('device') }
+              src={ body }
+              alt={ id }
+            /> }
           { overlay &&
             <picture>
               <source srcSet={ overlay } media="(min-width: 1040px)" />
               { overlaytlg && <source srcSet={ overlaytlg } media="(min-width: 767px)" /> }
-              <img src={ overlaymlg } className="scene__device__overlay" style={ { marginBottom: '1px' } } alt={ id } />
+              <img
+                onLoad={ () => !loaded && this.loadImage('overlay') }
+                src={ overlaymlg }
+                className="scene__device__overlay"
+                style={ { marginBottom: '1px' } }
+                alt={ id }
+              />
             </picture>
           }
 
@@ -188,7 +213,8 @@ Scene.propTypes = {
   id: PropTypes.string,
   caption: PropTypes.array,
   onDidMount: PropTypes.func,
-  device: PropTypes.object
+  device: PropTypes.object,
+  reportAsLoaded: PropTypes.func
 };
 
 export default GSAP()(Scene);

@@ -19,8 +19,9 @@ class AppContainer extends Component {
   }
 
   componentDidMount () {
-    const body = document.getElementsByTagName('body');
-    if (body && body[0]) { setTimeout(() => { body[0].style.opacity = '1'; }, 100); }
+    setTimeout(() => {
+      document.querySelector('#loader').style.display = 'none';
+    }, 200);
   }
 
   logPageView () {

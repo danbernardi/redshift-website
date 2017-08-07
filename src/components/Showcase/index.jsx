@@ -9,6 +9,7 @@ import { TimelineLite, TweenMax, Power3 } from 'gsap';
 import { setHeaderTheme } from 'store/actions';
 import PropTypes from 'prop-types';
 import debounce from 'lodash.debounce';
+import Loader from 'components/Loader';
 
 export class Showcase extends React.Component {
   constructor (props) {
@@ -29,12 +30,16 @@ export class Showcase extends React.Component {
     this.lastScroll = window.performance.now();
     this.currentScene = 0;
     this.previousScene = 0;
+    this.loadedSections = [];
 
     this.state = { animationProgress: 0 };
   }
 
   componentDidUpdate (prevProps, prevState) {
     if (!prevState.loaded && this.state.loaded) {
+      this.container.style.overflowY = 'scroll';
+      document.querySelector('.loader').style.display = 'none';
+
       this.createObservables(this.container);
       this.sceneMeta = this.setSceneMeta();
       this.timeline = this.createColorTransitionTimeline(this.wrapper);
@@ -294,6 +299,7 @@ export class Showcase extends React.Component {
         key={ index }
         index={ index + 1 }
         { ...scene }
+        reportAsLoaded={ (id) => this.setAsLoaded(id) }
       />
     ));
   }
@@ -382,6 +388,15 @@ export class Showcase extends React.Component {
     this.goToScene(this.currentScene - 1);
   }
 
+  setAsLoaded (section) {
+    const { loaded } = this.state;
+
+    if (this.loadedSections.indexOf(section) === -1) this.loadedSections.push(section);
+    if (!loaded && this.loadedSections.length === this.children.length) {
+      this.setState({ loaded: true });
+    }
+  }
+
   render () {
     if (this.sceneMeta.length) {
       this.currentScene = this.calculateCurrentScene();
@@ -400,7 +415,7 @@ export class Showcase extends React.Component {
             })
           }
 
-          <Archive reportAsLoaded={ () => this.setState({ loaded: true }) } onDidMount={ (el) => this.addScrollPoint(el, this.children.length) } />
+          <Archive reportAsLoaded={ () => this.setAsLoaded('archive') } onDidMount={ (el) => this.addScrollPoint(el, this.children.length) } />
         </div>
         <div className="showcase__content">
           {
@@ -417,6 +432,7 @@ export class Showcase extends React.Component {
             : this.children
           }
         </div>
+        <Loader />
       </div>
     );
   }
