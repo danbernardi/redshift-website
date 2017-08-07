@@ -6,6 +6,9 @@
     height: auto;
     min-height: 100rem;
   }
+  @include breakpoint($tablet-lg) {
+    margin-top: 5rem;
+  }
 }
 
 .about__section {
