@@ -10,6 +10,7 @@
   width: 100%;
   overflow-y: auto;
   overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
   // media queries
   @include breakpoint($mobile-lg) {
     width: 100%;

@@ -7,14 +7,17 @@ import PropTypes from 'prop-types';
 import '../style.scss';
 
 export function BioTemplate (props) {
-  const { bioContent, breakpoint } = props;
+  const { bioContent, breakpoint, modalState } = props;
 
   const bio = bioContent.bioStatement.map((paragraph, index) =>
     <h5 key={ index } className="pb2">{ paragraph }</h5>
   );
 
   return (
-    <div className={ `${bioContent.id} team-member__modal` }>
+    <div
+      className={ `${bioContent.id} team-member__modal` }
+      style={ { height: modalState.windowHeight, width: modalState.windowWidth } }
+    >
       <ModalCloseBtn closeCallback={ () => browserHistory.push('/about') } />
       <div className="col-12 bio--wrap row">
         <div className="team-member-bio py5">
@@ -40,15 +43,14 @@ export function BioTemplate (props) {
 };
 
 BioTemplate.propTypes = {
-  bioContent: PropTypes.object
-};
-
-BioTemplate.propTypes = {
-  breakpoint: PropTypes.object
+  bioContent: PropTypes.object,
+  breakpoint: PropTypes.object,
+  modalState: PropTypes.object
 };
 
 const mapStateToProps = state => ({
-  breakpoint: state.breakpoint
+  breakpoint: state.breakpoint,
+  modalState: state.modalState
 });
 
 export default connect(mapStateToProps)(BioTemplate);

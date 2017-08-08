@@ -4,13 +4,16 @@ import ModalCloseBtn from 'components/Modal/ModalCloseBtn';
 import { browserHistory } from 'react-router';
 import '../../style.scss';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
-export function RoleTemplate ({ children, name }) {
+export function RoleTemplate ({ children, name, modalState }) {
   return (
     <div className="job--modal">
-      <div className="job__sidebar" />
       <ModalCloseBtn closeCallback={ () => browserHistory.push('/careers') } />
-      <div className="modal__with-sidebar bg--white">
+      <div
+        className="modal__with-sidebar bg--white"
+        style={ { borderColor: '#FF2953', height: modalState.windowHeight, width: modalState.windowWidth } }
+      >
         { children }
         <section className="contact__form py8 row">
           <h3 className="pb4">Apply</h3>
@@ -23,7 +26,12 @@ export function RoleTemplate ({ children, name }) {
 
 RoleTemplate.propTypes = {
   children: PropTypes.element,
-  name: PropTypes.string
+  name: PropTypes.string,
+  modalState: PropTypes.object
 };
 
-export default RoleTemplate;
+const mapStateToProps = state => ({
+  modalState: state.modalState
+});
+
+export default connect(mapStateToProps)(RoleTemplate);
