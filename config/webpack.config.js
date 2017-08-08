@@ -63,7 +63,6 @@ webpackConfig.externals['react/addons'] = true;
 // Plugins
 // ------------------------------------
 webpackConfig.plugins = [
-  // new BundleAnalyzerPlugin(),
   new webpack.DefinePlugin(project.globals),
   new HtmlWebpackPlugin({
     template: project.paths.client('index.html'),
