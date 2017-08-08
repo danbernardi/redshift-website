@@ -94,9 +94,10 @@
   opacity: 0;
   animation: pulse 6s;
   animation-delay: 1.2s;
+  width: 3.2rem;
    //media queries
   @include breakpoint($mobile-lg) {
-    bottom: -1rem;
+    bottom: 0;
   }
 }
 

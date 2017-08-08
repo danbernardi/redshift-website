@@ -1,15 +1,5 @@
 @import 'sass-includes';
 
-// html {
-//   //media queries
-//   @include breakpoint($desktop-sm) {
-//     max-height: 200rem;
-//   }
-//   @include breakpoint($tablet-md) {
-//     max-height: none;
-//   }
-// }
-
 .content-main { overflow: hidden; }
 
 .showcase {
@@ -359,8 +349,4 @@
   position: fixed;
   bottom: 2.8rem;
   left: 0;
-
-  img {
-    padding-left: 0.5rem;
-  }
 }
