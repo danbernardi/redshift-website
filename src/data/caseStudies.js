@@ -218,7 +218,7 @@ export const caseStudies = [
         video: {
           id: 'nexus',
           url: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/video/nexus_n7_950x624.mp4',
-          url_sm: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/video/nexus_n7_950x624.mp4_sm',
+          url_sm: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/video/nexus_n7_950x624_sm.mp4',
           type: 'laptop'
         },
         copy: [
