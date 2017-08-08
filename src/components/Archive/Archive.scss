@@ -102,6 +102,10 @@
   left: 0;
   padding: 2rem;
   z-index: 12;
+  // media queries
+  @include breakpoint($desktop-sm) {
+    padding: 1.5rem;
+  }
 }
 
 .archive__imgspacer {
@@ -118,10 +122,15 @@
   transition: height 0.2s ease-in-out;
   z-index: 10;
 
-  > div {
+  .archive__overlay--text {
     opacity: 0;
     transform: translateY(2rem);
     transition: opacity 0.2s ease-out 0s, transform 0s ease-in-out 2s;
+    padding: 2rem;
+    // media queries
+    @include breakpoint($desktop-sm) {
+      padding: 1.5rem;
+    }
   }
 
   h3 {
@@ -133,8 +142,12 @@
 
 .archive__arrow {
   width: 3.2rem;
-  height: 3.2rem;
-  right: 2rem;
+  right: 1.5rem;
   position: absolute;
-  bottom: 1.7rem;
+  bottom: 2.4rem;
+  // media queries
+  @include breakpoint($desktop-sm) {
+    bottom: 1.9rem;
+  }
+
 }
