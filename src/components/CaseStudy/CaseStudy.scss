@@ -21,12 +21,7 @@
 }
 
 .modal__content {
-  margin-left: 8rem;
   background-color: $white;
-  // media queries
-  @include breakpoint($mobile-lg) {
-    margin-left: 1rem;
-  }
 }
 
 .casestudy__title {

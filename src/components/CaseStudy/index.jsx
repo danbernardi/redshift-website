@@ -31,7 +31,7 @@ class CaseStudy extends React.Component {
     const endFontSize = window.getComputedStyle(title, null).getPropertyValue('font-size');
     const tl = new TimelineLite();
 
-    tl.to(next, duration, { height: '100vh', backgroundColor: '#FFF', ease: Power1.easeInOut }, 'anim');
+    tl.to(next, duration, { height: window.innerHeight, backgroundColor: '#FFF', ease: Power1.easeInOut }, 'anim');
     tl.to(name, duration, { fontSize: endFontSize, color: '#a3a3a3', ease: Power1.easeInOut }, 'anim');
     tl.to(label, duration, { opacity: 0, height: 0, ease: Power1.easeInOut }, 'anim');
     tl.to(target[0], fadeDuration, { opacity: 0, ease: Power1.easeInOut, onComplete: () => options.unmountComponent() }, `anim+=${duration}`);
@@ -51,8 +51,12 @@ class CaseStudy extends React.Component {
 
     return (
       <div ref={ (el) => { this.caseStudy = el; } } className="casestudy__modal">
-        <ModalCloseBtn closeCallback={ () => browserHistory.push('/work') } />
-        <CaseStudyScroller passRefsToParent={ (childRefs) => this.setState({ childRefs }) } caseStudyContent={ caseStudyContent } nextCaseStudy={ nextCaseStudy } />
+        <ModalCloseBtn closeCallback={ () => browserHistory.push('/') } />
+        <CaseStudyScroller
+          passRefsToParent={ (childRefs) => this.setState({ childRefs }) }
+          caseStudyContent={ caseStudyContent }
+          nextCaseStudy={ nextCaseStudy }
+        />
       </div>
     );
   }
