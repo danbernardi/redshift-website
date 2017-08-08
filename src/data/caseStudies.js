@@ -158,7 +158,7 @@ export const caseStudies = [
         imgAlt: 'Norton Online 7',
         copy: [
           {
-            classes: 'casestudy__text typ--h3 pb7',
+            classes: 'casestudy__text typ--h3',
             text: 'In the past, each Norton product had its own separate interface, which made it very awkward to use multiple products together. The new solution lets users control and protect all their devices—from any device. For example, Mom can use her smartphone to remotely change Online Family settings for the home PC.'
           }
         ]
@@ -172,7 +172,7 @@ export const caseStudies = [
         },
         copy: [
           {
-            classes: 'casestudy__text typ--h3 pb7',
+            classes: 'casestudy__text typ--h3',
             text: 'The look and feel we created was a departure for Norton, whose software has usually employed a dark, “high-tech” look. We wanted the new console to feel light, modern, and approachable. Simple icons, ample whitespace, and bright splashes of color make a powerful product feel easy to use.'
           }
         ]
@@ -434,7 +434,7 @@ export const caseStudies = [
         },
         copy: [
           {
-            classes: 'casestudy__text typ--h3 pb7',
+            classes: 'casestudy__text typ--h3',
             text: 'The first version of Five included a drafts feature for saving incomplete lists, but most users never got around to finishing them. So we eliminated the drafts, and allowed other users to fill in the unfinished lists. Losing the feature solved the problem—and made the app much more engaging in the process.'
           }
         ]
