@@ -1,9 +1,11 @@
 import React from 'react';
 import Footer from '../Footer';
 import NavLinks from './NavLinks';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import './Nav.scss';
 
-export function Nav () {
+export function Nav ({ modalState }) {
   const activeURL = window.location.pathname;
   const navLinks = [
     {
@@ -25,7 +27,7 @@ export function Nav () {
   ];
 
   return (
-    <div className="nav full-height theme--dark">
+    <div className="nav theme--dark" style={ { height: modalState.windowHeight, width: modalState.windowWidth } }>
       <div className="row">
         <NavLinks links={ navLinks } activeURL={ activeURL } />
       </div>
@@ -34,4 +36,12 @@ export function Nav () {
   );
 };
 
-export default Nav;
+const mapStateToProps = state => ({
+  modalState: state.modalState
+});
+
+Nav.propTypes = {
+  modalState: PropTypes.object
+};
+
+export default connect(mapStateToProps)(Nav);
