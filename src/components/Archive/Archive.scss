@@ -123,6 +123,12 @@
     transform: translateY(2rem);
     transition: opacity 0.2s ease-out 0s, transform 0s ease-in-out 2s;
   }
+
+  h3 {
+    @include breakpoint($desktop-sm) {
+      font-size: 2.8rem;
+    }
+  }
 }
 
 .archive__arrow {
