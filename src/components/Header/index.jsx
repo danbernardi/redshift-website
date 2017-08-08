@@ -162,7 +162,7 @@ Header.propTypes = {
   modalState: PropTypes.object,
   headerTheme: PropTypes.string,
   dispatch: PropTypes.func,
-  breakpoint: PropTypes.func
+  breakpoint: PropTypes.object
 };
 
 const injectStateProps = state => ({
