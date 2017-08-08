@@ -1,7 +1,7 @@
 @import 'sass-includes';
 
 .modal__title {
-  color: $medium-gray;
+  color: $black;
   padding-top: 5.3rem;
   //media queries
   @include breakpoint($mobile-lg) {
