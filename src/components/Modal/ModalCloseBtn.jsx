@@ -2,7 +2,6 @@ import React from 'react';
 import * as actions from 'store/actions';
 import { connect } from 'react-redux';
 import Hamburger from 'components/Hamburger';
-import { enableScroll } from 'utils/scrollJack';
 import PropTypes from 'prop-types';
 
 const ModalCloseBtn = props => {
@@ -10,7 +9,6 @@ const ModalCloseBtn = props => {
 
   function closeModal () {
     dispatch(actions.toggleModal(false));
-    enableScroll();
     const timing = setTimeout(() => {
       dispatch(actions.setActiveModal(null, null));
       clearInterval(timing);

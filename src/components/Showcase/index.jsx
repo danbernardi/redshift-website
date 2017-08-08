@@ -10,6 +10,7 @@ import { setHeaderTheme } from 'store/actions';
 import PropTypes from 'prop-types';
 import debounce from 'lodash.debounce';
 import Loader from 'components/Loader';
+import { enableScroll, disableScroll } from 'utils/scrollJack';
 
 export class Showcase extends React.Component {
   constructor (props) {
@@ -35,7 +36,23 @@ export class Showcase extends React.Component {
     this.state = { animationProgress: 0 };
   }
 
+  componentDidMount () {
+    disableScroll();
+  }
+
   componentDidUpdate (prevProps, prevState) {
+    const { modalState } = this.props;
+
+    if (modalState.open && !prevProps.modalState.open) {
+      setTimeout(() => {
+        this.wrapper.style.opacity = 0;
+      }, 200);
+    }
+
+    if (!modalState.open && prevProps.modalState.open) {
+      this.wrapper.style.opacity = 1;
+    }
+
     if (!prevState.loaded && this.state.loaded) {
       this.container.style.overflowY = 'scroll';
       document.querySelector('.loader').style.display = 'none';
@@ -108,10 +125,14 @@ export class Showcase extends React.Component {
    * @param {object} scrollEvent      The event returned when the showcase element is scrolled
    */
   scrollSubscription (scrollEvent) {
-    const target = scrollEvent.target;
-    const animationProgress = this.calculateAnimationProgress(target);
-    this.timeline.progress(animationProgress).pause();
-    this.setState({ animationProgress });
+    const { modalState } = this.props;
+
+    if (!modalState.open) {
+      const target = scrollEvent.target;
+      const animationProgress = this.calculateAnimationProgress(target);
+      this.timeline.progress(animationProgress).pause();
+      this.setState({ animationProgress });
+    }
   };
 
   /**
@@ -119,7 +140,11 @@ export class Showcase extends React.Component {
    */
   componentWillUnmount () {
     window.removeEventListener('resize', this.resizeFunc);
-    this.container.removeEventListener('scroll', this.scrollSubscription);
+    if (this.container) {
+      this.container.removeEventListener('scroll', this.scrollSubscription);
+    }
+
+    enableScroll();
   }
 
   /**
@@ -398,13 +423,17 @@ export class Showcase extends React.Component {
   }
 
   render () {
-    if (this.sceneMeta.length) {
-      this.currentScene = this.calculateCurrentScene();
-    }
+    const { modalState } = this.props;
+
+    if (this.sceneMeta.length) this.currentScene = this.calculateCurrentScene();
 
     return (
       <div ref={ el => { this.wrapper = el; } } className="showcase__wrapper">
-        <div ref={ (element) => { this.container = element; } } className="showcase">
+        <div
+          ref={ (element) => { this.container = element; } }
+          className="showcase"
+          style={ { height: modalState.windowHeight, width: modalState.windowWidth } }
+        >
 
           {
             /* If the children have mounted, update the animation progress for each component */
@@ -441,11 +470,13 @@ export class Showcase extends React.Component {
 Showcase.propTypes = {
   scenes: PropTypes.array,
   dispatch: PropTypes.func,
-  locationHistory: PropTypes.object
+  locationHistory: PropTypes.object,
+  modalState: PropTypes.object
 };
 
 const injectStateProps = state => ({
-  locationHistory: state.locationHistory
+  locationHistory: state.locationHistory,
+  modalState: state.modalState
 });
 
 export default connect(injectStateProps)(Showcase);
