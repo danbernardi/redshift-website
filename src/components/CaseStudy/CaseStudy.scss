@@ -202,12 +202,35 @@
       transform: none;
       padding: 3rem 0 12rem;
     }
-    @include breakpoint($desktop-sm) {
-      font-size: 6rem;
-    }
-    @include breakpoint($tablet-lg) {
+
+    @include breakpoint(750px, max-height) {
       font-size: 5.2rem;
     }
+
+    @include breakpoint(600px, max-height) {
+      font-size: 4.2rem;
+    }
+
+    @include breakpoint($desktop-sm) {
+      font-size: 6rem;
+      @include breakpoint(1000px, max-height) {
+        font-size: 5.2rem;
+      }
+      @include breakpoint(750px, max-height) {
+        font-size: 4.2rem;
+      }
+    }
+
+    @include breakpoint($tablet-lg) {
+      font-size: 5.2rem;
+      @include breakpoint(1000px, max-height) {
+        font-size: 4.2rem;
+      }
+      @include breakpoint(750px, max-height) {
+        font-size: 3.5rem;
+      }
+    }
+
     @include breakpoint($mobile-lg) {
       font-size: 4.2rem;
     }
