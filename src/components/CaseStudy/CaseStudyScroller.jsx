@@ -24,21 +24,21 @@ export class CaseStudyScroller extends React.Component {
         style={ { height: modalState.windowHeight, width: modalState.windowWidth } }
       >
         <div className="modal__content layout--relative">
-          <div className="row"><h4 className="modal__title" ref={ (el) => { this.name = el; } }>{ caseStudyContent.name }</h4></div>
+          <div className="row">
+            <h4 className="modal__title" ref={ (el) => { this.name = el; } }>{ caseStudyContent.name }</h4>
+          </div>
 
-          
-            <div className="row">
-              <div className="casestudy__heading layout--fullheight">
-                <CaseStudyHeader
-                  content={ caseStudyContent.heading }
-                  color={ caseStudyContent.color }
-                />
-                <div className="casestudy__scrollarrow" onClick={ () => { this.animateScroll(this.casestudy, window.innerHeight) } }>
-                  <img src={ require('assets/img/scroll-arrow.svg') } alt="Scroll down" />
-                </div>
+          <div className="row">
+            <div className="casestudy__heading layout--fullheight">
+              <CaseStudyHeader
+                content={ caseStudyContent.heading }
+                color={ caseStudyContent.color }
+              />
+              <div className="casestudy__scrollarrow" onClick={ () => { this.animateScroll(this.casestudy, window.innerHeight); } }>
+                <img src={ require('assets/img/scroll-arrow.svg') } alt="Scroll down" />
               </div>
             </div>
-          
+          </div>
 
           { caseStudyContent.content && caseStudyContent.content.length &&
             caseStudyContent.content.map((section, index) => (
