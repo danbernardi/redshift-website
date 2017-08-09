@@ -189,6 +189,15 @@
   height: calc(100vh - 8.6rem);
   position: relative;
   // media queries
+  @include breakpoint($tablet-lg) {
+    height: calc(100vh - 8.2rem);
+  }
+  @include breakpoint($mobile-lg) {
+    height: calc(100vh - 5.8rem);
+  }
+  @include breakpoint($mobile-sm) {
+    height: calc(100vh - 5.5rem);
+  }
   @media only screen and (max-height: 430px) {
     height: auto;
   }
@@ -235,6 +244,9 @@
     }
     @include breakpoint($mobile-sm) {
       font-size: 2.8rem;
+    }
+    @include breakpoint($mobile-xxsm) {
+      font-size: 2.5rem;
     }
   }
 }

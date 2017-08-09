@@ -21,28 +21,27 @@ export class CaseStudyScroller extends React.Component {
         <div className="modal__content layout--relative">
           <div className="row"><h4 className="modal__title" ref={ (el) => { this.name = el; } }>{ caseStudyContent.name }</h4></div>
 
-          <div ref={ (el) => { this.blur = el; } }>
-            <div className="row">
-              <div className="casestudy__heading layout--fullheight">
-                <CaseStudyHeader
-                  content={ caseStudyContent.heading }
-                  color={ caseStudyContent.color }
-                />
-                <div className="casestudy__scrollarrow">
-                  <img src={ require('assets/img/scroll-arrow.svg') } alt="Scroll down" />
-                </div>
+          <div className="row">
+            <div className="casestudy__heading layout--fullheight">
+              <CaseStudyHeader
+                content={ caseStudyContent.heading }
+                color={ caseStudyContent.color }
+              />
+              <div className="casestudy__scrollarrow">
+                <img src={ require('assets/img/scroll-arrow.svg') } alt="Scroll down" />
               </div>
             </div>
-            { caseStudyContent.content && caseStudyContent.content.length &&
-              caseStudyContent.content.map((section, index) => (
-                <CaseStudySection
-                  key={ index }
-                  caseStudyContent={ section }
-                  scrollContainer={ scrollContainer }
-                />
-              ))
-             }
           </div>
+
+          { caseStudyContent.content && caseStudyContent.content.length &&
+            caseStudyContent.content.map((section, index) => (
+              <CaseStudySection
+                key={ index }
+                caseStudyContent={ section }
+                scrollContainer={ scrollContainer }
+              />
+            ))
+           }
 
           { nextCaseStudy && typeof nextCaseStudy === 'object' &&
             <div>
