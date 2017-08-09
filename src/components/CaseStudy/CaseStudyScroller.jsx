@@ -5,10 +5,10 @@ import { ScrollContainer } from 'scrollmonitor-react';
 import CaseStudyHeader from './CaseStudyHeader';
 import PropTypes from 'prop-types';
 import GSAP from 'react-gsap-enhancer';
+import { connect } from 'react-redux';
 import { TweenLite } from 'gsap';
 
 export class CaseStudyScroller extends React.Component {
-  
 
   animateScroll (container, position) {
     TweenLite.to(container, 0.5, { scrollTop: position });
