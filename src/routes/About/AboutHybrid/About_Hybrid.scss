@@ -44,9 +44,12 @@
 }
 
 .about--work__container {
-  padding-top: 10rem;
+  padding-top: 6rem;
   float: left;
   display: block;
+  h1 {
+    @include font-size('h1.5');
+  }
 }
 
 // text and spacing
