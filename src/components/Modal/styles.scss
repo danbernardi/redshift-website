@@ -9,6 +9,33 @@
   }
 }
 
+.modal__sidebar {
+  width: 8rem;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  // media queries
+  @include breakpoint($mobile-lg) {
+    width: 1rem;
+  }
+}
+
+.job--modal .modal__sidebar {
+  z-index: 1;
+}
+
+.modal__content {
+  background-color: $white;
+  width: calc(100% - 8rem);
+  margin-left: 8rem;
+  // media queries
+  @include breakpoint($mobile-lg) {
+    width: calc(100% - 1rem);
+    margin-left: 1rem; 
+  }
+}
+
 .modal__close {
   cursor: pointer;
   position: absolute !important;
@@ -51,9 +78,4 @@
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
   width: 100%;
-  border-left: 8rem solid;
-  // media queries
-  @include breakpoint($mobile-lg) {
-    border-left-width: 1rem;
-  }
 }

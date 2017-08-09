@@ -11,14 +11,20 @@ export function RoleTemplate ({ children, name, modalState }) {
     <div className="job--modal">
       <ModalCloseBtn closeCallback={ () => browserHistory.push('/careers') } />
       <div
+        className="modal__sidebar"
+        style={ { backgroundColor: '#FF2953' } }
+      />
+      <div
         className="modal__with-sidebar bg--white"
         style={ { borderColor: '#FF2953', height: modalState.windowHeight, width: modalState.windowWidth } }
       >
-        { children }
-        <section className="contact__form py8 row">
-          <h3 className="pb4">Apply</h3>
-          <JobContact position={ name } />
-        </section>
+        <div className="modal__content">
+          { children }
+          <section className="contact__form py8 row">
+            <h3 className="pb4">Apply</h3>
+            <JobContact position={ name } />
+          </section>
+        </div>
       </div>
     </div>
   );

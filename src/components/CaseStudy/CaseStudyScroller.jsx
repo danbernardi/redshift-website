@@ -16,7 +16,7 @@ export class CaseStudyScroller extends React.Component {
       <section
         ref={ (el) => { this.casestudy = el; } }
         className={ `modal__with-sidebar ${caseStudyContent.id}` }
-        style={ { height: modalState.windowHeight, width: modalState.windowWidth, borderColor: caseStudyContent.color } }
+        style={ { height: modalState.windowHeight, width: modalState.windowWidth } }
       >
         <div className="modal__content layout--relative">
           <div className="row"><h4 className="modal__title" ref={ (el) => { this.name = el; } }>{ caseStudyContent.name }</h4></div>

@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 import CaseStudyScroller from './CaseStudyScroller';
 import { TimelineLite, Power1 } from 'gsap';
 import GSAP from 'react-gsap-enhancer';
-
 import './CaseStudy.scss';
 
 class CaseStudy extends React.Component {
@@ -52,6 +51,10 @@ class CaseStudy extends React.Component {
     return (
       <div ref={ (el) => { this.caseStudy = el; } } className="casestudy__modal">
         <ModalCloseBtn closeCallback={ () => browserHistory.push('/') } />
+        <div
+          className="modal__sidebar"
+          style={ { backgroundColor: caseStudyContent.color } }
+        />
         <CaseStudyScroller
           passRefsToParent={ (childRefs) => this.setState({ childRefs }) }
           caseStudyContent={ caseStudyContent }
