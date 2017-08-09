@@ -76,7 +76,7 @@ export class Showcase extends React.Component {
 
     // Not a scroll update, and page is loaded
     } else if (this.state.loaded && prevState.animationProgress === this.state.animationProgress) {
-      const onWork = location.pathname === '/work';
+      const onWork = ['/', '/work'].includes(location.pathname);
       const { lastPath } = this.props.locationHistory;
       const fromStudy = lastPath && lastPath.includes('/work/');
 

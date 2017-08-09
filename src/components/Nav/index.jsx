@@ -8,7 +8,7 @@ export function Nav () {
   const navLinks = [
     {
       name: 'Work.',
-      to: '/work'
+      to: '/'
     },
     {
       name: 'About.',
