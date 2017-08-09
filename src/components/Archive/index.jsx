@@ -7,6 +7,7 @@ import GSAP from 'react-gsap-enhancer';
 import 'masonry-layout';
 import './Archive.scss';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 export class Archive extends React.Component {
   constructor (props) {
@@ -20,22 +21,34 @@ export class Archive extends React.Component {
     };
   }
 
-  componentDidUpdate () {
+  componentDidUpdate (prevProps) {
     const { imagesLoaded } = this.state;
-    const { reportAsLoaded } = this.props;
+    const { reportAsLoaded, modalState } = this.props;
 
     if (imagesLoaded.length === caseStudies.filter(cs => cs.gridThumbnail).length) {
       this.isotope = new Isotope(this.grid, {
         itemSelector: '.archive__item',
-        layoutMode: 'masonry'
+        layoutMode: 'masonry',
+        resize: false
       });
 
       if (reportAsLoaded instanceof Function) reportAsLoaded();
     }
+
+    if (prevProps.modalState !== modalState && this.isotope) {
+      console.log('resize');
+      setTimeout(() => {
+        this.isotope.layout();
+      }, 200);
+    }
   }
 
-  shouldComponentUpdate () {
-    return false;
+  shouldComponentUpdate (nextProps) {
+    if (nextProps.modalState === this.props.modalState) {
+      return false;
+    } else {
+      return true;
+    }
   }
 
   loadImage (index) {
@@ -91,7 +104,12 @@ export class Archive extends React.Component {
 
 Archive.propTypes = {
   onDidMount: PropTypes.func,
-  reportAsLoaded: PropTypes.func
+  reportAsLoaded: PropTypes.func,
+  modalState: PropTypes.object
 };
 
-export default GSAP()(Archive);
+const mapStateToProps = state => ({
+  modalState: state.modalState
+});
+
+export default connect(mapStateToProps)(GSAP()(Archive));
