@@ -5,7 +5,7 @@
   bottom: 0;
   @include breakpoint($mobile-lg) {
     position: relative;
-    padding-top: 6rem;
+    // padding-top: 6rem;
     padding-bottom: 5rem;
   }
 }
