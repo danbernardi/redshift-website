@@ -23,12 +23,12 @@ export class Hero extends React.Component {
   }
 
   shouldComponentUpdate (nextProps) {
-    return isInRange(nextProps.animationProgress, 0, 1.2);
+    return isInRange(nextProps.animationProgress, 0, 2);
   }
 
   componentWillReceiveProps (nextProps) {
     const { animationProgress } = nextProps;
-    if (isInRange(animationProgress, 0, 1.2)) {
+    if (isInRange(animationProgress, 0, 2)) {
       this.setState({
         animationProgress
       }, () => {
