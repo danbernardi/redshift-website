@@ -5,10 +5,15 @@ import { ScrollContainer } from 'scrollmonitor-react';
 import CaseStudyHeader from './CaseStudyHeader';
 import PropTypes from 'prop-types';
 import GSAP from 'react-gsap-enhancer';
-// import { TimelineLite, Power3 } from 'gsap';
 import { connect } from 'react-redux';
+import { TweenLite } from 'gsap';
 
 export class CaseStudyScroller extends React.Component {
+
+  animateScroll (container, position) {
+    TweenLite.to(container, 0.5, { scrollTop: position });
+  }
+
   render () {
     const { caseStudyContent, nextCaseStudy, scrollContainer, modalState } = this.props;
 
@@ -19,7 +24,9 @@ export class CaseStudyScroller extends React.Component {
         style={ { height: modalState.windowHeight, width: modalState.windowWidth } }
       >
         <div className="modal__content layout--relative">
-          <div className="row"><h4 className="modal__title" ref={ (el) => { this.name = el; } }>{ caseStudyContent.name }</h4></div>
+          <div className="row">
+            <h4 className="modal__title" ref={ (el) => { this.name = el; } }>{ caseStudyContent.name }</h4>
+          </div>
 
           <div className="row">
             <div className="casestudy__heading layout--fullheight">
@@ -27,7 +34,7 @@ export class CaseStudyScroller extends React.Component {
                 content={ caseStudyContent.heading }
                 color={ caseStudyContent.color }
               />
-              <div className="casestudy__scrollarrow">
+              <div className="casestudy__scrollarrow" onClick={ () => { this.animateScroll(this.casestudy, window.innerHeight); } }>
                 <img src={ require('assets/img/scroll-arrow.svg') } alt="Scroll down" />
               </div>
             </div>

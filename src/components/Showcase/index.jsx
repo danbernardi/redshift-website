@@ -336,7 +336,7 @@ export class Showcase extends React.Component {
 
   // Clone header and add props
   header () {
-    return (<Hero />);
+    return (<Hero scrollTrigger={ this.goToScene.bind(this) } />);
   }
 
   // Clone scenes and add props
@@ -458,7 +458,7 @@ export class Showcase extends React.Component {
         >
 
           {
-            /* If the children have mounted, update the animation progress for each component */
+            /* If the children have mounted, create a placeholder for each component */
             this.children.map((child, index) => {
               return (
                 <div className="scene scene__dummy" key={ index } />
