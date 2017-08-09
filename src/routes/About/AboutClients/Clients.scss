@@ -9,7 +9,7 @@
     }
   }
   @include breakpoint($mobile-lg) {
-    padding-top: 10.3rem;
+    padding-top: unset;
   }
 }
 
