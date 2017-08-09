@@ -20,7 +20,7 @@ export function Nav () {
     },
     {
       name: 'Blog.',
-      outgoing: 'http://weareredshift.tumblr.com/'
+      outgoing: 'https://medium.com/redshift-digital'
     }
   ];
 
