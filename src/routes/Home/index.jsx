@@ -14,14 +14,6 @@ export class Home extends React.Component {
     if (params.modalID) this.openModal(params.modalID);
   }
 
-  shouldComponentUpdate (props) {
-    // Don't remount home if the modal is the only change
-    if (props.params.modalID !== this.props.params.modalID) {
-      return false;
-    }
-    return true;
-  }
-
   // Using modalID URL param, open or close the modal
   componentWillReceiveProps (props) {
     if (props.params.modalID !== this.props.params.modalID) {
