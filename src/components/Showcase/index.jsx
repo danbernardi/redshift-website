@@ -186,11 +186,11 @@ export class Showcase extends React.Component {
 
     const segments = this.scrollPoints.map((scene, index) => {
       const top = scene.element.offsetTop;
-      const height = window.innerHeight;//scene.element.offsetHeight;
+      const height = scene.element.offsetHeight;
 
       const center = index === 0
-        ? 1.5 * height
-        : (index + 1) * height;
+        ? 1.5 * window.innerHeight
+        : (index + 1) * window.innerHeight;
       const timelinePercentage = height / (scrollHeight); // divide by (scrollHeight - window.innerHeight) if there is no element after showcase
       const outsetTime = timelinePercentage * 0.2;
       let low = currentTimePosition - outsetTime;
