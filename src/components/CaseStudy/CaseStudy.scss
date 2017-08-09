@@ -95,6 +95,7 @@
   animation: pulse 6s;
   animation-delay: 1.2s;
   width: 3.2rem;
+  cursor: pointer;
    //media queries
   @include breakpoint($mobile-lg) {
     bottom: 0;
