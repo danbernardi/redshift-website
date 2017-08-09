@@ -36,10 +36,7 @@ export class Archive extends React.Component {
     }
 
     if (prevProps.modalState !== modalState && this.isotope) {
-      console.log('resize');
-      setTimeout(() => {
-        this.isotope.layout();
-      }, 200);
+      setTimeout(() => { this.isotope.layout(); }, 200);
     }
   }
 
