@@ -4,22 +4,23 @@ import './styles.scss';
 import PropTypes from 'prop-types';
 import GSAP from 'react-gsap-enhancer';
 import { TimelineLite, Power1 } from 'gsap';
-import debounce from 'lodash.debounce';
 import { setWindowDimensions } from 'store/actions';
+import { breakpointIsLessThan } from 'utils/responsiveHelpers';
 
 export class Modal extends React.Component {
   componentDidMount () {
-    const { dispatch } = this.props;
-    dispatch(setWindowDimensions(window.innerHeight, window.innerWidth));
+    const { dispatch, breakpoint } = this.props;
+    if (breakpointIsLessThan('mobileLg', breakpoint.size)) dispatch(setWindowDimensions(window.innerHeight, window.innerWidth));
     this.animation = this.addAnimation(this.animateModal).pause();
 
-    this.resizeFunc = debounce(this.resizeSubscription.bind(this), 200);
+    this.resizeFunc = this.resizeSubscription.bind(this);
     window.addEventListener('resize', this.resizeFunc);
   }
 
   resizeSubscription () {
-    const { dispatch } = this.props;
-    dispatch(setWindowDimensions(window.innerHeight, window.innerWidth));
+    const { dispatch, breakpoint } = this.props;
+    console.log(window.innerHeight, window.innerWidth);
+    if (breakpointIsLessThan('mobileLg', breakpoint.size)) dispatch(setWindowDimensions(window.innerHeight, window.innerWidth));
   }
 
   componentDidUpdate (prevProps) {
@@ -62,11 +63,13 @@ export class Modal extends React.Component {
 
 Modal.propTypes = {
   modalState: PropTypes.object,
-  dispatch: PropTypes.func
+  dispatch: PropTypes.func,
+  breakpoint: PropTypes.object
 };
 
 const injectStateProps = state => ({
-  modalState: state.modalState
+  modalState: state.modalState,
+  breakpoint: state.breakpoint
 });
 
 export default connect(injectStateProps)(GSAP()(Modal));
