@@ -140,7 +140,7 @@ export class Scene extends React.Component {
     const { reportAsLoaded } = this.props;
 
     if (this.loadedImages.indexOf(id) === -1) this.loadedImages.push(id);
-    if (this.loadedImages.length === 3 && reportAsLoaded instanceof Function) {
+    if (this.loadedImages.length === 2 && reportAsLoaded instanceof Function) {
       reportAsLoaded(this.props.id);
       this.setState({ loaded: true });
     }
@@ -168,8 +168,7 @@ export class Scene extends React.Component {
               onLoad={ () => !loaded && this.loadImage('device') }
               src={ body }
               alt={ id }
-            />
-          }
+            /> }
           { overlay &&
             <picture>
               <source srcSet={ overlay } media="(min-width: 1040px)" />
@@ -185,13 +184,7 @@ export class Scene extends React.Component {
           }
 
           { shadow &&
-            <img
-              data-animationName="device-shadow"
-              className="scene__device__shadow"
-              onLoad={ () => !loaded && this.loadImage('shadow') }
-              src={ shadow }
-              alt={ id }
-            />
+            <div data-animationName="device-shadow" className="scene__device__shadow">{ shadow.component }</div>
           }
         </div>
 
