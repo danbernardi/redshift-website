@@ -73,6 +73,25 @@ export class Showcase extends React.Component {
           this.goToScene(sceneIndex, false);
         }
       }
+
+    // Not a scroll update, and page is loaded
+    } else if (this.state.loaded && prevState.animationProgress === this.state.animationProgress) {
+      const onWork = ['/', '/work'].includes(location.pathname);
+      const { lastPath } = this.props.locationHistory;
+      const fromStudy = lastPath && lastPath.includes('/work/');
+
+      // Coming from caseStudy modal back to work
+      if (onWork && fromStudy) {
+        const sceneName = lastPath.split('/work/')[1];
+        let sceneIndex = this.props.scenes.findIndex(scene => scene.id === sceneName);
+
+        // If not among the main scenes, go to archive
+        if (sceneIndex === -1) {
+          sceneIndex = this.props.scenes.length; // Archive
+        }
+
+        this.goToScene(sceneIndex, false);
+      }
     }
   }
 
@@ -167,8 +186,11 @@ export class Showcase extends React.Component {
 
     const segments = this.scrollPoints.map((scene, index) => {
       const top = scene.element.offsetTop;
-      const height = scene.element.offsetHeight;
-      const center = top + (height / 2);
+      const height = window.innerHeight;//scene.element.offsetHeight;
+
+      const center = index === 0
+        ? 1.5 * height
+        : (index + 1) * height;
       const timelinePercentage = height / (scrollHeight); // divide by (scrollHeight - window.innerHeight) if there is no element after showcase
       const outsetTime = timelinePercentage * 0.2;
       let low = currentTimePosition - outsetTime;
@@ -384,7 +406,7 @@ export class Showcase extends React.Component {
     }
 
     const scene = this.sceneMeta[index];
-    let position = index === 0 ? scene.top : scene.center;
+    let position = scene.center;
     position = index === this.sceneMeta.length - 1 ? position + scene.height : position;
 
     this.currentScene = index;
