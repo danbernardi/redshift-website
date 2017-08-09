@@ -5,29 +5,19 @@ import { ScrollContainer } from 'scrollmonitor-react';
 import CaseStudyHeader from './CaseStudyHeader';
 import PropTypes from 'prop-types';
 import GSAP from 'react-gsap-enhancer';
-import { TimelineLite, Power3 } from 'gsap';
+// import { TimelineLite, Power3 } from 'gsap';
+import { connect } from 'react-redux';
 
 export class CaseStudyScroller extends React.Component {
-  componentDidMount () {
-    this.timeline = this.addAnimation(this.animateIn).play();
-  }
-
-  animateIn ({ target }) {
-    const sidebar = target[0].querySelector('.modal__sidebar');
-
-    const tl = new TimelineLite();
-    tl.to(sidebar, 0.6, { opacity: 1, ease: Power3.easeOut }, 'anim+=0.2');
-    return tl;
-  }
-
   render () {
-    const { caseStudyContent, nextCaseStudy, scrollContainer } = this.props;
+    const { caseStudyContent, nextCaseStudy, scrollContainer, modalState } = this.props;
 
     return (
-      <section ref={ (el) => { this.casestudy = el; } } className={ `modal__with-sidebar ${caseStudyContent.id}` }>
-        <div className="modal__sidebar" style={ { backgroundColor: caseStudyContent.color } } ref={
-          (sidebar) => { this.sidebar = sidebar; }
-        } />
+      <section
+        ref={ (el) => { this.casestudy = el; } }
+        className={ `modal__with-sidebar ${caseStudyContent.id}` }
+        style={ { height: modalState.windowHeight, width: modalState.windowWidth } }
+      >
         <div className="modal__content layout--relative">
           <div className="row"><h4 className="modal__title" ref={ (el) => { this.name = el; } }>{ caseStudyContent.name }</h4></div>
 
@@ -91,7 +81,12 @@ export class CaseStudyScroller extends React.Component {
 CaseStudyScroller.propTypes = {
   caseStudyContent: PropTypes.object,
   nextCaseStudy: PropTypes.object,
-  scrollContainer: PropTypes.object
+  scrollContainer: PropTypes.object,
+  modalState: PropTypes.object
 };
 
-export default ScrollContainer(GSAP()(CaseStudyScroller));
+const mapStateToProps = state => ({
+  modalState: state.modalState
+});
+
+export default connect(mapStateToProps)(ScrollContainer(GSAP()(CaseStudyScroller)));

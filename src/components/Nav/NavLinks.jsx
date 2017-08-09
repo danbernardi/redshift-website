@@ -26,7 +26,7 @@ class NavLinks extends React.Component {
   render () {
     const { links, activeURL } = this.props;
     return (
-      <ul className="nav__menu full-height">
+      <ul className="nav__menu">
         {
           links.map((navLink, i) => (
             <li key={ i }>

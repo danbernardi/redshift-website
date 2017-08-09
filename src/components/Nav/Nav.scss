@@ -2,10 +2,43 @@
 
 .nav {
   background: $redshift;
-  position: fixed;
+  position: absolute;
   top: 0;
+  left: 0;
   z-index: 10;
-  width: 100vw;
+  width: 100%;
+  height: 100%;
+  // media queries
+  @media only screen and (max-height: 550px) {
+    padding-top: 8rem;
+  }
+  @media only screen and (max-height: 470px) {
+    .footer .social-icons {
+      position: absolute;
+      right: 4rem;
+      bottom: 12rem;
+    }
+
+    .nav__menu {
+      margin-top: -4rem;
+    }
+  }
+  @media only screen and (max-height: 380px) {
+    .typ--h1 {
+      font-size: 3.6rem;
+    }
+  }
+
+  > .row {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    // media queries
+    @include breakpoint($mobile-lg) {
+      justify-content: flex-start;
+    }
+  }
 }
 
 _::-webkit-full-page-media, _:future, :root .nav__menu h1 {
@@ -19,11 +52,8 @@ _::-webkit-full-page-media, _:future, :root .nav__menu h1 {
 }
 
 .nav__menu {
+  margin-top: -15rem;
   text-align: right;
-  transform: translateY(-8%);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   // media queries
   @include breakpoint($mobile-lg) {
     text-align: left;
@@ -32,8 +62,6 @@ _::-webkit-full-page-media, _:future, :root .nav__menu h1 {
   li {
     position: relative;
     cursor: pointer;
-    transform: translateY(4rem);
-    transition: transform 0.18s ease-in-out, opacity 0.22s ease-in-out;
 
     // disable hover below mobile
     @include breakpoint($tablet-lg, min-width) {

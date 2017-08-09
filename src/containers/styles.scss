@@ -1,3 +1,5 @@
-.disable-scroll {
+.disable-scroll,
+.disable-scroll body {
   overflow: hidden !important;
+  position: fixed;
 }

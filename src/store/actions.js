@@ -58,6 +58,10 @@ export const addBannerToComplete = (bannerIndex) => ({
   type: 'ADD_BANNER_TO_COMPLETE', bannerIndex
 });
 
+export const setWindowDimensions = (height, width) => ({
+  type: 'SET_WINDOW_DIMENSIONS', height, width
+});
+
 export const setAsLoaded = (loaded) => ({
   type: 'SET_AS_LOADED', loaded
 });

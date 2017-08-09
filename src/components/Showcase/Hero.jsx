@@ -46,8 +46,11 @@ export class Hero extends React.Component {
 
     return new TimelineLite({})
       .set('.hero__text', { perspective: 400 })
-      .staggerFrom(textChars.chars, 0.5, {
+      .staggerFromTo(textChars.chars, 0.5, {
         opacity: 0,
+        ease: Power3.easeOut
+      }, {
+        opacity: 1,
         ease: Power3.easeOut
       }, 0.02, '+=0.75');
   }

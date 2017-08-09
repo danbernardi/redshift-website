@@ -47,7 +47,8 @@ export const checkboxes = {
 export const modalState = {
   _init: { modalID: 'nav', component: <Nav />, open: false },
   TOGGLE_MODAL: (state, action) => Object.assign({}, state, { open: action.open }),
-  SET_ACTIVE_MODAL: (state, action) => Object.assign({}, state, { component: action.component, modalID: action.modalID })
+  SET_ACTIVE_MODAL: (state, action) => Object.assign({}, state, { component: action.component, modalID: action.modalID }),
+  SET_WINDOW_DIMENSIONS: (state, action) => Object.assign({}, state, { windowHeight: action.height, windowWidth: action.width })
 };
 
 export const caseStudyState = {
