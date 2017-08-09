@@ -1,11 +1,3 @@
-import React from 'react';
-
-import FiveShadow from 'components/SVGs/FiveShadow';
-import KaiserShadow from 'components/SVGs/KaiserShadow';
-import NexusShadow from 'components/SVGs/NexusShadow';
-import NortonShadow from 'components/SVGs/NortonShadow';
-import YumavoreShadow from 'components/SVGs/YumavoreShadow';
-
 export const caseStudies = [
   // Kaiser Permanente
   {
