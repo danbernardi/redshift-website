@@ -4,8 +4,6 @@ export const caseStudies = [
     id: 'kaiser',
     name: 'Kaiser Permanente',
     color: '#1FB4E7',
-    // shortDescription: 'Sed posuere consectetur est at lobortis',
-    // gridThumbnail: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/kaiser/grid-thumbnail.jpg',
     device: {
       shadow: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/kaiser/kaiser_shadow.svg',
       body: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/kaiser/kaiser_body.svg',
@@ -106,8 +104,6 @@ export const caseStudies = [
     id: 'norton',
     name: 'Norton Online',
     color: '#FFC300',
-    // shortDescription: 'Sed posuere consectetur est at lobortis',
-    // gridThumbnail: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/norton/grid-thumbnail.jpg',
     device: {
       shadow: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/norton/norton_shadow.svg',
       body: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/norton/norton_body.svg',
@@ -191,14 +187,10 @@ export const caseStudies = [
     id: 'nexus',
     color: '#3AD283',
     name: 'Google Nexus',
-    // shortDescription: 'Sed posuere consectetur est at lobortis',
-    // gridThumbnail: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/nexus/grid-thumbnail.jpg',
     device: {
       shadow: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/nexus/nexus_shadow.svg',
       body: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/nexus/nexus_body.svg',
       overlay: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/nexus/nexus_overlay.png',
-      // shadowmlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/nexus/nexus_shadow-mlg.svg',
-      // bodymlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/nexus/nexus_body-mlg.svg',
       overlaytlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/nexus/nexus_overlay_tlg.png',
       overlaymlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/nexus/nexus_overlay_mlg.png'
     },
@@ -275,8 +267,6 @@ export const caseStudies = [
     id: 'yumavore',
     name: 'Yumavore',
     color: '#FF765C',
-    // shortDescription: 'Sed posuere consectetur est at lobortis',
-    // gridThumbnail: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/yumavore/grid-thumbnail.jpg',
     device: {
       shadow: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/yumavore/yumavore_shadow.svg',
       body: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/yumavore/yumavore_body.svg',
@@ -376,8 +366,6 @@ export const caseStudies = [
     id: 'five',
     name: 'Five',
     color: '#936FEE',
-    // shortDescription: 'Sed posuere consectetur est at lobortis',
-    // gridThumbnail: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/five/grid-thumbnail.jpg',
     device: {
       shadow: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/five/five_shadow.svg',
       body: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/five/five_body.svg',
