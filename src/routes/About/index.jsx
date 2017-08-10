@@ -53,8 +53,10 @@ export class About extends React.Component {
   }
 
   render () {
+    const { modalState } = this.props;
+
     return (
-      <div>
+      <div className="scroller" style={ { width: modalState.windowWidth, height: modalState.windowHeight } }>
         <AboutSlider />
         <AboutHybrid />
         <AboutExplore />
@@ -68,7 +70,12 @@ export class About extends React.Component {
 
 About.propTypes = {
   dispatch: PropTypes.func,
-  params: PropTypes.object
+  params: PropTypes.object,
+  modalState: PropTypes.object
 };
 
-export default connect()(About);
+const mapStateToProps = state => ({
+  modalState: state.modalState
+});
+
+export default connect(mapStateToProps)(About);

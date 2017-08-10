@@ -9,6 +9,7 @@ import 'masonry-layout';
 import GSAP from 'react-gsap-enhancer';
 import Loader from 'components/Loader';
 import { enableScroll, disableScroll } from 'utils/scrollJack';
+import { connect } from 'react-redux';
 
 export class Inspiration extends React.Component {
   constructor (props) {
@@ -91,6 +92,7 @@ export class Inspiration extends React.Component {
   }
 
   render () {
+    const { modalState } = this.props;
     let feedItems = [];
 
     if (this.state.feed) {
@@ -125,7 +127,7 @@ export class Inspiration extends React.Component {
     }
 
     return (
-      <div className="inspiration pt10">
+      <div className="inspiration pt10 scroller" style={ { width: modalState.windowWidth, height: modalState.windowHeight } }>
         <div className="row inspiration--container">
           <h1 className="typ--redshift typ--bold">Be inspired. <br /> Here's what inspires us.</h1>
           <section className="inspiration__grid">
@@ -140,7 +142,12 @@ export class Inspiration extends React.Component {
 }
 
 Inspiration.propTypes = {
-  dispatch: PropTypes.func
+  dispatch: PropTypes.func,
+  modalState: PropTypes.object
 };
 
-export default GSAP()(Inspiration);
+const mapStateToProps = state => ({
+  modalState: state.modalState
+});
+
+export default connect(mapStateToProps)(GSAP()(Inspiration));
