@@ -1,10 +1,22 @@
-.disable-scroll,
-.disable-scroll body {
-  overflow: hidden !important;
+.disable-scroll .scroller {
+  overflow-y: hidden;
+}
+
+html,
+body {
+  overflow: hidden;
   position: fixed;
-  width: 100%;
 }
 
 body {
   -webkit-text-size-adjust: 100%;
+}
+
+
+.scroller {
+  max-height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }

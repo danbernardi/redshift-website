@@ -60,6 +60,7 @@ export class Careers extends React.Component {
   };
 
   render () {
+    const { modalState } = this.props;
     const careerHero = {
       imgDef: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/careers/rs_team.jpg',
       imgTlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/careers/rs_team-tlg.jpg',
@@ -67,7 +68,7 @@ export class Careers extends React.Component {
     };
 
     return (
-      <div>
+      <div className="scroller" style={ { width: modalState.windowWidth, height: modalState.windowHeight } }>
         <picture>
           <source srcSet={ careerHero.imgTlg } media="(min-width: 1040px)" />
           <source srcSet={ careerHero.imgMlg } media="(min-width: 767px)" />
@@ -98,7 +99,12 @@ export class Careers extends React.Component {
 
 Careers.propTypes = {
   dispatch: PropTypes.func,
-  params: PropTypes.object
+  params: PropTypes.object,
+  modalState: PropTypes.object
 };
 
-export default connect()(Careers);
+const mapStateToProps = state => ({
+  modalState: state.modalState
+});
+
+export default connect(mapStateToProps)(Careers);

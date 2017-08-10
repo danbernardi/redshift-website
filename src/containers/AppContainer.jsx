@@ -31,7 +31,7 @@ class AppContainer extends Component {
 
   componentWillReceiveProps (nextProps) {
     // halt normal page scrolling if modal is open
-    if (nextProps.modalState.open || location.pathnam === '/') {
+    if ((nextProps.modalState.open && !this.props.modalState.open) || location.pathname === '/') {
       disableScroll();
     } else if (!nextProps.modalState.open && this.props.modalState.open && location.pathname !== '/') {
       enableScroll();
