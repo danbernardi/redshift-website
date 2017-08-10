@@ -131,7 +131,6 @@
   color: $white;
   margin: 4rem 0 6rem;
   padding-bottom: 1.5rem;
-  width: 12.1rem;
   display: inline-block;
   white-space: nowrap;
   position: absolute;
@@ -149,8 +148,11 @@
     height: 0.2rem;
     background: $white;
     display: block;
-    width: 3rem;
+    width: 5rem;
     transition: width 0.2s ease-in-out;
+    @include breakpoint($mobile-lg) {
+      width: 3rem;
+    }
   }
 
   // disable hover below mobile
