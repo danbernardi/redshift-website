@@ -79,32 +79,11 @@
 
   @include breakpoint($mobile-lg) {
     transform: none;
-    top: 5rem;
+    top: 11.6rem;
   }
 
-  h2 {
+  h2, h3 {
     text-transform: lowercase;
-    // media queries
-    @include breakpoint($desktop-lg) {
-      font-size: 3.6rem;
-    }
-
-    @include breakpoint($mobile-lg) {
-      font-size: 2.8rem;
-      line-height: 1.65;
-    }
-  }
-
-  h5 {
-    background-color: #fff;
-    // media queries
-    @include breakpoint($desktop-lg) {
-      font-size: 2.1rem;
-    }
-
-    @include breakpoint($mobile-lg) {
-      font-size: 1.4rem;
-    }
   }
 }
 
