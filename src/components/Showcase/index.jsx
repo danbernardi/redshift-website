@@ -67,9 +67,9 @@ export class Showcase extends React.Component {
         const id = pathId.pop();
         sceneIndex = this.children
           .map((child) => child.props.id || null)
-          .indexOf(id);
+          .indexOf(id) + 1;
 
-        if (sceneIndex && sceneIndex !== -1) {
+        if (sceneIndex && sceneIndex !== 0) {
           this.goToScene(sceneIndex, false);
         }
       }
@@ -90,7 +90,7 @@ export class Showcase extends React.Component {
           sceneIndex = this.props.scenes.length; // Archive
         }
 
-        this.goToScene(sceneIndex, false);
+        this.goToScene(sceneIndex + 1, false);
       }
     }
   }
@@ -185,28 +185,34 @@ export class Showcase extends React.Component {
     const scrollHeight = this.container.scrollHeight;
 
     const segments = this.scrollPoints.map((scene, index) => {
-      const top = scene.element.offsetTop;
+      const isFirst = index === 0;
+      const isLast = index === this.scrollPoints.length - 1;
+
       const height = scene.element.offsetHeight;
 
-      const timelinePercentage = height / (scrollHeight - window.innerHeight); // divide by (scrollHeight - window.innerHeight) if there is no element after showcase
+      const timelinePercentage = height / (scrollHeight); // divide by (scrollHeight - window.innerHeight) if there is no element after showcase
       const outsetTime = timelinePercentage * 0.2;
       let low = currentTimePosition - outsetTime;
       let high = currentTimePosition + timelinePercentage + outsetTime;
 
-      if (index === this.scrollPoints.length - 1) {
+      if (isFirst) {
+        low = currentTimePosition;
+      } else if (isLast) {
         high = 1;
       }
 
-      if (index === 0) {
-        low = currentTimePosition;
-      }
-
       //Get the center then multiply times the total scroll distance to get the scroll position
-      const center = (((high - low) / 2) + low) * (scrollHeight - window.innerHeight);
+      const centerTimelinePercent = (high - low) / 2 + low;
+      let center = centerTimelinePercent * (scrollHeight - window.innerHeight);
+
+      if (isFirst) {
+        center -= window.innerHeight / 20;
+      } else if (isLast) {
+        center += window.innerHeight / 2 - (window.innerHeight / 10); // Magic
+      }
 
       const segmentMeta = {
         target: scene.element,
-        top,
         center,
         height,
         timelinePercentage,
@@ -406,8 +412,11 @@ export class Showcase extends React.Component {
     }
 
     const scene = this.sceneMeta[index];
-    let position = scene.center;
-    position = index === this.sceneMeta.length - 1 ? position + scene.height : position;
+    let position = index === this.sceneMeta.length - 1
+      ? scene.center
+      : scene.center;
+
+    console.log('here', scene, scene.center)
 
     this.currentScene = index;
 
