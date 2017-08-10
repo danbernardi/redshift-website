@@ -7,7 +7,7 @@ export const caseStudies = [
     // shortDescription: 'Sed posuere consectetur est at lobortis',
     // gridThumbnail: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/kaiser/grid-thumbnail.jpg',
     device: {
-      shadow: require('assets/img/case-studies/kaiser/kaiser_shadow.svg'),
+      shadow: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/kaiser/kaiser_shadow.svg',
       body: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/kaiser/kaiser_body.svg',
       overlay: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/kaiser/kaiser_overlay.png',
       overlaytlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/kaiser/kaiser_overlay_tlg.png',
@@ -109,7 +109,7 @@ export const caseStudies = [
     // shortDescription: 'Sed posuere consectetur est at lobortis',
     // gridThumbnail: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/norton/grid-thumbnail.jpg',
     device: {
-      shadow: require('assets/img/case-studies/norton/norton_shadow.svg'),
+      shadow: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/norton/norton_shadow.svg',
       body: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/norton/norton_body.svg',
       overlay: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/norton/norton_overlay.png',
       overlaymlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/norton/norton_overlay_mlg.png'
@@ -194,7 +194,7 @@ export const caseStudies = [
     // shortDescription: 'Sed posuere consectetur est at lobortis',
     // gridThumbnail: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/nexus/grid-thumbnail.jpg',
     device: {
-      shadow: require('assets/img/case-studies/nexus/nexus_shadow.svg'),
+      shadow: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/nexus/nexus_shadow.svg',
       body: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/nexus/nexus_body.svg',
       overlay: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/nexus/nexus_overlay.png',
       // shadowmlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/nexus/nexus_shadow-mlg.svg',
@@ -278,7 +278,7 @@ export const caseStudies = [
     // shortDescription: 'Sed posuere consectetur est at lobortis',
     // gridThumbnail: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/yumavore/grid-thumbnail.jpg',
     device: {
-      shadow: require('assets/img/case-studies/yumavore/yumavore_shadow.svg'),
+      shadow: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/yumavore/yumavore_shadow.svg',
       body: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/yumavore/yumavore_body.svg',
       overlay: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/yumavore/yumavore_overlay.png',
       overlaytlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/yumavore/yumavore_overlay_tlg.png',
@@ -379,7 +379,7 @@ export const caseStudies = [
     // shortDescription: 'Sed posuere consectetur est at lobortis',
     // gridThumbnail: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/five/grid-thumbnail.jpg',
     device: {
-      shadow: require('assets/img/case-studies/five/five_shadow.svg'),
+      shadow: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/five/five_shadow.svg',
       body: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/five/five_body.svg',
       overlay: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/five/five_overlay.png',
       overlaymlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/five/five_overlay_mlg.png'
