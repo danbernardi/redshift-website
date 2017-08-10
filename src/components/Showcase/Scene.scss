@@ -85,6 +85,9 @@
     @include breakpoint($mobile-sm) {
       bottom: 12rem;
     }
+    @include breakpoint($mobile-xxsm) {
+      bottom: 9rem;
+    }
     @media only screen and (max-height: 400px) {
       bottom: 11rem;
     }
