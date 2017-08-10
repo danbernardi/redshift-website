@@ -33,8 +33,8 @@ class NavLinks extends React.Component {
               { navLink.to &&
                 <div>
                   { navLink.to === activeURL
-                    ? <div className="typ--h1 typ--bold typ--black typ--not__link">{ navLink.name }</div>
-                    : <Link to={ navLink.to } className="typ--h1 typ--bold" onClick={ () => this.routingHandler() }>
+                    ? <div className="typ--menu typ--bold typ--black typ--not__link">{ navLink.name }</div>
+                    : <Link to={ navLink.to } className="typ--menu typ--bold" onClick={ () => this.routingHandler() }>
                       { navLink.name }
                     </Link>
                   }
@@ -42,7 +42,7 @@ class NavLinks extends React.Component {
               }
 
               { navLink.outgoing &&
-                <a className="typ--h1 typ--bold" target="_blank" href={ navLink.outgoing }>{ navLink.name }</a>
+                <a className="typ--menu typ--bold" target="_blank" href={ navLink.outgoing }>{ navLink.name }</a>
               }
             </li>
           ))
