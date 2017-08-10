@@ -80,7 +80,7 @@ export class Careers extends React.Component {
           stateChange={ (watcher) => this.watcherCallback(watcher) }
         />
         <section className="row careers--title">
-          <h1 className="typ--bold typ--redshift">Join the team.</h1>
+          <h1 className="typ--bold rs--gradienttext">Join the team.</h1>
         </section>
         <section>
           <div className="row row--maxwidth">

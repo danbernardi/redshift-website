@@ -4,6 +4,12 @@ a {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
+.rs--gradienttext {
+  background: -webkit-gradient(linear, left top, right bottom, from(#FF2959), to(#FF29BD));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .theme--dark,
 .theme--dark a,
 .theme--dark .btn,

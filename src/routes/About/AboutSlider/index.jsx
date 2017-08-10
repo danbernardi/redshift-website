@@ -75,7 +75,7 @@ class AboutSlides extends React.Component {
         </div>
         <div className="row about--header" >
           <div className="row about--title">
-            <h1 className={ `typ--bold typ--redshift ${ setClass({ default: 'pb2', mobileLg: 'pb1' }, breakpoint)}` }>About Redshift.</h1>
+            <h1 className={ `rs--gradienttext typ--bold ${ setClass({ default: 'pb2', mobileLg: 'pb1' }, breakpoint)}` }>About Redshift.</h1>
             <h3 className="pb2">
               We are an award-winning agency dedicated to creating simple, meaningful experiences for users and positive results for our clients.
             </h3>
