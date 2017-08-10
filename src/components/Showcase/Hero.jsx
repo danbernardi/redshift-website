@@ -1,9 +1,11 @@
 import React from 'react';
 import GSAP from 'react-gsap-enhancer';
+import { connect } from 'react-redux';
 import CustomEase from 'vendor/gsap-plugins/CustomEase';
 import { TimelineLite, Power3 } from 'gsap';
 import { isInRange } from 'utils/animation';
 import PropTypes from 'prop-types';
+import { breakpointIsGreaterThan } from 'utils/responsiveHelpers';
 import './Hero.scss';
 
 export class Hero extends React.Component {
@@ -64,7 +66,7 @@ export class Hero extends React.Component {
   }
 
   render () {
-    const { onDidMount } = this.props;
+    const { onDidMount, breakpoint, scrollTrigger } = this.props;
 
     return (
       <section
@@ -77,15 +79,15 @@ export class Hero extends React.Component {
             <span data-animationName="text2">
               We are Redshift.
               <br />
-              We create digital products
-              <br />
+              We create digital products&nbsp;
+             { breakpointIsGreaterThan('mobileLg', breakpoint.size) && <br /> }
               that people use and remember.
             </span>
           </h1>
         </div>
 
         { this.props.animationProgress <= 0.3 ? <div data-animationName="scroller" className="scrolltrigger">
-          <div className="casestudy__scrollarrow" onClick={ () => { this.props.scrollTrigger(1); } }>
+          <div className="casestudy__scrollarrow" onClick={ () => scrollTrigger(1) }>
             <img src={ require('assets/img/scroll-arrow.svg') } alt="Scroll down" />
           </div>
         </div>
@@ -99,7 +101,12 @@ export class Hero extends React.Component {
 Hero.propTypes = {
   onDidMount: PropTypes.func,
   animationProgress: PropTypes.number,
-  scrollTrigger: PropTypes.func
+  scrollTrigger: PropTypes.func,
+  breakpoint: PropTypes.object
 };
 
-export default (GSAP()(Hero));
+const mapStateToProps = state => ({
+  breakpoint: state.breakpoint
+});
+
+export default connect(mapStateToProps)(GSAP()(Hero));
