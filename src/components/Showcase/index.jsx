@@ -176,7 +176,7 @@ export class Showcase extends React.Component {
     };
   }
 
-  /**
+   /**
    * Creates the initial scenes with some convienient props surfaced
    * @return {Array} An array of segment Objects
    */
@@ -188,10 +188,7 @@ export class Showcase extends React.Component {
       const top = scene.element.offsetTop;
       const height = scene.element.offsetHeight;
 
-      const center = index === 0
-        ? 1.5 * window.innerHeight
-        : (index + 1) * window.innerHeight;
-      const timelinePercentage = height / (scrollHeight); // divide by (scrollHeight - window.innerHeight) if there is no element after showcase
+      const timelinePercentage = height / (scrollHeight - window.innerHeight); // divide by (scrollHeight - window.innerHeight) if there is no element after showcase
       const outsetTime = timelinePercentage * 0.2;
       let low = currentTimePosition - outsetTime;
       let high = currentTimePosition + timelinePercentage + outsetTime;
@@ -203,6 +200,9 @@ export class Showcase extends React.Component {
       if (index === 0) {
         low = currentTimePosition;
       }
+
+      //Get the center then multiply times the total scroll distance to get the scroll position
+      const center = (((high - low) / 2) + low) * (scrollHeight - window.innerHeight);
 
       const segmentMeta = {
         target: scene.element,
