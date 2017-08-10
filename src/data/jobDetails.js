@@ -6,7 +6,7 @@ export const jobDetails = [
     frontpage: [
       'At Redshift, in addition to being a top-notch UX designer, and leading cross-functional project teams, UX Leads are responsible for regularly presenting work to clients, so the ability to communicate confidently and clearly are essential. Leads must be able to speak fluently about both business objectives and design principles, and to handle feedback and questions with poise.',
       'UX designers, consultants, project managers, and interactive producers are all potential candidates.',
-      'This role reports to our Director of UX'
+      'This role reports to our Director of UX.'
     ],
     description: 'At Redshift, in addition to being a top-notch UX designer, and leading cross-functional project teams, UX Leads are responsible for regularly presenting work to clients, so the ability to communicate confidently and clearly are essential. Leads must be able to speak fluently about both business objectives and design principles, and to handle feedback and questions with poise. UX designers, consultants, project managers, and interactive producers are all potential candidates. This role reports to our Director of UX. This role reports to our Director of UX.',
     responsibilities: [
@@ -89,7 +89,7 @@ export const jobDetails = [
     frontpage: [
       'At Redshift, UX Designers are part of cross-functional project teams, working with a Senior UX Designer, Visual Designer, User Researchers, Front-End Engineers, Producers, and company leaders.',
       'UX designers, consultants, project managers, and interactive producers are all potential candidates.',
-      'This role reports to our Director of UX'
+      'This role reports to our Director of UX.'
     ],
     description: 'At Redshift, UX Designers are part of cross-functional project teams, working with a Senior UX Designer, Visual Designer, User Researchers, Front-End Engineers, Producers, and company leaders. UX designers, consultants, project managers, and interactive producers are all potential candidates. This role reports to our Director of UX.',
     responsibilities: [
