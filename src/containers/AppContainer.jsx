@@ -5,6 +5,8 @@ import { enableScroll, disableScroll } from 'utils/scrollJack';
 import './styles.scss';
 import ReactGA from 'react-ga';
 import PropTypes from 'prop-types';
+import initReactFastclick from 'react-fastclick';
+initReactFastclick();
 
 ReactGA.initialize('UA-48401766-1');
 

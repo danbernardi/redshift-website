@@ -127,6 +127,7 @@
     "react-addons-transition-group": "^15.4.2",
     "react-document-meta": "^2.1.2",
     "react-dom": "^15.0.0",
+    "react-fastclick": "^3.0.2",
     "react-ga": "^2.1.2",
     "react-gsap-enhancer": "^0.3.0",
     "react-immutable-proptypes": "^2.1.0",
