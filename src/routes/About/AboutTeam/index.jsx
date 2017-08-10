@@ -12,7 +12,7 @@ export function AboutTeam (props) {
   return (
     <section className="about--team">
       <div className="row hero--scene-text">
-        <h1 className={ `typ--bold typ--redshift ${ setClass({ default: 'py8', tabletLg: 'py6', mobileLg: 'pt0 pb5' }, breakpoint) }` }>Who we are.</h1>
+        <h2 className={ setClass({ default: 'py8', tabletLg: 'py6', mobileLg: 'pt0 pb5' }, breakpoint) }>Who we are.</h2>
       </div>
       { team.map((team, index) => (
         <Link to={ `/about/${team.id}` } key={ index }>

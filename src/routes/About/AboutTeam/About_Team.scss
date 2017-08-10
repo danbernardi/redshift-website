@@ -58,40 +58,6 @@
     display: block;
   }
 
-  h2 {
-    line-height: 1.2;
-    padding-bottom: 0.5rem;
-    // media queries
-    @include breakpoint($mobile-lg) {
-      line-height: 1.45;
-    }
-
-    @include breakpoint($mobile-sm) {
-      line-height: 1.2;
-      padding: 0;
-    }
-  }
-
-  h4 {
-    line-height: 1.333;
-    // media queries
-    @include breakpoint($mobile-sm) {
-      line-height: 1.1;
-      padding: 0;
-    }
-  }
-
-  h2,
-  h4 {
-    // media queries
-    @include breakpoint($mobile-lg) {
-      font-size: 2.496rem;
-    }
-    @include breakpoint($mobile-sm) {
-      font-size: 2rem;
-    }
-  }
-
   .about--team__layout {
     width: 25%;
     float: left;

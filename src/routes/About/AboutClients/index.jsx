@@ -11,12 +11,9 @@ export function AboutClients (props) {
   return (
     <section className="row">
       <div className="about__clients">
-        <h1 className={
-          `typ--bold typ--redshift
-          ${ setClass({ default: 'mb6', mobileLg: 'mb3' }, breakpoint) }`
-        }>
+        <h2 className={ setClass({ default: 'mb6', mobileLg: 'mb3' }, breakpoint) }>
           Who we work with.
-        </h1>
+        </h2>
         <div className="clients">
           { data.map((client, index) => (
             <div key={ index } className="clients__client">

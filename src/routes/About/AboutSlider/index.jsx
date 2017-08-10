@@ -1,8 +1,6 @@
 import React from 'react';
 import { slideShow } from 'data/slideshow';
 import Slider from 'react-slick';
-import { setClass } from 'utils/responsiveHelpers';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import './Slides.scss';
@@ -48,7 +46,6 @@ class AboutSlides extends React.Component {
       touchMove: false,
       swipe: false
     };
-    const { breakpoint } = this.props;
 
     return (
       <div>
@@ -75,10 +72,10 @@ class AboutSlides extends React.Component {
         </div>
         <div className="row about--header" >
           <div className="row about--title">
-            <h1 className={ `rs--gradienttext typ--bold ${ setClass({ default: 'pb2', mobileLg: 'pb1' }, breakpoint)}` }>About Redshift.</h1>
-            <h3 className="pb2">
+            <h1 className="typ--redshift pb2">About Redshift.</h1>
+            <div className="pb2 typ--b1">
               We are an award-winning agency dedicated to creating simple, meaningful experiences for users and positive results for our clients.
-            </h3>
+            </div>
           </div>
 
         </div>
@@ -91,8 +88,4 @@ AboutSlides.propTypes = {
   breakpoint: PropTypes.object
 };
 
-const mapStateToProps = state => ({
-  breakpoint: state.breakpoint
-});
-
-export default connect(mapStateToProps)(AboutSlides);
+export default AboutSlides;
