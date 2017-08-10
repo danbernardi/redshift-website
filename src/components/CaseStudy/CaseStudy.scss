@@ -194,10 +194,10 @@
     height: calc(100vh - 8.2rem);
   }
   @include breakpoint($mobile-lg) {
-    height: calc(100vh - 5.8rem);
+    height: calc(100vh - 10.2rem);
   }
   @include breakpoint($mobile-sm) {
-    height: calc(100vh - 5.5rem);
+    height: calc(100vh - 9.9rem);
   }
   @media only screen and (max-height: 430px) {
     height: auto;
