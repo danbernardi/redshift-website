@@ -451,6 +451,7 @@ export class Showcase extends React.Component {
 
   render () {
     const { modalState } = this.props;
+
     if (this.sceneMeta.length) this.currentScene = this.calculateCurrentScene();
 
     return (

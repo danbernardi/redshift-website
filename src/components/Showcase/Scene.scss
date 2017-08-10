@@ -48,13 +48,11 @@
   @include breakpoint($desktop-sm) {
     margin-left: 8rem;
     margin-right: 8rem;
-    width: calc(100% - 16rem);
   }
 
   @include breakpoint($tablet-lg) {
     margin-left: 3rem;
     margin-right: 3rem;
-    width: calc(100% - 6rem);
   }
 
   @include breakpoint($tablet-sm) {
@@ -80,6 +78,13 @@
     @media only screen and (max-height: 400px) {
       bottom: 11rem;
     }
+  }
+}
+
+.scene__cta h2 {
+  // media queries
+  @include breakpoint($mobile-lg) {
+    font-size: 2.4rem;
   }
 }
 

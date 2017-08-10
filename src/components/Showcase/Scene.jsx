@@ -203,7 +203,7 @@ export class Scene extends React.Component {
               )) }
             </h2>
 
-            <Link data-animationName="cta-link" className="scene__link typ--button" to={ `/work/${id}` } >
+            <Link data-animationName="cta-link" className="scene__link typ--bold typ--h6" to={ `/work/${id}` } >
               View project
             </Link>
           </div>
