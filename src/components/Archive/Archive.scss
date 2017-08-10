@@ -43,10 +43,6 @@
     width: calc(100% + 2rem);
     margin-left: -1rem;
   }
-  @include breakpoint($mobile-sm) {
-    width: 100%;
-    margin-left: 0;
-  }
 }
 
 .archive__item {
@@ -62,11 +58,6 @@
   @include breakpoint($tablet-md) {
     width: calc(50% - 2rem);
     margin: 1rem;
-  }
-  @include breakpoint($mobile-sm) {
-    width: 100%;
-    margin-left: 0;
-    margin-right: 0;
   }
 
   a { display: block; }
