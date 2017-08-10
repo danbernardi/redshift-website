@@ -75,7 +75,7 @@ export class Hero extends React.Component {
       >
 
         <div className="row">
-          <h1 className="hero__text typ--bold typ--redshift" style={ { maxWidth: '110rem', pointerEvents: 'none' } }>
+          <h1 className="hero__text rs--gradienttext typ--bold" style={ { maxWidth: '110rem', pointerEvents: 'none' } }>
             <span data-animationName="text2">
               We are Redshift.
               <br />
