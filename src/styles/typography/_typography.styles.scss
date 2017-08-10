@@ -32,55 +32,6 @@ h3,
 
 .typ--b1 {
   @include font(book);
-  line-height: 1.35;
-  @include breakpoint($mobile-lg) {
-    font-size: 2rem;
-    letter-spacing: normal;
-  }
-}
-
-.typ--b2 {
-  @include font(book);
-  line-height: 1.375;
-  @include breakpoint($mobile-lg) {
-    font-size: 2.4rem;
-    letter-spacing: normal;
-  }
-}
-
-.typ--button {
-  @include font(heavy);
-  line-height: 1.35;
-  @include breakpoint($mobile-lg) {
-    font-size: 2rem;
-    letter-spacing: .059rem;
-  }
-}
-
-.typ--menu {
-  @include font(heavy);
-  line-height: 1.1538461;
-  @include breakpoint($mobile-lg) {
-    font-size: 5.2rem;
-    letter-spacing: .03rem;
-  }
-}
-
-.typ--caps {
-  text-transform: uppercase;
-}
-
-// font weights
-.typ--book { @include font(book); }
-
-.typ--bold,
-b,
-strong {
-  @include font(bold);
-}
-
-.typ--b1 {
-  @include font(book);
   font-size: 3.6rem;
   line-height: 1.35;
   @include breakpoint($mobile-lg) {
@@ -117,6 +68,19 @@ strong {
     font-size: 5.2rem;
     letter-spacing: .03rem;
   }
+}
+
+.typ--caps {
+  text-transform: uppercase;
+}
+
+// font weights
+.typ--book { @include font(book); }
+
+.typ--bold,
+b,
+strong {
+  @include font(bold);
 }
 
 // font modifiers
