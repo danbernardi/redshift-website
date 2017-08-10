@@ -46,6 +46,13 @@
   font-size: 2.2rem;
   padding-top: 2rem;
 
+  @include breakpoint($mobile-lg) {
+    margin-left: -0.4rem;
+    li {
+      margin-right: 1.5rem;
+    }
+  }
+
   [class^='icon-'] {
     color: $black;
   }

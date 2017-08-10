@@ -1,6 +1,6 @@
 import React from 'react';
 import FooterSocial from './FooterSocial';
-import { breakpointIsGreaterThan, breakpointIsLessThan } from 'utils/responsiveHelpers';
+import { breakpointIsGreaterThan } from 'utils/responsiveHelpers';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router';
@@ -15,19 +15,21 @@ export function Footer (props) {
 
       <div className="row">
 
-        { breakpointIsGreaterThan('tabletLg', breakpoint.size) && <FooterSocial /> }
+        <FooterSocial />
 
         <div className="contact-info layout--align-right">
-          <span><strong>Redshift</strong> is a design UX agency</span><br />
-          <Link
-            to="https://www.google.com/maps/place/8+California+St,+San+Francisco,+CA+94111/@37.793838,-122.3989129,17z/data=!3m1!4b1!4m5!3m4!1s0x808580615b0ca361:0xc58b8a2deddd07ae!8m2!3d37.793838!4d-122.3967242"
-            target="_blank"
-          >8 California St, San Francisco, CA 94111<br /></Link>
-          <Link to="mailto:hello@redshiftdigital.com">hello@redshiftdigital.com<br /></Link>
-          <Link to="tel:4153711500">415 371 1500</Link>
+          { breakpointIsGreaterThan('mobileLg', breakpoint.size) &&
+            <Link
+              className="typ--b2"
+              to="https://www.google.com/maps/place/8+California+St,+San+Francisco,+CA+94111/@37.793838,-122.3989129,17z/data=!3m1!4b1!4m5!3m4!1s0x808580615b0ca361:0xc58b8a2deddd07ae!8m2!3d37.793838!4d-122.3967242"
+              target="_blank"
+            >8 California St, San Francisco, CA 94111<br /></Link>
+          }
+          <Link className="typ--b2" to="mailto:hello@redshiftdigital.com">hello@redshiftdigital.com<br /></Link>
+          { breakpointIsGreaterThan('mobileLg', breakpoint.size) &&
+            <Link to="tel:4153711500">415 371 1500</Link>
+          }
         </div>
-
-        { breakpointIsLessThan('tabletLg', breakpoint.size) && <FooterSocial /> }
       </div>
     </footer>
   );
