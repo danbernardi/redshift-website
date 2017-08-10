@@ -21,8 +21,17 @@
   }
 }
 
-.job--modal .modal__sidebar {
-  z-index: 1;
+.job--modal {
+  .modal__sidebar {
+    z-index: 1;
+  }
+
+  .modal__close a span {
+    // media queries
+    @include breakpoint($mobile-lg, min-width) {
+      background: $white;
+    }
+  }
 }
 
 .modal__content {
