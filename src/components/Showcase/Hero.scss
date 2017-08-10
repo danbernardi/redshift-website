@@ -1,0 +1,30 @@
+@import 'sass-includes';
+
+.showcase__wrapper .hero {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+
+  h1 {
+    @media (max-width: 767px) and (orientation: landscape) {
+      font-size: 3rem;
+    }
+  }
+}
+
+.scrolltrigger {
+  @extend %page-margins;
+  z-index: 10;
+  pointer: cursor;
+  position: fixed;
+  bottom: 2.8rem;
+  left: 0;
+  pointer-events: auto;
+}
+
+.hero__text {
+  background: -webkit-gradient(linear, left top, right bottom, from(#FF2959), to(#FF29BD));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
