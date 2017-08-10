@@ -4,10 +4,8 @@ export const caseStudies = [
     id: 'kaiser',
     name: 'Kaiser Permanente',
     color: '#1FB4E7',
-    // shortDescription: 'Sed posuere consectetur est at lobortis',
-    // gridThumbnail: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/kaiser/grid-thumbnail.jpg',
     device: {
-      shadow: require('assets/img/case-studies/kaiser/kaiser_shadow.svg'),
+      shadow: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/kaiser/kaiser_shadow.svg',
       body: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/kaiser/kaiser_body.svg',
       overlay: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/kaiser/kaiser_overlay.png',
       overlaytlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/kaiser/kaiser_overlay_tlg.png',
@@ -106,10 +104,8 @@ export const caseStudies = [
     id: 'norton',
     name: 'Norton Online',
     color: '#FFC300',
-    // shortDescription: 'Sed posuere consectetur est at lobortis',
-    // gridThumbnail: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/norton/grid-thumbnail.jpg',
     device: {
-      shadow: require('assets/img/case-studies/norton/norton_shadow.svg'),
+      shadow: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/norton/norton_shadow.svg',
       body: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/norton/norton_body.svg',
       overlay: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/norton/norton_overlay.png',
       overlaymlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/norton/norton_overlay_mlg.png'
@@ -191,14 +187,10 @@ export const caseStudies = [
     id: 'nexus',
     color: '#3AD283',
     name: 'Google Nexus',
-    // shortDescription: 'Sed posuere consectetur est at lobortis',
-    // gridThumbnail: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/nexus/grid-thumbnail.jpg',
     device: {
-      shadow: require('assets/img/case-studies/nexus/nexus_shadow.svg'),
+      shadow: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/nexus/nexus_shadow.svg',
       body: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/nexus/nexus_body.svg',
       overlay: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/nexus/nexus_overlay.png',
-      // shadowmlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/nexus/nexus_shadow-mlg.svg',
-      // bodymlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/nexus/nexus_body-mlg.svg',
       overlaytlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/nexus/nexus_overlay_tlg.png',
       overlaymlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/nexus/nexus_overlay_mlg.png'
     },
@@ -275,10 +267,8 @@ export const caseStudies = [
     id: 'yumavore',
     name: 'Yumavore',
     color: '#FF765C',
-    // shortDescription: 'Sed posuere consectetur est at lobortis',
-    // gridThumbnail: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/yumavore/grid-thumbnail.jpg',
     device: {
-      shadow: require('assets/img/case-studies/yumavore/yumavore_shadow.svg'),
+      shadow: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/yumavore/yumavore_shadow.svg',
       body: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/yumavore/yumavore_body.svg',
       overlay: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/yumavore/yumavore_overlay.png',
       overlaytlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/yumavore/yumavore_overlay_tlg.png',
@@ -376,10 +366,8 @@ export const caseStudies = [
     id: 'five',
     name: 'Five',
     color: '#936FEE',
-    // shortDescription: 'Sed posuere consectetur est at lobortis',
-    // gridThumbnail: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/five/grid-thumbnail.jpg',
     device: {
-      shadow: require('assets/img/case-studies/five/five_shadow.svg'),
+      shadow: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/five/five_shadow.svg',
       body: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/five/five_body.svg',
       overlay: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/five/five_overlay.png',
       overlaymlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/five/five_overlay_mlg.png'
@@ -780,106 +768,4 @@ export const caseStudies = [
       }
     ]
   }
-
-  // {
-  //   id: 'glow',
-  //   name: 'Glow Headphones',
-  //   color: '#5F2CA1',
-  //   shortDescription: 'Introducing the world\'s first laser headphones.',
-  //   gridThumbnail: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/glow/grid-thumbnail.jpg',
-  //   // heading: 'Fantasy is more than just football. Redshift was challenged with designing a white labeled sports platform to maximize fan engagement for all types and levels of sports activities.',
-  //   content: [
-  //     {
-  //       images:
-  //       {
-  //         imgDef: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/Glow/glow1.jpg',
-  //         imgTlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/Glow/glow1_tlg.jpg',
-  //         imgMlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/Glow/glow1_mlg.jpg'
-  //       },
-  //       imgAlt: 'Glow 1'
-  //     },
-  //     {
-  //       images:
-  //       {
-  //         imgDef: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/Glow/glow2.jpg',
-  //         imgTlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/Glow/glow2_tlg.jpg',
-  //         imgMlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/Glow/glow2_mlg.jpg'
-  //       },
-  //       imgAlt: 'Glow 2'
-  //     },
-  //     {
-  //       images:
-  //       {
-  //         imgDef: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/Glow/glow3.jpg',
-  //         imgTlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/Glow/glow3_tlg.jpg',
-  //         imgMlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/Glow/glow3_mlg.jpg'
-  //       },
-  //       imgAlt: 'Glow 3'
-  //     },
-  //     {
-  //       images:
-  //       {
-  //         imgDef: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/Glow/glow4.jpg',
-  //         imgTlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/Glow/glow4_tlg.jpg',
-  //         imgMlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/Glow/glow4_mlg.jpg'
-  //       },
-  //       imgAlt: 'Glow 4'
-  //     },
-  //     {
-  //       images:
-  //       {
-  //         imgDef: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/Glow/glow5.jpg',
-  //         imgTlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/Glow/glow5_tlg.jpg',
-  //         imgMlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/Glow/glow5_mlg.jpg'
-  //       },
-  //       imgAlt: 'Glow 5'
-  //     }
-  //   ]
-  // },
-
-
-  // {
-  //   id: 'stemcentrix',
-  //   name: 'StemCentrix',
-  //   color: '#440F67',
-  //   shortDescription: 'Sed posuere consectetur est at lobortis',
-  //   gridThumbnail: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/stemcentrix/grid-thumbnail.jpg',
-  //   heading: 'Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
-  // },
-  // {
-  //   id: 'younicos',
-  //   name: 'LivSpace Website',
-  //   color: '#C0C2C4',
-  //   shortDescription: 'Sed posuere consectetur est at lobortis',
-  //   gridThumbnail: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/livspace/grid-thumbnail.jpg',
-  //   heading: 'Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
-  // },
-  // {
-  //   id: 'glow',
-  //   name: 'Reviver Slate',
-  //   color: '#56C3CC',
-  //   shortDescription: 'Sed posuere consectetur est at lobortis',
-  //   gridThumbnail: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/reviver-slate/grid-thumbnail.jpg',
-  //   heading: 'Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
-  // }
-  // {
-  //   id: 'mypoints',
-  //   name: 'myPoints',
-  //   color: '#1FB4E7',
-  //   shortDescription: 'New experience for online shopping',
-  //   gridThumbnail: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/ams-armada/grid-thumbnail.jpg',
-  //   heading: 'Redshift was tasked by MyPoints – a popular online rewards program – to create a beautiful, immersive shopping experience to appeal to a new younger demographic. Our solution incorporates bold imagery and fun, game-like elements to encourage users to build progress and earn points.'
-  //   content: [
-  //     {
-  //      images:
-  //       {
-  //         imgDef: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/mypoints/MP1.jpg',
-  //         imgTlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/mypoints/MP1_tlg.jpg',
-  //         imgMlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/mypoints/MP1_mlg.jpg'
-  //       },
-  //       imgAlt: 'MyPoints',
-  //     }
-  //   ]
-  // },
-
 ];
