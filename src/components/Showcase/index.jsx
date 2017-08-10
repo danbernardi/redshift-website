@@ -412,11 +412,7 @@ export class Showcase extends React.Component {
     }
 
     const scene = this.sceneMeta[index];
-    let position = index === this.sceneMeta.length - 1
-      ? scene.center
-      : scene.center;
-
-    console.log('here', scene, scene.center)
+    let position = scene.center;
 
     this.currentScene = index;
 
