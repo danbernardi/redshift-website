@@ -100,7 +100,7 @@
   animation-delay: 1.2s;
   width: 3.2rem;
   cursor: pointer;
-   //media queries
+  //media queries
   @include breakpoint($mobile-lg) {
     bottom: 0;
   }
@@ -173,6 +173,7 @@
   }
 
   99.5% {
+    opacity: 0;
     bottom: 2rem;
     @include breakpoint($mobile-lg) {
       bottom: 0;
