@@ -25,7 +25,7 @@ export class CaseStudyScroller extends React.Component {
       >
         <div className="modal__content layout--relative">
           <div className="row">
-            <h4 className="modal__title" ref={ (el) => { this.name = el; } }>{ caseStudyContent.name }</h4>
+            <div className="modal__title typ--b2" ref={ (el) => { this.name = el; } }>{ caseStudyContent.name }</div>
           </div>
 
           <div className="row">
