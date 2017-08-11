@@ -28,6 +28,9 @@
 
 .layout--fullheight {
   height: 100vh;
+  @media screen and (max-device-width: 767px) and (orientation : portrait) {
+    height: calc(100vh - 6.8rem);
+  }
 }
 
 .layout--flex__center-col {
