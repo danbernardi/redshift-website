@@ -441,7 +441,7 @@ export const caseStudies = [
           text: 'Be one of the first to try out the new app. It just might become one of your top five favorites!'
         },
         {
-          classes: 'btn btn--ghost typ-button mt5 typ--five',
+          classes: 'btn btn--ghost typ--button mt5 typ--five',
           text: 'download the app',
           url: 'https://itunes.apple.com/us/app/five-share-and-compare-your-top-five-of-anything/id1160849650?mt=8'
         }]
