@@ -55,5 +55,8 @@
 
   [class^='icon-'] {
     color: $black;
+    &:hover {
+      color: $redshift;
+    }
   }
 }
