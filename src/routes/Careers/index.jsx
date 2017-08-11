@@ -8,6 +8,7 @@ import { jobDetails } from 'data/jobDetails';
 import Footer from 'components/Footer';
 import JobDescription from './CareersJobs/roles/JobDescription';
 import PropTypes from 'prop-types';
+import { ScrollContainer } from 'scrollmonitor-react';
 
 export class Careers extends React.Component {
   componentDidMount () {
@@ -60,7 +61,7 @@ export class Careers extends React.Component {
   };
 
   render () {
-    const { modalState } = this.props;
+    const { modalState, scrollContainer } = this.props;
     const careerHero = {
       imgDef: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/careers/rs_team.jpg',
       imgTlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/careers/rs_team-tlg.jpg',
@@ -75,9 +76,11 @@ export class Careers extends React.Component {
           <img src={ careerHero.imgDef } className="hero-image" alt="Redshift Careers" />
         </picture>
         <Watcher
+          autoStart={ false }
           offset={ { position: 'relative', bottom: '9.7rem' } }
           enterViewport={ (watcher) => this.watcherCallback(watcher) }
           stateChange={ (watcher) => this.watcherCallback(watcher) }
+          scrollContainer={ scrollContainer }
         />
         <section className="row careers--title">
           <h1 className="typ--bold rs--gradienttext">Join the team.</h1>
@@ -100,11 +103,12 @@ export class Careers extends React.Component {
 Careers.propTypes = {
   dispatch: PropTypes.func,
   params: PropTypes.object,
-  modalState: PropTypes.object
+  modalState: PropTypes.object,
+  scrollContainer: PropTypes.object
 };
 
 const mapStateToProps = state => ({
   modalState: state.modalState
 });
 
-export default connect(mapStateToProps)(Careers);
+export default connect(mapStateToProps)(ScrollContainer(Careers));

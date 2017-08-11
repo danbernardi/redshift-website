@@ -4,6 +4,7 @@ import { TimelineLite, TweenMax, Power2, Power3 } from 'gsap';
 import MorphSVGPlugin from 'vendor/gsap-plugins/MorphSVGPlugin';
 import CustomEase from 'vendor/gsap-plugins/CustomEase';
 import Watcher from 'components/Watcher';
+import PropTypes from 'prop-types';
 
 import './About_Hybrid.scss';
 
@@ -90,6 +91,8 @@ export class AboutHybrid extends React.Component {
   };
 
   render () {
+    const { scrollContainer } = this.props;
+
     return (
       <section className="hero layout--relative layout--landscape" style={ { overflow: 'hidden' } }>
         <Watcher
@@ -97,6 +100,7 @@ export class AboutHybrid extends React.Component {
           autoStart={ false }
           stateChange={ this.watcherCallback.bind(this) }
           enterViewport={ this.watcherCallback.bind(this) }
+          scrollContainer={ scrollContainer }
         />
 
         <div className="about__hybrid--container">
@@ -138,5 +142,9 @@ export class AboutHybrid extends React.Component {
     );
   }
 }
+
+AboutHybrid.propTypes = {
+  scrollContainer: PropTypes.object
+};
 
 export default GSAP()(AboutHybrid);

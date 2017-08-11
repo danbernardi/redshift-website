@@ -1,5 +1,6 @@
 import React from 'react';
 import AboutSlider from './AboutSlider';
+import AboutHybrid from './AboutHybrid';
 import AboutExplore from './AboutExplore';
 import AboutClients from './AboutClients';
 import AboutTeam from './AboutTeam';
@@ -10,6 +11,7 @@ import * as actions from 'store/actions';
 import PropTypes from 'prop-types';
 import BioModal from './AboutTeam/BioModal';
 import { connect } from 'react-redux';
+import { ScrollContainer } from 'scrollmonitor-react';
 
 import './style.scss';
 
@@ -51,11 +53,12 @@ export class About extends React.Component {
   }
 
   render () {
-    const { modalState } = this.props;
+    const { modalState, scrollContainer } = this.props;
 
     return (
       <div className="scroller" style={ { width: modalState.windowWidth, height: modalState.windowHeight } }>
         <AboutSlider />
+        {/* <AboutHybrid scrollContainer={ scrollContainer } /> */}
         <AboutExplore />
         <AboutClients data={ clientData } />
         <AboutTeam team={ teamInfo } />
@@ -68,11 +71,12 @@ export class About extends React.Component {
 About.propTypes = {
   dispatch: PropTypes.func,
   params: PropTypes.object,
-  modalState: PropTypes.object
+  modalState: PropTypes.object,
+  scrollContainer: PropTypes.object
 };
 
 const mapStateToProps = state => ({
   modalState: state.modalState
 });
 
-export default connect(mapStateToProps)(About);
+export default connect(mapStateToProps)(ScrollContainer(About));
