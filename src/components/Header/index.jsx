@@ -11,8 +11,12 @@ import Hamburger from 'components/Hamburger';
 import ReactGA from 'react-ga';
 import PropTypes from 'prop-types';
 import GSAP from 'react-gsap-enhancer';
-import { TimelineLite } from 'gsap';
+import { TimelineLite, TweenLite } from 'gsap';
 import { breakpointIsGreaterThan } from 'utils/responsiveHelpers';
+
+function animateScroll (container, position) {
+  TweenLite.to(container, 0.5, { scrollTop: position });
+}
 
 export class Header extends React.Component {
   constructor (props) {
@@ -59,6 +63,9 @@ export class Header extends React.Component {
       }, 200);
 
       animate = false;
+    } else {
+      const showcase = document.getElementsByClassName('showcase')[0];
+      animateScroll(showcase, 0);
     }
 
     dispatch(actions.goToNextCaseStudy(-1, animate, []));
