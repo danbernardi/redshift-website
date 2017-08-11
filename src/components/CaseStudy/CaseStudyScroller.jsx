@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link, browserHistory } from 'react-router';
 import CaseStudySection from './CaseStudySection';
 import { ScrollContainer } from 'scrollmonitor-react';
 import CaseStudyHeader from './CaseStudyHeader';
@@ -7,6 +7,7 @@ import PropTypes from 'prop-types';
 import GSAP from 'react-gsap-enhancer';
 import { connect } from 'react-redux';
 import { TweenLite } from 'gsap';
+import { toggleModal, setActiveModal } from 'store/actions';
 
 export class CaseStudyScroller extends React.Component {
 
@@ -14,8 +15,31 @@ export class CaseStudyScroller extends React.Component {
     TweenLite.to(container, 0.5, { scrollTop: position });
   }
 
+  routeTo (route) {
+    const { dispatch } = this.props;
+    browserHistory.push(route);
+
+    dispatch(toggleModal(false));
+    const timing = setTimeout(() => {
+      dispatch(setActiveModal(null, null));
+      clearInterval(timing);
+    }, 200);
+  };
+
   render () {
-    const { caseStudyContent, nextCaseStudy, scrollContainer, modalState } = this.props;
+    const { caseStudyContent, scrollContainer, modalState } = this.props;
+    let { nextCaseStudy } = this.props;
+
+    if (!nextCaseStudy || typeof nextCaseStudy !== 'object') {
+      nextCaseStudy = {
+        id: '/about',
+        color: '#FF2953',
+        name: 'About Redshift',
+        subtext: 'Learn more about us'
+      };
+    }
+
+    console.log(nextCaseStudy.id);
 
     return (
       <section
@@ -50,34 +74,31 @@ export class CaseStudyScroller extends React.Component {
             ))
            }
 
-          { nextCaseStudy && typeof nextCaseStudy === 'object' &&
-            <div>
-              <Link
-                to={ `/work/${nextCaseStudy.id}` }
-                style={ {
-                  display: 'block',
-                  bottom: 0,
-                  height: 'auto',
-                  opacity: 1,
-                  borderColor: nextCaseStudy.color
-                } }
-                className="casestudy__next"
-              >
-                <div className="layout--relative">
-                  <div className="row">
-                    <span
-                      className="casestudy__next__label typ--light typ--b2"
-                      style={ { overflow: 'hidden', display: 'block' } }
-                    >View next case study</span>
-                    <h2
-                      className="casestudy__next__name typ--bold"
-                      style={ { color: nextCaseStudy.color } }
-                    >{ nextCaseStudy.name }</h2>
-                  </div>
-                </div>
-              </Link>
+          <Link
+            onClick={ () => nextCaseStudy.id === '/about' && this.routeTo(nextCaseStudy.id) }
+            to={ nextCaseStudy.id !== '/about' && `/work/${nextCaseStudy.id}` }
+            style={ {
+              display: 'block',
+              bottom: 0,
+              height: 'auto',
+              opacity: 1,
+              borderColor: nextCaseStudy.color
+            } }
+            className="casestudy__next"
+          >
+            <div className="layout--relative">
+              <div className="row">
+                <span
+                  className="casestudy__next__label typ--light typ--b2"
+                  style={ { overflow: 'hidden', display: 'block' } }
+                >{ nextCaseStudy.subtext ? nextCaseStudy.subtext : 'View next case study' }</span>
+                <h2
+                  className="casestudy__next__name typ--bold"
+                  style={ { color: nextCaseStudy.color } }
+                >{ nextCaseStudy.name }</h2>
+              </div>
             </div>
-          }
+          </Link>
         </div>
       </section>
     );
@@ -88,7 +109,8 @@ CaseStudyScroller.propTypes = {
   caseStudyContent: PropTypes.object,
   nextCaseStudy: PropTypes.object,
   scrollContainer: PropTypes.object,
-  modalState: PropTypes.object
+  modalState: PropTypes.object,
+  dispatch: PropTypes.func
 };
 
 const mapStateToProps = state => ({
