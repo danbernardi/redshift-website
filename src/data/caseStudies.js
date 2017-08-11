@@ -640,6 +640,44 @@ export const caseStudies = [
       }
     ]
   },
+  // FANMOUTH
+  {
+    id: 'fanmouth',
+    name: 'Fanmouth',
+    color: '#FF3100',
+    shortDescription: 'Fantasy sports made easy.',
+    gridThumbnail: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/fanmouth/grid-thumbnail.jpg',
+    heading: 'Fantasy is more than just football. Redshift was challenged with designing a white labeled sports platform to maximize fan engagement for all types and levels of sports activities.',
+    content: [
+      {
+        images:
+        {
+          imgDef: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/Fanmouth/FM1.jpg',
+          imgTlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/Fanmouth/FM1_tlg.jpg',
+          imgMlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/Fanmouth/FM1_mlg.jpg'
+        },
+        imgAlt: 'Fanmouth 1'
+      },
+      {
+        images:
+        {
+          imgDef: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/Fanmouth/FM2.jpg',
+          imgTlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/Fanmouth/FM2_tlg.jpg',
+          imgMlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/Fanmouth/FM2_mlg.jpg'
+        },
+        imgAlt: 'Fanmouth 2'
+      },
+      {
+        images:
+        {
+          imgDef: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/Fanmouth/FM3.jpg',
+          imgTlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/Fanmouth/FM3_tlg.jpg',
+          imgMlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/Fanmouth/FM3_mlg.jpg'
+        },
+        imgAlt: 'Fanmouth 3'
+      }
+    ]
+  },
   // VLOCITY
   {
     id: 'vlocity',
@@ -707,44 +745,6 @@ export const caseStudies = [
             text: 'The Vlocity design system distills hundreds of decisions and informs new work. Every new engagement presents an opportunity to stress test and improve upon the patterns our team has created.'
           }
         ]
-      }
-    ]
-  },
-  // FANMOUTH
-  {
-    id: 'fanmouth',
-    name: 'Fanmouth',
-    color: '#FF3100',
-    shortDescription: 'Fantasy sports made easy.',
-    gridThumbnail: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/fanmouth/grid-thumbnail.jpg',
-    heading: 'Fantasy is more than just football. Redshift was challenged with designing a white labeled sports platform to maximize fan engagement for all types and levels of sports activities.',
-    content: [
-      {
-        images:
-        {
-          imgDef: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/Fanmouth/FM1.jpg',
-          imgTlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/Fanmouth/FM1_tlg.jpg',
-          imgMlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/Fanmouth/FM1_mlg.jpg'
-        },
-        imgAlt: 'Fanmouth 1'
-      },
-      {
-        images:
-        {
-          imgDef: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/Fanmouth/FM2.jpg',
-          imgTlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/Fanmouth/FM2_tlg.jpg',
-          imgMlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/Fanmouth/FM2_mlg.jpg'
-        },
-        imgAlt: 'Fanmouth 2'
-      },
-      {
-        images:
-        {
-          imgDef: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/Fanmouth/FM3.jpg',
-          imgTlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/Fanmouth/FM3_tlg.jpg',
-          imgMlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/Fanmouth/FM3_mlg.jpg'
-        },
-        imgAlt: 'Fanmouth 3'
       }
     ]
   }
