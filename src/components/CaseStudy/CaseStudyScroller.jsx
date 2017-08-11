@@ -39,8 +39,6 @@ export class CaseStudyScroller extends React.Component {
       };
     }
 
-    console.log(nextCaseStudy.id);
-
     return (
       <section
         ref={ (el) => { this.casestudy = el; } }
