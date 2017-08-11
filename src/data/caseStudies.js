@@ -426,12 +426,7 @@ export const caseStudies = [
           imgTlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/Five/five4_tlg.jpg',
           imgMlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/Five/five4_mlg.jpg'
         },
-        imgAlt: 'Five 4',
-        copy: [
-          {
-
-          }
-        ]
+        imgAlt: 'Five 4'
       },
       {
         containerClass: 'typ--center',
@@ -568,12 +563,7 @@ export const caseStudies = [
           imgTlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/AMS/AMS1_tlg.jpg',
           imgMlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/AMS/AMS1_mlg.jpg'
         },
-        imgAlt: 'AMS 1',
-        copy: [
-          {
-
-          }
-        ]
+        imgAlt: 'AMS 1'
       },
       {
         images:
@@ -582,12 +572,7 @@ export const caseStudies = [
           imgTlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/AMS/AMS2_tlg.jpg',
           imgMlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/AMS/AMS2_mlg.jpg'
         },
-        imgAlt: 'AMS 2',
-        copy: [
-          {
-
-          }
-        ]
+        imgAlt: 'AMS 2'
       },
       {
         images:
@@ -597,11 +582,6 @@ export const caseStudies = [
           imgMlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/archive/AMS/AMS3_mlg.jpg'
         },
         imgAlt: 'AMS 3',
-        copy: [
-          {
-
-          }
-        ]
       }
     ]
   },
