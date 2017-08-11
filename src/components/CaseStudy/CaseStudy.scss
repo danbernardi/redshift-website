@@ -22,6 +22,10 @@
   .modal__content {
     padding-bottom: 22rem;
     // media queries
+    @include breakpoint($tablet-lg) {
+      padding-bottom: 20.1rem;
+    }
+
     @include breakpoint($mobile-lg) {
       padding-bottom: 11.4rem;
     }
