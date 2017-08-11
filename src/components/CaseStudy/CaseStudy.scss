@@ -289,3 +289,13 @@
     }
   }
 }
+
+.casestudy__btnsection {
+  .casestudy__text {
+    margin: 5rem 0 8rem;
+    // media queries
+    @include breakpoint($mobile-lg) {
+      margin: 2rem 0 5rem;
+    }
+  }
+}
