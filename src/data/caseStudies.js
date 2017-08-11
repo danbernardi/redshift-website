@@ -354,7 +354,7 @@ export const caseStudies = [
         },
         {
           classes: 'btn btn--ghost typ--yumavore typ--button',
-          text: 'download the app',
+          text: 'Download the app',
           url: 'https://itunes.apple.com/us/app/yumavore/id1043281685?mt=8'
         }]
       }
@@ -437,7 +437,7 @@ export const caseStudies = [
         },
         {
           classes: 'btn btn--ghost typ--button typ--five',
-          text: 'download the app',
+          text: 'Download the app',
           url: 'https://itunes.apple.com/us/app/five-share-and-compare-your-top-five-of-anything/id1160849650?mt=8'
         }]
       }
@@ -507,7 +507,7 @@ export const caseStudies = [
     color: '#CB2780',
     shortDescription: 'Business chat for an international audience.',
     gridThumbnail: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/chatworks/grid-thumbnail.jpg',
-    heading: 'Chatwork is a highly successful business communication platform. As part of their plan to expand to a global market, Chatwork asked Redshift to refresh their current product’s interface to a more universal design.',
+    heading: 'As part of their plan to expand to a global market, Chatwork asked Redshift to refresh their current product’s interface.',
     content: [
       {
         images:
