@@ -15,7 +15,6 @@
   width: 100%;
   height: 100%;
   background: $redshift;
-  display: flex;
   align-items: center;
   transition: transform 0.3s ease-in-out;
   transform: translateX(calc(100% + 1px));
@@ -28,20 +27,10 @@
 
 .pink-hover .pink-info {
   color: $white;
-  padding: 0 3rem;
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  display: flex;
-  top: 0;
-  flex-direction: column;
-  justify-content: center;
+  padding: 3rem;
   // media queries
-  @include breakpoint($desktop-sm) {
-    padding: 0 3rem;
-  }
   @include breakpoint($mobile-sm) {
-    padding: 0 2rem;
+    padding: 2rem;
   }
 }
 

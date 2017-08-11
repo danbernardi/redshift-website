@@ -1,5 +1,5 @@
 import React from 'react';
-import { setClass, breakpointIsGreaterThan } from 'utils/responsiveHelpers';
+import { setClass, breakpointIsLessThan, breakpointIsGreaterThan  } from 'utils/responsiveHelpers';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
@@ -35,55 +35,39 @@ export class AboutExplore extends React.Component {
         colorClass: 'typ--plum'
       }
     ];
-
-    this.state = {
-      activeItem: 'aboutExplore'
-    };
   }
 
   render () {
     const { breakpoint } = this.props;
     return (
       <section>
-        { breakpointIsGreaterThan('tabletLg', breakpoint.size)
-          ? <div className="about__wrapper hero layout--landscape">
-            <h2 className="row">How we work.</h2>
-            { this.animationItems.map((i, ind) => (
-              <div className="about--work__container" key={ ind }>
-                <div className="row col-12">
-                  <h1 className={ `${i.colorClass} typ--bold mb2` }>
-                    { i.title }
-                  </h1>
-                  <div className={ `about--explore-text typ--b2 ${ setClass({ default: 'col-9', desktopSm: 'col-12' }, breakpoint)}` }>{ i.text }</div>
-                </div>
+        <div className="about__wrapper row">
+          { breakpointIsLessThan('mobileLg', breakpoint.size) &&
+            <div className="pb3">
+              <h2 className="pb2">How we work.</h2>
+              <div className="typ--b1">
+                We believe the best products are created by hybrid teams. Designers, researchers, and developers work shoulder-to-shoulder in our studio to create experiences that are beautiful and grounded in real user needs.
               </div>
-            ))}
-          </div>
-          : <div className="about__wrapper row">
-            <h2 className="pb2">How we work.</h2>
-            <div className="typ--b1">
-              We believe the best products are created by hybrid teams. Designers, researchers, and developers work shoulder-to-shoulder in our studio to create experiences that are beautiful and grounded in real user needs.
             </div>
-            { this.animationItems.map((item, ti) => (
-              <div key={ ti } className="mt6">
+          }
+          { this.animationItems.map((item, ti) => (
+            <div>
+              <div key={ ti } className={ setClass({ default: 'col-9 py6', mobileLg: 'col-12 py4' }, breakpoint) }>
                 <h3
-                  className={ `typ--bold pb1 ${ item.colorClass }` }
+                  className={ `typ--bold pb3 ${ item.colorClass }` }
                 >
                   { item.title }
                 </h3>
                 <div className="typ--b2">{ item.text }</div>
               </div>
-            )) }
-          </div>
-        }
+              { breakpointIsGreaterThan('mobileLg', breakpoint.size) && <div className="col-3 col-last" /> }
+            </div>
+          )) }
+        </div>
       </section>
     );
   }
 }
-
-AboutExplore.defaultProps = {
-  activeItem: 'aboutExplore'
-};
 
 AboutExplore.propTypes = {
   breakpoint: PropTypes.object

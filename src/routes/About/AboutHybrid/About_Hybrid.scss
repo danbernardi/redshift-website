@@ -2,7 +2,8 @@
 
 .about__hybrid--header {
   position: absolute;
-  bottom: 0;
+  bottom: 7.3rem;
+  padding-top: 6rem;
   @include breakpoint($mobile-lg) {
     position: relative;
     // padding-top: 6rem;
@@ -26,7 +27,7 @@
 
 .about__hybrid--circle {
   max-width: 144rem;
-  width: calc(100% - 4rem);
+  width: calc(100% - 10rem);
   overflow: visible;
   // media queries
   @include breakpoint($tablet-lg) {

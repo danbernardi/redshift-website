@@ -130,10 +130,9 @@ export class AboutHybrid extends React.Component {
           </svg>
           <div className="row about__hybrid--header">
             <div className="about__hybrid--header__text">
-              <h1 className="typ--bold typ--redshift pb2">Hybrid teams.</h1>
+              <h2 className="pb2">How we work.</h2>
               <div className="typ--b1">
-                We believe the best products are created by hybrid teams. Designers, researchers,
-                and developers working shoulder-to-shoulder in our studio to create experiences that are beautiful and grounded in real user needs.
+                We believe the best products are created by hybrid teams. Designers, researchers, and developers work shoulder-to-shoulder in our studio to create experiences that are beautiful and grounded in real user needs.
               </div>
             </div>
           </div>
