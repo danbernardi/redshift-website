@@ -5,12 +5,18 @@
 .btn--ghost {
   padding: 1.8rem 5rem;
   display: inline-block;
-  transition: color 0.2s ease-in-out;
+  transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
   position: relative;
-  // text-transform: uppercase;
   border: solid 0.1rem $body;
-  letter-spacing: 0.3rem;
   background-color: transparent;
+  
+  @include breakpoint($tablet-lg, min-width) {
+    &:hover {
+      background-color: $redshift;
+      color: $white;
+      border-color: $redshift;
+    }
+  }
 }
 
 .btn--arrow {
