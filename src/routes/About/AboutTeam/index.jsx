@@ -21,8 +21,8 @@ export function AboutTeam (props) {
             imageSrc={ team.id }
             alt={ team.name }
           >
-            <span className="member__name typ--bold">{ team.name }</span>
-            <span className="member__position">{ team.position }</span>
+            <span className="member__name typ--bold typ--b1">{ team.name }</span>
+            <span className="member__position typ--b2">{ team.position }</span>
             <div className="right-arrow">
               <img src={ require('assets/img/right-arrow.svg') } alt={ `${team.name}, ${team.position}` } />
             </div>
