@@ -20,14 +20,14 @@ export function Footer (props) {
         <div className="contact-info layout--align-right">
           { breakpointIsGreaterThan('mobileLg', breakpoint.size) &&
             <Link
-              className="typ--b2"
+              className="typ--b3"
               to="https://www.google.com/maps/place/8+California+St,+San+Francisco,+CA+94111/@37.793838,-122.3989129,17z/data=!3m1!4b1!4m5!3m4!1s0x808580615b0ca361:0xc58b8a2deddd07ae!8m2!3d37.793838!4d-122.3967242"
               target="_blank"
             >8 California St, San Francisco, CA 94111<br /></Link>
           }
-          <Link className="typ--b2" to="mailto:hello@redshiftdigital.com">hello@redshiftdigital.com<br /></Link>
+          <Link className="typ--b3" to="mailto:hello@redshiftdigital.com">hello@redshiftdigital.com<br /></Link>
           { breakpointIsGreaterThan('mobileLg', breakpoint.size) &&
-            <Link to="tel:4153711500" className="typ--b2">415 371 1500</Link>
+            <Link to="tel:4153711500" className="typ--b3">415 371 1500</Link>
           }
         </div>
       </div>
