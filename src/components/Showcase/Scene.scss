@@ -42,18 +42,21 @@
   font-size: 2rem;
   pointer-events: none;
   top: 0;
-  margin-left: 10rem;
-  margin-right: 10rem;
   //media queries
-  @include breakpoint($desktop-sm) {
-    margin-left: 8rem;
-    margin-right: 8rem;
+  margin-left: 7rem;
+  margin-right: 7rem;
+  // media queries
+  @include breakpoint($tablet-md) {
+    margin-left: 5rem;
+    margin-right: 5rem;
   }
-
-  @include breakpoint($tablet-lg) {
-    margin-left: 3rem;
-    margin-right: 3rem;
-    width: calc(100% - 6rem);
+  @include breakpoint($mobile-lg) {
+    margin-left: 4rem;
+    margin-right: 4rem;
+  }
+  @include breakpoint($mobile-sm) {
+    margin-left: 2rem;
+    margin-right: 2rem;
   }
 
   @include breakpoint($tablet-sm) {
