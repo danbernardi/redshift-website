@@ -11,7 +11,7 @@ export const caseStudies = [
       overlaytlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/kaiser/kaiser_overlay_tlg.png',
       overlaymlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/kaiser/kaiser_overlay_mlg.png'
     },
-    heading: 'Kaiser Permanente has partnered with Redshift to create an entirely new digital healthcare experience—one that puts the patient in charge.',
+    heading: 'We partnered with Kaiser Permanente to create an entirely new digital healthcare experience—one that puts the patient in charge.',
     content: [
       {
         images:
@@ -456,7 +456,7 @@ export const caseStudies = [
     color: '#89CA78',
     shortDescription: 'A companion app for an experimental retail space.',
     gridThumbnail: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/google-fiber/grid-thumbnail.jpg',
-    heading: 'Redshift was tasked with creating personal mobile experience to support the Google Fiber retail spaces. It helped visitors get the most out of the Google Fiber space while also allowing them to experience the delight that only Google can provide.',
+    heading: 'Redshift was tasked with creating a personal mobile experience to support the Google Fiber retail spaces.',
     content: [
       {
         images:
