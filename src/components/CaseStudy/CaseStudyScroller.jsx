@@ -66,7 +66,7 @@ export class CaseStudyScroller extends React.Component {
                 <div className="layout--relative">
                   <div className="row">
                     <span
-                      className="casestudy__next__label typ--light"
+                      className="casestudy__next__label typ--light typ--b2"
                       style={ { overflow: 'hidden', display: 'block' } }
                     >View next case study</span>
                     <h2
