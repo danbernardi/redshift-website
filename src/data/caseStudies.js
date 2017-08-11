@@ -346,14 +346,14 @@ export const caseStudies = [
         }
       },
       {
-        containerClass: 'typ--center',
+        containerClass: 'casestudy__btnsection typ--center',
         copy: [{
           src: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/Yumavore/yumavore6.jpg',
           classes: 'casestudy__text typ--b1',
           text: 'Yumavore is available in the app store, featuring user-created content from thousands of professional and home chefs.'
         },
         {
-          classes: 'btn btn--ghost mt5 typ--yumavore typ--button',
+          classes: 'btn btn--ghost typ--yumavore typ--button',
           text: 'download the app',
           url: 'https://itunes.apple.com/us/app/yumavore/id1043281685?mt=8'
         }]
@@ -434,14 +434,14 @@ export const caseStudies = [
         ]
       },
       {
-        containerClass: 'typ--center',
+        containerClass: 'casestudy__btnsection typ--center',
         copy: [{
           src: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/Five/five5.jpg',
           classes: 'casestudy__text typ--b1',
           text: 'Be one of the first to try out the new app. It just might become one of your top five favorites!'
         },
         {
-          classes: 'btn btn--ghost typ--button mt5 typ--five',
+          classes: 'btn btn--ghost typ--button typ--five',
           text: 'download the app',
           url: 'https://itunes.apple.com/us/app/five-share-and-compare-your-top-five-of-anything/id1160849650?mt=8'
         }]
