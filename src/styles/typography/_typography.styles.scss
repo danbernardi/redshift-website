@@ -79,6 +79,11 @@ h3,
   @include breakpoint($tablet-lg) {
     font-size: 2rem;
   }
+
+  @include breakpoint($mobile-lg) {
+    line-height: 1.15;
+  }
+
   @include breakpoint($mobile-sm) {
     font-size: 1.8rem;
   }
