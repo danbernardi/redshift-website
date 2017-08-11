@@ -10,6 +10,10 @@
   padding-left: 7rem;
   padding-right: 7rem;
   // media queries
+  @include breakpoint($tablet-md) {
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
   @include breakpoint($mobile-lg) {
     padding-left: 4rem;
     padding-right: 4rem;
