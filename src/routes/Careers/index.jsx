@@ -69,7 +69,7 @@ export class Careers extends React.Component {
     };
 
     return (
-      <div className="row scroller mt4" style={ { width: modalState.windowWidth, height: modalState.windowHeight } }>
+      <div className="scroller" style={ { width: modalState.windowWidth, height: modalState.windowHeight } }>
         <picture>
           <source srcSet={ careerHero.imgTlg } media="(min-width: 1040px)" />
           <source srcSet={ careerHero.imgMlg } media="(min-width: 767px)" />
@@ -82,11 +82,11 @@ export class Careers extends React.Component {
           stateChange={ (watcher) => this.watcherCallback(watcher) }
           scrollContainer={ scrollContainer }
         />
-        <section className="careers--title">
+        <section className="row careers--title">
           <h1 className="typ--bold rs--gradienttext">Join our team.</h1>
         </section>
         <section>
-          <div className="row--maxwidth">
+          <div className="row row--maxwidth">
             {
               jobDetails.map((job, index) => (
                 <CareersJobs key={ index } job={ job } />
