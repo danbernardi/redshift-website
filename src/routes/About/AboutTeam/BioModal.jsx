@@ -10,7 +10,7 @@ export function BioTemplate (props) {
   const { bioContent, breakpoint, modalState } = props;
 
   const bio = bioContent.bioStatement.map((paragraph, index) =>
-    <h5 key={ index } className="pb2">{ paragraph }</h5>
+    <div key={ index } className="typ--b1 pb2">{ paragraph }</div>
   );
 
   return (
@@ -21,8 +21,8 @@ export function BioTemplate (props) {
       <ModalCloseBtn closeCallback={ () => browserHistory.push('/about') } />
       <div className="col-12 bio--wrap row">
         <div className="team-member-bio py5">
-          <h2 className="typ--bold">{ bioContent.name }</h2>
-          <h2 className={ setClass({ default: 'pb6', desktopSm: 'pb2' }, breakpoint) }>{ bioContent.position }</h2>
+          <h2>{ bioContent.name }</h2>
+          <h3 className={ setClass({ default: 'pb6', desktopSm: 'pb4' }, breakpoint) }>{ bioContent.position }</h3>
           { bio }
           { /** bioContent.inspiration &&
             <div>
@@ -33,7 +33,7 @@ export function BioTemplate (props) {
             </div> **/}
         </div>
         { breakpointIsGreaterThan('tabletMd', breakpoint.size) &&
-          <div className="bio--wrap__img">
+          <div className="bio--wrap__img typ--b1">
             <img src={ `https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/about/team/modal/${bioContent.id}.jpg` } alt={ bioContent.name } />
           </div>
         }

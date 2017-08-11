@@ -26,9 +26,9 @@ export class CaseStudyHeader extends React.Component {
     const { content, color } = this.props;
 
     return (
-      <h1 className="typ--bold casestudy__title" style={ { color } }>
+      <h2 className="casestudy__title" style={ { color } }>
         { content }
-      </h1>
+      </h2>
     );
   }
 }

@@ -9,6 +9,9 @@
   @include breakpoint($tablet-lg) {
     margin-top: 5rem;
   }
+  @include breakpoint($mobile-lg) {
+    margin-bottom: 6rem;
+  }
 }
 
 .about__section {

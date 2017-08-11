@@ -78,7 +78,7 @@ export class Archive extends React.Component {
                       />
                       : <div className="archive__imgspacer" />
                     }
-                    <h4 className="archive__name typ--bold">{ `${ study.name }.` }</h4>
+                    <div className="archive__name typ--button">{ `${ study.name }.` }</div>
                     <div className="archive__overlay" style={ { backgroundColor: study.color } }>
                       <div className="archive__overlay--text">
                         <h3 className="typ--bold">{ study.shortDescription }</h3>

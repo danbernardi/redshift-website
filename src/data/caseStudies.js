@@ -23,7 +23,7 @@ export const caseStudies = [
         imgAlt: 'Kaiser Permanente 1',
         copy: [
           {
-            classes: 'casestudy__text typ--h3',
+            classes: 'casestudy__text typ--b1',
             text: 'KP has dozens of legacy websites. Our first task was to bring these together into a single online destination that is simple, modern, and personalized.'
           }
         ]
@@ -38,7 +38,7 @@ export const caseStudies = [
         imgAlt: 'Kaiser Permanente 2',
         copy: [
           {
-            classes: 'casestudy__text typ--h3',
+            classes: 'casestudy__text typ--b1',
             text: 'We designed new ways for patients to manage their healthcare online. Now members can access medical records, track their prescriptions, manage healthcare costs, and monitor the health of their entire family.'
           }
         ]
@@ -53,7 +53,7 @@ export const caseStudies = [
         imgAlt: 'Kaiser Permanente 3',
         copy: [
           {
-            classes: 'casestudy__text typ--h3',
+            classes: 'casestudy__text typ--b1',
             text: 'We also explored new ways to help KP doctors and patients communicate and share information—whether in the exam room or at home. '
           }
         ]
@@ -68,7 +68,7 @@ export const caseStudies = [
         imgAlt: 'Kaiser Permanente 4',
         copy: [
           {
-            classes: 'casestudy__text typ--h3',
+            classes: 'casestudy__text typ--b1',
             text: 'The future of digital healthcare at KP is patient-driven and mobile-first, allowing users to access their healthcare anytime, anywhere.'
           }
         ]
@@ -83,7 +83,7 @@ export const caseStudies = [
         imgAlt: 'Kaiser Permanente 5',
         copy: [
           {
-            classes: 'casestudy__text typ--h3',
+            classes: 'casestudy__text typ--b1',
             linkText:
             {
               startText: 'Visit Kaiser Permanente’s new home page at ',
@@ -117,7 +117,7 @@ export const caseStudies = [
       {
         copy: [
           {
-            classes: 'casestudy__text typ--h3',
+            classes: 'casestudy__text typ--b1',
             text: 'Norton’s security software is ubiquitous on desktop PCs, but the modern home contains Macs, smartphones, tablets, smart TVs, and other connected devices. We proposed a system that unites all of these connected devices in a single, simple interface.'
           }
         ]
@@ -131,7 +131,7 @@ export const caseStudies = [
         },
         copy: [
           {
-            classes: 'casestudy__text typ--h3',
+            classes: 'casestudy__text typ--b1',
             text: 'Many users are unaware of Norton’s offerings such as Online Family, Backup, and Zone. The new console makes trying and buying products as simple as switching on a new feature. Software is automatically deployed to all devices from the cloud, and billed in a single subscription.'
           }
         ]
@@ -146,7 +146,7 @@ export const caseStudies = [
         imgAlt: 'Norton Online 7',
         copy: [
           {
-            classes: 'casestudy__text typ--h3',
+            classes: 'casestudy__text typ--b1',
             text: 'In the past, each Norton product had its own separate interface, which made it very awkward to use multiple products together. The new solution lets users control and protect all their devices—from any device. For example, Mom can use her smartphone to remotely change Online Family settings for the home PC.'
           }
         ]
@@ -160,7 +160,7 @@ export const caseStudies = [
         },
         copy: [
           {
-            classes: 'casestudy__text typ--h3',
+            classes: 'casestudy__text typ--b1',
             text: 'The look and feel we created was a departure for Norton, whose software has usually employed a dark, “high-tech” look. We wanted the new console to feel light, modern, and approachable. Simple icons, ample whitespace, and bright splashes of color make a powerful product feel easy to use.'
           }
         ]
@@ -174,7 +174,7 @@ export const caseStudies = [
         },
         copy: [
           {
-            classes: 'casestudy__text typ--h3',
+            classes: 'casestudy__text typ--b1',
             text: 'This work, which included both web and native apps, was considered the most ambitious and significant UX initiative on the company’s roadmap.'
           }
         ]
@@ -207,7 +207,7 @@ export const caseStudies = [
         },
         copy: [
           {
-            classes: 'casestudy__text typ--h3',
+            classes: 'casestudy__text typ--b1',
             text: 'Instead of focusing on specs, we built the site around a set of rich, interactive “moments,” which show features in action. For example, to demonstrate the new HDR camera we let users take photos under backlit conditions using a virtual Nexus phone.'
           }
         ]
@@ -222,7 +222,7 @@ export const caseStudies = [
         imgAlt: 'Google Nexus 2',
         copy: [
           {
-            classes: 'casestudy__text typ--h3',
+            classes: 'casestudy__text typ--b1',
             text: 'For diehard Nexus fans, it’s what’s under the hood that matters most. Inspired by “teardowns” that are popular on tech blogs, we created an interactive 3D model that allows these customers to virtually deconstruct the phone component by component.'
           }
         ]
@@ -238,7 +238,7 @@ export const caseStudies = [
         classes: 'mb10',
         copy: [
           {
-            classes: 'casestudy__text typ--h3',
+            classes: 'casestudy__text typ--b1',
             text: 'Google wanted the site to be transactional as well as inspirational. So we streamlined the shopping flows to reduce friction to a minimum, and maximize conversion.'
           }
         ]
@@ -254,7 +254,7 @@ export const caseStudies = [
         classes: 'mt5',
         copy: [
           {
-            classes: 'casestudy__text typ--h3',
+            classes: 'casestudy__text typ--b1',
             text: 'We love working with Google because they aim high. The Nexus site broke new ground for how to showcase hardware products online.'
           }
         ]
@@ -287,7 +287,7 @@ export const caseStudies = [
         },
         copy: [
           {
-            classes: 'casestudy__text typ--h3',
+            classes: 'casestudy__text typ--b1',
             text: 'By observing home chefs, we discovered that flipping between ingredients and directions (as most apps require) can be very frustrating while cooking with a phone. So, we remixed the traditional recipe format with a design that shows ingredients and steps side-by-side.'
           }
         ]
@@ -302,7 +302,7 @@ export const caseStudies = [
         imgAlt: 'Yumavore 2',
         copy: [
           {
-            classes: 'casestudy__text typ--h3',
+            classes: 'casestudy__text typ--b1',
             text: 'Yumavore is more than a cooking app; it is a publishing tool that enables chefs to create beautiful recipes with photos, video, smart ingredients lists, timers, and more. Text and graphics can be edited and organized with tap-and-drag simplicity.'
           }
         ]
@@ -317,7 +317,7 @@ export const caseStudies = [
         imgAlt: 'Yumavore 8',
         copy: [
           {
-            classes: 'casestudy__text typ--h3',
+            classes: 'casestudy__text typ--b1',
             text: 'Like other apps, Yumavore can combine recipes to build smart shopping lists. But unlike other apps, Yumavore’s list can be organized by grocery aisle, so shoppers spend less time criss-crossing the supermarket.'
           }
         ]
@@ -332,7 +332,7 @@ export const caseStudies = [
         imgAlt: 'Yumavore 4',
         copy: [
           {
-            classes: 'casestudy__text typ--h3',
+            classes: 'casestudy__text typ--b1',
             text: 'We also created Yumavore’s visual identity, which features an elegant logo, sophisticated typefaces, and a palette of black, white, and coral. The simplicity of this visual system allows food photography to take center stage.'
           }
         ]
@@ -349,11 +349,11 @@ export const caseStudies = [
         containerClass: 'typ--center',
         copy: [{
           src: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/Yumavore/yumavore6.jpg',
-          classes: 'casestudy__text typ--h3',
+          classes: 'casestudy__text typ--b1',
           text: 'Yumavore is available in the app store, featuring user-created content from thousands of professional and home chefs.'
         },
         {
-          classes: 'btn btn--ghost mt5 typ--yumavore',
+          classes: 'btn btn--ghost mt5 typ--yumavore typ--button',
           text: 'download the app',
           url: 'https://itunes.apple.com/us/app/yumavore/id1043281685?mt=8'
         }]
@@ -385,7 +385,7 @@ export const caseStudies = [
         },
         copy: [
           {
-            classes: 'casestudy__text typ--h3',
+            classes: 'casestudy__text typ--b1',
             text: 'SF’s secret swimming spots. Best breakfast cocktails. Cover songs that blow away the original. Five is an app that lets you curate your favorite things in a simple, addictive format: the top five list.'
           }
         ]
@@ -400,7 +400,7 @@ export const caseStudies = [
         imgAlt: 'Five 2',
         copy: [
           {
-            classes: 'casestudy__text typ--h3',
+            classes: 'casestudy__text typ--b1',
             text: 'To keep the focus on the content, we designed a minimal interface that relies on gestures and animation instead of bars and buttons. When users swipe up to open a five, a signature animation creates a dramatic reveal.'
           }
         ]
@@ -414,7 +414,7 @@ export const caseStudies = [
         },
         copy: [
           {
-            classes: 'casestudy__text typ--h3',
+            classes: 'casestudy__text typ--b1',
             text: 'The first version of Five included a drafts feature for saving incomplete lists, but most users never got around to finishing them. So we eliminated the drafts, and allowed other users to fill in the unfinished lists. Losing the feature solved the problem—and made the app much more engaging in the process.'
           }
         ]
@@ -437,11 +437,11 @@ export const caseStudies = [
         containerClass: 'typ--center',
         copy: [{
           src: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/Five/five5.jpg',
-          classes: 'casestudy__text typ--h3',
+          classes: 'casestudy__text typ--b1',
           text: 'Be one of the first to try out the new app. It just might become one of your top five favorites!'
         },
         {
-          classes: 'btn btn--ghost mt5 typ--five',
+          classes: 'btn btn--ghost typ-button mt5 typ--five',
           text: 'download the app',
           url: 'https://itunes.apple.com/us/app/five-share-and-compare-your-top-five-of-anything/id1160849650?mt=8'
         }]
@@ -678,7 +678,7 @@ export const caseStudies = [
         },
         copy: [
           {
-            classes: 'casestudy__text typ--h3',
+            classes: 'casestudy__text typ--b1',
             text: 'Vlocity products serve a range of clients and user types. Our task was to codify a design system that works across verticals, allowing both consumers and salespeople to select, configure, and manage multiple products in a nonlinear way.'
           }
         ]
@@ -693,7 +693,7 @@ export const caseStudies = [
         imgAlt: 'Vlocity 1',
         copy: [
           {
-            classes: 'casestudy__text typ--h3',
+            classes: 'casestudy__text typ--b1',
             text: 'The designs need to accommodate multiple layers of configuration per product. Also, users need to be able to access Vlocity’s proprietary scripts (used to update customer data and modify contracts) in a contextually relevant way. '
           }
         ]
@@ -708,7 +708,7 @@ export const caseStudies = [
         imgAlt: 'Vlocity 2',
         copy: [
           {
-            classes: 'casestudy__text typ--h3',
+            classes: 'casestudy__text typ--b1',
             text: 'Our team created a card-based design system used across all Vlocity products. By bundling together related information, cards actionable and easy to scan. Their size and shape make them flexible enough to work across products, industries, and devices.'
           }
         ]
@@ -723,7 +723,7 @@ export const caseStudies = [
         imgAlt: 'Vlocity 3',
         copy: [
           {
-            classes: 'casestudy__text typ--h3',
+            classes: 'casestudy__text typ--b1',
             text: 'The Vlocity design system distills hundreds of decisions and informs new work. Every new engagement presents an opportunity to stress test and improve upon the patterns our team has created.'
           }
         ]

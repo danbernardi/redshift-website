@@ -53,6 +53,7 @@
   @include breakpoint($tablet-lg) {
     margin-left: 3rem;
     margin-right: 3rem;
+    width: calc(100% - 6rem);
   }
 
   @include breakpoint($tablet-sm) {
@@ -70,7 +71,7 @@
       bottom: 15rem;
     }
     @include breakpoint($mobile-sm) {
-      bottom: 12rem;
+      bottom: 14rem;
     }
     @include breakpoint($mobile-xxsm) {
       bottom: 9rem;
@@ -78,20 +79,6 @@
     @media only screen and (max-height: 400px) {
       bottom: 11rem;
     }
-  }
-}
-
-.scene__cta h2 {
-  // media queries
-  @include breakpoint($mobile-lg) {
-    font-size: 2.4rem;
-  }
-}
-
-.scent__cta .scene__link {
-  // media queries
-  @include breakpoint($mobile-lg) {
-    font-size: 1.4rem;
   }
 }
 
@@ -144,7 +131,6 @@
   color: $white;
   margin: 4rem 0 6rem;
   padding-bottom: 1.5rem;
-  width: 12.1rem;
   display: inline-block;
   white-space: nowrap;
   position: absolute;
@@ -164,6 +150,9 @@
     display: block;
     width: 5rem;
     transition: width 0.2s ease-in-out;
+    @include breakpoint($mobile-lg) {
+      width: 3rem;
+    }
   }
 
   // disable hover below mobile
@@ -227,6 +216,13 @@
       width: 112%;
       top: 46.5%;
     }
+
+    @include breakpoint($mobile-lg) {
+      right: -13rem;
+      width: 150%;
+      top: 34.5%;
+    }
+
     @media (max-width: 767px) and (orientation: landscape) {
       width: 95%;
       right: -9.1rem;

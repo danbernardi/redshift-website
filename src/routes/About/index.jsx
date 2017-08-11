@@ -1,7 +1,5 @@
 import React from 'react';
 import AboutSlider from './AboutSlider';
-
-import AboutHybrid from './AboutHybrid';
 import AboutExplore from './AboutExplore';
 import AboutClients from './AboutClients';
 import AboutTeam from './AboutTeam';
@@ -58,7 +56,6 @@ export class About extends React.Component {
     return (
       <div className="scroller" style={ { width: modalState.windowWidth, height: modalState.windowHeight } }>
         <AboutSlider />
-        <AboutHybrid />
         <AboutExplore />
         <AboutClients data={ clientData } />
         <AboutTeam team={ teamInfo } />

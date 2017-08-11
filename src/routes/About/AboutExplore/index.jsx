@@ -47,28 +47,31 @@ export class AboutExplore extends React.Component {
       <section>
         { breakpointIsGreaterThan('tabletLg', breakpoint.size)
           ? <div className="about__wrapper hero layout--landscape">
-            <h1 className="typ--bold typ--redshift row">How we work.</h1>
+            <h2 className="row">How we work.</h2>
             { this.animationItems.map((i, ind) => (
               <div className="about--work__container" key={ ind }>
                 <div className="row col-12">
                   <h1 className={ `${i.colorClass} typ--bold mb2` }>
                     { i.title }
                   </h1>
-                  <h3 className={ `about--explore-text ${ setClass({ default: 'col-9', desktopSm: 'col-12' }, breakpoint)}` }>{ i.text }</h3>
+                  <div className={ `about--explore-text typ--b2 ${ setClass({ default: 'col-9', desktopSm: 'col-12' }, breakpoint)}` }>{ i.text }</div>
                 </div>
               </div>
             ))}
           </div>
           : <div className="about__wrapper row">
-            <h1 className="typ--bold typ--redshift">How we work.</h1>
+            <h2 className="pb2">How we work.</h2>
+            <div className="typ--b1">
+              We believe the best products are created by hybrid teams. Designers, researchers, and developers work shoulder-to-shoulder in our studio to create experiences that are beautiful and grounded in real user needs.
+            </div>
             { this.animationItems.map((item, ti) => (
-              <div key={ ti } className={ setClass({ default: 'mt6', mobileLg: 'mt4' }, breakpoint) }>
-                <h2
+              <div key={ ti } className="mt6">
+                <h3
                   className={ `typ--bold pb1 ${ item.colorClass }` }
                 >
                   { item.title }
-                </h2>
-                <h3>{ item.text }</h3>
+                </h3>
+                <div className="typ--b2">{ item.text }</div>
               </div>
             )) }
           </div>
