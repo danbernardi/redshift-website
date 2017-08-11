@@ -23,7 +23,7 @@ export class CaseStudyScroller extends React.Component {
     const timing = setTimeout(() => {
       dispatch(setActiveModal(null, null));
       clearInterval(timing);
-    }, 200);
+    }, 300);
   };
 
   render () {
