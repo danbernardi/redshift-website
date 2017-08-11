@@ -27,7 +27,7 @@ export function Footer (props) {
           }
           <Link className="typ--b2" to="mailto:hello@redshiftdigital.com">hello@redshiftdigital.com<br /></Link>
           { breakpointIsGreaterThan('mobileLg', breakpoint.size) &&
-            <Link to="tel:4153711500">415 371 1500</Link>
+            <Link to="tel:4153711500" className="typ--b2">415 371 1500</Link>
           }
         </div>
       </div>
