@@ -29,11 +29,6 @@
       margin-top: -4rem;
     }
   }
-  @media only screen and (max-height: 380px) {
-    .typ--h1 {
-      font-size: 3.6rem;
-    }
-  }
 
   > .row {
     height: 100%;
@@ -45,10 +40,6 @@
       justify-content: flex-start;
     }
   }
-}
-
-_::-webkit-full-page-media, _:future, :root .nav__menu h1 {
-  outline: solid 1px $white;
 }
 
 .nav .footer {
