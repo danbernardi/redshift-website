@@ -15,6 +15,9 @@ a {
 .theme--dark .btn,
 .theme--dark .social-icons [class^='icon-'] {
   color: $white;
+}
+
+.nav.theme--dark {
   &:hover {
     color: $black;
   }
