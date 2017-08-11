@@ -123,12 +123,6 @@
       padding: 1.5rem;
     }
   }
-
-  h3 {
-    @include breakpoint($desktop-sm) {
-      font-size: 2.8rem;
-    }
-  }
 }
 
 .archive__arrow {
