@@ -72,7 +72,7 @@ class AboutSlides extends React.Component {
         </div>
         <div className="row about--header" >
           <div className="row about--title">
-            <h1 className="typ--redshift pb2">About Redshift.</h1>
+            <h1 className="rs--gradienttext">About Redshift.</h1>
             <div className="pb2 typ--b1">
               We are an award-winning agency dedicated to creating simple, meaningful experiences for users and positive results for our clients.
             </div>

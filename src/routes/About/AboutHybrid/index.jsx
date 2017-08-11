@@ -1,6 +1,8 @@
 import React from 'react';
 import GSAP from 'react-gsap-enhancer';
 import { TimelineLite, TweenMax, Power2, Power3 } from 'gsap';
+import { connect } from 'react-redux';
+import { breakpointIsGreaterThan } from 'utils/responsiveHelpers';
 import MorphSVGPlugin from 'vendor/gsap-plugins/MorphSVGPlugin';
 import CustomEase from 'vendor/gsap-plugins/CustomEase';
 import Watcher from 'components/Watcher';
@@ -91,7 +93,7 @@ export class AboutHybrid extends React.Component {
   };
 
   render () {
-    const { scrollContainer } = this.props;
+    const { scrollContainer, breakpoint } = this.props;
 
     return (
       <section className="hero layout--relative layout--landscape" style={ { overflow: 'hidden' } }>
@@ -104,7 +106,11 @@ export class AboutHybrid extends React.Component {
         />
 
         <div className="about__hybrid--container">
-          <svg viewBox="0 0 1390 818" preserveAspectRatio="xMaxYMax meet" className="about__hybrid--circle">
+          <svg
+            viewBox={ `${ breakpointIsGreaterThan('tabletLg', breakpoint.size) ? 0 : 450 } 0 1390 818` }
+            preserveAspectRatio="xMaxYMax meet"
+            className="about__hybrid--circle"
+          >
             <g id="Hybrid" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
               <path
                 id="hybridPath1"
@@ -130,10 +136,9 @@ export class AboutHybrid extends React.Component {
           </svg>
           <div className="row about__hybrid--header">
             <div className="about__hybrid--header__text">
-              <h1 className="typ--bold typ--redshift pb2">Hybrid teams.</h1>
+              <h2 className="pb2">How we work.</h2>
               <div className="typ--b1">
-                We believe the best products are created by hybrid teams. Designers, researchers,
-                and developers working shoulder-to-shoulder in our studio to create experiences that are beautiful and grounded in real user needs.
+                We believe the best products are created by hybrid teams. Designers, researchers, and developers work shoulder-to-shoulder in our studio to create experiences that are beautiful and grounded in real user needs.
               </div>
             </div>
           </div>
@@ -144,7 +149,12 @@ export class AboutHybrid extends React.Component {
 }
 
 AboutHybrid.propTypes = {
-  scrollContainer: PropTypes.object
+  scrollContainer: PropTypes.object,
+  breakpoint: PropTypes.object
 };
 
-export default GSAP()(AboutHybrid);
+const mapStateToProps = state => ({
+  breakpoint: state.breakpoint
+});
+
+export default connect(mapStateToProps)(GSAP()(AboutHybrid));

@@ -12,6 +12,7 @@ import PropTypes from 'prop-types';
 import BioModal from './AboutTeam/BioModal';
 import { connect } from 'react-redux';
 import { ScrollContainer } from 'scrollmonitor-react';
+import { breakpointIsGreaterThan } from 'utils/responsiveHelpers';
 
 import './style.scss';
 
@@ -53,12 +54,14 @@ export class About extends React.Component {
   }
 
   render () {
-    const { modalState, scrollContainer } = this.props;
+    const { modalState, scrollContainer, breakpoint } = this.props;
 
     return (
       <div className="scroller" style={ { width: modalState.windowWidth, height: modalState.windowHeight } }>
         <AboutSlider />
-        {/* <AboutHybrid scrollContainer={ scrollContainer } /> */}
+        { breakpointIsGreaterThan('mobileLg', breakpoint.size) &&
+          <AboutHybrid scrollContainer={ scrollContainer } />
+        }
         <AboutExplore />
         <AboutClients data={ clientData } />
         <AboutTeam team={ teamInfo } />
@@ -72,10 +75,12 @@ About.propTypes = {
   dispatch: PropTypes.func,
   params: PropTypes.object,
   modalState: PropTypes.object,
-  scrollContainer: PropTypes.object
+  scrollContainer: PropTypes.object,
+  breakpoint: PropTypes.object
 };
 
 const mapStateToProps = state => ({
+  breakpoint: state.breakpoint,
   modalState: state.modalState
 });
 

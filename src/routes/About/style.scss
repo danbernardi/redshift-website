@@ -14,11 +14,18 @@
 
 .about--title {
   background-color: white;
-  padding-top: 5rem;
-  padding-bottom: 5rem;
-  width: 50%;
+  padding-top: 7rem;
+  padding-bottom: 4rem;
+  width: 63%;
   position: absolute;
-  bottom: -8rem;
+  bottom: 0;
+  h1 {
+    padding-bottom: 5rem;
+    // media queries
+    @include breakpoint($mobile-lg) {
+      padding-top: 2rem;
+    }
+  }
   // media queries
   @include breakpoint($desktop-lg) {
     width: 65%
@@ -33,6 +40,6 @@
   }
 
   @include breakpoint($mobile-lg) {
-    padding-top: 1rem;
+    padding-top: 2.8rem;
   }
 }
