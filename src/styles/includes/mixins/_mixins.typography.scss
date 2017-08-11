@@ -48,8 +48,8 @@
   @if $type == 'h3' {
     @include font(bold);
     font-size: 3.6rem;
-    letter-spacing: -0.2rem;
-    line-height: normal;
+    letter-spacing: normal;
+    line-height: 1.375;
     // media queries
     @include breakpoint($tablet-lg) {
       font-size: 3rem;

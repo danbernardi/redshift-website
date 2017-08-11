@@ -6,45 +6,43 @@ export function JobDescription ({ jobDetail }) {
   return (
     <RoleTemplate name={ jobDetail.position }>
       <section id={ jobDetail.id } className="job-description--container row">
-        <h4 className="typ--light modal__title">{ jobDetail.header }</h4>
-        <h1 className="job-description__subtitle">{ jobDetail.position }</h1>
-        <h3 className="job-description typ--light">{ jobDetail.description }</h3>
-
-        { jobDetail.responsibilities &&
-          <div>
-            <h2 className="job-description__subtitle">Responsibilities</h2>
-            <ul className="job-description pb3 list--block">
-              { jobDetail.responsibilities.map((jobResponsibility, index) => (
-                <li key={ index }>
-                  { jobResponsibility }
-                </li>
-              )) }
-            </ul>
-          </div>
+        <h4 className="typ--light modal__title typ--b2">{ jobDetail.header }</h4>
+        <h1 className="job-description__title rs--gradienttext">{ jobDetail.position }</h1>
+        <div className="job-description typ--b1">{ jobDetail.description }</div>
+        <hr />
+        {jobDetail.responsibilities &&
+        <div>
+          <h3 className="job-description__subtitle">Responsibilities</h3>
+          <ul className="job-list pb3">
+            { jobDetail.responsibilities.map((jobResponsibility, index) => (
+              <li key={ index } className="typ--b2">
+                <span>{ jobResponsibility }</span>
+              </li>))
+            }
+          </ul>
+        </div>
         }
-
-        { jobDetail.skills &&
+        {jobDetail.skills &&
           <div>
-            <h2 className="job-description__subtitle">Candidates must have:</h2>
-            <ul className="job-description pb3 list--block">
+            <h3 className="job-description__subtitle">Candidates must have:</h3>
+            <ul className="job-list pb3">
               { jobDetail.skills.map((jobSkill, index) => (
-                <li key={ index }>
-                  { jobSkill }
-                </li>
-              )) }
+                <li key={ index } className="typ--b2">
+                  <span>{ jobSkill }</span>
+                </li>))
+              }
             </ul>
           </div>
         }
-
-        { jobDetail.plusses &&
+        {jobDetail.plusses &&
           <div>
-            <h2 className="job-description__subtitle">...Plus at least 2-3 of these:</h2>
-            <ul className="job-description pb3 list--block">
+            <h3 className="job-description__subtitle">Plus at least 2-3 of these:</h3>
+            <ul className="job-list pb3">
               { jobDetail.plusses.map((jobPlus, index) => (
-                <li key={ index }>
-                  { jobPlus }
-                </li>
-              )) }
+                <li key={ index } className="typ--b2">
+                  <span>{ jobPlus }</span>
+                </li>))
+              }
             </ul>
           </div>
         }

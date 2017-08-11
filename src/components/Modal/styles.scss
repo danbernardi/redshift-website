@@ -2,7 +2,7 @@
 
 .modal__title {
   color: $black;
-  padding-top: 5.3rem;
+  padding-top: 4.2rem;
   //media queries
   @include breakpoint($mobile-lg) {
     padding-top: 3.3rem;
@@ -41,7 +41,7 @@
   // media queries
   @include breakpoint($mobile-lg) {
     width: calc(100% - 1rem);
-    margin-left: 1rem; 
+    margin-left: 1rem;
   }
 }
 
