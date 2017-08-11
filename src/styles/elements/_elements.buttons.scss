@@ -12,9 +12,39 @@
   
   @include breakpoint($tablet-lg, min-width) {
     &:hover {
-      background-color: $redshift;
+      background-color: $body;
       color: $white;
+      border-color: $body;
+    }
+  }
+}
+
+.btn--ghost.typ--redshift {
+  border-color: $redshift;
+  @include breakpoint($tablet-lg, min-width) {
+    &:hover {
+      background-color: $redshift;
       border-color: $redshift;
+    }
+  }
+}
+
+.btn--ghost.typ--yumavore {
+  border-color: $yumavore;
+  @include breakpoint($tablet-lg, min-width) {
+    &:hover {
+      background-color: $yumavore;
+      border-color: $yumavore;
+    }
+  }
+}
+
+.btn--ghost.typ--five {
+  border-color: $five;
+  @include breakpoint($tablet-lg, min-width) {
+    &:hover {
+      background-color: $five;
+      border-color: $five;
     }
   }
 }
