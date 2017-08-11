@@ -6,15 +6,15 @@ export function CareersJobs (props) {
   const { job } = props;
 
   const frontPage = job.frontpage.map((paragraph, index) =>
-    <p className="typ--h4 pt3" key={ index }>{ paragraph }</p>
+    <p className="typ--b2 pt3" key={ index }>{ paragraph }</p>
   );
 
   return (
     <section className={ `${job.id} career-section` }>
-      <h2 className="typ--bold">{ job.position }</h2>
+      <h3>{ job.position }</h3>
       { frontPage }
-      <div className="pt3">
-        <Link data-animationName="cta-link" className="job__link typ--bold typ--h6" to={ `/careers/${job.id}` } >
+      <div className="pt4">
+        <Link data-animationName="cta-link" className="job__link typ--button" to={ `/careers/${job.id}` } >
           View position
         </Link>
       </div>

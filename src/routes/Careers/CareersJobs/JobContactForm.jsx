@@ -25,11 +25,11 @@ export class JobContactForm extends React.Component {
       : {};
 
     return (
-      <div className={ `${form.classes} ${setClass({ default: 'col-6', tabletMd: 'col-12' }, breakpoint)}` }>
+      <div className={ `typ--b1 ${form.classes} ${setClass({ default: 'col-6', tabletMd: 'col-12' }, breakpoint)}` }>
         <div className={ `form__group ${form.formClass}` }>
           {
             form.type === 'file'
-              ? <label htmlFor="file-input" name="attachment" >Attachments <img src={ AttachmentImage } alt="Add a file attachment" /></label>
+              ? <label htmlFor="file-input" name="attachment" >Attach resume <img src={ AttachmentImage } alt="Add a file attachment" /></label>
               : null
           }
           <input
@@ -37,7 +37,7 @@ export class JobContactForm extends React.Component {
             placeholder={ form.description }
             name={ form.name }
             value={ form.value }
-            className={ form.required ? 'required' : null }
+            className={ `typ--b1 typ--light ${form.required ? 'required' : null }` }
             { ...additionalProps }
             onChange={ form.type === 'file' ? this._changeHandler.bind(this) : null }
           />

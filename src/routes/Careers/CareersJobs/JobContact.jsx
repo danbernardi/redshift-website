@@ -25,7 +25,7 @@ const formItems = [
     classes: '',
     formClass: 'form__portfolio',
     type: 'text',
-    description: 'Link to Portfolio',
+    description: 'Link to portfolio',
     name: 'from_portfolio',
     required: true
   },
@@ -41,7 +41,7 @@ const formItems = [
 export class JobContact extends React.Component {
   constructor (props) {
     super(props);
-    this.state = { buttonText: 'Send' };
+    this.state = { buttonText: 'Submit' };
   }
 
   render () {
@@ -85,7 +85,7 @@ export class JobContact extends React.Component {
             <div className="col-12 job-contact--button">
               <button
                 ref={ el => { this.button = el; } }
-                className="btn btn--ghost typ--jobs"
+                className="btn btn--ghost typ--jobs typ--button"
                 onClick={ e => { onSend(e); } }
               >
                 { buttonText }
