@@ -31,6 +31,9 @@
   overflow: visible;
   // media queries
   @include breakpoint($tablet-lg) {
+    width: calc(150% - 4rem);
+  }
+  @include breakpoint($mobile-lg) {
     display: none;
   }
 }
