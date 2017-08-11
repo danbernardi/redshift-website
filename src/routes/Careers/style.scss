@@ -55,14 +55,14 @@
     height: 0.2rem;
     background: $redshift;
     display: block;
-    width: 5rem;
+    width: 6rem;
     transition: width 0.2s ease-in-out;
   }
 
   // disable hover below mobile
   @include breakpoint($tablet-lg, min-width) {
     &:hover:after {
-      width: 12.5rem;
+      width: 17rem;
     }
   }
 }
