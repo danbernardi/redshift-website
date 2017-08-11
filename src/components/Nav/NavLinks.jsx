@@ -24,21 +24,16 @@ class NavLinks extends React.Component {
   }
 
   render () {
-    const { links, activeURL } = this.props;
+    const { links } = this.props;
     return (
       <ul className="nav__menu">
         {
           links.map((navLink, i) => (
             <li key={ i }>
               { navLink.to &&
-                <div>
-                  { navLink.to === activeURL
-                    ? <div className="typ--menu typ--bold typ--black typ--not__link">{ navLink.name }</div>
-                    : <Link to={ navLink.to } className="typ--menu typ--bold" onClick={ () => this.routingHandler() }>
-                      { navLink.name }
-                    </Link>
-                  }
-                </div>
+                <Link to={ navLink.to } className="typ--menu typ--bold" onClick={ () => this.routingHandler() }>
+                  { navLink.name }
+                </Link>
               }
 
               { navLink.outgoing &&
@@ -52,7 +47,6 @@ class NavLinks extends React.Component {
   }
 }
 NavLinks.propTypes = {
-  activeURL: PropTypes.string,
   dispatch: PropTypes.func,
   links: PropTypes.array
 };
