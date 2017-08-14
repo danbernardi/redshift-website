@@ -108,7 +108,7 @@ export class Showcase extends React.Component {
    * Creates event handlers for a resize event.
    */
   onResize () {
-    this.resizeFunc = debounce(this.resizeSubscription.bind(this), 700);
+    this.resizeFunc = debounce(this.resizeSubscription.bind(this), 200);
     window.addEventListener('resize', this.resizeFunc);
   }
 
@@ -137,6 +137,8 @@ export class Showcase extends React.Component {
   resizeSubscription () {
     this.sceneMeta = this.setSceneMeta();
     this.timeline = this.createColorTransitionTimeline(this.wrapper);
+
+    this.goToScene(this.calculateCurrentScene(), false);
   }
 
   /**
