@@ -8,23 +8,13 @@
   z-index: 10;
   width: 100%;
   height: 100%;
-
   // media queries
   @include breakpoint($tablet-lg) {
     // More vertical gradient with more cranberry
     background: linear-gradient(145deg, $redshift, $redshift 30%, $cranberry);
   }
 
-  @media only screen and (max-height: 550px) {
-    padding-top: 8rem;
-  }
   @media only screen and (max-height: 470px) {
-    .footer .social-icons {
-      position: absolute;
-      right: 4rem;
-      bottom: 12rem;
-    }
-
     .nav__menu {
       margin-top: -4rem;
     }
