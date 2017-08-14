@@ -28,7 +28,7 @@ export class CaseStudyScroller extends React.Component {
   }
 
   animateTriggerIn () {
-    TweenLite.to(this.trigger, 0.6, { opacity: 1 });
+    TweenLite.to(this.trigger, 0.6, { opacity: 0.3 });
   }
 
   animateTriggerOut () {
