@@ -27,16 +27,17 @@ export class CaseStudyScroller extends React.Component {
     }, 300);
   }
 
+  animateTriggerIn () {
+    TweenLite.to(this.trigger, 0.6, { opacity: 1 });
+  }
+
   animateTriggerOut () {
-    this.trigger.style.animation = 'none';
-    this.trigger.style.animationDelay = '0s';
-    TweenLite.fromTo(this.trigger, 0.6, { bottom: '2rem', opacity: 0.3 }, { opacity: 0 });
+    TweenLite.to(this.trigger, 0.6, { opacity: 0 });
   }
 
   watcherCallback (watcher) {
-    if (watcher.isAboveViewport) {
-      this.animateTriggerOut();
-    }
+    if (watcher.isFullyInViewport) this.animateTriggerIn();
+    if (watcher.isAboveViewport) this.animateTriggerOut();
   };
 
   render () {
