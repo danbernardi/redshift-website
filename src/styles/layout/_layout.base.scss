@@ -26,6 +26,10 @@
   position: absolute;
 }
 
+.layout--fixed {
+  position: fixed;
+}
+
 .layout--fullheight {
   height: 100vh;
   @media screen and (max-device-width: 767px) and (orientation : portrait) {
