@@ -89,7 +89,7 @@ export class AboutHybrid extends React.Component {
   }
 
   watcherCallback (watcher) {
-    if (watcher.isAboveViewport) { this.timeline.play(); }
+    if (watcher.isInViewport) { this.timeline.play(); }
   };
 
   render () {
@@ -98,7 +98,7 @@ export class AboutHybrid extends React.Component {
     return (
       <section className="hero layout--relative layout--landscape" style={ { overflow: 'hidden' } }>
         <Watcher
-          offset={ { top: '-50rem', position: 'relative' } }
+          offset={ { top: '50rem', position: 'relative' } }
           autoStart={ false }
           stateChange={ this.watcherCallback.bind(this) }
           enterViewport={ this.watcherCallback.bind(this) }
