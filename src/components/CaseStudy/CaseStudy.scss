@@ -100,10 +100,13 @@
   animation-delay: 1.2s;
   width: 3.2rem;
   cursor: pointer;
-   //media queries
+  //media queries
   @include breakpoint($mobile-lg) {
-    bottom: 0;
+    bottom: 2rem;
   }
+  @media only screen and (max-height: 600px), only screen and (max-width: 380px) {
+    display: none;
+  } 
 }
 
 @keyframes pulse {
@@ -203,55 +206,16 @@
   @include breakpoint($mobile-sm) {
     height: calc(100vh - 8.9rem);
   }
-  @media only screen and (max-height: 430px) {
+  @media only screen and (max-height: 600px), only screen and (max-width: 380px) {
     height: auto;
   }
 
   .casestudy__title {
-    font-size: 6rem;
     //media queries
-    @media only screen and (max-height: 430px) {
+    @media only screen and (max-height: 600px), only screen and (max-width: 380px) {
       top: 0;
       transform: none;
-      padding: 3rem 0 12rem;
-    }
-
-    @include breakpoint(750px, max-height) {
-      font-size: 5.2rem;
-    }
-
-    @include breakpoint(600px, max-height) {
-      font-size: 4.2rem;
-    }
-
-    @include breakpoint($desktop-sm) {
-      font-size: 6rem;
-      @include breakpoint(1000px, max-height) {
-        font-size: 5.2rem;
-      }
-      @include breakpoint(750px, max-height) {
-        font-size: 4.2rem;
-      }
-    }
-
-    @include breakpoint($tablet-lg) {
-      font-size: 5.2rem;
-      @include breakpoint(1000px, max-height) {
-        font-size: 4.2rem;
-      }
-      @include breakpoint(750px, max-height) {
-        font-size: 3.5rem;
-      }
-    }
-    @include breakpoint($mobile-lg) {
-      font-size: 4.2rem;
-      margin-top: -2rem;
-    }
-    @include breakpoint($mobile-sm) {
-      font-size: 2.8rem;
-    }
-    @include breakpoint($mobile-xxsm) {
-      font-size: 2.4rem;
+      padding: 3rem 0 4rem;
     }
   }
 }
