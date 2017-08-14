@@ -89,7 +89,7 @@ export class CaseStudyScroller extends React.Component {
                 <span
                   className="casestudy__next__label typ--light typ--b2"
                   style={ { overflow: 'hidden', display: 'block' } }
-                >{ nextCaseStudy.subtext ? nextCaseStudy.subtext : 'View next case study' }</span>
+                >{ nextCaseStudy.subtext ? nextCaseStudy.subtext : 'View next project' }</span>
                 <h2
                   className="casestudy__next__name typ--bold"
                   style={ { color: nextCaseStudy.color } }
