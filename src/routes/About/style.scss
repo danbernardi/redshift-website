@@ -6,10 +6,6 @@
   animation-duration: 1s;
   animation-name: slidein;
   left: 0;
-  @media screen and (max-device-width: 1040px) and (orientation : landscape) {
-    width: 50%;
-    margin-left: 0;
-  }
 }
 
 .about--title {
@@ -34,7 +30,7 @@
   @include breakpoint($tablet-lg) {
     position: relative;
     bottom: 0;
-    padding-top: 2rem;
+    padding-top: 5.4rem;
     padding-bottom: 2rem;
     width: 100%;
   }
