@@ -8,6 +8,7 @@ import GSAP from 'react-gsap-enhancer';
 import { connect } from 'react-redux';
 import { TweenLite } from 'gsap';
 import { toggleModal, setActiveModal } from 'store/actions';
+import Watcher from 'components/Watcher';
 
 export class CaseStudyScroller extends React.Component {
 
@@ -24,6 +25,19 @@ export class CaseStudyScroller extends React.Component {
       dispatch(setActiveModal(null, null));
       clearInterval(timing);
     }, 300);
+  }
+
+  animateTriggerIn () {
+    TweenLite.to(this.trigger, 0.6, { opacity: 1 });
+  }
+
+  animateTriggerOut () {
+    TweenLite.to(this.trigger, 0.6, { opacity: 0 });
+  }
+
+  watcherCallback (watcher) {
+    if (watcher.isFullyInViewport) this.animateTriggerIn();
+    if (watcher.isAboveViewport) this.animateTriggerOut();
   };
 
   render () {
@@ -50,13 +64,24 @@ export class CaseStudyScroller extends React.Component {
             <div className="modal__title typ--light typ--b2" ref={ (el) => { this.name = el; } }>{ caseStudyContent.name }</div>
           </div>
 
+          <Watcher
+            autoStart={ false }
+            stateChange={ this.watcherCallback.bind(this) }
+            enterViewport={ this.watcherCallback.bind(this) }
+            scrollContainer={ scrollContainer }
+          />
+
           <div className="row">
             <div className="casestudy__heading layout--fullheight">
               <CaseStudyHeader
                 content={ caseStudyContent.heading }
                 color={ caseStudyContent.color }
               />
-              <div className="casestudy__scrollarrow" onClick={ () => { this.animateScroll(this.casestudy, window.innerHeight); } }>
+              <div
+                ref={ el => { this.trigger = el; } }
+                className="casestudy__scrollarrow"
+                onClick={ () => { this.animateScroll(this.casestudy, window.innerHeight); } }
+              >
                 <img src={ require('assets/img/scroll-arrow.svg') } alt="Scroll down" />
               </div>
             </div>

@@ -95,88 +95,12 @@
 .casestudy__scrollarrow {
   position: absolute;
   bottom: 8rem;
-  opacity: 0;
-  animation: pulse 6s;
-  animation-delay: 1.2s;
+  opacity: 0.3;
   width: 3.2rem;
   cursor: pointer;
-   //media queries
+  //media queries
   @include breakpoint($mobile-lg) {
     bottom: 0;
-  }
-}
-
-@keyframes pulse {
-  0% {
-    opacity: 0;
-    bottom: 5rem;
-    @include breakpoint($mobile-lg) {
-      bottom: 3rem;
-    }
-  }
-  1.25% { opacity: 0.3; }
-
-  5% {
-    opacity: 0.3;
-    bottom: 2rem;
-    @include breakpoint($mobile-lg) {
-      bottom: 0;
-    }
-  }
-
-  12.5% {
-    opacity: 0.3;
-    bottom: 4rem;
-    @include breakpoint($mobile-lg) {
-      bottom: 2rem;
-    }
-  }
-
-  17.25% {
-    opacity: 0.3;
-    bottom: 2rem;
-    @include breakpoint($mobile-lg) {
-      bottom: 0;
-    }
-  }
-
-  23.75% {
-    opacity: 0.3;
-    bottom: 3rem;
-    @include breakpoint($mobile-lg) {
-      bottom: 1rem;
-    }
-  }
-
-  30% {
-    opacity: 0.3;
-    bottom: 2rem;
-    @include breakpoint($mobile-lg) {
-      bottom: 0;
-    }
-  }
-
-  37.5% {
-    opacity: 0.3;
-    bottom: 4rem;
-    @include breakpoint($mobile-lg) {
-      bottom: 2rem;
-    }
-  }
-
-  45% {
-    opacity: 0.3;
-    bottom: 2rem;
-    @include breakpoint($mobile-lg) {
-      bottom: 0;
-    }
-  }
-
-  99.5% {
-    bottom: 2rem;
-    @include breakpoint($mobile-lg) {
-      bottom: 0;
-    }
   }
 }
 
