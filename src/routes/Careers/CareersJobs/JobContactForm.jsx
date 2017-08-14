@@ -1,5 +1,4 @@
 import React from 'react';
-import AttachmentImage from './attachment.png';
 import { setClass } from 'utils/responsiveHelpers';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -29,7 +28,7 @@ export class JobContactForm extends React.Component {
         <div className={ `form__group ${form.formClass}` }>
           {
             form.type === 'file'
-              ? <label htmlFor="file-input" name="attachment" >Attach resume <img src={ AttachmentImage } alt="Add a file attachment" /></label>
+              ? <label htmlFor="file-input" name="attachment" >Attach resume <img src={ require('assets/img/paperclip.svg') } alt="Add a file attachment" /></label>
               : null
           }
           <input

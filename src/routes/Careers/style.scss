@@ -116,6 +116,7 @@
     list-style-type: disc;
     color: $redshift;
     margin-bottom: 1.5rem;
+
     span {
       color: $black;
     }
@@ -184,6 +185,7 @@
 .form__attach label img {
   float: right;
   cursor: pointer;
+  width: 3.5rem;
   // media queries
   @include breakpoint($mobile-sm) {
     width: 2rem;
