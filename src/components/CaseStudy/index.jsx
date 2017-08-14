@@ -32,7 +32,7 @@ class CaseStudy extends React.Component {
 
     name.style.fontFamily = 'Avenir-Book, sans-serif';
     tl.to(next, duration, { height: window.innerHeight, backgroundColor: '#FFF', ease: Power1.easeInOut }, 'anim');
-    tl.to(name, duration, { fontSize: endFontSize, color: '#222', ease: Power1.easeInOut }, 'anim');
+    tl.to(name, duration, { fontSize: endFontSize, color: '#A3A3A3', ease: Power1.easeInOut }, 'anim');
     tl.to(label, duration, { opacity: 0, height: 0, ease: Power1.easeInOut }, 'anim');
     tl.to(target[0], fadeDuration, { opacity: 0, ease: Power1.easeInOut, onComplete: () => options.unmountComponent() }, `anim+=${duration}`);
 
