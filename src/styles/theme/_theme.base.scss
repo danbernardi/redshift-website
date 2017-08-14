@@ -17,11 +17,10 @@ a {
   color: $white;
 }
 
-.nav.theme--dark {
-  &:hover {
-    color: $black;
-  }
+.nav.theme--dark .footer .social-icons [class^=icon-]:hover {
+  color: $black;
 }
+
 
 .typ--yumavore {
   color: $yumavore;
