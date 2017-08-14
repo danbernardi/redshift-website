@@ -1,6 +1,5 @@
 import React from 'react';
-import { Link, browserHistory } from 'react-router';
-import PinkHover from 'components/PinkHover';
+import { browserHistory } from 'react-router';
 import { setClass } from 'utils/responsiveHelpers';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
