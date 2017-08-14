@@ -236,6 +236,9 @@
     width: 100%;
     top: 74%;
     // media queries
+    @include breakpoint($tablet-lg) {
+      top: 50%;
+    }
     @include breakpoint($tablet-md) {
       width: 112%;
       top: 64%;
