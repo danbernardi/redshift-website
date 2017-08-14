@@ -72,9 +72,19 @@
   position: relative;
   z-index: 9;
   width: 50%;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
   // media queries
-  @include breakpoint($tablet-md) {
-    width: 100%;
+  @include breakpoint($tablet-lg) {
+    position: absolute;
+    top: 0;
+    width: 55%;
+    padding-top: 9rem;
+  padding-bottom: 9rem;
+  }
+
+  @media screen and (max-device-width: 1040px) and (orientation : portrait) {
+    width: calc(100% - 10rem);
   }
 
   @include breakpoint($mobile-lg) {
@@ -108,6 +118,10 @@
     height: 100%;
     width: auto;
     position: absolute;
+    @include breakpoint($tablet-lg) {
+      position: fixed;
+      right: -13rem;
+    }
     @media screen and (max-height: 680px) {
       min-height: 67.5rem;
     }
