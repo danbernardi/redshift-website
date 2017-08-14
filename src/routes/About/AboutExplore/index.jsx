@@ -1,5 +1,5 @@
 import React from 'react';
-import { setClass, breakpointIsLessThan, breakpointIsGreaterThan  } from 'utils/responsiveHelpers';
+import { setClass, breakpointIsLessThan, breakpointIsGreaterThan } from 'utils/responsiveHelpers';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
@@ -51,10 +51,13 @@ export class AboutExplore extends React.Component {
             </div>
           }
           { this.animationItems.map((item, ti) => (
-            <div>
-              <div key={ ti } className={ setClass({ default: 'col-9 py6', mobileLg: 'col-12 py4' }, breakpoint) }>
+            <div key={ ti }>
+              <div className={ setClass({ default: 'col-9 py6', mobileLg: 'col-12 py3' }, breakpoint) }>
                 <h3
-                  className={ `typ--bold pb3 ${ item.colorClass }` }
+                  className={ `
+                    ${ setClass({ default: 'pb3', mobileLg: 'pb2' }, breakpoint) }
+                    ${ item.colorClass }
+                  ` }
                 >
                   { item.title }
                 </h3>
