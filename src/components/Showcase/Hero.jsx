@@ -66,7 +66,7 @@ export class Hero extends React.Component {
   }
 
   render () {
-    const { onDidMount, breakpoint, scrollTrigger } = this.props;
+    const { onDidMount, breakpoint } = this.props;
 
     return (
       <section
@@ -80,7 +80,7 @@ export class Hero extends React.Component {
               We are Redshift.
               <br />
               We create digital products&nbsp;
-             { breakpointIsGreaterThan('mobileLg', breakpoint.size) && <br /> }
+             { breakpointIsGreaterThan('tabletMd', breakpoint.size) && <br /> }
               that people use and remember.
             </span>
           </h1>
