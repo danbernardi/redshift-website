@@ -13,11 +13,20 @@
     // More vertical gradient with more cranberry
     background: linear-gradient(145deg, $redshift, $redshift 30%, $cranberry);
   }
-
-  @media only screen and (max-height: 470px) {
-    .nav__menu {
-      margin-top: -4rem;
+  @include breakpoint($mobile-xxsm) {
+    .nav__menu { margin-top: -12rem; }
+  }
+  @media only screen and (max-height: 550px) {
+    padding-top: 8rem;
+  }
+  @media only screen and (max-height: 470px) and (min-width: 350px) {
+    .footer .social-icons {
+      position: absolute;
+      right: 4rem;
+      bottom: 4rem;
     }
+
+    .nav__menu { margin-top: -4rem; }
   }
 
   > .row {
