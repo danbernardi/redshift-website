@@ -206,3 +206,12 @@ input:-webkit-autofill {
     width: 1rem;
   }
 }
+
+.job-contact--button {
+  button {
+    // media queries
+    @include breakpoint($mobile-lg) {
+      width: 100%;
+    }
+  }
+}
