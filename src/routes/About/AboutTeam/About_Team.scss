@@ -7,7 +7,7 @@
   top: 0;
   bottom: 0;
   position: absolute;
-  width: 100%;
+  min-width: 100vw;
   overflow-y: auto;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
@@ -16,7 +16,13 @@
     width: 100%;
     overflow-y: scroll;
   }
+
+  .modal__close.row a {
+    position: fixed;
+  }
 }
+
+
 
 .about--team {
   margin-top: 14rem;
@@ -69,24 +75,25 @@
 }
 
 .team-member-bio {
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   z-index: 9;
   width: 50%;
-  padding-top: 5rem;
-  padding-bottom: 5rem;
-  // media queries
-  @include breakpoint($tablet-lg) {
-    position: absolute;
-    top: 0;
-    width: 55%;
-    padding-top: 9rem;
+  padding-top: 10rem;
   padding-bottom: 9rem;
-  }
-
+  // media queries
   @media screen and (max-device-width: 1040px) and (orientation : portrait) {
     width: calc(100% - 10rem);
   }
 
+  @include breakpoint($tablet-lg) {
+    padding-top: 9rem
+  }
+
+  @include breakpoint($tablet-md) {
+    width: 100%;
+  }
   @include breakpoint($mobile-lg) {
     transform: none;
     top: 11.6rem;
@@ -98,9 +105,9 @@
 }
 
 .bio--wrap {
-  height: 100%;
   display: flex;
-  align-items: center;
+  flex-direction: row;
+  align-content: flex-start;
   // media queries
   @media screen and (max-height: 680px) {
     align-items: flex-start;
@@ -117,10 +124,10 @@
   img {
     height: 100%;
     width: auto;
-    position: absolute;
-    @include breakpoint($tablet-lg) {
-      position: fixed;
-      right: -13rem;
+    position: fixed;
+    right: 0;
+    @media screen and (max-width: 1300px) {
+      right: -17.7%;
     }
     @media screen and (max-height: 680px) {
       min-height: 67.5rem;
