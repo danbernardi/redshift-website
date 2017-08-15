@@ -16,17 +16,20 @@
     width: 100%;
     overflow-y: scroll;
   }
-
-  .modal__close.row a {
-    position: fixed;
-    // media queries
-    @include breakpoint($mobile-lg) {
-      top: 3.4rem;
-    }
-  }
 }
 
-
+.modal__close.row a {
+  // media queries
+  @include breakpoint($mobile-lg) {
+    position: fixed;
+    top: 2.5rem;
+    right: 4rem;
+    left: auto;
+  }
+  @include breakpoint($mobile-sm) {
+    right: 2rem;
+  }
+}
 
 .about--team {
   margin-top: 14rem;
@@ -38,9 +41,7 @@
   @include breakpoint($mobile-lg) {
     margin-top: 9rem;
   }
-}
 
-.about--team {
   img {
     display: block;
   }
@@ -90,11 +91,9 @@
   @media screen and (max-device-width: 1040px) and (orientation : portrait) {
     width: calc(100% - 10rem);
   }
-
   @include breakpoint($tablet-lg) {
-    padding-top: 9rem
+    padding-top: 9rem;
   }
-
   @include breakpoint($tablet-md) {
     width: 100%;
   }
@@ -103,7 +102,8 @@
     top: 11.6rem;
   }
 
-  h2, h3 {
+  h2,
+  h3 {
     text-transform: lowercase;
   }
 }
@@ -125,6 +125,7 @@
 .bio--wrap__img {
   height: 100%;
   text-align: center;
+
   img {
     height: 100%;
     width: auto;
