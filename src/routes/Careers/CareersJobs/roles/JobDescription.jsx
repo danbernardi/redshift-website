@@ -6,14 +6,14 @@ export function JobDescription ({ jobDetail }) {
   return (
     <RoleTemplate name={ jobDetail.position }>
       <section id={ jobDetail.id } className="job-description--container row">
-        <h4 className="typ--light modal__title typ--b2">{ jobDetail.header }</h4>
+        <div className="typ--light modal__title typ--b2">{ jobDetail.header }</div>
         <h1 className="job-description__title rs--gradienttext">{ jobDetail.position }</h1>
         <div className="job-description typ--b1">{ jobDetail.description }</div>
         <hr />
         {jobDetail.responsibilities &&
         <div>
           <h3 className="job-description__subtitle">Responsibilities</h3>
-          <ul className="job-list pb3">
+          <ul className="job__list">
             { jobDetail.responsibilities.map((jobResponsibility, index) => (
               <li key={ index } className="typ--b2">
                 <span>{ jobResponsibility }</span>
@@ -25,7 +25,7 @@ export function JobDescription ({ jobDetail }) {
         {jobDetail.skills &&
           <div>
             <h3 className="job-description__subtitle">Candidates must have:</h3>
-            <ul className="job-list pb3">
+            <ul className="job__list">
               { jobDetail.skills.map((jobSkill, index) => (
                 <li key={ index } className="typ--b2">
                   <span>{ jobSkill }</span>
@@ -37,7 +37,7 @@ export function JobDescription ({ jobDetail }) {
         {jobDetail.plusses &&
           <div>
             <h3 className="job-description__subtitle">Plus at least 2-3 of these:</h3>
-            <ul className="job-list pb3">
+            <ul className="job__list">
               { jobDetail.plusses.map((jobPlus, index) => (
                 <li key={ index } className="typ--b2">
                   <span>{ jobPlus }</span>
