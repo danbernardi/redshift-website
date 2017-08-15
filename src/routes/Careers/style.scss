@@ -157,6 +157,10 @@
 
   h2 {
     padding-bottom: 7.6rem;
+    // media queries
+    @include breakpoint($mobile-lg) {
+      padding-bottom: 4rem;
+    }
   }
 
   .form__group {
@@ -168,11 +172,19 @@
       padding-bottom: 1.4rem;
       margin-bottom: 4rem;
     }
+
+    &.has-error {
+      border-color: $redshift;
+    }
   }
 
   .form__group--filename {
     position: relative;
     top: -5rem;
+    // media queries
+    @include breakpoint($mobile-lg) {
+      top: -3rem;
+    }
   }
 
   input[type=text],
@@ -232,3 +244,4 @@ input:-webkit-autofill {
     }
   }
 }
+
