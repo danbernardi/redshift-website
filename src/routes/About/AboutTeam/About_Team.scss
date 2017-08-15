@@ -28,6 +28,7 @@
   }
   @include breakpoint($mobile-sm) {
     right: 2rem;
+    top: 2rem;
   }
 }
 
@@ -139,8 +140,6 @@
     }
   }
 }
-
-@import 'sass-includes';
 
 .pink-hover__item {
   @include breakpoint($tablet-lg, min-width) {
