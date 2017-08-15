@@ -13,6 +13,7 @@ import PropTypes from 'prop-types';
 import GSAP from 'react-gsap-enhancer';
 import { TimelineLite, TweenLite } from 'gsap';
 import { breakpointIsGreaterThan } from 'utils/responsiveHelpers';
+import { isTouchDevice } from 'utils/browserTests';
 
 function animateScroll (container, position) {
   TweenLite.to(container, 0.5, { scrollTop: position });
@@ -89,16 +90,9 @@ export class Header extends React.Component {
   componentWillUnmount () {
     window.clearInterval(this.timer);
   }
-
-  isTouchDevice () {
-    return (('ontouchstart' in window) ||
-      (navigator.MaxTouchPoints > 0) ||
-      (navigator.msMaxTouchPoints > 0));
-  }
-
   addRedshift () {
     // const { breakpoint } = this.props;
-    if (!this.isTouchDevice()) {
+    if (!isTouchDevice) {
       this.setState({ redshift: true });
     }
     // if (breakpointIsGreaterThan('tabletLg', breakpoint.size)) {

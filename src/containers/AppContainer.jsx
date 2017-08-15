@@ -6,6 +6,7 @@ import './styles.scss';
 import ReactGA from 'react-ga';
 import PropTypes from 'prop-types';
 import initReactFastclick from 'react-fastclick';
+import { isTouchDevice } from 'utils/browserTests';
 initReactFastclick();
 
 ReactGA.initialize('UA-48401766-1');
@@ -24,6 +25,10 @@ class AppContainer extends Component {
     setTimeout(() => {
       document.querySelector('#loader').style.display = 'none';
     }, 200);
+
+    if (isTouchDevice) {
+      document.querySelector('html').classList.add('is-touchdevice');
+    };
   }
 
   logPageView () {
