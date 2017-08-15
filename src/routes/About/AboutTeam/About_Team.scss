@@ -140,9 +140,6 @@
     }
   }
 }
-<<<<<<< HEAD
-
-@import 'sass-includes';
 
 .pink-hover__item {
   @include breakpoint($tablet-lg, min-width) {
@@ -184,5 +181,3 @@
   bottom: 2.8rem;
   width: 4.4rem;
 }
-=======
->>>>>>> Fixes x button placement for team modal | tablet / mobile
