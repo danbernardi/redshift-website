@@ -10,10 +10,15 @@ export class JobContactForm extends React.Component {
   }
 
   _changeHandler (e) {
-    let moreFiles = this.state.fileName.slice();
-    const stateFileName = e.target.files[0].name;
-    moreFiles.push(stateFileName + ' ');
-    this.setState({ fileName: moreFiles });
+    const { form } = this.props;
+    this.formGroup.classList.remove('has-error');
+
+    if (form.type === 'file') {
+      let moreFiles = this.state.fileName.slice();
+      const stateFileName = e.target.files[0].name;
+      moreFiles.push(stateFileName + ' ');
+      this.setState({ fileName: moreFiles });
+    }
   }
 
   render () {
@@ -25,7 +30,7 @@ export class JobContactForm extends React.Component {
 
     return (
       <div className={ `typ--b1 ${form.classes} ${setClass({ default: 'col-6', tabletMd: 'col-12' }, breakpoint)}` }>
-        <div className={ `form__group ${form.formClass}` }>
+        <div className={ `form__group ${form.formClass}` } ref={ el => { this.formGroup = el; } }>
           {
             form.type === 'file'
               ? <label htmlFor="file-input" name="attachment" >Attach resume <img src={ require('assets/img/paperclip.svg') } alt="Add a file attachment" /></label>
@@ -38,7 +43,7 @@ export class JobContactForm extends React.Component {
             value={ form.value }
             className={ `typ--b1 typ--light ${form.required ? 'required' : null }` }
             { ...additionalProps }
-            onChange={ form.type === 'file' ? this._changeHandler.bind(this) : null }
+            onChange={ this._changeHandler.bind(this) }
           />
         </div>
         { fileName && <div className="form__group--filename">{ fileName }</div> }
