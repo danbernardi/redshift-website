@@ -47,20 +47,25 @@
   margin-right: 7rem;
   // media queries
   @include breakpoint($tablet-md) {
+    width: calc(100% - 10rem);
     margin-left: 5rem;
     margin-right: 5rem;
-  }
-  @include breakpoint($mobile-lg) {
-    margin-left: 4rem;
-    margin-right: 4rem;
-  }
-  @include breakpoint($mobile-sm) {
-    margin-left: 2rem;
-    margin-right: 2rem;
   }
 
   @include breakpoint($tablet-sm) {
     text-align: left;
+  }
+
+  @include breakpoint($mobile-lg) {
+    width: calc(100% - 8rem);
+    margin-left: 4rem;
+    margin-right: 4rem;
+  }
+
+  @include breakpoint($mobile-sm) {
+    width: calc(100% - 4rem);
+    margin-left: 2rem;
+    margin-right: 2rem;
   }
 
   a { pointer-events: auto; }
