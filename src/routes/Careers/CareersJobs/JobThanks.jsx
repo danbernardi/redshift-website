@@ -2,7 +2,7 @@ import React from 'react';
 
 const JobThanks = () => (
   <div className="form-thanks">
-    <h4>Thank you for contacting Redshift.</h4>
+    <p className="typ--b2">Thank you for contacting Redshift.</p>
   </div>
 );
 
