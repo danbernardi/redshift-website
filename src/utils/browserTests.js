@@ -18,3 +18,5 @@ export const isChrome = !!window.chrome && !!window.chrome.webstore;
 
 // Blink engine detection
 export const isBlink = (isChrome || isOpera) && !!window.CSS;
+
+export const isTouchDevice = ('ontouchstart' in window) || (navigator.MaxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0);
