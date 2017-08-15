@@ -128,5 +128,47 @@ export const jobDetails = [
       'Formal project management training',
       'Great Spotify library'
     ]
+  },
+  {
+    id: 'senior-user-researcher',
+    header: 'Research',
+    position: 'Senior User Researcher',
+    frontpage: [
+      'At Redshift, in addition to being a top-notch user researcher whose insights contribute to the development of simple, delightful and beautiful user experiences, Senior Researchers are expected to be excellent collaborators and effective communicators. You’ll work with designers, strategists, and engineers to determine key questions, identify user needs, and deliver actionable insights. You must be able to speak fluently about research plans and methodology, confidently explain the value of research, and connect research findings with final design recommendations. You should be comfortable leading projects, managing different inputs and viewpoints, presenting work to clients, and responding to feedback and questions with poise.'
+    ],
+    description: 'At Redshift, in addition to being a top-notch user researcher whose insights contribute to the development of simple, delightful and beautiful user experiences, Senior Researchers are expected to be excellent collaborators and effective communicators. You’ll work with designers, strategists, and engineers to determine key questions, identify user needs, and deliver actionable insights. You must be able to speak fluently about research plans and methodology, confidently explain the value of research, and connect research findings with final design recommendations. You should be comfortable leading projects, managing different inputs and viewpoints, presenting work to clients, and responding to feedback and questions with poise. This role reports to our Director of Research & Strategy. This position is based in San Francisco.',
+
+    responsibilities: [
+      'Plan, design, schedule and conduct generative, exploratory and evaluative user research studies, such as in-home studies, ethnographic-style interviews, evaluative concept testing, usability studies and surveys',
+      'Advise teams and clients on appropriate user research methods based on project goals',
+      'Work with clients and research coordinator to draft recruiting screeners, develop consent forms and recruit participants',
+      'Finalize research plans and protocols, identify research goals and questions, write discussion guides/protocol, set up equipment and prepare for research sessions as necessary ',
+      'Analyze findings and deliver actionable insights; lead co-analysis and synthesis sessions with designers, engineers, and other team members',
+      'Communicate findings to teammates and key stakeholders',
+      'Create, present and maintain project documentation including research plan, protocols, schedule, status and meeting reports, usability findings database and debrief reports',
+      'Prepare research findings deliverables such as reports, presentations, video highlights, storyboards, use cases, personas, etc. as appropriate ',
+      'Help create and maintain project schedules',
+      'Establish and manage client relationships',
+      'Work with the Director of Research & Strategy to train and educate rest of the studio on research and user testing methods and best practices, and evolve the team’s capabilities'
+    ],
+    skills: [
+      'BA/BS or MA/MS in Human-Computer Interaction, Computer Science, Design, Psychology, Sociology, or related field',
+      'At least 3 years experience across a range of research methodologies, with deep expertise in 1 or 2 areas',
+      'Proven knowledge and experience with a wide variety of qualitative and quantitative research methods',
+      'Excellent observational skills, analytical skills and critical thinking',
+      'Strong oral and written communication skills',
+      'Strong project management, documentation and organization skills ',
+      'Client management or consulting experience',
+      'Can work collaboratively and independently with minimal supervision',
+      'Comfortable with ambiguity and love creative problem-solving'
+    ],
+    plusses: [
+      'Experience working with or willingness to learn remote user testing tools',
+      'Experience with quantitative studies, designing and analyzing large-scale surveys',
+      'Ability to adapt and experiment with alternative research methods',
+      'Enjoys coaching others and collaborative learning',
+      'Up to speed in the latest design trends on both web and mobile',
+      'Have a solid understanding of basic UX design principles'
+    ]
   }
 ];
