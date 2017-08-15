@@ -21,7 +21,7 @@ export function FooterSocial () {
       {
         footerIcons.map((footerIcon, i) => (
           <li key={ i }>
-            <a href={ footerIcon.url }>
+            <a href={ footerIcon.url } target="_blank">
               <span className={ `icon-${footerIcon.class}` } />
             </a>
           </li>
