@@ -21,7 +21,7 @@ export function RoleTemplate ({ children, name, modalState }) {
         <div className="modal__content">
           { children }
           <section className="contact__form py8 row">
-            <h2 className="pb4">Apply</h2>
+            <h2>Apply</h2>
             <JobContact position={ name } />
           </section>
         </div>

@@ -41,15 +41,30 @@ const formItems = [
 export class JobContact extends React.Component {
   constructor (props) {
     super(props);
-    this.state = { buttonText: 'Submit' };
+    this.state = { buttonText: 'Submit', error: false, errorMessage: '' };
   }
 
   render () {
-    const { buttonText } = this.state;
+    const { buttonText, error, errorMessage } = this.state;
     const { position } = this.props;
 
     const onSend = (e) => {
       e.preventDefault();
+
+      const name = this.form.querySelector('.form__name');
+      const nameField = name.querySelector('input');
+      const email = this.form.querySelector('.form__email');
+      const emailField = email.querySelector('input');
+      this.setState({ error: false });
+
+      if (!nameField.value.length || !emailField.value.length) {
+        if (!nameField.value.length) name.classList.add('has-error');
+        if (!emailField.value.length) email.classList.add('has-error');
+
+        this.setState({ error: true, errorMessage: 'Please fill in the required fields.' });
+        return;
+      }
+
       const serviceID = 'default_service';
       const templateID = 'template_GPu7g1GL';
 
@@ -75,6 +90,7 @@ export class JobContact extends React.Component {
           className={ `apply-form ${name.split(' ').map(s => s.toLowerCase()).join('-') }` }
           ref={ el => { this.form = el; } }
         >
+          { error && <p className="typ--b3 typ--error">{ errorMessage }</p> }
           <input type="hidden" value={ position } name="from_position" />
           <div>
             {
