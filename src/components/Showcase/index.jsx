@@ -12,6 +12,8 @@ import debounce from 'lodash.debounce';
 import Loader from 'components/Loader';
 import { enableScroll, disableScroll } from 'utils/scrollJack';
 
+import { preloadImage, sequencePromises } from 'utils/imgUtils';
+
 export class Showcase extends React.Component {
   constructor (props) {
     super(props);
@@ -37,6 +39,17 @@ export class Showcase extends React.Component {
   }
 
   componentDidMount () {
+
+    const images = [
+      'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/Norton/norton6.jpg',
+      'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/Norton/norton6_tlg.jpg',
+      'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/Norton/norton6_mlg.jpg'
+    ];
+
+    const pArray = images.map((img) => () => preloadImage(img));
+
+    sequencePromises(pArray);
+
     disableScroll();
   }
 
