@@ -90,12 +90,19 @@ export class Header extends React.Component {
     window.clearInterval(this.timer);
   }
 
-  addRedshift () {
-    const { breakpoint } = this.props;
+  isTouchDevice () {
+    return (('ontouchstart' in window) ||
+      (navigator.MaxTouchPoints > 0) ||
+      (navigator.msMaxTouchPoints > 0));
+  }
 
-    if (breakpointIsGreaterThan('tabletLg', breakpoint.size)) {
+  addRedshift () {
+    // const { breakpoint } = this.props;
+    if (!this.isTouchDevice()) {
       this.setState({ redshift: true });
     }
+    // if (breakpointIsGreaterThan('tabletLg', breakpoint.size)) {
+    // }
   }
 
   hideRedshift () {
