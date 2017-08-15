@@ -40,6 +40,7 @@ export class Showcase extends React.Component {
     disableScroll();
   }
 
+  //TODO: This needs a refactor
   componentDidUpdate (prevProps, prevState) {
     const { modalState } = this.props;
 
@@ -87,7 +88,11 @@ export class Showcase extends React.Component {
 
         // If not among the main scenes, go to archive
         if (sceneIndex === -1) {
-          sceneIndex = this.props.scenes.length; // Archive
+          // TODO: this should fork and scroll to the top for unknown routes
+          // and to the archive for those case studies
+          this.jumpToScrollPosition(this.container, 0);
+          return;
+          //sceneIndex = this.props.scenes.length; // Archive
         }
 
         this.goToScene(sceneIndex + 1, false);
