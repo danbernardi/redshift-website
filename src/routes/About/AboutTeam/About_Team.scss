@@ -16,10 +16,18 @@
     width: 100%;
     overflow-y: scroll;
   }
+}
 
-  .modal__close.row a {
+.modal__close.row a {
+  // media queries
+  @include breakpoint($mobile-lg) {
     position: fixed;
-    top: 2rem;
+    top: 2.5rem;
+    right: 4rem;
+    left: auto;
+  }
+  @include breakpoint($mobile-sm) {
+    right: 2rem;
   }
 }
 
