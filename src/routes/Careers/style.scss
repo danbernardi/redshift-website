@@ -22,11 +22,21 @@
 .job-description__title {
   padding-top: 14.5rem;
   padding-bottom: 6rem;
+  // media queries
+  @include breakpoint($mobile-lg) {
+    padding-top: 3.5rem;
+    padding-bottom: 3rem;
+  }
 }
 
 .job-description__subtitle {
   padding-top: 7.4rem;
   padding-bottom: 4.8rem;
+  // media queries
+  @include breakpoint($mobile-lg) {
+    padding-top: 2.8rem;
+    padding-bottom: 1.8rem;
+  }
 }
 
 .careers--title {
@@ -87,6 +97,15 @@
   }
 }
 
+.job__list {
+  margin-left: 3rem;
+  padding-bottom: 3rem;
+  // media queries
+  @include breakpoint($mobile-lg) {
+    padding-bottom: 2rem;
+  }
+}
+
 .careers-title {
   font-weight: bold;
   position: relative;
@@ -128,12 +147,8 @@
   padding-bottom: 8rem;
   // media queries
   @include breakpoint($mobile-lg) {
-    padding-bottom: 2rem;
+    padding-bottom: 3rem;
   }
-}
-
-.job-list {
-  margin-left: 3rem;
 }
 
 .contact__form {

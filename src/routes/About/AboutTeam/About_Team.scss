@@ -19,6 +19,10 @@
 
   .modal__close.row a {
     position: fixed;
+    // media queries
+    @include breakpoint($mobile-lg) {
+      top: 3.4rem;
+    }
   }
 }
 
