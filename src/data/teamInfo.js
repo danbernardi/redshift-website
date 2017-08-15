@@ -17,7 +17,7 @@ export const teamInfo = [
     modal: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/about/team/modal/steffan.jpg',
     bioStatement: [
       'Steffan is an award-winning creative director with extensive innovation, creative strategy and product design experience.',
-      'He has helped shape the creative vision of REDSHIFT for the past 5 years. He leads a team of designers in creating innovative and engaging digital products.',
+      'He has helped shape the creative vision of Redshift for the past 5 years. He leads a team of designers in creating innovative and engaging digital products.',
       'Steffan has lead successful projects for such clients as Kaiser Permanente, Google, Symantec, Cisco, OpenTable, Western Union, and SalesForce, among others.',
       'Steffan attended Clark University, where he graduated cum laude with a degree in English Literature.'
     ]
