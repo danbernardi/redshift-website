@@ -1,12 +1,23 @@
-.disable-scroll .scroller {
-  overflow-y: hidden;
+@import 'sass-includes';
+
+.disable-scroll {
+  overflow: hidden;
+
+  .scroller {
+    @include breakpoint($mobile-lg) {
+      overflow-y: hidden;
+    }
+  }
 }
 
 html,
 body {
-  overflow: hidden;
-  position: fixed;
-  width: 100%;
+  // media queries
+  @include breakpoint($mobile-lg) {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+  }
 }
 
 body {
@@ -15,9 +26,16 @@ body {
 
 
 .scroller {
-  max-height: 100vh;
-  width: 100vw;
-  overflow-x: hidden;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
+  // media queries
+  @include breakpoint($mobile-lg, min-width) {
+    height: auto !important;
+    width: 100% !important;
+  }
+  @include breakpoint($mobile-lg) {
+    max-height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
 }
