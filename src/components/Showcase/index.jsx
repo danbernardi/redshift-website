@@ -3,7 +3,6 @@ import Scene from './Scene';
 import Hero from './Hero';
 import Archive from 'components/Archive';
 import { connect } from 'react-redux';
-// import { RxObservable } from 'rxjs/Rx';
 import { mapRange, isInRange } from 'utils/animation';
 import { TimelineLite, TweenMax, Power3 } from 'gsap';
 import { setHeaderTheme } from 'store/actions';
@@ -11,6 +10,11 @@ import PropTypes from 'prop-types';
 import debounce from 'lodash.debounce';
 import Loader from 'components/Loader';
 import { enableScroll, disableScroll } from 'utils/scrollJack';
+
+// Image Preloading
+import { caseStudies } from 'data/caseStudies';
+import { setClass } from 'utils/responsiveHelpers';
+import { preloadAllImages, getImagesBySize, buildImageList } from 'utils/imgUtils';
 
 export class Showcase extends React.Component {
   constructor (props) {
@@ -55,6 +59,11 @@ export class Showcase extends React.Component {
     }
 
     if (!prevState.loaded && this.state.loaded) {
+      //Start preloading case study images
+      const imgSize = setClass({ default: 'imgDef', tabletLg: 'imgTlg', mobileLg: 'imgMlg' }, this.props.breakpoint);
+      const imagesForCurrentSize = getImagesBySize(buildImageList(caseStudies), imgSize);
+      preloadAllImages(imagesForCurrentSize);
+
       this.container.style.overflowY = 'scroll';
       document.querySelector('.loader').style.display = 'none';
 
@@ -505,10 +514,12 @@ Showcase.propTypes = {
   scenes: PropTypes.array,
   dispatch: PropTypes.func,
   locationHistory: PropTypes.object,
-  modalState: PropTypes.object
+  modalState: PropTypes.object,
+  breakpoint: PropTypes.object
 };
 
 const injectStateProps = state => ({
+  breakpoint: state.breakpoint,
   locationHistory: state.locationHistory,
   modalState: state.modalState
 });
