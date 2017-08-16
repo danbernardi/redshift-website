@@ -143,13 +143,6 @@
     left: auto;
     right: 0;
   }
-
-  // disable hover below mobile
-  @include breakpoint($tablet-lg, min-width) {
-    &:hover {
-      left: -1rem;
-    }
-  }
 }
 
 .slick-next {
@@ -161,10 +154,14 @@
     left: 0;
     right: auto;
   }
-  // disable hover below mobile
-  @include breakpoint($tablet-lg, min-width) {
-    &:hover {
-      right: -1rem;
-    }
+}
+
+html:not(.is-touchdevice) {
+  .slick-prev:hover {
+    left: -1rem;
+  }
+
+  .slick-next:hover {
+    right: -1rem;
   }
 }

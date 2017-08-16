@@ -63,19 +63,17 @@
 
   a { display: block; }
 
-  // disable hover below mobile
-  @include breakpoint($tablet-lg, min-width) {
-    &:hover {
-      z-index: 6;
-
-      .archive__overlay { transform: translateX(0%); }
-    }
-  }
-
-
   img {
     display: block;
     width: calc(100% - 1px);
+  }
+}
+
+html:not(.is-touchdevice) {
+  .archive__item:hover {
+    z-index: 6;
+
+    .archive__overlay { transform: translateX(0%); }
   }
 }
 
