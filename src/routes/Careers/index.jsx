@@ -14,6 +14,18 @@ export class Careers extends React.Component {
   componentDidMount () {
     const { params } = this.props;
     if (params.jobID) this.openModal(params.jobID);
+
+    if (window.emailjs) return;
+
+    const script = document.createElement('script');
+    const body = document.getElementsByTagName('body')[0];
+
+    script.src = 'https://cdn.emailjs.com/dist/email.min.js';
+    script.type = 'text/javascript';
+
+    body.appendChild(script);
+
+    this.initEmailjs();
   }
 
   shouldComponentUpdate (props) {
@@ -33,6 +45,22 @@ export class Careers extends React.Component {
         this.closeModal();
       }
     }
+  }
+
+  // Keep trying to initialize until two seconds have passed
+  initEmailjs (attempt = 0) {
+    if (attempt >= 15) {
+      console.error('Failed to initialize emailjs!');
+      return;
+    }
+
+    setTimeout(() => {
+      if (window.emailjs) {
+        window.emailjs.init('user_6TiXPRNCY6MhiuslNSu0v');
+      } else {
+        this.initEmailjs(attempt + 1);
+      }
+    }, 300);
   }
 
   openModal (id) {
