@@ -24,11 +24,13 @@
     padding-bottom: 22rem;
     // media queries
     @include breakpoint($tablet-lg) {
-      padding-bottom: 20.1rem;
+      padding-bottom: 20.2rem;
     }
-
     @include breakpoint($mobile-lg) {
-      padding-bottom: 11.4rem;
+      padding-bottom: 13.8rem;
+    }
+    @include breakpoint($mobile-sm) {
+      padding-bottom: 12.8rem;
     }
   }
 }
