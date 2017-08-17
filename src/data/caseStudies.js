@@ -235,7 +235,6 @@ export const caseStudies = [
           imgMlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/Nexus/nexus7_mlg.jpg'
         },
         imgAlt: 'Google Nexus 3',
-        classes: 'mb10',
         copy: [
           {
             classes: 'casestudy__text typ--b1',
@@ -251,7 +250,6 @@ export const caseStudies = [
           imgMlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/Nexus/nexus8_mlg.jpg'
         },
         imgAlt: 'Google Nexus 4',
-        classes: 'mt5',
         copy: [
           {
             classes: 'casestudy__text typ--b1',
