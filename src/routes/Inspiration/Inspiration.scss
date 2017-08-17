@@ -57,20 +57,19 @@
     display: block;
     transition: border-color 0.15s ease-in-out, transform 0.15s ease-in-out;
     -webkit-backface-visibility: hidden;
-    // media queries
-    // disable hover below mobile
-    @include breakpoint($tablet-lg, min-width) {
-      &:hover {
-        border-color: $redshift;
-        transform: scale(1.1);
-        box-shadow: 0.1rem 0.1rem 4rem 2rem rgba($black, 0.06);
-      }
-    }
   }
 
   h4,
   p {
     overflow-wrap: break-word;
+  }
+}
+
+html:not(.is-touchdevice) {
+  .inspiration__link:hover {
+    border-color: $redshift;
+    transform: scale(1.1);
+    box-shadow: 0.1rem 0.1rem 4rem 2rem rgba($black, 0.06);
   }
 }
 

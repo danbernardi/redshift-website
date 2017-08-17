@@ -58,10 +58,11 @@
   li {
     position: relative;
     cursor: pointer;
+  }
+}
 
-    // disable hover below mobile
-    @include breakpoint($tablet-lg, min-width) {
-      a:hover { color: $black; }
-    }
+html:not(.is-touchdevice) {
+  .nav__menu li:hover a {
+    color: $black;
   }
 }
