@@ -20,6 +20,7 @@
   }
 
   .modal__content {
+    min-height: 100vh;
     padding-bottom: 22rem;
     // media queries
     @include breakpoint($tablet-lg) {
