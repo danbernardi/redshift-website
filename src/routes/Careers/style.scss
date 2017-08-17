@@ -203,9 +203,27 @@ html:not(.is-touchdevice) {
   display: none;
 }
 
-.form__attach label {
+.is-touchdevice .form__attach > input {
+  opacity: 0;
+  z-index: 10;
+  position: absolute;
+  left: 0;
+  top: 0;
   width: 100%;
+  height: 100%;
+  cursor: pointer;
   display: block;
+}
+
+.form__attach {
+  position: relative;
+
+  label {
+    width: 100%;
+    display: block;
+    z-index: 9;
+    cursor: pointer;
+  }
 }
 
 .form__attach label img {
@@ -243,4 +261,3 @@ input:-webkit-autofill {
     }
   }
 }
-
