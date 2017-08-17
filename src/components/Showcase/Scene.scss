@@ -93,7 +93,13 @@
 .scene__caption {
   width: 100%;
 
-  span { display: block; }
+  span {
+    display: block;
+    // media queries
+    @include breakpoint($mobile-xxsm) {
+      display: inline;
+    }
+  }
 }
 
 .scene__device__overlay {
