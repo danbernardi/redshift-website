@@ -99,7 +99,7 @@ export class CaseStudyScroller extends React.Component {
 
           <Link
             onClick={ () => nextCaseStudy.id === '/about' && this.routeTo(nextCaseStudy.id) }
-            to={ nextCaseStudy.id !== '/about' && `/work/${nextCaseStudy.id}` }
+            to={ nextCaseStudy.id === '/about' ? nextCaseStudy.id : `/work/${nextCaseStudy.id}` }
             style={ {
               display: 'block',
               bottom: 0,
