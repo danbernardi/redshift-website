@@ -51,6 +51,7 @@
 
   @include breakpoint($mobile-lg) {
     margin-left: -0.4rem;
+
     li {
       margin-right: 1.5rem;
     }
@@ -58,8 +59,11 @@
 
   [class^='icon-'] {
     color: $black;
-    &:hover {
-      color: $redshift;
-    }
+  }
+}
+
+html:not(.is-touchdevice) {
+  .footer .social-icons [class^='icon-']:hover {
+    color: $redshift;
   }
 }

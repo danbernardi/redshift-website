@@ -93,7 +93,13 @@
 .scene__caption {
   width: 100%;
 
-  span { display: block; }
+  span {
+    display: block;
+    // media queries
+    @include breakpoint($mobile-xxsm) {
+      display: inline;
+    }
+  }
 }
 
 .scene__device__overlay {
@@ -162,12 +168,11 @@
       width: 3rem;
     }
   }
+}
 
-  // disable hover below mobile
-  @include breakpoint($tablet-lg, min-width) {
-    &:hover:after {
-      width: 100%;
-    }
+html:not(.is-touchdevice) {
+  .scene__link:hover:after {
+    width: 100%;
   }
 }
 

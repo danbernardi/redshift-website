@@ -41,18 +41,6 @@ export class CoreLayout extends React.Component {
     });
 
     this.dispatchActiveQuery();
-
-    if (window.emailjs) return;
-
-    const script = document.createElement('script');
-    const body = document.getElementsByTagName('body')[0];
-
-    script.src = 'https://cdn.emailjs.com/dist/email.min.js';
-    script.type = 'text/javascript';
-
-    body.appendChild(script);
-
-    this.initEmailjs();
   }
 
   dispatchActiveQuery () {
@@ -62,22 +50,6 @@ export class CoreLayout extends React.Component {
     const breakpointSize = activeQuery && activeQuery.breakpoint;
 
     dispatch(setActiveBreakpoint(breakpointName, breakpointSize));
-  }
-
-  // Keep trying to initialize until two seconds have passed
-  initEmailjs (attempt = 0) {
-    if (attempt >= 10) {
-      console.error('Failed to initialize emailjs!');
-      return;
-    }
-
-    setTimeout(() => {
-      if (window.emailjs) {
-        window.emailjs.init('user_6TiXPRNCY6MhiuslNSu0v');
-      } else {
-        this.initEmailjs(attempt + 1);
-      }
-    }, 200);
   }
 
   render () {

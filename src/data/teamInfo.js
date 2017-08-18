@@ -111,6 +111,18 @@ export const teamInfo = [
     ]
   },
   {
+    id: 'danielle',
+    name: 'Danielle Raynal',
+    position: 'UX Researcher',
+    modal: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/about/team/modal/danielle.jpg',
+    bioStatement: [
+      'Danielle Raynal is a design researcher and strategist at Redshift.',
+      'She has deep expertise in qualitative research, leading teams through business concept development and new product design with empathy for real users and customers. Her approach is grounded in understanding how people think, feel, and act, while meeting business goals and stakeholder needs, and leveraging the power of technology.',
+      'She holds a B.F.A. in Graphic Design from Savannah College of Art and Design.',
+      'When she\'s not in the studio, you can find her gallivanting the hidden trails and backroads of California by foot or bicycle.'
+    ]
+  },
+  {
     id: 'sandra',
     name: 'Sandra Wing',
     position: 'UX Researcher',
@@ -146,7 +158,7 @@ export const teamInfo = [
     id: 'mattk',
     name: 'Matt Kissick',
     position: 'UX Designer',
-        modal: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/about/team/modal/mattk.jpg',
+    modal: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/about/team/modal/mattk.jpg',
     bioStatement: [
       'Matt Kissick is a user experience designer at Redshift.',
       'He grew up in Ottawa, Canada and went to OCAD University in Toronto. He received a Bachelor of Design in Industrial Design. Prior to Redshift, Matt freelanced as a graphic and web designer.',

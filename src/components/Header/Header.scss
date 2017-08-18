@@ -55,22 +55,15 @@
   position: relative;
   left: -2rem;
   top: -2rem;
-  // media queries
-  @include breakpoint($tablet-lg, min-width) {
-    &:hover {
-      .logo {
-        transform: scale(1.1);
-      }
-    }
-  }
 }
 
-.icon-hamburger {
-  // disable hover below mobile
-  @include breakpoint($tablet-lg, min-width) {
-    &:hover {
-      transform: scale(1.1);
-    }
+html:not(.is-touchdevice) {
+  .header__logo:hover .logo {
+    transform: scale(1.1);
+  }
+
+  .icon-hamburger:hover {
+    transform: scale(1.1);
   }
 }
 

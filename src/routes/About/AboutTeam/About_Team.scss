@@ -141,11 +141,9 @@
   }
 }
 
-.pink-hover__item {
-  @include breakpoint($tablet-lg, min-width) {
-    &:hover .pink-hover {
-      transform: translateX(0%);
-    }
+html:not(.is-touchdevice) {
+  .pink-hover__item:hover .pink-hover {
+    transform: translateX(0%);
   }
 }
 

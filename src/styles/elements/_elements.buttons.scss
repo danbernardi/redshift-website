@@ -9,48 +9,34 @@
   position: relative;
   border: solid 0.1rem $body;
   background-color: transparent;
-  
-  @include breakpoint($tablet-lg, min-width) {
-    &:hover {
-      background-color: $body;
-      color: $white;
-      border-color: $body;
-    }
-  }
 }
 
-.btn--ghost.typ--redshift {
-  border-color: $redshift;
-  @include breakpoint($tablet-lg, min-width) {
-    &:hover {
-      background-color: $redshift;
-      border-color: $redshift;
-    }
-  }
-}
+.btn--ghost.typ--redshift { border-color: $redshift; }
+.btn--ghost.typ--yumavore { border-color: $yumavore; }
+.btn--ghost.typ--five { border-color: $five; }
+.btn--arrow { position: relative; }
 
-.btn--ghost.typ--yumavore {
-  border-color: $yumavore;
-  @include breakpoint($tablet-lg, min-width) {
-    &:hover {
-      background-color: $yumavore;
-      border-color: $yumavore;
-    }
+html:not(.is-touchdevice) {
+  .btn--ghost:hover {
+    background-color: $body;
+    color: $white;
+    border-color: $body;
   }
-}
 
-.btn--ghost.typ--five {
-  border-color: $five;
-  @include breakpoint($tablet-lg, min-width) {
-    &:hover {
-      background-color: $five;
-      border-color: $five;
-    }
+  .btn--ghost.typ--redshift:hover {
+    background-color: $redshift;
+    border-color: $redshift;
   }
-}
 
-.btn--arrow {
-  position: relative;
+  .btn--ghost.typ--yumavore:hover {
+    background-color: $yumavore;
+    border-color: $yumavore;
+  }
+
+  .btn--ghost.typ--five:hover {
+    background-color: $five;
+    border-color: $five;
+  }
 }
 
 .btn--arrow .icon-arrow-right {
