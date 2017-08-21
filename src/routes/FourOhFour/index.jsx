@@ -22,9 +22,9 @@ class FourOhFour extends React.Component {
 
           <h5 className="mb1">Here are some things that do exist</h5>
           <ul>
-            <li><Link className="typ--bold px2 mb1--mxsm" to="/">Our work</Link></li>
-            <li><Link className="typ--bold px2 mb1--mxsm" to="/about">About us</Link></li>
-            <li><Link className="typ--bold px2 mb1--mxsm" to="/careers">Careers</Link></li>
+            <li><Link className="typ--bold px2" to="/">Our work</Link></li>
+            <li><Link className="typ--bold px2" to="/about">About us</Link></li>
+            <li><Link className="typ--bold px2" to="/careers">Careers</Link></li>
           </ul>
         </div>
       </div>
