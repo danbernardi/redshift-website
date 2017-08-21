@@ -100,17 +100,6 @@ export const teamInfo = [
     ]
   },
   {
-    id: 'emma',
-    name: 'Emma Hazlett',
-    position: 'Visual Designer',
-    modal: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/about/team/modal/emma.jpg',
-    bioStatement: [
-      'Emma Hazlett is a visual designer at Redshift.',
-      'She grew up in Norwich, VT. She attended the University of Vermont for Anthropology and pre-med. She received her graphic design training at MICA.',
-      'She has lived and worked in Italy, Ethiopia, New Mexico, Baltimore and Wyoming. She currently resides in San Francisco, CA with her pup, Gracie.'
-    ]
-  },
-  {
     id: 'danielle',
     name: 'Danielle Raynal',
     position: 'UX Researcher',
@@ -120,6 +109,16 @@ export const teamInfo = [
       'She has deep expertise in qualitative research, leading teams through business concept development and new product design with empathy for real users and customers. Her approach is grounded in understanding how people think, feel, and act, while meeting business goals and stakeholder needs, and leveraging the power of technology.',
       'She holds a B.F.A. in Graphic Design from Savannah College of Art and Design.',
       'When she\'s not in the studio, you can find her gallivanting the hidden trails and backroads of California by foot or bicycle.'
+    ]
+  },
+  {
+    id: 'dan',
+    name: 'Dan Bernardi',
+    position: 'Senior Front End Engineer',
+    modal: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/about/team/modal/dan.jpg',
+    bioStatement: [
+      'Dan Bernardi is a senior front-end engineer at Redshift.',
+      'Born and raised in the bay area, he is a hybrid designer/developer who has been working in the field for over 8 years on both sides. With a penchant for good usable design and clean code, he helps bridge the language barrier between designers and developers at Redshift. He is self taught in both disciplines.'
     ]
   },
   {
@@ -169,7 +168,7 @@ export const teamInfo = [
     id: 'mattr',
     name: 'Matt Rancatore',
     position: 'Visual Designer',
-        modal: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/about/team/modal/mattr.jpg',
+    modal: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/about/team/modal/mattr.jpg',
     bioStatement: [
       'Matt Rancatore is a visual designer at Redshift.',
       'He grew up in the Bay Area and received a BS in Graphic Design from The Art Institute of California – San Francisco. Prior to working at Redshift, Matt designed magazines, brands, and websites at companies including Wired Magazine, Sidecar Agency, and IDEO. When Matt isn\'t hunched over his computer pushing pixels, he can be found biking up San Francisco\'s notorious hills, in a park napping, or at a baseball game.'
