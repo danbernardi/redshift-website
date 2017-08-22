@@ -3,6 +3,15 @@ import { setClass } from 'utils/responsiveHelpers';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
+/**
+ * Contact Form Content on the Job Modal
+ *
+ * @param {object} props
+ * @param {object} form           form data from parent
+ * @param {object} breakpoint     checks browser width
+ * @return {React.Component}
+*/
+
 export class JobContactForm extends React.Component {
   constructor (props) {
     super(props);
@@ -53,10 +62,7 @@ export class JobContactForm extends React.Component {
 }
 
 JobContactForm.propTypes = {
-  form: PropTypes.object
-};
-
-JobContactForm.propTypes = {
+  form: PropTypes.object,
   breakpoint: PropTypes.object
 };
 

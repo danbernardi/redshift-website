@@ -4,6 +4,14 @@ import JobContactForm from './JobContactForm';
 import JobThanks from './JobThanks';
 import PropTypes from 'prop-types';
 
+/**
+ * Contact Form on the Job Modal
+ *
+ * @param {Object} props
+ * @param {string} position       hidden job position form value from parent
+ * @return {React.Component}
+ */
+
 const formItems = [
   {
     classes: '',

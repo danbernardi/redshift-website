@@ -2,6 +2,13 @@ import React from 'react';
 import { Link } from 'react-router';
 import PropTypes from 'prop-types';
 
+/**
+ * Job Listing on the careers page
+ *
+ * @param {Object} props
+ * @param {object} job       jobDetails data from parent
+ */
+
 export function CareersJobs (props) {
   const { job } = props;
 

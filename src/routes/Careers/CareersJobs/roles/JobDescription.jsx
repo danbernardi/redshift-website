@@ -2,6 +2,13 @@ import RoleTemplate from './RoleTemplate';
 import React from 'react';
 import PropTypes from 'prop-types';
 
+/**
+ * Job Description in Modal
+ *
+ * @param {object} props
+ * @param {object} jobDetail      form data from parent
+*/
+
 export function JobDescription ({ jobDetail }) {
   return (
     <RoleTemplate name={ jobDetail.position }>

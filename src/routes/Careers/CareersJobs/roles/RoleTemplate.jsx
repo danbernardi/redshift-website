@@ -6,6 +6,20 @@ import '../../style.scss';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
+/**
+ * Job Description Container in Modal
+ *
+ children: PropTypes.element,
+  name: PropTypes.string,
+  modalState: PropTypes.object
+
+ * @param {object} props
+ * @param {element} children      content from parent component
+ * @param {string} name           job position name from parent
+ * @param {object} modalState     dimensions of current modal
+
+*/
+
 export function RoleTemplate ({ children, name, modalState }) {
   return (
     <div className="job--modal">
