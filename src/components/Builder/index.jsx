@@ -12,9 +12,10 @@ import PropTypes from 'prop-types';
  * @param {Node} props.children               React child node containing content to be animated
  * @param {string} props.offset               String defining offset passed to top value of watcher,
  *                                            for offsetting where the watcher is triggered.
- * @param {Object} props.scrollContainer      
+ * @param {Object} props.scrollContainer
  * @returns {React.Component}                 Returns a react component
  */
+
 export class Builder extends React.Component {
   constructor (props) {
     super(props);

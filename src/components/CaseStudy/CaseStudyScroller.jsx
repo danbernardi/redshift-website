@@ -10,6 +10,19 @@ import { TweenLite } from 'gsap';
 import { toggleModal, setActiveModal } from 'store/actions';
 import Watcher from 'components/Watcher';
 
+/**
+* Container for Case Study Content
+*
+* @extends React.Component
+* @param {object} caseStudyContent    Content of the current case study
+* @param {object} nextStudyState      Next case study
+* @param {object} scrollContainer     Case study section passed to the Watcher
+* @param {object} modalState          dimensions of the modal
+* @param {func} dispatch              open and close the correct modal
+* @returns {React.Component}          Returns a react component
+*
+*/
+
 export class CaseStudyScroller extends React.Component {
 
   animateScroll (container, position) {
@@ -42,6 +55,7 @@ export class CaseStudyScroller extends React.Component {
 
   render () {
     const { caseStudyContent, scrollContainer, modalState } = this.props;
+    debugger;
     let { nextCaseStudy } = this.props;
 
     if (!nextCaseStudy || typeof nextCaseStudy !== 'object') {

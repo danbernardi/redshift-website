@@ -1,13 +1,27 @@
 import React from 'react';
-import { Link } from 'react-router';
-import { caseStudies } from 'data/caseStudies';
 import Isotope from 'isotope-layout';
 import FooterHome from 'components/Footer/FooterHome';
+import PropTypes from 'prop-types';
+
 import GSAP from 'react-gsap-enhancer';
 import 'masonry-layout';
-import './Archive.scss';
-import PropTypes from 'prop-types';
+
 import { connect } from 'react-redux';
+import { Link } from 'react-router';
+import { caseStudies } from 'data/caseStudies';
+
+import './Archive.scss';
+
+/**
+ * Bottom of Homepage - "More Work" Case Studies
+ *
+ * @extends React.Component
+ * @param {Object} props                React properties argument
+ * @param {func} onDidMount             returns a reference to itself to the parent component when the container is mounted.
+ * @param {func} reportAsLoaded         returns a function to the parent component when loaded
+ * @param {object} modalState           dispatches the correspoding case study in a modal
+ * @returns {React.Component}           Returns a react component
+ */
 
 export class Archive extends React.Component {
   constructor (props) {
