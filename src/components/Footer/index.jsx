@@ -6,16 +6,24 @@ import PropTypes from 'prop-types';
 
 import './footer.scss';
 
+/**
+  * Footer
+  *
+  * @param {object} props
+  * @param {func} onDidMount            returns a reference to itself to the parent component when the container is mounted.
+  * @param {Node} classes               classNames from parent
+  * @param {Node} children              React child node containing footer content
+  * @param {object} breakpoint          captures browser width
+  * @returns {func}                     Returns a function
+*/
+
 export function Footer (props) {
   const { onDidMount, classes, children, breakpoint } = props;
   return (
     <footer ref={ (el) => onDidMount instanceof Function && onDidMount(el) } className={ `footer cf ${classes && classes}` }>
       { children && children }
-
       <div className="row">
-
         <FooterSocial />
-
         <div className="contact-info layout--align-right">
           { breakpointIsGreaterThan('mobileLg', breakpoint.size) &&
             <a

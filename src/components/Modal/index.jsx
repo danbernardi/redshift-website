@@ -6,6 +6,15 @@ import GSAP from 'react-gsap-enhancer';
 import { TimelineLite, Power1 } from 'gsap';
 import { setWindowDimensions } from 'store/actions';
 
+/**
+  * Header - Modal Component
+  *
+  * @param {object} props
+  * @param {object} modalState          returns information about current modal
+  * @param {func} dispatch              connects window dimensions
+  * @returns {React.Component}          Returns a react component
+*/
+
 export class Modal extends React.Component {
   componentDidMount () {
     const { dispatch } = this.props;

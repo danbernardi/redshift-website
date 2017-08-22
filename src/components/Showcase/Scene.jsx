@@ -6,7 +6,20 @@ import { TimelineLite, Power3, Power1 } from 'gsap';
 import GSAP from 'react-gsap-enhancer';
 import PropTypes from 'prop-types';
 
-// const SUPPORT_TOUCH = 'ontouchstart' in window;
+/**
+ * Showcases Scenes for Homepage
+ *
+ * @extends React.Component
+ * @param {Object} props                React properties argument
+ * @param {number} index                number of featured case studies to render
+ * @param {nnumber} animationProgress   timing of animation
+ * @param {string} id                   gives an id to the images to check if they are loaded
+ * @param {array} caption               case study blurbs on homepage
+ * @param {func} onDidMount             returns a reference to itself to the parent component when the container is mounted.
+ * @param {object} device               case study images
+ * @param {func} reportAsLoaded         returns a function to the parent component when loaded
+ * @returns {React.Component}           Returns a react component
+ */
 
 export class Scene extends React.Component {
   constructor (props) {

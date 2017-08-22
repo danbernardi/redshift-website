@@ -2,8 +2,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { browserHistory } from 'react-router';
-import './Header.scss';
-import './HeaderClose.scss';
 import * as actions from 'store/actions';
 import Nav from 'components/Nav/index';
 import { scrollDocToZero } from 'utils/scrollTo';
@@ -14,9 +12,18 @@ import GSAP from 'react-gsap-enhancer';
 import { TimelineLite, TweenLite } from 'gsap';
 import { isTouchDevice } from 'utils/browserTests';
 
-function animateScroll (container, position) {
-  TweenLite.to(container, 0.5, { scrollTop: position });
-}
+import './Header.scss';
+import './HeaderClose.scss';
+
+/**
+  * Header - Header Component
+  *
+  * @param {object} props
+  * @param {object} modalState          returns information about current modal
+  * @param {string} headerTheme         checks dispatch for correct theme
+  * @param {object} breakpoint          captures browser width
+  * @returns {React.Component}          Returns a react component
+*/
 
 export class Header extends React.Component {
   constructor (props) {
@@ -65,9 +72,8 @@ export class Header extends React.Component {
       animate = false;
     } else {
       const showcase = document.getElementsByClassName('showcase')[0];
-      animateScroll(showcase, 0);
+      TweenLite.to(showcase, 0.5, { scrollTop: 0 });
     }
-
     dispatch(actions.goToNextCaseStudy(-1, animate, []));
   };
 
