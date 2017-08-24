@@ -43,7 +43,7 @@ class CaseStudySection extends React.Component {
       laptop: {
         def: require('assets/img/case-studies/laptop.png'),
         tlg: require('assets/img/case-studies/laptop-tlg.png'),
-        mlg: require('assets/img/case-studies/laptop-mlg.png
+        mlg: require('assets/img/case-studies/laptop-mlg.png')
       }
     };
 
