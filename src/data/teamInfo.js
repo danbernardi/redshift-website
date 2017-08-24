@@ -81,7 +81,7 @@ export const teamInfo = [
     id: 'andrew',
     name: 'Andrew Fitzpatrick',
     position: 'Software Engineer',
-    modal: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/about/team/modal/andrew_2.jpg',
+    modal: require('assets/img/about/team/modal/andrew_2.jpg'),
     bioStatement: [
       'Andrew is a self-taught developer with a background in fine arts.',
       'He has built websites for the largest online retailers over the last decade. When he is not writing the code that makes your page load as a Full Stack Engineer at Redshift, you can find him lurking in thrift shops and garage sales.'

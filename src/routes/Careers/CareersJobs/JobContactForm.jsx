@@ -33,7 +33,7 @@ export class JobContactForm extends React.Component {
         <div className={ `form__group ${form.formClass}` } ref={ el => { this.formGroup = el; } }>
           {
             form.type === 'file'
-              ? <label htmlFor="file-input" name="attachment" >Attach resume <img src='https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/about/paperclip.svg' alt="Add a file attachment" /></label>
+              ? <label htmlFor="file-input" name="attachment" >Attach resume <img src={ require('assets/img/paperclip.svg') } alt="Add a file attachment" /></label>
               : null
           }
           <input

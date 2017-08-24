@@ -84,7 +84,7 @@ export class Archive extends React.Component {
                         <h3 className="typ--bold">{ study.shortDescription }</h3>
                       </div>
                       <div className="archive__arrow">
-                        <img src="https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/right-arrow.svg" alt="Click" />
+                        <img src={ require('assets/img/right-arrow.svg') } alt="Click" />
                       </div>
                     </div>
                   </Link>
