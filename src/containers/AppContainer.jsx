@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { browserHistory, Router } from 'react-router';
 import { Provider, connect } from 'react-redux';
 import { enableScroll, disableScroll } from 'utils/scrollJack';
@@ -11,7 +11,15 @@ initReactFastclick();
 
 ReactGA.initialize('UA-48401766-1');
 
-class AppContainer extends Component {
+/**
+ * Renders a watcher component that is wrapped by the Watch higher order component
+ * for handling events when divs are scrolled into view
+ *
+ * @param  {object} modalState         disable scroll when modal is open
+ *
+ */
+
+class AppContainer extends React.Component {
   static propTypes = {
     routes: PropTypes.object.isRequired,
     store: PropTypes.object.isRequired

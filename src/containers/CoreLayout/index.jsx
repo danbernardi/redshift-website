@@ -13,6 +13,15 @@ import PropTypes from 'prop-types';
 
 import 'styles/core.scss';
 
+/**
+ * Renders a watcher component that is wrapped by the Watch higher order component
+ * for handling events when divs are scrolled into view
+ * @param {Object} props
+ * @param  {func} dispatch              dispatches active breakpoints
+ * @param {element} children            active page content
+ * @return {React.Component}
+ */
+
 export class CoreLayout extends React.Component {
   constructor (props) {
     super(props);
