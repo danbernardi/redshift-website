@@ -1,10 +1,5 @@
 @import 'sass-includes';
 
-.noscroll--mobile {
-  overflow: hidden;
-  position: fixed;
-}
-
 .archive--title {
   margin-bottom: 10rem;
   @include breakpoint($mobile-lg) {

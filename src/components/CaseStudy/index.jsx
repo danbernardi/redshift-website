@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import CaseStudyScroller from './CaseStudyScroller';
 import { TimelineLite, Power1 } from 'gsap';
 import GSAP from 'react-gsap-enhancer';
+
 import './CaseStudy.scss';
 
 /**

@@ -48,4 +48,4 @@ CaseStudyHeader.propTypes = {
   color: PropTypes.string
 };
 
-export default (GSAP()(CaseStudyHeader));
+export default GSAP()(CaseStudyHeader);

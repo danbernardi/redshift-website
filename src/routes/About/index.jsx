@@ -4,7 +4,7 @@ import AboutHybrid from './AboutHybrid';
 import AboutExplore from './AboutExplore';
 import AboutClients from './AboutClients';
 import AboutTeam from './AboutTeam';
-import { clientData } from 'data/newClients';
+import { clientData } from 'data/clients';
 import { teamInfo } from 'data/teamInfo';
 import Footer from 'components/Footer';
 import * as actions from 'store/actions';
