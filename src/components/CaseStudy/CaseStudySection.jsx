@@ -31,19 +31,19 @@ class CaseStudySection extends React.Component {
     const { video, images, copy, containerClass, classes, imgAlt } = this.props.caseStudyContent;
     const videoOverlay = {
       iphone: {
-        def: require('assets/img/case-studies/iphone.png'),
-        tlg: require('assets/img/case-studies/iphone-tlg.png'),
-        mlg: require('assets/img/case-studies/iphone-mlg.png')
+        def: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/default/iphone.png'),
+        tlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/tablet/iphone.png'),
+        mlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/mobile/iphone.png')
       },
       ipad: {
-        def: require('assets/img/case-studies/ipad.png'),
-        tlg: require('assets/img/case-studies/ipad-tlg.png'),
-        mlg: require('assets/img/case-studies/ipad-mlg.png')
+        def: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/default/ipad.png'),
+        tlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/tablet/ipad.png'),
+        mlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/mobile/ipad.png')
       },
       laptop: {
-        def: require('assets/img/case-studies/laptop.png'),
-        tlg: require('assets/img/case-studies/laptop-tlg.png'),
-        mlg: require('assets/img/case-studies/laptop-mlg.png')
+        def: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/default/laptop.png'),
+        tlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/tablet/laptop.png'),
+        mlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/case-studies/mobile/laptop.png')
       }
     };
 

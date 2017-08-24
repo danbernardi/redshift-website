@@ -82,7 +82,7 @@ export class CaseStudyScroller extends React.Component {
                 className="casestudy__scrollarrow"
                 onClick={ () => { this.animateScroll(this.casestudy, window.innerHeight); } }
               >
-                <img src={ require('assets/img/scroll-arrow.svg') } alt="Scroll down" />
+                <img src="https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/scroll-arrow.svg" alt="Scroll down" />
               </div>
             </div>
           </div>
