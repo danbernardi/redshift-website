@@ -1,28 +1,4 @@
 /**
- * Makes a request to preload an image file.
- * @param  {String} imgSrc URL of image source
- * @return {Promise}        Returns a promise
- */
-export async function preloadImage (imgSrc) {
-  return new Promise((resolve, reject) => {
-    const img = document.createElement('img');
-    img.src = imgSrc;
-    if (img.complete) {
-      resolve(img);
-    } else {
-      img.addEventListener('load', () => {
-        // console.log('resolved', Date.now(), img);
-        resolve(img);
-      });
-
-      img.addEventListener('error', (error) => {
-        reject(new Error(error));
-      });
-    }
-  });
-}
-
-/**
  * Sequences a set of image request promises
  * @param  {[type]} imgArray [description]
  * @return {[type]}          [description]
@@ -30,22 +6,6 @@ export async function preloadImage (imgSrc) {
 export function preloadAllImages (imgArray) {
   const imagePromises = imgArray.map((img) => () => preloadImage(img));
   return sequencePromises(imagePromises);
-}
-
-/**
- * Sequences promises to call them in order upon the
- * completion of the prior task.
- * @param  {Object} tasks Promise
- * @return {Object}       Promise
- */
-export function sequencePromises (tasks) {
-  let result = Promise.resolve();
-
-  tasks.forEach(task => {
-    result = result.then(() => task());
-  });
-
-  return result;
 }
 
 /**
