@@ -91,9 +91,9 @@ export class Careers extends React.Component {
   render () {
     const { modalState, scrollContainer } = this.props;
     const careerHero = {
-      imgDef: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/careers/rs_team.jpg',
-      imgTlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/careers/rs_team-tlg.jpg',
-      imgMlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/careers/rs_team-mlg.jpg'
+      imgDef: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/careers/desktop/rs_team.jpg',
+      imgTlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/careers/tablet/rs_team.jpg',
+      imgMlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/careers/mobile/rs_team.jpg'
     };
 
     return (
