@@ -4,7 +4,6 @@ import { browserHistory } from 'react-router';
 import { setClass, breakpointIsGreaterThan } from 'utils/responsiveHelpers';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import '../style.scss';
 
 export function BioTemplate (props) {
   const { bioContent, breakpoint } = props;

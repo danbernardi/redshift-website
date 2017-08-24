@@ -132,7 +132,10 @@
     width: auto;
     position: fixed;
     right: 0;
-    @media screen and (max-width: 1300px) {
+    @include breakpoint($desktop-lg) {
+      right: -8%;
+    }
+    @include breakpoint($desktop-sm) {
       right: -17.7%;
     }
     @media screen and (max-height: 680px) {
