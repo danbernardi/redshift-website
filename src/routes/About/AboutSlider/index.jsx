@@ -5,6 +5,14 @@ import PropTypes from 'prop-types';
 
 import './Slides.scss';
 
+/**
+ * The slide show section of the about page
+ *
+ * @param {Object} props
+ * @param {object} breakpoint           Checks browser width
+ * @return {React.Component}
+*/
+
 class AboutSlides extends React.Component {
   constructor (props) {
     super(props);

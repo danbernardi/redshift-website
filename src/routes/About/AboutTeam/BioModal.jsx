@@ -6,6 +6,14 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import '../style.scss';
 
+/**
+ * The slide show section of the about page
+ *
+ * @param {Object} props
+ * @param {object} breakpoint           Checks browser width
+ * @return {function}
+*/
+
 export function BioTemplate (props) {
   const { bioContent, breakpoint } = props;
 

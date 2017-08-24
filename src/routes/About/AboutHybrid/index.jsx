@@ -10,6 +10,15 @@ import PropTypes from 'prop-types';
 
 import './About_Hybrid.scss';
 
+/**
+ * The hybrid setion of the about page
+ *
+ * @param {Object} props
+ * @param {object} scrollContainer      Dimensions of the scrollContainer for the watcher in AboutHybrid
+ * @param {object} breakpoint           Checks browser width
+ * @return {React.Component}
+ */
+
 export class AboutHybrid extends React.Component {
   componentDidMount () {
     this.timeline = this.addAnimation(this.createTimeline.bind(this));

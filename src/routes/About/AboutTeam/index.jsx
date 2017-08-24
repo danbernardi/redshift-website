@@ -6,6 +6,15 @@ import PropTypes from 'prop-types';
 
 import './About_Team.scss';
 
+/**
+ * The slide show section of the about page
+ *
+ * @param {Object} props
+ * @param {array} team                  Team data from parent
+ * @param {object} breakpoint           Checks browser width
+ * @return {React.Component}
+*/
+
 export function AboutTeam (props) {
   const { team, breakpoint } = props;
 
