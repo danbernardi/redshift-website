@@ -11,6 +11,15 @@ import Loader from 'components/Loader';
 import { enableScroll, disableScroll } from 'utils/scrollJack';
 import { connect } from 'react-redux';
 
+/**
+ * Slack integrated Inspiration page
+ *
+ * @param {Object} props
+ * @param {object} modalState         checks browser dimsnsions for scroller
+ * @return {React.Component}
+ */
+
+
 export class Inspiration extends React.Component {
   constructor (props) {
     super(props);
@@ -108,7 +117,7 @@ export class Inspiration extends React.Component {
         return (
           <div className="inspiration__item" key={ index }>
             <a className="inspiration__link" target="_blank" href={ titleLink }>
-              <h4 className="inspiration__itemtitle mb2">{ title }</h4>
+              <h3 className="inspiration__itemtitle">{ title }</h3>
               { imgUrl
                 ? this.loadImage(imgUrl)
                 : null
@@ -119,7 +128,7 @@ export class Inspiration extends React.Component {
                 : null
               }
 
-              <p className="mb0">{ articleText }</p>
+              <p className="mb0 typ--b2">{ articleText }</p>
             </a>
           </div>
         );
@@ -142,7 +151,6 @@ export class Inspiration extends React.Component {
 }
 
 Inspiration.propTypes = {
-  dispatch: PropTypes.func,
   modalState: PropTypes.object
 };
 
