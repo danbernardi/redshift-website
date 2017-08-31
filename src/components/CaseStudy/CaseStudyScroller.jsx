@@ -48,7 +48,7 @@ export class CaseStudyScroller extends React.Component {
     TweenLite.to(this.trigger, 0.6, { opacity: 0 });
   }
 
-  watcherCallback (watcher) {
+  watcherCallback = (watcher) => {
     if (watcher.isFullyInViewport) this.animateTriggerIn();
     if (watcher.isAboveViewport) this.animateTriggerOut();
   };
@@ -79,8 +79,8 @@ export class CaseStudyScroller extends React.Component {
 
           <Watcher
             autoStart={ false }
-            stateChange={ this.watcherCallback.bind(this) }
-            enterViewport={ this.watcherCallback.bind(this) }
+            stateChange={ this.watcherCallback }
+            enterViewport={ this.watcherCallback }
             scrollContainer={ scrollContainer }
           />
 

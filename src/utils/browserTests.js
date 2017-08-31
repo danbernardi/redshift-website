@@ -5,7 +5,9 @@ export const isOpera = (!!window.opr && !!opr.addons) || !!window.opera || navig
 export const isFirefox = typeof InstallTrigger !== 'undefined';
 
 // Safari 3.0+ "[object HTMLElementConstructor]"
-export const isSafari = Object.prototype.toString.call(window.HTMLElement).indexOf('Constructor') > 0 || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!window['safari'] || safari.pushNotification);
+export const isSafari = Object.prototype.toString.call(window.HTMLElement).indexOf('Constructor') > 0 ||
+                        (function (p) { return p.toString() === '[object SafariRemoteNotification]'; })(!window['safari'] ||
+                        safari.pushNotification);
 
 // Internet Explorer 6-11
 export const isIE = /*@cc_on!@*/false || !!document.documentMode;

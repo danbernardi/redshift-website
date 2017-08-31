@@ -371,7 +371,7 @@ export class Showcase extends React.Component {
 
   // Clone header and add props
   header () {
-    return (<Hero scrollTrigger={ this.goToScene.bind(this) } />);
+    return (<Hero scrollTrigger={ this.goToScene } />);
   }
 
   // Clone scenes and add props
@@ -434,7 +434,7 @@ export class Showcase extends React.Component {
    * @param  {Number}  index   The scene to move to
    * @param  {Boolean} animate Animate or jump to a scene.  Defaults to true (animate)
    */
-  goToScene (index, animate = true) {
+  goToScene = (index, animate = true) => {
     if (!isInRange(index, 0, this.sceneMeta.length - 1)) {
       console.warn('Scene index out of range', index);
       return null;
@@ -493,11 +493,7 @@ export class Showcase extends React.Component {
 
           {
             /* If the children have mounted, create a placeholder for each component */
-            this.children.map((child, index) => {
-              return (
-                <div className="scene scene__dummy" key={ index } />
-              );
-            })
+            this.children.map((child, index) => <div className="scene scene__dummy" key={ index } />)
           }
 
           <Archive reportAsLoaded={ () => this.setAsLoaded('archive') } onDidMount={ (el) => this.addScrollPoint(el, this.children.length) } />

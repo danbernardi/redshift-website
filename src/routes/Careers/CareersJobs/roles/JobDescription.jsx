@@ -17,7 +17,7 @@ export function JobDescription ({ jobDetail }) {
         <h1 className="job-description__title rs--gradienttext">{ jobDetail.position }</h1>
         <div className="job-description typ--b1">{ jobDetail.description }</div>
         <hr />
-        {jobDetail.responsibilities &&
+        { jobDetail.responsibilities &&
         <div>
           <h3 className="job-description__subtitle">Responsibilities</h3>
           <ul className="job__list">
@@ -29,7 +29,7 @@ export function JobDescription ({ jobDetail }) {
           </ul>
         </div>
         }
-        {jobDetail.skills &&
+        { jobDetail.skills &&
           <div>
             <h3 className="job-description__subtitle">Candidates must have:</h3>
             <ul className="job__list">
@@ -41,7 +41,7 @@ export function JobDescription ({ jobDetail }) {
             </ul>
           </div>
         }
-        {jobDetail.plusses &&
+        { jobDetail.plusses &&
           <div>
             <h3 className="job-description__subtitle">Plus at least 2-3 of these:</h3>
             <ul className="job__list">
