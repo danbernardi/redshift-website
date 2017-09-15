@@ -29,6 +29,7 @@
     // media queries
     @include breakpoint($mobile-xsm) {
       display: block;
+      margin-bottom: 1rem;
     }
   }
 }
