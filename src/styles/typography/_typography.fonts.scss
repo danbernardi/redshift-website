@@ -1,114 +1,34 @@
 @font-face {
   font-family: 'redshift-icons';
-  src: url('../assets/fonts/redshift-icons.eot');
-  src: url('../assets/fonts/redshift-icons.eot?#iefix') format('eot'),
-  url('../assets/fonts/redshift-icons.woff') format('woff'),
-  url('../assets/fonts/redshift-icons.ttf') format('truetype'),
-  url('../assets/fonts/redshift-icons.svg#redshift-icons') format('svg');
-}
-
-@font-face {
-  font-family: 'Avenir-Medium';
-  src: url('../assets/fonts/31ED00_0_0.eot');
-  src: url('../assets/fonts/31ED00_0_0.eot?#iefix') format('embedded-opentype'),
-  url('../assets/fonts/31ED00_0_0.woff2') format('woff2'),
-  url('../assets/fonts/31ED00_0_0.woff') format('woff'),
-  url('../assets/fonts/31ED00_0_0.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'Avenir-Roman';
-  src: url('../assets/fonts/31ED00_1_0.eot');
-  src: url('../assets/fonts/31ED00_1_0.eot?#iefix') format('embedded-opentype'),
-  url('../assets/fonts/31ED00_1_0.woff2') format('woff2'),
-  url('../assets/fonts/31ED00_1_0.woff') format('woff'),
-  url('../assets/fonts/31ED00_1_0.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'Avenir-MediumOblique';
-  src: url('../assets/fonts/31ED00_2_0.eot');
-  src: url('../assets/fonts/31ED00_2_0.eot?#iefix') format('embedded-opentype'),
-  url('../assets/fonts/31ED00_2_0.woff2') format('woff2'),
-  url('../assets/fonts/31ED00_2_0.woff') format('woff'),
-  url('../assets/fonts/31ED00_2_0.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'Avenir-BookOblique';
-  src: url('../assets/fonts/31ED00_3_0.eot');
-  src: url('../assets/fonts/31ED00_3_0.eot?#iefix') format('embedded-opentype'),
-  url('../assets/fonts/31ED00_3_0.woff2') format('woff2'),
-  url('../assets/fonts/31ED00_3_0.woff') format('woff'),
-  url('../assets/fonts/31ED00_3_0.ttf') format('truetype');
+  src: url('https://s3-us-west-1.amazonaws.com/rs-website-cdn/fonts/redshift-icons.eot');
+  src: url('https://s3-us-west-1.amazonaws.com/rs-website-cdn/fonts/redshift-icons.eot?#iefix') format('eot'),
+  url('https://s3-us-west-1.amazonaws.com/rs-website-cdn/fonts/redshift-icons.woff') format('woff'),
+  url('https://s3-us-west-1.amazonaws.com/rs-website-cdn/fonts/redshift-icons.ttf') format('truetype'),
+  url('https://s3-us-west-1.amazonaws.com/rs-website-cdn/fonts/redshift-icons.svg#redshift-icons') format('svg');
 }
 
 @font-face {
   font-family: 'Avenir-Black';
-  src: url('../assets/fonts/31ED00_4_0.eot');
-  src: url('../assets/fonts/31ED00_4_0.eot?#iefix') format('embedded-opentype'),
-  url('../assets/fonts/31ED00_4_0.woff2') format('woff2'),
-  url('../assets/fonts/31ED00_4_0.woff') format('woff'),
-  url('../assets/fonts/31ED00_4_0.ttf') format('truetype');
-}
-
-@font-face {font-family: 'Avenir-HeavyOblique';
-  src: url('../assets/fonts/31ED00_5_0.eot');
-  src: url('../assets/fonts/31ED00_5_0.eot?#iefix') format('embedded-opentype'),
-  url('../assets/fonts/31ED00_5_0.woff2') format('woff2'),
-  url('../assets/fonts/31ED00_5_0.woff') format('woff'),
-  url('../assets/fonts/31ED00_5_0.ttf') format('truetype');
+  src: url('https://s3-us-west-1.amazonaws.com/rs-website-cdn/fonts/31ED00_4_0.eot');
+  src: url('https://s3-us-west-1.amazonaws.com/rs-website-cdn/fonts/31ED00_4_0.eot?#iefix') format('embedded-opentype'),
+  url('https://s3-us-west-1.amazonaws.com/rs-website-cdn/fonts/31ED00_4_0.woff2') format('woff2'),
+  url('https://s3-us-west-1.amazonaws.com/rs-website-cdn/fonts/31ED00_4_0.woff') format('woff'),
+  url('https://s3-us-west-1.amazonaws.com/rs-website-cdn/fonts/31ED00_4_0.ttf') format('truetype');
 }
 
 @font-face {font-family: 'Avenir-Book';
-  src: url('../assets/fonts/31ED00_6_0.eot');
-  src: url('../assets/fonts/31ED00_6_0.eot?#iefix') format('embedded-opentype'),
-  url('../assets/fonts/31ED00_6_0.woff2') format('woff2'),
-  url('../assets/fonts/31ED00_6_0.woff') format('woff'),
-  url('../assets/fonts/31ED00_6_0.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'Avenir-Light';
-  src: url('../assets/fonts/31ED00_7_0.eot');
-  src: url('../assets/fonts/31ED00_7_0.eot?#iefix') format('embedded-opentype'),
-  url('../assets/fonts/31ED00_7_0.woff2') format('woff2'),
-  url('../assets/fonts/31ED00_7_0.woff') format('woff'),
-  url('../assets/fonts/31ED00_7_0.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'Avenir-BlackOblique';
-  src: url('../assets/fonts/31ED00_8_0.eot');
-  src: url('../assets/fonts/31ED00_8_0.eot?#iefix') format('embedded-opentype'),
-  url('../assets/fonts/31ED00_8_0.woff2') format('woff2'),
-  url('../assets/fonts/31ED00_8_0.woff') format('woff'),
-  url('../assets/fonts/31ED00_8_0.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'Avenir-LightOblique';
-  src: url('../assets/fonts/31ED00_9_0.eot');
-  src: url('../assets/fonts/31ED00_9_0.eot?#iefix') format('embedded-opentype'),
-  url('../assets/fonts/31ED00_9_0.woff2') format('woff2'),
-  url('../assets/fonts/31ED00_9_0.woff') format('woff'),
-  url('../assets/fonts/31ED00_9_0.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'Avenir-Oblique';
-  src: url('../assets/fonts/31ED00_A_0.eot');
-  src: url('../assets/fonts/31ED00_A_0.eot?#iefix') format('embedded-opentype'),
-  url('../assets/fonts/31ED00_A_0.woff2') format('woff2'),
-  url('../assets/fonts/31ED00_A_0.woff') format('woff'),
-  url('../assets/fonts/31ED00_A_0.ttf') format('truetype');
+  src: url('https://s3-us-west-1.amazonaws.com/rs-website-cdn/fonts/31ED00_6_0.eot');
+  src: url('https://s3-us-west-1.amazonaws.com/rs-website-cdn/fonts/31ED00_6_0.eot?#iefix') format('embedded-opentype'),
+  url('https://s3-us-west-1.amazonaws.com/rs-website-cdn/fonts/31ED00_6_0.woff2') format('woff2'),
+  url('https://s3-us-west-1.amazonaws.com/rs-website-cdn/fonts/31ED00_6_0.woff') format('woff'),
+  url('https://s3-us-west-1.amazonaws.com/rs-website-cdn/fonts/31ED00_6_0.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'Avenir-Heavy';
-  src: url('../assets/fonts/31ED00_B_0.eot');
-  src: url('../assets/fonts/31ED00_B_0.eot?#iefix') format('embedded-opentype'),
-  url('../assets/fonts/31ED00_B_0.woff2') format('woff2'),
-  url('../assets/fonts/31ED00_B_0.woff') format('woff'),
-  url('../assets/fonts/31ED00_B_0.ttf') format('truetype');
+  src: url('https://s3-us-west-1.amazonaws.com/rs-website-cdn/fonts/31ED00_B_0.eot');
+  src: url('https://s3-us-west-1.amazonaws.com/rs-website-cdn/fonts/31ED00_B_0.eot?#iefix') format('embedded-opentype'),
+  url('https://s3-us-west-1.amazonaws.com/rs-website-cdn/fonts/31ED00_B_0.woff2') format('woff2'),
+  url('https://s3-us-west-1.amazonaws.com/rs-website-cdn/fonts/31ED00_B_0.woff') format('woff'),
+  url('https://s3-us-west-1.amazonaws.com/rs-website-cdn/fonts/31ED00_B_0.ttf') format('truetype');
 }
