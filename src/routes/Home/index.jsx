@@ -6,6 +6,16 @@ import * as actions from 'store/actions';
 import CaseStudyModalWrapper from 'components/CaseStudy/CaseStudyModalWrapper';
 import PropTypes from 'prop-types';
 
+/**
+ * Homepage index - container for Showcase
+ *
+ * @param {Object} props
+ * @param {string} modal                  determines correct modal to dispatch
+ * @param {function} dispatch             connects case studies to correct modal
+ * @param {Object} params                 opens modal if user goes directly to modal url
+ * @return {React.Component}
+ */
+
 export class Home extends React.Component {
   componentDidMount () {
     const { modal, params } = this.props;
