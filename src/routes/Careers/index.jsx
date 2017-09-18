@@ -14,8 +14,8 @@ import { ScrollContainer } from 'scrollmonitor-react';
  * The Careers Index Page
  *
  * @param {Object} props
- * @param {func} dispatch                 opens correct job modal and sets header theme
- * @param {Object} params                opens correct modal if user goes directly to url
+ * @param {function} dispatch             opens correct job modal and sets header theme
+ * @param {Object} params                 opens correct modal if user goes directly to url
  * @param {Object} modalState             returns informaiton about the current modal
  * @param {Object} scrollContainer        a prop for the watcher to fire the animation at the right time
  * @return {React.Component}
