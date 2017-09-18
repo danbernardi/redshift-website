@@ -1,9 +1,19 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import './Hamburger.scss';
 import PropTypes from 'prop-types';
 
-export const Hamburger = props => {
+import './Hamburger.scss';
+
+/**
+  * Hamburger - Header Menu
+  *
+  * @param {Object} props
+  * @param {Object} modalState          returns information about current modal
+  * @param {boolean} close              close modal
+  * @returns {func}                     Returns a function
+*/
+
+export function Hamburger (props) {
   const { modalState, close } = props;
 
   return (

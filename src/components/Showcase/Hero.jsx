@@ -8,6 +8,18 @@ import PropTypes from 'prop-types';
 import { breakpointIsGreaterThan } from 'utils/responsiveHelpers';
 import './Hero.scss';
 
+/**
+ * Hero - Showcase Top
+ *
+ * @extends React.Component
+ * @param {Object} props                React properties argument
+ * @param {function} onDidMount             returns a reference to itself to the parent component when the container is mounted.
+ * @param {function} reportAsLoaded         returns a function to the parent component when loaded
+ * @param {number} animationProgress    measures speed of animation
+ * @param {Object} breakpoint           captures browser width
+ * @returns {React.Component}           Returns a react component
+ */
+
 export class Hero extends React.Component {
   constructor (props) {
     super(props);

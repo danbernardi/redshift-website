@@ -4,6 +4,16 @@ import SplitText from 'vendor/gsap-plugins/SplitText';
 import GSAP from 'react-gsap-enhancer';
 import PropTypes from 'prop-types';
 
+/**
+* Animation container for case study headings
+*
+* @extends React.Component
+* @param {string} content          title text from case study data
+* @param {string} color            color of text from case study data
+* @returns {React.Component}       Returns a react component
+*
+*/
+
 export class CaseStudyHeader extends React.Component {
   componentDidMount () {
     const textChars = new SplitText('.casestudy__title', { type: 'chars, words' });

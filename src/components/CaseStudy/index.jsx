@@ -8,6 +8,14 @@ import { TimelineLite, Power1 } from 'gsap';
 import GSAP from 'react-gsap-enhancer';
 import './CaseStudy.scss';
 
+/**
+  * Case Study
+  *
+  * @extends React.Component
+  * @param {Object} caseStudyContent    Content of the current case study
+  * @returns {React.Component}          Returns a react component
+*/
+
 class CaseStudy extends React.Component {
   constructor (props) {
     super(props);

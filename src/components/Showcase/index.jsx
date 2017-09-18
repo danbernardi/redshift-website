@@ -16,6 +16,19 @@ import { caseStudies } from 'data/caseStudies';
 import { setClass } from 'utils/responsiveHelpers';
 import { preloadAllImages, getImagesBySize, buildImageList } from 'utils/imgUtils';
 
+/**
+ * Showcases for Homepage
+ *
+ * @extends React.Component
+ * @param {Object} props                React properties argument
+ * @param {array} scenes                content from case study data
+ * @param {function} dispatch               changes header theme
+ * @param {Object} locationHistory      determines if work or homepage
+ * @param {Object} modalState           dispatches the correct modal
+ * @param {Object} breakpoint           captures browser width
+ * @returns {React.Component}           Returns a react component
+ */
+
 export class Showcase extends React.Component {
   constructor (props) {
     super(props);

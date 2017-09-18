@@ -5,6 +5,14 @@ import { Link } from 'react-router';
 import * as actions from 'store/actions';
 import PropTypes from 'prop-types';
 
+/**
+  * Header - Modal Component
+  *
+  * @param {function} dispatch                toggle modal window
+  * @param {function} link                    nav links from nav index
+  * @returns {React.Component}                Returns a react component
+*/
+
 class NavLinks extends React.Component {
 
   routingHandler (to) {

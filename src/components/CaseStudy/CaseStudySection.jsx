@@ -2,7 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Builder from 'components/Builder';
 
-/* eslint react/jsx-boolean-value: 0 */
+/**
+  * Content of Case Study
+  *
+  * @extends React.Component
+  * @param {Object} caseStudyContent    Content of the current case study
+  * @param {Object} scrollContainer     Dimensions of the case study sections passed to the builder for animations
+  * @returns {React.Component}          Returns a react component
+*/
 
 class CaseStudySection extends React.Component {
   constructor (props) {

@@ -4,20 +4,31 @@ import { connect } from 'react-redux';
 import Hamburger from 'components/Hamburger';
 import PropTypes from 'prop-types';
 
-const ModalCloseBtn = props => {
-  const { animationTiming, dispatch, modalState, closeCallback } = props;
+/**
+* Modal CLose Button on modals
+*
+* @param {Object} props
+* @param {Object} modalState              returns information about current modal
+* @param {function} dispatch              connects window dimensions
+* @param {function} closeCallback         track browser history from parent
+* @returns {React.Component}              Returns a react component
+*
+*/
+
+export function ModalCloseBtn (props) {
+  const { dispatch, modalState, closeCallback } = props;
 
   function closeModal () {
     dispatch(actions.toggleModal(false));
     const timing = setTimeout(() => {
       dispatch(actions.setActiveModal(null, null));
       clearInterval(timing);
-    }, animationTiming);
+    }, 200);
 
     if (closeCallback instanceof Function) closeCallback();
   };
 
-  const initialStyles = { transition: `opacity ${animationTiming}ms ease-in-out` };
+  const initialStyles = { transition: 'opacity 200ms ease-in-out' };
   let transformStyles = {};
 
   if (modalState.open && modalState.modalID !== 'nav') {
@@ -40,12 +51,7 @@ const ModalCloseBtn = props => {
 ModalCloseBtn.propTypes = {
   modalState: PropTypes.object,
   dispatch: PropTypes.func,
-  animationTiming: PropTypes.number,
   closeCallback: PropTypes.func
-};
-
-ModalCloseBtn.defaultProps = {
-  animationTiming: 200
 };
 
 const injectStateProps = state => ({

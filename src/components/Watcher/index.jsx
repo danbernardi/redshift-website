@@ -11,6 +11,7 @@ import PropTypes from 'prop-types';
  * @param {Object} props.children                   React node that houses the content to be watched
  * @return {React.Component}
  */
+
 export class Watcher extends React.Component {
   componentDidMount () {
     // clears race condition for initiating watcher
