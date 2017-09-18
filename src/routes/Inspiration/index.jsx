@@ -15,7 +15,7 @@ import { connect } from 'react-redux';
  * Slack integrated Inspiration page
  *
  * @param {Object} props
- * @param {object} modalState         checks browser dimsnsions for scroller
+ * @param {Object} modalState         checks browser dimsnsions for scroller
  * @return {React.Component}
  */
 
