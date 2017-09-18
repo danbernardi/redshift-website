@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
  * Job Listing on the careers page
  *
  * @param {Object} props
- * @param {object} job       jobDetails data from parent
+ * @param {Object} job       jobDetails data from parent
  */
 
 export function CareersJobs (props) {

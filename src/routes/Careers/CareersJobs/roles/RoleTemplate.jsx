@@ -13,10 +13,10 @@ import { connect } from 'react-redux';
   name: PropTypes.string,
   modalState: PropTypes.object
 
- * @param {object} props
+ * @param {Object} props
  * @param {element} children      content from parent component
  * @param {string} name           job position name from parent
- * @param {object} modalState     dimensions of current modal
+ * @param {Object} modalState     dimensions of current modal
 
 */
 
