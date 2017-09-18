@@ -55,7 +55,6 @@ export class CaseStudyScroller extends React.Component {
 
   render () {
     const { caseStudyContent, scrollContainer, modalState } = this.props;
-    debugger;
     let { nextCaseStudy } = this.props;
 
     if (!nextCaseStudy || typeof nextCaseStudy !== 'object') {
