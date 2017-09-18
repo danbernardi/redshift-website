@@ -14,11 +14,11 @@ import Watcher from 'components/Watcher';
 * Container for Case Study Content
 *
 * @extends React.Component
-* @param {object} caseStudyContent    Content of the current case study
-* @param {object} nextStudyState      Next case study
-* @param {object} scrollContainer     Case study section passed to the Watcher
-* @param {object} modalState          dimensions of the modal
-* @param {func} dispatch              open and close the correct modal
+* @param {Object} caseStudyContent    Content of the current case study
+* @param {Object} nextStudyState      Next case study
+* @param {Object} scrollContainer     Case study section passed to the Watcher
+* @param {Object} modalState          dimensions of the modal
+* @param {function} dispatch          open and close the correct modal
 * @returns {React.Component}          Returns a react component
 *
 */

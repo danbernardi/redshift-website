@@ -9,8 +9,8 @@ import PropTypes from 'prop-types';
 * Container for Case Study Scroller on the Homepage
 *
 * @extends React.Component
-* @param {object} caseStudyState   the current case study
-* @param {object} caseContent      the content of the current case study
+* @param {Object} caseStudyState   the current case study
+* @param {Object} caseContent      the content of the current case study
 * @returns {React.Component}       Returns a react component
 *
 */

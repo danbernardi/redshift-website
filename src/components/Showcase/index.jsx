@@ -22,10 +22,10 @@ import { preloadAllImages, getImagesBySize, buildImageList } from 'utils/imgUtil
  * @extends React.Component
  * @param {Object} props                React properties argument
  * @param {array} scenes                content from case study data
- * @param {func} dispatch               changes header theme
- * @param {object} locationHistory      determines if work or homepage
- * @param {object} modalState           dispatches the correct modal
- * @param {object} breakpoint           captures browser width
+ * @param {function} dispatch               changes header theme
+ * @param {Object} locationHistory      determines if work or homepage
+ * @param {Object} modalState           dispatches the correct modal
+ * @param {Object} breakpoint           captures browser width
  * @returns {React.Component}           Returns a react component
  */
 

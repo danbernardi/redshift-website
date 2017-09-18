@@ -7,11 +7,11 @@ import PropTypes from 'prop-types';
 /**
 * Modal CLose Button on modals
 *
-* @param {object} props
-* @param {object} modalState          returns information about current modal
-* @param {func} dispatch              connects window dimensions
-* @param {func} closeCallback         track browser history from parent
-* @returns {React.Component}          Returns a react component
+* @param {Object} props
+* @param {Object} modalState              returns information about current modal
+* @param {function} dispatch              connects window dimensions
+* @param {function} closeCallback         track browser history from parent
+* @returns {React.Component}              Returns a react component
 *
 */
 
@@ -28,7 +28,7 @@ export function ModalCloseBtn (props) {
     if (closeCallback instanceof Function) closeCallback();
   };
 
-  const initialStyles = { transition: "opacity 200ms ease-in-out" };
+  const initialStyles = { transition: 'opacity 200ms ease-in-out' };
   let transformStyles = {};
 
   if (modalState.open && modalState.modalID !== 'nav') {
@@ -51,7 +51,6 @@ export function ModalCloseBtn (props) {
 ModalCloseBtn.propTypes = {
   modalState: PropTypes.object,
   dispatch: PropTypes.func,
-  animationTiming: PropTypes.number,
   closeCallback: PropTypes.func
 };
 

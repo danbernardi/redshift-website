@@ -8,9 +8,9 @@ import PropTypes from 'prop-types';
 /**
   * Header - Modal Component
   *
-  * @param {func} dispatch              toggle modal window
-  * @param {func} link                    nav links from nav index
-  * @returns {React.Component}          Returns a react component
+  * @param {function} dispatch                toggle modal window
+  * @param {function} link                    nav links from nav index
+  * @returns {React.Component}                Returns a react component
 */
 
 class NavLinks extends React.Component {

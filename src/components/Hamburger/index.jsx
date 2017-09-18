@@ -7,9 +7,9 @@ import './Hamburger.scss';
 /**
   * Hamburger - Header Menu
   *
-  * @param {object} props
-  * @param {object} modalState          returns information about current modal
-  * @param {bool} close                 close modal
+  * @param {Object} props
+  * @param {Object} modalState          returns information about current modal
+  * @param {boolean} close              close modal
   * @returns {func}                     Returns a function
 */
 

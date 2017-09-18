@@ -18,10 +18,9 @@ import './HeaderClose.scss';
 /**
   * Header - Header Component
   *
-  * @param {object} props
-  * @param {object} modalState          returns information about current modal
+  * @param {Object} props
+  * @param {Object} modalState          returns information about current modal
   * @param {string} headerTheme         checks dispatch for correct theme
-  * @param {object} breakpoint          captures browser width
   * @returns {React.Component}          Returns a react component
 */
 
@@ -172,14 +171,12 @@ export class Header extends React.Component {
 Header.propTypes = {
   modalState: PropTypes.object,
   headerTheme: PropTypes.string,
-  dispatch: PropTypes.func,
-  breakpoint: PropTypes.object
+  dispatch: PropTypes.func
 };
 
 const injectStateProps = state => ({
   modalState: state.modalState,
-  headerTheme: state.headerTheme,
-  breakpoint: state.breakpoint
+  headerTheme: state.headerTheme
 });
 
 export default connect(injectStateProps)(GSAP()(Header));

@@ -6,8 +6,8 @@ import Builder from 'components/Builder';
   * Content of Case Study
   *
   * @extends React.Component
-  * @param {object} caseStudyContent    Content of the current case study
-  * @param {object} scrollContainer     Dimensions of the case study sections passed to the builder for animations
+  * @param {Object} caseStudyContent    Content of the current case study
+  * @param {Object} scrollContainer     Dimensions of the case study sections passed to the builder for animations
   * @returns {React.Component}          Returns a react component
 */
 

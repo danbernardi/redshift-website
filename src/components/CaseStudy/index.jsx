@@ -12,7 +12,7 @@ import './CaseStudy.scss';
   * Case Study
   *
   * @extends React.Component
-  * @param {object} caseStudyContent    Content of the current case study
+  * @param {Object} caseStudyContent    Content of the current case study
   * @returns {React.Component}          Returns a react component
 */
 

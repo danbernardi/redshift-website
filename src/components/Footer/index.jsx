@@ -9,12 +9,12 @@ import './footer.scss';
 /**
   * Footer
   *
-  * @param {object} props
-  * @param {func} onDidMount            returns a reference to itself to the parent component when the container is mounted.
+  * @param {Object} props
+  * @param {function} onDidMount        returns a reference to itself to the parent component when the container is mounted.
   * @param {Node} classes               classNames from parent
   * @param {Node} children              React child node containing footer content
-  * @param {object} breakpoint          captures browser width
-  * @returns {func}                     Returns a function
+  * @param {Object} breakpoint          captures browser width
+  * @returns {React.Component}          Returns a react component
 */
 
 export function Footer (props) {

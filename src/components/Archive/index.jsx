@@ -17,9 +17,9 @@ import './Archive.scss';
  *
  * @extends React.Component
  * @param {Object} props                React properties argument
- * @param {func} onDidMount             returns a reference to itself to the parent component when the container is mounted.
- * @param {func} reportAsLoaded         returns a function to the parent component when loaded
- * @param {object} modalState           dispatches the correspoding case study in a modal
+ * @param {function} onDidMount             returns a reference to itself to the parent component when the container is mounted.
+ * @param {function} reportAsLoaded         returns a function to the parent component when loaded
+ * @param {Object} modalState           dispatches the correspoding case study in a modal
  * @returns {React.Component}           Returns a react component
  */
 
