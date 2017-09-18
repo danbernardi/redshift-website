@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 /**
  * Renders a watcher component that is wrapped by the Watch higher order component
  * for handling events when divs are scrolled into view
- * @param {func} dispatch                 sets header theme class
+ * @param {function} dispatch                 sets header theme class
  * @return {React.Component}
  */
 
