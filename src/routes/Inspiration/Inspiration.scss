@@ -42,10 +42,12 @@
   transition: transform 0.2s ease-in-out;
   z-index: 5;
   // media queries
-  @include breakpoint($desktop-sm) {
+
+  @include breakpoint($desktop-lg) {
     width: calc(50% - 4rem);
   }
-  @include breakpoint($mobile-lg) {
+
+  @include breakpoint($tablet-md) {
     width: 100%;
   }
 
@@ -57,6 +59,11 @@
     display: block;
     transition: border-color 0.15s ease-in-out, transform 0.15s ease-in-out;
     -webkit-backface-visibility: hidden;
+    img {
+      @include breakpoint($tablet-md) {
+        width: 100%;
+      }
+    }
   }
 
   h4,
@@ -75,4 +82,5 @@ html:not(.is-touchdevice) {
 
 .inspiration__itemtitle {
   color: $redshift;
+  margin-bottom: 2rem;
 }

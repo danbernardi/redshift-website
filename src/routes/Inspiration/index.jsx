@@ -1,6 +1,5 @@
 import React from 'react';
 import Footer from 'components/Footer';
-import './Inspiration.scss';
 import { ellipsisString } from 'utils/string';
 import PropTypes from 'prop-types';
 import { TimelineLite, Power2 } from 'gsap';
@@ -10,6 +9,7 @@ import GSAP from 'react-gsap-enhancer';
 import Loader from 'components/Loader';
 import { enableScroll, disableScroll } from 'utils/scrollJack';
 import { connect } from 'react-redux';
+import './Inspiration.scss';
 
 /**
  * Slack integrated Inspiration page
@@ -18,7 +18,6 @@ import { connect } from 'react-redux';
  * @param {Object} modalState         checks browser dimsnsions for scroller
  * @return {React.Component}
  */
-
 
 export class Inspiration extends React.Component {
   constructor (props) {
@@ -41,9 +40,7 @@ export class Inspiration extends React.Component {
 
       // Counting the image attachements so that we can check
       // when all images have loaded.
-      this.totalImageCount = json.reduce((prev, curr) => {
-        return curr.attachments[0].image_url ? prev + 1 : prev;
-      }, 0);
+      this.totalImageCount = json.reduce((prev, curr) => curr.attachments[0].image_url ? prev + 1 : prev, 0);
 
       this.timeline = this.addAnimation(this.animateIn);
     });
@@ -81,7 +78,7 @@ export class Inspiration extends React.Component {
     .fromTo(feed, 0.6, { opacity: 0, y: 50, ease: Power2.easeOut }, { opacity: 1, y: 0, ease: Power2.easeOut }, 'animIn+=.3');
   }
 
-  onImageLoadedOrError () {
+  onImageLoadedOrError = () => {
     this.imgCount++;
     if (this.imgCount === this.totalImageCount) {
       this.setState({
@@ -94,8 +91,8 @@ export class Inspiration extends React.Component {
     return (
       <img
         src={ src }
-        onLoad={ this.onImageLoadedOrError.bind(this) }
-        onError={ this.onImageLoadedOrError.bind(this) }
+        onLoad={ this.onImageLoadedOrError }
+        onError={ this.onImageLoadedOrError }
       />
     );
   }
@@ -111,13 +108,12 @@ export class Inspiration extends React.Component {
         const imgUrl = attachment.image_url || null;
         const videoHtml = attachment.video_html || null;
         const titleLink = attachment.title_link;
-
         const articleText = text ? ellipsisString(text, 200) : '';
 
         return (
           <div className="inspiration__item" key={ index }>
             <a className="inspiration__link" target="_blank" href={ titleLink }>
-              <h3 className="inspiration__itemtitle">{ title }</h3>
+              <div className="inspiration__itemtitle typ--b2 typ--bold">{ title }</div>
               { imgUrl
                 ? this.loadImage(imgUrl)
                 : null
@@ -128,7 +124,7 @@ export class Inspiration extends React.Component {
                 : null
               }
 
-              <p className="mb0 typ--b2">{ articleText }</p>
+              <p className="mb0 typ--b3 mt1">{ articleText }</p>
             </a>
           </div>
         );
