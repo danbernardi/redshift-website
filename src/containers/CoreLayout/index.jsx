@@ -17,7 +17,7 @@ import 'styles/core.scss';
  * Renders a watcher component that is wrapped by the Watch higher order component
  * for handling events when divs are scrolled into view
  * @param {Object} props
- * @param  {func} dispatch              dispatches active breakpoints
+ * @param {function} dispatch              dispatches active breakpoints
  * @param {element} children            active page content
  * @return {React.Component}
  */
