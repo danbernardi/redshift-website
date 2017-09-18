@@ -5,6 +5,14 @@ import { setClass, breakpointIsGreaterThan } from 'utils/responsiveHelpers';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
+/**
+ * The slide show section of the about page
+ *
+ * @param {Object} props
+ * @param {Object} breakpoint           Checks browser width
+ * @return {function}
+*/
+
 export function BioTemplate (props) {
   const { bioContent, breakpoint } = props;
 

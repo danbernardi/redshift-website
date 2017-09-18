@@ -16,6 +16,18 @@ import { breakpointIsGreaterThan } from 'utils/responsiveHelpers';
 
 import './About.scss';
 
+/**
+ * The About Page
+ *
+ * @param {Object} props
+ * @param {function} dispatch           Opens correct team modal and sets header color
+ * @param {Object} params               Opens modal is user goes directly to modal URL
+ * @param {Object} modalState           Returns information about the current modal
+ * @param {Object} scrollContainer      Dimensions of the scrollContainer for the watcher in AboutHybrid
+ * @param {Object} breakpoint           Checks browser width
+ * @return {React.Component}
+ */
+
 export class About extends React.Component {
   componentDidMount () {
     const { params, dispatch } = this.props;

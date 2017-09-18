@@ -5,6 +5,14 @@ import PropTypes from 'prop-types';
 
 import './Clients.scss';
 
+/**
+ * Client Grid on the About Page
+ *
+ * @param {Object} props
+ * @param {array} data                  client data from parent
+ * @param {Object} breakpoint           Checks browser width
+ */
+
 export function AboutClients (props) {
   const { data, breakpoint } = props;
 

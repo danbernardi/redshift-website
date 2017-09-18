@@ -5,6 +5,15 @@ import PropTypes from 'prop-types';
 
 import './AboutExplore.scss';
 
+/**
+ * The About Page
+ *
+ * @param {Object} props
+ * @param {Object} breakpoint           Checks browser width
+ * @return {React.Component}
+ */
+
+
 export class AboutExplore extends React.Component {
   constructor (props) {
     super(props);
