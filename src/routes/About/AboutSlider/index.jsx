@@ -3,7 +3,7 @@ import { slideShow } from 'data/slideshow';
 import Slider from 'react-slick';
 import PropTypes from 'prop-types';
 
-import './Slides.scss';
+import './AboutSlider.scss';
 
 class AboutSlides extends React.Component {
   constructor (props) {

@@ -14,7 +14,7 @@ import { connect } from 'react-redux';
 import { ScrollContainer } from 'scrollmonitor-react';
 import { breakpointIsGreaterThan } from 'utils/responsiveHelpers';
 
-import './style.scss';
+import './About.scss';
 
 export class About extends React.Component {
   componentDidMount () {

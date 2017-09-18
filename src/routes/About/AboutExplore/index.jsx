@@ -3,7 +3,7 @@ import { setClass, breakpointIsLessThan, breakpointIsGreaterThan } from 'utils/r
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import './About_Explore.scss';
+import './AboutExplore.scss';
 
 export class AboutExplore extends React.Component {
   constructor (props) {

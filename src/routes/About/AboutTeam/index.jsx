@@ -4,7 +4,7 @@ import { setClass } from 'utils/responsiveHelpers';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import './About_Team.scss';
+import './AboutTeam.scss';
 
 export function AboutTeam (props) {
   const { team, breakpoint } = props;
@@ -31,7 +31,7 @@ export function AboutTeam (props) {
               <h3 className="member__name typ--bold">{ team.name }</h3>
               <span className="member__position typ--b2">{ team.position }</span>
               <div className="right-arrow">
-                <img src={ require('assets/img/right-arrow.svg') } alt={ `${team.name}, ${team.position}` } />
+                <img src="https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/right-arrow.svg" alt={ `${team.name}, ${team.position}` } />
               </div>
             </div>
           </div>

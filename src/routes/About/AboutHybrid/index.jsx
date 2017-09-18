@@ -8,7 +8,7 @@ import CustomEase from 'vendor/gsap-plugins/CustomEase';
 import Watcher from 'components/Watcher';
 import PropTypes from 'prop-types';
 
-import './About_Hybrid.scss';
+import './AboutHybrid.scss';
 
 export class AboutHybrid extends React.Component {
   componentDidMount () {
