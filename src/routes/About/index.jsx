@@ -20,7 +20,7 @@ import './style.scss';
  * The About Page
  *
  * @param {Object} props
- * @param {func} dispatch              Opens correct team modal and sets header color
+ * @param {function} dispatch           Opens correct team modal and sets header color
  * @param {Object} params               Opens modal is user goes directly to modal URL
  * @param {Object} modalState           Returns information about the current modal
  * @param {Object} scrollContainer      Dimensions of the scrollContainer for the watcher in AboutHybrid
