@@ -5,6 +5,13 @@ import { Link } from 'react-router';
 import './404.scss';
 import PropTypes from 'prop-types';
 
+/**
+ * Renders a watcher component that is wrapped by the Watch higher order component
+ * for handling events when divs are scrolled into view
+ * @param {function} dispatch                 sets header theme class
+ * @return {React.Component}
+ */
+
 class FourOhFour extends React.Component {
   componentDidMount () {
     const { dispatch } = this.props;
