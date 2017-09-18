@@ -10,7 +10,7 @@ import './Clients.scss';
  *
  * @param {Object} props
  * @param {array} data                  client data from parent
- * @param {object} breakpoint           Checks browser width
+ * @param {Object} breakpoint           Checks browser width
  */
 
 export function AboutClients (props) {

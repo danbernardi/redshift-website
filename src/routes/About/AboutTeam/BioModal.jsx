@@ -10,7 +10,7 @@ import '../style.scss';
  * The slide show section of the about page
  *
  * @param {Object} props
- * @param {object} breakpoint           Checks browser width
+ * @param {Object} breakpoint           Checks browser width
  * @return {function}
 */
 

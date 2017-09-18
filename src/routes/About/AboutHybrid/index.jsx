@@ -14,8 +14,8 @@ import './About_Hybrid.scss';
  * The hybrid setion of the about page
  *
  * @param {Object} props
- * @param {object} scrollContainer      Dimensions of the scrollContainer for the watcher in AboutHybrid
- * @param {object} breakpoint           Checks browser width
+ * @param {Object} scrollContainer      Dimensions of the scrollContainer for the watcher in AboutHybrid
+ * @param {Object} breakpoint           Checks browser width
  * @return {React.Component}
  */
 

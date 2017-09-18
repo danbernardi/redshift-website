@@ -9,7 +9,7 @@ import './About_Explore.scss';
  * The About Page
  *
  * @param {Object} props
- * @param {object} breakpoint           Checks browser width
+ * @param {Object} breakpoint           Checks browser width
  * @return {React.Component}
  */
 

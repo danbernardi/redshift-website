@@ -11,7 +11,7 @@ import './About_Team.scss';
  *
  * @param {Object} props
  * @param {array} team                  Team data from parent
- * @param {object} breakpoint           Checks browser width
+ * @param {Object} breakpoint           Checks browser width
  * @return {React.Component}
 */
 
