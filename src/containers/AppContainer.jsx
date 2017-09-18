@@ -15,7 +15,7 @@ ReactGA.initialize('UA-48401766-1');
  * Renders a watcher component that is wrapped by the Watch higher order component
  * for handling events when divs are scrolled into view
  *
- * @param  {object} modalState         disable scroll when modal is open
+ * @param {Object} modalState         disable scroll when modal is open
  *
  */
 
