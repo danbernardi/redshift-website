@@ -4,7 +4,7 @@ import { breakpointIsGreaterThan } from 'utils/responsiveHelpers';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import './footer.scss';
+import './Footer.scss';
 
 /**
   * Footer

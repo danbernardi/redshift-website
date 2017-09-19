@@ -50,7 +50,7 @@ html:not(.is-touchdevice) {
   @include breakpoint($mobile-lg) {
     top: -5.4rem;
   }
-  @include breakpoint($mobile-sm) {
+  @include breakpoint($mobile-md) {
     top: -5.7rem;
   }
 }

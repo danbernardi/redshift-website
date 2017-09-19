@@ -107,7 +107,7 @@ html:not(.is-touchdevice) {
   @include breakpoint($tablet-lg) {
     font-size: 3rem;
   }
-  @include breakpoint($mobile-sm) {
+  @include breakpoint($mobile-md) {
     display: none;
   }
 }

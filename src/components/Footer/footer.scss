@@ -37,7 +37,7 @@
   @include breakpoint($mobile-lg) {
     padding-top: 2.4rem;
   }
-  @include breakpoint($mobile-sm) {
+  @include breakpoint($mobile-md) {
     float: left;
     text-align: left;
     line-height: 2;

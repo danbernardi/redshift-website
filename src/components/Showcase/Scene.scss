@@ -62,7 +62,7 @@
     margin-right: 4rem;
   }
 
-  @include breakpoint($mobile-sm) {
+  @include breakpoint($mobile-md) {
     width: calc(100% - 4rem);
     margin-left: 2rem;
     margin-right: 2rem;
@@ -78,10 +78,10 @@
     @include breakpoint($tablet-sm) {
       bottom: 15rem;
     }
-    @include breakpoint($mobile-sm) {
+    @include breakpoint($mobile-md) {
       bottom: 14rem;
     }
-    @include breakpoint($mobile-xxsm) {
+    @include breakpoint($mobile-xsm) {
       bottom: 9rem;
     }
     @media only screen and (max-height: 400px) {
@@ -96,7 +96,7 @@
   span {
     display: block;
     // media queries
-    @include breakpoint($mobile-xxsm) {
+    @include breakpoint($mobile-xsm) {
       display: inline;
     }
   }
@@ -328,7 +328,7 @@ html:not(.is-touchdevice) {
       left: -47.5%;
       top: 48.7%;
     }
-    @include breakpoint($mobile-sm) {
+    @include breakpoint($mobile-md) {
       width: 197%;
       left: -58.5%;
     }

@@ -18,7 +18,7 @@
     padding-left: 4rem;
     padding-right: 4rem;
   }
-  @include breakpoint($mobile-sm) {
+  @include breakpoint($mobile-md) {
     padding-left: 2rem;
     padding-right: 2rem;
   }
