@@ -3,10 +3,39 @@
 .modal__title {
   color: $medium-gray;
   padding-top: 5.1rem;
-  //media queries
+}
+
+.modal__close {
+  cursor: pointer;
+  position: absolute !important;
+  color: $body;
+  z-index: 26;
+  left: 0;
+  text-align: right;
+  padding-top: 5.5rem;
+  // media queries
   @include breakpoint($mobile-lg) {
     padding-top: 3.3rem;
+    right: 0;
   }
+
+  .icon-close {
+    font-size: 3rem;
+  }
+}
+
+.modal__wrap {
+  z-index: 36;
+  position: relative;
+}
+
+.modal {
+  transform: translateX(100%);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
 }
 
 .modal__sidebar {
@@ -43,39 +72,6 @@
     width: calc(100% - 1rem);
     margin-left: 1rem;
   }
-}
-
-.modal__close {
-  cursor: pointer;
-  position: absolute !important;
-  color: $body;
-  z-index: 26;
-  left: 0;
-  text-align: right;
-  padding-top: 5.5rem;
-  // media queries
-  @include breakpoint($mobile-lg) {
-    padding-top: 3.3rem;
-    right: 0;
-  }
-
-  .icon-close {
-    font-size: 3rem;
-  }
-}
-
-.modal__wrap {
-  z-index: 36;
-  position: relative;
-}
-
-.modal {
-  transform: translateX(100%);
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
 }
 
 .modal__with-sidebar {

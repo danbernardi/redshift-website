@@ -21,7 +21,6 @@ export function Hamburger (props) {
       href="javascript:void(0)"
       className={ `icon-hamburger ${(modalState.open && modalState.modalID === 'nav' || close) && 'close-icon'}` }
     >
-      {/* TODO update to route when modals are routable */}
       <span />
       <span />
     </a>

@@ -13,7 +13,6 @@ import { TimelineLite, TweenLite } from 'gsap';
 import { isTouchDevice } from 'utils/browserTests';
 
 import './Header.scss';
-import './HeaderClose.scss';
 
 /**
   * Header - Header Component

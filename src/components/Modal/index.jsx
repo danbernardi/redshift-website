@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import './styles.scss';
+import './Modal.scss';
 import PropTypes from 'prop-types';
 import GSAP from 'react-gsap-enhancer';
 import { TimelineLite, Power1 } from 'gsap';

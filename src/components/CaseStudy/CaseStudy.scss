@@ -35,16 +35,6 @@
   }
 }
 
-.casestudy__title {
-  top: 45%;
-  transform: translateY(-50%);
-  position: relative;
-
-  > div > div {
-    opacity: 0;
-  }
-}
-
 .modal__close.row {
   padding-left: 2.8rem;
   padding-right: 2.8rem;
@@ -65,36 +55,6 @@
   }
 }
 
-.video-container {
-  background-color: #FFFFFF;
-  text-align: center;
-  padding: 0;
-  margin: 0 auto;
-  width: 100%;
-  height: auto;
-}
-
-.video-image {
-  width: 100%;
-  position: absolute;
-}
-
-.video-container video {
-  width: 100%;
-  height: auto;
-  display: block;
-  margin: 0;
-}
-
-.casestudy__name {
-  color: $medium-gray;
-  padding-top: 4.1rem;
-  //media queries
-  @include breakpoint($mobile-lg) {
-    padding-top: 3.2rem;
-  }
-}
-
 .casestudy__scrollarrow {
   position: absolute;
   bottom: 8rem;
@@ -107,14 +67,6 @@
   }
   @media only screen and (max-height: 600px), only screen and (max-width: 380px) {
     display: none;
-  }
-}
-
-.casestudy__next--text {
-  padding-left: 8rem;
-  // media queries
-  @include breakpoint($mobile-lg) {
-    padding-left: 1rem;
   }
 }
 
@@ -162,15 +114,44 @@
   @media only screen and (max-height: 600px), only screen and (max-width: 380px) {
     height: auto;
   }
+}
 
-  .casestudy__title {
-    //media queries
-    @media only screen and (max-height: 600px), only screen and (max-width: 380px) {
-      top: 0;
-      transform: none;
-      padding: 3rem 0 4rem;
-    }
+.casestudy__title {
+  top: 45%;
+  transform: translateY(-50%);
+  position: relative;
+  > div > div {
+    opacity: 0;
   }
+  //media queries
+  @media only screen and (max-height: 600px), only screen and (max-width: 380px) {
+    top: 0;
+    transform: none;
+    padding: 3rem 0 4rem;
+  }
+}
+
+
+// Case Study Video Section
+.video-container {
+  background-color: #FFFFFF;
+  text-align: center;
+  padding: 0;
+  margin: 0 auto;
+  width: 100%;
+  height: auto;
+}
+
+.video-image {
+  width: 100%;
+  position: absolute;
+}
+
+.video-container video {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0;
 }
 
 .video--laptop {
@@ -207,16 +188,6 @@
     @include breakpoint($mobile-lg) {
       max-width: 36.7%;
       padding: 17.8% 0;
-    }
-  }
-}
-
-.casestudy__btnsection {
-  .casestudy__text {
-    margin: 5rem 0 8rem;
-    // media queries
-    @include breakpoint($mobile-lg) {
-      margin: 2rem 0 5rem;
     }
   }
 }
