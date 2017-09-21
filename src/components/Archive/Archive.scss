@@ -23,7 +23,7 @@
   @include breakpoint($tablet-md) {
     padding-bottom: 4rem;
   }
-  @include breakpoint($mobile-sm) {
+  @include breakpoint($mobile-md) {
     padding-bottom: 0;
     padding-top: 20rem;
   }

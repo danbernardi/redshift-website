@@ -2,9 +2,10 @@ import React from 'react';
 import JobContact from '../JobContact';
 import ModalCloseBtn from 'components/Modal/ModalCloseBtn';
 import { browserHistory } from 'react-router';
-import '../../style.scss';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+
+import '../../Careers.scss';
 
 /**
  * Job Description Container in Modal

@@ -45,7 +45,7 @@ export class JobContactForm extends React.Component {
               ? <label
                 htmlFor="file-input"
                 name="attachment" >
-                  Attach resume <img src={ require('https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/paperclip.svg') } alt="Add a file attachment"
+                  Attach resume <img src="https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/paperclip.svg" alt="Add a file attachment"
                 />
               </label>
               : null

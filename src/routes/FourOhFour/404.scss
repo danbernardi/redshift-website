@@ -7,7 +7,7 @@
     position: relative;
     margin-bottom: 25rem;
     // media queries
-    @include breakpoint($mobile-xsm) {
+    @include breakpoint($mobile-sm) {
       margin-bottom: 10rem;
     }
 
@@ -27,7 +27,7 @@
   ul li {
     display: inline-block;
     // media queries
-    @include breakpoint($mobile-xsm) {
+    @include breakpoint($mobile-sm) {
       display: block;
       margin-bottom: 1rem;
     }

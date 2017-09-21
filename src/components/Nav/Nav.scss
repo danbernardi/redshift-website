@@ -13,7 +13,7 @@
     // More vertical gradient with more cranberry
     background: linear-gradient(145deg, $redshift, $redshift 30%, $cranberry);
   }
-  @include breakpoint($mobile-xxsm) {
+  @include breakpoint($mobile-xsm) {
     .nav__menu { margin-top: -12rem; }
   }
   @media only screen and (max-height: 550px) {

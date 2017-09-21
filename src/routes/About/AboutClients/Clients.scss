@@ -23,7 +23,7 @@
     margin-top: 5rem;
   }
 
-  @include breakpoint($mobile-xsm) {
+  @include breakpoint($mobile-sm) {
     margin-top: 3rem;
     width: calc(100% + 3rem);
     margin-left: -1.5rem;
@@ -86,7 +86,7 @@
       padding: 0 3rem;
     }
 
-    @include breakpoint($mobile-xsm) {
+    @include breakpoint($mobile-sm) {
       padding: 0 1.5rem;
     }
   }

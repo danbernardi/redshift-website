@@ -3,12 +3,13 @@ import CareersJobs from './CareersJobs';
 import * as actions from 'store/actions';
 import { connect } from 'react-redux';
 import Watcher from 'components/Watcher/index';
-import './style.scss';
 import { jobDetails } from 'data/jobDetails';
 import Footer from 'components/Footer';
 import JobDescription from './CareersJobs/roles/JobDescription';
 import PropTypes from 'prop-types';
 import { ScrollContainer } from 'scrollmonitor-react';
+
+import './Careers.scss';
 
 /**
  * The Careers Index Page

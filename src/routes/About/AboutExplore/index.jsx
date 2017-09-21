@@ -13,7 +13,6 @@ import './AboutExplore.scss';
  * @return {React.Component}
  */
 
-
 export class AboutExplore extends React.Component {
   constructor (props) {
     super(props);

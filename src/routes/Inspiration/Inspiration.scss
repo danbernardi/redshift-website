@@ -11,7 +11,7 @@
     margin-top: 4rem;
     margin-bottom: 0;
   }
-  @include breakpoint($mobile-sm) {
+  @include breakpoint($mobile-md) {
     margin-top: 0;
   }
 }
@@ -19,7 +19,7 @@
 .inspiration--container {
   margin-bottom: 8rem;
   // media queries
-  @include breakpoint($mobile-sm) {
+  @include breakpoint($mobile-md) {
     margin-bottom: 3rem;
   }
 }
@@ -30,7 +30,7 @@
   @include breakpoint($mobile-lg) {
     padding-top: 6rem;
   }
-  @include breakpoint($mobile-sm) {
+  @include breakpoint($mobile-md) {
     padding-top: 3rem;
   }
 }
