@@ -8,12 +8,10 @@ export const mapRange = (value, inMin, inMax, outMin, outMax) => (value - inMin)
  * @param  {Number}  max Maximum range
  * @return {Boolean} Returns true or false
  */
-export const isInRange = (val, min, max) => {
-  return val >= min && val <= max;
-}
-
+export const isInRange = (val, min, max) => val >= min && val <= max;
 
 /**
+
  * Generates a random number in a given a range.  Inclusive of
  * minimum and maximum
  * @param  {Number}  min Minimum range
@@ -24,4 +22,4 @@ export const getRandomInt = (min, max) => {
   min = Math.ceil(min);
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive
-}
+};

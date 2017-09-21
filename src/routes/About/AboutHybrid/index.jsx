@@ -97,7 +97,7 @@ export class AboutHybrid extends React.Component {
     return tl;
   }
 
-  watcherCallback (watcher) {
+  watcherCallback = (watcher) => {
     if (watcher.isInViewport) { this.timeline.play(); }
   };
 
@@ -109,8 +109,8 @@ export class AboutHybrid extends React.Component {
         <Watcher
           offset={ { top: '50rem', position: 'relative' } }
           autoStart={ false }
-          stateChange={ this.watcherCallback.bind(this) }
-          enterViewport={ this.watcherCallback.bind(this) }
+          stateChange={ this.watcherCallback }
+          enterViewport={ this.watcherCallback }
           scrollContainer={ scrollContainer }
         />
 

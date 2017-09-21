@@ -29,7 +29,7 @@ export class Builder extends React.Component {
     this.mounted = true;
   }
 
-  watcherCallback (watcher) {
+  watcherCallback = (watcher) => {
     const { animatedIn } = this.state;
 
     if (watcher.isInViewport && !animatedIn) {
@@ -61,8 +61,8 @@ export class Builder extends React.Component {
       <div style={ { opacity: 0, transform: 'translateY(10rem)' } }>
         <Watcher
           autoStart={ false }
-          stateChange={ this.watcherCallback.bind(this) }
-          enterViewport={ this.watcherCallback.bind(this) }
+          stateChange={ this.watcherCallback }
+          enterViewport={ this.watcherCallback }
           scrollContainer={ scrollContainer }
         >
           { children }

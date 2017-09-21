@@ -1,7 +1,6 @@
 import React from 'react';
 import Footer from 'components/Footer';
 import { ellipsisString } from 'utils/string';
-import PropTypes from 'prop-types';
 import { TimelineLite, Power2 } from 'gsap';
 import Isotope from 'isotope-layout';
 import 'masonry-layout';
@@ -98,7 +97,6 @@ export class Inspiration extends React.Component {
   }
 
   render () {
-    const { modalState } = this.props;
     let feedItems = [];
 
     if (this.state.feed) {
@@ -132,7 +130,7 @@ export class Inspiration extends React.Component {
     }
 
     return (
-      <div className="inspiration pt10 scroller" style={ { width: modalState.windowWidth, height: modalState.windowHeight } }>
+      <div className="inspiration pt10 scroller">
         <div className="row inspiration--container">
           <h1 className="typ--redshift typ--bold">Be inspired. <br /> Here's what inspires us.</h1>
           <section className="inspiration__grid">
