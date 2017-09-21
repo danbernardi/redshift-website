@@ -310,7 +310,11 @@ export const caseStudies = [
         {
           imgDef: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/Yumavore/default/yumavore8.jpg',
           imgTlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/Yumavore/tablet/yumavore8.jpg',
+<<<<<<< HEAD
           imgMlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/Yumavore/mobile/yumavore8_mlg.jpg'
+=======
+          imgMlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/Yumavore/mobile/yumavore8.jpg'
+>>>>>>> fixed missing images
         },
         imgAlt: 'Yumavore 8',
         copy: [
