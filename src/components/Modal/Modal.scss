@@ -1,5 +1,10 @@
 @import 'sass-includes';
 
+.modal__title {
+  color: $medium-gray;
+  padding-top: 5.1rem;
+}
+
 .modal__close {
   cursor: pointer;
   position: absolute !important;
