@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Footer from 'components/Footer';
 import { ellipsisString } from 'utils/string';
 import { TimelineLite, Power2 } from 'gsap';
