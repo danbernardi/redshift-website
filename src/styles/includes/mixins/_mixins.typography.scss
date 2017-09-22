@@ -13,18 +13,23 @@
 @mixin font-size($type) {
   @if $type == 'h1' {
     @include font(bold);
-    font-size: 6.4rem;
-    line-height: 1.142857;
+    font-size: 12rem;
+    line-height: 1.1333;
     letter-spacing: -0.075rem;
     // media queries
     @include breakpoint($tablet-lg) {
-      font-size: 5.8rem;
+      font-size: 10rem;
+      line-height: 1.2;
     }
-    @include breakpoint($mobile-lg) {
-      font-size: 4.2rem;
-    }
+
     @include breakpoint($mobile-md) {
-      font-size: 3.8rem;
+      font-size: 6.2rem;
+      line-height: 1.12903222;
+    }
+
+    @include breakpoint($mobile-xsm) {
+      font-size: 5.8rem;
+      line-height: 1.2068;
     }
   }
 
@@ -47,18 +52,16 @@
 
   @if $type == 'h3' {
     @include font(bold);
-    font-size: 3.6rem;
+    font-size: 4rem;
     letter-spacing: normal;
-    line-height: 1.375;
+    line-height: 1.25;
     // media queries
     @include breakpoint($tablet-lg) {
       font-size: 3rem;
+      line-height: 1.333;
     }
     @include breakpoint($mobile-lg) {
       font-size: 2.4rem;
-    }
-    @include breakpoint($mobile-md) {
-      font-size: 2.2rem;
     }
   }
 
