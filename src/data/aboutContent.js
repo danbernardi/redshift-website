@@ -3,7 +3,7 @@ export const aboutSections = [
     sectionClass: 'one',
     title: 'Hello.',
     text: 'We are an award-winning agency dedicated to creating simple, meaningful experiences for users and positive results for our clients.',
-    textClass: 'col-last col-6 about__title',
+    textClass: 'col-last col-6 about__title row',
     image: {
       imgDef: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/about/content/desktop/about_1.jpg',
       imgTlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/about/content/tablet/about_1.jpg',

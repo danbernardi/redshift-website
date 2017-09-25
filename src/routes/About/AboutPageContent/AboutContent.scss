@@ -4,6 +4,9 @@
   max-width: 144rem;
   margin: 0 auto;
   padding-bottom: 16rem;
+  @include breakpoint($tablet-lg) {
+    padding-bottom: 9rem;
+  }
 }
 
 .about__square {
@@ -32,13 +35,17 @@
   .about__text {
     position: absolute;
     bottom: calc(4% + 16rem);
-    padding-left: 5rem;
-    padding-right: 12%;
     right: 0;
 
     h1 {
       margin-bottom: 5rem;
     }
+
+    @include breakpoint($tablet-lg) {
+      bottom: calc(4% + 9rem);
+    }
+
+
   }
 
   .about__square {
@@ -59,9 +66,13 @@
   .about__text {
     position: absolute;
     bottom: 16rem;
-    // float: left;
     width: 40%;
     padding-right: 9%;
+    @include breakpoint($tablet-lg) {
+      width: 38%;
+      padding-right: 0;
+      bottom: 9rem;
+    }
   }
 
   .about__square {
@@ -81,8 +92,12 @@
   .about__text {
     position: absolute;
     bottom: calc(10% + 16rem);
-    right: 12%;
-    width: 26%;
+    right: 7rem;
+    width: 40%;
+    @include breakpoint($tablet-lg) {
+      bottom: 0;
+      right: 4rem;
+    }
   }
 
   .about__square {

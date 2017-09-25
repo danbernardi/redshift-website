@@ -37,32 +37,31 @@ h3,
   letter-spacing: normal;
   // media queries
   @include breakpoint($tablet-lg) {
-    font-size: 3rem;
+    font-size: 2.6rem;
+    line-height: 1.6923;
   }
   @include breakpoint($mobile-lg) {
-    font-size: 2.4rem;
-  }
-  @include breakpoint($mobile-xsm) {
-    font-size: 2.2rem;
-  }
-}
-
-.typ--b2 {
-  @include font(book);
-  font-size: 3rem;
-  line-height: 1.375;
-  letter-spacing: normal;
-  // media queries
-  @include breakpoint($tablet-lg) {
-    font-size: 2.6rem;
-    line-height: 1.692;
-  }
-  @include breakpoint($mobile-sm) {
     font-size: 2rem;
     line-height: 1.8;
   }
   @include breakpoint($mobile-xsm) {
     font-size: 1.8rem;
+    line-height: 1.777;
+  }
+}
+
+.typ--b2 {
+  @include font(book);
+  font-size: 2.4rem;
+  line-height: 1.333;
+  letter-spacing: normal;
+  // media queries
+  @include breakpoint($tablet-lg) {
+    font-size: 2rem;
+    line-height: 1.3;
+  }
+  @include breakpoint($mobile-sm) {
+    font-size: 1.6rem;
     line-height: 1.375;
   }
 }
