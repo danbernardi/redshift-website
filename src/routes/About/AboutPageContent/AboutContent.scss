@@ -1,0 +1,187 @@
+@import 'sass-includes';
+
+.about__content {
+  max-width: 144rem;
+  margin: 0 auto;
+  padding-bottom: 16rem;
+}
+
+.about__square {
+  background-color: $background-gray;
+  position: absolute;
+  z-index: 1;
+}
+
+.about__text {
+  z-index: 3;
+  position: relative;
+}
+
+.about__image {
+  position: relative;
+  z-index: 2;
+}
+
+.about__one {
+  max-height: 100vh;
+
+  .about__image {
+    width: 50%;
+  }
+
+  .about__text {
+    position: absolute;
+    bottom: calc(4% + 16rem);
+    padding-left: 5rem;
+    padding-right: 12%;
+    right: 0;
+
+    h1 {
+      margin-bottom: 5rem;
+    }
+  }
+
+  .about__square {
+    width: 21%;
+    height: 24.6vw;
+    left: 50%;
+    top: 53%;
+    transform: translateX(-50%);
+  }
+}
+
+.about__two {
+  .about__image {
+    float: right;
+    width: 53.6%;
+  }
+
+  .about__text {
+    position: absolute;
+    bottom: 16rem;
+    // float: left;
+    width: 40%;
+    padding-right: 9%;
+  }
+
+  .about__square {
+    width: 43%;
+    height: 32vw;
+    left: 50%;
+    top: 53%;
+    transform: translateX(-65%);
+  }
+}
+
+.about__three {
+  .about__image {
+    width: 51.5%;
+  }
+
+  .about__text {
+    position: absolute;
+    bottom: calc(10% + 16rem);
+    right: 12%;
+    width: 26%;
+  }
+
+  .about__square {
+    width: 35%;
+    height: 29vw;
+    left: 50%;
+    top: 74%;
+    transform: translateX(-24%);
+  }
+}
+
+.about__four {
+  .about__image {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .about__square {
+    width: 25%;
+    height: 37vw;
+    left: 0;
+    bottom: calc(-50% + 16rem);
+  }
+}
+
+.about__five {
+  padding-left: 7rem;
+
+  .about__image {
+    float: right;
+    width: 53.6%;
+  }
+
+  .about__text {
+    position: absolute;
+    top: 25%;
+    width: 40%;
+  }
+}
+
+.about__six {
+  padding-bottom: 0;
+  height: 0;
+
+  .about__image {
+    top: -23vw;
+  }
+
+  .about__square {
+    width: 34%;
+    height: 35vw;
+    top: 0;
+    left: 50%;
+    transform: translateX(-68%);
+  }
+}
+
+.about__seven {
+  padding-left: 0;
+
+  .about__image {
+    float: right;
+    margin-top: 32%;
+    @include breakpoint ($desktop-md) {
+      margin-top: 35%;
+    }
+  }
+
+  .about__text {
+    padding-left: 6rem;
+    position: absolute;
+    top: 10%;
+    width: 60%;
+    right: 0;
+    @include breakpoint ($desktop-sm) {
+      top: 6%;
+    }
+  }
+}
+
+.about__eight {
+  .about__image {
+    float: right;
+    width: 33%;
+    right: 15%;
+  }
+
+  .about__text {
+    position: absolute;
+    bottom: 16rem;
+    top: 11%;
+    width: 40%;
+    padding-left: calc(7rem + 4%);
+  }
+
+  .about__square {
+    width: 77%;
+    height: 19vw;
+    right: 0;
+    top: 11vw;
+  }
+}

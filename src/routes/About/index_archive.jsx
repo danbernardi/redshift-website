@@ -1,6 +1,7 @@
 import React from 'react';
-
-import AboutPageContent from './AboutPageContent';
+import AboutSlider from './AboutSlider';
+import AboutHybrid from './AboutHybrid';
+import AboutExplore from './AboutExplore';
 import AboutClients from './AboutClients';
 import AboutTeam from './AboutTeam';
 import { clientData } from 'data/clients';
@@ -69,7 +70,11 @@ export class About extends React.Component {
 
     return (
       <div className="scroller" style={ { width: modalState.windowWidth, height: modalState.windowHeight } }>
-        <AboutPageContent />
+        <AboutSlider />
+        { breakpointIsGreaterThan('mobileLg', breakpoint.size) &&
+          <AboutHybrid scrollContainer={ scrollContainer } />
+        }
+        <AboutExplore />
         <AboutClients data={ clientData } />
         <AboutTeam team={ teamInfo } />
         <Footer />
