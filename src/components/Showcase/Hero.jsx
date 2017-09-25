@@ -87,7 +87,7 @@ export class Hero extends React.Component {
       >
 
         <div className="row">
-          <h1 className="hero__text rs--gradienttext typ--bold" style={ { maxWidth: '110rem', pointerEvents: 'none' } }>
+          <h2 className="hero__text rs--gradienttext typ--bold" style={ { maxWidth: '110rem', pointerEvents: 'none' } }>
             <span data-animationName="text2">
               We are Redshift.
               <br />
@@ -95,7 +95,7 @@ export class Hero extends React.Component {
              { breakpointIsGreaterThan('tabletMd', breakpoint.size) && <br /> }
               that people use and remember.
             </span>
-          </h1>
+          </h2>
         </div>
 
         { this.props.animationProgress <= 0.3 ? <div data-animationName="scroller" className="scrolltrigger">
