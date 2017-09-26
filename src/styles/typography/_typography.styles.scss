@@ -72,24 +72,24 @@ h3,
   line-height: 1.6;
 }
 
-.typ--button {
-  @include font(heavy);
-  font-size: 2.6rem;
-  letter-spacing: 0.03rem;
-  line-height: 1.35;
-  // media queries
-  @include breakpoint($tablet-lg) {
-    font-size: 2rem;
-  }
+// .typ--button {
+//   @include font(heavy);
+//   font-size: 2.6rem;
+//   letter-spacing: 0.03rem;
+//   line-height: 1.35;
+//   // media queries
+//   @include breakpoint($tablet-lg) {
+//     font-size: 2rem;
+//   }
 
-  @include breakpoint($mobile-lg) {
-    line-height: 1.15;
-  }
+//   @include breakpoint($mobile-lg) {
+//     line-height: 1.15;
+//   }
 
-  @include breakpoint($mobile-md) {
-    font-size: 1.8rem;
-  }
-}
+//   @include breakpoint($mobile-md) {
+//     font-size: 1.8rem;
+//   }
+// }
 
 .typ--menu {
   @include font(heavy);

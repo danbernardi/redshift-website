@@ -1,5 +1,48 @@
 @import 'sass-includes';
 
+.careers__hero {
+  position: relative;
+  padding-bottom: 6rem;
+  .careers__square {
+    position: absolute;
+    width: 35vw;
+    height: 35vw;
+    left: 50%;
+    top: 15%;
+    transform: translate(-50%);
+    background-color: $background-gray;
+    z-index: 1;
+    @include breakpoint($tablet-sm) {
+      height: 50vw;
+      width: 50vw;
+      left: 18%;
+      top: 60%;
+    }
+  }
+  .careers__title {
+    padding-top: 40%;
+    padding-right: 0;
+    position: relative;
+    z-index: 2;
+
+    h1 {
+      margin-bottom: 5rem;
+    }
+
+    @include breakpoint($tablet-sm) {
+      padding-top: 7%;
+    }
+  }
+
+  img {
+    position: relative;
+    z-index: 3;
+    @include breakpoint($tablet-sm) {
+      padding-top: 7%;
+    }
+  }
+}
+
 .careers.modal--open {
   .content-main.careers {
     .page-title {
@@ -9,10 +52,23 @@
   }
 }
 
-.career-section {
-  border-bottom: solid 0.1rem $medium-gray;
-  padding-top: 11.7rem;
-  padding-bottom: 9rem;
+.career__section {
+  transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+  &:nth-child(even) {
+    margin-right: 0;
+  }
+  &:hover {
+    background: linear-gradient(135deg, $redshift, $redshift 40%, $cranberry);
+    color: $white;
+    .job__link{
+      color: $white;
+      &:after {
+        background: $white;
+      }
+    }
+  }
   @include breakpoint($mobile-lg) {
     padding-top: 6rem;
     padding-bottom: 6rem;

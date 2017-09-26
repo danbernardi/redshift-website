@@ -8,6 +8,7 @@ import Footer from 'components/Footer';
 import JobDescription from './CareersJobs/roles/JobDescription';
 import PropTypes from 'prop-types';
 import { ScrollContainer } from 'scrollmonitor-react';
+import { setClass, breakpointIsGreaterThan, breakpointIsLessThan } from 'utils/responsiveHelpers';
 
 import './Careers.scss';
 
@@ -18,7 +19,6 @@ import './Careers.scss';
  * @param {function} dispatch             opens correct job modal and sets header theme
  * @param {Object} params                 opens correct modal if user goes directly to url
  * @param {Object} modalState             returns informaiton about the current modal
- * @param {Object} scrollContainer        a prop for the watcher to fire the animation at the right time
  * @return {React.Component}
  */
 
@@ -86,47 +86,43 @@ export class Careers extends React.Component {
     dispatch(actions.toggleModal(false));
   }
 
-  watcherCallback (watcher) {
-    const { dispatch } = this.props;
-
-    if (watcher.isAboveViewport) {
-      // watcher is in view
-      dispatch(actions.setHeaderTheme('pink'));
-    }
-
-    if (watcher.isFullyInViewport) {
-      // watcher is partly out of view
-      dispatch(actions.setHeaderTheme('white'));
-    }
-  };
-
   render () {
-    const { modalState, scrollContainer } = this.props;
+    const { modalState, scrollContainer, breakpoint } = this.props;
     const careerHero = {
-      imgDef: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/careers/default/rs_team.jpg',
-      imgTlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/careers/tablet/rs_team.jpg',
-      imgMlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/careers/mobile/rs_team.jpg'
+      imgDef: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/careers/desktop/careers_hero.jpg',
+      imgTlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/careers/tablet/careers_hero.jpg',
+      imgMlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/careers/mobile/careers_hero.jpg'
     };
 
     return (
       <div className="scroller" style={ { width: modalState.windowWidth, height: modalState.windowHeight } }>
-        <picture>
-          <source srcSet={ careerHero.imgTlg } media="(min-width: 1040px)" />
-          <source srcSet={ careerHero.imgMlg } media="(min-width: 767px)" />
-          <img src={ careerHero.imgDef } className="hero-image" alt="Redshift Careers" />
-        </picture>
-        <Watcher
-          autoStart={ false }
-          offset={ { position: 'relative', bottom: '9.7rem' } }
-          enterViewport={ (watcher) => this.watcherCallback(watcher) }
-          stateChange={ (watcher) => this.watcherCallback(watcher) }
-          scrollContainer={ scrollContainer }
-        />
-        <section className="row careers--title">
-          <h1 className="typ--bold rs--gradienttext">Join our team.</h1>
+        <section className="col-12 careers__hero">
+          <div className="careers__square" />
+          {
+            breakpointIsGreaterThan('tabletSm', breakpoint.size) &&
+            <div className="col-6 row careers__title">
+              <h1>Join us.</h1>
+              <div className="typ--b2">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.</div>
+            </div>
+          }
+          <div className={ setClass({ default: 'col-6 col-last', tabletSm: 'col-10 col-last' }, breakpoint) }>
+            <picture>
+              <source srcSet={ careerHero.imgTlg } media="(min-width: 1040px)" />
+              <source srcSet={ careerHero.imgMlg } media="(min-width: 767px)" />
+              <img src={ careerHero.imgDef } className="hero-image" alt="Redshift Careers" />
+            </picture>
+          </div>
+          {
+            breakpointIsLessThan('tabletSm', breakpoint.size) &&
+            <div className={ `${setClass({ default: 'col-6', tabletSm: 'col-12' }, breakpoint) } row careers__title` }>
+              <h1>Join us.</h1>
+              <div className="typ--b2">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.</div>
+            </div>
+          }
         </section>
+
         <section>
-          <div className="row row--maxwidth">
+          <div>
             {
               jobDetails.map((job, index) => (
                 <CareersJobs key={ index } job={ job } />
@@ -144,11 +140,11 @@ Careers.propTypes = {
   dispatch: PropTypes.func,
   params: PropTypes.object,
   modalState: PropTypes.object,
-  scrollContainer: PropTypes.object
 };
 
 const mapStateToProps = state => ({
-  modalState: state.modalState
+  modalState: state.modalState,
+  breakpoint: state.breakpoint
 });
 
 export default connect(mapStateToProps)(ScrollContainer(Careers));
