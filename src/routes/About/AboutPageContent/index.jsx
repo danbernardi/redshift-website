@@ -15,8 +15,8 @@ export function AboutPageContent (props) {
               {s.image &&
                 <picture>
                   <source srcSet={ s.image.imgDef } media="(min-width: 1040px)" />
-                  <source srcSet={ s.image.imgTlg } media="(min-width: 767px)" />
-                  <img src={ s.imgMlg } className="about__image" alt={ s.imgAlt } />
+                  <source srcSet={ s.image.imgTlg } media="(min-width: 375px)" />
+                  <img src={ s.image.imgMlg } className="about__image" alt={ s.imgAlt } />
                 </picture>
               }
               { s.text &&

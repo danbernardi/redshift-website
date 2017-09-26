@@ -4,8 +4,13 @@
   max-width: 144rem;
   margin: 0 auto;
   padding-bottom: 16rem;
+
   @include breakpoint($tablet-lg) {
     padding-bottom: 9rem;
+  }
+  @include breakpoint($tablet-sm) {
+    float: left;
+    padding-bottom: 7rem;
   }
 }
 
@@ -30,6 +35,10 @@
 
   .about__image {
     width: 50%;
+
+    @include breakpoint($tablet-sm) {
+      width: 80%;
+    }
   }
 
   .about__text {
@@ -45,7 +54,11 @@
       bottom: calc(4% + 9rem);
     }
 
-
+    @include breakpoint($tablet-sm) {
+      width: 100%;
+      position: relative;
+      margin-top: 4rem;
+    }
   }
 
   .about__square {
@@ -55,12 +68,22 @@
     top: 53%;
     transform: translateX(-50%);
   }
+
+  @include breakpoint($tablet-sm) {
+    max-height: none;
+  }
 }
 
 .about__two {
   .about__image {
     float: right;
     width: 53.6%;
+    @include breakpoint($tablet-sm) {
+      width: 100%;
+      right: -5rem;
+      padding-bottom: 7rem;
+      float: none;
+    }
   }
 
   .about__text {
@@ -72,6 +95,12 @@
       width: 38%;
       padding-right: 0;
       bottom: 9rem;
+    }
+    @include breakpoint($tablet-sm) {
+      width: 70%;
+      margin: 0 auto;
+      bottom: initial;
+      position: relative;
     }
   }
 
@@ -87,6 +116,10 @@
 .about__three {
   .about__image {
     width: 51.5%;
+    @include breakpoint($tablet-sm) {
+      width: auto;
+      padding-bottom: 7rem;
+    }
   }
 
   .about__text {
@@ -95,8 +128,14 @@
     right: 7rem;
     width: 40%;
     @include breakpoint($tablet-lg) {
-      bottom: 0;
+      bottom: 9rem;
       right: 4rem;
+    }
+    @include breakpoint($tablet-sm) {
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      position: relative;
     }
   }
 
@@ -113,6 +152,10 @@
   .about__image {
     left: 50%;
     transform: translateX(-50%);
+    @include breakpoint($tablet-sm) {
+      padding-bottom: 7rem;
+      transform: none;
+    }
   }
 
   .about__square {
@@ -129,12 +172,25 @@
   .about__image {
     float: right;
     width: 53.6%;
+    @include breakpoint($tablet-sm) {
+      padding-bottom: 7rem;
+      width: 100%;
+      right: -12rem;
+      top: 16rem;
+    }
   }
 
   .about__text {
     position: absolute;
     top: 25%;
     width: 40%;
+    @include breakpoint($tablet-lg) {
+      top: -4rem;
+    }
+    @include breakpoint($tablet-sm) {
+      width: 100%;
+      // position: relative;
+    }
   }
 }
 
@@ -153,6 +209,10 @@
     left: 50%;
     transform: translateX(-68%);
   }
+
+  @include breakpoint($tablet-sm) {
+    display: none;
+  }
 }
 
 .about__seven {
@@ -164,6 +224,10 @@
     @include breakpoint ($desktop-md) {
       margin-top: 35%;
     }
+    @include breakpoint ($tablet-md) {
+      margin-top: 40%;
+      padding-bottom: 7rem;
+    }
   }
 
   .about__text {
@@ -174,6 +238,12 @@
     right: 0;
     @include breakpoint ($desktop-sm) {
       top: 6%;
+    }
+    @include breakpoint($tablet-lg) {
+      padding-right: 4rem;
+    }
+    @include breakpoint($tablet-sm) {
+      position: relative;
     }
   }
 }
@@ -191,6 +261,9 @@
     top: 11%;
     width: 40%;
     padding-left: calc(7rem + 4%);
+    @include breakpoint($tablet-sm) {
+      position: relative;
+    }
   }
 
   .about__square {
