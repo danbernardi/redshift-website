@@ -109,7 +109,7 @@ export class JobContact extends React.Component {
             <div className="col-12 job-contact--button">
               <button
                 ref={ el => { this.button = el; } }
-                className="btn btn--ghost typ--redshift typ--button"
+                className="btn btn--ghost typ--redshift typ--b2 typ--bold"
                 onClick={ e => { onSend(e); } }
               >
                 { buttonText }

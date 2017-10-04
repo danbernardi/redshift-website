@@ -3,7 +3,14 @@
 .about__content {
   max-width: 144rem;
   margin: 0 auto;
-  padding-bottom: 16rem;
+  margin-bottom: 16rem;
+
+  @include breakpoint($tablet-lg) {
+    margin-bottom: 9rem;
+  }
+  @include breakpoint($tablet-sm) {
+    margin-bottom: 7rem;
+  }
 }
 
 .about__square {
@@ -25,48 +32,54 @@
 .about__one {
   max-height: 100vh;
 
-  .about__image {
-    width: 50%;
-  }
-
   .about__text {
-    position: absolute;
-    bottom: calc(4% + 16rem);
-    padding-left: 5rem;
-    padding-right: 12%;
-    right: 0;
+    padding-top: 36%;
+    @include breakpoint($desktop-sm) {
+      padding-top: 29%;
+    }
+
+    @include breakpoint($tablet-md) {
+      padding-top: 20%;
+    }
 
     h1 {
       margin-bottom: 5rem;
     }
+
+    @include breakpoint($tablet-sm) {
+      padding-top: 4rem;
+    }
   }
 
   .about__square {
-    width: 21%;
-    height: 24.6vw;
+    width: 23rem;
+    height: 29rem;
     left: 50%;
     top: 53%;
     transform: translateX(-50%);
+  }
+
+  @include breakpoint($tablet-sm) {
+    max-height: none;
   }
 }
 
 .about__two {
   .about__image {
-    float: right;
-    width: 53.6%;
+    @include breakpoint($tablet-sm) {
+      padding-bottom: 7rem;
+    }
   }
 
   .about__text {
-    position: absolute;
-    bottom: 16rem;
-    // float: left;
-    width: 40%;
-    padding-right: 9%;
+    @include breakpoint($tablet-sm) {
+      margin: 0 auto;
+    }
   }
 
   .about__square {
-    width: 43%;
-    height: 32vw;
+    width: 35rem;
+    height: 40rem;
     left: 50%;
     top: 53%;
     transform: translateX(-65%);
@@ -75,14 +88,16 @@
 
 .about__three {
   .about__image {
-    width: 51.5%;
+    @include breakpoint($tablet-sm) {
+      padding-bottom: 7rem;
+    }
   }
 
   .about__text {
-    position: absolute;
-    bottom: calc(10% + 16rem);
-    right: 12%;
-    width: 26%;
+    padding-top: 23%;
+    @include breakpoint($tablet-sm) {
+      padding-top: 0;
+    }
   }
 
   .about__square {
@@ -98,6 +113,9 @@
   .about__image {
     left: 50%;
     transform: translateX(-50%);
+    @include breakpoint($tablet-sm) {
+      padding-bottom: 7rem;
+    }
   }
 
   .about__square {
@@ -111,20 +129,13 @@
 .about__five {
   padding-left: 7rem;
 
-  .about__image {
-    float: right;
-    width: 53.6%;
-  }
-
   .about__text {
-    position: absolute;
-    top: 25%;
-    width: 40%;
+    padding-top: 10%;
   }
 }
 
 .about__six {
-  padding-bottom: 0;
+  margin-bottom: 0;
   height: 0;
 
   .about__image {
@@ -138,6 +149,10 @@
     left: 50%;
     transform: translateX(-68%);
   }
+
+  @include breakpoint($tablet-md) {
+    display: none;
+  }
 }
 
 .about__seven {
@@ -149,10 +164,17 @@
     @include breakpoint ($desktop-md) {
       margin-top: 35%;
     }
+    @include breakpoint ($tablet-md) {
+      margin-top: 26%;
+      padding-bottom: 7rem;
+    }
+    @include breakpoint ($tablet-sm) {
+      margin-top: 0;
+    }
   }
 
   .about__text {
-    padding-left: 6rem;
+    padding-right: 6rem;
     position: absolute;
     top: 10%;
     width: 60%;
@@ -160,24 +182,24 @@
     @include breakpoint ($desktop-sm) {
       top: 6%;
     }
+    @include breakpoint($tablet-lg) {
+      padding-left: 4rem;
+      padding-right: 4rem;
+    }
+    @include breakpoint ($tablet-md) {
+      width: 100%;
+      top: 0;
+    }
+    @include breakpoint($tablet-sm) {
+      position: relative;
+    }
   }
 }
 
 .about__eight {
-  .about__image {
-    float: right;
-    width: 33%;
-    right: 15%;
-  }
-
   .about__text {
-    position: absolute;
-    bottom: 16rem;
-    top: 11%;
-    width: 40%;
-    padding-left: calc(7rem + 4%);
+    padding: 10% 0 0 8%;
   }
-
   .about__square {
     width: 77%;
     height: 19vw;
