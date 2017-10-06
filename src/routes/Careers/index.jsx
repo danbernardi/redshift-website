@@ -2,7 +2,6 @@ import React from 'react';
 import CareersJobs from './CareersJobs';
 import * as actions from 'store/actions';
 import { connect } from 'react-redux';
-import Watcher from 'components/Watcher/index';
 import { jobDetails } from 'data/jobDetails';
 import Footer from 'components/Footer';
 import JobDescription from './CareersJobs/roles/JobDescription';
@@ -87,7 +86,7 @@ export class Careers extends React.Component {
   }
 
   render () {
-    const { modalState, scrollContainer, breakpoint } = this.props;
+    const { modalState, breakpoint } = this.props;
     const careerHero = {
       imgDef: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/careers/desktop/careers_hero.jpg',
       imgTlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/careers/tablet/careers_hero.jpg',
@@ -102,7 +101,7 @@ export class Careers extends React.Component {
             breakpointIsGreaterThan('tabletSm', breakpoint.size) &&
             <div className="col-6 row careers__title">
               <h1>Join us.</h1>
-              <div className="typ--b2">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.</div>
+              <div className="typ--b2">Our studio is a place where passionate, creative people collaborate to solve hard problems. Sound like fun? We are looking for talented people, at all experience levels.</div>
             </div>
           }
           <div className={ setClass({ default: 'col-6 col-last', tabletSm: 'col-10 col-last' }, breakpoint) }>
@@ -116,7 +115,7 @@ export class Careers extends React.Component {
             breakpointIsLessThan('tabletSm', breakpoint.size) &&
             <div className={ `${setClass({ default: 'col-6', tabletSm: 'col-12' }, breakpoint) } row careers__title` }>
               <h1>Join us.</h1>
-              <div className="typ--b2">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.</div>
+              <div className="typ--b2">Our studio is a place where passionate, creative people collaborate to solve hard problems. Sound like fun? We are looking for talented people, at all experience levels.</div>
             </div>
           }
         </section>
@@ -140,6 +139,7 @@ Careers.propTypes = {
   dispatch: PropTypes.func,
   params: PropTypes.object,
   modalState: PropTypes.object,
+  breakpoint: PropTypes.object
 };
 
 const mapStateToProps = state => ({

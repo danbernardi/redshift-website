@@ -26,7 +26,7 @@ export function AboutTeam (props) {
   return (
     <section className="about--team">
       <div className="row hero--scene-text">
-        <h2 className={ setClass({ default: 'py8', tabletLg: 'py6', mobileLg: 'pt0 pb5' }, breakpoint) }>Who we are.</h2>
+        <h1 className={ setClass({ default: 'py8', tabletLg: 'py6', mobileLg: 'pt0 pb5' }, breakpoint) }>The team.</h1>
       </div>
       { team.map((team, index) => (
         <a
