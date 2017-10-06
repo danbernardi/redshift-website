@@ -73,12 +73,12 @@ html:not(.is-touchdevice) {
   .index-title { color: $white; }
 
   .icon-redshift {
-    color: $dark-grey;
+    color: $redshift;
   }
 
   .icon-hamburger {
     span {
-      background: $dark-grey;
+      background: $redshift;
     }
   }
 
@@ -93,7 +93,6 @@ html:not(.is-touchdevice) {
   .page-title { color: $white; }
   .icon-close { color: $white; }
   .icon-hamburger span { background: $white; }
-  #header__text { fill: $white !important; }
 }
 
 .page-title {
