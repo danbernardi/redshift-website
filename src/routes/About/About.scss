@@ -1,5 +1,9 @@
 @import 'sass-includes';
 
+.about--bottom__content {
+  z-index: 3;
+}
+
 .about--header {
   z-index: 7;
   padding: 0;

@@ -1,8 +1,7 @@
 import React from 'react';
-import { setClass } from 'utils/responsiveHelpers';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-
+import { setClass, breakpointIsLessThan, breakpointIsGreaterThan } from 'utils/responsiveHelpers';
+import { connect } from 'react-redux';
 import './Clients.scss';
 
 /**
@@ -19,16 +18,25 @@ export function AboutClients (props) {
   return (
     <section className="row">
       <div className="about__clients">
-        <h2 className={ setClass({ default: 'mb6', mobileLg: 'mb3' }, breakpoint) }>
-          Who we work with.
-        </h2>
-        <div className="clients">
+        {
+          breakpointIsLessThan('mobileLg', breakpoint.size) &&
+            <p className="col-12 typ--b2 client__text">
+              We have been fortunate to work with outstanding clients across a wide variety of industries, from aspiring startups to some of the world’s best known brands.
+            </p>
+        }
+        <div className={ setClass({ default: 'clients col-7', mobileLg: 'clients col-12' }, breakpoint) }>
           { data.map((client, index) => (
             <div key={ index } className="clients__client">
               <img src={ client.image } alt={ client.name } />
             </div>
           )) }
         </div>
+        {
+          breakpointIsGreaterThan('mobileLg', breakpoint.size) &&
+            <p className="col-5 col-last typ--b2 client__text">
+              We have been fortunate to work with outstanding clients across a wide variety of industries, from aspiring startups to some of the world’s best known brands.
+            </p>
+        }
       </div>
     </section>
   );

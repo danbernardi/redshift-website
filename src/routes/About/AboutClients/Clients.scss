@@ -1,7 +1,11 @@
 @import 'sass-includes';
 
 .about__clients {
-  padding-top: 20rem;
+  z-index: 8;
+  position: relative;
+  max-width: 144rem;
+  margin: 0 auto;
+
   h1 {
     text-align: center;
     @include breakpoint($mobile-lg) {
@@ -13,46 +17,19 @@
   }
 }
 
-
-.clients {
-  @extend %clearfix;
-  width: calc(100% + 6rem);
-  margin-left: -3rem;
-  // media queries
+.client__text {
+  margin-top: 18rem;
   @include breakpoint($mobile-lg) {
-    margin-top: 5rem;
-  }
-
-  @include breakpoint($mobile-sm) {
-    margin-top: 3rem;
-    width: calc(100% + 3rem);
-    margin-left: -1.5rem;
-  }
-}
-
-.clients__client:nth-child(3n-1) {
-  border-left: solid 1px $medium-gray;
-  border-right: solid 1px $medium-gray;
-  // media queries
-  @include breakpoint($tablet-sm) {
-    border: 0;
+    margin-top: 4rem;
   }
 }
 
 .clients__client {
-  width: 33.3333%;
+  width: 50%;
   float: left;
   height: 14rem;
   position: relative;
   // media queries
-  @include breakpoint($desktop-lg) {
-    width: 33.3333333%;
-  }
-
-  @include breakpoint($tablet-sm) {
-    width: 50%;
-  }
-
   @include breakpoint($mobile-lg) {
     height: 10rem;
   }
@@ -82,12 +59,12 @@
       padding: 0 5rem;
     }
 
-    @include breakpoint($tablet-md) {
+    @include breakpoint($tablet-lg) {
       padding: 0 3rem;
     }
 
     @include breakpoint($mobile-sm) {
-      padding: 0 1.5rem;
+      padding: 0 1rem;
     }
   }
 }
