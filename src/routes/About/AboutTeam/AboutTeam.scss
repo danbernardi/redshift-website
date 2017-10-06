@@ -33,6 +33,8 @@
 }
 
 .about--team {
+  position: relative;
+  z-index: 9;
   max-width: 144rem;
   margin: 0 auto;
   margin-top: 14rem;
