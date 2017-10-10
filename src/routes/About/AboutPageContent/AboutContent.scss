@@ -19,11 +19,17 @@
   position: absolute;
   top: 0;
   width: 100vw;
+  pointer-events: none;
+  // media queries
+  @include breakpoint($mobile-lg) {
+    z-index: -1;
+  }
 }
 
 .about__square {
   background-color: $background-gray;
   position: relative;
+  pointer-events: none;
 }
 
 .about__one {
