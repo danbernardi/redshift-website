@@ -170,5 +170,40 @@ export const jobDetails = [
       'Up to speed in the latest design trends on both web and mobile',
       'Have a solid understanding of basic UX design principles'
     ]
+  },
+  {
+    id: 'user-researcher',
+    header: 'Research',
+    position: 'Full-Time User Researcher',
+    frontpage: [
+      'As a member of the Redshift team you will work on multi-disciplinary teams and contribute to the development of simple, delightful and beautiful user-centered designs. You’ll collaborate with designers, strategists, and engineers to determine key questions, identify user needs, and deliver actionable insights. You’ll have the opportunity to inform design decisions and shape project outcomes in a fast-paced, consulting environment. You are responsible for running qualitative and quantitative research studies throughout the course of a project, including planning, execution, analysis and synthesis, and communicating findings. Depending on the nature of each project, studies may involve both generative, exploratory research such as ethnographic interviews as well as evaluative usability tests. The ideal candidate will have experience across a range of research methodologies, with deep expertise in 1 or 2 areas.',
+      'This position is based in San Francisco.'
+    ],
+    description: 'As a member of the Redshift team you will work on multi-disciplinary teams and contribute to the development of simple, delightful and beautiful user-centered designs. You’ll collaborate with designers, strategists, and engineers to determine key questions, identify user needs, and deliver actionable insights. You’ll have the opportunity to inform design decisions and shape project outcomes in a fast-paced, consulting environment. You are responsible for running qualitative and quantitative research studies throughout the course of a project, including planning, execution, analysis and synthesis, and communicating findings. Depending on the nature of each project, studies may involve both generative, exploratory research such as ethnographic interviews as well as evaluative usability tests. The ideal candidate will have experience across a range of research methodologies, with deep expertise in 1 or 2 areas. This position is based in San Francisco.',
+    responsibilities: [
+      'Plan, design, schedule and conduct in-person and remote, qualitative and/or quantitative user research studies',
+      'Work with clients and research coordinator to draft screeners, develop consent forms and recruit participants',
+      'Finalize research plans and protocols, write discussion guides, set up equipment and prepare for research sessions as necessary ',
+      'Analyze findings and deliver actionable insights; lead co-analysis and synthesis sessions with designers, engineers, and other team members',
+      'Work with the Research Director to advise teams and clients on appropriate user research methods based on project goals, and help create and maintain project schedules',
+      'Create, present and maintain project documentation including research plan, protocols, schedule, status and meeting reports, usability findings database and debrief reports',
+      'Prepare research findings deliverables such as reports, presentations, video highlights, storyboards, use cases, personas, etc. as appropriate ',
+      'Establish and manage client relationships along with the rest of the project team'
+    ],
+    skills: [
+      'BA/BS or MA/MS in Human-Computer Interaction, Computer Science, Design, Psychology, Sociology, or related field',
+      'Proven knowledge and experience with a wide variety of qualitative and quantitative research methods',
+      'Excellent observational skills, analytical skills and critical thinking',
+      'Strong oral and written communication skills',
+      'Can work collaboratively and independently with minimal supervision',
+      'Be willing to get creative with and experiment with alternative research methods ',
+      'Comfortable with ambiguity and love creative problem-solving'
+    ],
+    plusses: [
+      'Experience working with remote user testing tools',
+      'Have experience designing and analyzing large-scale surveys',
+      'Up to speed in the latest design trends on both web and mobile',
+      'Strong project management, documentation and organization skills'
+    ]
   }
 ];
