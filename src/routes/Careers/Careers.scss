@@ -3,6 +3,7 @@
 .careers__hero {
   position: relative;
   padding-bottom: 6rem;
+
   .careers__square {
     position: absolute;
     width: 35vw;
@@ -19,6 +20,7 @@
       top: 60%;
     }
   }
+
   .careers__title {
     padding-top: 40%;
     padding-right: 0;
@@ -56,22 +58,28 @@
   transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
   padding-top: 6rem;
   padding-bottom: 6rem;
+  @include breakpoint($mobile-lg) {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+
   &:nth-child(even) {
     margin-right: 0;
   }
-  &:hover {
+}
+
+html:not(.is-touchdevice) {
+  .career__section:hover {
     background: linear-gradient(135deg, $redshift, $redshift 40%, $cranberry);
     color: $white;
-    .job__link{
+
+    .job__link {
       color: $white;
+
       &:after {
         background: $white;
       }
     }
-  }
-  @include breakpoint($mobile-lg) {
-    padding-top: 6rem;
-    padding-bottom: 6rem;
   }
 }
 
