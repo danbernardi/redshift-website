@@ -67,6 +67,7 @@
   padding-top: 6rem;
   padding-bottom: 6rem;
   @include breakpoint($mobile-lg) {
+    width: 100%;
     padding-top: 6rem;
     padding-bottom: 6rem;
   }
