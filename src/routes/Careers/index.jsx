@@ -121,7 +121,7 @@ export class Careers extends React.Component {
         </section>
 
         <section>
-          <div>
+          <div className="careers__group">
             {
               jobDetails.map((job, index) => (
                 <CareersJobs key={ index } job={ job } />
