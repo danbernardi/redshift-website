@@ -19,14 +19,16 @@ export function CareersJobs (props) {
   );
 
   return (
-    <section className={ `${job.id} career__section row ${setClass({ default: 'col-6', tabletSm: 'col-12' }, breakpoint)}` }>
-      <div className="typ--b1 typ--bold">{ job.position }</div>
-      { frontPage }
-      <div className="pt4">
-        <Link data-animationName="cta-link" className="job__link typ--b2 typ--bold" to={ `/careers/${job.id}` } >
-          View position
-        </Link>
-      </div>
+    <section className={ `${job.id} career__section` }>
+      <Link to={ `/careers/${job.id}` }>
+        <div className="typ--b1 typ--bold">{ job.position }</div>
+        { frontPage }
+        <div className="pt4">
+          <span data-animationName="cta-link" className="job__link typ--b2 typ--bold" >
+            View position
+          </span>
+        </div>
+      </Link>
     </section>
   );
 }

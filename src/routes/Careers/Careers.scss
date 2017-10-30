@@ -1,8 +1,15 @@
 @import 'sass-includes';
 
+.careers__group {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
 .careers__hero {
   position: relative;
   padding-bottom: 6rem;
+
   .careers__square {
     position: absolute;
     width: 35vw;
@@ -19,6 +26,7 @@
       top: 60%;
     }
   }
+
   .careers__title {
     padding-top: 40%;
     padding-right: 0;
@@ -53,25 +61,41 @@
 }
 
 .career__section {
+  @extend %page-margins;
+  width: 50%;
   transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
   padding-top: 6rem;
   padding-bottom: 6rem;
-  &:nth-child(even) {
-    margin-right: 0;
+  @include breakpoint($mobile-lg) {
+    width: 100%;
+    padding-top: 6rem;
+    padding-bottom: 6rem;
   }
-  &:hover {
+
+  // &:nth-child(even) {
+  //   margin-right: 0;
+  // }
+
+  a {
+    display: block;
+  }
+}
+
+html:not(.is-touchdevice) {
+  .career__section:hover {
     background: linear-gradient(135deg, $redshift, $redshift 40%, $cranberry);
-    color: $white;
-    .job__link{
+
+    a {
       color: $white;
+    }
+
+    .job__link {
+      color: $white;
+
       &:after {
         background: $white;
       }
     }
-  }
-  @include breakpoint($mobile-lg) {
-    padding-top: 6rem;
-    padding-bottom: 6rem;
   }
 }
 
@@ -108,6 +132,7 @@
   margin-bottom: 1.5rem;
   width: 12.1rem;
   padding-bottom: 3rem;
+  transition: color 0.2s ease-in-out;
   // media queries
   @include breakpoint($mobile-lg) {
     font-size: 1.4rem;
@@ -122,7 +147,7 @@
     background: $redshift;
     display: block;
     width: 6rem;
-    transition: width 0.2s ease-in-out;
+    transition: width 0.2s ease-in-out, color 0.2s ease-in-out;
   }
 }
 
