@@ -4,9 +4,7 @@ export const jobDetails = [
     id: 'sr-ux-designer',
     header: 'UX',
     frontpage: [
-      'At Redshift, in addition to being a top-notch UX designer, and leading cross-functional project teams, UX Leads are responsible for regularly presenting work to clients, so the ability to communicate confidently and clearly are essential. Leads must be able to speak fluently about both business objectives and design principles, and to handle feedback and questions with poise.',
-      'UX designers, consultants, project managers, and interactive producers are all potential candidates.',
-      'This role reports to our Director of UX.'
+      'At Redshift, in addition to being a top-notch UX designer, and leading cross-functional project teams, UX Leads are responsible for regularly presenting work to clients.'
     ],
     description: 'At Redshift, in addition to being a top-notch UX designer, and leading cross-functional project teams, UX Leads are responsible for regularly presenting work to clients, so the ability to communicate confidently and clearly are essential. Leads must be able to speak fluently about both business objectives and design principles, and to handle feedback and questions with poise. UX designers, consultants, project managers, and interactive producers are all potential candidates. This role reports to our Director of UX. This role reports to our Director of UX.',
     responsibilities: [
@@ -56,7 +54,7 @@ export const jobDetails = [
     header: 'VISUAL',
     position: 'Senior Visual Designer',
     frontpage: [
-      'Redshift is seeking a Senior Visual Designer to join our creative team in San Francisco. You will work closely with the Creative Director, UX Producer and larger Redshift team to concept and create interactive solutions for a large variety of digital projects. We are a small shop with big clients so you can expect to work on web sites, kiosks, interfaces, experiences, occasional print and even product design.'
+      'Redshift is seeking a Senior Visual Designer to join our creative team in San Francisco. You will work closely with the Creative Director, UX Producer and larger Redshift team.'
     ],
     description: 'Redshift is seeking a Senior Visual Designer to join our creative team in San Francisco. You will work closely with the Creative Director, UX Producer and larger Redshift team to concept and create interactive solutions for a large variety of digital projects. We are a small shop with big clients so you can expect to work on web sites, kiosks, interfaces, experiences, occasional print and even product design.',
     skills: [
@@ -87,9 +85,7 @@ export const jobDetails = [
     header: 'UX',
     position: 'UX Designer',
     frontpage: [
-      'At Redshift, UX Designers are part of cross-functional project teams, working with a Senior UX Designer, Visual Designer, User Researchers, Front-End Engineers, Producers, and company leaders.',
-      'UX designers, consultants, project managers, and interactive producers are all potential candidates.',
-      'This role reports to our Director of UX.'
+      'At Redshift, UX Designers are part of cross-functional project teams, working with a Senior UX Designer, Visual Designer, User Researchers, Front-End Engineers, Producers, and company leaders.'
     ],
     description: 'At Redshift, UX Designers are part of cross-functional project teams, working with a Senior UX Designer, Visual Designer, User Researchers, Front-End Engineers, Producers, and company leaders. UX designers, consultants, project managers, and interactive producers are all potential candidates. This role reports to our Director of UX.',
     responsibilities: [
@@ -134,7 +130,7 @@ export const jobDetails = [
     header: 'Research',
     position: 'Senior User Researcher',
     frontpage: [
-      'At Redshift, in addition to being a top-notch user researcher whose insights contribute to the development of simple, delightful and beautiful user experiences, Senior Researchers are expected to be excellent collaborators and effective communicators. You’ll work with designers, strategists, and engineers to determine key questions, identify user needs, and deliver actionable insights. You must be able to speak fluently about research plans and methodology, confidently explain the value of research, and connect research findings with final design recommendations. You should be comfortable leading projects, managing different inputs and viewpoints, presenting work to clients, and responding to feedback and questions with poise.'
+      'At Redshift, in addition to being a top-notch user researcher whose insights contribute to the development of simple, delightful and beautiful user experiences, Senior Researchers are expected to be excellent collaborators and effective communicators.'
     ],
     description: 'At Redshift, in addition to being a top-notch user researcher whose insights contribute to the development of simple, delightful and beautiful user experiences, Senior Researchers are expected to be excellent collaborators and effective communicators. You’ll work with designers, strategists, and engineers to determine key questions, identify user needs, and deliver actionable insights. You must be able to speak fluently about research plans and methodology, confidently explain the value of research, and connect research findings with final design recommendations. You should be comfortable leading projects, managing different inputs and viewpoints, presenting work to clients, and responding to feedback and questions with poise. This role reports to our Director of Research & Strategy. This position is based in San Francisco.',
 
@@ -176,8 +172,7 @@ export const jobDetails = [
     header: 'Research',
     position: 'User Researcher',
     frontpage: [
-      'As a member of the Redshift team you will work on multi-disciplinary teams and contribute to the development of simple, delightful and beautiful user-centered designs. You’ll collaborate with designers, strategists, and engineers to determine key questions, identify user needs, and deliver actionable insights. You’ll have the opportunity to inform design decisions and shape project outcomes in a fast-paced, consulting environment. You are responsible for running qualitative and quantitative research studies throughout the course of a project, including planning, execution, analysis and synthesis, and communicating findings. Depending on the nature of each project, studies may involve both generative, exploratory research such as ethnographic interviews as well as evaluative usability tests. The ideal candidate will have experience across a range of research methodologies, with deep expertise in 1 or 2 areas.',
-      'This position is based in San Francisco.'
+      'As a member of the Redshift team you will work on multi-disciplinary teams and contribute to the development of simple, delightful and beautiful user-centered designs.'
     ],
     description: 'As a member of the Redshift team you will work on multi-disciplinary teams and contribute to the development of simple, delightful and beautiful user-centered designs. You’ll collaborate with designers, strategists, and engineers to determine key questions, identify user needs, and deliver actionable insights. You’ll have the opportunity to inform design decisions and shape project outcomes in a fast-paced, consulting environment. You are responsible for running qualitative and quantitative research studies throughout the course of a project, including planning, execution, analysis and synthesis, and communicating findings. Depending on the nature of each project, studies may involve both generative, exploratory research such as ethnographic interviews as well as evaluative usability tests. The ideal candidate will have experience across a range of research methodologies, with deep expertise in 1 or 2 areas. This position is based in San Francisco.',
     responsibilities: [

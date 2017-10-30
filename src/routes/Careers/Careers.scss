@@ -61,6 +61,12 @@
   }
 }
 
+.careers__hero .typ--b2,
+.career__section .typ--b2 {
+  line-height: 1.733;
+  max-width: 50rem;
+}
+
 .career__section {
   @extend %page-margins;
   width: 50%;
