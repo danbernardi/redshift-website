@@ -1,6 +1,7 @@
 @import 'sass-includes';
 
 .footer {
+  background: $background-gray;
   clear: both;
   width: 100%;
   padding-top: 6rem;
@@ -10,6 +11,8 @@
     padding-bottom: 3rem;
   }
 }
+
+.nav .footer { background: transparent; }
 
 .footer__tall {
   display: flex;
