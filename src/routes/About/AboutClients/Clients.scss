@@ -39,30 +39,18 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    padding: 0 8rem;
+    padding: 0 6rem;
     width: 80%;
-
     // media queries
-    @include breakpoint(2000px) {
-      padding: 0 10rem;
-    }
-
-    @include breakpoint(1700px) {
-      padding: 0 8rem;
-    }
-
     @include breakpoint(1550px) {
       padding: 0 6.5rem;
     }
-
     @include breakpoint($desktop-lg) {
       padding: 0 5rem;
     }
-
     @include breakpoint($tablet-lg) {
       padding: 0 3rem;
     }
-
     @include breakpoint($mobile-sm) {
       padding: 0 1rem;
     }
