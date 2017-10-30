@@ -455,8 +455,8 @@ export const caseStudies = [
         images:
         {
           imgDef: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/GoogleFiber/default/GF1.jpg',
-          imgTlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/GoogleFiber/default/tablet/GF1.jpg',
-          imgMlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/GoogleFiber/default/mobile/GF1.jpg'
+          imgTlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/GoogleFiber/tablet/GF1.jpg',
+          imgMlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/GoogleFiber/mobile/GF1.jpg'
         },
         imgAlt: 'Google Fiber 1'
       },
@@ -464,8 +464,8 @@ export const caseStudies = [
         images:
         {
           imgDef: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/GoogleFiber/default/GF2.jpg',
-          imgTlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/GoogleFiber/default/tablet/GF2.jpg',
-          imgMlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/GoogleFiber/default/mobile/GF2.jpg'
+          imgTlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/GoogleFiber/tablet/GF2.jpg',
+          imgMlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/GoogleFiber/mobile/GF2.jpg'
         },
         imgAlt: 'Google Fiber 2'
       },
@@ -473,8 +473,8 @@ export const caseStudies = [
         images:
         {
           imgDef: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/GoogleFiber/default/GF3.jpg',
-          imgTlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/GoogleFiber/default/tablet/GF3.jpg',
-          imgMlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/GoogleFiber/default/mobile/GF3.jpg'
+          imgTlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/GoogleFiber/tablet/GF3.jpg',
+          imgMlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/GoogleFiber/mobile/GF3.jpg'
         },
         imgAlt: 'Google Fiber 3'
       },
@@ -482,8 +482,8 @@ export const caseStudies = [
         images:
         {
           imgDef: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/GoogleFiber/default/GF4.jpg',
-          imgTlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/GoogleFiber/default/tablet/GF4.jpg',
-          imgMlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/GoogleFiber/default/mobile/GF4.jpg'
+          imgTlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/GoogleFiber/tablet/GF4.jpg',
+          imgMlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/GoogleFiber/mobile/GF4.jpg'
         },
         imgAlt: 'Google Fiber 4'
       },
@@ -491,8 +491,8 @@ export const caseStudies = [
         images:
         {
           imgDef: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/GoogleFiber/default/GF5.jpg',
-          imgTlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/GoogleFiber/default/tablet/GF5.jpg',
-          imgMlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/GoogleFiber/default/mobile/GF5.jpg'
+          imgTlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/GoogleFiber/tablet/GF5.jpg',
+          imgMlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/GoogleFiber/mobile/GF5.jpg'
         },
         imgAlt: 'Google Fiber 5'
       }
