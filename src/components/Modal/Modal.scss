@@ -3,6 +3,10 @@
 .modal__title {
   color: $medium-gray;
   padding-top: 5.1rem;
+  // media queries
+  @include breakpoint($mobile-lg) {
+    padding-top: 3.2rem;
+  }
 }
 
 .modal__close {
@@ -15,7 +19,7 @@
   padding-top: 5.5rem;
   // media queries
   @include breakpoint($mobile-lg) {
-    padding-top: 3.3rem;
+    padding-top: 3rem;
     right: 0;
   }
 
