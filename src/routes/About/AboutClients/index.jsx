@@ -33,7 +33,7 @@ export function AboutClients (props) {
         </div>
         {
           breakpointIsGreaterThan('mobileLg', breakpoint.size) &&
-            <p className="col-5 col-last typ--b2 client__text">
+            <p className="col-5 typ--b2 client__text">
               We have been fortunate to work with outstanding clients across a wide variety of industries, from aspiring startups to some of the world’s best known brands.
             </p>
         }
