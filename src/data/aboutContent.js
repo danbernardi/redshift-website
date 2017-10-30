@@ -29,7 +29,7 @@ export const aboutSections = [
     imageClass: {
       default: 'col-7 col-last',
       tabletMd: 'col-10 col-last',
-      mobileLg: 'col-11 col-last'
+      mobileLg: 'col-11 col-last mb3'
     },
     image: {
       imgDef: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/about/content/desktop/about_2.jpg',
@@ -47,7 +47,7 @@ export const aboutSections = [
     },
     imageClass: {
       default: 'col-7 row',
-      tabletMd: 'col-10 row'
+      tabletMd: 'col-10 row mb3'
     },
     image: {
       imgDef: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/about/content/desktop/about_3.jpg',
@@ -92,6 +92,9 @@ export const aboutSections = [
       imgDef: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/about/content/desktop/about_7.jpg',
       imgTlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/about/content/tablet/about_7.jpg',
       imgMlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/about/content/mobile/about_7.jpg'
+    },
+    imageClass: {
+      mobileLg: 'cf mb3'
     },
     imgAlt: 'tech talk making responsive solutions'
   },
