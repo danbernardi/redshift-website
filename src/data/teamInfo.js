@@ -133,16 +133,6 @@ export const teamInfo = [
     ]
   },
   {
-    id: 'trevor',
-    name: 'Trevor Alexander',
-    position: 'Software Engineer',
-    modal: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/about/team/modal/trevor.jpg',
-    bioStatement: [
-      'Trevor Alexander is a software engineer and data analyst at Redshift. Raised in Arizona, he received his B.S. in Electrical Engineering from the University of Hawai`i at Manoa, with a focus in systems engineering and a minor in Japanese. Following that, he received an M.S. in Electrical Engineering from the same, with a thesis in the area of brain-computer interfaces. Prior to working at Redshift, he worked for a number of technical startups, developing a passion for application development and high-performance web engineering.',
-      'He lives in Alameda, CA with his cat, Dan.'
-    ]
-  },
-  {
     id: 'diana',
     name: 'Diana Cheng',
     position: 'Director of User Research',

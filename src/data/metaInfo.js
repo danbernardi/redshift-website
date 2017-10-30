@@ -144,9 +144,6 @@ export const metaInfo = {
   sandra: {
     title: 'Redshift Digital - Sandra Wing'
   },
-  trevor: {
-    title: 'Redshift Digital - Trevor Alexander'
-  },
   diana: {
     title: 'Redshift Digital - Diana Cheng'
   },
