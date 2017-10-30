@@ -174,7 +174,7 @@ export const jobDetails = [
   {
     id: 'user-researcher',
     header: 'Research',
-    position: 'Full-Time User Researcher',
+    position: 'User Researcher',
     frontpage: [
       'As a member of the Redshift team you will work on multi-disciplinary teams and contribute to the development of simple, delightful and beautiful user-centered designs. You’ll collaborate with designers, strategists, and engineers to determine key questions, identify user needs, and deliver actionable insights. You’ll have the opportunity to inform design decisions and shape project outcomes in a fast-paced, consulting environment. You are responsible for running qualitative and quantitative research studies throughout the course of a project, including planning, execution, analysis and synthesis, and communicating findings. Depending on the nature of each project, studies may involve both generative, exploratory research such as ethnographic interviews as well as evaluative usability tests. The ideal candidate will have experience across a range of research methodologies, with deep expertise in 1 or 2 areas.',
       'This position is based in San Francisco.'
