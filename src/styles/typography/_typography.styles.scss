@@ -106,8 +106,8 @@ h3,
     font-size: 6.4rem;
     line-height: 1.25;
   }
-  @include breakpoint($mobile-xsm) {
-    font-size: 5.4rem;
+  @include breakpoint($mobile-md) {
+    font-size: 4.5rem;
     line-height: 1.185;
   }
   @media only screen and (max-height: 420px) {
