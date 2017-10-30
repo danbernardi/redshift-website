@@ -11,7 +11,7 @@ export function AboutPageContent (props) {
     <div className="about__content">
       <div className="about__square--container">
         {
-          aboutSections.map((s, i) => (
+          aboutSections.filter((s, i) => aboutSections.length - 1 !== i).map((s, i) => (
             <div className={ `parallax__group about__group about__${s.sectionClass}` } key={ i }>
               <div className="about__square parallax__layer parallax__layer--back" />
             </div>
