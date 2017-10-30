@@ -20,15 +20,15 @@ class FourOhFour extends React.Component {
 
   render () {
     return (
-      <div className="theme--dark four0four layout--fullheight layout--flex">
+      <div className="theme--dark four0four layout--flex">
         <div className="row typ--center">
           <h2 className="typ--bold">
             What you were searching<br />
             for doesn't exist.
           </h2>
 
-          <h5 className="mb1">Here are some things that do exist</h5>
-          <ul>
+          <p className="typ--b1 typ--bold">Here are some things that do exist</p>
+          <ul className="typ--b3">
             <li><Link className="typ--bold px2" to="/">Our work</Link></li>
             <li><Link className="typ--bold px2" to="/about">About us</Link></li>
             <li><Link className="typ--bold px2" to="/careers">Careers</Link></li>

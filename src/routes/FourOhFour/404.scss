@@ -2,13 +2,20 @@
 
 .four0four {
   background: $redshift;
+  min-height: 100vh;
 
   h2 {
     position: relative;
     margin-bottom: 25rem;
     // media queries
-    @include breakpoint($mobile-sm) {
+    @include breakpoint($mobile-md) {
       margin-bottom: 10rem;
+    }
+    @media only screen and (max-height: 420px) {
+      margin-bottom: 8rem;
+    }
+    @media only screen and (max-height: 330px) {
+      margin-bottom: 4rem;
     }
 
     &:after {
@@ -21,6 +28,9 @@
       display: block;
       background: $white;
       margin-top: 4rem;
+      @media only screen and (max-height: 330px) {
+        margin-top: 2rem;
+      }
     }
   }
 
