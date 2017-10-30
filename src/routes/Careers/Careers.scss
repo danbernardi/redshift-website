@@ -32,21 +32,22 @@
     padding-right: 0;
     position: relative;
     z-index: 2;
+    // media queries
+    @include breakpoint($tablet-sm) {
+      padding-top: 7%;
+    }
 
     h1 {
       margin-bottom: 5rem;
-    }
-
-    @include breakpoint($tablet-sm) {
-      padding-top: 7%;
     }
   }
 
   img {
     position: relative;
     z-index: 3;
-    @include breakpoint($tablet-sm) {
-      padding-top: 7%;
+    // media queries
+    @media only screen and (max-height: 420px) {
+      top: -16rem;
     }
   }
 }
