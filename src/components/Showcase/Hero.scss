@@ -7,12 +7,63 @@
   pointer-events: none;
 }
 
+.hero__iconbg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 86vh;
+  color: $background-gray;
+  pointer-events: none;
+  // media queries
+  @include breakpoint($desktop-sm) {
+    font-size: 74vh;
+  }
+  @include breakpoint($mobile-lg) {
+    font-size: 67vh;
+  }
+
+  &:before {
+    position: absolute;
+    left: -8vw;
+    top: -30vh;
+    // media queries
+    @include breakpoint($desktop-sm) {
+      top: -20vh;
+    }
+    @include breakpoint($mobile-lg) {
+      left: -31vw;
+      top: -17vh;
+    }
+  }
+}
+
 .scrolltrigger {
   @extend %page-margins;
   z-index: 10;
-  pointer: cursor;
+  cursor: pointer;
   position: fixed;
   bottom: 2.8rem;
   left: 0;
   pointer-events: auto;
+
+
+  .casestudy__scrollarrow {
+    width: 20rem;
+    // media queries
+    @media only screen and (max-height: 600px), only screen and (max-width: 380px) {
+      display: block;
+    }
+
+    img {
+      filter: grayscale(100%);
+      width: 2.4rem;
+    }
+
+    > span {
+      top: -0.9rem;
+      left: 2rem;
+      display: inline-block;
+      position: relative;
+    }
+  }
 }

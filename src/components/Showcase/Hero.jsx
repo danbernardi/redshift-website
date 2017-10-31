@@ -65,6 +65,7 @@ export class Hero extends React.Component {
 
   createOutroTimeline ({ target }) {
     const text = target[0].querySelector('.hero__text');
+    const icon = target[0].querySelector('.hero__iconbg');
 
     //Timeline progresses from 0 - 1
     //Pieces, delays and overlaps should total 1
@@ -74,6 +75,7 @@ export class Hero extends React.Component {
       }
     })
     .pause()
+    .to(icon, 1, { y: '-500vh', opacity: 0, ease: CustomEase.create('custom', 'M0,0 C0.282,0 0.79,0.698 1,1') })
     .to(text, 1, { y: '-500vh', opacity: 0, ease: CustomEase.create('custom', 'M0,0 C0.282,0 0.79,0.698 1,1') });
   }
 
@@ -85,9 +87,10 @@ export class Hero extends React.Component {
         ref={ onDidMount }
         className="hero layout--fullheight layout--flex__center-col"
       >
+        <span className="hero__iconbg icon-redshift" />
 
         <div className="row">
-          <h2 className="hero__text rs--gradienttext typ--bold" style={ { maxWidth: '110rem', pointerEvents: 'none' } }>
+          <h2 className="hero__text typ--bold" style={ { maxWidth: '110rem', pointerEvents: 'none' } }>
             <span data-animationName="text2">
               We are Redshift.
               <br />
@@ -100,7 +103,8 @@ export class Hero extends React.Component {
 
         { this.props.animationProgress <= 0.3 ? <div data-animationName="scroller" className="scrolltrigger">
           <div className="casestudy__scrollarrow" onClick={ () => { this.props.scrollTrigger(1); } }>
-            <img src='https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/scroll-arrow-redshift.svg' alt="Scroll down" />
+            <img src="https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/scroll-arrow-redshift.svg" alt="Scroll down" />
+            <span className="typ--b3 typ--heavy">See our work</span>
           </div>
         </div>
         : null
