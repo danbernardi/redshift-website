@@ -3,6 +3,8 @@ import React from 'react';
 import JobContactForm from './JobContactForm';
 import JobThanks from './JobThanks';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { setClass } from 'utils/responsiveHelpers';
 
 /**
  * Contact Form on the Job Modal
@@ -54,7 +56,7 @@ export class JobContact extends React.Component {
 
   render () {
     const { buttonText, error, errorMessage } = this.state;
-    const { position } = this.props;
+    const { position, breakpoint } = this.props;
 
     const onSend = (e) => {
       e.preventDefault();
@@ -109,7 +111,10 @@ export class JobContact extends React.Component {
             <div className="col-12 job-contact--button">
               <button
                 ref={ el => { this.button = el; } }
-                className="btn btn--ghost typ--redshift typ--b2 typ--bold"
+                className={ 'btn typ--b2 '.concat(setClass({
+                  default: 'btn--ghost typ--redshift typ--bold',
+                  mobileLg: 'btn--gradient typ--white typ--heavy'
+                }, breakpoint)) }
                 onClick={ e => { onSend(e); } }
               >
                 { buttonText }
@@ -123,7 +128,12 @@ export class JobContact extends React.Component {
 };
 
 JobContact.propTypes = {
-  position: PropTypes.string
+  position: PropTypes.string,
+  breakpoint: PropTypes.object
 };
 
-export default JobContact;
+const mapStateToProps = state => ({
+  breakpoint: state.breakpoint
+});
+
+export default connect(mapStateToProps)(JobContact);
