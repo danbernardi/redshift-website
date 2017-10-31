@@ -9,14 +9,6 @@
         float: right;
       }
     }
-
-    .icon-hamburger.close-icon span {
-      background: $white;
-      // media queries
-      @include breakpoint($mobile-lg) {
-        background: $black;
-      }
-    }
   }
 
   .modal__content {
@@ -32,16 +24,6 @@
     @include breakpoint($mobile-md) {
       padding-bottom: 12.8rem;
     }
-  }
-}
-
-.modal__close.row {
-  padding-left: 2.8rem;
-  padding-right: 2.8rem;
-  width: auto;
-  // media queries
-  @include breakpoint($mobile-md) {
-    padding-left: 1.8rem;
   }
 }
 

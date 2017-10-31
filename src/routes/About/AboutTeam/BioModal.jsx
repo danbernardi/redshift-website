@@ -25,8 +25,8 @@ export function BioTemplate (props) {
       <ModalCloseBtn closeCallback={ () => browserHistory.push('/about') } />
       <div className="bio--wrap row">
         <div className="team-member-bio">
-          <h2>{ bioContent.name }</h2>
-          <h3 className={ setClass({ default: 'pb6', desktopSm: 'pb4' }, breakpoint) }>{ bioContent.position }</h3>
+          <h1 className={ setClass({ default: 'mb8', desktopSm: 'mb4', mobileLg: 'mb2' }, breakpoint) }>{ bioContent.name }</h1>
+          <h3 className={ setClass({ default: 'pb6', desktopSm: 'pb4', mobileLg: 'pb2' }, breakpoint) }>{ bioContent.position }</h3>
           { bio }
           { /** bioContent.inspiration &&
             <div>
