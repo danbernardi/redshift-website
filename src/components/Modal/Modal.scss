@@ -10,18 +10,20 @@
 }
 
 .modal__close {
+  @extend %page-margins;
   cursor: pointer;
-  position: absolute !important;
+  position: fixed;
   color: $body;
   z-index: 26;
-  left: 0;
+  right: 0;
   text-align: right;
   padding-top: 5.5rem;
   // media queries
   @include breakpoint($mobile-lg) {
     padding-top: 3rem;
-    right: 0;
   }
+
+  a span { background-color: $redshift; }
 
   .icon-close {
     font-size: 3rem;
@@ -57,13 +59,6 @@
 .job--modal {
   .modal__sidebar {
     z-index: 1;
-  }
-
-  .modal__close a span {
-    // media queries
-    @include breakpoint($mobile-lg, min-width) {
-      background: $white;
-    }
   }
 }
 

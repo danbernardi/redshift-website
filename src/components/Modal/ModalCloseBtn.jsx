@@ -42,7 +42,7 @@ export function ModalCloseBtn (props) {
   return (
     <div
       style={ Object.assign(initialStyles, transformStyles) }
-      className="modal__close row" onClick={ () => closeModal() }>
+      className="modal__close" onClick={ () => closeModal() }>
       <Hamburger close={ true } />
     </div>
   );
