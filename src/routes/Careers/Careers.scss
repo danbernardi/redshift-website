@@ -6,26 +6,32 @@
   width: 100%;
 }
 
+.careers__square--container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.careers__square {
+  position: absolute;
+  width: 35vw;
+  height: 35vw;
+  left: 50%;
+  top: 15%;
+  // transform: translate(-50%);
+  background-color: $background-gray;
+  // z-index: -1;
+  @include breakpoint($tablet-sm) {
+    height: 50vw;
+    width: 50vw;
+    left: 18%;
+    top: 60%;
+  }
+}
+
 .careers__hero {
   position: relative;
   padding-bottom: 6rem;
-
-  .careers__square {
-    position: absolute;
-    width: 35vw;
-    height: 35vw;
-    left: 50%;
-    top: 15%;
-    transform: translate(-50%);
-    background-color: $background-gray;
-    z-index: 1;
-    @include breakpoint($tablet-sm) {
-      height: 50vw;
-      width: 50vw;
-      left: 18%;
-      top: 60%;
-    }
-  }
 
   .careers__title {
     padding-top: 40%;

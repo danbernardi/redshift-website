@@ -94,9 +94,14 @@ export class Careers extends React.Component {
     };
 
     return (
-      <div className="scroller" style={ { width: modalState.windowWidth, height: modalState.windowHeight } }>
+      <div
+        className={ setClass({ default: 'parallax', mobileLg: 'scroller' }, breakpoint) }
+        style={ { width: modalState.windowWidth, height: modalState.windowHeight } }
+      >
         <section className="col-12 careers__hero">
-          <div className="careers__square" />
+          <div className="careers__square--container parallax__group">
+            <div className="careers__square parallax__layer--back" />
+          </div>
           {
             breakpointIsGreaterThan('tabletSm', breakpoint.size) &&
             <div className="col-6 row careers__title">
