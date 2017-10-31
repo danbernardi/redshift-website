@@ -183,7 +183,7 @@ html:not(.is-touchdevice) {
 }
 
 .job__list {
-  margin-left: 3rem;
+  // margin-left: 3rem;
   padding-bottom: 3rem;
   // media queries
   @include breakpoint($mobile-lg) {
@@ -217,9 +217,26 @@ html:not(.is-touchdevice) {
   }
 
   li {
-    list-style-type: disc;
+    padding-left: 1.2em;
+    position: relative;
     color: $redshift;
     margin-bottom: 1.5rem;
+
+    &:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.5em;
+      width: 0.4em;
+      height: 0.4em;
+      border-radius: 50%;
+      background: $redshift;
+      // media queries
+      @include breakpoint($mobile-lg) {
+        top: 0.6em;
+        background: $black;
+      }
+    }
 
     span {
       color: $black;
@@ -233,6 +250,19 @@ html:not(.is-touchdevice) {
   // media queries
   @include breakpoint($mobile-lg) {
     padding-bottom: 3rem;
+  }
+}
+
+.job-contact--button {
+  margin-top: 3rem;
+
+  .btn {
+    padding: 2.8rem 9rem;
+    // media queries
+    @include breakpoint($mobile-lg) {
+      width: 100%;
+      padding: 2.4rem 0;
+    }
   }
 }
 
@@ -324,13 +354,4 @@ html:not(.is-touchdevice) {
 
 input:-webkit-autofill {
   background-color: #F7F7F7;
-}
-
-.job-contact--button {
-  button {
-    // media queries
-    @include breakpoint($mobile-lg) {
-      width: 100%;
-    }
-  }
 }

@@ -40,6 +40,10 @@ html:not(.is-touchdevice) {
   -webkit-text-fill-color: transparent !important;
 }
 
+.bg--gradient {
+  background: -webkit-gradient(linear, left top, right bottom, from(#FF2959), to(#FF29BD));
+}
+
 .typ--redshift {
   color: $redshift;
 }

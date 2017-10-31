@@ -22,7 +22,7 @@ export function JobDescription ({ jobDetail }) {
           <h3 className="job-description__subtitle">Responsibilities</h3>
           <ul className="job__list">
             { jobDetail.responsibilities.map((jobResponsibility, index) => (
-              <li key={ index } className="typ--b2">
+              <li key={ index } className="typ--b1">
                 <span>{ jobResponsibility }</span>
               </li>))
             }
@@ -34,7 +34,7 @@ export function JobDescription ({ jobDetail }) {
             <h3 className="job-description__subtitle">Candidates must have:</h3>
             <ul className="job__list">
               { jobDetail.skills.map((jobSkill, index) => (
-                <li key={ index } className="typ--b2">
+                <li key={ index } className="typ--b1">
                   <span>{ jobSkill }</span>
                 </li>))
               }
@@ -46,7 +46,7 @@ export function JobDescription ({ jobDetail }) {
             <h3 className="job-description__subtitle">Plus at least 2-3 of these:</h3>
             <ul className="job__list">
               { jobDetail.plusses.map((jobPlus, index) => (
-                <li key={ index } className="typ--b2">
+                <li key={ index } className="typ--b1">
                   <span>{ jobPlus }</span>
                 </li>))
               }

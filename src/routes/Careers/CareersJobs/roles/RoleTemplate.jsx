@@ -26,11 +26,7 @@ export function RoleTemplate ({ children, name, modalState }) {
     <div className="job--modal">
       <ModalCloseBtn closeCallback={ () => browserHistory.push('/careers') } />
       <div
-        className="modal__sidebar"
-        style={ { backgroundColor: '#FF2953' } }
-      />
-      <div
-        className="modal__with-sidebar bg--white"
+        className="modal__with-sidebar bg--gradient"
         style={ { borderColor: '#FF2953', height: modalState.windowHeight, width: modalState.windowWidth } }
       >
         <div className="modal__content">
