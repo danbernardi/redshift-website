@@ -32,6 +32,13 @@
   }
 }
 
+.footer__home {
+  // media queries
+  @include breakpoint($mobile-lg) {
+    margin-top: 5rem;
+  }
+}
+
 .footer .contact-info {
   font-size: 1.4rem;
   float: right;
