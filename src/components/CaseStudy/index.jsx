@@ -60,7 +60,7 @@ class CaseStudy extends React.Component {
 
     return (
       <div ref={ (el) => { this.caseStudy = el; } } className="casestudy__modal">
-        <ModalCloseBtn closeCallback={ () => browserHistory.push('/') } />
+        <ModalCloseBtn color={ caseStudyContent && caseStudyContent.color } closeCallback={ () => browserHistory.push('/') } />
         <div
           className="modal__sidebar"
           style={ { backgroundColor: caseStudyContent.color } }

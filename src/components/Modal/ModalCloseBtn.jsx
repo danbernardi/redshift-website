@@ -11,12 +11,13 @@ import PropTypes from 'prop-types';
 * @param {Object} modalState              returns information about current modal
 * @param {function} dispatch              connects window dimensions
 * @param {function} closeCallback         track browser history from parent
+* @param {string} [color]                 optional color string passed to hamburger
 * @returns {React.Component}              Returns a react component
 *
 */
 
 export function ModalCloseBtn (props) {
-  const { dispatch, modalState, closeCallback } = props;
+  const { dispatch, modalState, closeCallback, color } = props;
 
   function closeModal () {
     dispatch(actions.toggleModal(false));
@@ -43,7 +44,7 @@ export function ModalCloseBtn (props) {
     <div
       style={ Object.assign(initialStyles, transformStyles) }
       className="modal__close" onClick={ () => closeModal() }>
-      <Hamburger close={ true } />
+      <Hamburger color={ color && color } close={ true } />
     </div>
   );
 };
@@ -51,7 +52,8 @@ export function ModalCloseBtn (props) {
 ModalCloseBtn.propTypes = {
   modalState: PropTypes.object,
   dispatch: PropTypes.func,
-  closeCallback: PropTypes.func
+  closeCallback: PropTypes.func,
+  color: PropTypes.string
 };
 
 const injectStateProps = state => ({
