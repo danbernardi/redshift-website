@@ -2,7 +2,7 @@ export const aboutSections = [
   {
     sectionClass: 'one',
     title: 'Hello.',
-    text: 'We are an award-winning agency dedicated to creating simple, meaningful experiences for users and positive results for our clients.',
+    text: 'We are an award-winning agency dedicated to creating memorable, meaningful digital products.',
     textClass: {
       default: 'col-last col-6',
       tabletSm: 'col-12 row'
@@ -20,7 +20,7 @@ export const aboutSections = [
   },
   {
     sectionClass: 'two row',
-    text: 'We believe the best products are created by hybrid teams. Designers, researchers, and developers work shoulder-to-shoulder in our studio to create experiences that are beautiful and grounded in real user needs.',
+    text: 'Located in downtown San Francisco, our studio is a place where passionate, creative people collaborate to solve hard problems.',
     textClass: {
       default: 'col-5 mt3',
       tabletLg: 'col-5',
@@ -40,7 +40,7 @@ export const aboutSections = [
   },
   {
     sectionClass: 'three row',
-    text: 'We find great solutions by starting with the broadest range of possibilities, exploring all options with a blend of research techniques and vigorous ideation. We go through a lot of paper and Post-Its.',
+    text: 'Designers, developers, and researchers work shoulder-to-shoulder to create experiences that are usable, beautiful, and grounded in real user needs.',
     textClass: {
       default: 'col-5',
       tabletMd: 'col-12'
@@ -67,7 +67,7 @@ export const aboutSections = [
   },
   {
     sectionClass: 'five row',
-    text: 'We prototype everything, and these prototypes are the focal points of our process. We think "try it and see" is better than "let’s talk about it."',
+    text: 'We find great solutions by exploring a broad range of possibilities and ideas. We go through a lot of paper and Post-Its.',
     textClass: {
       default: 'col-5',
       tabletSm: 'col-12',
@@ -87,7 +87,7 @@ export const aboutSections = [
   },
   {
     sectionClass: 'six row',
-    text: 'Tough problems need multiple points of view and a diverse group of minds—all of them challenging, questioning, and collaborating with one another to reach a common goal.',
+    text: 'We prototype everything, and these prototypes are at the heart of our process. We think “try it and see” is better than “let’s talk about it.”',
     image: {
       imgDef: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/about/content/desktop/about_7.jpg',
       imgTlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/about/content/tablet/about_7.jpg',
@@ -100,7 +100,7 @@ export const aboutSections = [
   },
   {
     sectionClass: 'seven row',
-    text: 'We work in rapid cycles with frequent input from clients and users.  How can we make it better? Smarter? Simpler? We set extremely high standards, and we never settle.',
+    text: 'We work in rapid cycles with frequent input from clients and users.  We are constantly looking for ways to make things smarter and simpler. We set extremely high standards, and we never settle.',
     textClass: {
       default: 'col-6',
       tabletMd: 'col-12'
