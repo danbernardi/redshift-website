@@ -169,6 +169,17 @@
   }
 }
 
+.team-member__modal.rick .bio--wrap__img img {
+  right: -8%;
+  // media queries
+  @include breakpoint($desktop-lg) {
+    right: -15%;
+  }
+  @media screen and (max-device-width: 1040px) and (orientation : portrait) {
+    right: -27%;
+  }
+}
+
 html:not(.is-touchdevice) {
   .pink-hover__item:hover .pink-hover {
     transform: translateX(0%);

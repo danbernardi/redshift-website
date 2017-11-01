@@ -45,6 +45,17 @@ export const teamInfo = [
     ]
   },
   {
+    id: 'rick',
+    name: 'Rick Takes',
+    position: 'Director of Engineering',
+    modal: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/about/team/modal/rick.jpg',
+    bioStatement: [
+      'Rick Takes is the director of engineering at Redshift.',
+      'With more than 10 years in the industry, Rick started his career in film production. Working in San Francisco as a motion graphic designer and video editor, he found his way into engineering and has been passionate about it ever since.',
+      'Outside of work, Rick hosts a film night, rebuilds motorcycles and is almost always accompanied by his dog Olive.'
+    ]
+  },
+  {
     id: 'lucy',
     name: 'Lucy Dotson',
     position: 'Senior UX Designer',
