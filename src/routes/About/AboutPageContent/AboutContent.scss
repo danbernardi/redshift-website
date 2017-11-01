@@ -36,7 +36,7 @@
   z-index: 1;
 
   .about__text {
-    padding-top: 36%;
+    padding-top: 73%;
     padding-right: 7rem;
     //media queries
     @include breakpoint($desktop-sm) {
@@ -103,6 +103,7 @@
   }
 
   .about__text {
+    padding-top: 25%;
     //media queries
     @include breakpoint($tablet-md) {
       margin: 0 auto;
@@ -145,7 +146,7 @@
   }
 
   .about__text {
-    padding-top: 23%;
+    padding-top: 68%;
     //media queries
     @include breakpoint($tablet-md) {
       padding-top: 0;
@@ -293,7 +294,7 @@
   z-index: 7;
 
   .about__text {
-    padding: 10% 0 0 8%;
+    padding: 24% 0 0 8%;
     //media queries
     @include breakpoint($mobile-lg) {
       padding: 2rem 0;
