@@ -30,6 +30,27 @@ h3,
   @include font-size(h3);
 }
 
+.typ--hero {
+  font-size: 8.6rem;
+  line-height: 1.05813953;
+  // media queries
+  @include breakpoint($desktop-lg) {
+    font-size: 7.2rem;
+  }
+  @include breakpoint($tablet-lg) {
+    font-size: 6rem;
+    line-height: 1.1;
+  }
+  @include breakpoint($mobile-md) {
+    font-size: 4rem;
+    line-height: 1.15;
+  }
+  @include breakpoint($mobile-sm) {
+    font-size: 3.4rem;
+    line-height: 1.11764706;
+  }
+}
+
 .typ--b1 {
   @include font(book);
   font-size: 3rem;

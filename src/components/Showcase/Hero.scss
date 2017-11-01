@@ -11,7 +11,7 @@
   position: absolute;
   left: 0;
   top: 0;
-  font-size: 86vh;
+  font-size: 99vh;
   color: $background-gray;
   pointer-events: none;
   // media queries
@@ -24,8 +24,8 @@
 
   &:before {
     position: absolute;
-    left: -8vw;
-    top: -30vh;
+    left: -10vw;
+    top: -42vh;
     // media queries
     @include breakpoint($desktop-sm) {
       top: -20vh;

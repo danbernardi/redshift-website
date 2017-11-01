@@ -5,7 +5,7 @@ import CustomEase from 'vendor/gsap-plugins/CustomEase';
 import { TimelineLite, Power3 } from 'gsap';
 import { isInRange } from 'utils/animation';
 import PropTypes from 'prop-types';
-import { breakpointIsGreaterThan } from 'utils/responsiveHelpers';
+import { breakpointIsGreaterThan, breakpoints } from 'utils/responsiveHelpers';
 import './Hero.scss';
 
 /**
@@ -81,6 +81,7 @@ export class Hero extends React.Component {
 
   render () {
     const { onDidMount, breakpoint } = this.props;
+    const { tabletSm } = breakpoints;
 
     return (
       <section
@@ -90,15 +91,14 @@ export class Hero extends React.Component {
         <span className="hero__iconbg icon-redshift" />
 
         <div className="row">
-          <h2 className="hero__text typ--bold" style={ { maxWidth: '110rem', pointerEvents: 'none' } }>
+          <h1 className="hero__text typ--bold typ--hero" style={ { maxWidth: '110rem', pointerEvents: 'none' } }>
             <span data-animationName="text2">
-              We are Redshift.
-              <br />
-              We create digital products&nbsp;
-             { breakpointIsGreaterThan('tabletMd', breakpoint.size) && <br /> }
-              that people use and remember.
+              We are Redshift.<br />
+              We create digital products&nbsp;{ breakpointIsGreaterThan(tabletSm, breakpoint.size) && <br /> }
+              that people use, love,&nbsp;{ breakpointIsGreaterThan(tabletSm, breakpoint.size) && <br /> }
+              and remember.
             </span>
-          </h2>
+          </h1>
         </div>
 
         { this.props.animationProgress <= 0.3 ? <div data-animationName="scroller" className="scrolltrigger">
