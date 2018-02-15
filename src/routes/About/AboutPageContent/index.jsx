@@ -7,16 +7,20 @@ import PropTypes from 'prop-types';
 
 export function AboutPageContent (props) {
   const { breakpoint } = props;
-  const vimeoEmbed = (
-    <div>
-      <iframe src="https://player.vimeo.com/video/246179205" width="640" height="360" frameBorder="0" webkitallowfullscreen={ true } mozallowfullscreen={ true } allowFullScreen={ true } />
-      <p><a href="https://vimeo.com/246179205">Welcome To Redshift</a> from <a href="https://vimeo.com/weareredshift">REDSHIFT</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
-    </div>
-  );
+
+  const vimeoEmbed = (url) => {
+    const width = window.innerWidth / 2;
+    return (
+      <center>
+        <div>
+          <iframe src={ url } width={ width } height="360" frameBorder="0" webkitallowfullscreen={ true } mozallowfullscreen={ true } allowFullScreen={ true } />
+        </div>
+      </center>
+    );
+  };
 
   return (
     <div className="about__content">
-      { vimeoEmbed }
       <div className="about__square--container">
         {
           aboutSections.filter((s, i) => aboutSections.length - 1 !== i).map((s, i) => (
@@ -43,6 +47,8 @@ export function AboutPageContent (props) {
                       />
                     </picture>
                   }
+
+                  { s.video && vimeoEmbed(s.video.url) }
                 </div>
                 <div className="parallax__layer--base">
                   <div className={ `${s.textClass && setClass({ ...s.textClass }, breakpoint)}` }>
