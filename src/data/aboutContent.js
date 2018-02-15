@@ -56,14 +56,21 @@ export const aboutSections = [
     },
     imgAlt: 'about image 3'
   },
+  // {
+  //   sectionClass: 'four',
+  //   image: {
+  //     imgDef: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/about/content/desktop/about_4.jpg',
+  //     imgTlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/about/content/tablet/about_4.jpg',
+  //     imgMlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/about/content/mobile/about_4.jpg'
+  //   },
+  //   imgAlt: 'brainstorming ideas for a better tomorrow'
+  // },
+
   {
     sectionClass: 'four',
-    image: {
-      imgDef: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/about/content/desktop/about_4.jpg',
-      imgTlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/about/content/tablet/about_4.jpg',
-      imgMlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/about/content/mobile/about_4.jpg'
-    },
-    imgAlt: 'brainstorming ideas for a better tomorrow'
+    video: {
+      url: 'https://player.vimeo.com/video/246179205'
+    }
   },
   {
     sectionClass: 'five row',
