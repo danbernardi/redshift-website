@@ -17,7 +17,7 @@ export function BioTemplate (props) {
   const { bioContent, breakpoint } = props;
 
   const bio = bioContent.bioStatement.map((paragraph, index) =>
-    <div key={ index } className="typ--b1 pb2">{ paragraph }</div>
+    <div key={ index } className="typ--b2 pb2">{ paragraph }</div>
   );
 
   return (
@@ -25,8 +25,8 @@ export function BioTemplate (props) {
       <ModalCloseBtn closeCallback={ () => browserHistory.push('/about') } />
       <div className="bio--wrap row">
         <div className="team-member-bio">
-          <h1 className={ setClass({ default: 'mb8', desktopSm: 'mb4', mobileLg: 'mb2' }, breakpoint) }>{ bioContent.name }</h1>
-          <h3 className={ setClass({ default: 'pb6', desktopSm: 'pb4', mobileLg: 'pb2' }, breakpoint) }>{ bioContent.position }</h3>
+          <h2 className={ setClass({ default: 'mb2', desktopSm: 'mb2', mobileLg: 'typ--h1 mb2' }, breakpoint) }>{ bioContent.name }</h2>
+          <h3 className={ setClass({ default: 'pb4', desktopSm: 'pb4' }, breakpoint) }>{ bioContent.position }</h3>
           { bio }
           { /** bioContent.inspiration &&
             <div>
@@ -37,7 +37,7 @@ export function BioTemplate (props) {
             </div> **/}
         </div>
         { breakpointIsGreaterThan('tabletMd', breakpoint.size) &&
-          <div className="bio--wrap__img typ--b1">
+          <div className="bio--wrap__img typ--b2">
             <img src={ `https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/about/team/modal/${bioContent.id}.jpg` } alt={ bioContent.name } />
           </div>
         }

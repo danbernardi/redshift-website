@@ -158,6 +158,7 @@ export const teamInfo = [
   {
     id: 'andrewL',
     name: 'Andrew Lenzini',
+    position: 'Visual Designer',
     modal: '',
     bioStatement: [
       'Andrew Lenzini is a Visual Designer at Redshift.',
@@ -169,6 +170,7 @@ export const teamInfo = [
   {
     id: 'chrisM',
     name: 'Chris Mueller',
+    position: 'UX Designer',
     modal: '',
     bioStatement: [
      'Chris Mueller is a UX designer at Redshift.',
@@ -179,6 +181,7 @@ export const teamInfo = [
   {
     id: 'brock',
     name: 'Brock Lanoza',
+    position: 'Software Engineer',
     modal: '',
     bioStatement: [
     'Brock Lanoza is a Software Engineer at Redshift.',
@@ -189,6 +192,7 @@ export const teamInfo = [
   {
     id: 'davidN',
     name: 'David Noah',
+    position: 'Software Engineer',
     modal: '',
     bioStatement: [
       'David Noah is a Software Engineer at Redshift.',
@@ -199,6 +203,7 @@ export const teamInfo = [
   {
     id: 'jason',
     name: 'Jason Murphy',
+    position: 'Managing Director',
     modal: '',
     bioStatement: [
       'Jason is the managing director at Redshift.',
@@ -210,6 +215,7 @@ export const teamInfo = [
   {
     id: 'benH',
     name: 'Ben Hester',
+    position: 'UX Director',
     modal: '',
     bioStatement: [
       'Ben Hester is an associate director of UX at Redshift.',
@@ -220,6 +226,7 @@ export const teamInfo = [
   {
     id: 'ally',
     name: 'Ally Lucas',
+    position: 'Office Manager',
     modal: '',
     bioStatement: [
       'Ally is the studio manager at Redshift.',
@@ -230,6 +237,7 @@ export const teamInfo = [
   {
     id: 'caryn',
     name: 'Caryn Arredondo',
+    position: 'UX Designer',
     modal: '',
     bioStatement: [
       'Caryn Arredondo is a user experience designer at Redshift.',
@@ -241,6 +249,7 @@ export const teamInfo = [
   {
     id: 'juliana',
     name: 'Juliana Peters',
+    position: 'UX Researcher',
     modal: '',
     bioStatement: [
       'Juliana Peters is a User Experience Researcher at Redshift.',
@@ -253,6 +262,7 @@ export const teamInfo = [
   {
     id: 'chrisF',
     name: 'Chris Fairchild',
+    position: 'Visual Designer',
     modal: '',
     bioStatement: [
       'Chris Fairchild is a visual designer and type nerd at Redshift.',
