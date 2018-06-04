@@ -164,6 +164,9 @@
 
 .team-member__modal.david .bio--wrap__img img {
   // media queries
+  @include breakpoint($desktop-lg) {
+    right: -14%;
+  }
   @media screen and (max-device-width: 1040px) and (orientation : portrait) {
     right: -17%;
   }
