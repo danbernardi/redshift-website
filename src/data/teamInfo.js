@@ -124,7 +124,7 @@ export const teamInfo = [
   {
     id: 'diana',
     name: 'Diana Cheng',
-    position: 'Director of User Research',
+    position: 'Director of Research & Strategy',
     modal: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/about/team/modal/diana.jpg',
     bioStatement: [
       'Diana Cheng is the Director of User Research at Redshift.',
