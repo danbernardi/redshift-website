@@ -110,17 +110,17 @@ export const teamInfo = [
       'Born and raised in the bay area, he is a hybrid designer/developer who has been working in the field for over 8 years on both sides. With a penchant for good usable design and clean code, he helps bridge the language barrier between designers and developers at Redshift. He is self taught in both disciplines.'
     ]
   },
-  {
-    id: 'sandra',
-    name: 'Sandra Wing',
-    position: 'UX Researcher',
-    modal: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/about/team/modal/sandra.jpg',
-    bioStatement: [
-      'Sandra Wing is a User Experience Researcher at Redshift.',
-      'Sandra is a native of San Francisco, CA and received a B.A. in Global Studies with a minor in Asian Languages from UCLA. Influenced by her upbringing in San Francisco’s diverse neighborhoods, she was always interested in understanding what motivates people and why people do the things they do. Before working at Redshift, she worked as a Research and GIS Analyst for UCLA’s North American Integration and Development Center.',
-      'A lover of the outdoors, travel, and all things adventurous, she spends her free time rock climbing and hiking. When not working at Redshift, Sandra is busy plotting her next adventure.'
-    ]
-  },
+  // {
+  //   id: 'sandra',
+  //   name: 'Sandra Wing',
+  //   position: 'UX Researcher',
+  //   modal: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/about/team/modal/sandra.jpg',
+  //   bioStatement: [
+  //     'Sandra Wing is a User Experience Researcher at Redshift.',
+  //     'Sandra is a native of San Francisco, CA and received a B.A. in Global Studies with a minor in Asian Languages from UCLA. Influenced by her upbringing in San Francisco’s diverse neighborhoods, she was always interested in understanding what motivates people and why people do the things they do. Before working at Redshift, she worked as a Research and GIS Analyst for UCLA’s North American Integration and Development Center.',
+  //     'A lover of the outdoors, travel, and all things adventurous, she spends her free time rock climbing and hiking. When not working at Redshift, Sandra is busy plotting her next adventure.'
+  //   ]
+  // },
   {
     id: 'diana',
     name: 'Diana Cheng',
@@ -153,8 +153,6 @@ export const teamInfo = [
       'He grew up in the Bay Area and received a BS in Graphic Design from The Art Institute of California – San Francisco. Prior to working at Redshift, Matt designed magazines, brands, and websites at companies including Wired Magazine, Sidecar Agency, and IDEO. When Matt isn\'t hunched over his computer pushing pixels, he can be found biking up San Francisco\'s notorious hills, in a park napping, or at a baseball game.'
     ]
   },
-
-
   {
     id: 'andrewL',
     name: 'Andrew Lenzini',
@@ -178,17 +176,17 @@ export const teamInfo = [
      'Outside of work, you can find Chris at a show, in the woodshop, or getting his heart broken by the Arizona Cardinals.'
     ]
   },
-  {
-    id: 'brock',
-    name: 'Brock Lanoza',
-    position: 'Software Engineer',
-    modal: '',
-    bioStatement: [
-    'Brock Lanoza is a Software Engineer at Redshift.',
-    'A New Jersey native, Brock moved to attend the University of Hawaii where he first discovered his interest in building software. Before joining the Redshift team, Brock helped augment enterprise teams, teaching them how to build performant and scalable full-stack applications.',
-    'When not pondering the finer points of human-computer interaction, Brock can be found shamelessly spam-posting pictures of Persian cats to the internet.'
-    ]
-  },
+  // {
+  //   id: 'brock',
+  //   name: 'Brock Lanoza',
+  //   position: 'Software Engineer',
+  //   modal: '',
+  //   bioStatement: [
+  //   'Brock Lanoza is a Software Engineer at Redshift.',
+  //   'A New Jersey native, Brock moved to attend the University of Hawaii where he first discovered his interest in building software. Before joining the Redshift team, Brock helped augment enterprise teams, teaching them how to build performant and scalable full-stack applications.',
+  //   'When not pondering the finer points of human-computer interaction, Brock can be found shamelessly spam-posting pictures of Persian cats to the internet.'
+  //   ]
+  // },
   {
     id: 'davidN',
     name: 'David Noah',
