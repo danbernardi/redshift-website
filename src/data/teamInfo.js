@@ -55,17 +55,17 @@ export const teamInfo = [
       'Outside of work, Rick hosts a film night, rebuilds motorcycles and is almost always accompanied by his dog Olive.'
     ]
   },
-  {
-    id: 'lucy',
-    name: 'Lucy Dotson',
-    position: 'Senior UX Designer',
-    modal: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/about/team/modal/lucy.jpg',
-    bioStatement: [
-      'Lucy Dotson is a senior user experience designer at Redshift.',
-      'After receiving her degree in English from Colby College, Lucy crafted engaging stories for companies of all sizes as a copywriter and content strategist. Lucy discovered her appreciation for design while working as a ux writer, and shortly after decided to pursue ux full time. Since then, Lucy has designed experiences for clients including Kaiser Permantente, Western Union, and Advanced Microgrid Solutions (AMS).',
-      'Lucy spends her free time petting neighborhood dogs, making playlists, and searching for a really good gluten-free donut (she has yet to find one).'
-    ]
-  },
+  // {
+  //   id: 'lucy',
+  //   name: 'Lucy Dotson',
+  //   position: 'Senior UX Designer',
+  //   modal: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/about/team/modal/lucy.jpg',
+  //   bioStatement: [
+  //     'Lucy Dotson is a senior user experience designer at Redshift.',
+  //     'After receiving her degree in English from Colby College, Lucy crafted engaging stories for companies of all sizes as a copywriter and content strategist. Lucy discovered her appreciation for design while working as a ux writer, and shortly after decided to pursue ux full time. Since then, Lucy has designed experiences for clients including Kaiser Permantente, Western Union, and Advanced Microgrid Solutions (AMS).',
+  //     'Lucy spends her free time petting neighborhood dogs, making playlists, and searching for a really good gluten-free donut (she has yet to find one).'
+  //   ]
+  // },
   {
     id: 'shannon',
     name: 'Shannon Chin',
@@ -171,9 +171,9 @@ export const teamInfo = [
     position: 'UX Designer',
     modal: '',
     bioStatement: [
-     'Chris Mueller is a UX designer at Redshift.',
-     'He grew up in Scottsdale, AZ and studied Computer Science at LMU in Los Angeles. More interested in making cool stuff than analyzing algorithms, he pivoted to design with a master\'s in HCI from Carnegie Mellon. Before Redshift, Chris was leading design and research projects at NASA.',
-     'Outside of work, you can find Chris at a show, in the woodshop, or getting his heart broken by the Arizona Cardinals.'
+      'Chris Mueller is a UX designer at Redshift.',
+      'He grew up in Scottsdale, AZ and studied Computer Science at LMU in Los Angeles. More interested in making cool stuff than analyzing algorithms, he pivoted to design with a master\'s in HCI from Carnegie Mellon. Before Redshift, Chris was leading design and research projects at NASA.',
+      'Outside of work, you can find Chris at a show, in the woodshop, or getting his heart broken by the Arizona Cardinals.'
     ]
   },
   // {
