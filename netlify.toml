@@ -1,6 +1,0 @@
-# A basic redirects rule
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
-  force = true
