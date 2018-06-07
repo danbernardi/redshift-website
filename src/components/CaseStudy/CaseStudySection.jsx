@@ -35,7 +35,7 @@ class CaseStudySection extends React.Component {
 
   render () {
     const { scrollContainer } = this.props;
-    const { video, images, copy, containerClass, classes, imgAlt } = this.props.caseStudyContent;
+    const { video, videoEmbed, images, copy, containerClass, classes, imgAlt } = this.props.caseStudyContent;
     const videoOverlay = {
       iphone: {
         def: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/case-studies/default/iphone.png',
@@ -76,6 +76,17 @@ class CaseStudySection extends React.Component {
               </div>
             </Builder>
           </div>
+        }
+
+        { videoEmbed &&
+          <Builder scrollContainer={ scrollContainer }>
+            <div className="video__embedcontainer">
+              <iframe
+                src={ `https://player.vimeo.com/video/${videoEmbed.vimeoID}` }
+                frameBorder="0"
+              />
+            </div>
+          </Builder>
         }
 
         { images &&
