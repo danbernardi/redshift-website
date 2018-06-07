@@ -127,7 +127,7 @@ export const teamInfo = [
     position: 'Director of Research & Strategy',
     modal: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/about/team/modal/diana.jpg',
     bioStatement: [
-      'Diana Cheng is the Director of User Research at Redshift.',
+      'Diana Cheng is the Director of Research & Strategy at Redshift.',
       'She has a BA from UC Berkeley in Political Science and Art. She received her Masters from the IIT Institute of Design in Chicago, which teaches ethnography and other social science methods as part of the human-centered design process. Prior to Redshift, she held design, strategy and innovation roles for such companies as Google, Panasonic, and Jump Associates. She is a regular contributor to the Design Thinking program at the Rochester Institute of Technology.',
       'When not channeling the voice of the user, Diana can often be found eating ice cream and sipping matcha.'
     ]
