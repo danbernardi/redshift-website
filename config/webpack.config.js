@@ -76,7 +76,8 @@ webpackConfig.plugins = [
   }),
   new CopyWebpackPlugin([
     { from: project.paths.client('sitemap.xml') },
-    { from: project.paths.client('robots.txt') }
+    { from: project.paths.client('robots.txt') },
+    { from: project.paths.client('netlify.toml') }
   ])
 ];
 
