@@ -17,6 +17,7 @@ export const caseStudies = [
         videoEmbed:
         {
           vimeoID: '271133413',
+          thumbnail: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/KP/default/kp4.jpg'
         },
         copy: [
           {
