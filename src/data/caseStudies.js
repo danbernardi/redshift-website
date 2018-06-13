@@ -14,13 +14,11 @@ export const caseStudies = [
     heading: 'We partnered with Kaiser Permanente to create an entirely new digital healthcare experience—one that puts the patient in charge.',
     content: [
       {
-        images:
+        videoEmbed:
         {
-          imgDef: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/KP/default/kp4.jpg',
-          imgTlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/KP/tablet/kp4.jpg',
-          imgMlg: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/KP/mobile/kp4.jpg'
+          vimeoID: '271133413',
+          thumbnail: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/home/KP/default/kp4.jpg'
         },
-        imgAlt: 'Kaiser Permanente 1',
         copy: [
           {
             classes: 'casestudy__text typ--b1',
