@@ -53,15 +53,11 @@ class CaseStudySection extends React.Component {
       if (this.urlParams.has('playvideo')) {
         setTimeout(function () {
           const offsetElem = document.querySelector('.casestudy__heading');
-          console.log(offsetElem);
           TweenLite.to(container, 0.1, { scrollTop: offsetElem.offsetHeight });
         }, 200);
       }
 
-      const player = this.player;
-      setTimeout(function () {
-        player.play();
-      }, 10000);
+      this.player.play();
     }
   }
 
@@ -127,7 +123,10 @@ class CaseStudySection extends React.Component {
 
               : <div>
                 <img className="video__thumbnail" src={ videoEmbed.thumbnail } />
-                <img className="video__play" src={ require('../../assets/img/play-btn.svg') } onClick={ () => this.setState({ videoActive: true }) } />
+                <div className="video__play" onClick={ () => this.setState({ videoActive: true }) }>
+                  <img src={ require('../../assets/img/play-btn.svg') } />
+                  <h3>Play video</h3>
+                </div>
               </div>
             }
           </div>

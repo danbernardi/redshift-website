@@ -202,13 +202,32 @@
   .video__play {
     z-index: 3;
     position: absolute;
-    left: 50%;
-    top: 50%;
-    width: 10rem;
-    transform: translate(-50%, -50%) scale(0.8);
-    transition: 0.1s ease-in-out;
+    left: 5rem;
+    bottom: 5rem;
+    width: 100rem;
     cursor: pointer;
+    color: $white;
+    padding-left: 13rem;
+    // media queries
+    @include breakpoint($mobile-lg) {
+      padding-left: 5rem;
+      left: 1rem;
+      bottom: 2rem;
+    }
 
-    &:hover { transform: translate(-50%, -50%) scale(1); }
+    img {
+      width: 10rem;
+      transform: translateY(-50%) scale(0.8);
+      transition: transform 0.1s ease-in-out;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      // media queries
+      @include breakpoint($mobile-lg) {
+        width: 4rem;
+      }
+    }
+
+    &:hover img { transform: translateY(-50%) scale(1); }
   }
 }
