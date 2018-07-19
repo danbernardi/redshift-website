@@ -187,17 +187,17 @@ export const teamInfo = [
   //   'When not pondering the finer points of human-computer interaction, Brock can be found shamelessly spam-posting pictures of Persian cats to the internet.'
   //   ]
   // },
-  {
-    id: 'davidN',
-    name: 'David Noah',
-    position: 'Software Engineer',
-    modal: '',
-    bioStatement: [
-      'David Noah is a Software Engineer at Redshift.',
-      'He grew up in Frederick, Maryland and earned a degree in geographic information systems from the University of Maryland. The technical nature of computer cartography was a catalyst for David’s pivot into web development. He quickly joined RapidAPI to help build the world largest API marketplace.',
-      'David spends his weekends exploring local live music, adventuring outdoors, and brewing beer with friends.'
-    ]
-  },
+  // {
+  //   id: 'davidN',
+  //   name: 'David Noah',
+  //   position: 'Software Engineer',
+  //   modal: '',
+  //   bioStatement: [
+  //     'David Noah is a Software Engineer at Redshift.',
+  //     'He grew up in Frederick, Maryland and earned a degree in geographic information systems from the University of Maryland. The technical nature of computer cartography was a catalyst for David’s pivot into web development. He quickly joined RapidAPI to help build the world largest API marketplace.',
+  //     'David spends his weekends exploring local live music, adventuring outdoors, and brewing beer with friends.'
+  //   ]
+  // },
   {
     id: 'jason',
     name: 'Jason Murphy',
