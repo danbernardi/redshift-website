@@ -244,19 +244,19 @@ export const teamInfo = [
       'A traveler at heart, she now lives and hikes in the Redwood Hills of Oakland, CA, with her freckly Aussie dog Mishka.'
     ]
   },
-  {
-    id: 'juliana',
-    name: 'Juliana Peters',
-    position: 'UX Researcher',
-    modal: '',
-    bioStatement: [
-      'Juliana Peters is a User Experience Researcher at Redshift.',
-      'Juliana spends her time interpreting human behavior and breathing life into data. With 10+ years of research experience under her belt, her expertise lies in translating user needs into product strategy and design.',
-      'Prior to working at Redshift, Juliana has led end-to-end research projects for clients such as Google, Instagram, The Hershey Company and Guggenheim.',
-      'She grew up in Florida and has a B.S. in Psychology and a B.A. in Spanish from the University of Florida. She received her Master’s in Cognitive Psychology from Penn State University.',
-      'Juliana has a penchant for all things citrus, and in her free time loves making jam, Facetiming with her nieces and nephews, watching Florida Gator sports, and playing board games.'
-    ]
-  },
+  // {
+  //   id: 'juliana',
+  //   name: 'Juliana Peters',
+  //   position: 'UX Researcher',
+  //   modal: '',
+  //   bioStatement: [
+  //     'Juliana Peters is a User Experience Researcher at Redshift.',
+  //     'Juliana spends her time interpreting human behavior and breathing life into data. With 10+ years of research experience under her belt, her expertise lies in translating user needs into product strategy and design.',
+  //     'Prior to working at Redshift, Juliana has led end-to-end research projects for clients such as Google, Instagram, The Hershey Company and Guggenheim.',
+  //     'She grew up in Florida and has a B.S. in Psychology and a B.A. in Spanish from the University of Florida. She received her Master’s in Cognitive Psychology from Penn State University.',
+  //     'Juliana has a penchant for all things citrus, and in her free time loves making jam, Facetiming with her nieces and nephews, watching Florida Gator sports, and playing board games.'
+  //   ]
+  // },
   {
     id: 'chrisF',
     name: 'Chris Fairchild',
