@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Builder from 'components/Builder';
 import Vimeo from '@vimeo/player';
+import { TweenLite } from 'gsap';
 
 /**
   * Content of Case Study
@@ -25,6 +26,13 @@ class CaseStudySection extends React.Component {
   componentDidMount () {
     const { caseStudyContent } = this.props;
 
+    if (caseStudyContent.videoEmbed) {
+      this.urlParams = new URLSearchParams(window.location.search);
+      if (this.urlParams.has('playvideo')) {
+        this.initializeVideo();
+      }
+    }
+
     if (caseStudyContent.video) {
       this.videoTimeout = setTimeout(() => {
         document.getElementById(`caseStudyVideo-${caseStudyContent.video.id}`).play();
@@ -32,10 +40,23 @@ class CaseStudySection extends React.Component {
     };
   }
 
+  initializeVideo() {
+    const { caseStudyContent } = this.props;
+    this.setState({ videoActive: true });
+  }
+
   componentDidUpdate (prevProps, prevState) {
+    const { container } = this.props;
     if (this.videoEmbed) this.player = new Vimeo(this.videoEmbed);
 
     if (!prevState.videoActive && this.state.videoActive) {
+      if (this.urlParams.has('playvideo')) {
+        setTimeout(function () {
+          const offsetElem = document.querySelector('.casestudy__heading');
+          TweenLite.to(container, 0.1, { scrollTop: offsetElem.offsetHeight });
+        }, 200);
+      }
+
       this.player.play();
     }
   }
@@ -92,7 +113,7 @@ class CaseStudySection extends React.Component {
         }
 
         { videoEmbed &&
-          <div className="video__embedcontainer">
+          <div ref={ el => { this.videoEmbedContainer = el; } } className="video__embedcontainer">
             { videoActive
               ? <iframe
                 src={ `https://player.vimeo.com/video/${videoEmbed.vimeoID}?api=1` }
@@ -102,7 +123,10 @@ class CaseStudySection extends React.Component {
 
               : <div>
                 <img className="video__thumbnail" src={ videoEmbed.thumbnail } />
-                <img className="video__play" src={ require('../../assets/img/play-btn.svg') } onClick={ () => this.setState({ videoActive: true }) } />
+                <div className="video__play" onClick={ () => this.setState({ videoActive: true }) }>
+                  <img src={ require('../../assets/img/play-btn.svg') } />
+                  <h3>Play video</h3>
+                </div>
               </div>
             }
           </div>

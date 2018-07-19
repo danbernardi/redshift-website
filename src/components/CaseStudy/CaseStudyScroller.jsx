@@ -106,6 +106,7 @@ export class CaseStudyScroller extends React.Component {
                 key={ index }
                 caseStudyContent={ section }
                 scrollContainer={ scrollContainer }
+                container={ this.casestudy }
               />
             ))
            }
