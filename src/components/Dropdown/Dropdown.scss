@@ -1,0 +1,49 @@
+@import 'sass-includes';
+
+.dropdown.is-open {
+  position: relative;
+
+  .dropdown__menu {
+    display: block;
+  }
+}
+
+.dropdown__toggle {
+  color: rgb(117, 117, 117);
+  cursor: pointer;
+}
+
+.dropdown__menu {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 7.6rem;
+  background: $white;
+  z-index: 10;
+  padding: 2rem 0;
+  width: 100%;
+  // media queries
+  @include breakpoint($tablet-lg) {
+    top: 7rem;
+  }
+  @include breakpoint($mobile-lg) {
+    top: 6.3rem;
+  }
+  @include breakpoint($mobile-sm) {
+    top: 5rem;
+  }
+
+  li {
+    @include font-size(h4);
+    cursor: pointer;
+    padding: 0 2rem;
+
+    &:hover {
+      background-color: #FAFAFA;
+    }
+  }
+}
+
+.dropdown__shadow {
+  display: none;
+}

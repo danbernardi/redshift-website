@@ -302,6 +302,7 @@ html:not(.is-touchdevice) {
   .form__group--filename {
     position: relative;
     top: -5rem;
+    font-size: 1.6rem;
     // media queries
     @include breakpoint($mobile-lg) {
       top: -3rem;
@@ -321,11 +322,11 @@ html:not(.is-touchdevice) {
   }
 }
 
-.form__attach > input {
+.form__file > input {
   display: none;
 }
 
-.is-touchdevice .form__attach > input {
+.is-touchdevice .form__file > input {
   opacity: 0;
   z-index: 10;
   position: absolute;
@@ -337,7 +338,7 @@ html:not(.is-touchdevice) {
   display: block;
 }
 
-.form__attach {
+.form__file {
   position: relative;
 
   label {
@@ -348,7 +349,7 @@ html:not(.is-touchdevice) {
   }
 }
 
-.form__attach label img {
+.form__file label img {
   float: right;
   cursor: pointer;
   width: 3.5rem;
@@ -356,6 +357,10 @@ html:not(.is-touchdevice) {
   @include breakpoint($mobile-sm) {
     width: 2rem;
   }
+}
+
+.form__section:nth-child(2n) {
+  margin-right: 0;
 }
 
 input:-webkit-autofill {

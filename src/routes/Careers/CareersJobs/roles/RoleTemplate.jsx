@@ -1,5 +1,5 @@
 import React from 'react';
-import JobContact from '../JobContact';
+import ContactForm from '../ContactForm';
 import ModalCloseBtn from 'components/Modal/ModalCloseBtn';
 import { browserHistory } from 'react-router';
 import PropTypes from 'prop-types';
@@ -33,7 +33,7 @@ export function RoleTemplate ({ children, name, modalState }) {
           { children }
           <section className="contact__form py8 row">
             <h2>Apply</h2>
-            <JobContact position={ name } />
+            <ContactForm position={ name } />
           </section>
         </div>
       </div>
