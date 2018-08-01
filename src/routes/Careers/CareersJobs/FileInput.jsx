@@ -18,20 +18,27 @@ export class FileInput extends React.Component {
     super(props);
 
     this.state = {
-      openDropdown: ''
+      openDropdown: '',
+      files: []
     };
+
+    // this._changeHandler = this._changeHandler.bind(this);
   }
 
-  _changeHandler = (e) => {
-    const { form, files, uploadFileCallback } = this.props;
+  changeHandler = (e) => {
+    const { form, uploadFileCallback } = this.props;
+    const { files } = this.state;
     this.formGroup.classList.remove('has-error');
 
     if (form.type === 'file') {
       let moreFiles = files.slice();
-      const stateFileName = e.target.files[0].name;
-      moreFiles.push(stateFileName);
-      if (uploadFileCallback instanceof Function) uploadFileCallback(moreFiles);
+
+      Array.from(e.target.files).forEach(file => {
+        moreFiles.push(file.name);
+      });
+
       this.setState({ files: moreFiles });
+      // if (uploadFileCallback instanceof Function) uploadFileCallback(moreFiles);
     }
   }
 
@@ -44,9 +51,9 @@ export class FileInput extends React.Component {
 
   render () {
     const { form, breakpoint, source } = this.props;
-    const { openDropdown } = this.state;
+    const { openDropdown, files } = this.state;
     const additionalProps = form.type === 'file'
-      ? { multiple: true, id: 'file-input' }
+      ? { multiple: true, id: form.name }
       : {};
 
     return (
@@ -54,7 +61,7 @@ export class FileInput extends React.Component {
         <div className={ `form__group ${form.formClass}` } ref={ el => { this.formGroup = el; } }>
           { form.type === 'file' &&
             <label
-              htmlFor="file-input"
+              htmlFor={ form.name }
               name={ form.description }>
                 { form.description } <img src="https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/paperclip.svg" alt={ form.description }
               />
@@ -77,9 +84,20 @@ export class FileInput extends React.Component {
               value={ form.value }
               className={ `typ--b1 typ--light ${form.required ? 'required' : '' }` }
               { ...additionalProps }
-              onChange={ this._changeHandler }
+              onChange={ (event) => this.changeHandler(event) }
             />
           }
+
+          <div className="cf">
+            { files.length > 0 && <div className="form__section form__group--filename">
+              <strong>Files:&nbsp;</strong>
+              { files.map((file, index) => {
+                return (
+                  <span key={ index }>{ `${file}${index === files.length - 1 ? '' : ', '}` }</span>
+                );
+              }) }
+            </div> }
+          </div>
         </div>
       </div>
     );

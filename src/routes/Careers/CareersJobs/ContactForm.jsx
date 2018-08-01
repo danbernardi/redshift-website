@@ -50,13 +50,15 @@ const fileItems = [
     formClass: 'form__file',
     type: 'file',
     description: 'Upload cover letter',
-    name: 'from_coverletter'
+    name: 'from_coverletter',
+    multiple: true
   },
   {
     formClass: 'form__file',
     type: 'file',
     description: 'Upload resume',
-    name: 'from_resume'
+    name: 'from_resume',
+    multiple: true
   },
   {
     formClass: 'form__portfolio',
@@ -152,7 +154,7 @@ export class ContactForm extends React.Component {
 
             <div className="cf">
               { formItems.map((form, index) => (
-                <FileInput key={ form.name + index } form={ form } source={ source } selectSourceCallback={ value => this.setState({ source: value }) } />
+                <FileInput key={ index } form={ form } source={ source } selectSourceCallback={ value => this.setState({ source: value }) } />
               )) }
             </div>
 
@@ -161,22 +163,11 @@ export class ContactForm extends React.Component {
                 <FileInput
                   files={ files }
                   uploadFileCallback={ files => this.setState({ files }) }
-                  key={ form.name + index }
+                  key={ index }
                   form={ form }
                   source={ source }
                 />
               )) }
-            </div>
-
-            <div className="cf mt5">
-              { files.length > 0 && <div className="form__section form__group--filename">
-                <strong>Files:&nbsp;</strong>
-                { files.map((file, index) => {
-                  return (
-                    <span>{ `${file}${index === files.length - 1 ? '' : ', '}` }</span>
-                  );
-                }) }
-              </div> }
             </div>
 
             <div className="col-12 job-contact--button">

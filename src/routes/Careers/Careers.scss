@@ -300,13 +300,9 @@ html:not(.is-touchdevice) {
   }
 
   .form__group--filename {
-    position: relative;
-    top: -5rem;
+    position: absolute;
+    bottom: -3.4rem;
     font-size: 1.6rem;
-    // media queries
-    @include breakpoint($mobile-lg) {
-      top: -3rem;
-    }
   }
 
   input[type=text],

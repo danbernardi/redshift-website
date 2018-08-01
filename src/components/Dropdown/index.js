@@ -18,9 +18,9 @@ export class Dropdown extends Component {
           )) }
         </ul>
 
-        <select name={ id } className="dropdown__shadow">
+        <select readOnly={ true } value={ selectedValue } name={ id } className="dropdown__shadow">
           { items.map((item, index) => (
-            <option key={ index } value={ item } selected={ selectedValue === item }>{ item }</option>
+            <option key={ index } value={ item }>{ item }</option>
           )) }
         </select>
       </div>
