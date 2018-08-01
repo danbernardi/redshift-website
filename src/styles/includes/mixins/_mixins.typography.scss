@@ -68,4 +68,8 @@
       letter-spacing: normal;
     }
   }
+
+  @if $type == 'h4' {
+    font-size: 2rem;
+  }
 }

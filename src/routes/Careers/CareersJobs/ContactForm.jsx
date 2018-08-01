@@ -1,6 +1,6 @@
 import React from 'react';
 
-import JobContactForm from './JobContactForm';
+import FileInput from './FileInput';
 import JobThanks from './JobThanks';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -16,7 +16,6 @@ import { setClass } from 'utils/responsiveHelpers';
 
 const formItems = [
   {
-    classes: '',
     formClass: 'form__name',
     type: 'text',
     description: 'Name',
@@ -24,7 +23,6 @@ const formItems = [
     required: true
   },
   {
-    classes: 'col-last',
     formClass: 'form__email',
     type: 'email',
     description: 'Email',
@@ -32,31 +30,75 @@ const formItems = [
     required: true
   },
   {
-    classes: '',
-    formClass: 'form__portfolio',
-    type: 'text',
-    description: 'Link to portfolio',
-    name: 'from_portfolio',
-    required: true
-  },
-  {
-    classes: 'col-last',
-    formClass: 'form__attach',
-    type: 'file',
-    description: 'attachment',
-    name: 'resume'
+    formClass: 'form__source',
+    type: 'dropdown',
+    name: 'from_source',
+    items: [
+      'Coroflot',
+      'Hire Club',
+      'LinkedIn',
+      'Google search',
+      'Referral',
+      'Other'
+    ]
   }
 ];
 
-export class JobContact extends React.Component {
+const fileItems = [
+  {
+    classes: '',
+    formClass: 'form__file',
+    type: 'file',
+    description: 'Upload cover letter',
+    name: 'from_coverletter',
+    multiple: true
+  },
+  {
+    formClass: 'form__file',
+    type: 'file',
+    description: 'Upload resume',
+    name: 'from_resume',
+    multiple: true
+  },
+  {
+    formClass: 'form__portfolio',
+    type: 'text',
+    description: 'Link to portfolio',
+    name: 'from_portfolio'
+  }
+];
+
+export class ContactForm extends React.Component {
   constructor (props) {
     super(props);
-    this.state = { buttonText: 'Submit', error: false, errorMessage: '' };
+    this.state = {
+      buttonText: 'Submit',
+      error: false,
+      errorMessage: '',
+      source: 'How\'d you hear about us?',
+      files: []
+    };
   }
 
   render () {
-    const { buttonText, error, errorMessage } = this.state;
+    const { buttonText, error, errorMessage, source, files } = this.state;
     const { position, breakpoint } = this.props;
+
+    let sourceDescription;
+
+    if (source === 'Referral') {
+      sourceDescription = 'Who referred you?';
+    } else if (source === 'Other') {
+      sourceDescription = 'Tell us more';
+    }
+
+    const sourceResponse = {
+      classes: 'col-last',
+      formClass: 'form__sourceresponse',
+      type: 'text',
+      description: sourceDescription,
+      name: 'from_sourceResponse'
+    };
 
     const onSend = (e) => {
       e.preventDefault();
@@ -89,6 +131,12 @@ export class JobContact extends React.Component {
         });
     };
 
+    if (['Referral', 'Other'].indexOf(source) === -1) {
+      if (formItems.length === 4) formItems.pop();
+    } else {
+      formItems[3] = sourceResponse;
+    }
+
     if (buttonText === 'Sent') {
       return <JobThanks />;
     } else {
@@ -101,13 +149,27 @@ export class JobContact extends React.Component {
           ref={ el => { this.form = el; } }
         >
           { error && <p className="typ--b3 typ--error">{ errorMessage }</p> }
-          <input type="hidden" value={ position } name="from_position" />
+          <input required={ true } type="hidden" value={ position } name="from_position" />
           <div>
-            {
-              formItems.map((form, index) => (
-                <JobContactForm key={ index } form={ form } />
-              ))
-            }
+
+            <div className="cf">
+              { formItems.map((form, index) => (
+                <FileInput key={ index } form={ form } source={ source } selectSourceCallback={ value => this.setState({ source: value }) } />
+              )) }
+            </div>
+
+            <div className="cf">
+              { fileItems.map((form, index) => (
+                <FileInput
+                  files={ files }
+                  uploadFileCallback={ files => this.setState({ files }) }
+                  key={ index }
+                  form={ form }
+                  source={ source }
+                />
+              )) }
+            </div>
+
             <div className="col-12 job-contact--button">
               <button
                 ref={ el => { this.button = el; } }
@@ -127,7 +189,7 @@ export class JobContact extends React.Component {
   }
 };
 
-JobContact.propTypes = {
+ContactForm.propTypes = {
   position: PropTypes.string,
   breakpoint: PropTypes.object
 };
@@ -136,4 +198,4 @@ const mapStateToProps = state => ({
   breakpoint: state.breakpoint
 });
 
-export default connect(mapStateToProps)(JobContact);
+export default connect(mapStateToProps)(ContactForm);
