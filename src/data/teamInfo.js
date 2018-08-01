@@ -36,7 +36,7 @@ export const teamInfo = [
   {
     id: 'scott',
     name: 'Scott Lambridis',
-    position: 'Lead UX Director',
+    position: 'Director of UX',
     modal: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/about/team/modal/scott.jpg',
     bioStatement: [
       'Scott Lambridis is the director of UX at Redshift.',
@@ -44,28 +44,17 @@ export const teamInfo = [
       'Scott is also an award-winning writer with an MFA from San Francisco State University, and has published stories in Amazon\'s Day One, Slice, and other journals. He also co-hosts the Action Fiction! performance series.'
     ]
   },
-  // {
-  //   id: 'rick',
-  //   name: 'Rick Takes',
-  //   position: 'Director of Engineering',
-  //   modal: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/about/team/modal/rick.jpg',
-  //   bioStatement: [
-  //     'Rick Takes is the director of engineering at Redshift.',
-  //     'With more than 10 years in the industry, Rick started his career in film production. Working in San Francisco as a motion graphic designer and video editor, he found his way into engineering and has been passionate about it ever since.',
-  //     'Outside of work, Rick hosts a film night, rebuilds motorcycles and is almost always accompanied by his dog Olive.'
-  //   ]
-  // },
-  // {
-  //   id: 'lucy',
-  //   name: 'Lucy Dotson',
-  //   position: 'Senior UX Designer',
-  //   modal: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/about/team/modal/lucy.jpg',
-  //   bioStatement: [
-  //     'Lucy Dotson is a senior user experience designer at Redshift.',
-  //     'After receiving her degree in English from Colby College, Lucy crafted engaging stories for companies of all sizes as a copywriter and content strategist. Lucy discovered her appreciation for design while working as a ux writer, and shortly after decided to pursue ux full time. Since then, Lucy has designed experiences for clients including Kaiser Permantente, Western Union, and Advanced Microgrid Solutions (AMS).',
-  //     'Lucy spends her free time petting neighborhood dogs, making playlists, and searching for a really good gluten-free donut (she has yet to find one).'
-  //   ]
-  // },
+  {
+    id: 'sasha',
+    name: 'Sasha Klein',
+    position: 'Associate Director of Engineering',
+    modal: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/about/team/modal/sasha.jpg',
+    bioStatement: [
+      'Sasha Klein is the Associate Director of Engineering at Redshift.',
+      'He grew up in Washington, DC, got a BA in English from Harvard College, taught in China, and then took a sharp turn into web development upon arriving in SF. Before landing at Redshift, Sasha coded and ran the web dev curriculum at Bloc, an online tech boot camp. He also gave startups a shot, founding and then giving up on a meat-sharing and a social-travel startup, both of which he requires alcohol to discuss.',
+      'When Sasha isn\'t complimenting coworkers on their lunches, he likes to trap them in discussions about universal basic income.'
+    ]
+  },
   {
     id: 'shannon',
     name: 'Shannon Chin',
@@ -91,7 +80,7 @@ export const teamInfo = [
   {
     id: 'danielle',
     name: 'Danielle Raynal',
-    position: 'UX Researcher',
+    position: 'Senior User Researcher/Strategist',
     modal: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/about/team/modal/danielle.jpg',
     bioStatement: [
       'Danielle Raynal is a design researcher and strategist at Redshift.',
@@ -110,17 +99,6 @@ export const teamInfo = [
       'Born and raised in the bay area, he is a hybrid designer/developer who has been working in the field for over 8 years on both sides. With a penchant for good usable design and clean code, he helps bridge the language barrier between designers and developers at Redshift. He is self taught in both disciplines.'
     ]
   },
-  // {
-  //   id: 'sandra',
-  //   name: 'Sandra Wing',
-  //   position: 'UX Researcher',
-  //   modal: 'https://s3-us-west-1.amazonaws.com/rs-website-cdn/images/about/team/modal/sandra.jpg',
-  //   bioStatement: [
-  //     'Sandra Wing is a User Experience Researcher at Redshift.',
-  //     'Sandra is a native of San Francisco, CA and received a B.A. in Global Studies with a minor in Asian Languages from UCLA. Influenced by her upbringing in San Francisco’s diverse neighborhoods, she was always interested in understanding what motivates people and why people do the things they do. Before working at Redshift, she worked as a Research and GIS Analyst for UCLA’s North American Integration and Development Center.',
-  //     'A lover of the outdoors, travel, and all things adventurous, she spends her free time rock climbing and hiking. When not working at Redshift, Sandra is busy plotting her next adventure.'
-  //   ]
-  // },
   {
     id: 'diana',
     name: 'Diana Cheng',
@@ -176,28 +154,6 @@ export const teamInfo = [
       'Outside of work, you can find Chris at a show, in the woodshop, or getting his heart broken by the Arizona Cardinals.'
     ]
   },
-  // {
-  //   id: 'brock',
-  //   name: 'Brock Lanoza',
-  //   position: 'Software Engineer',
-  //   modal: '',
-  //   bioStatement: [
-  //   'Brock Lanoza is a Software Engineer at Redshift.',
-  //   'A New Jersey native, Brock moved to attend the University of Hawaii where he first discovered his interest in building software. Before joining the Redshift team, Brock helped augment enterprise teams, teaching them how to build performant and scalable full-stack applications.',
-  //   'When not pondering the finer points of human-computer interaction, Brock can be found shamelessly spam-posting pictures of Persian cats to the internet.'
-  //   ]
-  // },
-  // {
-  //   id: 'davidN',
-  //   name: 'David Noah',
-  //   position: 'Software Engineer',
-  //   modal: '',
-  //   bioStatement: [
-  //     'David Noah is a Software Engineer at Redshift.',
-  //     'He grew up in Frederick, Maryland and earned a degree in geographic information systems from the University of Maryland. The technical nature of computer cartography was a catalyst for David’s pivot into web development. He quickly joined RapidAPI to help build the world largest API marketplace.',
-  //     'David spends his weekends exploring local live music, adventuring outdoors, and brewing beer with friends.'
-  //   ]
-  // },
   {
     id: 'jason',
     name: 'Jason Murphy',
@@ -213,7 +169,7 @@ export const teamInfo = [
   {
     id: 'benH',
     name: 'Ben Hester',
-    position: 'UX Director',
+    position: 'Associate Director of UX',
     modal: '',
     bioStatement: [
       'Ben Hester is an associate director of UX at Redshift.',
@@ -244,19 +200,6 @@ export const teamInfo = [
       'A traveler at heart, she now lives and hikes in the Redwood Hills of Oakland, CA, with her freckly Aussie dog Mishka.'
     ]
   },
-  // {
-  //   id: 'juliana',
-  //   name: 'Juliana Peters',
-  //   position: 'UX Researcher',
-  //   modal: '',
-  //   bioStatement: [
-  //     'Juliana Peters is a User Experience Researcher at Redshift.',
-  //     'Juliana spends her time interpreting human behavior and breathing life into data. With 10+ years of research experience under her belt, her expertise lies in translating user needs into product strategy and design.',
-  //     'Prior to working at Redshift, Juliana has led end-to-end research projects for clients such as Google, Instagram, The Hershey Company and Guggenheim.',
-  //     'She grew up in Florida and has a B.S. in Psychology and a B.A. in Spanish from the University of Florida. She received her Master’s in Cognitive Psychology from Penn State University.',
-  //     'Juliana has a penchant for all things citrus, and in her free time loves making jam, Facetiming with her nieces and nephews, watching Florida Gator sports, and playing board games.'
-  //   ]
-  // },
   {
     id: 'chrisF',
     name: 'Chris Fairchild',
