@@ -45,12 +45,14 @@ const compile = () => {
       fs.copySync(project.paths.public(), project.paths.dist());
 
       // REMOVE
-      ['/', '/dist', '/public'].forEach(dir => {
+      ['./', './dist', './public'].forEach(dir => {
         fs.readdir(dir, (err, items) => {
-          debug(`READING ${dir}`);
+          debug(`READING ${dir}: `);
           debug(items);
 
-          items.forEach(item => { debug(item); });
+          if (items) {
+            items.forEach(item => { debug(`- ${dir}/${item}`); });
+          }
         });
       });
     })
