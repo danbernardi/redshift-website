@@ -51,7 +51,17 @@ const compile = () => {
           debug(items);
 
           if (items) {
-            items.forEach(item => { debug(`- ${dir}/${item}`); });
+            items.forEach(item => {
+              debug(`- ${dir}/${item}`);
+
+              if (item.indexOf('app.') !== -1) {
+                fs.readFile(`${dir}/${item}`, (err, file) => {
+                  debug('----------------------------');
+                  debug(file);
+                  debug('----------------------------');
+                });
+              }
+            });
           }
         });
       });
