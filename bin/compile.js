@@ -52,10 +52,16 @@ const compile = () => {
 
           if (items) {
             items.forEach(item => {
-              debug(`- ${dir}/${item}`);
+              const filePath = `${dir}/${item}`;
+              debug(`- ${filePath}`);
 
               if (item.indexOf('app.') !== -1) {
-                fs.readFile(`${dir}/${item}`, (err, file) => {
+                debug(`Reading ${filePath}`);
+                fs.readFile(filePath, (error, file) => {
+                  if (error) {
+                    debug('ERROR');
+                    debug(error);
+                  }
                   debug('----------------------------');
                   debug(file);
                   debug('----------------------------');
