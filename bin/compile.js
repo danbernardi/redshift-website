@@ -35,6 +35,9 @@ const webpackCompiler = (webpackConfig) =>
 
 const compile = () => {
   debug('Starting compiler.');
+  debug('NODE_ENV: ');
+  debug(process.env && process.env.NODE_ENV);
+
   return Promise.resolve()
     .then(() => webpackCompiler(webpackConfig))
     .then(stats => {
@@ -43,6 +46,26 @@ const compile = () => {
       }
       debug('Copying static assets to dist folder.');
       fs.copySync(project.paths.public(), project.paths.dist());
+
+      debug('Logging contents of key folders, for deploy diagnostics...');
+
+      ['./', './dist', './public'].forEach(dir => {
+        fs.readdir(dir, (err, items) => {
+          if (err) {
+            debug(`Error Reading ${dir}: `);
+            debug(err);
+          } else {
+            debug(`Reading ${dir}: `);
+
+            if (items) {
+              items.forEach(item => {
+                const filePath = `${dir}/${item}`;
+                debug(`- ${filePath}`);
+              });
+            }
+          }
+        });
+      });
     })
     .then(() => {
       debug('Compilation completed successfully.');
