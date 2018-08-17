@@ -8,7 +8,7 @@ const project = require('../config/project.config');
 const webpackCompiler = (webpackConfig) =>
   new Promise((resolve, reject) => {
     const compiler = webpack(webpackConfig);
-    debug('ENV: ', JSON.stringify(process.env, null, 2));
+
     compiler.run((err, stats) => {
       if (err) {
         debug('Webpack compiler encountered a fatal error.', err);
@@ -35,6 +35,9 @@ const webpackCompiler = (webpackConfig) =>
 
 const compile = () => {
   debug('Starting compiler.');
+  debug('NODE_ENV: ');
+  debug(process.env && process.env.NODE_ENV);
+
   return Promise.resolve()
     .then(() => webpackCompiler(webpackConfig))
     .then(stats => {
@@ -44,29 +47,22 @@ const compile = () => {
       debug('Copying static assets to dist folder.');
       fs.copySync(project.paths.public(), project.paths.dist());
 
-      // REMOVE
+      debug('Logging contents of key folders, for deploy diagnostics...');
+
       ['./', './dist', './public'].forEach(dir => {
         fs.readdir(dir, (err, items) => {
-          debug(`READING ${dir}: `);
+          if (err) {
+            debug(`Error Reading ${dir}: `);
+            debug(err);
+          } else {
+            debug(`Reading ${dir}: `);
 
-          if (items) {
-            items.forEach(item => {
-              const filePath = `${dir}/${item}`;
-              debug(`- ${filePath}`);
-
-              if (item.indexOf('app.') !== -1) {
-                debug(`Reading ${filePath}`);
-                fs.readFile(filePath, 'utf8', (error, file) => {
-                  if (error) {
-                    debug('ERROR');
-                    debug(error);
-                  }
-                  debug('----------------------------');
-                  debug(file);
-                  debug('----------------------------');
-                });
-              }
-            });
+            if (items) {
+              items.forEach(item => {
+                const filePath = `${dir}/${item}`;
+                debug(`- ${filePath}`);
+              });
+            }
           }
         });
       });
