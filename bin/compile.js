@@ -8,7 +8,7 @@ const project = require('../config/project.config');
 const webpackCompiler = (webpackConfig) =>
   new Promise((resolve, reject) => {
     const compiler = webpack(webpackConfig);
-
+    debug('ENV: ', JSON.stringify(process.env, null, 2));
     compiler.run((err, stats) => {
       if (err) {
         debug('Webpack compiler encountered a fatal error.', err);
@@ -43,6 +43,16 @@ const compile = () => {
       }
       debug('Copying static assets to dist folder.');
       fs.copySync(project.paths.public(), project.paths.dist());
+
+      // REMOVE
+      ['/', '/dist', '/public'].forEach(dir => {
+        fs.readdir(dir, (err, items) => {
+          debug(`READING ${dir}`);
+          debug(items);
+
+          items.forEach(item => { debug(item); });
+        });
+      });
     })
     .then(() => {
       debug('Compilation completed successfully.');
