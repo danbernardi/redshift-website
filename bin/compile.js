@@ -48,7 +48,6 @@ const compile = () => {
       ['./', './dist', './public'].forEach(dir => {
         fs.readdir(dir, (err, items) => {
           debug(`READING ${dir}: `);
-          debug(items);
 
           if (items) {
             items.forEach(item => {
@@ -57,7 +56,7 @@ const compile = () => {
 
               if (item.indexOf('app.') !== -1) {
                 debug(`Reading ${filePath}`);
-                fs.readFile(filePath, (error, file) => {
+                fs.readFile(filePath, 'utf8', (error, file) => {
                   if (error) {
                     debug('ERROR');
                     debug(error);
