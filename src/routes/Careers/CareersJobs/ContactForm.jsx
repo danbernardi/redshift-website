@@ -172,7 +172,7 @@ export class ContactForm extends React.Component {
 
             <div className="cf">
               { formItems.map((form, index) => (
-                <FileInput key={ index } form={ form } source={ source } selectSourceCallback={ value => this.setState({ source: value }) } required={ form.required } />
+                <FileInput key={ index } form={ form } source={ source } selectSourceCallback={ value => this.setState({ source: value }) } />
               )) }
             </div>
 
@@ -184,7 +184,6 @@ export class ContactForm extends React.Component {
                   key={ index }
                   form={ form }
                   source={ source }
-                  required={ form.required }
                 />
               )) }
             </div>
