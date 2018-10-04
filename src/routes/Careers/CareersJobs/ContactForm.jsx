@@ -14,6 +14,21 @@ import { setClass } from 'utils/responsiveHelpers';
  * @return {React.Component}
  */
 
+// Gets all inputs in tree below node
+const getInputs = node => {
+  let inputs = [];
+  const childNodes = node.childNodes;
+  for (let i = 0; i < childNodes.length; i++) {
+    const child = childNodes[i];
+    if (child.tagName === 'INPUT') {
+      inputs.push(child);
+    } else {
+      inputs = [...inputs, ...getInputs(child)];
+    }
+  }
+  return inputs;
+};
+
 const formItems = [
   {
     formClass: 'form__name',
@@ -34,6 +49,7 @@ const formItems = [
     type: 'dropdown',
     name: 'from_source',
     items: [
+      '',
       'Coroflot',
       'Hire Club',
       'LinkedIn',
@@ -58,13 +74,15 @@ const fileItems = [
     type: 'file',
     description: 'Upload resume',
     name: 'from_resume',
-    multiple: true
+    multiple: true,
+    required: true
   },
   {
     formClass: 'form__portfolio',
     type: 'text',
     description: 'Link to portfolio',
-    name: 'from_portfolio'
+    name: 'from_portfolio',
+    required: true
   }
 ];
 
@@ -103,15 +121,15 @@ export class ContactForm extends React.Component {
     const onSend = (e) => {
       e.preventDefault();
 
-      const name = this.form.querySelector('.form__name');
-      const nameField = name.querySelector('input');
-      const email = this.form.querySelector('.form__email');
-      const emailField = email.querySelector('input');
       this.setState({ error: false });
+      const jsFormItems = [...formItems, ...fileItems];
+      const inputs = getInputs(this.form).filter(input => input.name !== 'from_position');
 
-      if (!nameField.value.length || !emailField.value.length) {
-        if (!nameField.value.length) name.classList.add('has-error');
-        if (!emailField.value.length) email.classList.add('has-error');
+      const requiredInputs = inputs.filter(input => jsFormItems.find(item => item.name === input.name).required);
+      const emptyRequiredInputs = requiredInputs.filter(input => input.value.length === 0);
+
+      if (emptyRequiredInputs.length) {
+        emptyRequiredInputs.forEach(input => input.parentElement.classList.add('has-error'));
 
         this.setState({ error: true, errorMessage: 'Please fill in the required fields.' });
         return;
