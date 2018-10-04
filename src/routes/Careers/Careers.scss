@@ -213,6 +213,10 @@ html:not(.is-touchdevice) {
 
 .job-description--container {
   padding-bottom: 10rem;
+  margin-left: 0;
+  margin-right: 0;
+  max-width: 1400px;
+
   // media queries
   @include breakpoint($mobile-lg) {
     padding-bottom: 5rem;
