@@ -1,5 +1,16 @@
 @import 'sass-includes';
 
+.casestudy__text {
+  margin: auto;
+  text-align: center;
+  max-width: 1200px;
+
+  @include breakpoint($mobile-lg) {
+    margin: 0;
+    text-align: left;
+  }
+}
+
 .casestudy__modal {
   .modal__close {
     .icon-hamburger {
@@ -188,7 +199,7 @@
     z-index: 1;
   }
 
-  
+
   > div,
   iframe,
   .video__thumbnail {

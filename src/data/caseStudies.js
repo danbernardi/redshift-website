@@ -349,7 +349,7 @@ export const caseStudies = [
           text: 'Yumavore is available in the app store, featuring user-created content from thousands of professional and home chefs.'
         },
         {
-          classes: 'btn btn--ghost typ--yumavore typ--button',
+          classes: 'btn btn--ghost typ--yumavore typ--button typ--b2 mt2',
           text: 'Download the app',
           url: 'https://itunes.apple.com/us/app/yumavore/id1043281685?mt=8'
         }]
@@ -432,7 +432,7 @@ export const caseStudies = [
           text: 'Be one of the first to try out the new app. It just might become one of your top five favorites!'
         },
         {
-          classes: 'btn btn--ghost typ--button typ--five',
+          classes: 'btn btn--ghost typ--button typ--five typ--b2 mt2',
           text: 'Download the app',
           url: 'https://itunes.apple.com/us/app/five-share-and-compare-your-top-five-of-anything/id1160849650?mt=8'
         }]
